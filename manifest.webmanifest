@@ -1,0 +1,17 @@
+{
+  "name": "Inglés con Proveedores",
+  "short_name": "Inglés Prov",
+  "description": "Práctica de inglés para hablar con proveedores: escucha, opción múltiple, escritura y armar frases.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eceff2",
+  "theme_color": "#18212d",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
