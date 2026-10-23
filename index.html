@@ -118,6 +118,11 @@ details.list summary{padding:14px 16px;cursor:pointer;font-family:var(--f-displa
 .dots i.on{background:var(--ok)}
 .play{background:none;border:1px solid var(--line);width:36px;height:36px;display:grid;place-items:center}
 .play svg{width:16px;height:16px}
+.sync{background:var(--panel);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:12px}
+.sync p{margin:0}
+.sync form{display:flex;flex-wrap:wrap;gap:8px}
+.sync form input.type{flex:1 1 220px;min-width:0;font-size:16px;text-transform:uppercase}
+.code{font-family:var(--f-mono);font-size:clamp(17px,4.5vw,22px);letter-spacing:.06em;padding:10px 14px;background:var(--bg);border:1px dashed var(--ink);word-break:break-all;user-select:all}
 .foot{font-size:13px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -163,7 +168,25 @@ details.list summary{padding:14px 16px;cursor:pointer;font-family:var(--f-displa
     <div class="items" id="items"></div>
   </details>
 
-  <p class="foot">Tu avance se guarda en este navegador. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio.</p>
+  <section class="sync" id="sync">
+    <div class="label">Sincronizar teléfono y PC</div>
+    <div id="syncOff" style="display:flex;flex-direction:column;gap:12px">
+      <p>Activa la sincronización para tener el mismo avance en todos tus dispositivos.</p>
+      <div class="row"><button class="btn primary" id="syncNew">Activar en este dispositivo</button></div>
+      <form id="syncJoin">
+        <input class="type" id="syncCode" placeholder="¿Ya tienes un código? Escríbelo aquí" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Código de sincronización">
+        <button class="btn" type="submit">Usar código</button>
+      </form>
+    </div>
+    <div id="syncOn" hidden style="display:flex;flex-direction:column;gap:12px">
+      <p>Tu código personal. Escríbelo una vez en tu otro dispositivo:</p>
+      <div class="code" id="syncShow"></div>
+      <div class="row"><button class="btn" id="syncCopy">Copiar código</button><button class="btn ghost" id="syncStop">Desactivar en este dispositivo</button></div>
+    </div>
+    <p class="pron" id="syncStatus" aria-live="polite"></p>
+  </section>
+
+  <p class="foot">Sin sincronización, tu avance se guarda solo en este dispositivo. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio.</p>
 </div>
 
 <script>
@@ -222,7 +245,7 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&qu
 /* ---------- state ---------- */
 let S={box:{},xp:0,streak:0,last:""};
 try{const r=localStorage.getItem("ingles-prov-v1");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
-function save(){try{localStorage.setItem("ingles-prov-v1",JSON.stringify(S))}catch(e){}}
+function save(){try{localStorage.setItem("ingles-prov-v1",JSON.stringify(S))}catch(e){}push()}
 const today=()=>{const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
 function bumpStreak(){
   const t=today(); if(S.last===t)return;
@@ -408,6 +431,78 @@ $("#startMixed").onclick=()=>start("mixed");
 document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>start(b.dataset.mode));
 $("#quit").onclick=goHome;
 renderMeta();renderList();
+
+/* ---------- sync (Supabase) ---------- */
+const SB_URL="https://cycqnzwdzokyrmghwisq.supabase.co";
+const SB_KEY="sb_publishable__wCJlC-lCKD9GFCquGbUDA_vStoN-r3";
+let SYNC=null;try{SYNC=localStorage.getItem("ingles-prov-code")}catch(e){}
+async function rpc(fn,body){
+  const r=await fetch(SB_URL+"/rest/v1/rpc/"+fn,{method:"POST",headers:{"apikey":SB_KEY,"Content-Type":"application/json"},body:JSON.stringify(body)});
+  if(!r.ok)throw new Error("HTTP "+r.status);
+  const t=await r.text();return t?JSON.parse(t):null;
+}
+function canon(x){x=(x||"").toUpperCase().replace(/[^A-Z0-9]/g,"");const g=x.match(/.{1,4}/g);return g?g.join("-"):""}
+function newCode(){const A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",b=new Uint8Array(20);crypto.getRandomValues(b);return canon(Array.from(b,v=>A[v%A.length]).join(""))}
+function dv(d){if(!d)return 0;const p=d.split("-").map(Number);return p[0]*10000+p[1]*100+p[2]}
+function merge(a,b){
+  const box=Object.assign({},a.box||{});
+  Object.entries(b.box||{}).forEach(([k,v])=>{box[k]=Math.max(box[k]||0,v||0)});
+  let streak,last;
+  if(dv(a.last)>dv(b.last)){streak=a.streak;last=a.last}
+  else if(dv(a.last)<dv(b.last)){streak=b.streak;last=b.last}
+  else{streak=Math.max(a.streak||0,b.streak||0);last=a.last||b.last||""}
+  return {box,xp:Math.max(a.xp||0,b.xp||0),streak:streak||0,last:last||""};
+}
+const hhmm=()=>new Date().toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"});
+const OFF="Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
+function status(t){$("#syncStatus").textContent=t}
+function renderSync(){
+  $("#syncOff").hidden=!!SYNC;$("#syncOn").hidden=!SYNC;
+  if(SYNC)$("#syncShow").textContent=SYNC;else status("");
+}
+async function pull(){
+  if(!SYNC)return;
+  status("Sincronizando…");
+  try{
+    const remote=await rpc("get_progress",{p_code:SYNC});
+    if(remote)S=merge(S,remote);
+    try{localStorage.setItem("ingles-prov-v1",JSON.stringify(S))}catch(e){}
+    renderMeta();if(!$("#home").hidden)renderList();
+    await rpc("save_progress",{p_code:SYNC,p_data:S});
+    status("Sincronizado ✓ "+hhmm());
+  }catch(e){status(OFF)}
+}
+let pushT=null;
+function push(){
+  if(!SYNC)return;
+  clearTimeout(pushT);
+  pushT=setTimeout(async()=>{
+    try{await rpc("save_progress",{p_code:SYNC,p_data:S});status("Sincronizado ✓ "+hhmm())}
+    catch(e){status(OFF)}
+  },1200);
+}
+function setCode(c){SYNC=c;try{c?localStorage.setItem("ingles-prov-code",c):localStorage.removeItem("ingles-prov-code")}catch(e){}renderSync()}
+$("#syncNew").onclick=async()=>{setCode(newCode());await pull()};
+$("#syncJoin").onsubmit=async e=>{
+  e.preventDefault();
+  const c=canon($("#syncCode").value);
+  if(c.replace(/-/g,"").length<16){status("Ese código está incompleto. Debe tener 20 letras y números.");return}
+  status("Buscando tu avance…");
+  try{
+    const remote=await rpc("get_progress",{p_code:c});
+    if(!remote){status("No encontré ese código. Revisa que esté bien escrito.");return}
+    $("#syncCode").value="";setCode(c);await pull();
+  }catch(err){status(OFF)}
+};
+$("#syncCopy").onclick=()=>{
+  const t=SYNC;
+  try{navigator.clipboard.writeText(t).then(()=>status("Código copiado."),()=>selectCode())}catch(e){selectCode()}
+};
+function selectCode(){const r=document.createRange();r.selectNodeContents($("#syncShow"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);status("Código seleccionado. Cópialo con Ctrl+C o mantén presionado.")}
+$("#syncStop").onclick=()=>{setCode(null);status("Sincronización desactivada en este dispositivo. Tu avance en línea sigue guardado.")};
+window.addEventListener("online",pull);
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")pull()});
+renderSync();pull();
 </script>
 
 <script>
