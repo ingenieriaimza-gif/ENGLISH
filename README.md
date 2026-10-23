@@ -1,4 +1,4 @@
-# Inglés con Proveedores
+# Inglés Práctico
 
 App web instalable (PWA) para practicar inglés de trabajo con proveedores: escucha y repite, opción múltiple, escritura y armar frases.
 
