@@ -1,6 +1,6 @@
 # Inglés Práctico
 
-App web instalable (PWA) para practicar inglés de trabajo con proveedores: escucha y repite, opción múltiple, escritura y armar frases.
+App web instalable (PWA) para practicar inglés de trabajo: escucha y repite, opción múltiple, escritura y armar frases.
 
 ## Uso
 Abre la app desde GitHub Pages e instálala:

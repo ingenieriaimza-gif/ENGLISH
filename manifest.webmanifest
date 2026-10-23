@@ -1,7 +1,7 @@
 {
   "name": "Inglés Práctico",
   "short_name": "Inglés Práctico",
-  "description": "Práctica de inglés para hablar con proveedores: escucha, opción múltiple, escritura y armar frases.",
+  "description": "Práctica de inglés para el trabajo: escucha, opción múltiple, escritura y armar frases.",
   "lang": "es-MX",
   "start_url": "./",
   "scope": "./",
