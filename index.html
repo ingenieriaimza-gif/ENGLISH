@@ -623,24 +623,52 @@ const stopAudio = () => { try { speechSynthesis.cancel(); } catch (e) {} };
 /* ---------- reacción visible y con sonido al acertar o fallar (para que nadie se quede dormido) ---------- */
 let AC = null, SND = true;
 try { SND = localStorage.getItem("ip-snd") !== "0"; } catch (e) {}
-function tone(seq) {
+// Sonidos sintetizados al momento (sin archivos): timbre de marimba/campana con eco suave, como en las apps de juegos
+let BUS = null;
+function sfxBus(ctx) {
+  const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 4; comp.connect(ctx.destination);
+  const out = ctx.createGain(); out.gain.value = 0.9; out.connect(comp);
+  const dl = ctx.createDelay(); dl.delayTime.value = 0.12; const fb = ctx.createGain(); fb.gain.value = 0.25;
+  const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 3500; const wet = ctx.createGain(); wet.gain.value = 0.28;
+  out.connect(dl); dl.connect(lp); lp.connect(fb); fb.connect(dl); lp.connect(wet); wet.connect(comp);
+  return out;
+}
+function sfxPlay(ctx, out, kind, t0) {
+  // nota tipo marimba: armónicos 1, 2 y 3.9 que se apagan rápido; los agudos, más rápido aún
+  const bell = (f, at, dur, vol) => [[1, 1, 1], [2, .28, .45], [3.9, .14, .25]].forEach(([m, g, dd]) => {
+    const o = ctx.createOscillator(), e = ctx.createGain(), t = t0 + at;
+    o.type = "sine"; o.frequency.value = f * m;
+    e.gain.setValueAtTime(0.0001, t); e.gain.exponentialRampToValueAtTime(vol * g, t + 0.006); e.gain.exponentialRampToValueAtTime(0.0001, t + dur * dd);
+    o.connect(e); e.connect(out); o.start(t); o.stop(t + dur * dd + 0.03);
+  });
+  // golpe suave y redondo que baja de tono (para errores: avisa sin regañar)
+  const thud = (f, at, dur, vol, to) => {
+    const o = ctx.createOscillator(), e = ctx.createGain(), lp = ctx.createBiquadFilter(), t = t0 + at;
+    o.type = "triangle"; o.frequency.setValueAtTime(f, t); o.frequency.exponentialRampToValueAtTime(f * to, t + dur);
+    lp.type = "lowpass"; lp.frequency.value = 900; lp.Q.value = 2;
+    e.gain.setValueAtTime(0.0001, t); e.gain.exponentialRampToValueAtTime(vol, t + 0.012); e.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(lp); lp.connect(e); e.connect(out); o.start(t); o.stop(t + dur + 0.03);
+  };
+  const N = { C5: 523.25, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5, D6: 1174.66, E6: 1318.51, G6: 1567.98, C7: 2093 };
+  if (kind === "ok") { bell(N.E6, 0, .5, .42); bell(N.A5 * 2, .085, .9, .42); }                       // ¡ding-ding! hacia arriba
+  else if (kind === "combo") { [N.C6, N.E6, N.G6].forEach((f, i) => bell(f, i * .06, .45, .26)); bell(N.C7, .18, 1.1, .3); }
+  else if (kind === "bad") { thud(392, 0, .16, .4, .8); thud(277, .14, .34, .4, .75); }          // bonk-bonk suave
+  else if (kind === "idk") thud(330, 0, .3, .7, .9);
+  else if (kind === "win") { [N.C5, N.E5, N.G5, N.C6].forEach((f, i) => bell(f, i * .11, .6, .26)); [N.E6, N.G6, N.C7].forEach(f => bell(f, .5, 1.6, .16)); }
+  else if (kind === "click") bell(N.G6, 0, .3, .4);
+}
+function sfx(kind) {
   if (!SND) return;
   try {
     AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === "suspended") AC.resume();
-    const t0 = AC.currentTime + 0.01;
-    seq.forEach(([f, st, d, ty, vol]) => {
-      const o = AC.createOscillator(), g = AC.createGain();
-      o.type = ty || "sine"; o.frequency.value = f;
-      g.gain.setValueAtTime(0.0001, t0 + st); g.gain.exponentialRampToValueAtTime(vol || 0.2, t0 + st + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, t0 + st + d);
-      o.connect(g); g.connect(AC.destination); o.start(t0 + st); o.stop(t0 + st + d + 0.05);
-    });
+    BUS = BUS || sfxBus(AC);
+    sfxPlay(AC, BUS, kind, AC.currentTime + 0.02);
   } catch (e) {}
 }
 function react(ok, idk) {
   const box = $("#vSession");
   if (box) { box.classList.remove("flash-ok", "flash-bad"); void box.offsetWidth; box.classList.add(ok ? "flash-ok" : "flash-bad"); }
-  if (ok) tone(SES && SES.combo >= 3 ? [[660, 0, .1], [880, .08, .1], [1320, .16, .26]] : [[660, 0, .12], [990, .1, .24]]);
-  else tone(idk ? [[330, 0, .25, "triangle", .15]] : [[233, 0, .16, "sawtooth", .09], [175, .15, .32, "sawtooth", .09]]);
+  sfx(ok ? (SES && SES.combo >= 3 ? "combo" : "ok") : idk ? "idk" : "bad");
   try { if (navigator.vibrate) navigator.vibrate(ok ? 30 : [80, 60, 80]); } catch (e) {}
 }
 function sndUI() { const b = $("#sndBtn"); if (b) { b.textContent = SND ? "🔊" : "🔇"; b.title = SND ? "Quitar sonidos" : "Activar sonidos"; } }
@@ -677,11 +705,13 @@ function hear() {
 function speechScore(alts, en) {
   const target = norm(en).split(" ").filter(Boolean); if (!target.length) return 0;
   let best = 0; const joined = target.join("");
-  alts.forEach(a => {
-    if (norm(a).replace(/ /g, "") === joined) best = 1;
+  alts.forEach((a, i) => {
     const bag = {}; norm(a).split(" ").forEach(w => bag[w] = (bag[w] || 0) + 1);
     let m = 0; target.forEach(w => { if (bag[w]) { bag[w]--; m++; } });
-    best = Math.max(best, m / target.length);
+    let sc = norm(a).replace(/ /g, "") === joined ? 1 : m / target.length;
+    // lo que el reconocedor entendió primero es lo que realmente dijiste: si dijiste "see" en vez de "she", no cuenta
+    if (i > 0) sc *= target.length <= 2 ? 0.7 : 0.9;
+    best = Math.max(best, sc);
   });
   return best;
 }
@@ -1159,7 +1189,7 @@ function runSession(steps, opts) {
   SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, m: {}, recent: [], fixed: 0, boosts: 0, lastBoost: -99, recap: new Set(), base: steps.length, back: curView === "session" ? "hoy" : curView }, opts, SEGOPT || {});
   view("session"); sndUI(); step();
 }
-$("#sndBtn").onclick = () => { SND = !SND; try { localStorage.setItem("ip-snd", SND ? "1" : "0"); } catch (e) {} sndUI(); if (SND) tone([[880, 0, .12]]); };
+$("#sndBtn").onclick = () => { SND = !SND; try { localStorage.setItem("ip-snd", SND ? "1" : "0"); } catch (e) {} sndUI(); if (SND) sfx("click"); };
 function startReview() {
   const due = dueCards().sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, 20);
   if (!due.length) return;
@@ -1672,6 +1702,7 @@ function finish() {
       if (!left) msg += " Ya no tienes repasos pendientes hoy.";
     } else btns = `<button class="btn primary" id="fFree">Otra ronda</button>`;
   }
+  if (m !== "exam" && m !== "final" ? n || m === "video" || m === "dialog" : extra.includes("badge ok")) sfx("win"); // fanfarria al terminar
   st.innerHTML = `<div class="label">${esc(title)}</div><div class="big">${big}</div>${extra}<p style="margin:0;max-width:44ch">${msg}</p>
     <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>
     <div class="row" style="justify-content:center">${btns}<button class="btn" id="fBack">Volver</button></div>`;
