@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Inglés Práctico</title>
-<meta name="description" content="Práctica de inglés para el trabajo">
+<meta name="description" content="Curso de inglés de cero a fluidez: lecciones, repaso inteligente, pronunciación y conversación">
 <meta name="theme-color" content="#18212d">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png" type="image/png">
@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: una "hoja de taller" — bloque de título tipo plano de ingeniería arriba, una tarjeta de trabajo al centro, lista de frases abajo */
+/* Layout: una "hoja de taller" — bloque de título tipo plano de ingeniería arriba, pestañas, y tarjetas de trabajo */
 :root{
   --bg:#eceff2; --panel:#ffffff; --ink:#18212d; --muted:#5b6675; --line:#c9d0d8;
   --accent:#d9480f; --accent-ink:#ffffff; --accent-soft:#fde7dc;
@@ -43,7 +43,10 @@ img{max-width:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
 .wrap{max-width:760px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
 button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button:disabled{cursor:default;opacity:.55}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+.view{display:flex;flex-direction:column;gap:16px}
 
 /* Title block */
 .tblock{border:2px solid var(--ink);background:var(--panel);display:grid;grid-template-columns:1fr auto}
@@ -57,16 +60,80 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline
 .tblock .meta b{font-size:15px;font-variant-numeric:tabular-nums}
 @media (max-width:520px){.tblock{grid-template-columns:1fr}.tblock .name{border-right:0;border-bottom:2px solid var(--ink)}.tblock .meta{grid-template-rows:none;grid-template-columns:repeat(3,1fr)}.tblock .meta div{flex-direction:column;align-items:flex-start;gap:0;border-bottom:0;border-right:1px solid var(--line)}.tblock .meta div:last-child{border-right:0}}
 
+/* Tabs */
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:2px solid var(--ink);background:var(--panel);position:sticky;top:0;z-index:5}
+.tab{background:none;border:0;border-right:1px solid var(--line);padding:10px 2px;font-family:var(--f-display);font-size:clamp(15px,4.4vw,19px);min-width:0;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.tab:last-child{border-right:0}
+.tab[aria-current="page"]{background:var(--ink);color:var(--panel)}
+
 .label{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,5.5vw,34px);line-height:1.05;margin:0;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-transform:uppercase;letter-spacing:.03em}
+.card{background:var(--panel);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:12px}
+.card.strong{border:2px solid var(--ink)}
+.card p{margin:0}
+.muted{color:var(--muted)}
+
+/* Plan de hoy */
+.plan{display:flex;flex-direction:column}
+.pstep{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.pstep:last-child{border-bottom:0;padding-bottom:0}
+.pstep:first-child{padding-top:0}
+.pnum{width:36px;height:36px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-size:20px;font-weight:700}
+.pstep.done .pnum{background:var(--ok);border-color:var(--ok);color:var(--panel)}
+.pbody{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pbody strong{font-family:var(--f-display);font-size:21px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.pbody .row{margin-top:2px}
+
+.stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat div{border:1px solid var(--line);padding:10px;display:flex;flex-direction:column}
+.stat b{font-family:var(--f-display);font-size:28px;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
 
 /* Modes */
 .modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .mode{background:var(--panel);border:1px solid var(--line);padding:14px;text-align:left;display:flex;flex-direction:column;gap:4px;min-width:0}
-.mode:hover{border-color:var(--ink)}
-.mode strong{font-family:var(--f-display);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.mode:hover:not(:disabled){border-color:var(--ink)}
+.mode strong{overflow-wrap:anywhere;font-family:var(--f-display);font-size:clamp(18px,5vw,21px);font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
 .mode small{color:var(--muted);font-size:14px}
-.mixed{background:var(--accent);color:var(--accent-ink);border:0;padding:16px;font-family:var(--f-display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.mixed:hover{filter:brightness(1.05)}
+.mixed{background:var(--accent);color:var(--accent-ink);border:0;padding:14px 16px;font-family:var(--f-display);font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.mixed:hover:not(:disabled){filter:brightness(1.05)}
+
+/* Course */
+.level{background:var(--panel);border:2px solid var(--ink)}
+.lhead{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.lhead .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.cefr{font-family:var(--f-mono);font-size:12px;border:1px solid var(--ink);padding:2px 8px;white-space:nowrap}
+.urow{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 16px}
+.urow:last-child{border-bottom:0}
+.urow:hover{background:var(--bg)}
+.unum{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.urow .t{min-width:0}
+.urow .t div:first-child{font-weight:600}
+.urow .t div:last-child{color:var(--muted);font-size:13px}
+.ustat{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.ustat.ok{color:var(--ok);font-weight:600}
+.urow.next{background:var(--accent-soft)}
+.mini{height:6px;background:var(--chip);position:relative;overflow:hidden}
+.mini i{position:absolute;inset:0 auto 0 0;background:var(--ok)}
+
+/* Unit */
+.back{align-self:flex-start;background:none;border:0;padding:4px 0;color:var(--muted);font-size:15px}
+.sec{background:var(--panel);border:1px solid var(--line)}
+.sec>.sh{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px}
+.sec>.sh .n{font-family:var(--f-mono);font-size:13px;color:var(--accent);font-weight:500}
+.sec>.sb{padding:16px;display:flex;flex-direction:column;gap:12px}
+.gram p{margin:0}
+.ex{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;background:var(--bg);padding:10px 12px}
+.ex .en2{font-weight:600}
+.ex .es2{color:var(--muted);font-size:14px}
+.tip{font-size:15px;border-left:3px solid var(--accent);padding:2px 0 2px 10px}
+.dlg{display:flex;flex-direction:column;gap:8px}
+.ln{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:start}
+.who{font-family:var(--f-mono);font-size:13px;width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--ink)}
+.ln.b .who{background:var(--ink);color:var(--panel)}
+.ln .es2{color:var(--muted);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
 /* Session */
 .session{background:var(--panel);border:2px solid var(--ink);display:flex;flex-direction:column}
@@ -83,16 +150,21 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline
 .row{display:flex;flex-wrap:wrap;gap:8px}
 .btn{border:1px solid var(--ink);background:var(--panel);padding:10px 16px;font-weight:600;font-size:15px}
 .btn.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.btn.accent{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .btn.ghost{border-color:var(--line)}
+.btn.sm{padding:6px 12px;font-size:14px}
 .speak{display:inline-flex;align-items:center;gap:8px}
-.speak svg{width:18px;height:18px}
+.speak svg,.mic svg{width:18px;height:18px}
+.mic{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);border:0;padding:14px 20px;font-weight:600;font-size:16px}
+.mic.on{animation:pulse 1s infinite}
+@keyframes pulse{50%{filter:brightness(1.25)}}
+.heard{font-family:var(--f-mono);font-size:14px;color:var(--muted)}
 .opts{display:flex;flex-direction:column;gap:8px}
 .opt{text-align:left;background:var(--panel);border:1px solid var(--line);padding:12px 14px;font-size:16px}
 .opt:hover:not(:disabled){border-color:var(--ink)}
-.opt.ok{background:var(--ok-soft);border-color:var(--ok)}
-.opt.bad{background:var(--bad-soft);border-color:var(--bad)}
-.opt:disabled{cursor:default}
-input.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--ink);background:var(--bg);color:var(--ink)}
+.opt.ok{background:var(--ok-soft);border-color:var(--ok);opacity:1}
+.opt.bad{background:var(--bad-soft);border-color:var(--bad);opacity:1}
+input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:0}
 .slot{min-height:56px;border:1px dashed var(--line);padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
 .chip{background:var(--chip);border:1px solid transparent;padding:6px 12px;font-size:16px}
 .chip:hover{border-color:var(--ink)}
@@ -101,13 +173,17 @@ input.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px s
 .fb.ok{background:var(--ok-soft);border-left:4px solid var(--ok)}
 .fb.bad{background:var(--bad-soft);border-left:4px solid var(--bad)}
 .fb b{font-family:var(--f-display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.big-play{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--panel);padding:14px 22px;font-weight:600;font-size:17px}
+.big-play svg{width:22px;height:22px}
 .done{text-align:center;align-items:center;justify-content:center}
 .done .big{font-family:var(--f-display);font-size:64px;font-weight:700;line-height:1}
+.badge{font-family:var(--f-display);font-size:22px;font-weight:700;text-transform:uppercase;padding:6px 14px}
+.badge.ok{background:var(--ok-soft);color:var(--ok)}
+.badge.bad{background:var(--bad-soft);color:var(--bad)}
 
-/* List */
-details.list{background:var(--panel);border:1px solid var(--line)}
-details.list summary{padding:14px 16px;cursor:pointer;font-family:var(--f-display);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+/* Lists */
 .items{border-top:1px solid var(--line)}
+.list-box{background:var(--panel);border:1px solid var(--line)}
 .item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line)}
 .item:last-child{border-bottom:0}
 .item .t{min-width:0}
@@ -116,45 +192,174 @@ details.list summary{padding:14px 16px;cursor:pointer;font-family:var(--f-displa
 .dots{display:flex;gap:3px}
 .dots i{width:7px;height:7px;background:var(--chip);display:block}
 .dots i.on{background:var(--ok)}
-.play{background:none;border:1px solid var(--line);width:36px;height:36px;display:grid;place-items:center}
+.play{background:none;border:1px solid var(--line);width:36px;height:36px;display:grid;place-items:center;flex:none;padding:0}
 .play svg{width:16px;height:16px}
+.filters{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.filters select.type{width:auto;font-size:16px}
+.filters input.type{font-size:16px}
+
+/* Método */
+.prose p,.prose li{margin:0}
+.prose ul,.prose ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500}
+
 .sync{background:var(--panel);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:12px}
 .sync p{margin:0}
 .sync form{display:flex;flex-wrap:wrap;gap:8px}
 .sync form input.type{flex:1 1 220px;min-width:0;font-size:16px;text-transform:uppercase}
 .code{font-family:var(--f-mono);font-size:clamp(17px,4.5vw,22px);letter-spacing:.06em;padding:10px 14px;background:var(--bg);border:1px dashed var(--ink);word-break:break-all;user-select:all}
-.foot{font-size:13px;color:var(--muted)}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.foot{font-size:13px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-
 
 <div class="wrap">
   <header class="tblock">
     <div class="name">
       <h1>Inglés Práctico</h1>
-      <div class="sub">45 frases para cotizaciones, entregas, problemas y juntas</div>
+      <div class="sub">De cero a fluidez · lecciones, repaso inteligente y conversación</div>
     </div>
     <div class="meta">
       <div><span>Racha</span><b id="mStreak">0 días</b></div>
       <div><span>Puntos</span><b id="mXp">0</b></div>
-      <div><span>Dominadas</span><b id="mMastered">0/45</b></div>
+      <div><span>Nivel</span><b id="mLevel">Pre-A1</b></div>
     </div>
   </header>
 
-  <section id="home" style="display:flex;flex-direction:column;gap:12px">
-    <button class="mixed" id="startMixed">Sesión del día · 10 ejercicios</button>
-    <div class="label">O practica un tipo de ejercicio</div>
+  <nav class="tabs" id="tabs" aria-label="Secciones">
+    <button class="tab" data-tab="hoy">Hoy</button>
+    <button class="tab" data-tab="curso">Curso</button>
+    <button class="tab" data-tab="frases">Frases</button>
+    <button class="tab" data-tab="metodo">Método</button>
+  </nav>
+
+  <!-- HOY -->
+  <section class="view" id="vHoy">
+    <div class="card strong">
+      <div class="label">Tu plan de hoy · 20 a 40 minutos</div>
+      <div class="plan" id="plan"></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Tu avance</div>
+      <div class="stat" id="stats"></div>
+      <div class="mini" aria-hidden="true"><i id="courseBar" style="width:0"></i></div>
+      <p class="muted" id="statsTxt" style="font-size:14px"></p>
+    </div>
+
+    <div class="label">Práctica libre · con las frases que ya aprendiste</div>
     <div class="modes">
-      <button class="mode" data-mode="listen"><strong>Escucha y repite</strong><small>Oye la frase, dila en voz alta y califícate</small></button>
-      <button class="mode" data-mode="choice"><strong>Opción múltiple</strong><small>Elige la traducción correcta</small></button>
-      <button class="mode" data-mode="type"><strong>Escríbela</strong><small>Escribe la frase en inglés</small></button>
+      <button class="mode" data-mode="speak"><strong>Habla</strong><small>Di la frase en inglés con el micrófono</small></button>
+      <button class="mode" data-mode="dict"><strong>Dictado</strong><small>Escucha y escribe lo que oyes</small></button>
+      <button class="mode" data-mode="type"><strong>Escríbela</strong><small>Traduce del español al inglés</small></button>
       <button class="mode" data-mode="order"><strong>Arma la frase</strong><small>Ordena las palabras</small></button>
+      <button class="mode" data-mode="hear"><strong>Comprensión</strong><small>Oye en inglés y elige qué significa</small></button>
+      <button class="mode" data-mode="listen"><strong>Escucha y repite</strong><small>Dila en voz alta y califícate</small></button>
+    </div>
+
+    <section class="sync" id="sync">
+      <div class="label">Sincronizar teléfono y PC</div>
+      <div id="syncOff" style="display:flex;flex-direction:column;gap:12px">
+        <p>Activa la sincronización para tener el mismo avance en todos tus dispositivos.</p>
+        <div class="row"><button class="btn primary" id="syncNew">Activar en este dispositivo</button></div>
+        <form id="syncJoin">
+          <input class="type" id="syncCode" placeholder="¿Ya tienes un código? Escríbelo aquí" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Código de sincronización">
+          <button class="btn" type="submit">Usar código</button>
+        </form>
+      </div>
+      <div id="syncOn" hidden style="display:flex;flex-direction:column;gap:12px">
+        <p>Tu código personal. Escríbelo una vez en tu otro dispositivo:</p>
+        <div class="code" id="syncShow"></div>
+        <div class="row"><button class="btn" id="syncCopy">Copiar código</button><button class="btn ghost" id="syncStop">Desactivar en este dispositivo</button></div>
+      </div>
+      <p class="pron" id="syncStatus" aria-live="polite"></p>
+    </section>
+    <p class="foot">Sin sincronización, tu avance se guarda solo en este dispositivo. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio. El micrófono funciona mejor en Chrome (Android y PC) y en Safari.</p>
+  </section>
+
+  <!-- CURSO -->
+  <section class="view" id="vCurso" hidden>
+    <div class="card">
+      <p><strong>Sigue el orden.</strong> Cada unidad tiene explicación, frases, práctica, conversación y un examen. Si ya sabes algo de inglés, haz el examen de un nivel para saltártelo.</p>
+    </div>
+    <div id="levels" style="display:flex;flex-direction:column;gap:16px"></div>
+  </section>
+
+  <!-- UNIDAD -->
+  <section class="view" id="vUnit" hidden></section>
+
+  <!-- FRASES -->
+  <section class="view" id="vFrases" hidden>
+    <div class="filters">
+      <input class="type" id="fq" type="search" placeholder="Buscar en inglés o español…" aria-label="Buscar frase">
+      <select class="type" id="fl" aria-label="Filtrar"></select>
+    </div>
+    <p class="muted" id="fcount" style="margin:0;font-size:14px"></p>
+    <div class="list-box"><div id="fitems"></div></div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="view prose" id="vMetodo" hidden>
+    <div class="card strong">
+      <h2>Cómo vas a aprender</h2>
+      <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>frases completas</strong> en vez de palabras sueltas, <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tu rutina diaria</h3>
+      <ol>
+        <li><strong>Repaso (5–10 min).</strong> La app te muestra las frases que estás por olvidar. Hazlo primero, todos los días: es lo que hace que se te queden para siempre.</li>
+        <li><strong>Lección (10–15 min).</strong> Avanza una unidad: lee la explicación, aprende las frases nuevas, practica la conversación y, cuando te sientas listo, haz el examen.</li>
+        <li><strong>Inglés real (10–20 min).</strong> Escucha o mira algo en inglés que entiendas casi todo. Este paso es el que te da oído y fluidez; ninguna app lo sustituye.</li>
+        <li><strong>Hablar (1 vez por semana o más).</strong> Practica con una persona: un compañero, un tutor en línea o un grupo de conversación. Al principio será incómodo; así se rompe el miedo.</li>
+      </ol>
+      <p class="muted">Es mejor 20 minutos diarios que 3 horas el domingo. La constancia vale más que la intensidad.</p>
+    </div>
+
+    <div class="card">
+      <h3>Las etapas del camino</h3>
+      <table class="tbl">
+        <thead><tr><th>Nivel</th><th>Qué puedes hacer</th><th>Horas aprox.*</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0 · Pre-A1</strong></td><td>Saludar, presentarte, contar, pedir ayuda.</td><td>20–40</td></tr>
+          <tr><td><strong>1 · A1</strong></td><td>Hablar de tu rutina y familia, pedir comida, preguntar direcciones simples.</td><td>90–100</td></tr>
+          <tr><td><strong>2 · A2</strong></td><td>Contar qué hiciste, hacer planes, comprar, ir al doctor. Sobrevivir en un viaje.</td><td>180–200</td></tr>
+          <tr><td><strong>3 · B1</strong></td><td>Platicar de experiencias y opiniones, llamadas, viajes y trabajo sin preparar todo.</td><td>350–400</td></tr>
+          <tr><td><strong>4 · B2</strong></td><td>Conversar con nativos con soltura, entender series y juntas, explicar ideas complejas.</td><td>500–600</td></tr>
+          <tr><td><strong>5 · C1</strong></td><td>Hablar con fluidez y matices: negociar, debatir, presentar, bromear.</td><td>700–800</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="font-size:13px">*Horas totales acumuladas de estudio guiado, según las estimaciones de Cambridge English para cada nivel del Marco Común Europeo (MCER). Cuentan la app, la escucha y la conversación.</p>
+    </div>
+
+    <div class="card">
+      <h3>Qué escuchar en cada nivel</h3>
+      <ul>
+        <li><strong>Niveles 0–1:</strong> canales de YouTube para principiantes con subtítulos en inglés (busca "English for beginners", "Easy English"). Repite en voz alta lo que oyes.</li>
+        <li><strong>Nivel 2:</strong> <em>6 Minute English</em> de BBC Learning English y <em>VOA Learning English</em> (noticias leídas despacio).</li>
+        <li><strong>Nivel 3:</strong> podcasts para estudiantes intermedios, videos de YouTube de tu trabajo o pasatiempos, series que ya viste en español con audio y subtítulos en inglés.</li>
+        <li><strong>Niveles 4–5:</strong> podcasts y series para nativos, noticias, conferencias de tu área. Quita los subtítulos poco a poco.</li>
+      </ul>
+      <p class="muted">Regla de oro: si entiendes menos del 70%, está muy difícil; baja un poco el nivel.</p>
+    </div>
+
+    <div class="card">
+      <h3>Consejos que hacen la diferencia</h3>
+      <ul>
+        <li><strong>Habla en voz alta</strong> en cada ejercicio, aunque estés solo. Tu boca también tiene que aprender.</li>
+        <li><strong>Imita (shadowing):</strong> escucha una frase y repítela al mismo tiempo, copiando ritmo y entonación.</li>
+        <li><strong>Equivocarte es parte del método.</strong> Las frases que fallas vuelven más seguido hasta que se te quedan.</li>
+        <li><strong>Piensa en inglés:</strong> describe en voz baja lo que haces ("I'm making coffee").</li>
+        <li><strong>Cambia tu celular a inglés</strong> cuando llegues al nivel 2.</li>
+      </ul>
     </div>
   </section>
 
-  <section class="session" id="session" hidden>
+  <!-- SESIÓN -->
+  <section class="session" id="vSession" hidden>
     <div class="shead">
       <button class="x" id="quit" aria-label="Salir de la sesión">✕ Salir</button>
       <div class="bar"><i id="barFill" style="width:0"></i></div>
@@ -162,351 +367,724 @@ details.list summary{padding:14px 16px;cursor:pointer;font-family:var(--f-displa
     </div>
     <div class="sbody" id="stage"></div>
   </section>
-
-  <details class="list" id="list">
-    <summary>Todas las frases</summary>
-    <div class="items" id="items"></div>
-  </details>
-
-  <section class="sync" id="sync">
-    <div class="label">Sincronizar teléfono y PC</div>
-    <div id="syncOff" style="display:flex;flex-direction:column;gap:12px">
-      <p>Activa la sincronización para tener el mismo avance en todos tus dispositivos.</p>
-      <div class="row"><button class="btn primary" id="syncNew">Activar en este dispositivo</button></div>
-      <form id="syncJoin">
-        <input class="type" id="syncCode" placeholder="¿Ya tienes un código? Escríbelo aquí" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Código de sincronización">
-        <button class="btn" type="submit">Usar código</button>
-      </form>
-    </div>
-    <div id="syncOn" hidden style="display:flex;flex-direction:column;gap:12px">
-      <p>Tu código personal. Escríbelo una vez en tu otro dispositivo:</p>
-      <div class="code" id="syncShow"></div>
-      <div class="row"><button class="btn" id="syncCopy">Copiar código</button><button class="btn ghost" id="syncStop">Desactivar en este dispositivo</button></div>
-    </div>
-    <p class="pron" id="syncStatus" aria-live="polite"></p>
-  </section>
-
-  <p class="foot">Sin sincronización, tu avance se guarda solo en este dispositivo. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio.</p>
 </div>
 
+<script src="content/n0.js"></script>
+<script src="content/n1.js"></script>
+<script src="content/n2.js"></script>
+<script src="content/w.js"></script>
+<script src="content/n3.js"></script>
+<script src="content/n4.js"></script>
+<script src="content/n5.js"></script>
 <script>
-const CARDS=[
-["Hola, soy ___, ingeniero de proyectos en ___.","Hi, I'm ___, project engineer at ___.","jai, aim ___, próyect enyiníer at ___",""],
-["¿Puede repetir, por favor?","Could you repeat that, please?","cud iú ripít dat, plís",""],
-["¿Puede hablar más despacio, por favor?","Could you speak more slowly, please?","cud iú spik mor slóu-li, plís",""],
-["Déjeme revisar.","Let me check.","let mi chek",""],
-["Un momento, por favor.","One moment, please.","uán móument, plís",""],
-["¿Me lo puede mandar por correo?","Can you send it to me by email?","can iú send it tu mi bai iméil",""],
-["Le mando un correo.","I'll send you an email.","ail send iú an iméil",""],
-["Yo le aviso.","I'll let you know.","ail let iú nóu",""],
-["¿Nos puede mandar una cotización de...?","Could you send us a quote for...?","cud iú send as a kuót for","quote = cotización (suena a \"cuota\")"],
-["¿Cuál es el precio unitario?","What is the unit price?","uát is de iúnit prais",""],
-["¿Cuál es el tiempo de entrega?","What is the lead time?","uát is de lid taim","lead time = tiempo de entrega"],
-["Lo necesitamos para el 15 de noviembre.","We need it by November 15th.","ui nid it bai novémber fiftínz",""],
-["¿Es posible?","Is that possible?","is dat pósibol",""],
-["Le doy seguimiento a la orden de compra.","I'm following up on the purchase order.","aim fálouing ap on de pérches órder","PO = purchase order"],
-["¿Cuándo se envía?","When will it ship?","uén uil it ship",""],
-["¿Me puede mandar el número de rastreo?","Can you send me the tracking number?","can iú send mi de tráking námber",""],
-["¿Cumple con las especificaciones?","Does it meet the specifications?","das it mit de spesifikéishons",""],
-["Por favor mande la ficha técnica.","Please send the datasheet.","plís send de déita-shit",""],
-["Por favor mande los planos.","Please send the drawings.","plís send de dróings",""],
-["Necesitamos el certificado.","We need the certificate.","ui nid de sertífiket",""],
-["Recibimos el material.","We received the material.","ui risívd de matírial",""],
-["Hay un retraso con el envío.","There's a delay with the shipment.","ders a diléi uiz de shípment",""],
-["Hay un problema con la pieza.","There's an issue with the part.","ders an íshu uiz de part",""],
-["La pieza no encaja.","The part doesn't fit.","de part dásent fit",""],
-["Encontramos un defecto.","We found a defect.","ui fáund a dífect",""],
-["¿Cuál es la causa raíz?","What's the root cause?","uáts de rut cos",""],
-["¿Cuál es la acción correctiva?","What's the corrective action?","uáts de coréctiv ákshon",""],
-["Solo para confirmar, ¿dice que...?","Just to confirm, you're saying that...?","yast tu confírm, iúr séying dat",""],
-["¿Puede compartir su pantalla?","Can you share your screen?","can iú sher iór scrin",""],
-["Revisemos el estatus del proyecto.","Let's go over the project status.","lets góu óuver de próyect stéitus",""],
-["Siguiente punto.","Next point.","nekst póint",""],
-["Los siguientes pasos son...","The next steps are...","de nekst steps ar",""],
-["Le mando un resumen.","I'll send you a summary.","ail send iú a sámari",""],
-["Gracias por conectarse.","Thanks for joining.","zanks for yóining",""],
-["fecha límite","deadline","dédlain","The deadline is Friday."],
-["aprobación","approval","aprúval","We're waiting for approval."],
-["alcance","scope","scóup","That's out of scope."],
-["entregables","deliverables","delívarabols","What are the deliverables?"],
-["hito","milestone","máilstoun","We reached the first milestone."],
-["envío","shipment","shípment","\"ship\" = barco que trae tu pedido"],
-["¿Hay descuento por volumen?","Is there a discount for volume?","is der a díscaunt for vólium",""],
-["¿Puede mejorar el precio?","Can you improve the price?","can iú imprúv de prais",""],
-["¿Puede entregar antes?","Can you deliver earlier?","can iú delíver érlier",""],
-["Eso nos funciona.","That works for us.","dat uórks for as",""],
-["No hay problema, yo me encargo.","No problem, I'll take care of it.","nóu próblem, ail teik ker of it",""]
-].map((c,i)=>({i,es:c[0],en:c[1],pron:c[2],note:c[3]}));
-
-const SPK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
-const $=s=>document.querySelector(s);
-const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-/* ---------- state ---------- */
-let S={box:{},xp:0,streak:0,last:""};
-try{const r=localStorage.getItem("ingles-prov-v1");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
-function save(){try{localStorage.setItem("ingles-prov-v1",JSON.stringify(S))}catch(e){}push()}
-const today=()=>{const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()};
-function bumpStreak(){
-  const t=today(); if(S.last===t)return;
-  const y=new Date();y.setDate(y.getDate()-1);
-  const ys=y.getFullYear()+"-"+(y.getMonth()+1)+"-"+y.getDate();
-  S.streak=(S.last===ys)?S.streak+1:1; S.last=t;
-}
-const box=i=>S.box[i]||0;
-function renderMeta(){
-  $("#mStreak").textContent=S.streak+(S.streak===1?" día":" días");
-  $("#mXp").textContent=S.xp;
-  $("#mMastered").textContent=CARDS.filter(c=>box(c.i)>=4).length+"/"+CARDS.length;
-}
-
-/* ---------- speech ---------- */
-let voice=null;
-function pickVoice(){const v=(window.speechSynthesis&&speechSynthesis.getVoices())||[];voice=v.find(x=>/en[-_]US/i.test(x.lang))||v.find(x=>/^en/i.test(x.lang))||null}
-if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
-function say(text,slow){
-  if(!window.speechSynthesis)return;
-  try{
-    speechSynthesis.cancel();
-    const u=new SpeechSynthesisUtterance(text.replace(/___/g,"Carlos").replace(/\.\.\./g,""));
-    u.lang="en-US"; if(voice)u.voice=voice; u.rate=slow?0.6:0.9;
-    speechSynthesis.speak(u);
-  }catch(e){}
-}
-
-/* ---------- helpers ---------- */
-const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-function pickCards(n,filter){
-  const pool=CARDS.filter(filter||(()=>true));
-  const w=pool.map(c=>({c,k:Math.random()*(6-box(c.i))*(6-box(c.i))}));
-  return w.sort((a,b)=>b.k-a.k).slice(0,n).map(x=>x.c);
-}
-const EXP=[["i'm","i am"],["i'll","i will"],["there's","there is"],["what's","what is"],["doesn't","does not"],["let's","let us"],["you're","you are"],["that's","that is"],["we're","we are"]];
-function norm(s){
-  s=s.toLowerCase().replace(/[’`]/g,"'").replace(/___/g," ").replace(/\.\.\./g," ");
-  EXP.forEach(([a,b])=>{s=s.split(a).join(b)});
-  return s.replace(/15th/g,"fifteenth").replace(/[^a-z0-9' ]/g," ").replace(/\s+/g," ").trim();
-}
-function lev(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]}
-const words=en=>en.replace(/___/g,"").replace(/\.\.\./g,"").replace(/[?.!,]/g,"").split(/\s+/).filter(Boolean);
-const canOrder=c=>!c.en.includes("___")&&words(c.en).length>=3;
-const canType=c=>!c.en.includes("___");
-
-/* ---------- session ---------- */
-let Q=[],qi=0,correct=0;
-function start(mode){
-  const n=10; let cards;
-  if(mode==="order")cards=pickCards(n,canOrder);
-  else if(mode==="type")cards=pickCards(n,canType);
-  else cards=pickCards(n);
-  const kinds=["listen","choice","type","order"];
-  Q=cards.map((c,k)=>{
-    let m=mode;
-    if(mode==="mixed"){m=kinds[k%4]; if(m==="order"&&!canOrder(c))m="choice"; if(m==="type"&&!canType(c))m="choice"}
-    return {c,m};
+/* ================= datos del curso ================= */
+const COURSE = window.COURSE || [];
+const UNITS = [], CARDS = [], CARD = {};
+COURSE.forEach((lv, li) => {
+  lv.short = lv.name.split(" · ")[0];
+  lv.units.forEach((u, ui) => {
+    u.lv = lv; u.k = ui + 1; u.n = UNITS.length;
+    u.cards = u.c.map((c, k) => {
+      const o = { id: c[4] || (u.id + "." + k), es: c[0], en: c[1], pron: c[2] || "", note: c[3] || "", u };
+      CARD[o.id] = o; CARDS.push(o); return o;
+    });
+    UNITS.push(u);
   });
-  qi=0;correct=0;
-  $("#home").hidden=true;$("#list").hidden=true;$("#session").hidden=false;
-  show();
+});
+
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
+const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const rnd = a => a[Math.floor(Math.random() * a.length)];
+
+/* ================= estado ================= */
+const KEY = "ingles-prov-v1";
+const dayNum = () => { const d = new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000); };
+const today = () => { const d = new Date(); return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); };
+function migrate(o) {
+  if (!o || typeof o !== "object") return o;
+  o.c = o.c || {};
+  if (o.box) { // formato anterior: {box:{indice:nivel}} de las 45 frases de trabajo
+    const t = dayNum();
+    Object.entries(o.box).forEach(([i, b]) => { const id = "w" + i; if (!o.c[id]) o.c[id] = [Math.max(1, Math.min(6, +b || 0)), t]; });
+    delete o.box;
+  }
+  o.done = o.done || {}; o.v = 2;
+  return o;
 }
-function setProg(){$("#barFill").style.width=(qi/Q.length*100)+"%";$("#count").textContent=Math.min(qi+1,Q.length)+"/"+Q.length}
-function grade(c,ok){
-  S.box[c.i]=ok?Math.min(5,box(c.i)+1):Math.max(0,box(c.i)-2);
-  if(ok){S.xp+=10;correct++}
-  bumpStreak();save();renderMeta();
+let S = { c: {}, done: {}, xp: 0, streak: 0, last: "", v: 2 };
+try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
+function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function save() { store(); push(); }
+function bumpStreak() {
+  const t = today(); if (S.last === t) return;
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  const ys = y.getFullYear() + "-" + (y.getMonth() + 1) + "-" + y.getDate();
+  S.streak = (S.last === ys) ? S.streak + 1 : 1; S.last = t;
 }
-function answerBlock(c){
-  return `<div><div class="en">${esc(c.en)}</div><div class="pron">(${esc(c.pron)})</div></div>
-  ${c.note?`<div class="note">${esc(c.note)}</div>`:""}`;
+
+/* ================= repetición espaciada ================= */
+// nivel de cada frase 0–6; al acertar sube y la próxima revisión se aleja (1, 2, 4, 8, 16, 35 días)
+const IV = [0, 1, 2, 4, 8, 16, 35];
+const bx = id => S.c[id] ? S.c[id][0] : 0;
+const seen = id => !!S.c[id];
+const mastered = id => bx(id) >= 4;
+function grade(c, ok) {
+  let b = bx(c.id);
+  b = ok ? Math.min(6, b + 1) : Math.max(1, b - 2);
+  S.c[c.id] = [b, dayNum() + (ok ? IV[b] : 1)];
+  if (ok) S.xp += 10;
+  bumpStreak(); save(); renderMeta();
 }
-function speakBtns(){return `<div class="row"><button class="btn speak" data-say="n">${SPK} Escuchar</button><button class="btn ghost speak" data-say="s">${SPK} Lento</button></div>`}
-function wireSay(c){document.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>say(c.en,b.dataset.say==="s"))}
-function feedback(ok,c,extra){
-  const st=$("#stage");
-  const d=document.createElement("div");
-  d.className="fb "+(ok?"ok":"bad");
-  d.innerHTML=`<b>${ok?"¡Correcto!":"Casi. La respuesta es:"}</b>${extra||""}${ok?"":`<div class="en" style="font-size:20px">${esc(c.en)}</div>`}<div class="pron">(${esc(c.pron)})</div>`;
+function introduce(c) { if (!S.c[c.id]) S.c[c.id] = [0, dayNum()]; S.xp += 2; bumpStreak(); save(); renderMeta(); }
+const dueCards = () => { const t = dayNum(); return CARDS.filter(c => S.c[c.id] && S.c[c.id][1] <= t); };
+const nextUnit = () => UNITS.find(u => !S.done[u.id]) || null;
+const curLevel = () => (nextUnit() || UNITS[UNITS.length - 1]).lv;
+const unitSeen = u => u.cards.filter(c => seen(c.id)).length;
+
+function renderMeta() {
+  $("#mStreak").textContent = S.streak + (S.streak === 1 ? " día" : " días");
+  $("#mXp").textContent = S.xp;
+  $("#mLevel").textContent = curLevel().cefr;
+}
+
+/* ================= voz ================= */
+let voices = [];
+function pickVoices() {
+  const v = (window.speechSynthesis && speechSynthesis.getVoices()) || [];
+  const us = v.filter(x => /en[-_]US/i.test(x.lang)), en = v.filter(x => /^en/i.test(x.lang));
+  const a = us[0] || en[0] || null;
+  const b = us.find(x => x !== a) || en.find(x => x !== a) || a;
+  voices = [a, b];
+}
+if (window.speechSynthesis) { pickVoices(); speechSynthesis.onvoiceschanged = pickVoices; }
+const clean = t => t.replace(/___/g, "Carlos").replace(/\.\.\./g, "").replace(/[→·—\/]/g, ", ");
+function say(text, o) {
+  o = o || {};
+  if (!window.speechSynthesis) { o.onend && o.onend(); return; }
+  try {
+    if (!o.keep) speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(clean(text));
+    u.lang = "en-US"; const v = voices[o.who || 0]; if (v) u.voice = v;
+    u.rate = o.slow ? 0.6 : 0.9; if (o.who && voices[0] === voices[1]) u.pitch = 0.8;
+    if (o.onend) { u.onend = o.onend; u.onerror = o.onend; }
+    speechSynthesis.speak(u);
+  } catch (e) { o.onend && o.onend(); }
+}
+const stopAudio = () => { try { speechSynthesis.cancel(); } catch (e) {} };
+// cualquier botón con data-say lo lee en voz alta
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-say]"); if (!b) return;
+  say(b.dataset.say, { slow: b.dataset.slow === "1" });
+});
+const playBtn = (en, label) => `<button class="play" data-say="${esc(en)}" aria-label="Escuchar ${esc(label || en)}">${SPK}</button>`;
+const speakBtns = en => `<div class="row"><button class="btn speak" data-say="${esc(en)}">${SPK} Escuchar</button><button class="btn ghost speak" data-say="${esc(en)}" data-slow="1">${SPK} Lento</button></div>`;
+
+/* ================= reconocimiento de voz ================= */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let srOK = !!SR;
+function hear() {
+  return new Promise(res => {
+    let fin = false; const r = new SR();
+    r.lang = "en-US"; r.interimResults = false; r.maxAlternatives = 5; r.continuous = false;
+    r.onresult = e => { if (fin) return; fin = true; res({ alts: Array.from(e.results[0]).map(a => a.transcript) }); };
+    r.onerror = e => { if (fin) return; fin = true; res({ err: e.error }); };
+    r.onend = () => { if (fin) return; fin = true; res({ alts: [] }); };
+    try { stopAudio(); r.start(); } catch (e) { fin = true; res({ err: "start" }); }
+  });
+}
+function speechScore(alts, en) {
+  const target = norm(en).split(" ").filter(Boolean); if (!target.length) return 0;
+  let best = 0;
+  alts.forEach(a => {
+    const bag = {}; norm(a).split(" ").forEach(w => bag[w] = (bag[w] || 0) + 1);
+    let m = 0; target.forEach(w => { if (bag[w]) { bag[w]--; m++; } });
+    best = Math.max(best, m / target.length);
+  });
+  return best;
+}
+// Botón de micrófono reutilizable. onDone(ok, transcript, score) o onFail(mensaje)
+function micUI(host, en, onDone) {
+  host.innerHTML = `<div class="row"><button class="mic" type="button">${MIC} Toca y habla</button></div><div class="heard" aria-live="polite"></div>`;
+  const btn = host.querySelector(".mic"), out = host.querySelector(".heard");
+  btn.onclick = async () => {
+    btn.classList.add("on"); btn.disabled = true; btn.lastChild.textContent = " Escuchando…"; out.textContent = "";
+    const r = await hear();
+    btn.classList.remove("on"); btn.disabled = false; btn.lastChild.textContent = " Toca y habla";
+    if (r.err) {
+      if (r.err === "not-allowed" || r.err === "service-not-allowed" || r.err === "start") {
+        srOK = false; out.textContent = "No tengo permiso para usar el micrófono. Actívalo en tu navegador o usa los otros ejercicios.";
+        onDone(null); return;
+      }
+      out.textContent = r.err === "no-speech" ? "No te oí. Acércate al micrófono e inténtalo otra vez." : "No pude escuchar bien. Inténtalo otra vez.";
+      return;
+    }
+    if (!r.alts.length) { out.textContent = "No te oí. Inténtalo otra vez."; return; }
+    const sc = speechScore(r.alts, en);
+    out.textContent = "Entendí: \"" + r.alts[0] + "\"";
+    onDone(sc >= 0.75, r.alts[0], sc);
+  };
+}
+
+/* ================= comparación de respuestas ================= */
+const ONES = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19 };
+const TENS = { twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 };
+const ORD = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seventh: 7, eighth: 8, ninth: 9, tenth: 10, eleventh: 11, twelfth: 12, thirteenth: 13, fourteenth: 14, fifteenth: 15, sixteenth: 16, seventeenth: 17, eighteenth: 18, nineteenth: 19, twentieth: 20, thirtieth: 30 };
+const TW = Object.keys(TENS).join("|"), OW = Object.keys(ONES).join("|"), RW = Object.keys(ORD).join("|");
+function numWords(s) {
+  s = s.replace(new RegExp("\\b(" + TW + ")[ -](first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)\\b", "g"), (m, a, b) => String(TENS[a] + ORD[b]));
+  s = s.replace(new RegExp("\\b(" + TW + ")[ -](one|two|three|four|five|six|seven|eight|nine)\\b", "g"), (m, a, b) => String(TENS[a] + ONES[b]));
+  s = s.replace(/\b(one|a) hundred\b/g, "100");
+  s = s.replace(new RegExp("\\b(" + RW + ")\\b", "g"), m => String(ORD[m]));
+  s = s.replace(new RegExp("\\b(" + OW + "|" + TW + ")\\b", "g"), m => String(ONES[m] !== undefined ? ONES[m] : TENS[m]));
+  return s.replace(/\b(\d+)(st|nd|rd|th)\b/g, "$1");
+}
+function norm(s) {
+  s = String(s).toLowerCase().replace(/[’`´]/g, "'").replace(/___/g, " ").replace(/\.\.\./g, " ");
+  s = s.replace(/\bwi-?fi\b/g, "wifi").replace(/\bok\b/g, "okay").replace(/\bmrs\.?\b/g, "mrs").replace(/\bmr\.?\b/g, "mr");
+  s = s.replace(/\bcan't\b|\bcannot\b/g, "can not").replace(/\bwon't\b/g, "will not").replace(/n't\b/g, " not")
+    .replace(/\bi'm\b/g, "i am").replace(/'re\b/g, " are").replace(/'ve\b/g, " have").replace(/'ll\b/g, " will").replace(/'d\b/g, " would")
+    .replace(/\blet's\b/g, "let us").replace(/\b(he|she|it|that|there|what|where|who|how|here)'s\b/g, "$1 is");
+  s = numWords(s.replace(/-/g, " ").replace(/(\w)-(\w)/g, "$1 $2"));
+  return s.replace(/[^a-z0-9' ]/g, " ").replace(/'/g, "").replace(/\s+/g, " ").trim();
+}
+function lev(a, b) { const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, (_, i) => [i]); for (let j = 1; j <= n; j++) d[0][j] = j; for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[m][n]; }
+function closeEnough(input, en) { const a = norm(input), b = norm(en); if (!a) return null; const d = lev(a, b); return { ok: d <= Math.max(1, Math.floor(b.length / 12)), exact: d === 0 }; }
+const words = en => en.replace(/___/g, "").replace(/\.\.\./g, "").replace(/[?.!,;]/g, "").split(/\s+/).filter(Boolean);
+const canType = c => !c.en.includes("___");
+const canOrder = c => !c.en.includes("___") && words(c.en).length >= 3 && words(c.en).length <= 14;
+
+function distract(c, n, field) {
+  const pool = [...shuffle(c.u.cards), ...shuffle(c.u.lv.units.flatMap(u => u.cards)), ...shuffle(CARDS)];
+  const out = [], used = new Set([c.en.toLowerCase(), c.es.toLowerCase()]);
+  for (const x of pool) {
+    if (out.length >= n) break;
+    if (x.id === c.id || used.has(x.en.toLowerCase()) || used.has(x.es.toLowerCase())) continue;
+    used.add(x.en.toLowerCase()); used.add(x.es.toLowerCase()); out.push(x);
+  }
+  return out;
+}
+
+/* ================= elegir tipo de ejercicio ================= */
+function pickKind(c, mode) {
+  const b = bx(c.id), o = [];
+  if (mode === "exam") {
+    if (canType(c)) o.push("type", "dict"); if (canOrder(c)) o.push("order"); if (srOK) o.push("speak"); o.push("hear");
+    return rnd(o);
+  }
+  if (b <= 1) { o.push("choice", "hear"); if (canOrder(c)) o.push("order", "order"); }
+  else if (b <= 3) { if (canOrder(c)) o.push("order"); if (canType(c)) o.push("type", "dict"); o.push("hear"); o.push(srOK ? "speak" : "listen"); }
+  else { if (canType(c)) o.push("type", "dict"); if (srOK) o.push("speak", "speak"); else o.push("listen"); }
+  return rnd(o.length ? o : ["choice"]);
+}
+function fitKind(c, k) {
+  if ((k === "type" || k === "dict") && !canType(c)) return "choice";
+  if (k === "order" && !canOrder(c)) return "choice";
+  if (k === "speak" && !srOK) return "listen";
+  return k;
+}
+
+/* ================= vistas ================= */
+const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", frases: "#vFrases", metodo: "#vMetodo", session: "#vSession" };
+let curView = "hoy", curUnit = null;
+function view(name) {
+  stopAudio();
+  Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
+  $("#tabs").hidden = name === "session";
+  const tab = name === "unit" ? "curso" : name;
+  document.querySelectorAll(".tab").forEach(t => { if (t.dataset.tab === tab) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current"); });
+  curView = name;
+  renderCurrent();
+  window.scrollTo(0, 0);
+}
+function renderCurrent() {
+  if (curView === "hoy") renderHoy();
+  if (curView === "curso") renderCurso();
+  if (curView === "unit") renderUnit(curUnit);
+  if (curView === "frases") renderFrases();
+}
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => view(t.dataset.tab));
+
+/* ---------- HOY ---------- */
+const LISTEN_TIP = {
+  "Pre-A1": "Un video corto para principiantes con subtítulos en inglés. Repite en voz alta.",
+  "A1": "Un video para principiantes (busca \"English for beginners\") y repite las frases que entiendas.",
+  "A2": "Un episodio de 6 Minute English (BBC) o una noticia de VOA Learning English.",
+  "A2–B1": "Un episodio de 6 Minute English (BBC) o un video de tu trabajo en inglés.",
+  "B1": "Un podcast para estudiantes intermedios o un capítulo de una serie que ya viste, en inglés.",
+  "B2": "Un podcast o una serie para nativos. Intenta sin subtítulos en español.",
+  "C1": "Noticias, conferencias o series sin subtítulos. Resume en voz alta lo que oíste."
+};
+function renderHoy() {
+  const due = dueCards().length, nu = nextUnit(), anySeen = Object.keys(S.c).length > 0;
+  const lv = curLevel();
+  let s1;
+  if (due) s1 = `<div class="pstep"><div class="pnum">1</div><div class="pbody"><strong>Repaso</strong><span>${due} ${due === 1 ? "frase está" : "frases están"} por olvidarse. Repásalas primero.</span><div class="row"><button class="btn accent" id="goReview">Repasar ${Math.min(due, 20)} frases</button></div></div></div>`;
+  else s1 = `<div class="pstep done"><div class="pnum">✓</div><div class="pbody"><strong>Repaso</strong><span class="muted">${anySeen ? "Al día. No tienes frases pendientes hoy." : "Cuando aprendas tus primeras frases, aquí aparecerán para repasarlas en el momento justo."}</span></div></div>`;
+  let s2;
+  if (nu) {
+    const sn = unitSeen(nu), tot = nu.cards.length;
+    const what = sn < tot ? (sn ? `Llevas ${sn} de ${tot} frases.` : "Empieza por la explicación y luego aprende las frases.") : "Ya viste todas las frases: practica la conversación y haz el examen.";
+    s2 = `<div class="pstep"><div class="pnum">2</div><div class="pbody"><strong>Lección</strong><span><b>${esc(nu.lv.short)} · Unidad ${nu.k}:</b> ${esc(nu.t)}</span><span class="muted">${what}</span><div class="row"><button class="btn primary" id="goUnit">Abrir lección</button></div></div></div>`;
+  } else s2 = `<div class="pstep done"><div class="pnum">✓</div><div class="pbody"><strong>Lección</strong><span>¡Terminaste todo el curso! Sigue repasando y practicando conversación con personas reales.</span></div></div>`;
+  const s3 = `<div class="pstep"><div class="pnum">3</div><div class="pbody"><strong>Inglés real · 10–20 min</strong><span>${esc(LISTEN_TIP[lv.cefr] || LISTEN_TIP.B1)}</span><div class="row"><button class="btn ghost sm" id="goMetodo">Ver qué escuchar</button></div></div></div>`;
+  $("#plan").innerHTML = s1 + s2 + s3;
+  if ($("#goReview")) $("#goReview").onclick = startReview;
+  if ($("#goUnit")) $("#goUnit").onclick = () => openUnit(nu);
+  $("#goMetodo").onclick = () => view("metodo");
+
+  const learned = Object.keys(S.c).filter(id => CARD[id]).length, mast = CARDS.filter(c => mastered(c.id)).length, doneU = UNITS.filter(u => S.done[u.id]).length;
+  $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>unidades aprobadas</span></div>`;
+  $("#courseBar").style.width = (doneU / UNITS.length * 100) + "%";
+  $("#statsTxt").textContent = `El curso tiene ${CARDS.length} frases en ${UNITS.length} unidades. Una frase está "dominada" cuando la aciertas varias veces en días distintos.`;
+  document.querySelectorAll(".mode").forEach(b => { if (b.dataset.mode === "speak") b.disabled = !srOK; });
+  const sp = document.querySelector('.mode[data-mode="speak"] small');
+  if (!srOK && sp) sp.textContent = "Tu navegador no permite usar el micrófono aquí";
+}
+
+/* ---------- CURSO ---------- */
+function renderCurso() {
+  const nu = nextUnit();
+  $("#levels").innerHTML = COURSE.map(lv => {
+    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length;
+    return `<div class="level" id="lv-${lv.id}">
+      <div class="lhead"><div class="top"><h3>${esc(lv.name)}</h3><span class="cefr">${esc(lv.cefr)}</span></div>
+        <p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p>
+        <div class="mini"><i style="width:${dn / lv.units.length * 100}%"></i></div>
+        <div class="row" style="justify-content:space-between;align-items:center"><span class="ustat">${dn}/${lv.units.length} unidades aprobadas</span>
+        ${all ? `<span class="ustat ok">✓ Nivel completo</span>` : `<button class="btn ghost sm" data-lvexam="${lv.id}">Ya domino este nivel · examen</button>`}</div>
+      </div>
+      ${lv.units.map(u => {
+        const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id];
+        return `<button class="urow${nu === u ? " next" : ""}" data-unit="${u.id}"><span class="unum">${String(u.k).padStart(2, "0")}</span>
+          <span class="t"><div>${esc(u.t)}</div><div>${nu === u ? "Siguiente lección · " : ""}${sn}/${tot} frases</div></span>
+          <span class="ustat${d ? " ok" : ""}">${d ? "✓ Aprobada" : sn ? Math.round(sn / tot * 100) + "%" : "›"}</span></button>`;
+      }).join("")}
+    </div>`;
+  }).join("");
+  document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => openUnit(UNITS.find(u => u.id === b.dataset.unit)));
+  document.querySelectorAll("[data-lvexam]").forEach(b => b.onclick = () => levelExam(COURSE.find(l => l.id === b.dataset.lvexam)));
+}
+
+/* ---------- UNIDAD ---------- */
+function openUnit(u) { curUnit = u; view("unit"); }
+function gramHTML(g) {
+  return g.map(x => {
+    if (Array.isArray(x)) return `<div class="ex">${playBtn(x[0])}<div><div class="en2">${esc(x[0])}</div>${x[1] ? `<div class="es2">${esc(x[1])}</div>` : ""}</div></div>`;
+    if (x[0] === "!") return `<div class="tip">${esc(x.slice(1))}</div>`;
+    return `<p>${esc(x)}</p>`;
+  }).join("");
+}
+function dotsHTML(id) { const b = bx(id); return `<div class="dots" title="${seen(id) ? "Nivel " + b + " de 6" : "Aún no la aprendes"}">${[1, 2, 3, 4, 5, 6].map(n => `<i class="${b >= n ? "on" : ""}"></i>`).join("")}</div>`; }
+function itemHTML(c, showUnit) {
+  return `<div class="item">${dotsHTML(c.id)}<div class="t"><div>${esc(c.en)}</div><div>${esc(c.es)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
+}
+let showEs = false;
+function renderUnit(u) {
+  const sn = unitSeen(u), tot = u.cards.length, fresh = tot - sn, d = S.done[u.id];
+  const prev = UNITS[u.n - 1], next = UNITS[u.n + 1];
+  $("#vUnit").innerHTML = `
+    <button class="back" id="uBack">← Curso</button>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div class="label">${esc(u.lv.short)} · Unidad ${u.k} · ${esc(u.lv.cefr)}</div>
+      <h2>${esc(u.t)}</h2>
+      <p class="muted" style="margin:0">${esc(u.goal)}</p>
+    </div>
+    <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
+    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases</h3><span class="ustat" style="margin-left:auto">${sn}/${tot} aprendidas</span></div><div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
+    <section class="sec"><div class="sh"><span class="n">03</span><h3>Practica</h3></div><div class="sb">
+      <p>${fresh ? `Vas a conocer cada frase, oírla, repetirla en voz alta y luego ponerla a prueba. Las que falles vuelven al final.` : `Ya conoces todas las frases. Practica las que más te cuestan.`}</p>
+      <div class="row"><button class="btn accent" id="uLearn">${fresh ? `Aprender ${Math.min(6, fresh)} frases nuevas` : "Practicar esta unidad"}</button></div>
+    </div></section>
+    <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3></div><div class="sb">
+      <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${esc(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
+      <div class="row"><button class="btn speak" id="dPlay">${SPK} Escuchar diálogo</button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
+      <div class="row"><button class="btn primary" id="dPractice">Practicar: tú eres B</button></div>
+    </div></section>
+    <section class="sec"><div class="sh"><span class="n">05</span><h3>Examen</h3></div><div class="sb">
+      ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>` : `<p>10 preguntas sin ayuda: escribir, dictado${srOK ? ", hablar" : ""} y comprensión. Necesitas 8 o más para aprobar y pasar a la siguiente unidad.</p>`}
+      ${!d && sn < tot ? `<p class="muted" style="font-size:14px">Te recomendamos aprender todas las frases antes. Si ya las sabes, adelante.</p>` : ""}
+      <div class="row"><button class="btn ${d ? "" : "primary"}" id="uExam">${d ? "Repetir examen" : "Hacer examen"}</button></div>
+    </div></section>
+    <div class="pager">${prev ? `<button class="btn ghost" id="uPrev">← ${esc(prev.t)}</button>` : "<span></span>"}${next ? `<button class="btn ghost" id="uNext">${esc(next.t)} →</button>` : ""}</div>`;
+  $("#uBack").onclick = () => view("curso");
+  $("#uLearn").onclick = () => learnUnit(u);
+  $("#uExam").onclick = () => unitExam(u);
+  $("#dPractice").onclick = () => dialogPractice(u);
+  $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
+  $("#dPlay").onclick = () => playDialog(u.d);
+  if (prev) $("#uPrev").onclick = () => openUnit(prev);
+  if (next) $("#uNext").onclick = () => openUnit(next);
+}
+function playDialog(lines) {
+  stopAudio();
+  let i = 0;
+  const rows = document.querySelectorAll("#dlg .ln");
+  const step = () => {
+    rows.forEach(r => r.style.background = "");
+    if (i >= lines.length) return;
+    if (rows[i]) rows[i].style.background = "var(--accent-soft)";
+    const l = lines[i++];
+    say(l[1], { who: l[0] === "B" ? 1 : 0, keep: true, onend: () => setTimeout(step, 350) });
+  };
+  step();
+}
+
+/* ---------- FRASES ---------- */
+function renderFrases() {
+  const sel = $("#fl");
+  if (!sel.options.length) {
+    sel.innerHTML = `<option value="seen">Las que ya aprendí</option><option value="due">Para repasar hoy</option><option value="all">Todas</option>` + COURSE.map(l => `<option value="${l.id}">${esc(l.short)}</option>`).join("");
+    sel.onchange = drawFrases; $("#fq").oninput = drawFrases;
+    if (!Object.keys(S.c).length) sel.value = "all";
+  }
+  drawFrases();
+}
+function drawFrases() {
+  const f = $("#fl").value, q = norm($("#fq").value), t = dayNum();
+  let list = CARDS;
+  if (f === "seen") list = list.filter(c => seen(c.id));
+  else if (f === "due") list = list.filter(c => S.c[c.id] && S.c[c.id][1] <= t);
+  else if (f !== "all") list = list.filter(c => c.u.lv.id === f);
+  if (q) list = list.filter(c => norm(c.en).includes(q) || c.es.toLowerCase().includes($("#fq").value.toLowerCase().trim()));
+  $("#fcount").textContent = list.length + (list.length === 1 ? " frase" : " frases");
+  $("#fitems").innerHTML = list.length ? list.map(c => itemHTML(c, true)).join("") : `<p class="muted" style="padding:16px;margin:0">${f === "seen" ? "Todavía no aprendes frases. Ve a Hoy y abre tu primera lección." : "No hay frases aquí."}</p>`;
+}
+
+/* ================= sesiones ================= */
+let SES = null;
+function runSession(steps, opts) {
+  SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, retried: new Set(), back: curView === "session" ? "hoy" : curView }, opts);
+  view("session"); step();
+}
+function startReview() {
+  const due = dueCards().sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, 20);
+  if (!due.length) return;
+  runSession(shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), { mode: "review", title: "Repaso" });
+}
+function freePractice(kind) {
+  let pool = CARDS.filter(c => seen(c.id));
+  if (!pool.length) pool = UNITS[0].cards;
+  if (kind === "type" || kind === "dict") pool = pool.filter(canType);
+  if (kind === "order") pool = pool.filter(canOrder);
+  if (!pool.length) pool = CARDS.filter(canOrder).slice(0, 12);
+  const pick = pool.map(c => ({ c, k: Math.random() * (7 - bx(c.id)) ** 2 })).sort((a, b) => b.k - a.k).slice(0, 10).map(x => x.c);
+  runSession(pick.map(c => ({ k: fitKind(c, kind), c })), { mode: "free", title: "Práctica libre" });
+}
+function learnUnit(u) {
+  const fresh = u.cards.filter(c => !seen(c.id)).slice(0, 6);
+  const old = shuffle(u.cards.filter(c => seen(c.id))).sort((a, b) => bx(a.id) - bx(b.id)).slice(0, fresh.length ? 4 : 10);
+  const steps = [];
+  for (let k = 0; k < fresh.length; k += 2) {
+    const g = fresh.slice(k, k + 2);
+    g.forEach(c => steps.push({ k: "intro", c }));
+    g.forEach(c => steps.push({ k: rnd(canOrder(c) ? ["choice", "order", "hear"] : ["choice", "hear"]), c }));
+  }
+  shuffle(old).forEach(c => steps.push({ k: pickKind(c, "learn"), c }));
+  runSession(steps, { mode: "learn", unit: u, title: u.t });
+}
+function unitExam(u) {
+  const cards = shuffle(u.cards).slice(0, 10);
+  runSession(cards.map(c => ({ k: pickKind(c, "exam"), c })), { mode: "exam", unit: u, title: "Examen: " + u.t });
+}
+function levelExam(lv) {
+  const cards = shuffle(lv.units.flatMap(u => u.cards)).slice(0, 15);
+  runSession(cards.map(c => ({ k: pickKind(c, "exam"), c })), { mode: "levelexam", level: lv, title: "Examen de " + lv.short });
+}
+function dialogPractice(u) {
+  runSession(u.d.map(l => ({ k: "dlg", line: l })), { mode: "dialog", unit: u, title: "Conversación" });
+}
+
+function setProg() {
+  const n = SES.steps.length;
+  $("#barFill").style.width = (SES.i / n * 100) + "%";
+  $("#count").textContent = Math.min(SES.i + 1, n) + "/" + n;
+}
+function nextStep() { SES.i++; step(); }
+function answered(c, ok) {
+  grade(c, ok); SES.graded++; if (ok) SES.ok++;
+  const exam = SES.mode === "exam" || SES.mode === "levelexam";
+  if (!ok && !exam && !SES.retried.has(c.id)) { SES.retried.add(c.id); SES.steps.push({ k: canOrder(c) ? "order" : "choice", c, retry: true }); }
+}
+function answerBlock(c) {
+  return `<div><div class="en">${esc(c.en)}</div>${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+}
+function feedback(ok, c, extra) {
+  const st = $("#stage");
+  const d = document.createElement("div");
+  d.className = "fb " + (ok ? "ok" : "bad");
+  d.innerHTML = `<b>${ok ? "¡Correcto!" : "Casi. La respuesta es:"}</b>${extra || ""}${ok ? "" : `<div class="en" style="font-size:20px">${esc(c.en)}</div><div class="muted" style="font-size:15px">${esc(c.es)}</div>`}${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}`;
   st.appendChild(d);
-  const nx=document.createElement("div");nx.className="row";
-  nx.innerHTML=`<button class="btn primary" id="next">Continuar</button><button class="btn ghost speak" id="again">${SPK} Escuchar</button>`;
+  const nx = document.createElement("div"); nx.className = "row";
+  nx.innerHTML = `<button class="btn primary" id="next">Continuar</button><button class="btn ghost speak" data-say="${esc(c.en)}">${SPK} Escuchar</button>`;
   st.appendChild(nx);
-  $("#again").onclick=()=>say(c.en);
-  $("#next").onclick=()=>{qi++;show()};
-  $("#next").focus();
+  $("#next").onclick = nextStep; $("#next").focus();
   say(c.en);
 }
-function show(){
+const LBL = { intro: "Frase nueva", listen: "Escucha y repite en voz alta", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Dictado: escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
+
+function step() {
   setProg();
-  const st=$("#stage");st.className="sbody";
-  if(qi>=Q.length)return finish();
-  const {c,m}=Q[qi];
-  if(m==="listen"){
-    st.innerHTML=`<div class="label">Escucha y repite en voz alta</div>
-      <div class="prompt">${esc(c.es)}</div>
-      <p style="margin:0;color:var(--muted)">Piensa cómo se dice en inglés y dilo en voz alta. Luego revisa.</p>
-      <div class="row"><button class="btn primary" id="reveal">Ver respuesta</button></div>`;
-    $("#reveal").onclick=()=>{
-      st.innerHTML=`<div class="label">Escucha y repite en voz alta</div><div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns()}
-      <div class="label">¿Te salió?</div>
-      <div class="row"><button class="btn" id="no">No me acordé</button><button class="btn primary" id="yes">Sí, la dije bien</button></div>`;
-      wireSay(c);say(c.en);
-      $("#no").onclick=()=>{grade(c,false);qi++;show()};
-      $("#yes").onclick=()=>{grade(c,true);qi++;show()};
-    };
+  const st = $("#stage"); st.className = "sbody";
+  if (SES.i >= SES.steps.length) return finish();
+  const s = SES.steps[SES.i], c = s.c;
+  const tag = s.retry ? `<span class="label" style="color:var(--accent)">· Otra vez</span>` : "";
+  const head = k => `<div class="label">${LBL[k]} ${tag}</div>`;
+
+  if (s.k === "intro") {
+    st.innerHTML = `${head("intro")}<div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}
+      <p style="margin:0">Escúchala y repítela en voz alta 2 o 3 veces.</p>
+      <div id="miniMic"></div>
+      <div class="row"><button class="btn primary" id="gotIt">Entendido</button></div>`;
+    if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === null) return; $("#miniMic .heard").textContent += ok ? " · ¡Muy bien!" : " · Escucha otra vez y repite."; });
+    introduce(c); say(c.en);
+    $("#gotIt").onclick = nextStep; $("#gotIt").focus();
+    return;
   }
-  if(m==="choice"){
-    const others=shuffle(CARDS.filter(x=>x.i!==c.i&&(x.en.split(" ").length>1)===(c.en.split(" ").length>1))).slice(0,3);
-    const opts=shuffle([c,...others]);
-    st.innerHTML=`<div class="label">Elige la traducción correcta</div><div class="prompt">${esc(c.es)}</div>
-      <div class="opts">${opts.map(o=>`<button class="opt" data-i="${o.i}">${esc(o.en)}</button>`).join("")}</div>`;
-    st.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
-      const ok=+b.dataset.i===c.i;
-      st.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(+x.dataset.i===c.i)x.classList.add("ok")});
-      if(!ok)b.classList.add("bad");
-      grade(c,ok);feedback(ok,c);
+  if (s.k === "listen") {
+    st.innerHTML = `${head("listen")}<div class="prompt">${esc(c.es)}</div><p style="margin:0" class="muted">Piensa cómo se dice en inglés y dilo en voz alta. Luego revisa.</p><div class="row"><button class="btn primary" id="reveal">Ver respuesta</button></div>`;
+    $("#reveal").onclick = () => {
+      st.innerHTML = `${head("listen")}<div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}<div class="label">¿Te salió?</div><div class="row"><button class="btn" id="no">No me acordé</button><button class="btn primary" id="yes">Sí, la dije bien</button></div>`;
+      say(c.en);
+      $("#no").onclick = () => { answered(c, false); nextStep(); };
+      $("#yes").onclick = () => { answered(c, true); nextStep(); };
+    };
+    return;
+  }
+  if (s.k === "choice" || s.k === "hear") {
+    const hearMode = s.k === "hear", field = hearMode ? "es" : "en";
+    const opts = shuffle([c, ...distract(c, 3, field)]);
+    st.innerHTML = `${head(s.k)}${hearMode ? `<button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost sm speak" style="align-self:flex-start" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button>` : `<div class="prompt">${esc(c.es)}</div>`}
+      <div class="opts">${opts.map(o => `<button class="opt" data-id="${esc(o.id)}">${esc(o[field])}</button>`).join("")}</div>`;
+    if (hearMode) say(c.en);
+    st.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const ok = b.dataset.id === c.id;
+      st.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
+      if (!ok) b.classList.add("bad");
+      answered(c, ok); feedback(ok, c, hearMode ? `<div class="en" style="font-size:20px">${esc(c.en)}</div>` : "");
     });
+    return;
   }
-  if(m==="type"){
-    st.innerHTML=`<div class="label">Escríbela en inglés</div><div class="prompt">${esc(c.es)}</div>
+  if (s.k === "type" || s.k === "dict") {
+    const dict = s.k === "dict";
+    st.innerHTML = `${head(s.k)}${dict ? `<div class="row"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
       <form id="tf" style="display:flex;flex-direction:column;gap:10px">
-        <input class="type" id="tin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Escribe aquí…" aria-label="Tu respuesta en inglés">
-        <div class="row"><button class="btn primary" type="submit">Revisar</button><button class="btn ghost" type="button" id="hint">Pista</button></div>
+        <input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés">
+        <div class="row"><button class="btn primary" type="submit">Revisar</button><button class="btn ghost" type="button" id="hint">Pista</button><button class="btn ghost" type="button" id="skip">No sé</button></div>
       </form>`;
-    const inp=$("#tin");inp.focus();
-    $("#hint").onclick=()=>{const w=words(c.en);inp.placeholder=w.slice(0,2).join(" ")+" …";inp.focus()};
-    $("#tf").onsubmit=e=>{
+    const inp = $("#tin"); inp.focus();
+    if (dict) say(c.en);
+    $("#hint").onclick = () => { const w = words(c.en); inp.placeholder = w.slice(0, Math.max(1, Math.ceil(w.length / 3))).join(" ") + " …"; inp.focus(); };
+    const lock = () => { inp.disabled = true; st.querySelectorAll("#tf button").forEach(b => b.disabled = true); };
+    $("#skip").onclick = () => { lock(); answered(c, false); feedback(false, c); };
+    $("#tf").onsubmit = e => {
       e.preventDefault();
-      const a=norm(inp.value),b=norm(c.en);
-      if(!a)return;
-      const d=lev(a,b), ok=d<=Math.max(1,Math.floor(b.length/12));
-      inp.disabled=true;e.target.querySelector("button[type=submit]").disabled=true;$("#hint").disabled=true;
-      grade(c,ok);
-      feedback(ok,c,ok&&d>0?`<div>Casi perfecto. Revisa la escritura: <strong>${esc(c.en)}</strong></div>`:"");
+      const r = closeEnough(inp.value, c.en); if (!r) return;
+      lock(); answered(c, r.ok);
+      feedback(r.ok, c, r.ok ? (r.exact ? "" : `<div>Casi perfecto. Revisa la escritura: <strong>${esc(c.en)}</strong></div>`) : `<div class="heard">Escribiste: ${esc(inp.value)}</div>`);
     };
+    return;
   }
-  if(m==="order"){
-    const w=words(c.en), pool=shuffle(w.map((t,k)=>({t,k})));
-    let picked=[];
-    st.innerHTML=`<div class="label">Arma la frase en inglés</div><div class="prompt">${esc(c.es)}</div>
+  if (s.k === "order") {
+    const w = words(c.en), pool = shuffle(w.map((t, k) => ({ t, k })));
+    let picked = [];
+    st.innerHTML = `${head("order")}<div class="prompt">${esc(c.es)}</div>
       <div class="slot" id="slot" aria-label="Tu frase"></div>
-      <div class="row" id="pool">${pool.map((p,j)=>`<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
+      <div class="row" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
       <div class="row"><button class="btn primary" id="chk" disabled>Revisar</button><button class="btn ghost" id="clr">Borrar</button></div>`;
-    const draw=()=>{
-      $("#slot").innerHTML=picked.map((j,k)=>`<button class="chip" data-k="${k}">${esc(pool[j].t)}</button>`).join("");
-      st.querySelectorAll("#pool .chip").forEach(b=>b.classList.toggle("used",picked.includes(+b.dataset.j)));
-      $("#slot").querySelectorAll(".chip").forEach(b=>b.onclick=()=>{picked.splice(+b.dataset.k,1);draw()});
-      $("#chk").disabled=picked.length!==pool.length;
+    const draw = () => {
+      $("#slot").innerHTML = picked.map((j, k) => `<button class="chip" data-k="${k}">${esc(pool[j].t)}</button>`).join("");
+      st.querySelectorAll("#pool .chip").forEach(b => b.classList.toggle("used", picked.includes(+b.dataset.j)));
+      $("#slot").querySelectorAll(".chip").forEach(b => b.onclick = () => { picked.splice(+b.dataset.k, 1); draw(); });
+      $("#chk").disabled = picked.length !== pool.length;
     };
-    st.querySelectorAll("#pool .chip").forEach(b=>b.onclick=()=>{const j=+b.dataset.j;if(!picked.includes(j)){picked.push(j);draw()}});
-    $("#clr").onclick=()=>{picked=[];draw()};
-    $("#chk").onclick=()=>{
-      const ok=picked.map(j=>pool[j].t).join(" ").toLowerCase()===w.join(" ").toLowerCase();
-      st.querySelectorAll(".chip,#chk,#clr").forEach(x=>x.disabled=true);
-      grade(c,ok);feedback(ok,c);
+    st.querySelectorAll("#pool .chip").forEach(b => b.onclick = () => { const j = +b.dataset.j; if (!picked.includes(j)) { picked.push(j); draw(); } });
+    $("#clr").onclick = () => { picked = []; draw(); };
+    $("#chk").onclick = () => {
+      const ok = picked.map(j => pool[j].t).join(" ").toLowerCase() === w.join(" ").toLowerCase();
+      st.querySelectorAll(".chip,#chk,#clr").forEach(x => x.disabled = true);
+      answered(c, ok); feedback(ok, c);
     };
+    return;
+  }
+  if (s.k === "speak") {
+    let tries = 0;
+    st.innerHTML = `${head("speak")}<div class="prompt">${esc(c.es)}</div><div id="micBox"></div>
+      <div class="row"><button class="btn ghost" id="sReveal">Ver respuesta</button><button class="btn ghost" id="sType">Mejor escribirla</button></div>`;
+    const giveUp = () => { st.querySelectorAll("button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
+    micUI($("#micBox"), c.en, (ok, heard) => {
+      if (ok === null) { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); return; }
+      tries++;
+      if (ok) { st.querySelectorAll("button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
+      if (tries >= 3) giveUp();
+      else $("#micBox .heard").textContent += ` · No coincide del todo. Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`;
+    });
+    $("#sReveal").onclick = giveUp;
+    $("#sType").onclick = () => { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); };
+    return;
+  }
+  if (s.k === "dlg") {
+    const [who, en, es] = s.line;
+    if (who === "A") {
+      st.innerHTML = `<div class="label">Conversación · te dicen</div><div class="en">${esc(en)}</div><div class="muted">${esc(es)}</div>${speakBtns(en)}<div class="row"><button class="btn primary" id="dNext">Continuar</button></div>`;
+      say(en, { who: 0 }); $("#dNext").onclick = nextStep; $("#dNext").focus();
+      return;
+    }
+    const prevA = SES.steps[SES.i - 1] && SES.steps[SES.i - 1].line;
+    st.innerHTML = `<div class="label">Conversación · tu turno</div>
+      ${prevA && prevA[0] === "A" ? `<div class="muted" style="font-size:15px">Te dijeron: "${esc(prevA[1])}"</div>` : ""}
+      <div class="prompt">${esc(es)}</div><p class="muted" style="margin:0">Dilo en inglés.</p><div id="micBox"></div>
+      <div class="row"><button class="btn ${srOK ? "ghost" : "primary"}" id="dReveal">Ver respuesta</button></div>`;
+    const reveal = (auto) => {
+      st.querySelectorAll("#micBox button,#dReveal").forEach(b => b.disabled = true);
+      const box = document.createElement("div"); box.style.cssText = "display:flex;flex-direction:column;gap:12px";
+      box.innerHTML = auto === true ? `<div class="fb ok"><b>¡Muy bien!</b><div class="en" style="font-size:20px">${esc(en)}</div></div><div class="row"><button class="btn primary" id="dNext">Continuar</button></div>`
+        : `<div class="en">${esc(en)}</div>${speakBtns(en)}<div class="label">¿Te salió?</div><div class="row"><button class="btn" id="dNo">No</button><button class="btn primary" id="dYes">Sí, más o menos igual</button></div>`;
+      st.appendChild(box); say(en, { who: 1 });
+      if (auto === true) { SES.graded++; SES.ok++; $("#dNext").onclick = nextStep; $("#dNext").focus(); }
+      else { $("#dNo").onclick = () => { SES.graded++; nextStep(); }; $("#dYes").onclick = () => { SES.graded++; SES.ok++; nextStep(); }; }
+    };
+    if (srOK) micUI($("#micBox"), en, ok => { if (ok === null) return; if (ok) reveal(true); else $("#micBox .heard").textContent += " · Casi. Inténtalo otra vez o mira la respuesta."; });
+    $("#dReveal").onclick = () => reveal(false);
+    return;
   }
 }
-function finish(){
-  $("#barFill").style.width="100%";
-  const st=$("#stage");st.className="sbody done";
-  const msg=correct>=8?"¡Excelente trabajo!":correct>=5?"Vas muy bien. Mañana repasamos las que fallaste.":"Buen inicio. Las que fallaste te van a salir más seguido hasta que se te queden.";
-  st.innerHTML=`<div class="label">Sesión terminada</div><div class="big">${correct}/${Q.length}</div><p style="margin:0;max-width:40ch">${msg}</p>
-  <p class="pron" style="margin:0">+${correct*10} puntos · racha de ${S.streak} ${S.streak===1?"día":"días"}</p>
-  <div class="row" style="justify-content:center"><button class="btn primary" id="more">Otra sesión</button><button class="btn" id="home2">Volver al inicio</button></div>`;
-  $("#more").onclick=()=>start("mixed");
-  $("#home2").onclick=goHome;
-}
-function goHome(){try{speechSynthesis.cancel()}catch(e){}$("#session").hidden=true;$("#home").hidden=false;$("#list").hidden=false;renderList()}
 
-/* ---------- list ---------- */
-function renderList(){
-  $("#items").innerHTML=CARDS.map(c=>`<div class="item">
-    <div class="dots" title="Nivel ${box(c.i)} de 5">${[1,2,3,4,5].map(n=>`<i class="${box(c.i)>=n?"on":""}"></i>`).join("")}</div>
-    <div class="t"><div>${esc(c.en)}</div><div>${esc(c.es)}</div></div>
-    <button class="play" data-i="${c.i}" aria-label="Escuchar ${esc(c.en)}">${SPK}</button></div>`).join("");
-  document.querySelectorAll(".play").forEach(b=>b.onclick=()=>say(CARDS[+b.dataset.i].en));
+function finish() {
+  $("#barFill").style.width = "100%";
+  const st = $("#stage"); st.className = "sbody done";
+  const n = SES.graded, ok = SES.ok, m = SES.mode;
+  let title = "Sesión terminada", big = n ? `${ok}/${n}` : "✓", msg = "", extra = "", btns = "";
+  if (m === "exam" || m === "levelexam") {
+    const pass = ok >= Math.ceil(n * 0.8);
+    title = SES.title;
+    if (pass) {
+      const t = dayNum();
+      if (m === "exam") {
+        S.done[SES.unit.id] = 1; S.xp += 50;
+        SES.unit.cards.forEach(c => { if (!S.c[c.id]) S.c[c.id] = [2, t + 2]; });
+        msg = "¡Aprobaste la unidad! Las frases seguirán apareciendo en tus repasos para que no se te olviden.";
+      } else {
+        SES.level.units.forEach(u => { S.done[u.id] = 1; u.cards.forEach(c => { if (!S.c[c.id]) S.c[c.id] = [3, t + 4 + Math.floor(Math.random() * 20)]; }); });
+        S.xp += 150;
+        msg = `¡Aprobaste ${SES.level.short}! Lo marcamos como completo y sus frases entrarán poco a poco a tus repasos.`;
+      }
+      bumpStreak(); save(); renderMeta();
+      extra = `<span class="badge ok">Aprobado</span>`;
+    } else {
+      msg = m === "exam" ? "Necesitas 8 de 10. Practica las frases que fallaste y vuelve a intentarlo: así funciona el aprendizaje." : `Necesitas ${Math.ceil(n * 0.8)} de ${n}. Mejor empieza el nivel por sus unidades: vas a avanzar rápido en lo que ya sabes.`;
+      extra = `<span class="badge bad">Aún no</span>`;
+    }
+    const nu = nextUnit();
+    btns = pass && nu ? `<button class="btn primary" id="fNext">Siguiente lección: ${esc(nu.t)}</button>` : `<button class="btn primary" id="fRetry">${m === "exam" ? "Practicar la unidad" : "Ver el nivel"}</button>`;
+  } else if (m === "dialog") {
+    title = "Conversación terminada";
+    msg = ok === n ? "¡Excelente! Repite el diálogo hasta que te salga sin pensar." : "Repítela un par de veces más: la meta es responder sin pensar.";
+    btns = `<button class="btn primary" id="fAgain">Repetir conversación</button>`;
+  } else {
+    msg = n && ok / n >= 0.8 ? "¡Excelente trabajo!" : "Buen trabajo. Las frases que fallaste te van a salir más seguido hasta que se te queden.";
+    if (m === "learn") {
+      const u = SES.unit, left = u.cards.length - unitSeen(u);
+      btns = left ? `<button class="btn primary" id="fMore">Aprender ${Math.min(6, left)} frases más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y el examen</button>`;
+    } else if (m === "review") {
+      const left = dueCards().length;
+      btns = left ? `<button class="btn primary" id="fRev">Repasar ${Math.min(20, left)} más</button>` : "";
+      if (!left) msg += " Ya no tienes repasos pendientes hoy.";
+    } else btns = `<button class="btn primary" id="fFree">Otra ronda</button>`;
+  }
+  st.innerHTML = `<div class="label">${esc(title)}</div><div class="big">${big}</div>${extra}<p style="margin:0;max-width:44ch">${msg}</p>
+    <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>
+    <div class="row" style="justify-content:center">${btns}<button class="btn" id="fBack">Volver</button></div>`;
+  const on = (id, fn) => { const b = $("#" + id); if (b) b.onclick = fn; };
+  const back = SES.back, unit = SES.unit, level = SES.level, kind = SES.steps[0] && SES.steps[0].k;
+  on("fNext", () => openUnit(nextUnit()));
+  on("fRetry", () => { if (unit) openUnit(unit); else { view("curso"); const el = $("#lv-" + level.id); if (el) el.scrollIntoView(); } });
+  on("fAgain", () => dialogPractice(unit));
+  on("fMore", () => learnUnit(unit));
+  on("fUnit", () => openUnit(unit));
+  on("fRev", startReview);
+  on("fFree", () => freePractice(kind));
+  on("fBack", () => { if (unit && back === "unit") openUnit(unit); else view(back === "session" ? "hoy" : back); });
+  const first = st.querySelector(".btn.primary") || $("#fBack"); first.focus();
 }
+$("#quit").onclick = () => { const u = SES && SES.unit, b = SES ? SES.back : "hoy"; if (u && b === "unit") openUnit(u); else view(b); };
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => freePractice(b.dataset.mode));
 
-$("#startMixed").onclick=()=>start("mixed");
-document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>start(b.dataset.mode));
-$("#quit").onclick=goHome;
-renderMeta();renderList();
+renderMeta(); view("hoy");
 
-/* ---------- sync (Supabase) ---------- */
-const SB_URL="https://cycqnzwdzokyrmghwisq.supabase.co";
-const SB_KEY="sb_publishable__wCJlC-lCKD9GFCquGbUDA_vStoN-r3";
-let SYNC=null;try{SYNC=localStorage.getItem("ingles-prov-code")}catch(e){}
-async function rpc(fn,body){
-  const r=await fetch(SB_URL+"/rest/v1/rpc/"+fn,{method:"POST",headers:{"apikey":SB_KEY,"Content-Type":"application/json"},body:JSON.stringify(body)});
-  if(!r.ok)throw new Error("HTTP "+r.status);
-  const t=await r.text();return t?JSON.parse(t):null;
+/* ================= sincronización (Supabase) ================= */
+const SB_URL = "https://cycqnzwdzokyrmghwisq.supabase.co";
+const SB_KEY = "sb_publishable__wCJlC-lCKD9GFCquGbUDA_vStoN-r3";
+let SYNC = null; try { SYNC = localStorage.getItem("ingles-prov-code"); } catch (e) {}
+async function rpc(fn, body) {
+  const r = await fetch(SB_URL + "/rest/v1/rpc/" + fn, { method: "POST", headers: { "apikey": SB_KEY, "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  const t = await r.text(); return t ? JSON.parse(t) : null;
 }
-function canon(x){x=(x||"").toUpperCase().replace(/[^A-Z0-9]/g,"");const g=x.match(/.{1,4}/g);return g?g.join("-"):""}
-function newCode(){const A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",b=new Uint8Array(20);crypto.getRandomValues(b);return canon(Array.from(b,v=>A[v%A.length]).join(""))}
-function dv(d){if(!d)return 0;const p=d.split("-").map(Number);return p[0]*10000+p[1]*100+p[2]}
-function merge(a,b){
-  const box=Object.assign({},a.box||{});
-  Object.entries(b.box||{}).forEach(([k,v])=>{box[k]=Math.max(box[k]||0,v||0)});
-  let streak,last;
-  if(dv(a.last)>dv(b.last)){streak=a.streak;last=a.last}
-  else if(dv(a.last)<dv(b.last)){streak=b.streak;last=b.last}
-  else{streak=Math.max(a.streak||0,b.streak||0);last=a.last||b.last||""}
-  return {box,xp:Math.max(a.xp||0,b.xp||0),streak:streak||0,last:last||""};
+function canon(x) { x = (x || "").toUpperCase().replace(/[^A-Z0-9]/g, ""); const g = x.match(/.{1,4}/g); return g ? g.join("-") : ""; }
+function newCode() { const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", b = new Uint8Array(20); crypto.getRandomValues(b); return canon(Array.from(b, v => A[v % A.length]).join("")); }
+function dv(d) { if (!d) return 0; const p = d.split("-").map(Number); return p[0] * 10000 + p[1] * 100 + p[2]; }
+function merge(a, b) {
+  a = migrate(Object.assign({}, a)); b = migrate(Object.assign({}, b));
+  const c = Object.assign({}, a.c);
+  Object.entries(b.c || {}).forEach(([k, v]) => { const x = c[k]; if (!x || v[0] > x[0] || (v[0] === x[0] && v[1] > x[1])) c[k] = v; });
+  const done = Object.assign({}, a.done, b.done);
+  let streak, last;
+  if (dv(a.last) > dv(b.last)) { streak = a.streak; last = a.last; }
+  else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
+  else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
+  return { c, done, xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
-const hhmm=()=>new Date().toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"});
-const OFF="Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
-function status(t){$("#syncStatus").textContent=t}
-function renderSync(){
-  $("#syncOff").hidden=!!SYNC;$("#syncOn").hidden=!SYNC;
-  if(SYNC)$("#syncShow").textContent=SYNC;else status("");
-}
-async function pull(){
-  if(!SYNC)return;
+const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
+const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
+function status(t) { $("#syncStatus").textContent = t; }
+function renderSync() { $("#syncOff").hidden = !!SYNC; $("#syncOn").hidden = !SYNC; if (SYNC) $("#syncShow").textContent = SYNC; else status(""); }
+function refreshView() { renderMeta(); if (curView !== "session" && curView !== "unit") renderCurrent(); }
+async function pull() {
+  if (!SYNC) return;
   status("Sincronizando…");
-  try{
-    const remote=await rpc("get_progress",{p_code:SYNC});
-    if(remote)S=merge(S,remote);
-    try{localStorage.setItem("ingles-prov-v1",JSON.stringify(S))}catch(e){}
-    renderMeta();if(!$("#home").hidden)renderList();
-    await rpc("save_progress",{p_code:SYNC,p_data:S});
-    status("Sincronizado ✓ "+hhmm());
-  }catch(e){status(OFF)}
+  try {
+    const remote = await rpc("get_progress", { p_code: SYNC });
+    if (remote) S = merge(S, remote);
+    store(); refreshView();
+    await rpc("save_progress", { p_code: SYNC, p_data: S });
+    status("Sincronizado ✓ " + hhmm());
+  } catch (e) { status(OFF); }
 }
-let pushT=null;
-function push(){
-  if(!SYNC)return;
+let pushT = null;
+function push() {
+  if (!SYNC) return;
   clearTimeout(pushT);
-  pushT=setTimeout(async()=>{
-    try{await rpc("save_progress",{p_code:SYNC,p_data:S});status("Sincronizado ✓ "+hhmm())}
-    catch(e){status(OFF)}
-  },1200);
+  pushT = setTimeout(async () => {
+    try { await rpc("save_progress", { p_code: SYNC, p_data: S }); status("Sincronizado ✓ " + hhmm()); }
+    catch (e) { status(OFF); }
+  }, 1200);
 }
-function setCode(c){SYNC=c;try{c?localStorage.setItem("ingles-prov-code",c):localStorage.removeItem("ingles-prov-code")}catch(e){}renderSync()}
-$("#syncNew").onclick=async()=>{setCode(newCode());await pull()};
-$("#syncJoin").onsubmit=async e=>{
+function setCode(c) { SYNC = c; try { c ? localStorage.setItem("ingles-prov-code", c) : localStorage.removeItem("ingles-prov-code"); } catch (e) {} renderSync(); }
+$("#syncNew").onclick = async () => { setCode(newCode()); await pull(); };
+$("#syncJoin").onsubmit = async e => {
   e.preventDefault();
-  const c=canon($("#syncCode").value);
-  if(c.replace(/-/g,"").length<16){status("Ese código está incompleto. Debe tener 20 letras y números.");return}
+  const c = canon($("#syncCode").value);
+  if (c.replace(/-/g, "").length < 16) { status("Ese código está incompleto. Debe tener 20 letras y números."); return; }
   status("Buscando tu avance…");
-  try{
-    const remote=await rpc("get_progress",{p_code:c});
-    if(!remote){status("No encontré ese código. Revisa que esté bien escrito.");return}
-    $("#syncCode").value="";setCode(c);await pull();
-  }catch(err){status(OFF)}
+  try {
+    const remote = await rpc("get_progress", { p_code: c });
+    if (!remote) { status("No encontré ese código. Revisa que esté bien escrito."); return; }
+    $("#syncCode").value = ""; setCode(c); await pull();
+  } catch (err) { status(OFF); }
 };
-$("#syncCopy").onclick=()=>{
-  const t=SYNC;
-  try{navigator.clipboard.writeText(t).then(()=>status("Código copiado."),()=>selectCode())}catch(e){selectCode()}
-};
-function selectCode(){const r=document.createRange();r.selectNodeContents($("#syncShow"));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);status("Código seleccionado. Cópialo con Ctrl+C o mantén presionado.")}
-$("#syncStop").onclick=()=>{setCode(null);status("Sincronización desactivada en este dispositivo. Tu avance en línea sigue guardado.")};
-window.addEventListener("online",pull);
-document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")pull()});
-renderSync();pull();
+$("#syncCopy").onclick = () => { try { navigator.clipboard.writeText(SYNC).then(() => status("Código copiado."), () => selectCode()); } catch (e) { selectCode(); } };
+function selectCode() { const r = document.createRange(); r.selectNodeContents($("#syncShow")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); status("Código seleccionado. Cópialo con Ctrl+C o mantén presionado."); }
+$("#syncStop").onclick = () => { setCode(null); status("Sincronización desactivada en este dispositivo. Tu avance en línea sigue guardado."); };
+window.addEventListener("online", pull);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") pull(); });
+renderSync(); pull();
 </script>
 
 <script>
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
+if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {})); }
 </script>
 </body>
 </html>
