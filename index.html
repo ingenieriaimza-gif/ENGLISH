@@ -221,6 +221,8 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
 .verdict{display:inline-block;font-family:var(--f-body);font-weight:700;font-size:15px;padding:3px 10px;margin-right:6px}
 .verdict.ok{background:var(--ok);color:var(--panel)}
 .verdict.bad{background:var(--bad);color:var(--panel)}
+.heard .tgt{margin-top:8px;font-family:var(--f-body);font-size:16px;color:var(--ink)}
+.miss{color:var(--bad);font-weight:700;text-decoration:underline wavy;text-underline-offset:3px}
 .opt.ok::after{content:"  ✓";color:var(--ok);font-weight:800}
 .opt.bad::after{content:"  ✗";color:var(--bad);font-weight:800}
 .opt.bad{animation:shake .45s ease-in-out}
@@ -334,7 +336,7 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
       </div>
       <p class="pron" id="syncStatus" aria-live="polite"></p>
     </section>
-    <p class="foot">Sin sincronización, tu avance se guarda solo en este dispositivo. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio. El micrófono funciona mejor en Chrome (Android y PC) y en Safari.</p>
+    <p class="foot">Sin sincronización, tu avance se guarda solo en este dispositivo. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio. El micrófono funciona mejor en Chrome (Android y PC) y en Safari. Al hablar, la app es estricta: cuenta lo que entendió de tu voz palabra por palabra y te marca en rojo lo que no coincidió.</p>
   </section>
 
   <!-- CURSO -->
@@ -702,18 +704,106 @@ function hear() {
     try { stopAudio(); r.start(); } catch (e) { fin = true; res({ err: "start" }); }
   });
 }
-function speechScore(alts, en) {
-  const target = norm(en).split(" ").filter(Boolean); if (!target.length) return 0;
-  let best = 0; const joined = target.join("");
-  alts.forEach((a, i) => {
-    const bag = {}; norm(a).split(" ").forEach(w => bag[w] = (bag[w] || 0) + 1);
-    let m = 0; target.forEach(w => { if (bag[w]) { bag[w]--; m++; } });
-    let sc = norm(a).replace(/ /g, "") === joined ? 1 : m / target.length;
-    // lo que el reconocedor entendió primero es lo que realmente dijiste: si dijiste "see" en vez de "she", no cuenta
-    if (i > 0) sc *= target.length <= 2 ? 0.7 : 0.9;
-    best = Math.max(best, sc);
+/* ---------- revisión estricta de lo que dices ----------
+   Solo cuenta lo que el reconocedor entendió primero, palabra por palabra y en orden.
+   Se perdona únicamente lo que suena idéntico (two/to, see/sea, Ana/Anna, I'm/I am) y, en frases de 6 palabras o más,
+   1 o 2 palabritas (a, the, to, of…) que el reconocedor suele comerse. Una palabra importante mal dicha = no pasa. */
+const stripAcc = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "");
+const SMALLW = new Set("a an the to of and in on at uh um er ah oh hmm".split(" "));
+const HOMO = {};
+["2 to too two", "4 for four", "1 one won", "8 eight ate", "right write rite", "c see sea", "i eye", "r are our hour", "no know", "new knew",
+ "where wear ware", "by buy bye", "weather whether", "b be bee", "son sun", "meet meat", "here hear", "week weak", "would wood", "whole hole",
+ "wait weight", "way weigh", "mail male", "sale sail", "flower flour", "pair pear pare", "piece peace", "plane plain", "break brake", "dear deer",
+ "night knight", "not knot", "made maid", "tail tale", "sent cent scent", "fair fare", "allowed aloud", "seen scene", "blue blew", "through threw",
+ "so sew", "some sum", "steal steel", "board bored", "role roll", "waste waist", "which witch", "cell sell", "flu flew", "hi high", "missed mist",
+ "passed past", "poor pour", "rain reign", "real reel", "road rode", "sight site cite", "stair stare", "suite sweet", "t tea tee", "u you ewe",
+ "y why", "o oh owe", "p pea pee", "q queue cue", "j jay", "k kay", "g gee", "x ex", "z zee zed", "l el ell", "m em", "n en", "s es ess",
+ "f ef eff", "d dee", "v vee", "h aitch"].forEach(g => { const w = g.split(" "); w.forEach(x => HOMO[x] = w[0]); });
+const LN = { ay: "a", eh: "a", hey: "a", hay: "a", si: "c", ji: "g", age: "h", and: "n" }; // al deletrear
+const letterize = w => /^[a-z]$/.test(w) ? w : LN[w] || (/^[a-z]+$/.test(w) ? w : null);
+let NAMES = null;
+function names() { // nombres propios del curso (nunca aparecen en minúscula): se aceptan con otra ortografía (Sofía/Sophia)
+  if (NAMES) return NAMES;
+  const cap = new Set(), low = new Set();
+  CARDS.map(c => c.en).concat(UNITS.flatMap(u => u.d.map(l => l[1]))).forEach(t => t.split(/\s+/).forEach(w => {
+    const b = stripAcc(w).replace(/'s\b/i, "").replace(/[^A-Za-z]/g, ""); if (b.length < 2) return;
+    (/^[A-Z][a-z]/.test(b) ? cap : low).add(b.toLowerCase());
+  }));
+  return NAMES = new Set([...cap].filter(x => !low.has(x)));
+}
+function namesEq(a, b) {
+  const ph = x => x.replace(/ph/g, "f").replace(/h/g, "").replace(/z/g, "s").replace(/y/g, "i").replace(/(.)\1+/g, "$1");
+  const A = ph(a), B = ph(b);
+  return A === B || (A.length >= 4 && A[0] === B[0] && lev(A, B) <= 1);
+}
+function wordToks(w) { // una palabra → fichas comparables (mismo proceso para lo esperado y lo que oyó el reconocedor)
+  const s = stripAcc(w).toLowerCase().replace(/[’`´]/g, "'")
+    .replace(/\b([a-z])(\d+)\b/g, "$1 $2").replace(/\b(\d+)([a-z])\b/g, "$1 $2")
+    .replace(/\bits\b/g, "it's").replace(/\bwhose\b/g, "who's").replace(/\byour\b/g, "you're").replace(/\b(their|there)\b(?!')/g, "they're");
+  return norm(s).split(" ").filter(Boolean).flatMap(t => {
+    const small = SMALLW.has(t); t = HOMO[t] || t;
+    const n = /^\d+$/.test(t) ? +t : NaN;
+    if (n > 20 && n < 100 && n % 10) return [{ w: String(n - n % 10), small }, { w: String(n % 10), small }];
+    return [{ w: t, small }];
   });
-  return best;
+}
+function speechTarget(en) {
+  const raw = en.split(/\s+/).filter(Boolean), NM = names();
+  const bare = w => stripAcc(w).replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g, "");
+  const capL = k => k >= 0 && k < raw.length && /^[A-Z]$/.test(bare(raw[k]));
+  const initial = k => k === 0 || /[.!?:]["')]*$/.test(raw[k - 1]);
+  const toks = []; let par = false;
+  raw.forEach((w, k) => {
+    const opt = par || w.startsWith("(");
+    if (w.startsWith("(")) par = true;
+    if (/\)[.,?!]*$/.test(w)) par = false;
+    const add = t => { t.ds = [k]; t.opt = opt; toks.push(t); };
+    w.split(/(\.\.\.|___)/).forEach(p => {
+      if (p === "..." || p === "___") return add({ wild: true });
+      const b = bare(p); if (!b) return;
+      if (/^[A-Z](-[A-Z])+$/.test(b)) add({ L: b.replace(/-/g, "").toLowerCase() });                      // M-A-R-I-A
+      else if (/^[A-Z]$/.test(b) && (capL(k - 1) || capL(k + 1) || (b !== "I" && !(b === "A" && initial(k))))) add({ L: b.toLowerCase() }); // letra suelta: option B
+      else if (/^[A-Z]{2,5}$/.test(b) && b !== "OK") add({ L: b.toLowerCase() });                          // siglas: TV, ROI
+      else { const nm = NM.has(b.replace(/'s$/i, "").toLowerCase()); wordToks(p).forEach(t => { t.name = nm; add(t); }); }
+    });
+  });
+  const out = []; // letras seguidas = una sola ficha (A, B, C → abc)
+  toks.forEach(t => { const pr = out[out.length - 1]; if (t.L && pr && pr.L && !t.opt && !pr.opt) { pr.L += t.L; pr.ds.push(...t.ds); } else out.push(t); });
+  return { raw, toks: out };
+}
+function speechCheck(heard, en) {
+  const { raw, toks: T } = speechTarget(en);
+  const HW = stripAcc(heard).replace(/\bdouble[ -]?(u|you)\b/gi, "w").split(/\s+/).filter(Boolean);
+  const H = HW.flatMap((w, k) => wordToks(w).map(t => Object.assign(t, { hw: k })));
+  const n = T.length, m = H.length, wt = t => t.small ? 1 : 10, INF = 1e9;
+  const eq = (t, h) => t.w === h.w || (t.name && namesEq(t.w, h.w));
+  const D = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(INF)), P = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(null));
+  const relax = (i, j, c, pi, pj, op) => { if (c < D[i][j]) { D[i][j] = c; P[i][j] = [pi, pj, op]; } };
+  D[0][0] = 0;
+  for (let i = 0; i <= n; i++) for (let j = 0; j <= m; j++) {
+    const c = D[i][j]; if (c >= INF) continue;
+    if (j < m) relax(i, j + 1, c + wt(H[j]), i, j, "extra");          // dijiste una palabra de más
+    if (i === n) continue;
+    const t = T[i];
+    if (t.wild) { for (let k = j; k <= m; k++) relax(i + 1, k, c, i, j, "ok"); continue; } // "..." o "___": lo que tú quieras
+    relax(i + 1, j, c + (t.opt ? 0 : wt(t)), i, j, t.opt ? "ok" : "miss"); // te faltó
+    if (j >= m) continue;
+    if (t.L) {
+      let s = "";
+      for (let k = j; k < m; k++) { const z = letterize(H[k].w); if (!z) break; s += z; if (!t.L.startsWith(s)) break; if (s === t.L) { relax(i + 1, k + 1, c, i, j, "ok"); break; } }
+      relax(i + 1, j + 1, c + 10, i, j, "sub");
+    } else { const e = eq(t, H[j]); relax(i + 1, j + 1, c + (e ? 0 : Math.max(wt(t), wt(H[j]))), i, j, e ? "ok" : "sub"); }
+  }
+  const bad = new Set(), hbad = new Set(); let miss = 0;
+  for (let i = n, j = m; i > 0 || j > 0;) {
+    const p = P[i][j]; if (!p) break;
+    if (p[0] === i - 1 && p[2] !== "ok") T[p[0]].ds.forEach(k => bad.add(k));
+    if (p[2] === "miss") miss++;
+    if (p[2] === "sub" || p[2] === "extra") hbad.add(H[p[1]].hw);
+    [i, j] = p;
+  }
+  const W = T.filter(t => !t.wild && !t.opt).length, allowed = W >= 12 ? 2 : W >= 6 ? 1 : 0;
+  return { ok: m > 0 && D[n][m] <= allowed, bad, hbad, miss, hw: HW, raw };
 }
 // Botón de micrófono reutilizable. onDone(ok, transcript, score) o onFail(mensaje)
 const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div style="margin-top:4px">${esc(t)}</div>`); };
@@ -733,11 +823,17 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
       return;
     }
     if (!r.alts.length) { out.textContent = "No te oí. Inténtalo otra vez."; return; }
-    const sc = speechScore(r.alts, en);
-    const good = sc >= 0.75;
-    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span>Entendí: "${esc(r.alts[0])}"`;
+    const res = speechCheck(r.alts[0], en), good = res.ok;
+    // lo que se entendió, con lo que sobra o está mal en rojo; si la respuesta está a la vista, también la frase con lo que faltó
+    const red = (ws, set) => ws.map((w, k) => set.has(k) ? `<span class="miss">${esc(w)}</span>` : esc(w)).join(" ");
+    let tip = "";
+    if (own) { // la respuesta todavía no se ve: no la revelamos
+      if (!good) tip = [res.hbad.size && "Lo que está en rojo no va o no se entendió bien.", res.miss && `Te faltó decir ${res.miss === 1 ? "una palabra" : "algunas palabras"}.`].filter(Boolean).join(" ");
+    } else if (res.bad.size) tip = `${good ? "Casi perfecto. Cuida" : "Revisa"} lo que está en rojo: ${red(res.raw, res.bad)}`;
+    else if (!good && res.hbad.size) tip = "Dijiste algo de más: di solo la frase.";
+    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span>Entendí: "${red(res.hw, res.hbad)}"` + (tip ? `<div class="tgt">${tip}</div>` : "");
     if (!own || !good) react(good);
-    onDone(good, r.alts[0], sc);
+    onDone(good, r.alts[0], good ? 1 : 0);
   };
 }
 
@@ -755,7 +851,7 @@ function numWords(s) {
   return s.replace(/\b(\d+)(st|nd|rd|th)\b/g, "$1");
 }
 function norm(s) {
-  s = String(s).toLowerCase().replace(/[’`´]/g, "'").replace(/___/g, " ").replace(/\.\.\./g, " ");
+  s = stripAcc(s).toLowerCase().replace(/[’`´]/g, "'").replace(/___/g, " ").replace(/\.\.\./g, " ");
   s = s.replace(/%/g, " percent").replace(/\bgonna\b/g, "going to").replace(/\bwanna\b/g, "want to").replace(/\bgotta\b/g, "got to").replace(/\bkinda\b/g, "kind of").replace(/\b([ap])\.m\./g, "$1m").replace(/\$/g, " ");
   s = s.replace(/\bwi-?fi\b/g, "wifi").replace(/\bok\b/g, "okay").replace(/\bmrs\.?\b/g, "mrs").replace(/\bmr\.?\b/g, "mr");
   s = s.replace(/\bcan't\b|\bcannot\b/g, "can not").replace(/\bwon't\b/g, "will not").replace(/n't\b/g, " not")
@@ -765,7 +861,25 @@ function norm(s) {
   return s.replace(/[^a-z0-9' ]/g, " ").replace(/'/g, "").replace(/\s+/g, " ").trim();
 }
 function lev(a, b) { const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, (_, i) => [i]); for (let j = 1; j <= n; j++) d[0][j] = j; for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[m][n]; }
-function closeEnough(input, en) { const a = norm(input), b = norm(en); if (!a) return null; if (a.replace(/ /g, "") === b.replace(/ /g, "")) return { ok: true, exact: true }; const d = lev(a, b); return { ok: d <= Math.max(1, Math.floor(b.length / 12)), exact: d === 0 }; }
+// Al escribir: un error de dedo solo se perdona en palabras de 6 letras o más (nunca en palabras cortas como she/see),
+// máximo 1 (2 en frases largas). Olvidar el apóstrofo (dont, im) se acepta pero te muestra cómo se escribe.
+const APOS = { im: "i'm", dont: "don't", doesnt: "doesn't", didnt: "didn't", cant: "can't", isnt: "isn't", arent: "aren't", wasnt: "wasn't", werent: "weren't", havent: "haven't", hasnt: "hasn't", hadnt: "hadn't", wouldnt: "wouldn't", couldnt: "couldn't", shouldnt: "shouldn't", youre: "you're", theyre: "they're", ive: "i've", youve: "you've", weve: "we've", theyve: "they've", youll: "you'll", theyll: "they'll", thats: "that's", whats: "what's", wheres: "where's", theres: "there's", heres: "here's", shes: "she's", hows: "how's" };
+function closeEnough(input, en) {
+  let fixed = false;
+  const a = norm(String(input).replace(/[A-Za-z]+/g, w => APOS[w.toLowerCase()] ? (fixed = true, APOS[w.toLowerCase()]) : w)), b = norm(en);
+  if (!a) return null;
+  if (a === b) return { ok: true, exact: !fixed };
+  if (a.replace(/ /g, "") === b.replace(/ /g, "")) return { ok: true, exact: false };
+  const A = a.split(" "), B = b.split(" ");
+  if (A.length !== B.length) return { ok: false, exact: false };
+  let typos = 0;
+  for (let i = 0; i < B.length; i++) {
+    if (A[i] === B[i]) continue;
+    if (B[i].length >= 6 && !/\d/.test(B[i]) && lev(A[i], B[i]) === 1) { typos++; continue; }
+    return { ok: false, exact: false };
+  }
+  return { ok: typos <= (b.length >= 30 ? 2 : 1), exact: false };
+}
 const words = en => en.replace(/___/g, "").replace(/\.\.\./g, "").replace(/[?.!,;]/g, "").split(/\s+/).filter(w => w && w !== "/");
 const canType = c => !c.en.includes("___");
 const canOrder = c => !c.en.includes("___") && words(c.en).length >= 3 && words(c.en).length <= 14;
