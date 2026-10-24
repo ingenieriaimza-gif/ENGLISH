@@ -113,6 +113,7 @@ h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-tra
 .urow .t div:last-child{color:var(--muted);font-size:13px}
 .ustat{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
 .ustat.ok{color:var(--ok);font-weight:600}
+.ustat.multi{white-space:normal}
 .urow.next{background:var(--accent-soft)}
 .mini{height:6px;background:var(--chip);position:relative;overflow:hidden}
 .mini i{position:absolute;inset:0 auto 0 0;background:var(--ok)}
@@ -134,6 +135,17 @@ h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-tra
 .ln.b .who{background:var(--ink);color:var(--panel)}
 .ln .es2{color:var(--muted);font-size:14px}
 .pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.reading{font-size:17px;line-height:1.65;display:flex;flex-direction:column;gap:10px}
+.reading p{margin:0}
+.reading.es p{color:var(--muted);font-size:15px}
+.req{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.req li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:15px}
+.req li::before{content:"○";color:var(--muted);font-weight:700}
+.req li.ok::before{content:"✓";color:var(--ok)}
+.req li.ok{color:var(--muted)}
+.lock{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+details.rtext{border:1px solid var(--line);padding:8px 12px}
+details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 
 /* Session */
 .session{background:var(--panel);border:2px solid var(--ink);display:flex;flex-direction:column}
@@ -310,6 +322,19 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
     </div>
 
     <div class="card">
+      <h3>Cómo se avanza (y por qué no se puede hacer trampa)</h3>
+      <p>Cada unidad tiene unas 27 frases y vocabulario, una conversación y una lectura. El examen de la unidad <strong>se desbloquea solo cuando</strong>:</p>
+      <ul>
+        <li>aprendiste todas sus frases,</li>
+        <li>acertaste al menos el 80% de ellas <strong>en días distintos</strong> (practicar 10 veces el mismo día no cuenta: la memoria se prueba al día siguiente),</li>
+        <li>practicaste la conversación completa,</li>
+        <li>y leíste la lectura y contestaste bien sus preguntas.</li>
+      </ul>
+      <p>El examen de unidad pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas, 85%), y solo al aprobarlo se abren los exámenes de la siguiente etapa.</p>
+      <p class="muted">Por eso una unidad toma normalmente de 3 a 6 días. Es más lento que "pasar de nivel" en un juego, pero es lo que hace que de verdad lo sepas.</p>
+    </div>
+
+    <div class="card">
       <h3>Tu rutina diaria</h3>
       <ol>
         <li><strong>Repaso (5–10 min).</strong> La app te muestra las frases que estás por olvidar. Hazlo primero, todos los días: es lo que hace que se te queden para siempre.</li>
@@ -382,14 +407,27 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
 <script src="content/n4.js"></script>
 <script src="content/n5.js"></script>
 <script src="content/n6.js"></script>
+<!-- vocabulario extra y lecturas de cada unidad -->
+<script src="content/x-k.js"></script>
+<script src="content/x-n0.js"></script>
+<script src="content/x-n1.js"></script>
+<script src="content/x-n2.js"></script>
+<script src="content/x-w.js"></script>
+<script src="content/x-n3.js"></script>
+<script src="content/x-n4.js"></script>
+<script src="content/x-n5.js"></script>
+<script src="content/x-n6.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
+const EXTRA = window.EXTRA || {}; // vocabulario extra (v) y lectura (r) por unidad, en content/x-*.js
 const UNITS = [], CARDS = [], CARD = {};
 COURSE.forEach((lv, li) => {
   lv.short = lv.short || lv.name.split(" · ")[0];
   lv.units.forEach((u, ui) => {
     u.lv = lv; u.k = ui + 1; u.n = UNITS.length;
+    const X = EXTRA[u.id];
+    if (X) { if (X.v) u.c = u.c.concat(X.v); if (X.r) u.r = X.r; } // las frases extra van DESPUÉS de las base: así sus ids no cambian
     u.cards = u.c.map((c, k) => {
       const o = { id: c[4] || (u.id + "." + k), es: c[0], en: c[1], pron: c[2] || "", note: c[3] || "", u };
       CARD[o.id] = o; CARDS.push(o); return o;
@@ -417,10 +455,10 @@ function migrate(o) {
     Object.entries(o.box).forEach(([i, b]) => { const id = "w" + i; if (!o.c[id]) o.c[id] = [Math.max(1, Math.min(6, +b || 0)), t]; });
     delete o.box;
   }
-  o.done = o.done || {}; o.v = 2;
+  o.done = o.done || {}; o.rd = o.rd || {}; o.dl = o.dl || {}; o.fin = o.fin || {}; o.v = 2;
   return o;
 }
-let S = { c: {}, done: {}, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -438,16 +476,43 @@ const bx = id => S.c[id] ? S.c[id][0] : 0;
 const seen = id => !!S.c[id];
 const mastered = id => bx(id) >= 4;
 function grade(c, ok) {
+  // Solo sube de nivel si le tocaba repaso hoy: practicar 10 veces el mismo día no cuenta como "dominarla".
+  const cur = S.c[c.id], isDue = !cur || cur[1] <= dayNum();
   let b = bx(c.id);
-  b = ok ? Math.min(6, b + 1) : Math.max(1, b - 2);
-  S.c[c.id] = [b, dayNum() + (ok ? IV[b] : 1)];
-  if (ok) S.xp += 10;
+  if (ok) { if (isDue) { b = Math.min(6, b + 1); S.c[c.id] = [b, dayNum() + IV[b]]; } S.xp += 10; }
+  else { b = Math.max(1, b - 2); S.c[c.id] = [b, dayNum() + 1]; }
   bumpStreak(); save(); renderMeta();
 }
 function introduce(c) { if (!S.c[c.id]) S.c[c.id] = [0, dayNum()]; S.xp += 2; bumpStreak(); save(); renderMeta(); }
 const dueCards = () => { const t = dayNum(); return CARDS.filter(c => S.c[c.id] && S.c[c.id][1] <= t); };
-const nextUnit = () => UNITS.find(u => !S.done[u.id]) || null;
+// Siguiente paso del curso: una unidad sin aprobar o el examen final de una etapa ({final: etapa})
+function nextUnit() {
+  for (const lv of COURSE) {
+    const u = lv.units.find(u => !S.done[u.id]);
+    if (u) return u;
+    if (lv.id !== "w" && !S.fin[lv.id]) return { final: true, lv };
+  }
+  return null;
+}
 const curLevel = () => (nextUnit() || UNITS[UNITS.length - 1]).lv;
+const REQ_REV = 0.8;
+function unitReq(u) {
+  const tot = u.cards.length, sn = unitSeen(u), need = Math.ceil(tot * REQ_REV), rev = u.cards.filter(c => bx(c.id) >= 2).length;
+  const items = [
+    { ok: sn === tot, t: `Aprender todas las frases (${sn}/${tot})` },
+    { ok: rev >= need, t: `Acertarlas en días distintos: ${Math.min(rev, need)}/${need} frases con 2 o más aciertos en días diferentes` },
+    { ok: !!S.dl[u.id], t: "Practicar la conversación completa" }
+  ];
+  if (u.r) items.push({ ok: !!S.rd[u.id], t: "Hacer la lectura y contestar bien sus preguntas" });
+  return { items, ok: items.every(x => x.ok) };
+}
+// Una etapa se abre cuando apruebas el examen final de todas las anteriores (la pista de trabajo no cuenta)
+function prevLocked(lv) {
+  if (lv.id === "w") return null;
+  for (const l of COURSE) { if (l === lv) return null; if (l.id !== "w" && !S.fin[l.id]) return l; }
+  return null;
+}
+const WEEKS = { k: "3 a 6 semanas", n0: "1 a 2 meses", n1: "2 a 4 meses", n2: "4 a 6 meses", w: "3 a 5 semanas", n3: "7 a 9 meses", n4: "6 a 8 meses", n5: "8 a 11 meses", n6: "1 a 1.5 años" };
 const unitSeen = u => u.cards.filter(c => seen(c.id)).length;
 
 function renderMeta() {
@@ -480,8 +545,16 @@ function say(text, o) {
   } catch (e) { o.onend && o.onend(); }
 }
 const stopAudio = () => { try { speechSynthesis.cancel(); } catch (e) {} };
+// Textos largos: se leen oración por oración (algunos navegadores cortan las lecturas largas)
+function sayLong(text, slow) {
+  stopAudio();
+  const parts = text.replace(/\n+/g, " ").match(/[^.!?]+[.!?]+["')]?|[^.!?]+$/g) || [text];
+  let i = 0; const next = () => { if (i < parts.length) say(parts[i++].trim(), { slow, keep: true, onend: next }); };
+  next();
+}
 // cualquier botón con data-say lo lee en voz alta
 document.addEventListener("click", e => {
+  const L = e.target.closest("[data-saylong]"); if (L) { const u = UNITS.find(x => x.id === L.dataset.saylong); if (u && u.r) sayLong(u.r.en, L.dataset.slow === "1"); return; }
   const b = e.target.closest("[data-say]"); if (!b) return;
   say(b.dataset.say, { slow: b.dataset.slow === "1" });
 });
@@ -637,21 +710,26 @@ function renderHoy() {
   if (due) s1 = `<div class="pstep"><div class="pnum">1</div><div class="pbody"><strong>Repaso</strong><span>${due} ${due === 1 ? "frase está" : "frases están"} por olvidarse. Repásalas primero.</span><div class="row"><button class="btn accent" id="goReview">Repasar ${Math.min(due, 20)} frases</button></div></div></div>`;
   else s1 = `<div class="pstep done"><div class="pnum">✓</div><div class="pbody"><strong>Repaso</strong><span class="muted">${anySeen ? "Al día. No tienes frases pendientes hoy." : "Cuando aprendas tus primeras frases, aquí aparecerán para repasarlas en el momento justo."}</span></div></div>`;
   let s2;
-  if (nu) {
-    const sn = unitSeen(nu), tot = nu.cards.length;
-    const what = sn < tot ? (sn ? `Llevas ${sn} de ${tot} frases.` : "Empieza por la explicación y luego aprende las frases.") : "Ya viste todas las frases: practica la conversación y haz el examen.";
+  if (nu && nu.final) {
+    s2 = `<div class="pstep"><div class="pnum">2</div><div class="pbody"><strong>Examen final de etapa</strong><span>Aprobaste todas las unidades de <b>${esc(nu.lv.short)}</b>. Para pasar a la siguiente etapa, presenta el examen final: 30 preguntas, necesitas 85%.</span><div class="row"><button class="btn primary" id="goFinal">Presentar examen final</button></div></div></div>`;
+  } else if (nu) {
+    const sn = unitSeen(nu), tot = nu.cards.length, rq = unitReq(nu);
+    const what = sn < tot ? (sn ? `Llevas ${sn} de ${tot} frases. Aprende las que faltan.` : "Empieza por la explicación y luego aprende las frases.")
+      : rq.ok ? "Cumpliste los requisitos: ya puedes presentar el examen de la unidad."
+      : "Ya conoces todas las frases. Haz la conversación y la lectura, y sigue con tus repasos diarios: el examen se abre cuando las aciertes en días distintos.";
     s2 = `<div class="pstep"><div class="pnum">2</div><div class="pbody"><strong>Lección</strong><span><b>${esc(nu.lv.short)} · Unidad ${nu.k}:</b> ${esc(nu.t)}</span><span class="muted">${what}</span><div class="row"><button class="btn primary" id="goUnit">Abrir lección</button></div></div></div>`;
   } else s2 = `<div class="pstep done"><div class="pnum">✓</div><div class="pbody"><strong>Lección</strong><span>¡Terminaste todo el curso! Sigue repasando y practicando conversación con personas reales.</span></div></div>`;
   const s3 = `<div class="pstep"><div class="pnum">3</div><div class="pbody"><strong>Inglés real · 10–20 min</strong><span>${esc(LISTEN_TIP[lv.cefr] || LISTEN_TIP.B1)}</span><div class="row"><button class="btn ghost sm" id="goMetodo">Ver qué escuchar</button></div></div></div>`;
   $("#plan").innerHTML = s1 + s2 + s3;
   if ($("#goReview")) $("#goReview").onclick = startReview;
   if ($("#goUnit")) $("#goUnit").onclick = () => openUnit(nu);
+  if ($("#goFinal")) $("#goFinal").onclick = () => finalExam(nu.lv);
   $("#goMetodo").onclick = () => view("metodo");
 
   const learned = Object.keys(S.c).filter(id => CARD[id]).length, mast = CARDS.filter(c => mastered(c.id)).length, doneU = UNITS.filter(u => S.done[u.id]).length;
   $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>unidades aprobadas</span></div>`;
   $("#courseBar").style.width = (doneU / UNITS.length * 100) + "%";
-  $("#statsTxt").textContent = `El curso tiene ${CARDS.length} frases en ${UNITS.length} unidades. Una frase está "dominada" cuando la aciertas varias veces en días distintos.`;
+  $("#statsTxt").textContent = `El curso tiene ${CARDS.length} frases en ${UNITS.length} unidades. Una frase está "dominada" cuando la aciertas varias veces en días distintos. Practicar mucho el mismo día ayuda, pero solo cuenta para tu nivel el repaso del día que te toca.`;
   document.querySelectorAll(".mode").forEach(b => { if (b.dataset.mode === "speak") b.disabled = !srOK; });
   const sp = document.querySelector('.mode[data-mode="speak"] small');
   if (!srOK && sp) sp.textContent = "Tu navegador no permite usar el micrófono aquí";
@@ -661,24 +739,29 @@ function renderHoy() {
 function renderCurso() {
   const nu = nextUnit();
   $("#levels").innerHTML = COURSE.map(lv => {
-    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length;
+    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length, fin = S.fin[lv.id], lock = prevLocked(lv);
+    const nCards = lv.units.reduce((a, u) => a + u.cards.length, 0);
+    const finBtn = lv.id === "w" ? (all ? `<span class="ustat ok">✓ Pista completa</span>` : "")
+      : fin ? `<span class="ustat ok">✓ Etapa aprobada</span>`
+      : `<button class="btn ${all ? "primary" : "ghost"} sm" data-lvexam="${lv.id}">${all ? "Presentar examen final" : "Ya domino esta etapa · examen final"}</button>`;
     return `<div class="level" id="lv-${lv.id}">
       <div class="lhead"><div class="top"><h3>${esc(lv.name)}</h3><span class="cefr">${esc(lv.cefr)}</span></div>
         <p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p>
+        <p class="ustat multi" style="margin:0">${lv.units.length} unidades · ${nCards} frases · ${WEEKS[lv.id] || ""} a 30–45 min diarios</p>
+        ${lock ? `<p class="lock" style="margin:0">🔒 Los exámenes de esta etapa se abren al aprobar el examen final de ${esc(lock.short)}. Las lecciones sí las puedes ver.</p>` : ""}
         <div class="mini"><i style="width:${dn / lv.units.length * 100}%"></i></div>
-        <div class="row" style="justify-content:space-between;align-items:center"><span class="ustat">${dn}/${lv.units.length} unidades aprobadas</span>
-        ${all ? `<span class="ustat ok">✓ Etapa completa</span>` : `<button class="btn ghost sm" data-lvexam="${lv.id}">Ya domino esta etapa · examen</button>`}</div>
+        <div class="row" style="justify-content:space-between;align-items:center"><span class="ustat">${dn}/${lv.units.length} unidades aprobadas</span>${finBtn}</div>
       </div>
       ${lv.units.map(u => {
         const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id];
         return `<button class="urow${nu === u ? " next" : ""}" data-unit="${u.id}"><span class="unum">${String(u.k).padStart(2, "0")}</span>
-          <span class="t"><div>${esc(u.t)}</div><div>${nu === u ? "Siguiente lección · " : ""}${sn}/${tot} frases</div></span>
+          <span class="t"><div>${esc(u.t)}</div><div>${nu === u ? "Siguiente lección · " : ""}${sn}/${tot} frases${!d && sn === tot && unitReq(u).ok ? " · examen listo" : ""}</div></span>
           <span class="ustat${d ? " ok" : ""}">${d ? "✓ Aprobada" : sn ? Math.round(sn / tot * 100) + "%" : "›"}</span></button>`;
       }).join("")}
     </div>`;
   }).join("");
   document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => openUnit(UNITS.find(u => u.id === b.dataset.unit)));
-  document.querySelectorAll("[data-lvexam]").forEach(b => b.onclick = () => levelExam(COURSE.find(l => l.id === b.dataset.lvexam)));
+  document.querySelectorAll("[data-lvexam]").forEach(b => b.onclick = () => finalExam(COURSE.find(l => l.id === b.dataset.lvexam)));
 }
 
 /* ---------- UNIDAD ---------- */
@@ -695,39 +778,59 @@ function itemHTML(c, showUnit) {
   return `<div class="item">${dotsHTML(c.id)}<div class="t"><div>${esc(c.en)}</div><div>${esc(c.es)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
 }
 let showEs = false;
+let showRd = false;
+const paras = t => t.split(/\n+/).map(x => `<p>${esc(x)}</p>`).join("");
 function renderUnit(u) {
-  const sn = unitSeen(u), tot = u.cards.length, fresh = tot - sn, d = S.done[u.id];
+  const sn = unitSeen(u), tot = u.cards.length, fresh = tot - sn, d = S.done[u.id], rq = unitReq(u), lock = prevLocked(u.lv);
   const prev = UNITS[u.n - 1], next = UNITS[u.n + 1];
+  const nq = Math.min(15, tot) + (u.r ? u.r.q.length : 0), sessionsLeft = Math.ceil(fresh / 6);
+  const canExam = !lock && (d || rq.ok);
   $("#vUnit").innerHTML = `
     <button class="back" id="uBack">← Curso</button>
     <div style="display:flex;flex-direction:column;gap:6px">
       <div class="label">${esc(u.lv.short)} · Unidad ${u.k} · ${esc(u.lv.cefr)}</div>
       <h2>${esc(u.t)}</h2>
       <p class="muted" style="margin:0">${esc(u.goal)}</p>
+      <p class="ustat multi" style="margin:0">${tot} frases · normalmente toma de 3 a 6 días, porque el examen pide que las aciertes en días distintos</p>
     </div>
     <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
-    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases</h3><span class="ustat" style="margin-left:auto">${sn}/${tot} aprendidas</span></div><div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
+    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn}/${tot} aprendidas</span></div><div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
     <section class="sec"><div class="sh"><span class="n">03</span><h3>Practica</h3></div><div class="sb">
-      <p>${fresh ? `Vas a conocer cada frase, oírla, repetirla en voz alta y luego ponerla a prueba. Las que falles vuelven al final.` : `Ya conoces todas las frases. Practica las que más te cuestan.`}</p>
+      <p>${fresh ? `Vas a conocer cada frase, oírla, repetirla en voz alta y ponerla a prueba, de 6 en 6. Te ${sessionsLeft === 1 ? "falta 1 sesión" : `faltan unas ${sessionsLeft} sesiones`} para conocer todas.` : `Ya conoces todas las frases. Ahora lo importante son tus repasos diarios en la pestaña Hoy; aquí puedes practicar extra las que más te cuestan.`}</p>
       <div class="row"><button class="btn accent" id="uLearn">${fresh ? `Aprender ${Math.min(6, fresh)} frases nuevas` : "Practicar esta unidad"}</button></div>
     </div></section>
-    <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3></div><div class="sb">
+    <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</div><div class="sb">
       <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${esc(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
       <div class="row"><button class="btn speak" id="dPlay">${SPK} Escuchar diálogo</button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
       <div class="row"><button class="btn primary" id="dPractice">Practicar: tú eres B</button></div>
     </div></section>
-    <section class="sec"><div class="sh"><span class="n">05</span><h3>Examen</h3></div><div class="sb">
-      ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>` : `<p>10 preguntas sin ayuda: escribir, dictado${srOK ? ", hablar" : ""} y comprensión. Necesitas 8 o más para aprobar y pasar a la siguiente unidad.</p>`}
-      ${!d && sn < tot ? `<p class="muted" style="font-size:14px">Te recomendamos aprender todas las frases antes. Si ya las sabes, adelante.</p>` : ""}
-      <div class="row"><button class="btn ${d ? "" : "primary"}" id="uExam">${d ? "Repetir examen" : "Hacer examen"}</button></div>
+    ${u.r ? `<section class="sec"><div class="sh"><span class="n">05</span><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</div><div class="sb">
+      <div class="label">${esc(u.r.t)}</div>
+      <div class="reading" id="rdEn">${paras(u.r.en)}</div>
+      <div class="reading es" id="rdEs" ${showRd ? "" : "hidden"}>${paras(u.r.es)}</div>
+      <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Primero intenta entenderla sin la traducción.</p>
+      <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar lectura</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
+      <div class="row"><button class="btn primary" id="rQ">Contestar ${u.r.q.length} preguntas</button></div>
+    </div></section>` : ""}
+    <section class="sec"><div class="sh"><span class="n">${u.r ? "06" : "05"}</span><h3>Examen de la unidad</h3></div><div class="sb">
+      ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>`
+        : `<p>${nq} preguntas sin ayuda: escribir, dictado${srOK ? ", hablar" : ""}, comprensión auditiva${u.r ? " y lectura" : ""}. Necesitas 85% (${Math.ceil(nq * 0.85)} de ${nq}) para aprobar.</p>
+           <div class="label">Para desbloquearlo</div>
+           <ul class="req">${rq.items.map(x => `<li class="${x.ok ? "ok" : ""}">${esc(x.t)}</li>`).join("")}</ul>`}
+      ${lock ? `<p class="lock" style="margin:0">🔒 Primero aprueba el examen final de ${esc(lock.short)}.</p>` : ""}
+      <div class="row"><button class="btn ${d ? "" : "primary"}" id="uExam" ${canExam ? "" : "disabled"}>${d ? "Repetir examen" : canExam ? "Presentar examen" : "Examen bloqueado"}</button></div>
     </div></section>
     <div class="pager">${prev ? `<button class="btn ghost" id="uPrev">← ${esc(prev.t)}</button>` : "<span></span>"}${next ? `<button class="btn ghost" id="uNext">${esc(next.t)} →</button>` : ""}</div>`;
   $("#uBack").onclick = () => view("curso");
   $("#uLearn").onclick = () => learnUnit(u);
-  $("#uExam").onclick = () => unitExam(u);
+  $("#uExam").onclick = () => { if (canExam) unitExam(u); };
   $("#dPractice").onclick = () => dialogPractice(u);
   $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
   $("#dPlay").onclick = () => playDialog(u.d);
+  if (u.r) {
+    $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
+    $("#rQ").onclick = () => readingPractice(u);
+  }
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
 }
@@ -798,13 +901,24 @@ function learnUnit(u) {
   shuffle(old).forEach(c => steps.push({ k: pickKind(c, "learn"), c }));
   runSession(steps, { mode: "learn", unit: u, title: u.t });
 }
+const rqSteps = u => u.r ? u.r.q.map((q, i) => ({ k: "rq", u, q, qi: i })) : [];
 function unitExam(u) {
-  const cards = shuffle(u.cards).slice(0, 10);
-  runSession(cards.map(c => ({ k: pickKind(c, "exam"), c })), { mode: "exam", unit: u, title: "Examen: " + u.t });
+  const cards = shuffle(u.cards).slice(0, 15);
+  const steps = cards.map(c => ({ k: pickKind(c, "exam"), c }));
+  rqSteps(u).forEach(x => steps.splice(Math.floor(Math.random() * (steps.length + 1)), 0, x));
+  runSession(steps, { mode: "exam", unit: u, title: "Examen: " + u.t });
 }
-function levelExam(lv) {
-  const cards = shuffle(lv.units.flatMap(u => u.cards)).slice(0, 15);
-  runSession(cards.map(c => ({ k: pickKind(c, "exam"), c })), { mode: "levelexam", level: lv, title: "Examen de " + lv.short });
+// Examen final de etapa: 30 frases de todas sus unidades (2 por unidad mínimo cuando alcanza) + preguntas de 2 lecturas
+function finalExam(lv) {
+  const per = shuffle(lv.units).flatMap(u => shuffle(u.cards).slice(0, 2));
+  const pool = shuffle(per).slice(0, 26);
+  const rest = shuffle(lv.units.flatMap(u => u.cards).filter(c => !pool.includes(c))).slice(0, 30 - pool.length);
+  const steps = shuffle([...pool, ...rest]).map(c => ({ k: pickKind(c, "exam"), c }));
+  shuffle(lv.units.filter(u => u.r)).slice(0, 2).forEach(u => rqSteps(u).slice(0, 2).forEach(x => steps.splice(Math.floor(Math.random() * (steps.length + 1)), 0, x)));
+  runSession(steps, { mode: "final", level: lv, title: "Examen final: " + lv.short });
+}
+function readingPractice(u) {
+  runSession(rqSteps(u), { mode: "reading", unit: u, title: "Lectura: " + u.r.t });
 }
 function dialogPractice(u) {
   runSession(u.d.map(l => ({ k: "dlg", line: l })), { mode: "dialog", unit: u, title: "Conversación" });
@@ -818,7 +932,7 @@ function setProg() {
 function nextStep() { SES.i++; step(); }
 function answered(c, ok) {
   grade(c, ok); SES.graded++; if (ok) SES.ok++;
-  const exam = SES.mode === "exam" || SES.mode === "levelexam";
+  const exam = SES.mode === "exam" || SES.mode === "final";
   if (!ok && !exam && !SES.retried.has(c.id)) { SES.retried.add(c.id); SES.steps.push({ k: sameText(c) ? "dict" : canOrder(c) ? "order" : "choice", c, retry: true }); }
 }
 function answerBlock(c) {
@@ -938,6 +1052,25 @@ function step() {
     $("#sType").onclick = () => { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); };
     return;
   }
+  if (s.k === "rq") {
+    const [q, opts, ans] = s.q, order = shuffle(opts.map((t, i) => ({ t, i })));
+    st.innerHTML = `<div class="label">Comprensión de lectura · ${esc(s.u.r.t)}</div>
+      <details class="rtext"${SES.mode === "reading" ? " open" : ""}><summary>Ver el texto</summary><div class="reading" style="margin-top:8px;font-size:15px">${paras(s.u.r.en)}</div></details>
+      <div class="prompt" style="font-size:20px">${esc(q)}</div>
+      <div class="opts">${order.map(o => `<button class="opt" data-i="${o.i}">${esc(o.t)}</button>`).join("")}</div>`;
+    st.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const ok = +b.dataset.i === ans;
+      st.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (+x.dataset.i === ans) x.classList.add("ok"); });
+      if (!ok) b.classList.add("bad");
+      SES.graded++; if (ok) SES.ok++;
+      const d = document.createElement("div"); d.className = "fb " + (ok ? "ok" : "bad");
+      d.innerHTML = `<b>${ok ? "¡Correcto!" : "No. La respuesta es:"}</b>${ok ? "" : `<div>${esc(opts[ans])}</div>`}`;
+      st.appendChild(d);
+      const nx = document.createElement("div"); nx.className = "row"; nx.innerHTML = `<button class="btn primary" id="next">Continuar</button>`;
+      st.appendChild(nx); $("#next").onclick = nextStep; $("#next").focus();
+    });
+    return;
+  }
   if (s.k === "dlg") {
     const [who, en, es] = s.line;
     if (who === "A") {
@@ -970,8 +1103,8 @@ function finish() {
   const st = $("#stage"); st.className = "sbody done";
   const n = SES.graded, ok = SES.ok, m = SES.mode;
   let title = "Sesión terminada", big = n ? `${ok}/${n}` : "✓", msg = "", extra = "", btns = "";
-  if (m === "exam" || m === "levelexam") {
-    const pass = ok >= Math.ceil(n * 0.8);
+  if (m === "exam" || m === "final") {
+    const pass = ok >= Math.ceil(n * 0.85);
     title = SES.title;
     if (pass) {
       const t = dayNum();
@@ -981,26 +1114,33 @@ function finish() {
         msg = "¡Aprobaste la unidad! Las frases seguirán apareciendo en tus repasos para que no se te olviden.";
       } else {
         SES.level.units.forEach(u => { S.done[u.id] = 1; u.cards.forEach(c => { if (!S.c[c.id]) S.c[c.id] = [3, t + 4 + Math.floor(Math.random() * 20)]; }); });
-        S.xp += 150;
-        msg = `¡Aprobaste ${SES.level.short}! Lo marcamos como completo y sus frases entrarán poco a poco a tus repasos.`;
+        S.fin[SES.level.id] = 1; S.xp += 200;
+        msg = `¡Aprobaste el examen final de ${SES.level.short}! Se abre la siguiente etapa. Las frases de esta etapa seguirán en tus repasos para que no se te olviden.`;
       }
       bumpStreak(); save(); renderMeta();
       extra = `<span class="badge ok">Aprobado</span>`;
     } else {
-      msg = m === "exam" ? "Necesitas 8 de 10. Practica las frases que fallaste y vuelve a intentarlo: así funciona el aprendizaje." : `Necesitas ${Math.ceil(n * 0.8)} de ${n}. Mejor empieza el nivel por sus unidades: vas a avanzar rápido en lo que ya sabes.`;
+      msg = m === "exam" ? `Necesitas ${Math.ceil(n * 0.85)} de ${n}. Sigue con tus repasos unos días más y vuelve a intentarlo: las frases que fallaste te van a salir más seguido.` : `Necesitas ${Math.ceil(n * 0.85)} de ${n}. Repasa las unidades de esta etapa (o empiézala por sus lecciones si te la querías saltar) y vuelve a intentarlo.`;
       extra = `<span class="badge bad">Aún no</span>`;
     }
     const nu = nextUnit();
-    btns = pass && nu ? `<button class="btn primary" id="fNext">Siguiente lección: ${esc(nu.t)}</button>` : `<button class="btn primary" id="fRetry">${m === "exam" ? "Practicar la unidad" : "Ver el nivel"}</button>`;
+    btns = pass && nu ? `<button class="btn primary" id="fNext">${nu.final ? "Siguiente: examen final de " + esc(nu.lv.short) : "Siguiente lección: " + esc(nu.t)}</button>` : `<button class="btn primary" id="fRetry">${m === "exam" ? "Volver a la unidad" : "Ver la etapa"}</button>`;
+  } else if (m === "reading") {
+    title = SES.title;
+    const pass = ok >= Math.ceil(n * 0.66);
+    if (pass) { S.rd[SES.unit.id] = 1; save(); }
+    msg = pass ? "¡Bien! Lectura completada. Léela otra vez en voz alta mañana para fijar el vocabulario." : "Vuelve a leer el texto con calma (puedes ver la traducción) e inténtalo otra vez.";
+    btns = `<button class="btn primary" id="fUnit">Volver a la unidad</button>`;
   } else if (m === "dialog") {
     title = "Conversación terminada";
+    S.dl[SES.unit.id] = 1; save();
     msg = ok === n ? "¡Excelente! Repite el diálogo hasta que te salga sin pensar." : "Repítela un par de veces más: la meta es responder sin pensar.";
     btns = `<button class="btn primary" id="fAgain">Repetir conversación</button>`;
   } else {
     msg = n && ok / n >= 0.8 ? "¡Excelente trabajo!" : "Buen trabajo. Las frases que fallaste te van a salir más seguido hasta que se te queden.";
     if (m === "learn") {
       const u = SES.unit, left = u.cards.length - unitSeen(u);
-      btns = left ? `<button class="btn primary" id="fMore">Aprender ${Math.min(6, left)} frases más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y el examen</button>`;
+      btns = left ? `<button class="btn primary" id="fMore">Aprender ${Math.min(6, left)} frases más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y la lectura</button>`;
     } else if (m === "review") {
       const left = dueCards().length;
       btns = left ? `<button class="btn primary" id="fRev">Repasar ${Math.min(20, left)} más</button>` : "";
@@ -1012,7 +1152,7 @@ function finish() {
     <div class="row" style="justify-content:center">${btns}<button class="btn" id="fBack">Volver</button></div>`;
   const on = (id, fn) => { const b = $("#" + id); if (b) b.onclick = fn; };
   const back = SES.back, unit = SES.unit, level = SES.level, kind = SES.steps[0] && SES.steps[0].k;
-  on("fNext", () => openUnit(nextUnit()));
+  on("fNext", () => { const nu = nextUnit(); if (nu.final) finalExam(nu.lv); else openUnit(nu); });
   on("fRetry", () => { if (unit) openUnit(unit); else { view("curso"); const el = $("#lv-" + level.id); if (el) el.scrollIntoView(); } });
   on("fAgain", () => dialogPractice(unit));
   on("fMore", () => learnUnit(unit));
@@ -1043,12 +1183,12 @@ function merge(a, b) {
   a = migrate(Object.assign({}, a)); b = migrate(Object.assign({}, b));
   const c = Object.assign({}, a.c);
   Object.entries(b.c || {}).forEach(([k, v]) => { const x = c[k]; if (!x || v[0] > x[0] || (v[0] === x[0] && v[1] > x[1])) c[k] = v; });
-  const done = Object.assign({}, a.done, b.done);
+  const done = Object.assign({}, a.done, b.done), rd = Object.assign({}, a.rd, b.rd), dl = Object.assign({}, a.dl, b.dl), fin = Object.assign({}, a.fin, b.fin);
   let streak, last;
   if (dv(a.last) > dv(b.last)) { streak = a.streak; last = a.last; }
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
-  return { c, done, xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";

@@ -1,25 +1,26 @@
 # Inglés Práctico
 
-App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profesional**, organizada como la escuela: 109 unidades y 1,293 frases.
+App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profesional**, organizada como la escuela: 109 unidades, 2,928 frases y 109 lecturas.
 
-| Etapa | Archivo | MCER | Unidades |
-|---|---|---|---|
-| Kínder · Primeras palabras | `k.js` | Inicio | 14 |
-| Primaria 1 · Primeras frases | `n0.js` | Pre-A1 | 9 |
-| Primaria 2 · Lo básico | `n1.js` | A1 | 12 |
-| Secundaria · Básico alto | `n2.js` | A2 | 16 |
-| Pista extra · Inglés de trabajo | `w.js` | A2–B1 | 5 |
-| Preparatoria · Intermedio | `n3.js` | B1 | 16 |
-| Universidad 1 · Intermedio alto | `n4.js` | B2 | 15 |
-| Universidad 2 · Avanzado | `n5.js` | C1 | 12 |
-| Carrera profesional · Dominio | `n6.js` | C2 | 10 |
+| Etapa | Lecciones | Vocabulario y lectura | MCER | Unidades |
+|---|---|---|---|---|
+| Kínder · Primeras palabras | `k.js` | `x-k.js` | Inicio | 14 |
+| Primaria 1 · Primeras frases | `n0.js` | `x-n0.js` | Pre-A1 | 9 |
+| Primaria 2 · Lo básico | `n1.js` | `x-n1.js` | A1 | 12 |
+| Secundaria · Básico alto | `n2.js` | `x-n2.js` | A2 | 16 |
+| Pista extra · Inglés de trabajo | `w.js` | `x-w.js` | A2–B1 | 5 |
+| Preparatoria · Intermedio | `n3.js` | `x-n3.js` | B1 | 16 |
+| Universidad 1 · Intermedio alto | `n4.js` | `x-n4.js` | B2 | 15 |
+| Universidad 2 · Avanzado | `n5.js` | `x-n5.js` | C1 | 12 |
+| Carrera profesional · Dominio | `n6.js` | `x-n6.js` | C2 | 10 |
 
 ## Qué incluye
 - **Plan de hoy:** repaso pendiente → siguiente lección → inglés real.
-- **Unidades:** explicación de gramática en español, frases con audio y pronunciación, práctica, conversación (tú eres B) y examen (8/10 para aprobar).
-- **Repetición espaciada:** cada frase tiene nivel 0–6; al acertar se repasa en 1, 2, 4, 8, 16 y 35 días. Las que fallas vuelven al día siguiente y se repiten al final de la sesión.
+- **Unidades:** explicación de gramática en español, ~27 frases y vocabulario con audio (pronunciación escrita hasta Secundaria), práctica, conversación (tú eres B), lectura con preguntas y examen.
+- **Avance exigente:** el examen de unidad se desbloquea al aprender todas las frases, acertar el 80% en días distintos, practicar la conversación y aprobar la lectura; pide 85%. Cada etapa termina con un examen final de 30 preguntas (85%) que abre la siguiente.
+- **Repetición espaciada:** cada frase tiene nivel 0–6; al acertar el día que toca se repasa en 1, 2, 4, 8, 16 y 35 días (practicar antes no sube el nivel). Las que fallas vuelven al día siguiente y se repiten al final de la sesión.
 - **Ejercicios:** opción múltiple, comprensión auditiva, escribir, dictado, armar la frase, hablar con micrófono (reconocimiento de voz del navegador) y escucha y repite.
-- **Examen de etapa** para saltarte lo que ya sabes.
+- **Examen final de etapa** también sirve para saltarte lo que ya sabes.
 - **Método:** rutina diaria, etapas y qué escuchar en cada nivel.
 
 ## Uso
@@ -47,7 +48,14 @@ Cada unidad en `content/*.js` tiene:
   d: [["A", "Line in English", "Traducción"], ["B", "...", "..."]]
 }
 ```
-El avance de cada frase se guarda por su posición dentro de la unidad, así que **agrega frases al final** de `c` en lugar de insertarlas en medio. En `w.js` cada frase lleva un identificador fijo (`w0`…`w44`): no lo cambies.
+El vocabulario extra y la lectura de cada unidad van en `content/x-*.js`:
+```js
+n1u3: {
+  v: [["Español", "English", "pronunciación", "nota"]],
+  r: { t: "Título", en: "Texto\ncon párrafos", es: "Traducción", q: [["Pregunta", ["a", "b", "c"], 0]] }
+}
+```
+El avance de cada frase se guarda por su posición dentro de la unidad (primero las de `c`, luego las de `v`). Por eso **no agregues frases a `c`**; agrégalas **al final de `v`**. En `w.js` cada frase lleva un identificador fijo (`w0`…`w44`): no lo cambies.
 
 Después de editar, sube el número de versión en `sw.js`.
 
