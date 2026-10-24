@@ -2,7 +2,7 @@
    Son las 45 frases originales de la app. El 5.º elemento ("w0"…"w44") es su identificador fijo:
    así se conserva el avance que ya tenías. No lo cambies. */
 (window.COURSE = window.COURSE || []).push({
-  id: "w", name: "Pista extra · Inglés de trabajo", cefr: "A2–B1",
+  id: "w", name: "Pista extra · Inglés de trabajo", short: "Trabajo", cefr: "A2–B1",
   desc: "Las frases originales de la app: llamadas, cotizaciones, entregas, calidad, juntas y negociación.",
   units: [
     {

@@ -1,13 +1,25 @@
 # Inglés Práctico
 
-App web instalable (PWA) para aprender inglés **de cero a fluidez**: 6 niveles (Pre-A1 a C1) más una pista de inglés de trabajo, con 47 unidades y más de 500 frases.
+App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profesional**, organizada como la escuela: 109 unidades y 1,293 frases.
+
+| Etapa | Archivo | MCER | Unidades |
+|---|---|---|---|
+| Kínder · Primeras palabras | `k.js` | Inicio | 14 |
+| Primaria 1 · Primeras frases | `n0.js` | Pre-A1 | 9 |
+| Primaria 2 · Lo básico | `n1.js` | A1 | 12 |
+| Secundaria · Básico alto | `n2.js` | A2 | 16 |
+| Pista extra · Inglés de trabajo | `w.js` | A2–B1 | 5 |
+| Preparatoria · Intermedio | `n3.js` | B1 | 16 |
+| Universidad 1 · Intermedio alto | `n4.js` | B2 | 15 |
+| Universidad 2 · Avanzado | `n5.js` | C1 | 12 |
+| Carrera profesional · Dominio | `n6.js` | C2 | 10 |
 
 ## Qué incluye
 - **Plan de hoy:** repaso pendiente → siguiente lección → inglés real.
 - **Unidades:** explicación de gramática en español, frases con audio y pronunciación, práctica, conversación (tú eres B) y examen (8/10 para aprobar).
 - **Repetición espaciada:** cada frase tiene nivel 0–6; al acertar se repasa en 1, 2, 4, 8, 16 y 35 días. Las que fallas vuelven al día siguiente y se repiten al final de la sesión.
 - **Ejercicios:** opción múltiple, comprensión auditiva, escribir, dictado, armar la frase, hablar con micrófono (reconocimiento de voz del navegador) y escucha y repite.
-- **Examen de nivel** para saltarte lo que ya sabes.
+- **Examen de etapa** para saltarte lo que ya sabes.
 - **Método:** rutina diaria, etapas y qué escuchar en cada nivel.
 
 ## Uso
@@ -20,7 +32,7 @@ Funciona sin conexión después de abrirla una vez.
 
 ## Estructura
 - `index.html` — la app (vistas, ejercicios, repaso espaciado, sincronización)
-- `content/*.js` — el contenido del curso, un archivo por nivel (`n0`…`n5`) y `w.js` (inglés de trabajo)
+- `content/*.js` — el contenido del curso, un archivo por etapa (ver tabla). El orden de carga en `index.html` define el orden del curso. Las unidades se pueden insertar en cualquier posición: el avance se guarda por el `id` de la unidad, no por su lugar.
 - `manifest.webmanifest` — datos de instalación
 - `sw.js` — modo sin conexión (sube el número de `CACHE` al publicar una versión nueva)
 - `icon-*.png` — íconos

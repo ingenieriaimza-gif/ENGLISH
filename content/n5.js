@@ -1,7 +1,7 @@
 /* Nivel 5 · Avanzado (C1) */
 (window.COURSE = window.COURSE || []).push({
-  id: "n5", name: "Nivel 5 · Avanzado y fluidez", cefr: "C1",
-  desc: "Arrepentimientos, matizar, expresiones idiomáticas, debatir, dirigir juntas y negociar.",
+  id: "n5", name: "Universidad 2 · Avanzado", short: "Universidad 2", cefr: "C1",
+  desc: "Condicionales avanzados, matizar, énfasis, inversión, lenguaje académico, ensayos, debates, juntas, negociación y lenguaje coloquial.",
   units: [
     {
       id: "n5u1", t: "Tercer condicional y arrepentimientos",
@@ -35,6 +35,40 @@
         ["B", "Well, it could have been worse. Is there another one next year?", "Bueno, pudo ser peor. ¿Hay otra el próximo año?"],
         ["A", "Yes, there is.", "Sí, hay."],
         ["B", "Then this time, don't leave it to the last minute.", "Entonces esta vez no lo dejes para el último momento."]
+      ]
+    },
+    {
+      id: "n5u7", t: "Condicionales mixtos",
+      goal: "Conectar el pasado con el presente en situaciones hipotéticas.",
+      g: [
+        "Mezclan el segundo y el tercer condicional cuando el tiempo de la condición y del resultado no coincide.",
+        "Pasado → presente: If + had + participio, would + verbo.",
+        ["If I had studied medicine, I would be a doctor now.", "Si hubiera estudiado medicina, ahora sería doctor."],
+        "Presente → pasado: If + pasado, would have + participio.",
+        ["If I were more organized, I wouldn't have missed the deadline.", "Si fuera más organizado, no se me habría pasado la fecha."],
+        "!Pista: busca palabras como now, today o yesterday para saber qué parte es presente y cuál pasado."
+      ],
+      c: [
+        ["Si hubiera estudiado medicina, ahora sería doctor.", "If I had studied medicine, I would be a doctor now.", "", ""],
+        ["Si hubiera aceptado ese trabajo, ahora viviría en Canadá.", "If I had taken that job, I would live in Canada now.", "", ""],
+        ["Si no hubiera perdido el vuelo, ahora estaría en la playa.", "If I hadn't missed the flight, I'd be on the beach now.", "", ""],
+        ["Si hubieras dormido bien, no estarías tan cansado.", "If you had slept well, you wouldn't be so tired.", "", ""],
+        ["Si fuera más organizado, no se me habría pasado la fecha.", "If I were more organized, I wouldn't have missed the deadline.", "", ""],
+        ["Si hablara francés, habría conseguido el puesto.", "If I spoke French, I would have gotten the job.", "", ""],
+        ["Si no le tuviera miedo a volar, habría ido contigo.", "If I weren't afraid of flying, I would have gone with you.", "", ""],
+        ["Si hubiéramos invertido entonces, ahora seríamos ricos.", "If we had invested back then, we'd be rich now.", "", ""],
+        ["Si no fuera tan terco, ya lo habría arreglado.", "If he weren't so stubborn, he'd have fixed it by now.", "", ""],
+        ["Si me hubieras avisado, ahora no estaríamos en este lío.", "If you had told me, we wouldn't be in this mess now.", "", ""],
+        ["¿Dónde estarías ahora si no te hubieras mudado?", "Where would you be now if you hadn't moved?", "", ""],
+        ["Si lo conociera mejor, no lo habría contratado.", "If I knew him better, I wouldn't have hired him.", "", ""]
+      ],
+      d: [
+        ["A", "Do you ever think about what would have happened if you had stayed in Mexico?", "¿A veces piensas qué habría pasado si te hubieras quedado en México?"],
+        ["B", "Sometimes. If I had stayed, I'd probably be running my dad's business now.", "A veces. Si me hubiera quedado, probablemente ahora estaría manejando el negocio de mi papá."],
+        ["A", "Would you be happier?", "¿Serías más feliz?"],
+        ["B", "Maybe not. If I weren't so curious, I would never have left.", "Tal vez no. Si no fuera tan curioso, nunca me habría ido."],
+        ["A", "And if you hadn't left, we wouldn't know each other.", "Y si no te hubieras ido, no nos conoceríamos."],
+        ["B", "Exactly. So no regrets!", "Exacto. ¡Así que sin arrepentimientos!"]
       ]
     },
     {
@@ -199,6 +233,172 @@
         ["B", "We have a cheaper offer from another supplier. How about forty-five, with payment in sixty days?", "Tenemos una oferta más barata de otro proveedor. ¿Qué tal cuarenta y cinco, con pago a sesenta días?"],
         ["A", "Forty-five is fine, as long as you pay in thirty days.", "Cuarenta y cinco está bien, siempre y cuando paguen a treinta días."],
         ["B", "We have a deal. Can we put that in writing?", "Trato hecho. ¿Lo podemos poner por escrito?"]
+      ]
+    },
+    {
+      id: "n5u8", t: "Énfasis: lo que necesito es…",
+      goal: "Resaltar la parte más importante de lo que dices.",
+      g: [
+        "What + sujeto + verbo + is… pone el foco en una idea (cleft sentence).",
+        ["What I need is more time.", "Lo que necesito es más tiempo."],
+        "It was… who / that… resalta quién o qué:",
+        ["It was Ana who found the error.", "Fue Ana quien encontró el error."],
+        "do / does / did antes del verbo en afirmativo da énfasis o contradice:",
+        ["I did call you! · I do understand.", "¡Sí te llamé! · De verdad entiendo."],
+        "!The thing is… / The point is… son formas naturales de ir al grano."
+      ],
+      c: [
+        ["Lo que necesito es más tiempo.", "What I need is more time.", "", ""],
+        ["Lo que me molesta es la falta de comunicación.", "What bothers me is the lack of communication.", "", ""],
+        ["Lo que hicimos fue cambiar de proveedor.", "What we did was change suppliers.", "", ""],
+        ["Fue Ana quien encontró el error.", "It was Ana who found the error.", "", ""],
+        ["Fue en 2018 cuando empezamos.", "It was in 2018 that we started.", "", ""],
+        ["¡Sí te llamé!", "I did call you!", "", ""],
+        ["De verdad entiendo tu punto.", "I do understand your point.", "", ""],
+        ["El asunto es que no tenemos presupuesto.", "The thing is, we don't have the budget.", "", ""],
+        ["El punto es que funciona.", "The point is that it works.", "", ""],
+        ["Lo único que quiero es una respuesta clara.", "All I want is a clear answer.", "", ""],
+        ["La razón por la que llamé es para disculparme.", "The reason I called is to apologize.", "", ""],
+        ["Lo que más me gusta de mi trabajo es la gente.", "What I like most about my job is the people.", "", ""]
+      ],
+      d: [
+        ["A", "Why didn't you call me yesterday?", "¿Por qué no me llamaste ayer?"],
+        ["B", "I did call you! Twice. You didn't answer.", "¡Sí te llamé! Dos veces. No contestaste."],
+        ["A", "Oh, sorry. So, what's the problem with the project?", "Ah, perdón. Entonces, ¿cuál es el problema con el proyecto?"],
+        ["B", "The thing is, we're behind schedule. What we need is two more engineers.", "El asunto es que vamos atrasados. Lo que necesitamos son dos ingenieros más."],
+        ["A", "Who noticed the delay?", "¿Quién notó el retraso?"],
+        ["B", "It was Ana who noticed it. All I want is a decision by Friday.", "Fue Ana quien lo notó. Lo único que quiero es una decisión para el viernes."]
+      ]
+    },
+    {
+      id: "n5u9", t: "Inversión y lenguaje formal",
+      goal: "Usar estructuras elegantes de discursos, reportes y presentaciones.",
+      g: [
+        "En inglés formal, algunas expresiones negativas al inicio invierten el orden (como una pregunta):",
+        ["Never have I seen such results.", "Nunca había visto resultados así."],
+        ["Not only did we meet the goal, but we also exceeded it.", "No solo cumplimos la meta, sino que la superamos."],
+        "Otras: Rarely… · Under no circumstances… · Only then… · Hardly had… when…",
+        "Condicionales formales sin if: Should you need help… (Si necesita ayuda…) · Had I known… (Si hubiera sabido…).",
+        "!Úsalas con moderación: en una plática normal suenan exageradas; en un discurso suenan profesionales."
+      ],
+      c: [
+        ["Nunca había visto resultados así.", "Never have I seen such results.", "", ""],
+        ["No solo cumplimos la meta, sino que la superamos.", "Not only did we meet the goal, but we also exceeded it.", "", ""],
+        ["Rara vez cometemos ese tipo de errores.", "Rarely do we make that kind of mistake.", "", ""],
+        ["Bajo ninguna circunstancia abra esta puerta.", "Under no circumstances should you open this door.", "", ""],
+        ["Solo entonces entendí el problema.", "Only then did I understand the problem.", "", ""],
+        ["Apenas había llegado cuando sonó el teléfono.", "Hardly had I arrived when the phone rang.", "", ""],
+        ["Si necesita ayuda, no dude en llamarnos.", "Should you need any help, do not hesitate to call us.", "", ""],
+        ["Si hubiera sabido, habría actuado distinto.", "Had I known, I would have acted differently.", "", ""],
+        ["De ninguna manera vamos a aceptar eso.", "In no way will we accept that.", "", ""],
+        ["Tan grande fue el éxito que abrimos otra sucursal.", "So great was the success that we opened another branch.", "", ""],
+        ["No fue sino hasta 2020 que lo aprobaron.", "Not until 2020 did they approve it.", "", ""],
+        ["Poco sabíamos de lo que vendría.", "Little did we know what was coming.", "", ""]
+      ],
+      d: [
+        ["A", "How did the first year go?", "¿Cómo les fue el primer año?"],
+        ["B", "Not only did we meet our sales goal, but we also exceeded it by thirty percent.", "No solo cumplimos la meta de ventas, sino que la superamos en un treinta por ciento."],
+        ["A", "That's remarkable.", "Es extraordinario."],
+        ["B", "Little did we know how fast the market would grow.", "Poco sabíamos de lo rápido que crecería el mercado."],
+        ["A", "Any plans to expand?", "¿Planes para crecer?"],
+        ["B", "Yes. Should the numbers remain stable, we'll open a second plant next year.", "Sí. Si las cifras se mantienen, abriremos una segunda planta el próximo año."]
+      ]
+    },
+    {
+      id: "n5u10", t: "Vocabulario académico",
+      goal: "Entender y usar las palabras de textos universitarios y técnicos.",
+      g: [
+        "El inglés académico usa muchas palabras de origen latino. Para un hispanohablante son una ventaja: analyze, significant, evidence, approach.",
+        ["The evidence suggests a significant increase.", "La evidencia sugiere un aumento significativo."],
+        "Verbos clave: analyze, assess (evaluar), assume (suponer), identify, indicate, demonstrate, conclude.",
+        "!Falsos amigos frecuentes: eventually (finalmente, no 'eventualmente'), actual (real, no 'actual'), sensible (sensato, no 'sensible')."
+      ],
+      c: [
+        ["La evidencia sugiere un aumento significativo.", "The evidence suggests a significant increase.", "", ""],
+        ["Analizamos los datos de cinco años.", "We analyzed data from five years.", "", ""],
+        ["Este enfoque tiene varias ventajas.", "This approach has several advantages.", "", ""],
+        ["Evaluamos el impacto ambiental.", "We assessed the environmental impact.", "", ""],
+        ["Suponemos que la demanda seguirá creciendo.", "We assume that demand will keep growing.", "", ""],
+        ["Los resultados indican una relación clara.", "The results indicate a clear relationship.", "", ""],
+        ["El estudio demuestra que el método funciona.", "The study demonstrates that the method works.", "", ""],
+        ["Identificamos tres factores principales.", "We identified three main factors.", "", ""],
+        ["Al final, el proyecto fue un éxito.", "Eventually, the project was a success.", "", "eventually = finalmente."],
+        ["El costo real fue mayor.", "The actual cost was higher.", "", "actual = real."],
+        ["Es una decisión sensata.", "It's a sensible decision.", "", "sensible = sensato."],
+        ["En consecuencia, cambiamos el diseño.", "Consequently, we changed the design.", "", ""]
+      ],
+      d: [
+        ["A", "What did your research find?", "¿Qué encontró tu investigación?"],
+        ["B", "We analyzed data from fifty factories and identified three main factors.", "Analizamos datos de cincuenta fábricas e identificamos tres factores principales."],
+        ["A", "What do the results indicate?", "¿Qué indican los resultados?"],
+        ["B", "The evidence suggests that training has a significant impact on safety.", "La evidencia sugiere que la capacitación tiene un impacto significativo en la seguridad."],
+        ["A", "Was the actual cost of training high?", "¿El costo real de la capacitación fue alto?"],
+        ["B", "Not really. Consequently, we recommend this approach.", "No mucho. En consecuencia, recomendamos este enfoque."]
+      ]
+    },
+    {
+      id: "n5u11", t: "Escribir un ensayo o reporte",
+      goal: "Organizar un texto largo con introducción, argumentos y conclusión.",
+      g: [
+        "Estructura clásica: introducción (tema y postura) → párrafos con una idea cada uno → conclusión.",
+        ["This essay examines… · Firstly… · Furthermore… · Nevertheless… · To conclude…", "Este ensayo analiza… · En primer lugar… · Además… · No obstante… · Para concluir…"],
+        "Cada párrafo empieza con una oración que resume la idea (topic sentence).",
+        "!En inglés se valora ir directo al punto. Oraciones cortas y claras son mejores que oraciones largas y adornadas."
+      ],
+      c: [
+        ["Este ensayo analiza las causas del problema.", "This essay examines the causes of the problem.", "", ""],
+        ["En primer lugar, hay que considerar el costo.", "Firstly, the cost must be considered.", "", ""],
+        ["Además, reduce el consumo de energía.", "Furthermore, it reduces energy consumption.", "", ""],
+        ["No obstante, hay algunas desventajas.", "Nevertheless, there are some disadvantages.", "", ""],
+        ["Por el contrario, otros expertos no están de acuerdo.", "On the contrary, other experts disagree.", "", ""],
+        ["Un ejemplo claro de esto es...", "A clear example of this is...", "", ""],
+        ["Esto demuestra que...", "This shows that...", "", ""],
+        ["Cabe mencionar que...", "It is worth mentioning that...", "", ""],
+        ["Desde mi punto de vista, los beneficios son mayores.", "From my point of view, the benefits outweigh the costs.", "", ""],
+        ["Para concluir, la propuesta es viable.", "To conclude, the proposal is feasible.", "", ""],
+        ["En resumen, se necesitan más estudios.", "In summary, further research is needed.", "", ""],
+        ["Tomando todo en cuenta, recomiendo la opción B.", "All things considered, I recommend option B.", "", ""]
+      ],
+      d: [
+        ["A", "I have to write a report on remote work. How should I start?", "Tengo que escribir un reporte sobre el trabajo remoto. ¿Cómo empiezo?"],
+        ["B", "Start with 'This report examines the effects of remote work on productivity.'", "Empieza con 'Este reporte analiza los efectos del trabajo remoto en la productividad.'"],
+        ["A", "Then I give the advantages?", "¿Luego doy las ventajas?"],
+        ["B", "Yes. 'Firstly, it saves time. Furthermore, it reduces costs.'", "Sí. 'En primer lugar, ahorra tiempo. Además, reduce costos.'"],
+        ["A", "And the disadvantages?", "¿Y las desventajas?"],
+        ["B", "'Nevertheless, communication can suffer.' Then finish with 'All things considered…'", "'No obstante, la comunicación puede verse afectada.' Luego termina con 'Tomando todo en cuenta…'"]
+      ]
+    },
+    {
+      id: "n5u12", t: "Lenguaje coloquial y humor",
+      goal: "Entender cómo hablan los nativos entre amigos: abreviaciones, slang y sarcasmo.",
+      g: [
+        "Al hablar rápido, los nativos juntan palabras:",
+        ["gonna (going to) · wanna (want to) · gotta (got to) · kinda (kind of)", ""],
+        "Slang común en EE. UU.: I'm down (me apunto) · no cap (en serio) · It's a vibe (está padre) · My bad (mi culpa).",
+        "El sarcasmo se nota en el tono: 'Oh great, another meeting' casi nunca significa que es genial.",
+        "!Entiende estas formas para comprender series y pláticas, pero úsalas solo con confianza. En el trabajo formal, mejor evítalas."
+      ],
+      c: [
+        ["Voy a ir.", "I'm gonna go.", "", "gonna = going to"],
+        ["¿Quieres ir por algo de comer?", "Wanna grab something to eat?", "", "wanna = want to"],
+        ["Me tengo que ir.", "I gotta go.", "", "gotta = have got to"],
+        ["Me apunto.", "I'm down.", "", ""],
+        ["Mi culpa.", "My bad.", "", ""],
+        ["Estoy bromeando.", "I'm just kidding.", "", ""],
+        ["¡Qué oso!", "That's so embarrassing!", "", ""],
+        ["No hay bronca.", "No big deal.", "", ""],
+        ["¡Qué padre!", "That's awesome!", "", ""],
+        ["Ni de chiste.", "No way.", "", ""],
+        ["Ay sí, qué maravilla, otra junta.", "Oh great, another meeting.", "", "Sarcasmo: lo dice en tono plano."],
+        ["Estoy muerto (de cansancio).", "I'm exhausted.", "", ""]
+      ],
+      d: [
+        ["A", "Hey, wanna grab some tacos after work?", "Oye, ¿quieres ir por unos tacos saliendo del trabajo?"],
+        ["B", "I'm down! But I gotta finish this report first.", "¡Me apunto! Pero tengo que terminar este reporte primero."],
+        ["A", "Oh great, another report.", "Ay sí, qué maravilla, otro reporte."],
+        ["B", "I know. My bad, I'm gonna be a little late.", "Ya sé. Perdón, voy a llegar un poco tarde."],
+        ["A", "No big deal. I'll save you a seat.", "No hay bronca. Te aparto un lugar."],
+        ["B", "That's awesome. See you there!", "¡Qué padre! ¡Nos vemos allá!"]
       ]
     }
   ]

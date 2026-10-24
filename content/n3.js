@@ -1,8 +1,8 @@
 /* Nivel 3 · Intermedio (B1)
    Desde aquí ya no se escribe la pronunciación aproximada: usa los botones Escuchar y Lento. */
 (window.COURSE = window.COURSE || []).push({
-  id: "n3", name: "Nivel 3 · Intermedio", cefr: "B1",
-  desc: "Experiencias, consejos, condiciones, phrasal verbs, opiniones, teléfono y viajes.",
+  id: "n3", name: "Preparatoria · Intermedio", short: "Prepa", cefr: "B1",
+  desc: "Experiencias, costumbres pasadas, posibilidad, consejos, condiciones, phrasal verbs, opiniones, entrevistas, correos formales y noticias.",
   units: [
     {
       id: "n3u1", t: "Presente perfecto: experiencias",
@@ -74,6 +74,73 @@
       ]
     },
     {
+      id: "n3u9", t: "Used to: lo que hacías antes",
+      goal: "Hablar de costumbres y situaciones del pasado que ya cambiaron.",
+      g: [
+        "used to + verbo = solía, antes hacía (y ya no).",
+        ["I used to smoke. · We used to live in Toluca.", "Antes fumaba. · Vivíamos en Toluca."],
+        "Negativo y pregunta: didn't use to · Did you use to…? (sin la d).",
+        "No confundas con be used to + -ing = estar acostumbrado:",
+        ["I'm used to waking up early.", "Estoy acostumbrado a levantarme temprano."],
+        "!used to solo existe en pasado. Para el presente usa usually: I usually walk."
+      ],
+      c: [
+        ["Antes fumaba.", "I used to smoke.", "", ""],
+        ["Vivíamos en Toluca.", "We used to live in Toluca.", "", ""],
+        ["Antes no me gustaba el café.", "I didn't use to like coffee.", "", "Sin d en negativo."],
+        ["¿Antes jugabas futbol?", "Did you use to play soccer?", "", ""],
+        ["De niño, iba a la playa cada verano.", "As a kid, I used to go to the beach every summer.", "", ""],
+        ["Este lugar antes era una fábrica.", "This place used to be a factory.", "", ""],
+        ["Antes trabajaba los fines de semana.", "I used to work on weekends.", "", ""],
+        ["Ya no vivo ahí.", "I don't live there anymore.", "", "anymore = ya no"],
+        ["Estoy acostumbrado a levantarme temprano.", "I'm used to waking up early.", "", ""],
+        ["No estoy acostumbrado al frío.", "I'm not used to the cold.", "", ""],
+        ["Me estoy acostumbrando a mi nuevo trabajo.", "I'm getting used to my new job.", "", ""],
+        ["Antes éramos mejores amigos.", "We used to be best friends.", "", ""]
+      ],
+      d: [
+        ["A", "Is this your hometown?", "¿Este es tu pueblo?"],
+        ["B", "Yes! I used to live on this street when I was a kid.", "¡Sí! Vivía en esta calle cuando era niño."],
+        ["A", "Has it changed a lot?", "¿Ha cambiado mucho?"],
+        ["B", "Yes. That supermarket used to be a park.", "Sí. Ese súper antes era un parque."],
+        ["A", "Do you miss living here?", "¿Extrañas vivir aquí?"],
+        ["B", "A little, but I'm used to the big city now.", "Un poco, pero ya estoy acostumbrado a la ciudad grande."]
+      ]
+    },
+    {
+      id: "n3u12", t: "Pasado perfecto: ya había pasado",
+      goal: "Contar algo que pasó antes de otro momento del pasado.",
+      g: [
+        "had + participio = había hecho. Sirve para ordenar dos acciones pasadas.",
+        ["When I arrived, the meeting had started.", "Cuando llegué, la junta ya había empezado."],
+        "Compara: When I arrived, the meeting started (empezó al llegar) vs. had started (ya había empezado).",
+        "Muy usado con already, never, before y by the time.",
+        ["I had never seen snow before that trip.", "Nunca había visto la nieve antes de ese viaje."]
+      ],
+      c: [
+        ["Cuando llegué, la junta ya había empezado.", "When I arrived, the meeting had already started.", "", ""],
+        ["Nunca había visto la nieve.", "I had never seen snow.", "", ""],
+        ["Ya habían comido cuando llegamos.", "They had already eaten when we arrived.", "", ""],
+        ["Me di cuenta de que había olvidado mi cartera.", "I realized I had forgotten my wallet.", "", ""],
+        ["Para cuando llamó, ya me había ido.", "By the time he called, I had left.", "", ""],
+        ["No había estudiado, así que reprobé.", "I hadn't studied, so I failed.", "", ""],
+        ["¿Ya habías estado en Japón?", "Had you been to Japan before?", "", ""],
+        ["El tren ya se había ido.", "The train had already left.", "", ""],
+        ["Ella me dijo que había renunciado.", "She told me she had quit.", "", ""],
+        ["Estaba cansado porque había trabajado todo el día.", "I was tired because I had worked all day.", "", ""],
+        ["Nunca había probado algo tan rico.", "I had never tasted anything so good.", "", ""],
+        ["Después de que terminé, me fui a casa.", "After I had finished, I went home.", "", ""]
+      ],
+      d: [
+        ["A", "Why were you late for the interview?", "¿Por qué llegaste tarde a la entrevista?"],
+        ["B", "When I got to the station, the train had already left.", "Cuando llegué a la estación, el tren ya se había ido."],
+        ["A", "Oh no! What did you do?", "¡No! ¿Qué hiciste?"],
+        ["B", "I took a taxi, but by the time I arrived, they had interviewed two people.", "Tomé un taxi, pero para cuando llegué ya habían entrevistado a dos personas."],
+        ["A", "Did they still see you?", "¿Aun así te recibieron?"],
+        ["B", "Yes, luckily. I had prepared a lot, so it went well.", "Sí, por suerte. Me había preparado mucho, así que me fue bien."]
+      ]
+    },
+    {
       id: "n3u3", t: "Consejos y obligaciones",
       goal: "Dar consejos y hablar de lo que tienes o no tienes que hacer.",
       g: [
@@ -105,6 +172,41 @@
         ["B", "You don't have to, but you should look professional.", "No es necesario, pero deberías verte profesional."],
         ["A", "And I must be on time, right?", "Y tengo que llegar puntual, ¿verdad?"],
         ["B", "Of course. You should arrive ten minutes early.", "Claro. Deberías llegar diez minutos antes."]
+      ]
+    },
+    {
+      id: "n3u11", t: "Posibilidad: may, might, could",
+      goal: "Decir qué tan seguro estás de algo.",
+      g: [
+        "Del más seguro al menos seguro:",
+        ["will definitely → will probably → may / might / could → probably won't → definitely won't", "seguro → probablemente → tal vez → probablemente no → seguro que no"],
+        "may, might y could + verbo = puede que, tal vez:",
+        ["It might rain. · She may be late.", "Puede que llueva. · Tal vez llegue tarde."],
+        "Para deducir: must be (seguro que es) · can't be (no puede ser).",
+        ["He must be at home. · That can't be true.", "Ha de estar en su casa. · No puede ser cierto."],
+        "!maybe (una palabra) = tal vez, al inicio de la frase. may be (dos palabras) = verbo: It may be true."
+      ],
+      c: [
+        ["Puede que llueva.", "It might rain.", "", ""],
+        ["Tal vez llegue tarde.", "She may be late.", "", ""],
+        ["Podría ser un error.", "It could be a mistake.", "", ""],
+        ["Probablemente vaya.", "I'll probably go.", "", "probably va después de will."],
+        ["Probablemente no venga.", "He probably won't come.", "", "probably va antes de won't."],
+        ["Definitivamente lo voy a hacer.", "I'll definitely do it.", "", ""],
+        ["Ha de estar en su casa.", "He must be at home.", "", ""],
+        ["No puede ser cierto.", "That can't be true.", "", ""],
+        ["Tal vez tengas razón.", "Maybe you're right.", "", ""],
+        ["Es posible que cambien la fecha.", "They might change the date.", "", ""],
+        ["No estoy seguro, pero creo que sí.", "I'm not sure, but I think so.", "", ""],
+        ["Lo dudo.", "I doubt it.", "", "La b de doubt no suena."]
+      ],
+      d: [
+        ["A", "Is Daniel coming to the party?", "¿Daniel viene a la fiesta?"],
+        ["B", "He might come, but he's very busy this week.", "Puede que venga, pero está muy ocupado esta semana."],
+        ["A", "What about Lucy?", "¿Y Lucy?"],
+        ["B", "She'll definitely come. She loves parties.", "Ella seguro viene. Le encantan las fiestas."],
+        ["A", "And your brother?", "¿Y tu hermano?"],
+        ["B", "I doubt it. He must be tired after his trip.", "Lo dudo. Ha de estar cansado después de su viaje."]
       ]
     },
     {
@@ -174,6 +276,40 @@
         ["B", "Sure. Did you find out why the meeting was moved?", "Claro. ¿Averiguaste por qué movieron la junta?"],
         ["A", "The director woke up sick.", "El director amaneció enfermo."],
         ["B", "Okay. I'll fill out the order form later.", "Va. Lleno la orden de compra más tarde."]
+      ]
+    },
+    {
+      id: "n3u10", t: "Gerundio o infinitivo: doing o to do",
+      goal: "Saber cuándo un verbo va con -ing y cuándo con to.",
+      g: [
+        "Después de algunos verbos va -ing: enjoy, finish, avoid, mind, suggest, keep, consider.",
+        ["I enjoy reading. · He suggested waiting.", "Disfruto leer. · Sugirió esperar."],
+        "Después de otros va to + verbo: want, need, decide, hope, plan, promise, learn, would like.",
+        ["I want to learn. · We decided to stay.", "Quiero aprender. · Decidimos quedarnos."],
+        "Después de una preposición, siempre -ing: interested in learning, good at cooking, before leaving.",
+        "!stop doing = dejar de hacer · stop to do = detenerse para hacer. I stopped smoking vs. I stopped to smoke."
+      ],
+      c: [
+        ["Disfruto leer.", "I enjoy reading.", "", ""],
+        ["Terminé de trabajar a las seis.", "I finished working at six.", "", ""],
+        ["Evita comer tarde.", "Avoid eating late.", "", ""],
+        ["¿Te molesta esperar?", "Do you mind waiting?", "", ""],
+        ["Sigue intentando.", "Keep trying.", "", ""],
+        ["Quiero aprender inglés.", "I want to learn English.", "", ""],
+        ["Decidimos quedarnos.", "We decided to stay.", "", ""],
+        ["Espero verte pronto.", "I hope to see you soon.", "", ""],
+        ["Prometo llamarte.", "I promise to call you.", "", ""],
+        ["Dejé de fumar.", "I stopped smoking.", "", "stop + -ing = dejar de."],
+        ["Gracias por ayudarme.", "Thanks for helping me.", "", "Después de preposición, -ing."],
+        ["Estoy pensando en cambiar de trabajo.", "I'm thinking about changing jobs.", "", ""]
+      ],
+      d: [
+        ["A", "What do you enjoy doing on vacation?", "¿Qué disfrutas hacer en vacaciones?"],
+        ["B", "I enjoy hiking and trying new food.", "Disfruto ir de excursión y probar comida nueva."],
+        ["A", "Where do you want to go next?", "¿A dónde quieres ir la próxima vez?"],
+        ["B", "I'm thinking about going to Peru. I want to see Machu Picchu.", "Estoy pensando en ir a Perú. Quiero conocer Machu Picchu."],
+        ["A", "Avoid going in the rainy season!", "¡Evita ir en temporada de lluvias!"],
+        ["B", "Thanks for telling me. I'll plan to go in June.", "Gracias por decirme. Voy a planear ir en junio."]
       ]
     },
     {
@@ -272,6 +408,134 @@
         ["B", "I'm staying for five days.", "Me quedo cinco días."],
         ["A", "Where are you staying?", "¿Dónde se hospeda?"],
         ["B", "At a hotel downtown. Here's my reservation.", "En un hotel del centro. Aquí está mi reservación."]
+      ]
+    },
+    {
+      id: "n3u13", t: "Entrevista de trabajo",
+      goal: "Presentarte, hablar de tu experiencia y responder las preguntas típicas.",
+      g: [
+        "La pregunta que siempre sale: Tell me about yourself. Responde en 3 partes: quién eres, tu experiencia, por qué te interesa el puesto.",
+        ["I'm a mechanical engineer with five years of experience in manufacturing.", "Soy ingeniero mecánico con cinco años de experiencia en manufactura."],
+        "Para la experiencia usa presente perfecto (I've worked…) y para logros concretos, pasado (I led…, I reduced…).",
+        "!No digas 'I have 5 years of experience in…' sin más: agrega un logro. Los números convencen: I reduced costs by 15%."
+      ],
+      c: [
+        ["Háblame de ti.", "Tell me about yourself.", "", ""],
+        ["Soy ingeniero con cinco años de experiencia.", "I'm an engineer with five years of experience.", "", ""],
+        ["He trabajado en manufactura desde 2019.", "I've worked in manufacturing since 2019.", "", ""],
+        ["Dirigí un equipo de diez personas.", "I led a team of ten people.", "", ""],
+        ["Reduje los costos en un 15%.", "I reduced costs by 15%.", "", ""],
+        ["¿Cuáles son tus fortalezas?", "What are your strengths?", "", ""],
+        ["Soy muy organizado y aprendo rápido.", "I'm very organized and I learn quickly.", "", ""],
+        ["¿Por qué quieres trabajar aquí?", "Why do you want to work here?", "", ""],
+        ["Me interesa mucho crecer en esta empresa.", "I'm really interested in growing with this company.", "", ""],
+        ["¿Dónde te ves en cinco años?", "Where do you see yourself in five years?", "", ""],
+        ["¿Tienes alguna pregunta para nosotros?", "Do you have any questions for us?", "", ""],
+        ["¿Cómo es un día normal en este puesto?", "What does a typical day look like in this role?", "", ""]
+      ],
+      d: [
+        ["A", "Thanks for coming. Tell me about yourself.", "Gracias por venir. Háblame de ti."],
+        ["B", "I'm an engineer with five years of experience in manufacturing.", "Soy ingeniero con cinco años de experiencia en manufactura."],
+        ["A", "What was your biggest achievement?", "¿Cuál fue tu mayor logro?"],
+        ["B", "I led a project that reduced costs by fifteen percent.", "Dirigí un proyecto que redujo los costos en un quince por ciento."],
+        ["A", "Impressive. Do you have any questions for us?", "Impresionante. ¿Tienes alguna pregunta para nosotros?"],
+        ["B", "Yes. What does a typical day look like in this role?", "Sí. ¿Cómo es un día normal en este puesto?"]
+      ]
+    },
+    {
+      id: "n3u14", t: "Correos formales",
+      goal: "Escribir correos profesionales claros y educados.",
+      g: [
+        "Estructura: saludo → motivo → detalles → acción esperada → despedida.",
+        ["Dear Mr. Smith, · I am writing to… · Please find attached… · I look forward to hearing from you. · Best regards,", "Estimado Sr. Smith: · Le escribo para… · Adjunto encontrará… · Quedo en espera de su respuesta. · Saludos cordiales,"],
+        "En correos formales se evitan las contracciones: I am, I would, do not.",
+        "!Si no sabes el nombre: Dear Sir or Madam (muy formal) o Hello (más moderno)."
+      ],
+      c: [
+        ["Estimado Sr. Smith:", "Dear Mr. Smith,", "", ""],
+        ["Le escribo para solicitar información.", "I am writing to request information.", "", ""],
+        ["Le escribo en relación con su pedido.", "I am writing regarding your order.", "", ""],
+        ["Adjunto encontrará la factura.", "Please find attached the invoice.", "", ""],
+        ["Le agradecería que me enviara el contrato.", "I would appreciate it if you could send me the contract.", "", ""],
+        ["Lamento informarle que hay un retraso.", "I regret to inform you that there is a delay.", "", ""],
+        ["Disculpe las molestias.", "We apologize for any inconvenience.", "", ""],
+        ["Quedo a sus órdenes para cualquier duda.", "Please do not hesitate to contact me if you have any questions.", "", ""],
+        ["Quedo en espera de su respuesta.", "I look forward to hearing from you.", "", ""],
+        ["Gracias de antemano.", "Thank you in advance.", "", ""],
+        ["Saludos cordiales,", "Best regards,", "", ""],
+        ["Con copia a mi jefe.", "I have copied my manager on this email.", "", ""]
+      ],
+      d: [
+        ["A", "Can you help me write an email to the supplier?", "¿Me ayudas a escribir un correo al proveedor?"],
+        ["B", "Sure. Start with 'Dear Mr. Brown, I am writing regarding order 4521.'", "Claro. Empieza con 'Estimado Sr. Brown, le escribo en relación con el pedido 4521.'"],
+        ["A", "Then I explain the problem?", "¿Luego explico el problema?"],
+        ["B", "Yes. Then write 'I would appreciate it if you could send a replacement.'", "Sí. Luego escribe 'Le agradecería que nos enviara un reemplazo.'"],
+        ["A", "And how do I finish?", "¿Y cómo termino?"],
+        ["B", "'I look forward to hearing from you. Best regards.'", "'Quedo en espera de su respuesta. Saludos cordiales.'"]
+      ]
+    },
+    {
+      id: "n3u15", t: "Quejas y soluciones",
+      goal: "Quejarte con educación y conseguir una solución.",
+      g: [
+        "Una buena queja en inglés es firme pero amable: explica el problema, di qué esperas y agradece.",
+        ["I'd like to make a complaint. · I'd like a refund, please.", "Quisiera poner una queja. · Quisiera un reembolso, por favor."],
+        "refund = reembolso · replacement = reemplazo · receipt = ticket · manager = gerente.",
+        "!Gritar no funciona en ninguna cultura. 'I understand it's not your fault, but…' abre puertas."
+      ],
+      c: [
+        ["Quisiera poner una queja.", "I'd like to make a complaint.", "", ""],
+        ["Esto no funciona.", "This isn't working.", "", ""],
+        ["Lo compré la semana pasada.", "I bought it last week.", "", ""],
+        ["Quisiera un reembolso, por favor.", "I'd like a refund, please.", "", ""],
+        ["¿Me lo pueden cambiar?", "Can I exchange it?", "", ""],
+        ["Aquí está mi ticket.", "Here's my receipt.", "", ""],
+        ["¿Puedo hablar con el gerente?", "Could I speak to the manager?", "", ""],
+        ["Entiendo que no es su culpa, pero...", "I understand it's not your fault, but...", "", ""],
+        ["Esto no es lo que pedí.", "This isn't what I ordered.", "", ""],
+        ["Llevo una semana esperando.", "I've been waiting for a week.", "", ""],
+        ["¿Qué pueden hacer para solucionarlo?", "What can you do to fix this?", "", ""],
+        ["Le agradezco su ayuda.", "I appreciate your help.", "", ""]
+      ],
+      d: [
+        ["A", "Hi, how can I help you?", "Hola, ¿en qué le ayudo?"],
+        ["B", "I bought these headphones last week and they aren't working.", "Compré estos audífonos la semana pasada y no funcionan."],
+        ["A", "I'm sorry about that. Do you have your receipt?", "Lo siento mucho. ¿Tiene su ticket?"],
+        ["B", "Yes, here it is. I'd like a refund, please.", "Sí, aquí está. Quisiera un reembolso, por favor."],
+        ["A", "We can give you a replacement or a refund.", "Le podemos dar un reemplazo o un reembolso."],
+        ["B", "A refund, please. I appreciate your help.", "Un reembolso, por favor. Le agradezco su ayuda."]
+      ]
+    },
+    {
+      id: "n3u16", t: "Noticias y temas actuales",
+      goal: "Entender y comentar noticias con vocabulario clave.",
+      g: [
+        "Vocabulario que aparece en casi cualquier noticia: increase / decrease (aumentar / disminuir), government (gobierno), economy (economía), environment (medio ambiente), according to (según).",
+        ["According to the report, prices increased by 5%.", "Según el reporte, los precios aumentaron un 5%."],
+        "Para comentar: Did you hear about…? · I read that… · Apparently…",
+        "!Los titulares en inglés usan presente aunque ya pasó: 'Company announces new plant' = la empresa anunció una nueva planta."
+      ],
+      c: [
+        ["¿Supiste lo de...?", "Did you hear about...?", "", ""],
+        ["Leí que van a construir una nueva planta.", "I read that they're going to build a new plant.", "", ""],
+        ["Según el reporte, los precios subieron.", "According to the report, prices went up.", "", ""],
+        ["El desempleo bajó este año.", "Unemployment went down this year.", "", ""],
+        ["Al parecer, hubo un accidente en la autopista.", "Apparently, there was an accident on the highway.", "", ""],
+        ["La economía está creciendo.", "The economy is growing.", "", ""],
+        ["Es un gran problema para el medio ambiente.", "It's a big problem for the environment.", "", ""],
+        ["El gobierno anunció nuevas medidas.", "The government announced new measures.", "", ""],
+        ["La inflación afecta a todos.", "Inflation affects everyone.", "", ""],
+        ["¿Viste las noticias?", "Did you see the news?", "", "news va con verbo en singular: The news is…"],
+        ["Hubo un sismo en el sur.", "There was an earthquake in the south.", "", ""],
+        ["Es noticia de última hora.", "It's breaking news.", "", ""]
+      ],
+      d: [
+        ["A", "Did you see the news this morning?", "¿Viste las noticias en la mañana?"],
+        ["B", "Yes. Apparently, a big car company is building a plant near here.", "Sí. Al parecer, una empresa de autos grande va a construir una planta cerca de aquí."],
+        ["A", "Really? That's great for the economy.", "¿En serio? Eso es bueno para la economía."],
+        ["B", "According to the article, it will create three thousand jobs.", "Según el artículo, va a crear tres mil empleos."],
+        ["A", "But what about the environment?", "¿Pero y el medio ambiente?"],
+        ["B", "They said it will use solar energy.", "Dijeron que va a usar energía solar."]
       ]
     }
   ]

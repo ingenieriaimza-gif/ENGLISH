@@ -4,8 +4,8 @@
    c: frases — ["Español","English","pronunciación","nota opcional"]
    d: diálogo — ["A" o "B","English","Español"]   (en la práctica, tú eres B) */
 (window.COURSE = window.COURSE || []).push({
-  id: "n0", name: "Nivel 0 · Arranque", cefr: "Pre-A1",
-  desc: "Desde cero: saludar, presentarte, contar, el verbo to be y frases para sobrevivir.",
+  id: "n0", name: "Primaria 1 · Primeras frases", short: "Primaria 1", cefr: "Pre-A1",
+  desc: "Tus primeras oraciones: saludar, presentarte, el verbo to be, pronombres, describir cosas, el clima e instrucciones.",
   units: [
     {
       id: "n0u1", t: "Saludos y presentarte",
@@ -114,6 +114,40 @@
       ]
     },
     {
+      id: "n0u6", t: "Pronombres: yo, tú, él, me, te, lo",
+      goal: "Usar los pronombres para no repetir nombres.",
+      g: [
+        "Pronombres de sujeto (hacen la acción) y de objeto (reciben la acción):",
+        ["I → me · you → you · he → him · she → her", "yo → me · tú → te · él → lo / le · ella → la / le"],
+        ["it → it · we → us · they → them", "eso → lo · nosotros → nos · ellos → los / les"],
+        "El de objeto va DESPUÉS del verbo (en español va antes):",
+        ["I love you. · Call me. · I know him.", "Te quiero. · Llámame. · Lo conozco."],
+        "!it se usa para cosas y animales. Nunca omitas el sujeto: It's late (es tarde), no 'Is late'."
+      ],
+      c: [
+        ["Te quiero.", "I love you.", "ai lav iú", ""],
+        ["Llámame.", "Call me.", "col mi", ""],
+        ["Lo conozco.", "I know him.", "ai nóu jim", ""],
+        ["La veo todos los días.", "I see her every day.", "ai si jer évri déi", ""],
+        ["Ayúdanos, por favor.", "Help us, please.", "jelp as, plís", ""],
+        ["No los entiendo.", "I don't understand them.", "ai dóunt anderstánd dem", ""],
+        ["Me gusta.", "I like it.", "ai láik it", "it = la cosa que te gusta."],
+        ["Ella es mi amiga.", "She is my friend.", "shi is mai frend", ""],
+        ["Ellos son mis vecinos.", "They are my neighbors.", "déi ar mai néibors", ""],
+        ["Nosotros trabajamos juntos.", "We work together.", "ui uérk tuguéder", ""],
+        ["Es tarde.", "It's late.", "its léit", "Siempre con sujeto."],
+        ["Dáselo a él.", "Give it to him.", "guiv it tu jim", ""]
+      ],
+      d: [
+        ["A", "Do you know Laura?", "¿Conoces a Laura?"],
+        ["B", "Yes, I know her. She is my neighbor.", "Sí, la conozco. Es mi vecina."],
+        ["A", "Can you give her this book?", "¿Le puedes dar este libro?"],
+        ["B", "Sure. I see her every day.", "Claro. La veo todos los días."],
+        ["A", "Thank you! Tell her to call me.", "¡Gracias! Dile que me llame."],
+        ["B", "Okay, I will.", "Va, le digo."]
+      ]
+    },
+    {
       id: "n0u4", t: "Cosas: a / an, the, this / that",
       goal: "Nombrar objetos, señalar cosas y usar plurales.",
       g: [
@@ -150,6 +184,39 @@
       ]
     },
     {
+      id: "n0u7", t: "Describir cosas con adjetivos",
+      goal: "Decir cómo es algo: grande, bonito, caro, nuevo.",
+      g: [
+        "El adjetivo va antes de la cosa, o después de be:",
+        ["a beautiful city · The city is beautiful.", "una ciudad bonita · La ciudad es bonita."],
+        "very = muy · really = muy / de verdad · a little = un poco · too = demasiado.",
+        ["It's very cheap. · It's a little expensive.", "Es muy barato. · Es un poco caro."],
+        "!El adjetivo nunca lleva s: two big cars. Y no se usa 'more' con 'very': very good, no 'very more'."
+      ],
+      c: [
+        ["una ciudad bonita", "a beautiful city", "a biútiful síti", ""],
+        ["Es muy barato.", "It's very cheap.", "its véri chiip", ""],
+        ["Es un poco caro.", "It's a little expensive.", "its a lítol ekspénsiv", ""],
+        ["Es demasiado grande.", "It's too big.", "its tu big", ""],
+        ["Mi trabajo es interesante.", "My job is interesting.", "mai yob is íntresting", ""],
+        ["La película es aburrida.", "The movie is boring.", "de múvi is bóring", "boring = aburrido (la cosa). bored = aburrido (la persona)."],
+        ["Es una idea buenísima.", "It's a great idea.", "its a gréit aidía", ""],
+        ["El examen fue fácil.", "The test was easy.", "de test uás íisi", ""],
+        ["Este carro es rápido.", "This car is fast.", "dis car is fast", ""],
+        ["La calle es peligrosa.", "The street is dangerous.", "de striit is déinyeros", ""],
+        ["El restaurante está lleno.", "The restaurant is full.", "de réstorant is ful", ""],
+        ["¡Qué bonito!", "How nice!", "jáu náis", ""]
+      ],
+      d: [
+        ["A", "How's your new apartment?", "¿Qué tal tu departamento nuevo?"],
+        ["B", "It's beautiful, but it's a little small.", "Es bonito, pero un poco pequeño."],
+        ["A", "Is it expensive?", "¿Es caro?"],
+        ["B", "No, it's very cheap.", "No, es muy barato."],
+        ["A", "How nice! Is the street quiet?", "¡Qué bien! ¿La calle es tranquila?"],
+        ["B", "Yes, it's very quiet.", "Sí, es muy tranquila."]
+      ]
+    },
+    {
       id: "n0u5", t: "Preguntas y frases de supervivencia",
       goal: "Pedir ayuda, decir que no entiendes y hacer preguntas básicas.",
       g: [
@@ -181,6 +248,74 @@
         ["B", "Over there. On the left.", "Por allá. A la izquierda."],
         ["A", "Ah, thank you!", "¡Ah, gracias!"],
         ["B", "You're welcome.", "De nada."]
+      ]
+    },
+    {
+      id: "n0u9", t: "El clima y las estaciones",
+      goal: "Hablar del clima, el tema favorito para empezar una plática.",
+      g: [
+        "El clima siempre se dice con It's (nunca 'Is' solo, ni 'Makes').",
+        ["It's hot. · It's sunny. · It's raining.", "Hace calor. · Está soleado. · Está lloviendo."],
+        "!'Hace frío' NO es 'makes cold'. Es It's cold.",
+        "Para preguntar: What's the weather like? (¿Cómo está el clima?)",
+        ["spring · summer · fall · winter", "primavera · verano · otoño · invierno"]
+      ],
+      c: [
+        ["¿Cómo está el clima?", "What's the weather like?", "uáts de uéder láik", ""],
+        ["Hace calor.", "It's hot.", "its jat", ""],
+        ["Hace frío.", "It's cold.", "its cóuld", "Nunca 'makes cold'."],
+        ["Está soleado.", "It's sunny.", "its sáni", ""],
+        ["Está nublado.", "It's cloudy.", "its cláudi", ""],
+        ["Está lloviendo.", "It's raining.", "its réining", ""],
+        ["Hace mucho viento.", "It's very windy.", "its véri uíndi", ""],
+        ["Hace buen día.", "It's a nice day.", "its a náis déi", ""],
+        ["primavera, verano", "spring, summer", "spring, sámer", ""],
+        ["otoño, invierno", "fall, winter", "fol, uínter", "En Reino Unido otoño es autumn."],
+        ["En verano hace mucho calor.", "It's very hot in summer.", "its véri jat in sámer", ""],
+        ["Lleva un paraguas.", "Take an umbrella.", "teik an ambréla", ""]
+      ],
+      d: [
+        ["A", "What's the weather like today?", "¿Cómo está el clima hoy?"],
+        ["B", "It's cloudy and a little cold.", "Está nublado y hace un poco de frío."],
+        ["A", "Is it raining?", "¿Está lloviendo?"],
+        ["B", "Not now, but take an umbrella.", "Ahorita no, pero lleva un paraguas."],
+        ["A", "Good idea. I love winter.", "Buena idea. Me encanta el invierno."],
+        ["B", "Really? I prefer summer.", "¿En serio? Yo prefiero el verano."]
+      ]
+    },
+    {
+      id: "n0u10", t: "Instrucciones y peticiones",
+      goal: "Dar instrucciones, pedir cosas y proponer actividades.",
+      g: [
+        "Para dar una instrucción se usa el verbo solo, al inicio (imperativo):",
+        ["Come here. · Wait a minute.", "Ven. · Espera un minuto."],
+        "Para prohibir: Don't + verbo.",
+        ["Don't touch it. · Don't worry.", "No lo toques. · No te preocupes."],
+        "Para proponer: Let's + verbo (vamos a…).",
+        ["Let's go. · Let's eat.", "Vámonos. · Vamos a comer."],
+        "!Agrega please para sonar amable: Please wait / Wait, please."
+      ],
+      c: [
+        ["Ven aquí.", "Come here.", "cam jir", ""],
+        ["Espera un minuto.", "Wait a minute.", "uéit a mínit", ""],
+        ["Pásale, por favor.", "Come in, please.", "cam in, plís", ""],
+        ["Siéntate.", "Have a seat.", "jav a siit", "Más amable que Sit down."],
+        ["No lo toques.", "Don't touch it.", "dóunt tach it", ""],
+        ["No te preocupes.", "Don't worry.", "dóunt uérri", ""],
+        ["Vámonos.", "Let's go.", "lets góu", ""],
+        ["Vamos a comer.", "Let's eat.", "lets iit", ""],
+        ["Ten cuidado.", "Be careful.", "bi kérful", ""],
+        ["Apúrate.", "Hurry up.", "jéri ap", ""],
+        ["Llámame más tarde.", "Call me later.", "col mi léiter", ""],
+        ["Cierra la puerta, por favor.", "Please close the door.", "plís clóus de dor", ""]
+      ],
+      d: [
+        ["A", "Hurry up! We're late.", "¡Apúrate! Vamos tarde."],
+        ["B", "Wait a minute, please. Where are my keys?", "Espera un minuto, por favor. ¿Dónde están mis llaves?"],
+        ["A", "They're on the table.", "Están en la mesa."],
+        ["B", "Okay, let's go!", "¡Listo, vámonos!"],
+        ["A", "Close the door, please.", "Cierra la puerta, por favor."],
+        ["B", "Don't worry, it's closed.", "No te preocupes, ya está cerrada."]
       ]
     }
   ]

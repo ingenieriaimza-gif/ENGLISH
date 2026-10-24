@@ -1,7 +1,7 @@
-const CACHE = "ingles-prov-v5";
+const CACHE = "ingles-prov-v6";
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png",
-  "content/n0.js", "content/n1.js", "content/n2.js", "content/w.js", "content/n3.js", "content/n4.js", "content/n5.js"
+  "content/k.js", "content/n0.js", "content/n1.js", "content/n2.js", "content/w.js", "content/n3.js", "content/n4.js", "content/n5.js", "content/n6.js"
 ];
 
 self.addEventListener("install", e => {

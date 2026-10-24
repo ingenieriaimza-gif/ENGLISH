@@ -1,7 +1,7 @@
 /* Nivel 2 · Básico alto (A2) */
 (window.COURSE = window.COURSE || []).push({
-  id: "n2", name: "Nivel 2 · Básico alto", cefr: "A2",
-  desc: "Hablar del presente, del pasado y del futuro; comparar, moverte por la ciudad, comprar e ir al doctor.",
+  id: "n2", name: "Secundaria · Básico alto", short: "Secundaria", cefr: "A2",
+  desc: "Presente, pasado y futuro; invitar, comparar, moverte por la ciudad, comprar, ir al doctor, pasatiempos y mensajes.",
   units: [
     {
       id: "n2u1", t: "Presente continuo: lo que pasa ahora",
@@ -140,6 +140,40 @@
       ]
     },
     {
+      id: "n2u16", t: "Pasado continuo: estaba haciendo",
+      goal: "Describir lo que estaba pasando en un momento del pasado.",
+      g: [
+        "was / were + verbo con -ing = estaba haciendo algo.",
+        ["I was sleeping. · They were working.", "Estaba durmiendo. · Estaban trabajando."],
+        "Se combina con el pasado simple: la acción larga (was doing) se interrumpe con una corta (did).",
+        ["I was cooking when you called.", "Estaba cocinando cuando llamaste."],
+        "while = mientras: While I was driving, it started to rain.",
+        "!Pregunta típica: What were you doing at 8? (¿Qué estabas haciendo a las 8?)"
+      ],
+      c: [
+        ["Estaba durmiendo.", "I was sleeping.", "ai uás slíiping", ""],
+        ["Estaban trabajando.", "They were working.", "déi uér uérking", ""],
+        ["Estaba cocinando cuando llamaste.", "I was cooking when you called.", "ai uás cúking uén iú cold", ""],
+        ["¿Qué estabas haciendo?", "What were you doing?", "uát uér iú dúing", ""],
+        ["Estaba viendo la tele.", "I was watching TV.", "ai uás uáching tiví", ""],
+        ["Estaba lloviendo.", "It was raining.", "it uás réining", ""],
+        ["No estaba poniendo atención.", "I wasn't paying attention.", "ai uásent péiing aténshon", ""],
+        ["Mientras manejaba, empezó a llover.", "While I was driving, it started to rain.", "uáil ai uás dráiving, it stárted tu réin", ""],
+        ["Estábamos comiendo cuando llegó.", "We were eating when he arrived.", "ui uér íiting uén ji arráivd", ""],
+        ["¿Estabas dormido?", "Were you sleeping?", "uér iú slíiping", ""],
+        ["Te estaba buscando.", "I was looking for you.", "ai uás lúking for iú", ""],
+        ["Estaba pensando en ti.", "I was thinking about you.", "ai uás zínking abáut iú", ""]
+      ],
+      d: [
+        ["A", "I called you last night. What were you doing?", "Te llamé anoche. ¿Qué estabas haciendo?"],
+        ["B", "Sorry! I was watching a movie.", "¡Perdón! Estaba viendo una película."],
+        ["A", "At ten o'clock?", "¿A las diez?"],
+        ["B", "No, at ten I was sleeping. I was very tired.", "No, a las diez estaba dormido. Estaba muy cansado."],
+        ["A", "Oh, okay. I was looking for you to go to dinner.", "Ah, va. Te estaba buscando para ir a cenar."],
+        ["B", "Let's go tonight!", "¡Vamos hoy en la noche!"]
+      ]
+    },
+    {
       id: "n2u5", t: "Futuro: going to y will",
       goal: "Hablar de planes, predicciones, promesas y ofrecimientos.",
       g: [
@@ -171,6 +205,40 @@
         ["B", "That's a lot of work! I'll help you on Sunday.", "¡Es mucho trabajo! Te ayudo el domingo."],
         ["A", "Really? Thanks! I'll buy lunch.", "¿En serio? ¡Gracias! Yo invito la comida."],
         ["B", "Deal!", "¡Trato hecho!"]
+      ]
+    },
+    {
+      id: "n2u11", t: "Invitaciones y planes",
+      goal: "Invitar, aceptar, rechazar con amabilidad y quedar a una hora.",
+      g: [
+        "Para invitar: Would you like to…? (más formal) · Do you want to…? · How about…? · Let's…",
+        ["Would you like to have dinner on Friday?", "¿Te gustaría cenar el viernes?"],
+        "Para aceptar: Sure! · I'd love to. · Sounds great.",
+        "Para rechazar con amabilidad, da una razón y propone otra cosa:",
+        ["I'd love to, but I'm busy. How about Saturday?", "Me encantaría, pero estoy ocupado. ¿Qué tal el sábado?"],
+        "!How about + verbo con -ing: How about going to the movies?"
+      ],
+      c: [
+        ["¿Te gustaría cenar el viernes?", "Would you like to have dinner on Friday?", "uúd iú láik tu jav díner on fráidei", ""],
+        ["¿Quieres ir al cine?", "Do you want to go to the movies?", "du iú uónt tu góu tu de múvis", ""],
+        ["¿Qué tal si vamos a la playa?", "How about going to the beach?", "jáu abáut góuing tu de biich", ""],
+        ["¡Claro!", "Sure!", "shur", ""],
+        ["Me encantaría.", "I'd love to.", "aid lav tu", ""],
+        ["Suena genial.", "Sounds great.", "sáunds gréit", ""],
+        ["Me encantaría, pero estoy ocupado.", "I'd love to, but I'm busy.", "aid lav tu, bat aim bísi", ""],
+        ["¿Estás libre el sábado?", "Are you free on Saturday?", "ar iú fri on sáturdei", ""],
+        ["¿A qué hora nos vemos?", "What time should we meet?", "uát taim shud ui miit", ""],
+        ["Nos vemos a las siete.", "Let's meet at seven.", "lets miit at séven", ""],
+        ["¿Dónde nos vemos?", "Where should we meet?", "uér shud ui miit", ""],
+        ["Tal vez otro día.", "Maybe another time.", "méibi anáder taim", ""]
+      ],
+      d: [
+        ["A", "Would you like to go to the movies on Friday?", "¿Te gustaría ir al cine el viernes?"],
+        ["B", "I'd love to, but I'm busy on Friday. How about Saturday?", "Me encantaría, pero el viernes estoy ocupado. ¿Qué tal el sábado?"],
+        ["A", "Saturday sounds great. What time should we meet?", "El sábado suena genial. ¿A qué hora nos vemos?"],
+        ["B", "Let's meet at seven.", "Nos vemos a las siete."],
+        ["A", "Where should we meet?", "¿Dónde nos vemos?"],
+        ["B", "In front of the mall.", "Enfrente de la plaza."]
       ]
     },
     {
@@ -207,6 +275,40 @@
         ["B", "It's five hundred dollars. The white one is cheaper.", "Cuesta quinientos dólares. El blanco es más barato."],
         ["A", "Is the camera as good as the black one?", "¿La cámara es tan buena como la del negro?"],
         ["B", "No, the black one has the best camera.", "No, el negro tiene la mejor cámara."]
+      ]
+    },
+    {
+      id: "n2u12", t: "Adverbios: cómo haces las cosas",
+      goal: "Decir cómo, qué tan seguido y qué tan bien haces algo.",
+      g: [
+        "Muchos adverbios se forman con adjetivo + -ly (como '-mente' en español):",
+        ["slow → slowly · careful → carefully · quick → quickly", "lento → lentamente · cuidadoso → con cuidado · rápido → rápidamente"],
+        "Irregulares importantes: good → well · fast → fast · hard → hard.",
+        ["She speaks English well. · He works hard.", "Ella habla bien inglés. · Él trabaja duro."],
+        "El adverbio va después del verbo y del objeto: She speaks English well (no 'speaks well English').",
+        "!hardly significa 'casi no': I hardly sleep = casi no duermo."
+      ],
+      c: [
+        ["Habla despacio, por favor.", "Speak slowly, please.", "spiik slóuli, plís", ""],
+        ["Maneja con cuidado.", "Drive carefully.", "dráiv kérfuli", ""],
+        ["Ella habla bien inglés.", "She speaks English well.", "shi spiiks ínglish uél", "good → well"],
+        ["Él trabaja duro.", "He works hard.", "ji uérks jard", ""],
+        ["Terminé rápido.", "I finished quickly.", "ai fínisht kuíkli", ""],
+        ["Corre muy rápido.", "He runs very fast.", "ji rans véri fast", ""],
+        ["Casi no duermo.", "I hardly sleep.", "ai járdli sliip", ""],
+        ["Por suerte, llegué a tiempo.", "Luckily, I arrived on time.", "lákili, ai arráivd on taim", ""],
+        ["Desafortunadamente, está cerrado.", "Unfortunately, it's closed.", "anfórchunetli, its clóusd", ""],
+        ["Normalmente como en casa.", "I usually eat at home.", "ai iúshuali iit at jóum", ""],
+        ["Escucha con atención.", "Listen carefully.", "lísen kérfuli", ""],
+        ["Lo hiciste muy bien.", "You did very well.", "iú did véri uél", ""]
+      ],
+      d: [
+        ["A", "How was your driving test?", "¿Cómo te fue en el examen de manejo?"],
+        ["B", "Good! I drove slowly and carefully.", "¡Bien! Manejé despacio y con cuidado."],
+        ["A", "Did you pass?", "¿Pasaste?"],
+        ["B", "Yes! The instructor said I did very well.", "¡Sí! El instructor dijo que lo hice muy bien."],
+        ["A", "Congratulations! You practiced really hard.", "¡Felicidades! Practicaste muchísimo."],
+        ["B", "Thanks! Luckily, it was easy.", "¡Gracias! Por suerte, estuvo fácil."]
       ]
     },
     {
@@ -306,6 +408,139 @@
         ["B", "Since Monday.", "Desde el lunes."],
         ["A", "Take this medicine twice a day and drink a lot of water.", "Tome esta medicina dos veces al día y tome mucha agua."],
         ["B", "Thank you, doctor.", "Gracias, doctor."]
+      ]
+    },
+    {
+      id: "n2u13", t: "Pasatiempos y tiempo libre",
+      goal: "Platicar de lo que te gusta hacer y en qué eres bueno.",
+      g: [
+        "Expresiones útiles: be into (estar clavado en), be good at (ser bueno para), be interested in (interesarse en). Después van con -ing o con un sustantivo.",
+        ["I'm into photography. · I'm good at cooking.", "Me encanta la fotografía. · Soy bueno para cocinar."],
+        "play para deportes con pelota y juegos: play soccer, play video games. go + -ing para actividades: go running, go fishing. do para otros: do yoga.",
+        "Para preguntar por la frecuencia: How often do you…?",
+        "!Se dice play the guitar (instrumento con the), pero play soccer (deporte sin the)."
+      ],
+      c: [
+        ["¿Qué haces en tu tiempo libre?", "What do you do in your free time?", "uát du iú du in iór fri taim", ""],
+        ["Me encanta la fotografía.", "I'm into photography.", "aim íntu fotógrafi", ""],
+        ["Soy bueno para cocinar.", "I'm good at cooking.", "aim gud at cúking", ""],
+        ["Me interesa la historia.", "I'm interested in history.", "aim íntrested in jístori", ""],
+        ["Juego futbol los domingos.", "I play soccer on Sundays.", "ai pléi sóker on sándeis", ""],
+        ["Toco la guitarra.", "I play the guitar.", "ai pléi de guitár", ""],
+        ["Salgo a correr en la mañana.", "I go running in the morning.", "ai góu ráning in de mórning", ""],
+        ["Hago yoga.", "I do yoga.", "ai du ióga", ""],
+        ["¿Qué tan seguido vas al gimnasio?", "How often do you go to the gym?", "jáu ófen du iú góu tu de yim", ""],
+        ["Dos veces por semana.", "Twice a week.", "tuáis a uíik", ""],
+        ["No soy muy bueno para bailar.", "I'm not very good at dancing.", "aim not véri gud at dánsing", ""],
+        ["Me relaja leer.", "Reading relaxes me.", "ríiding riláksis mi", ""]
+      ],
+      d: [
+        ["A", "What do you do in your free time?", "¿Qué haces en tu tiempo libre?"],
+        ["B", "I'm into photography. I go hiking and take pictures.", "Me encanta la fotografía. Voy de excursión y tomo fotos."],
+        ["A", "Cool! How often do you go hiking?", "¡Qué padre! ¿Qué tan seguido vas de excursión?"],
+        ["B", "Once or twice a month. What about you?", "Una o dos veces al mes. ¿Y tú?"],
+        ["A", "I play the guitar, but I'm not very good at it.", "Toco la guitarra, pero no soy muy bueno."],
+        ["B", "Practice makes perfect!", "¡La práctica hace al maestro!"]
+      ]
+    },
+    {
+      id: "n2u10", t: "Too y enough: demasiado y suficiente",
+      goal: "Decir que algo es demasiado o que no alcanza.",
+      g: [
+        "too + adjetivo = demasiado (algo negativo).",
+        ["It's too expensive. · I'm too tired.", "Es demasiado caro. · Estoy demasiado cansado."],
+        "adjetivo + enough = suficientemente (va DESPUÉS del adjetivo).",
+        ["It's not big enough.", "No es lo suficientemente grande."],
+        "enough + sustantivo = suficiente (va ANTES de la cosa).",
+        ["We don't have enough time.", "No tenemos suficiente tiempo."],
+        "!too much / too many = demasiado(s): too much sugar, too many people."
+      ],
+      c: [
+        ["Es demasiado caro.", "It's too expensive.", "its tu ekspénsiv", ""],
+        ["Estoy demasiado cansado para salir.", "I'm too tired to go out.", "aim tu táierd tu góu áut", ""],
+        ["No es lo suficientemente grande.", "It's not big enough.", "its not big ináf", "enough va después del adjetivo."],
+        ["No tenemos suficiente tiempo.", "We don't have enough time.", "ui dóunt jav ináf taim", ""],
+        ["¿Hay suficiente comida?", "Is there enough food?", "is der ináf fud", ""],
+        ["Hay demasiada gente.", "There are too many people.", "der ar tu méni pípol", ""],
+        ["Le pusiste demasiada azúcar.", "You put too much sugar in it.", "iú put tu mach shúgar in it", ""],
+        ["Ya es suficiente.", "That's enough.", "dats ináf", ""],
+        ["Hablas demasiado rápido.", "You speak too fast.", "iú spiik tu fast", ""],
+        ["No soy lo suficientemente alto.", "I'm not tall enough.", "aim not tol ináf", ""],
+        ["Hace demasiado calor para correr.", "It's too hot to run.", "its tu jat tu ran", ""],
+        ["¿Ganas suficiente dinero?", "Do you earn enough money?", "du iú ern ináf máni", ""]
+      ],
+      d: [
+        ["A", "Do you want to buy this apartment?", "¿Quieres comprar este departamento?"],
+        ["B", "No, it's too expensive and it's not big enough.", "No, es demasiado caro y no es lo suficientemente grande."],
+        ["A", "What about the one downtown?", "¿Y el del centro?"],
+        ["B", "There's too much traffic there.", "Ahí hay demasiado tráfico."],
+        ["A", "We don't have enough time to see more today.", "No nos da tiempo de ver más hoy."],
+        ["B", "Okay, let's see more on Saturday.", "Va, veamos más el sábado."]
+      ]
+    },
+    {
+      id: "n2u15", t: "Algo, alguien, nada, nadie",
+      goal: "Usar something, anyone, nothing, everywhere y sus parientes.",
+      g: [
+        "some- (afirmativo) · any- (preguntas y negativo) · no- (nada, nadie) · every- (todo, todos).",
+        ["something · anything · nothing · everything", "algo · algo / nada · nada · todo"],
+        ["someone · anyone · no one · everyone", "alguien · alguien / nadie · nadie · todos"],
+        ["somewhere · anywhere · nowhere · everywhere", "algún lugar · ningún lugar · ningún lugar · todas partes"],
+        "!En inglés no se usan dos negativos: I don't know anything (o I know nothing), nunca 'I don't know nothing'."
+      ],
+      c: [
+        ["Tengo algo para ti.", "I have something for you.", "ai jav sámzing for iú", ""],
+        ["¿Necesitas algo?", "Do you need anything?", "du iú niid énizing", ""],
+        ["No sé nada.", "I don't know anything.", "ai dóunt nóu énizing", "Nunca 'don't know nothing'."],
+        ["No pasó nada.", "Nothing happened.", "názing jápend", ""],
+        ["Todo está bien.", "Everything is fine.", "évrizing is fáin", "everything va con is."],
+        ["Alguien te está buscando.", "Someone is looking for you.", "sámuan is lúking for iú", ""],
+        ["¿Hay alguien aquí?", "Is anyone here?", "is éniuan jir", ""],
+        ["Nadie sabe.", "No one knows.", "nóu uan nóus", ""],
+        ["Todos están aquí.", "Everyone is here.", "évriuan is jir", "everyone va con is."],
+        ["Vamos a algún lugar.", "Let's go somewhere.", "lets góu sámuer", ""],
+        ["No lo encuentro por ningún lado.", "I can't find it anywhere.", "ai cant fáind it éniuer", ""],
+        ["Hay tráfico por todas partes.", "There's traffic everywhere.", "ders tráfik évriuer", ""]
+      ],
+      d: [
+        ["A", "Is anyone in the office?", "¿Hay alguien en la oficina?"],
+        ["B", "No, everyone went to lunch.", "No, todos se fueron a comer."],
+        ["A", "I can't find my phone anywhere!", "¡No encuentro mi celular por ningún lado!"],
+        ["B", "Did someone take it?", "¿Alguien lo agarró?"],
+        ["A", "I don't know. Oh wait, it's in my bag!", "No sé. ¡Ah, espera, está en mi bolsa!"],
+        ["B", "Good! Everything is fine, then.", "¡Bien! Entonces todo está bien."]
+      ]
+    },
+    {
+      id: "n2u14", t: "Mensajes y correos informales",
+      goal: "Escribir mensajes cortos a amigos y compañeros.",
+      g: [
+        "Un correo informal tiene saludo, mensaje y despedida corta:",
+        ["Hi Mike, · Thanks for… · Let me know. · See you soon, · Best,", "Hola Mike, · Gracias por… · Avísame. · Nos vemos pronto, · Saludos,"],
+        "En mensajes de texto se usan abreviaciones: thx (thanks), pls (please), btw (by the way), asap (as soon as possible).",
+        "!Para responder rápido: Got it (entendido), Sounds good (va), No worries (no te preocupes)."
+      ],
+      c: [
+        ["Hola, Mike:", "Hi Mike,", "jai máik", ""],
+        ["Gracias por tu mensaje.", "Thanks for your message.", "zenks for iór mésech", ""],
+        ["Solo quería saber cómo estás.", "I just wanted to see how you're doing.", "ai yast uónted tu si jáu iúr dúing", ""],
+        ["Avísame.", "Let me know.", "let mi nóu", ""],
+        ["Nos vemos pronto.", "See you soon.", "si iú suun", ""],
+        ["Entendido.", "Got it.", "got it", ""],
+        ["Perdón por la tardanza en contestar.", "Sorry for the late reply.", "sóri for de léit riplái", ""],
+        ["Te mando las fotos.", "I'm sending you the photos.", "aim sénding iú de fóutous", ""],
+        ["¿Nos vemos mañana?", "Are we still on for tomorrow?", "ar ui stil on for tumórou", "Para confirmar un plan."],
+        ["Que te vaya bien.", "Have a good one.", "jav a gud uan", ""],
+        ["Saludos a tu familia.", "Say hi to your family.", "séi jai tu iór fámili", ""],
+        ["Hablamos luego.", "Talk to you later.", "tok tu iú léiter", "En texto: ttyl"]
+      ],
+      d: [
+        ["A", "Hey! Are we still on for tomorrow?", "¡Hey! ¿Sigue en pie lo de mañana?"],
+        ["B", "Yes! Sorry for the late reply.", "¡Sí! Perdón por contestar tarde."],
+        ["A", "No worries. What time?", "No te preocupes. ¿A qué hora?"],
+        ["B", "Let's meet at six at the café.", "Nos vemos a las seis en el café."],
+        ["A", "Got it. See you tomorrow!", "Entendido. ¡Nos vemos mañana!"],
+        ["B", "Have a good one!", "¡Que te vaya bien!"]
       ]
     }
   ]
