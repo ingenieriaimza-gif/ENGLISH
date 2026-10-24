@@ -370,7 +370,7 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
         <li>practicaste la conversación completa,</li>
         <li>y leíste la lectura y contestaste bien sus preguntas.</li>
       </ul>
-      <p>El examen de unidad pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas, 85%), y solo al aprobarlo se abren los exámenes de la siguiente etapa.</p>
+      <p>El examen de unidad pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, presenta su examen final para saltarla.</p>
       <p class="muted">Por eso una unidad toma normalmente de 3 a 6 días. Es más lento que "pasar de nivel" en un juego, pero es lo que hace que de verdad lo sepas.</p>
     </div>
 
@@ -536,7 +536,8 @@ function grade(c, ok) {
   bumpStreak(); save(); renderMeta();
 }
 function introduce(c) { if (!S.c[c.id]) { S.c[c.id] = [0, dayNum()]; H().n++; } S.xp += 2; bumpStreak(); save(); renderMeta(); }
-const dueCards = () => { const t = dayNum(); return CARDS.filter(c => S.c[c.id] && S.c[c.id][1] <= t); };
+const open = c => !prevLocked(c.u.lv); // frases de etapas que aún no abres: no salen en repasos ni prácticas
+const dueCards = () => { const t = dayNum(); return CARDS.filter(c => S.c[c.id] && S.c[c.id][1] <= t && open(c)); };
 // Siguiente paso del curso: una unidad sin aprobar o el examen final de una etapa ({final: etapa})
 const useW = () => !!(S.prof && S.prof.goal === "trabajo");
 function nextUnit() {
@@ -560,9 +561,8 @@ function unitReq(u) {
   if (u.r) items.push({ ok: !!S.rd[u.id], t: "Hacer la lectura y contestar bien sus preguntas" });
   return { items, ok: items.every(x => x.ok) };
 }
-// Una etapa se abre cuando apruebas el examen final de todas las anteriores (la pista de trabajo no cuenta)
+// Una etapa se abre cuando apruebas el examen final de todas las anteriores (la pista de trabajo se abre al terminar Secundaria)
 function prevLocked(lv) {
-  if (lv.id === "w") return null;
   for (const l of COURSE) { if (l === lv) return null; if (l.id !== "w" && !S.fin[l.id]) return l; }
   return null;
 }
@@ -884,7 +884,7 @@ function runSeg() {
 function segDone(sg) { const h = H(); if (!h.dn.includes(sg.key)) h.dn.push(sg.key); save(); }
 function drill(sk) {
   const kinds = SKILL_KINDS[sk] || ["choice"];
-  let pool = CARDS.filter(c => seen(c.id) && bx(c.id) >= 1); if (pool.length < 4) pool = CARDS.filter(c => seen(c.id));
+  let pool = CARDS.filter(c => seen(c.id) && bx(c.id) >= 1 && open(c)); if (pool.length < 4) pool = CARDS.filter(c => seen(c.id) && open(c));
   const pick = pool.map(c => ({ c, k: Math.random() * (7 - bx(c.id)) ** 2 })).sort((a, b) => b.k - a.k).slice(0, 6).map(x => x.c);
   runSession(pick.map(c => ({ k: fitKind(c, rnd(kinds)), c })), { mode: "free", title: "Refuerzo: " + SKILL_NAME[sk] });
 }
@@ -963,12 +963,12 @@ function renderCurso() {
     const nCards = lv.units.reduce((a, u) => a + u.cards.length, 0);
     const finBtn = lv.id === "w" ? (all ? `<span class="ustat ok">✓ Pista completa</span>` : "")
       : fin ? `<span class="ustat ok">✓ Etapa aprobada</span>`
-      : `<button class="btn ${all ? "primary" : "ghost"} sm" data-lvexam="${lv.id}">${all ? "Presentar examen final" : "Ya domino esta etapa · examen final"}</button>`;
+      : lock ? "" : `<button class="btn ${all ? "primary" : "ghost"} sm" data-lvexam="${lv.id}">${all ? "Presentar examen final" : "Ya domino esta etapa · examen final"}</button>`;
     return `<div class="level" id="lv-${lv.id}">
       <div class="lhead"><div class="top"><h3>${esc(lv.name)}</h3><span class="cefr">${esc(lv.cefr)}</span></div>
         <p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p>
         <p class="ustat multi" style="margin:0">${lv.units.length} unidades · ${nCards} frases · ${WEEKS[lv.id] || ""} a 30–45 min diarios</p>
-        ${lock ? `<p class="lock" style="margin:0">🔒 Los exámenes de esta etapa se abren al aprobar el examen final de ${esc(lock.short)}. Las lecciones sí las puedes ver.</p>` : ""}
+        ${lock ? `<p class="lock" style="margin:0">🔒 Esta etapa se abre al aprobar el examen final de ${esc(lock.short)}. Puedes leer sus lecciones, pero no practicarlas todavía.</p>` : ""}
         <div class="mini"><i style="width:${dn / lv.units.length * 100}%"></i></div>
         <div class="row" style="justify-content:space-between;align-items:center"><span class="ustat">${dn}/${lv.units.length} unidades aprobadas</span>${finBtn}</div>
       </div>
@@ -976,7 +976,7 @@ function renderCurso() {
         const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id];
         return `<button class="urow${nu === u ? " next" : ""}" data-unit="${u.id}"><span class="unum">${String(u.k).padStart(2, "0")}</span>
           <span class="t"><div>${esc(u.t)}</div><div>${nu === u ? "Siguiente lección · " : ""}${sn}/${tot} frases${!d && sn === tot && unitReq(u).ok ? " · examen listo" : ""}</div></span>
-          <span class="ustat${d ? " ok" : ""}">${d ? "✓ Aprobada" : sn ? Math.round(sn / tot * 100) + "%" : "›"}</span></button>`;
+          <span class="ustat${d ? " ok" : ""}">${d ? "✓ Aprobada" : lock ? "🔒" : sn ? Math.round(sn / tot * 100) + "%" : "›"}</span></button>`;
       }).join("")}
     </div>`;
   }).join("");
@@ -1012,7 +1012,7 @@ function renderUnit(u) {
   const prev = UNITS[u.n - 1], next = UNITS[u.n + 1];
   const nq = Math.min(15, tot) + (u.r ? u.r.q.length : 0), sessionsLeft = Math.ceil(fresh / 6);
   const canExam = !lock && (d || rq.ok);
-  const cl = curLevel(), ahead = !d && COURSE.indexOf(u.lv) - COURSE.indexOf(cl) >= 2 ? cl : null;
+  const dis = lock ? " disabled" : "";
   $("#vUnit").innerHTML = `
     <button class="back" id="uBack">← Curso</button>
     <div style="display:flex;flex-direction:column;gap:6px">
@@ -1020,18 +1020,18 @@ function renderUnit(u) {
       <h2>${esc(u.t)}</h2>
       <p class="muted" style="margin:0">${esc(u.goal)}</p>
       <p class="ustat multi" style="margin:0">${tot} frases · normalmente toma de 3 a 6 días, porque el examen pide que las aciertes en días distintos</p>
-      ${ahead ? `<p class="lock" style="margin:0">Ojo: esta unidad es de ${esc(u.lv.short)} (${esc(u.lv.cefr)}) y tú vas en ${esc(ahead.short)}. Puedes verla, pero te va a costar mucho porque usa cosas que todavía no aprendes. En la pestaña Hoy tu entrenador te lleva en orden.</p>` : ""}
+      ${lock ? `<p class="lock" style="margin:0">🔒 Esta unidad es de ${esc(u.lv.short)} (${esc(u.lv.cefr)}). Se abre cuando apruebes el examen final de ${esc(lock.short)}. Puedes leerla, pero todavía no practicarla: usa cosas que aún no aprendes. Tu entrenador en Hoy te lleva en orden.</p>` : ""}
     </div>
     <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
     <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn}/${tot} aprendidas</span></div><div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
     <section class="sec"><div class="sh"><span class="n">03</span><h3>Practica</h3></div><div class="sb">
       <p>${fresh ? `Vas a conocer cada frase, oírla, repetirla en voz alta y ponerla a prueba, de 6 en 6. Te ${sessionsLeft === 1 ? "falta 1 sesión" : `faltan unas ${sessionsLeft} sesiones`} para conocer todas.` : `Ya conoces todas las frases. Ahora lo importante son tus repasos diarios en la pestaña Hoy; aquí puedes practicar extra las que más te cuestan.`}</p>
-      <div class="row"><button class="btn accent" id="uLearn">${fresh ? `Aprender ${Math.min(6, fresh)} frases nuevas` : "Practicar esta unidad"}</button></div>
+      <div class="row"><button class="btn accent" id="uLearn"${dis}>${fresh ? `Aprender ${Math.min(6, fresh)} frases nuevas` : "Practicar esta unidad"}</button></div>
     </div></section>
     <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</div><div class="sb">
       <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${esc(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
       <div class="row"><button class="btn speak" id="dPlay">${SPK} Escuchar diálogo</button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
-      <div class="row"><button class="btn primary" id="dPractice">Practicar: tú eres B</button></div>
+      <div class="row"><button class="btn primary" id="dPractice"${dis}>Practicar: tú eres B</button></div>
     </div></section>
     ${u.r ? `<section class="sec"><div class="sh"><span class="n">05</span><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</div><div class="sb">
       <div class="label">${esc(u.r.t)}</div>
@@ -1039,12 +1039,12 @@ function renderUnit(u) {
       <div class="reading es" id="rdEs" ${showRd ? "" : "hidden"}>${paras(u.r.es)}</div>
       <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Primero intenta entenderla sin la traducción.</p>
       <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar lectura</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
-      <div class="row"><button class="btn primary" id="rQ">Contestar ${u.r.q.length} preguntas</button></div>
+      <div class="row"><button class="btn primary" id="rQ"${dis}>Contestar ${u.r.q.length} preguntas</button></div>
     </div></section>` : ""}
     ${VIDEOS[u.id] ? `<section class="sec"><div class="sh"><span class="n">${u.r ? "06" : "05"}</span><h3>Video</h3>${S.vw[VIDEOS[u.id].id] ? `<span class="ustat ok" style="margin-left:auto">✓ Visto</span>` : ""}</div><div class="sb">
       <p style="margin:0"><strong>${esc(VIDEOS[u.id].t)}</strong><br><span class="muted" style="font-size:14px">${esc(VIDEOS[u.id].ch)} · YouTube</span></p>
       <p class="muted" style="margin:0;font-size:14px">Inglés real sobre el tema de esta unidad. La app cuenta los minutos que de verdad lo ves y al final te pide un resumen.</p>
-      <div class="row"><button class="btn primary" id="uVideo">Ver video</button></div>
+      <div class="row"><button class="btn primary" id="uVideo"${dis}>Ver video</button></div>
     </div></section>` : ""}
     <section class="sec"><div class="sh"><span class="n">${(u.r ? 6 : 5) + (VIDEOS[u.id] ? 1 : 0) < 10 ? "0" : ""}${(u.r ? 6 : 5) + (VIDEOS[u.id] ? 1 : 0)}</span><h3>Examen de la unidad</h3></div><div class="sb">
       ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>`
@@ -1056,15 +1056,15 @@ function renderUnit(u) {
     </div></section>
     <div class="pager">${prev ? `<button class="btn ghost" id="uPrev">← ${esc(prev.t)}</button>` : "<span></span>"}${next ? `<button class="btn ghost" id="uNext">${esc(next.t)} →</button>` : ""}</div>`;
   $("#uBack").onclick = () => view("curso");
-  $("#uLearn").onclick = () => learnUnit(u);
+  $("#uLearn").onclick = () => { if (!lock) learnUnit(u); };
   $("#uExam").onclick = () => { if (canExam) unitExam(u); };
-  if ($("#uVideo")) $("#uVideo").onclick = () => videoSession(VIDEOS[u.id], u);
-  $("#dPractice").onclick = () => dialogPractice(u);
+  if ($("#uVideo")) $("#uVideo").onclick = () => { if (!lock) videoSession(VIDEOS[u.id], u); };
+  $("#dPractice").onclick = () => { if (!lock) dialogPractice(u); };
   $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
   $("#dPlay").onclick = () => playDialog(u.d);
   if (u.r) {
     $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
-    $("#rQ").onclick = () => readingPractice(u);
+    $("#rQ").onclick = () => { if (!lock) readingPractice(u); };
   }
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
@@ -1116,7 +1116,7 @@ function startReview() {
   runSession(shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), { mode: "review", title: "Repaso" });
 }
 function freePractice(kind) {
-  let pool = CARDS.filter(c => seen(c.id));
+  let pool = CARDS.filter(c => seen(c.id) && open(c));
   if (!pool.length) pool = UNITS[0].cards;
   if (kind === "type" || kind === "dict") pool = pool.filter(canType);
   if (kind === "order") pool = pool.filter(canOrder);
