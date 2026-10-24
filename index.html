@@ -66,7 +66,7 @@ a{color:var(--accent)}
 .tab:last-child{border-right:0}
 .tab[aria-current="page"]{background:var(--ink);color:var(--panel)}
 
-.label{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.label{font-size:14px;font-weight:600;color:var(--muted)}
 h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,5.5vw,34px);line-height:1.05;margin:0;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
 h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-transform:uppercase;letter-spacing:.03em}
 .card{background:var(--panel);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:12px}
@@ -172,70 +172,121 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 details.rtext{border:1px solid var(--line);padding:8px 12px}
 details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 
-/* Session */
-.session{background:var(--panel);border:2px solid var(--ink);display:flex;flex-direction:column}
-.shead{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line)}
-.bar{flex:1;height:8px;background:var(--chip);position:relative;overflow:hidden}
+/* Sesión: una tarea por pantalla. Arriba el progreso, al centro la tarea, abajo la barra de acción (ahí llega el resultado) */
+.focus .tblock{display:none}
+.focus .wrap{padding-block:12px}
+.session{background:var(--panel);border:2px solid var(--ink);display:flex;flex-direction:column;min-height:calc(100vh - 24px);min-height:calc(100svh - 24px)}
+.shead{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.bar{flex:1;height:10px;background:var(--chip);position:relative;overflow:hidden}
 .bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);transition:width .3s}
 .count{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums}
-.x{background:none;border:0;font-size:14px;color:var(--muted);padding:4px}
-.sbody{padding:22px 18px;display:flex;flex-direction:column;gap:16px;min-height:300px}
-.prompt{font-size:clamp(22px,4.5vw,28px);font-weight:500;line-height:1.25;text-wrap:balance}
+.x{background:none;border:0;font-size:15px;color:var(--muted);padding:6px}
+.sbody{flex:1;display:flex;flex-direction:column;align-items:center;padding:28px 20px 36px}
+.task{width:100%;max-width:580px;margin-block:auto;display:flex;flex-direction:column;gap:18px}
+.task.wide{max-width:760px}
+.ttl{margin:0;font-family:var(--f-body);font-size:19px;font-weight:600;line-height:1.3;text-align:center;text-transform:none;letter-spacing:0;text-wrap:balance}
+.task h2.center{text-align:center}
+.tag{align-self:center;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 10px;margin-bottom:-8px;text-align:center}
+.lead{margin:0;text-align:center;color:var(--muted);font-size:16px;text-wrap:balance}
+.prompt{font-size:clamp(26px,5.2vw,40px);font-weight:600;line-height:1.2;text-align:center;text-wrap:balance}
+.prompt.sm{font-size:clamp(20px,4vw,24px)}
+.plate{border:2px solid var(--ink);padding:24px 20px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.pes{font-size:18px;color:var(--muted)}
+.pen{font-size:clamp(30px,7vw,54px);font-weight:600;line-height:1.15;text-wrap:balance}
+.pen.md{font-size:clamp(22px,5vw,30px)}
+.ppr{font-family:var(--f-mono);font-size:15px;background:var(--chip);padding:2px 10px;margin-top:2px}
+.plate .row{justify-content:center;margin-top:12px}
+.note{align-self:center;text-align:center;font-size:15px;background:var(--accent-soft);padding:6px 12px;max-width:100%}
 .en{font-size:clamp(22px,4.5vw,28px);font-weight:600;line-height:1.25}
 .pron{font-family:var(--f-mono);color:var(--muted);font-size:15px}
-.note{font-size:14px;color:var(--muted);border-left:3px solid var(--accent);padding-left:10px}
 .row{display:flex;flex-wrap:wrap;gap:8px}
+.row.c{justify-content:center}
 .btn{border:1px solid var(--ink);background:var(--panel);padding:10px 16px;font-weight:600;font-size:15px}
 .btn.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
 .btn.accent{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .btn.ghost{border-color:var(--line)}
 .btn.sm{padding:6px 12px;font-size:14px}
+.btn.go{background:var(--ink);color:var(--panel);border:0;font-family:var(--f-display);font-size:21px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:12px 28px;min-width:170px}
+.btn.go:hover:not(:disabled){filter:brightness(1.15)}
+.btn.link{border:0;background:none;color:var(--muted);padding:10px 8px;text-decoration:underline;text-underline-offset:4px;font-weight:500}
+.btn.link:hover:not(:disabled){color:var(--ink)}
 .speak{display:inline-flex;align-items:center;gap:8px}
-.speak svg,.mic svg{width:18px;height:18px}
-.mic{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);border:0;padding:14px 20px;font-weight:600;font-size:16px}
-.mic.on{animation:pulse 1s infinite}
-@keyframes pulse{50%{filter:brightness(1.25)}}
-.heard{font-family:var(--f-mono);font-size:14px;color:var(--muted)}
-.opts{display:flex;flex-direction:column;gap:8px}
-.opt{text-align:left;background:var(--panel);border:1px solid var(--line);padding:12px 14px;font-size:16px}
-.opt:hover:not(:disabled){border-color:var(--ink)}
-.opt.ok{background:var(--ok-soft);border-color:var(--ok);opacity:1}
-.opt.bad{background:var(--bad-soft);border-color:var(--bad);opacity:1}
-input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:0}
-.slot{min-height:56px;border:1px dashed var(--line);padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
-.chip{background:var(--chip);border:1px solid transparent;padding:6px 12px;font-size:16px}
-.chip:hover{border-color:var(--ink)}
-.chip.used{visibility:hidden}
-.fb{padding:14px 16px;display:flex;flex-direction:column;gap:8px;border:2px solid var(--line)}
-.fb.ok{background:var(--ok-soft);border-color:var(--ok);animation:pop .35s ease-out}
-.fb.bad{background:var(--bad-soft);border-color:var(--bad);animation:shake .45s ease-in-out}
-.fb.idk{animation:pop .35s ease-out}
-.fb b{font-family:var(--f-display);font-size:24px;text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
-.fb.ok .fbh b{color:var(--ok)}
-.fb.bad .fbh b{color:var(--bad)}
-.fbh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.ico{width:46px;height:46px;border-radius:50%;display:inline-grid;place-items:center;font-size:26px;font-weight:800;line-height:1;color:var(--panel);flex:none}
-.fb.ok .ico{background:var(--ok)}
-.fb.bad .ico{background:var(--bad)}
-.combo{font-family:var(--f-mono);font-size:13px;font-weight:600;background:var(--accent);color:var(--accent-ink);padding:3px 9px}
-.verdict{display:inline-block;font-family:var(--f-body);font-weight:700;font-size:15px;padding:3px 10px;margin-right:6px}
+.speak svg{width:18px;height:18px}
+/* micrófono: un botón grande y redondo, el resultado debajo */
+.micwrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.mic{width:76px;height:76px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 0 0 6px var(--accent-soft)}
+.mic svg{width:30px;height:30px}
+.mic.on,.mic.on:disabled{opacity:1;animation:pulse 1s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 14px var(--accent-soft)}}
+.miclbl{font-weight:600;font-size:15px}
+.heard{text-align:center;font-size:15px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.heard:empty{display:none}
+.heard .tgt{font-size:16px;color:var(--ink)}
+.verdict{display:inline-block;font-family:var(--f-body);font-weight:700;font-size:15px;padding:4px 12px}
 .verdict.ok{background:var(--ok);color:var(--panel)}
 .verdict.bad{background:var(--bad);color:var(--panel)}
-.heard .tgt{margin-top:8px;font-family:var(--f-body);font-size:16px;color:var(--ink)}
 .miss{color:var(--bad);font-weight:700;text-decoration:underline wavy;text-underline-offset:3px}
-.opt.ok::after{content:"  ✓";color:var(--ok);font-weight:800}
-.opt.bad::after{content:"  ✗";color:var(--bad);font-weight:800}
-.opt.bad{animation:shake .45s ease-in-out}
+/* opciones: en computadora van en dos columnas y se pueden elegir con las teclas 1 a 4 */
+.opts{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+@media (min-width:600px){.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.opt{position:relative;text-align:left;background:var(--panel);border:2px solid var(--line);padding:14px 40px 14px 48px;font-size:18px;min-height:58px;line-height:1.3}
+.opt .k{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:24px;height:24px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+@media (hover:none),(pointer:coarse){.opt{padding-left:16px}.opt .k{display:none}}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.ok{background:var(--ok-soft);border-color:var(--ok);opacity:1}
+.opt.bad{background:var(--bad-soft);border-color:var(--bad);opacity:1;animation:shake .45s ease-in-out}
+.opt.ok::after,.opt.bad::after{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:800;font-size:20px}
+.opt.ok::after{content:"✓";color:var(--ok)}
+.opt.bad::after{content:"✗";color:var(--bad)}
+/* escribir */
+input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:0}
+.task input.type{font-size:20px;padding:14px 16px;border:2px solid var(--ink);background:var(--panel)}
+textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:0}
+/* armar la frase: las palabras se acomodan sobre una línea, como al escribir */
+.slot{min-height:66px;border-bottom:2px solid var(--ink);padding:8px 0 10px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-content:flex-end}
+.pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{background:var(--panel);border:2px solid var(--line);border-bottom-width:4px;padding:7px 14px;font-size:18px}
+.slot .chip{border-color:var(--ink)}
+.chip:hover:not(:disabled){border-color:var(--ink)}
+.chip.used{visibility:hidden}
+.omsg{margin:0;text-align:center;font-size:15px;color:var(--muted);min-height:1.5em}
+.omsg:empty{display:none}
+/* escuchar */
+.big-play{display:inline-flex;align-items:center;gap:12px;border:2px solid var(--ink);background:var(--panel);padding:16px 28px;font-weight:600;font-size:18px}
+.big-play svg{width:26px;height:26px}
+/* barra de acción: el botón principal siempre en el mismo lugar */
+.sfoot{position:sticky;bottom:0;z-index:2;background:var(--panel);border-top:2px solid var(--ink);padding:12px 16px max(12px,env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;min-height:74px}
+.sfoot:empty{display:none}
+.sfoot .fl,.sfoot .fr{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.sfoot .fr{margin-left:auto}
+@media (max-width:520px){.sfoot .fr{width:100%}.sfoot .fr .go{flex:1}}
+/* resultado: la barra se pinta de verde o de rojo */
+.band{animation:rise .22s ease-out}
+.band.ok{background:var(--ok-soft);border-top-color:var(--ok)}
+.band.bad{background:var(--bad-soft);border-top-color:var(--bad)}
+.bmsg{display:flex;gap:14px;align-items:flex-start;flex:1 1 300px;min-width:0}
+.btxt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bt{font-family:var(--f-display);font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1.05;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:2px}
+.band.ok .bt{color:var(--ok)}
+.band.bad .bt{color:var(--bad)}
+.band .ans{font-size:20px;font-weight:600;color:var(--ink);line-height:1.3}
+.band .sub{font-size:15px;color:var(--muted)}
+.band .fr{flex-wrap:nowrap}
+.band.ok .go{background:var(--ok);color:var(--panel)}
+.band.bad .go{background:var(--bad);color:var(--panel)}
+.ico{width:46px;height:46px;border-radius:50%;display:inline-grid;place-items:center;font-size:26px;font-weight:800;line-height:1;color:var(--panel);flex:none}
+.band.ok .ico{background:var(--ok)}
+.band.bad .ico{background:var(--bad)}
+.combo{font-family:var(--f-body);font-size:14px;font-weight:600;background:var(--accent);color:var(--accent-ink);padding:2px 9px;letter-spacing:0;text-transform:none}
 .session.flash-ok{animation:flashOk .7s ease-out}
 .session.flash-bad{animation:flashBad .7s ease-out}
-@keyframes pop{0%{transform:scale(.9);opacity:0}60%{transform:scale(1.03);opacity:1}100%{transform:scale(1)}}
+@keyframes rise{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}
 @keyframes flashOk{0%{box-shadow:0 0 0 0 var(--ok)}25%{box-shadow:0 0 0 7px var(--ok)}100%{box-shadow:0 0 0 0 transparent}}
 @keyframes flashBad{0%{box-shadow:0 0 0 0 var(--bad)}25%{box-shadow:0 0 0 7px var(--bad)}100%{box-shadow:0 0 0 0 transparent}}
-.big-play{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--panel);padding:14px 22px;font-weight:600;font-size:17px}
-.big-play svg{width:22px;height:22px}
-.done{text-align:center;align-items:center;justify-content:center}
-.done .big{font-family:var(--f-display);font-size:64px;font-weight:700;line-height:1}
+/* fin de sesión */
+.task.done{align-items:center;text-align:center}
+.done .big{font-family:var(--f-display);font-size:84px;font-weight:700;line-height:1}
 .badge{font-family:var(--f-display);font-size:22px;font-weight:700;text-transform:uppercase;padding:6px 14px}
 .badge.ok{background:var(--ok-soft);color:var(--ok)}
 .badge.bad{background:var(--bad-soft);color:var(--bad)}
@@ -457,7 +508,8 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
       <span class="count" id="count">1/10</span>
       <button class="x" id="sndBtn" type="button" aria-label="Sonidos de acierto y error"></button>
     </div>
-    <div class="sbody" id="stage"></div>
+    <div class="sbody"><div class="task" id="stage"></div></div>
+    <div class="sfoot" id="sfoot"></div>
   </section>
 </div>
 
@@ -689,7 +741,6 @@ document.addEventListener("click", e => {
   say(b.dataset.say, { slow: b.dataset.slow === "1" });
 });
 const playBtn = (en, label) => `<button class="play" data-say="${esc(en)}" aria-label="Escuchar ${esc(label || en)}">${SPK}</button>`;
-const speakBtns = en => `<div class="row"><button class="btn speak" data-say="${esc(en)}">${SPK} Escuchar</button><button class="btn ghost speak" data-say="${esc(en)}" data-slow="1">${SPK} Lento</button></div>`;
 
 /* ================= reconocimiento de voz ================= */
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -806,14 +857,14 @@ function speechCheck(heard, en) {
   return { ok: m > 0 && D[n][m] <= allowed, bad, hbad, miss, hw: HW, raw };
 }
 // Botón de micrófono reutilizable. onDone(ok, transcript, score) o onFail(mensaje)
-const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div style="margin-top:4px">${esc(t)}</div>`); };
+const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div>${esc(t)}</div>`); };
 function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia reacción
-  host.innerHTML = `<div class="row"><button class="mic" type="button">${MIC} Toca y habla</button></div><div class="heard" aria-live="polite"></div>`;
-  const btn = host.querySelector(".mic"), out = host.querySelector(".heard");
+  host.innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Toca y habla">${MIC}</button><div class="miclbl">Toca y habla</div></div><div class="heard" aria-live="polite"></div>`;
+  const btn = host.querySelector(".mic"), lbl = host.querySelector(".miclbl"), out = host.querySelector(".heard");
   btn.onclick = async () => {
-    btn.classList.add("on"); btn.disabled = true; btn.lastChild.textContent = " Escuchando…"; out.textContent = "";
+    btn.classList.add("on"); btn.disabled = true; lbl.textContent = "Escuchando…"; out.textContent = "";
     const r = await hear();
-    btn.classList.remove("on"); btn.disabled = false; btn.lastChild.textContent = " Toca y habla";
+    btn.classList.remove("on"); btn.disabled = false; lbl.textContent = "Toca y habla";
     if (r.err) {
       if (r.err === "not-allowed" || r.err === "service-not-allowed" || r.err === "start") {
         srOK = false; out.textContent = "No tengo permiso para usar el micrófono. Actívalo en tu navegador o usa los otros ejercicios.";
@@ -831,7 +882,7 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
       if (!good) tip = [res.hbad.size && "Lo que está en rojo no va o no se entendió bien.", res.miss && `Te faltó decir ${res.miss === 1 ? "una palabra" : "algunas palabras"}.`].filter(Boolean).join(" ");
     } else if (res.bad.size) tip = `${good ? "Casi perfecto. Cuida" : "Revisa"} lo que está en rojo: ${red(res.raw, res.bad)}`;
     else if (!good && res.hbad.size) tip = "Dijiste algo de más: di solo la frase.";
-    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span>Entendí: "${red(res.hw, res.hbad)}"` + (tip ? `<div class="tgt">${tip}</div>` : "");
+    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span><span>Entendí: "${red(res.hw, res.hbad)}"</span>` + (tip ? `<div class="tgt">${tip}</div>` : "");
     if (!own || !good) react(good);
     onDone(good, r.alts[0], good ? 1 : 0);
   };
@@ -925,6 +976,7 @@ function view(name) {
   stopAudio(); stopVideo();
   Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
   $("#tabs").hidden = name === "session";
+  document.body.classList.toggle("focus", name === "session");
   const tab = name === "unit" ? "curso" : name;
   document.querySelectorAll(".tab").forEach(t => { if (t.dataset.tab === tab) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current"); });
   curView = name;
@@ -1442,76 +1494,95 @@ function answered(c, ok, help) {
   if (m.miss >= 2) SES.steps.splice(SES.i + 1 + n, 0, { k: "teach", c });
   addLater({ k: easierKind(c, st.k), c, fix: "easy" }, n + (m.miss >= 2 ? 1 : 0) + 2);
 }
-function answerBlock(c) {
-  return `<div><div class="en">${esc(c.en)}</div>${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+/* ---------- pantalla de práctica: escenario + barra de acción ---------- */
+const sesEl = sel => $("#vSession").querySelectorAll(sel);
+// Barra de acción: a la izquierda las ayudas (texto), a la derecha el botón principal. Siempre en el mismo lugar.
+function foot(left, right) {
+  const f = $("#sfoot"); f.className = "sfoot";
+  f.innerHTML = left || right ? `<div class="fl">${left || ""}</div><div class="fr">${right || ""}</div>` : "";
 }
+const playPair = en => `<button class="btn speak" type="button" data-say="${esc(en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(en)}" data-slow="1">${SPK} Lento</button>`;
+// Tarjeta de la frase: español arriba, inglés grande, pronunciación y botones para oírla
+function plate(c, o) {
+  o = o || {};
+  return `<div class="plate">${o.noEs ? "" : `<div class="pes">${esc(c.es)}</div>`}<div class="pen${o.md ? " md" : ""}">${esc(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+}
+// Resultado en la barra de acción (verde o rojo) con el botón para seguir
+function band(ok, idk, title, body, en, nextId) {
+  const f = $("#sfoot"), id = nextId || "next";
+  f.className = "sfoot band " + (ok ? "ok" : "bad");
+  f.innerHTML = `<div class="bmsg"><span class="ico" aria-hidden="true">${ok ? "✓" : idk ? "?" : "✗"}</span><div class="btxt"><div class="bt">${title}</div>${body || ""}</div></div>
+    <div class="fr">${en ? `<button class="btn ghost speak" type="button" data-say="${esc(en)}">${SPK} Escuchar</button>` : ""}<button class="btn go" id="${id}">Continuar</button></div>`;
+  const b = $("#" + id); b.onclick = nextStep; b.focus({ preventScroll: true });
+}
+const comboTag = () => SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : "";
 function feedback(ok, c, extra, idk) {
-  const st = $("#stage");
-  const d = document.createElement("div");
-  d.className = "fb " + (ok ? "ok" : "bad") + (idk ? " idk" : "");
-  const combo = ok && SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : "";
-  d.innerHTML = `<div class="fbh"><span class="ico" aria-hidden="true">${ok ? "✓" : idk ? "?" : "✗"}</span><b>${ok ? rnd(OKW) : idk ? "Esta es la respuesta" : "Incorrecto"}</b>${combo}</div>
-    ${extra || ""}${ok ? "" : `${idk ? "" : `<div class="muted" style="font-size:14px">La respuesta correcta es:</div>`}<div class="en" style="font-size:22px">${esc(c.en)}</div><div class="muted" style="font-size:15px">${esc(c.es)}</div>`}${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}`;
-  st.appendChild(d);
+  const title = (ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto");
+  const pr = c.pron && norm(c.pron) !== norm(c.en) ? `<span class="pron">${esc(c.pron)}</span>` : "";
+  const body = (extra || "") + (ok ? `<div class="ans">${esc(c.en)}</div>${pr ? `<div class="sub">${pr}</div>` : ""}`
+    : `${idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans">${esc(c.en)}</div><div class="sub">${esc(c.es)}${pr ? " · " + pr : ""}</div>`);
+  band(ok, idk, title, body, c.en);
   react(ok, idk);
-  try { d.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) {}
-  const nx = document.createElement("div"); nx.className = "row";
-  nx.innerHTML = `<button class="btn primary" id="next">Continuar</button><button class="btn ghost speak" data-say="${esc(c.en)}">${SPK} Escuchar</button>`;
-  st.appendChild(nx);
-  $("#next").onclick = nextStep; $("#next").focus({ preventScroll: true });
   const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
 }
-const LBL = { intro: "Frase nueva", listen: "Escucha y repite en voz alta", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Dictado: escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
+const LBL = { intro: "Frase nueva", listen: "¿Cómo se dice en inglés?", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
+// En computadora: teclas 1 a 4 para elegir una opción
+document.addEventListener("keydown", e => {
+  if (curView !== "session" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const a = document.activeElement; if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
+  const n = +e.key; if (!n) return;
+  const o = [...$("#stage").querySelectorAll(".opt")][n - 1];
+  if (o && !o.disabled) { e.preventDefault(); o.click(); }
+});
 
 function step() {
   setProg(); stopVideo();
-  const st = $("#stage"); st.className = "sbody";
+  const st = $("#stage"); st.className = "task"; foot("", "");
+  try { window.scrollTo(0, 0); } catch (e) {}
   if (SES.i >= SES.steps.length) return finish();
   const s = SES.steps[SES.i], c = s.c;
-  const tagTxt = s.fix === "easy" ? "· Paso a paso" : s.fix === "final" ? "· Ahora sin ayuda" : s.boost ? "· De un tema anterior" : "";
-  const tag = tagTxt ? `<span class="label" style="color:var(--accent)">${tagTxt}</span>` : "";
-  const head = k => `<div class="label">${LBL[k]} ${tag}</div>`;
+  const tagTxt = s.fix === "easy" ? "Paso a paso" : s.fix === "final" ? "Ahora sin ayuda" : s.boost ? "De un tema anterior" : "";
+  const head = k => `${tagTxt ? `<span class="tag">${tagTxt}</span>` : ""}<h2 class="ttl">${LBL[k]}</h2>`;
   const helpOK = !isExam();
+  const goBtn = (id, t, dis) => `<button class="btn go" id="${id}"${dis ? " disabled" : ""}>${t}</button>`;
+  const link = (id, t, extra) => `<button class="btn link" type="button" id="${id}"${extra || ""}>${t}</button>`;
 
   if (s.k === "teach") {
     const ws = words(c.en), tip = gramTip(c.u);
-    st.innerHTML = `<div class="label" style="color:var(--accent)">Vamos a verla con calma</div>
-      <p style="margin:0">Esta te está costando. No pasa nada: así se aprende. Mírala bien antes de volver a intentarlo.</p>
-      <div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}
-      ${ws.length > 1 ? `<div class="label">Palabra por palabra · toca cada una para oírla</div><div class="row">${ws.map(w => `<button class="chip" type="button" data-say="${esc(w)}">${esc(w)}</button>`).join("")}</div>` : ""}
+    st.innerHTML = `<span class="tag">Vamos a verla con calma</span><h2 class="ttl">Esta te está costando. Mírala bien antes de volver a intentarlo.</h2>
+      ${plate(c)}
+      ${ws.length > 1 ? `<p class="lead">Toca cada palabra para oírla:</p><div class="row c">${ws.map(w => `<button class="chip" type="button" data-say="${esc(w)}">${esc(w)}</button>`).join("")}</div>` : ""}
       ${tip ? `<div class="tip"><strong>Recuerda (${esc(c.u.t)}):</strong> ${esc(tip)}</div>` : ""}
-      <p style="margin:0">Dila en voz alta 3 veces: primero lento, luego normal.</p>
-      <div id="miniMic"></div>
-      <div class="row"><button class="btn primary" id="gotIt">Ya la tengo</button></div>`;
+      <p class="lead">Dila en voz alta 3 veces: primero lento, luego normal.</p>
+      <div id="miniMic"></div>`;
+    foot("", goBtn("gotIt", "Ya la tengo"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     say(c.en, { slow: true });
-    $("#gotIt").onclick = nextStep; $("#gotIt").focus();
+    $("#gotIt").onclick = nextStep; $("#gotIt").focus({ preventScroll: true });
     return;
   }
   if (s.k === "boost") {
-    st.innerHTML = `<div class="label" style="color:var(--accent)">Pausa para agarrar confianza</div>
-      <h2 style="font-size:24px">Vamos un paso atrás</h2>
-      <p style="margin:0">Te costaron varias seguidas, y es normal cuando algo es nuevo. Antes de seguir vamos a ${[s.gram && "repasar la explicación", s.prev && "practicar algo que ya sabes de temas anteriores"].filter(Boolean).join(" y ") || "respirar un momento"}; después regresamos a las que fallaste, en ejercicios más fáciles primero.</p>
-      ${s.cut ? `<p style="margin:0">Las ${s.cut === 1 ? "frase nueva que faltaba la vemos" : s.cut + " frases nuevas que faltaban las vemos"} en tu siguiente sesión: primero dominamos estas.</p>` : ""}
-      <div class="row"><button class="btn primary" id="bGo">Vamos</button></div>`;
-    $("#bGo").onclick = nextStep; $("#bGo").focus();
+    st.innerHTML = `<span class="tag">Pausa para agarrar confianza</span><h2 class="center">Vamos un paso atrás</h2>
+      <p class="lead">Te costaron varias seguidas, y es normal cuando algo es nuevo. Antes de seguir vamos a ${[s.gram && "repasar la explicación", s.prev && "practicar algo que ya sabes de temas anteriores"].filter(Boolean).join(" y ") || "respirar un momento"}; después regresamos a las que fallaste, en ejercicios más fáciles primero.</p>
+      ${s.cut ? `<p class="lead">Las ${s.cut === 1 ? "frase nueva que faltaba la vemos" : s.cut + " frases nuevas que faltaban las vemos"} en tu siguiente sesión: primero dominamos estas.</p>` : ""}`;
+    foot("", goBtn("bGo", "Vamos"));
+    $("#bGo").onclick = nextStep; $("#bGo").focus({ preventScroll: true });
     return;
   }
-
   if (s.k === "intro") {
-    st.innerHTML = `${head("intro")}<div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}
-      <p style="margin:0">Escúchala y repítela en voz alta 2 o 3 veces.</p>
-      <div id="miniMic"></div>
-      <div class="row"><button class="btn primary" id="gotIt">Entendido</button></div>`;
+    st.innerHTML = `${head("intro")}${plate(c)}<p class="lead">Escúchala y repítela en voz alta 2 o 3 veces.</p><div id="miniMic"></div>`;
+    foot("", goBtn("gotIt", "Entendido"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     introduce(c); say(c.en);
-    $("#gotIt").onclick = nextStep; $("#gotIt").focus();
+    $("#gotIt").onclick = nextStep; $("#gotIt").focus({ preventScroll: true });
     return;
   }
   if (s.k === "listen") {
-    st.innerHTML = `${head("listen")}<div class="prompt">${esc(c.es)}</div><p style="margin:0" class="muted">Piensa cómo se dice en inglés y dilo en voz alta. Luego revisa.</p><div class="row"><button class="btn primary" id="reveal">Ver respuesta</button></div>`;
+    st.innerHTML = `${head("listen")}<div class="prompt">${esc(c.es)}</div><p class="lead">Piensa cómo se dice y dilo en voz alta. Luego revisa.</p>`;
+    foot("", goBtn("reveal", "Ver respuesta"));
     $("#reveal").onclick = () => {
-      st.innerHTML = `${head("listen")}<div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}<div class="label">¿Te salió?</div><div class="row"><button class="btn" id="no">No me acordé</button><button class="btn primary" id="yes">Sí, la dije bien</button></div>`;
+      st.innerHTML = `${head("listen")}${plate(c)}<p class="lead">¿Te salió igual?</p>`;
+      foot(`<button class="btn" id="no">No me acordé</button>`, goBtn("yes", "Sí, la dije bien"));
       say(c.en);
       $("#no").onclick = () => { answered(c, false); react(false, true); nextStep(); };
       $("#yes").onclick = () => { answered(c, true); react(true); nextStep(); };
@@ -1520,16 +1591,16 @@ function step() {
   }
   if (s.k === "choice" || s.k === "hear") {
     const hearMode = s.k === "hear", field = hearMode ? "es" : "en";
-    const opts = shuffle([c, ...distract(c, 3, field)]);
-    st.innerHTML = `${head(s.k)}${hearMode ? `<button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost sm speak" style="align-self:flex-start" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button>` : `<div class="prompt">${esc(c.es)}</div>`}
-      <div class="opts">${opts.map(o => `<button class="opt" data-id="${esc(o.id)}">${esc(o[field])}</button>`).join("")}</div>
-      <div class="row"><button class="btn ghost sm" id="cIdk">No sé</button></div>`;
+    const opts = shuffle([c, ...distract(c, 3, field)]), two = opts.every(o => o[field].length <= 26);
+    st.innerHTML = `${head(s.k)}${hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
+      <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(o[field])}</button>`).join("")}</div>`;
+    foot(link("cIdk", "No sé"), "");
     if (hearMode) say(c.en);
     const pickOpt = b => {
       const ok = !!b && b.dataset.id === c.id;
-      st.querySelectorAll(".opt,#cIdk").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
+      sesEl(".opt,#cIdk").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
       if (b && !ok) b.classList.add("bad");
-      answered(c, ok); feedback(ok, c, hearMode && ok ? `<div class="en" style="font-size:20px">${esc(c.en)}</div>` : "", !b);
+      answered(c, ok); feedback(ok, c, "", !b);
     };
     st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickOpt(b));
     $("#cIdk").onclick = () => pickOpt(null);
@@ -1537,22 +1608,21 @@ function step() {
   }
   if (s.k === "type" || s.k === "dict") {
     const dict = s.k === "dict";
-    st.innerHTML = `${head(s.k)}${dict ? `<div class="row"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
-      <form id="tf" style="display:flex;flex-direction:column;gap:10px">
-        <input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés">
-        <div class="row"><button class="btn primary" type="submit">Revisar</button>${helpOK ? `<button class="btn ghost" type="button" id="hint">Pista</button>` : ""}<button class="btn ghost" type="button" id="skip">No sé</button></div>
-      </form>`;
+    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
+      <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>
+      <p class="omsg" id="tMsg"></p>`;
+    foot((helpOK ? link("hint", "Pista") : "") + link("skip", "No sé"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
     const inp = $("#tin"); inp.focus();
     if (dict) say(c.en);
     let helped = false;
-    if ($("#hint")) $("#hint").onclick = () => { helped = true; const w = words(c.en); inp.placeholder = w.slice(0, Math.max(1, Math.ceil(w.length / 3))).join(" ") + " …"; inp.focus(); };
-    const lock = () => { inp.disabled = true; st.querySelectorAll("#tf button").forEach(b => b.disabled = true); };
+    if ($("#hint")) $("#hint").onclick = () => { helped = true; const w = words(c.en); const p = w.slice(0, Math.max(1, Math.ceil(w.length / 3))).join(" "); inp.placeholder = p + " …"; $("#tMsg").textContent = `Empieza así: ${p} …`; inp.focus(); };
+    const lock = () => { inp.disabled = true; sesEl("#sfoot button").forEach(b => b.disabled = true); };
     $("#skip").onclick = () => { lock(); answered(c, false); feedback(false, c, "", true); };
     $("#tf").onsubmit = e => {
       e.preventDefault();
-      const r = closeEnough(inp.value, c.en); if (!r) return;
+      const r = closeEnough(inp.value, c.en); if (!r) { inp.focus(); return; }
       lock(); answered(c, r.ok, helped);
-      feedback(r.ok, c, r.ok ? (r.exact ? "" : `<div>Casi perfecto. Revisa la escritura: <strong>${esc(c.en)}</strong></div>`) : `<div class="heard">Escribiste: ${esc(inp.value)}</div>`);
+      feedback(r.ok, c, r.ok ? (r.exact ? "" : `<div class="sub">Casi perfecto. Revisa cómo se escribe:</div>`) : `<div class="sub">Escribiste: ${esc(inp.value)}</div>`);
     };
     return;
   }
@@ -1561,9 +1631,9 @@ function step() {
     let picked = [];
     st.innerHTML = `${head("order")}<div class="prompt">${esc(c.es)}</div>
       <div class="slot" id="slot" aria-label="Tu frase"></div>
-      <div class="row" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
-      <div class="row"><button class="btn primary" id="chk" disabled>Revisar</button><button class="btn ghost" id="clr">Borrar</button>${helpOK ? `<button class="btn ghost" id="oHint">Pista</button>` : ""}<button class="btn ghost" id="oIdk">No sé</button></div>
-      <p class="muted" id="oMsg" style="margin:0;font-size:14px"></p>`;
+      <div class="pool" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
+      <p class="omsg" id="oMsg"></p>`;
+    foot(link("clr", "Borrar") + (helpOK ? link("oHint", "Pista") : "") + link("oIdk", "No sé"), goBtn("chk", "Revisar", true));
     let helped = false;
     const lc = t => t.toLowerCase();
     const draw = () => {
@@ -1571,6 +1641,7 @@ function step() {
       st.querySelectorAll("#pool .chip").forEach(b => b.classList.toggle("used", picked.includes(+b.dataset.j)));
       $("#slot").querySelectorAll(".chip").forEach(b => b.onclick = () => { picked.splice(+b.dataset.k, 1); draw(); });
       $("#chk").disabled = picked.length !== pool.length;
+      if (!$("#chk").disabled) $("#chk").focus({ preventScroll: true });
     };
     st.querySelectorAll("#pool .chip").forEach(b => b.onclick = () => { const j = +b.dataset.j; if (!picked.includes(j)) { picked.push(j); draw(); } });
     $("#clr").onclick = () => { picked = []; draw(); };
@@ -1583,23 +1654,24 @@ function step() {
       $("#oMsg").textContent = p === 0 ? "La frase empieza así. Sigue tú." : "Hasta aquí va bien. Sigue tú.";
       say(picked.map(j => pool[j].t).join(" "));
     };
-    $("#oIdk").onclick = () => { st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true); answered(c, false); feedback(false, c, "", true); };
+    const lockAll = () => sesEl("#stage .chip,#sfoot button").forEach(x => x.disabled = true);
+    $("#oIdk").onclick = () => { lockAll(); answered(c, false); feedback(false, c, "", true); };
     $("#chk").onclick = () => {
       const ok = picked.map(j => lc(pool[j].t)).join(" ") === w.map(lc).join(" ");
-      st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true);
-      answered(c, ok, helped); feedback(ok, c, ok && helped ? `<div>Con pista. Va a volver en un rato para que la armes tú solo.</div>` : "");
+      lockAll(); answered(c, ok, helped);
+      feedback(ok, c, ok && helped ? `<div class="sub">Con pista: va a volver en un rato para que la armes tú solo.</div>` : "");
     };
     return;
   }
   if (s.k === "speak") {
     let tries = 0;
-    st.innerHTML = `${head("speak")}<div class="prompt">${esc(c.es)}</div><div id="micBox"></div>
-      <div class="row"><button class="btn ghost" id="sReveal">Ver respuesta</button><button class="btn ghost" id="sType">Mejor escribirla</button></div>`;
-    const giveUp = () => { st.querySelectorAll("button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
+    st.innerHTML = `${head("speak")}<div class="prompt">${esc(c.es)}</div><div id="micBox"></div>`;
+    foot(link("sReveal", "Ver respuesta") + link("sType", "Mejor escribirla"), "");
+    const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
     micUI($("#micBox"), c.en, (ok, heard) => {
       if (ok === null) { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); return; }
       tries++;
-      if (ok) { st.querySelectorAll("button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
+      if (ok) { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
       if (tries >= 3) giveUp();
       else addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
     }, true);
@@ -1610,12 +1682,13 @@ function step() {
   if (s.k === "video") {
     const v = s.v, seen0 = S.vw[v.id] || 0;
     let watched = 0, need = videoNeed(0), failed = false;
-    st.innerHTML = `<div class="label">Video · ${esc(v.ch)}</div><h2 style="font-size:24px">${esc(v.t)}</h2>
+    st.className = "task wide";
+    st.innerHTML = `<span class="tag">Video · ${esc(v.ch)}</span><h2 class="ttl">${esc(v.t)}</h2>
       <div class="vwrap"><div id="ytp"></div></div>
       <div class="mini"><i id="vbar" style="width:0"></i></div>
-      <p class="muted" id="vtxt" style="margin:0">Dale play. Solo cuenta el tiempo en que el video se está reproduciendo.</p>
-      <p class="muted" style="margin:0;font-size:14px">Activa los subtítulos en inglés (CC) si los necesitas. Repite en voz alta las frases que entiendas.</p>
-      <div class="row"><button class="btn primary" id="vDone" disabled>Terminé de verlo</button><a class="btn ghost" id="vOpen" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">Abrir en YouTube</a></div>`;
+      <p class="lead" id="vtxt">Dale play. Solo cuenta el tiempo en que el video se está reproduciendo.</p>
+      <p class="lead" style="font-size:14px">Activa los subtítulos en inglés (CC) si los necesitas. Repite en voz alta las frases que entiendas.</p>`;
+    foot(`<a class="btn link" id="vOpen" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">Abrir en YouTube</a>`, goBtn("vDone", "Terminé de verlo", true));
     const ui = () => {
       if (!$("#vbar")) return; // ya saliste del video
       const m = t => Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0");
@@ -1633,19 +1706,18 @@ function step() {
         ui();
       }, 1000);
     }).catch(() => { failed = true; ui(); });
-    $("#vOpen").onclick = () => { if (!failed) return; };
     $("#vDone").onclick = () => { S.vw[v.id] = Math.max(seen0, watched || 1); s.ext = failed; save(); nextStep(); };
     ui();
     return;
   }
   if (s.k === "vsum") {
     const v = s.v, ext = SES.steps[SES.i - 1] && SES.steps[SES.i - 1].ext, need = sumWords(s.u.lv) * (ext ? 2 : 1);
-    st.innerHTML = `<div class="label">Resumen del video</div><div class="prompt" style="font-size:20px">¿Qué entendiste?</div>
-      <p style="margin:0">${need <= 3 ? `Di o escribe en inglés al menos ${need} palabras o frases que escuchaste en el video.` : `Di o escribe en inglés lo que recuerdes del video: de qué trató, qué aprendiste o una frase que te gustó (mínimo ${need} palabras).`}</p>
+    st.innerHTML = `<span class="tag">Resumen del video</span><h2 class="ttl">¿Qué entendiste?</h2>
+      <p class="lead">${need <= 3 ? `Di o escribe en inglés al menos ${need} palabras o frases que escuchaste en el video.` : `Di o escribe en inglés lo que recuerdes del video: de qué trató, qué aprendiste o una frase que te gustó (mínimo ${need} palabras).`}</p>
       <div id="sumMic"></div>
-      <textarea class="type" id="sumTxt" rows="3" placeholder="Escribe aquí en inglés…" style="font-size:16px"></textarea>
-      <p class="heard" id="sumMsg"></p>
-      <div class="row"><button class="btn primary" id="sumOk">Revisar</button></div>`;
+      <textarea class="type" id="sumTxt" rows="3" placeholder="Escribe aquí en inglés…"></textarea>
+      <p class="omsg" id="sumMsg"></p>`;
+    foot("", goBtn("sumOk", "Revisar"));
     const enWords = t => (t.match(/[A-Za-z']+/g) || []).filter(w => w.length > 1 || /^(a|i)$/i.test(w));
     const spanish = t => /[ñáéíóú¿¡]/i.test(t) || /\b(que|el|la|los|las|de|es|y|pero|porque|muy)\b/i.test(t);
     const check = () => {
@@ -1653,16 +1725,14 @@ function step() {
       if (spanish(t)) { $("#sumMsg").textContent = "Inténtalo en inglés, aunque sea sencillo. Está bien equivocarse."; return; }
       if (w.length < need) { $("#sumMsg").textContent = `Llevas ${w.length} de ${need} palabras en inglés. Agrega un poco más.`; return; }
       SES.graded++; SES.ok++; skill("hear", true); save();
-      st.querySelectorAll("button,textarea").forEach(x => x.disabled = true);
+      sesEl("#stage button,#stage textarea").forEach(x => x.disabled = true);
+      band(true, false, "¡Muy bien!", `<div class="sub">Resumir lo que escuchas es uno de los mejores ejercicios para hablar con fluidez.</div>`);
       react(true);
-      const d = document.createElement("div"); d.className = "fb ok"; d.innerHTML = `<div class="fbh"><span class="ico" aria-hidden="true">✓</span><b>¡Muy bien!</b></div><div>Resumir lo que escuchas es uno de los mejores ejercicios para hablar con fluidez.</div>`;
-      st.appendChild(d); const nx = document.createElement("div"); nx.className = "row"; nx.innerHTML = `<button class="btn primary" id="next">Continuar</button>`; st.appendChild(nx);
-      $("#next").onclick = nextStep; $("#next").focus();
     };
     if (srOK) {
-      $("#sumMic").innerHTML = `<div class="row"><button class="mic" type="button">${MIC} Dilo con el micrófono</button></div>`;
-      const b = $("#sumMic .mic");
-      b.onclick = async () => { b.classList.add("on"); b.disabled = true; const r = await hear(); b.classList.remove("on"); b.disabled = false;
+      $("#sumMic").innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Dilo con el micrófono">${MIC}</button><div class="miclbl">Dilo con el micrófono</div></div>`;
+      const b = $("#sumMic .mic"), l = $("#sumMic .miclbl");
+      b.onclick = async () => { b.classList.add("on"); b.disabled = true; l.textContent = "Escuchando…"; const r = await hear(); b.classList.remove("on"); b.disabled = false; l.textContent = "Dilo con el micrófono";
         if (r.err && (r.err === "not-allowed" || r.err === "service-not-allowed")) { srOK = false; $("#sumMsg").textContent = "No tengo permiso para el micrófono. Escríbelo."; return; }
         if (r.alts && r.alts.length) { const t = $("#sumTxt"); t.value = (t.value ? t.value + " " : "") + r.alts[0]; check(); } else $("#sumMsg").textContent = "No te oí. Inténtalo otra vez o escríbelo."; };
     }
@@ -1671,64 +1741,63 @@ function step() {
   }
   if (s.k === "gram") {
     const u = s.u;
-    st.innerHTML = `<div class="label">${s.recap ? "Repasemos la explicación" : "Nueva lección"} · ${esc(u.lv.short)} · Unidad ${u.k}</div><h2>${esc(u.t)}</h2><p class="muted" style="margin:0">${esc(u.goal)}</p>
+    st.innerHTML = `<span class="tag">${s.recap ? "Repasemos la explicación" : "Nueva lección"} · ${esc(u.lv.short)} · Unidad ${u.k}</span><h2 class="center">${esc(u.t)}</h2><p class="lead">${esc(u.goal)}</p>
       <div class="gram" style="display:flex;flex-direction:column;gap:12px">${gramHTML(u.g)}</div>
-      <p class="muted" style="margin:0;font-size:14px">${s.recap ? "Léela con calma y escucha los ejemplos. Muchas veces el error viene de aquí: cuando entiendes la regla, las frases salen solas." : "Escucha los ejemplos y repítelos en voz alta. No tienes que memorizar la regla: la vas a aprender usando las frases."}</p>
-      <div class="row"><button class="btn primary" id="gramOk">${s.recap ? "Entendido, sigamos" : "Entendido, vamos a practicar"}</button></div>`;
+      <p class="lead" style="font-size:14px">${s.recap ? "Léela con calma y escucha los ejemplos. Muchas veces el error viene de aquí: cuando entiendes la regla, las frases salen solas." : "Escucha los ejemplos y repítelos en voz alta. No tienes que memorizar la regla: la vas a aprender usando las frases."}</p>`;
+    foot("", goBtn("gramOk", s.recap ? "Entendido, sigamos" : "Entendido, a practicar"));
     $("#gramOk").onclick = () => { S.gs[u.id] = 1; save(); nextStep(); };
+    $("#gramOk").focus({ preventScroll: true });
     return;
   }
   if (s.k === "read") {
     const u = s.u;
-    st.innerHTML = `<div class="label">Lectura · ${esc(u.lv.short)}</div><h2>${esc(u.r.t)}</h2>
+    st.innerHTML = `<span class="tag">Lectura · ${esc(u.lv.short)}</span><h2 class="center">${esc(u.r.t)}</h2>
+      <div class="row c"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="sRdT">Ver traducción</button></div>
       <div class="reading">${paras(u.r.en)}</div>
       <div class="reading es" id="sRdEs" hidden>${paras(u.r.es)}</div>
-      <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Intenta entenderla antes de ver la traducción.</p>
-      <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="sRdT">Ver traducción</button></div>
-      <div class="row"><button class="btn primary" id="sRdGo">Ya la leí: ir a las preguntas</button></div>`;
+      <p class="lead" style="font-size:14px">Léela en voz alta. Intenta entenderla antes de ver la traducción.</p>`;
+    foot("", goBtn("sRdGo", "Ir a las preguntas"));
     $("#sRdT").onclick = () => { const e = $("#sRdEs"); e.hidden = !e.hidden; $("#sRdT").textContent = (e.hidden ? "Ver" : "Ocultar") + " traducción"; };
     $("#sRdGo").onclick = nextStep;
     return;
   }
   if (s.k === "rq") {
     const [q, opts, ans] = s.q, order = shuffle(opts.map((t, i) => ({ t, i })));
-    st.innerHTML = `<div class="label">Comprensión de lectura · ${esc(s.u.r.t)}</div>
-      <details class="rtext"${SES.mode === "reading" ? " open" : ""}><summary>Ver el texto</summary><div class="reading" style="margin-top:8px;font-size:15px">${paras(s.u.r.en)}</div></details>
-      <div class="prompt" style="font-size:20px">${esc(q)}</div>
-      <div class="opts">${order.map(o => `<button class="opt" data-i="${o.i}">${esc(o.t)}</button>`).join("")}</div>`;
+    st.innerHTML = `<span class="tag">Comprensión de lectura</span>
+      <details class="rtext"${SES.mode === "reading" ? " open" : ""}><summary>Ver el texto: ${esc(s.u.r.t)}</summary><div class="reading" style="margin-top:8px;font-size:15px">${paras(s.u.r.en)}</div></details>
+      <div class="prompt sm">${esc(q)}</div>
+      <div class="opts">${order.map((o, i) => `<button class="opt" data-i="${o.i}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(o.t)}</button>`).join("")}</div>`;
     st.querySelectorAll(".opt").forEach(b => b.onclick = () => {
       const ok = +b.dataset.i === ans;
       st.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (+x.dataset.i === ans) x.classList.add("ok"); });
       if (!ok) b.classList.add("bad");
       SES.graded++; if (ok) SES.ok++; SES.combo = ok ? (SES.combo || 0) + 1 : 0; skill("rq", ok); save();
-      const d = document.createElement("div"); d.className = "fb " + (ok ? "ok" : "bad");
-      d.innerHTML = `<div class="fbh"><span class="ico" aria-hidden="true">${ok ? "✓" : "✗"}</span><b>${ok ? rnd(OKW) : "Incorrecto"}</b>${ok && SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : ""}</div>${ok ? "" : `<div class="muted" style="font-size:14px">La respuesta correcta es:</div><div>${esc(opts[ans])}</div>`}`;
-      st.appendChild(d); react(ok);
-      const nx = document.createElement("div"); nx.className = "row"; nx.innerHTML = `<button class="btn primary" id="next">Continuar</button>`;
-      st.appendChild(nx); $("#next").onclick = nextStep; $("#next").focus();
+      band(ok, false, ok ? rnd(OKW) + comboTag() : "Incorrecto", ok ? "" : `<div class="sub">La respuesta correcta es:</div><div class="ans">${esc(opts[ans])}</div>`);
+      react(ok);
     });
     return;
   }
   if (s.k === "dlg") {
     const [who, en, es] = s.line;
     if (who === "A") {
-      st.innerHTML = `<div class="label">Conversación · te dicen</div><div class="en">${esc(en)}</div><div class="muted">${esc(es)}</div>${speakBtns(en)}<div class="row"><button class="btn primary" id="dNext">Continuar</button></div>`;
-      say(en, { who: 0 }); $("#dNext").onclick = nextStep; $("#dNext").focus();
+      st.innerHTML = `<h2 class="ttl">Conversación: te dicen</h2><div class="plate"><div class="pen md">${esc(en)}</div><div class="pes">${esc(es)}</div><div class="row">${playPair(en)}</div></div>`;
+      foot("", goBtn("dNext", "Continuar"));
+      say(en, { who: 0 }); $("#dNext").onclick = nextStep; $("#dNext").focus({ preventScroll: true });
       return;
     }
     const prevA = SES.steps[SES.i - 1] && SES.steps[SES.i - 1].line;
-    st.innerHTML = `<div class="label">Conversación · tu turno</div>
-      ${prevA && prevA[0] === "A" ? `<div class="muted" style="font-size:15px">Te dijeron: "${esc(prevA[1])}"</div>` : ""}
-      <div class="prompt">${esc(es)}</div><p class="muted" style="margin:0">Dilo en inglés.</p><div id="micBox"></div>
-      <div class="row"><button class="btn ${srOK ? "ghost" : "primary"}" id="dReveal">Ver respuesta</button></div>`;
+    st.innerHTML = `<h2 class="ttl">Conversación: tu turno</h2>
+      ${prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(prevA[1])}"</p>` : ""}
+      <div class="prompt">${esc(es)}</div><p class="lead">Dilo en inglés.</p><div id="micBox"></div>`;
+    foot(srOK ? link("dReveal", "Ver respuesta") : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
     const reveal = (auto) => {
-      st.querySelectorAll("#micBox button,#dReveal").forEach(b => b.disabled = true);
-      const box = document.createElement("div"); box.style.cssText = "display:flex;flex-direction:column;gap:12px";
-      box.innerHTML = auto === true ? `<div class="fb ok"><b>¡Muy bien!</b><div class="en" style="font-size:20px">${esc(en)}</div></div><div class="row"><button class="btn primary" id="dNext">Continuar</button></div>`
-        : `<div class="en">${esc(en)}</div>${speakBtns(en)}<div class="label">¿Te salió?</div><div class="row"><button class="btn" id="dNo">No</button><button class="btn primary" id="dYes">Sí, más o menos igual</button></div>`;
-      st.appendChild(box); say(en, { who: 1 });
-      if (auto === true) { SES.graded++; SES.ok++; skill("dlg", true); react(true); $("#dNext").onclick = nextStep; $("#dNext").focus(); }
-      else { $("#dNo").onclick = () => { SES.graded++; skill("dlg", false); nextStep(); }; $("#dYes").onclick = () => { SES.graded++; SES.ok++; skill("dlg", true); nextStep(); }; }
+      sesEl("#micBox button,#dReveal").forEach(b => b.disabled = true);
+      say(en, { who: 1 });
+      if (auto === true) { SES.graded++; SES.ok++; skill("dlg", true); band(true, false, "¡Muy bien!", `<div class="ans">${esc(en)}</div>`, en, "dNext"); react(true); return; }
+      st.insertAdjacentHTML("beforeend", `<div class="plate"><div class="pen md">${esc(en)}</div><div class="row">${playPair(en)}</div></div><p class="lead">¿Te salió?</p>`);
+      foot(`<button class="btn" id="dNo">No</button>`, goBtn("dYes", "Sí, más o menos igual"));
+      $("#dNo").onclick = () => { SES.graded++; skill("dlg", false); nextStep(); };
+      $("#dYes").onclick = () => { SES.graded++; SES.ok++; skill("dlg", true); nextStep(); };
     };
     if (srOK) micUI($("#micBox"), en, ok => { if (ok === null) return; if (ok) reveal(true); else addNote($("#micBox"), "Inténtalo otra vez o mira la respuesta."); }, true);
     $("#dReveal").onclick = () => reveal(false);
@@ -1739,7 +1808,7 @@ function step() {
 function finish() {
   if (SES.mode === "gram" && SES.seg && PLAN) { segDone(SES.seg); PLAN.i++; runSeg(); return; }
   $("#barFill").style.width = "100%";
-  const st = $("#stage"); st.className = "sbody done";
+  const st = $("#stage"); st.className = "task done";
   const n = SES.graded, ok = SES.ok, m = SES.mode;
   let title = "Sesión terminada", big = n ? `${ok}/${n}` : "✓", msg = "", extra = "", btns = "";
   if (m === "exam" || m === "final") {
@@ -1817,23 +1886,24 @@ function finish() {
     } else btns = `<button class="btn primary" id="fFree">Otra ronda</button>`;
   }
   if (m !== "exam" && m !== "final" ? n || m === "video" || m === "dialog" : extra.includes("badge ok")) sfx("win"); // fanfarria al terminar
-  st.innerHTML = `<div class="label">${esc(title)}</div><div class="big">${big}</div>${extra}<p style="margin:0;max-width:44ch">${msg}</p>
-    <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>
-    <div class="row" style="justify-content:center">${btns}<button class="btn" id="fBack">Volver</button></div>`;
+  const summary = t => `<h2 class="ttl">${esc(t)}</h2><div class="big">${big}</div>${extra}<p class="lead" style="max-width:46ch;color:var(--ink)">${msg}</p>
+    <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>`;
+  const goify = h => h.replace(/btn primary/g, "btn go");
+  st.innerHTML = summary(title);
+  foot(`<button class="btn link" id="fBack">Volver</button>`, goify(btns));
   if (SES.seg && PLAN) {
     segDone(SES.seg);
     PLAN.i++;
     const nx = PLAN.segs[PLAN.i], total = PLAN.segs.length;
     title = `Parte ${PLAN.i} de ${total} · ${title}`;
     btns = nx ? `<button class="btn primary" id="fPlan">Siguiente: ${esc(nx.title)}</button>` : `<button class="btn primary" id="fPlanEnd">Terminar sesión de hoy</button>`;
-    st.innerHTML = `<div class="label">${esc(title)}</div><div class="big">${big}</div>${extra}<p style="margin:0;max-width:44ch">${msg}</p>
-      <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>
-      <div class="row" style="justify-content:center">${btns}<button class="btn" id="fPause">${nx ? "Pausar" : "Volver"}</button></div>`;
+    st.innerHTML = summary(title);
+    foot(`<button class="btn link" id="fPause">${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
     if (!nx) PLAN = null;
     const b1 = $("#fPlan"); if (b1) b1.onclick = runSeg;
     const b2 = $("#fPlanEnd"); if (b2) b2.onclick = () => view("hoy");
     $("#fPause").onclick = () => view("hoy");
-    (b1 || b2).focus();
+    (b1 || b2).focus({ preventScroll: true });
     return;
   }
   const on = (id, fn) => { const b = $("#" + id); if (b) b.onclick = fn; };
@@ -1846,7 +1916,7 @@ function finish() {
   on("fRev", startReview);
   on("fFree", () => freePractice(kind));
   on("fBack", () => { if (unit && back === "unit") openUnit(unit); else view(back === "session" ? "hoy" : back); });
-  const first = st.querySelector(".btn.primary") || $("#fBack"); first.focus();
+  const first = $("#sfoot .btn.go") || $("#fBack"); first.focus({ preventScroll: true });
 }
 $("#quit").onclick = () => { const u = SES && SES.unit, b = SES ? SES.back : "hoy"; if (SES && SES.seg) { view("hoy"); return; } if (u && b === "unit") openUnit(u); else view(b); };
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => freePractice(b.dataset.mode));
