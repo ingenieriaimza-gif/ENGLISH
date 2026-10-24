@@ -355,6 +355,7 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
         <li><strong>Los días que faltaste:</strong> al regresar, primero recupera lo que se te estaba olvidando.</li>
         <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): agrega ejercicios extra de esa habilidad.</li>
         <li><strong>Tu objetivo y tu tiempo diario:</strong> los eliges al empezar y los puedes cambiar en «Ajustar mi plan».</li>
+        <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando dominas lo que fallaste.</li>
         <li><strong>El video del día:</strong> cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
       <p class="muted">Por eso no hay dos personas con la misma sesión: cada quien avanza a su propio ritmo. Las pestañas Curso y Frases siguen disponibles si quieres explorar por tu cuenta.</p>
@@ -992,6 +993,13 @@ function gramHTML(g) {
     return `<p>${esc(x)}</p>`;
   }).join("");
 }
+// Consejo corto de la explicación de la unidad (para enseñar una frase que cuesta)
+function gramTip(u) {
+  const g = (u && u.g) || [], t = g.find(x => typeof x === "string" && x[0] !== "!") || g.find(x => typeof x === "string");
+  if (!t) return "";
+  const s = t.replace(/^!/, "");
+  return s.length > 240 ? s.slice(0, s.lastIndexOf(" ", 237)) + "…" : s;
+}
 function dotsHTML(id) { const b = bx(id); return `<div class="dots" title="${seen(id) ? "Nivel " + b + " de 6" : "Aún no la aprendes"}">${[1, 2, 3, 4, 5, 6].map(n => `<i class="${b >= n ? "on" : ""}"></i>`).join("")}</div>`; }
 function itemHTML(c, showUnit) {
   return `<div class="item">${dotsHTML(c.id)}<div class="t"><div>${esc(c.en)}</div><div>${esc(c.es)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
@@ -1004,6 +1012,7 @@ function renderUnit(u) {
   const prev = UNITS[u.n - 1], next = UNITS[u.n + 1];
   const nq = Math.min(15, tot) + (u.r ? u.r.q.length : 0), sessionsLeft = Math.ceil(fresh / 6);
   const canExam = !lock && (d || rq.ok);
+  const cl = curLevel(), ahead = !d && COURSE.indexOf(u.lv) - COURSE.indexOf(cl) >= 2 ? cl : null;
   $("#vUnit").innerHTML = `
     <button class="back" id="uBack">← Curso</button>
     <div style="display:flex;flex-direction:column;gap:6px">
@@ -1011,6 +1020,7 @@ function renderUnit(u) {
       <h2>${esc(u.t)}</h2>
       <p class="muted" style="margin:0">${esc(u.goal)}</p>
       <p class="ustat multi" style="margin:0">${tot} frases · normalmente toma de 3 a 6 días, porque el examen pide que las aciertes en días distintos</p>
+      ${ahead ? `<p class="lock" style="margin:0">Ojo: esta unidad es de ${esc(u.lv.short)} (${esc(u.lv.cefr)}) y tú vas en ${esc(ahead.short)}. Puedes verla, pero te va a costar mucho porque usa cosas que todavía no aprendes. En la pestaña Hoy tu entrenador te lleva en orden.</p>` : ""}
     </div>
     <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
     <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn}/${tot} aprendidas</span></div><div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
@@ -1097,7 +1107,7 @@ function drawFrases() {
 /* ================= sesiones ================= */
 let SES = null;
 function runSession(steps, opts) {
-  SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, retried: new Set(), back: curView === "session" ? "hoy" : curView }, opts, SEGOPT || {});
+  SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, m: {}, recent: [], fixed: 0, boosts: 0, lastBoost: -99, recap: new Set(), base: steps.length, back: curView === "session" ? "hoy" : curView }, opts, SEGOPT || {});
   view("session"); step();
 }
 function startReview() {
@@ -1173,11 +1183,69 @@ function setProg() {
   $("#count").textContent = Math.min(SES.i + 1, n) + "/" + n;
 }
 function nextStep() { SES.i++; step(); }
-function answered(c, ok) {
-  const st = SES.steps[SES.i]; if (st) skill(st.k, ok);
-  grade(c, ok); SES.graded++; if (ok) SES.ok++;
-  const exam = SES.mode === "exam" || SES.mode === "final";
-  if (!ok && !exam && !SES.retried.has(c.id)) { SES.retried.add(c.id); SES.steps.push({ k: sameText(c) ? "dict" : canOrder(c) ? "order" : "choice", c, retry: true }); }
+/* ---------- dominar antes de terminar ----------
+   Si fallas una frase no se repite igual: primero vuelve en un ejercicio más fácil, unos pasos después (no de inmediato),
+   y cuando la aciertas regresa en el ejercicio original. Si la fallas dos veces, te la enseño con calma (palabra por palabra
+   y la regla). Si fallas varias seguidas, hacemos una pausa: repasamos la explicación y algo de temas anteriores que ya sabes,
+   y dejamos las frases nuevas para después. La calificación del repaso espaciado solo usa el primer intento. */
+const RANK = { intro: 0, choice: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
+const isExam = () => SES.mode === "exam" || SES.mode === "final";
+function easierKind(c, k) {
+  if (sameText(c)) return "hear";
+  return (RANK[k] || 1) >= 4 && canOrder(c) ? "order" : "choice";
+}
+function softMiss(c) { const h = H(); h.r++; const b = bx(c.id); S.c[c.id] = [Math.max(1, b), dayNum() + 1]; } // con pista: vuelve mañana sin bajar de nivel
+function addLater(step, gap) {
+  const rest = SES.steps.slice(SES.i + 1);
+  if (step.c && rest.some(s => s.c === step.c && s.fix)) return; // ya tiene su repetición programada
+  SES.steps.splice(Math.min(SES.i + 1 + gap, SES.steps.length), 0, step);
+}
+function earlierCards(u, n) {
+  const used = new Set(SES.steps.map(s => s.c && s.c.id)), out = [];
+  for (let j = u.n - 1; j >= 0 && out.length < n; j--) {
+    UNITS[j].cards.filter(x => seen(x.id) && bx(x.id) >= 1 && !used.has(x.id)).sort((a, b) => bx(b.id) - bx(a.id)).slice(0, n - out.length).forEach(x => { out.push(x); used.add(x.id); });
+  }
+  if (out.length < n) Object.keys(SES.m).forEach(id => { const x = CARD[id]; if (out.length < n && x && !SES.m[id].miss && !out.includes(x)) out.push(x); });
+  return out;
+}
+// Varias fallas seguidas: pausa, explicación otra vez, temas anteriores y nada nuevo por hoy en esta sesión
+function struggle(c) {
+  if (SES.recent.filter(x => !x).length < 3 || SES.i - SES.lastBoost < 6 || SES.boosts >= 2) return 0;
+  SES.lastBoost = SES.i; SES.boosts++; SES.recent = [];
+  let cut = 0;
+  if (SES.mode === "learn") {
+    const drop = new Set(SES.steps.slice(SES.i + 1).filter(s => s.c && !seen(s.c.id)).map(s => s.c.id));
+    cut = drop.size;
+    if (cut) SES.steps = SES.steps.filter((s, j) => j <= SES.i || !s.c || !drop.has(s.c.id));
+  }
+  const prev = earlierCards(c.u, 2), ins = [{ k: "boost", u: c.u, cut, prev: prev.length }];
+  if (!SES.recap.has(c.u.id)) { SES.recap.add(c.u.id); ins[0].gram = true; ins.push({ k: "gram", u: c.u, recap: true }); }
+  prev.forEach(p => ins.push({ k: sameText(p) ? "hear" : rnd(["choice", "hear"]), c: p, boost: true }));
+  SES.steps.splice(SES.i + 1, 0, ...ins);
+  return ins.length;
+}
+function answered(c, ok, help) {
+  const st = SES.steps[SES.i] || {};
+  if (isExam()) { skill(st.k, ok); grade(c, ok); SES.graded++; if (ok) SES.ok++; return; }
+  const clean = ok && !help;
+  const m = SES.m[c.id] || (SES.m[c.id] = { miss: 0, target: st.k, first: true, boost: !!st.boost });
+  skill(st.k, clean);
+  if (m.first) { m.first = false; SES.graded++; if (clean) SES.ok++; if (help && ok) softMiss(c); else grade(c, ok); }
+  else if (clean) S.xp += 3;
+  SES.recent.push(clean ? 1 : 0); if (SES.recent.length > 5) SES.recent.shift();
+  const room = SES.steps.length < SES.base * 3;
+  if (clean) {
+    if (!m.miss || m.done) return;
+    if ((RANK[st.k] || 0) >= (RANK[m.target] || 0) || !room) { m.done = true; SES.fixed++; return; }
+    addLater({ k: fitKind(c, m.target), c, fix: "final" }, 2);   // ya la reconoces: ahora como al principio
+    return;
+  }
+  if (ok && help) { m.miss = Math.max(1, m.miss); if (room) addLater({ k: fitKind(c, m.target), c, fix: "final" }, 2); return; }
+  m.miss++;
+  if (m.miss > 3 || !room) { m.later = true; return; }                  // basta por hoy: vuelve mañana más fácil
+  const n = m.boost ? 0 : struggle(c);   // los repasos de temas anteriores no disparan otra pausa
+  if (m.miss >= 2) SES.steps.splice(SES.i + 1 + n, 0, { k: "teach", c });
+  addLater({ k: easierKind(c, st.k), c, fix: "easy" }, n + (m.miss >= 2 ? 1 : 0) + 2);
 }
 function answerBlock(c) {
   return `<div><div class="en">${esc(c.en)}</div>${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}`;
@@ -1201,8 +1269,35 @@ function step() {
   const st = $("#stage"); st.className = "sbody";
   if (SES.i >= SES.steps.length) return finish();
   const s = SES.steps[SES.i], c = s.c;
-  const tag = s.retry ? `<span class="label" style="color:var(--accent)">· Otra vez</span>` : "";
+  const tagTxt = s.fix === "easy" ? "· Paso a paso" : s.fix === "final" ? "· Ahora sin ayuda" : s.boost ? "· De un tema anterior" : "";
+  const tag = tagTxt ? `<span class="label" style="color:var(--accent)">${tagTxt}</span>` : "";
   const head = k => `<div class="label">${LBL[k]} ${tag}</div>`;
+  const helpOK = !isExam();
+
+  if (s.k === "teach") {
+    const ws = words(c.en), tip = gramTip(c.u);
+    st.innerHTML = `<div class="label" style="color:var(--accent)">Vamos a verla con calma</div>
+      <p style="margin:0">Esta te está costando. No pasa nada: así se aprende. Mírala bien antes de volver a intentarlo.</p>
+      <div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}
+      ${ws.length > 1 ? `<div class="label">Palabra por palabra · toca cada una para oírla</div><div class="row">${ws.map(w => `<button class="chip" type="button" data-say="${esc(w)}">${esc(w)}</button>`).join("")}</div>` : ""}
+      ${tip ? `<div class="tip"><strong>Recuerda (${esc(c.u.t)}):</strong> ${esc(tip)}</div>` : ""}
+      <p style="margin:0">Dila en voz alta 3 veces: primero lento, luego normal.</p>
+      <div id="miniMic"></div>
+      <div class="row"><button class="btn primary" id="gotIt">Ya la tengo</button></div>`;
+    if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === null) return; $("#miniMic .heard").textContent += ok ? " · ¡Muy bien!" : " · Escucha otra vez y repite."; });
+    say(c.en, { slow: true });
+    $("#gotIt").onclick = nextStep; $("#gotIt").focus();
+    return;
+  }
+  if (s.k === "boost") {
+    st.innerHTML = `<div class="label" style="color:var(--accent)">Pausa para agarrar confianza</div>
+      <h2 style="font-size:24px">Vamos un paso atrás</h2>
+      <p style="margin:0">Te costaron varias seguidas, y es normal cuando algo es nuevo. Antes de seguir vamos a ${[s.gram && "repasar la explicación", s.prev && "practicar algo que ya sabes de temas anteriores"].filter(Boolean).join(" y ") || "respirar un momento"}; después regresamos a las que fallaste, en ejercicios más fáciles primero.</p>
+      ${s.cut ? `<p style="margin:0">Las ${s.cut === 1 ? "frase nueva que faltaba la vemos" : s.cut + " frases nuevas que faltaban las vemos"} en tu siguiente sesión: primero dominamos estas.</p>` : ""}
+      <div class="row"><button class="btn primary" id="bGo">Vamos</button></div>`;
+    $("#bGo").onclick = nextStep; $("#bGo").focus();
+    return;
+  }
 
   if (s.k === "intro") {
     st.innerHTML = `${head("intro")}<div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}
@@ -1228,14 +1323,17 @@ function step() {
     const hearMode = s.k === "hear", field = hearMode ? "es" : "en";
     const opts = shuffle([c, ...distract(c, 3, field)]);
     st.innerHTML = `${head(s.k)}${hearMode ? `<button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost sm speak" style="align-self:flex-start" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button>` : `<div class="prompt">${esc(c.es)}</div>`}
-      <div class="opts">${opts.map(o => `<button class="opt" data-id="${esc(o.id)}">${esc(o[field])}</button>`).join("")}</div>`;
+      <div class="opts">${opts.map(o => `<button class="opt" data-id="${esc(o.id)}">${esc(o[field])}</button>`).join("")}</div>
+      <div class="row"><button class="btn ghost sm" id="cIdk">No sé</button></div>`;
     if (hearMode) say(c.en);
-    st.querySelectorAll(".opt").forEach(b => b.onclick = () => {
-      const ok = b.dataset.id === c.id;
-      st.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
-      if (!ok) b.classList.add("bad");
+    const pickOpt = b => {
+      const ok = !!b && b.dataset.id === c.id;
+      st.querySelectorAll(".opt,#cIdk").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
+      if (b && !ok) b.classList.add("bad");
       answered(c, ok); feedback(ok, c, hearMode ? `<div class="en" style="font-size:20px">${esc(c.en)}</div>` : "");
-    });
+    };
+    st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickOpt(b));
+    $("#cIdk").onclick = () => pickOpt(null);
     return;
   }
   if (s.k === "type" || s.k === "dict") {
@@ -1243,17 +1341,18 @@ function step() {
     st.innerHTML = `${head(s.k)}${dict ? `<div class="row"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
       <form id="tf" style="display:flex;flex-direction:column;gap:10px">
         <input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés">
-        <div class="row"><button class="btn primary" type="submit">Revisar</button><button class="btn ghost" type="button" id="hint">Pista</button><button class="btn ghost" type="button" id="skip">No sé</button></div>
+        <div class="row"><button class="btn primary" type="submit">Revisar</button>${helpOK ? `<button class="btn ghost" type="button" id="hint">Pista</button>` : ""}<button class="btn ghost" type="button" id="skip">No sé</button></div>
       </form>`;
     const inp = $("#tin"); inp.focus();
     if (dict) say(c.en);
-    $("#hint").onclick = () => { const w = words(c.en); inp.placeholder = w.slice(0, Math.max(1, Math.ceil(w.length / 3))).join(" ") + " …"; inp.focus(); };
+    let helped = false;
+    if ($("#hint")) $("#hint").onclick = () => { helped = true; const w = words(c.en); inp.placeholder = w.slice(0, Math.max(1, Math.ceil(w.length / 3))).join(" ") + " …"; inp.focus(); };
     const lock = () => { inp.disabled = true; st.querySelectorAll("#tf button").forEach(b => b.disabled = true); };
     $("#skip").onclick = () => { lock(); answered(c, false); feedback(false, c); };
     $("#tf").onsubmit = e => {
       e.preventDefault();
       const r = closeEnough(inp.value, c.en); if (!r) return;
-      lock(); answered(c, r.ok);
+      lock(); answered(c, r.ok, helped);
       feedback(r.ok, c, r.ok ? (r.exact ? "" : `<div>Casi perfecto. Revisa la escritura: <strong>${esc(c.en)}</strong></div>`) : `<div class="heard">Escribiste: ${esc(inp.value)}</div>`);
     };
     return;
@@ -1264,7 +1363,10 @@ function step() {
     st.innerHTML = `${head("order")}<div class="prompt">${esc(c.es)}</div>
       <div class="slot" id="slot" aria-label="Tu frase"></div>
       <div class="row" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
-      <div class="row"><button class="btn primary" id="chk" disabled>Revisar</button><button class="btn ghost" id="clr">Borrar</button></div>`;
+      <div class="row"><button class="btn primary" id="chk" disabled>Revisar</button><button class="btn ghost" id="clr">Borrar</button>${helpOK ? `<button class="btn ghost" id="oHint">Pista</button>` : ""}<button class="btn ghost" id="oIdk">No sé</button></div>
+      <p class="muted" id="oMsg" style="margin:0;font-size:14px"></p>`;
+    let helped = false;
+    const lc = t => t.toLowerCase();
     const draw = () => {
       $("#slot").innerHTML = picked.map((j, k) => `<button class="chip" data-k="${k}">${esc(pool[j].t)}</button>`).join("");
       st.querySelectorAll("#pool .chip").forEach(b => b.classList.toggle("used", picked.includes(+b.dataset.j)));
@@ -1273,10 +1375,20 @@ function step() {
     };
     st.querySelectorAll("#pool .chip").forEach(b => b.onclick = () => { const j = +b.dataset.j; if (!picked.includes(j)) { picked.push(j); draw(); } });
     $("#clr").onclick = () => { picked = []; draw(); };
+    // Pista: deja las palabras bien puestas del inicio y coloca la siguiente correcta
+    if ($("#oHint")) $("#oHint").onclick = () => {
+      let p = 0; while (p < picked.length && lc(pool[picked[p]].t) === lc(w[p])) p++;
+      picked = picked.slice(0, p);
+      if (p < w.length) { const j = pool.findIndex((x, jj) => !picked.includes(jj) && lc(x.t) === lc(w[p])); if (j >= 0) picked.push(j); }
+      helped = true; draw();
+      $("#oMsg").textContent = p === 0 ? "La frase empieza así. Sigue tú." : "Hasta aquí va bien. Sigue tú.";
+      say(picked.map(j => pool[j].t).join(" "));
+    };
+    $("#oIdk").onclick = () => { st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true); answered(c, false); feedback(false, c); };
     $("#chk").onclick = () => {
-      const ok = picked.map(j => pool[j].t).join(" ").toLowerCase() === w.join(" ").toLowerCase();
-      st.querySelectorAll(".chip,#chk,#clr").forEach(x => x.disabled = true);
-      answered(c, ok); feedback(ok, c);
+      const ok = picked.map(j => lc(pool[j].t)).join(" ") === w.map(lc).join(" ");
+      st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true);
+      answered(c, ok, helped); feedback(ok, c, ok && helped ? `<div>Con pista. Va a volver en un rato para que la armes tú solo.</div>` : "");
     };
     return;
   }
@@ -1306,6 +1418,7 @@ function step() {
       <p class="muted" style="margin:0;font-size:14px">Activa los subtítulos en inglés (CC) si los necesitas. Repite en voz alta las frases que entiendas.</p>
       <div class="row"><button class="btn primary" id="vDone" disabled>Terminé de verlo</button><a class="btn ghost" id="vOpen" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">Abrir en YouTube</a></div>`;
     const ui = () => {
+      if (!$("#vbar")) return; // ya saliste del video
       const m = t => Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0");
       $("#vbar").style.width = Math.min(100, watched / need * 100) + "%";
       $("#vtxt").textContent = failed ? "Este video no se puede reproducir aquí. Ábrelo en YouTube, míralo completo y regresa: al volver te pediré un resumen más largo." : watched >= need ? "¡Listo! Ya puedes continuar." : `Visto: ${m(watched)} de ${m(need)} necesarios.`;
@@ -1358,10 +1471,10 @@ function step() {
   }
   if (s.k === "gram") {
     const u = s.u;
-    st.innerHTML = `<div class="label">Nueva lección · ${esc(u.lv.short)} · Unidad ${u.k}</div><h2>${esc(u.t)}</h2><p class="muted" style="margin:0">${esc(u.goal)}</p>
+    st.innerHTML = `<div class="label">${s.recap ? "Repasemos la explicación" : "Nueva lección"} · ${esc(u.lv.short)} · Unidad ${u.k}</div><h2>${esc(u.t)}</h2><p class="muted" style="margin:0">${esc(u.goal)}</p>
       <div class="gram" style="display:flex;flex-direction:column;gap:12px">${gramHTML(u.g)}</div>
-      <p class="muted" style="margin:0;font-size:14px">Escucha los ejemplos y repítelos en voz alta. No tienes que memorizar la regla: la vas a aprender usando las frases.</p>
-      <div class="row"><button class="btn primary" id="gramOk">Entendido, vamos a practicar</button></div>`;
+      <p class="muted" style="margin:0;font-size:14px">${s.recap ? "Léela con calma y escucha los ejemplos. Muchas veces el error viene de aquí: cuando entiendes la regla, las frases salen solas." : "Escucha los ejemplos y repítelos en voz alta. No tienes que memorizar la regla: la vas a aprender usando las frases."}</p>
+      <div class="row"><button class="btn primary" id="gramOk">${s.recap ? "Entendido, sigamos" : "Entendido, vamos a practicar"}</button></div>`;
     $("#gramOk").onclick = () => { S.gs[u.id] = 1; save(); nextStep(); };
     return;
   }
@@ -1486,7 +1599,14 @@ function finish() {
     msg = ok === n ? "¡Excelente! Repite el diálogo hasta que te salga sin pensar." : "Repítela un par de veces más: la meta es responder sin pensar.";
     btns = `<button class="btn primary" id="fAgain">Repetir conversación</button>`;
   } else {
-    msg = n && ok / n >= 0.8 ? "¡Excelente trabajo!" : "Buen trabajo. Las frases que fallaste te van a salir más seguido hasta que se te queden.";
+    const ms = Object.values(SES.m || {}), missed = ms.filter(x => x.miss).length, later = ms.filter(x => x.miss && !x.done).length;
+    extra = n ? `<span class="pron">${ok} de ${n} a la primera</span>` : "";
+    msg = (!missed ? (n ? "¡Excelente! Todas a la primera." : "¡Buen trabajo!")
+      : !SES.fixed ? `Hoy te ${missed === 1 ? "costó 1 frase" : `costaron ${missed} frases`}. Es normal al principio.`
+      : `Fallaste ${missed} ${missed === 1 ? "frase" : "frases"} y ${SES.fixed === missed ? (missed === 1 ? "la dominaste" : "las dominaste todas") : `dominaste ${SES.fixed}`} antes de terminar.`)
+        + (!missed ? "" : !SES.fixed ? ` ${missed === 1 ? "Vuelve" : "Vuelven"} mañana, empezando por ejercicios más fáciles.` : later ? ` ${later === 1 ? "Una todavía te cuesta: vuelve" : later + " todavía te cuestan: vuelven"} mañana, empezando por ejercicios más fáciles.` : " ¡Así se aprende!");
+    if (missed && SES.fixed) { big = `${SES.fixed}/${missed}`; title = "Frases que fallaste y ya dominas"; }
+    else extra = "";
     if (m === "learn") {
       const u = SES.unit, left = u.cards.length - unitSeen(u);
       btns = left ? `<button class="btn primary" id="fMore">Aprender ${Math.min(6, left)} frases más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y la lectura</button>`;
