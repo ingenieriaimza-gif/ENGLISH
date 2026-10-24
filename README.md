@@ -19,6 +19,7 @@ App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profes
 - **Unidades:** explicación de gramática en español, ~27 frases y vocabulario con audio (pronunciación escrita hasta Secundaria), práctica, conversación (tú eres B), lectura con preguntas y examen.
 - **Avance exigente:** el examen de unidad se desbloquea al aprender todas las frases, acertar el 80% en días distintos, practicar la conversación y aprobar la lectura; pide 85%. Cada etapa termina con un examen final de 30 preguntas (85%) que abre la siguiente.
 - **Repetición espaciada:** cada frase tiene nivel 0–6; al acertar el día que toca se repasa en 1, 2, 4, 8, 16 y 35 días (practicar antes no sube el nivel). Las que fallas vuelven al día siguiente y se repiten al final de la sesión.
+- **Video del día:** `content/videos.js` tiene un video de YouTube por unidad (109), elegido por tema y nivel y verificado con oEmbed (existe, canal correcto, se puede insertar). Se reproduce dentro de la app con la API de YouTube; cuenta solo el tiempo en reproducción (70% del video, máx. 10 min) y luego pide un resumen en inglés. Si un video deja de funcionar, la app ofrece abrirlo en YouTube; para reemplazarlo, cambia su `id` en `videos.js`.
 - **Ejercicios:** opción múltiple, comprensión auditiva, escribir, dictado, armar la frase, hablar con micrófono (reconocimiento de voz del navegador) y escucha y repite.
 - **Examen final de etapa** también sirve para saltarte lo que ya sabes.
 - **Método:** rutina diaria, etapas y qué escuchar en cada nivel.

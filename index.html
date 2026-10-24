@@ -144,6 +144,8 @@ h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-tra
 .req li.ok::before{content:"✓";color:var(--ok)}
 .req li.ok{color:var(--muted)}
 .lock{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.vwrap{position:relative;width:100%;padding-top:56.25%;background:#000}
+.vwrap iframe,.vwrap>div{position:absolute;inset:0;width:100%;height:100%;border:0}
 details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;padding:12px 0}
 .coach-msg{display:flex;flex-direction:column;gap:6px}
 .coach-msg p{margin:0;border-left:3px solid var(--accent);padding-left:10px;font-size:15px}
@@ -353,6 +355,7 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
         <li><strong>Los días que faltaste:</strong> al regresar, primero recupera lo que se te estaba olvidando.</li>
         <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): agrega ejercicios extra de esa habilidad.</li>
         <li><strong>Tu objetivo y tu tiempo diario:</strong> los eliges al empezar y los puedes cambiar en «Ajustar mi plan».</li>
+        <li><strong>El video del día:</strong> cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
       <p class="muted">Por eso no hay dos personas con la misma sesión: cada quien avanza a su propio ritmo. Las pestañas Curso y Frases siguen disponibles si quieres explorar por tu cuenta.</p>
     </div>
@@ -453,6 +456,8 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
 <script src="content/x-n4.js"></script>
 <script src="content/x-n5.js"></script>
 <script src="content/x-n6.js"></script>
+<!-- un video verificado de YouTube por unidad -->
+<script src="content/videos.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -491,12 +496,12 @@ function migrate(o) {
     Object.entries(o.box).forEach(([i, b]) => { const id = "w" + i; if (!o.c[id]) o.c[id] = [Math.max(1, Math.min(6, +b || 0)), t]; });
     delete o.box;
   }
-  o.done = o.done || {}; o.rd = o.rd || {}; o.dl = o.dl || {}; o.fin = o.fin || {}; o.gs = o.gs || {}; o.sk = o.sk || {}; o.h = o.h || {}; o.v = 2;
+  o.done = o.done || {}; o.rd = o.rd || {}; o.dl = o.dl || {}; o.fin = o.fin || {}; o.gs = o.gs || {}; o.sk = o.sk || {}; o.h = o.h || {}; o.vw = o.vw || {}; o.v = 2;
   if (o.prof === undefined) o.prof = null;
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -723,7 +728,7 @@ function fitKind(c, k) {
 const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", frases: "#vFrases", metodo: "#vMetodo", session: "#vSession" };
 let curView = "hoy", curUnit = null;
 function view(name) {
-  stopAudio();
+  stopAudio(); stopVideo();
   Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
   $("#tabs").hidden = name === "session";
   const tab = name === "unit" ? "curso" : name;
@@ -782,7 +787,16 @@ function activeUnits() {
   }
   return list;
 }
-const ORDER = { place: 0, review: 1, gram: 2, learn: 3, dialog: 4, reading: 5, drill: 6, exam: 7, final: 8, real: 9 };
+const ORDER = { place: 0, review: 1, gram: 2, learn: 3, dialog: 4, reading: 5, video: 6, drill: 7, exam: 8, final: 9 };
+const VIDEOS = window.VIDEOS || {};
+const videoNeed = dur => dur ? Math.max(30, Math.min(Math.round(dur * 0.7), 600)) : 120; // 70% del video, máximo 10 minutos
+// Elige el video del día: el de la unidad actual; si ya lo viste, uno de unidades anteriores de la etapa que no hayas visto
+function pickVideo() {
+  const units = activeUnits(); if (!units.length) return null;
+  const lv = units[0].lv, pool = units.concat(lv.units.filter(u => S.done[u.id]).reverse());
+  for (const u of pool) { const v = VIDEOS[u.id]; if (v && !S.vw[v.id]) return { v, u }; }
+  const u = units[0]; return VIDEOS[u.id] ? { v: VIDEOS[u.id], u, again: true } : null;
+}
 function buildToday(extra) {
   const P = S.prof, budget = P.min * 60, h = H(), doneKeys = h.dn, segs = [], notes = [];
   const add = seg => { if (doneKeys.includes(seg.key)) seg.done = true; segs.push(seg); };
@@ -835,7 +849,8 @@ function buildToday(extra) {
     add({ key: (extra ? "x-" : "") + "drill", kind: "drill", skill: focus, title: "Refuerzo: " + SKILL_NAME[focus], desc: weak ? "Tu habilidad más débil ahora mismo" : "Lo que más necesitas para tu objetivo", sec: 120 });
     if (weak && !extra) notes.push(`Tu punto débil ahora es «${SKILL_NAME[weak].toLowerCase()}» (${Math.round(S.sk[weak] * 100)}% de aciertos). Hoy hay ejercicios extra de eso.`);
   }
-  if (!extra) add({ key: "real", kind: "real", manual: true, title: "Inglés real · 10 a 20 min", desc: LISTEN_TIP[curLevel().cefr] || LISTEN_TIP.B1, sec: 0 });
+  const pv = !extra && pickVideo();
+  if (pv) add({ key: "video", kind: "video", v: pv.v, u: pv.u, title: "Video: " + pv.v.t, desc: `${pv.v.ch} · ${pv.again ? "otra vez, ahora intenta sin ver los subtítulos" : "inglés real, de la vida diaria"}`, sec: 360 });
   if (!anySeen && !notes.length) notes.push("¡Bienvenido! Hoy empieza tu camino. Vamos poco a poco: primero una explicación sencilla y tus primeras frases.");
   if (!notes.length) notes.push(S.streak > 1 ? `Racha de ${S.streak} días. La constancia es lo que de verdad te va a hacer hablar con fluidez.` : "Este es tu plan de hoy. Lo armé con base en lo que ya sabes y en lo que se te está olvidando.");
   segs.sort((x, y) => ORDER[x.kind === "final" && x.place ? "place" : x.kind] - ORDER[y.kind === "final" && y.place ? "place" : y.kind]);
@@ -862,6 +877,7 @@ function runSeg() {
   else if (sg.kind === "drill") drill(sg.skill);
   else if (sg.kind === "exam") unitExam(sg.u);
   else if (sg.kind === "final") finalExam(sg.lv, sg.place ? 15 : 30);
+  else if (sg.kind === "video") videoSession(sg.v, sg.u);
   SEGOPT = null;
 }
 function segDone(sg) { const h = H(); if (!h.dn.includes(sg.key)) h.dn.push(sg.key); save(); }
@@ -1015,7 +1031,12 @@ function renderUnit(u) {
       <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar lectura</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
       <div class="row"><button class="btn primary" id="rQ">Contestar ${u.r.q.length} preguntas</button></div>
     </div></section>` : ""}
-    <section class="sec"><div class="sh"><span class="n">${u.r ? "06" : "05"}</span><h3>Examen de la unidad</h3></div><div class="sb">
+    ${VIDEOS[u.id] ? `<section class="sec"><div class="sh"><span class="n">${u.r ? "06" : "05"}</span><h3>Video</h3>${S.vw[VIDEOS[u.id].id] ? `<span class="ustat ok" style="margin-left:auto">✓ Visto</span>` : ""}</div><div class="sb">
+      <p style="margin:0"><strong>${esc(VIDEOS[u.id].t)}</strong><br><span class="muted" style="font-size:14px">${esc(VIDEOS[u.id].ch)} · YouTube</span></p>
+      <p class="muted" style="margin:0;font-size:14px">Inglés real sobre el tema de esta unidad. La app cuenta los minutos que de verdad lo ves y al final te pide un resumen.</p>
+      <div class="row"><button class="btn primary" id="uVideo">Ver video</button></div>
+    </div></section>` : ""}
+    <section class="sec"><div class="sh"><span class="n">${(u.r ? 6 : 5) + (VIDEOS[u.id] ? 1 : 0) < 10 ? "0" : ""}${(u.r ? 6 : 5) + (VIDEOS[u.id] ? 1 : 0)}</span><h3>Examen de la unidad</h3></div><div class="sb">
       ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>`
         : `<p>${nq} preguntas sin ayuda: escribir, dictado${srOK ? ", hablar" : ""}, comprensión auditiva${u.r ? " y lectura" : ""}. Necesitas 85% (${Math.ceil(nq * 0.85)} de ${nq}) para aprobar.</p>
            <div class="label">Para desbloquearlo</div>
@@ -1027,6 +1048,7 @@ function renderUnit(u) {
   $("#uBack").onclick = () => view("curso");
   $("#uLearn").onclick = () => learnUnit(u);
   $("#uExam").onclick = () => { if (canExam) unitExam(u); };
+  if ($("#uVideo")) $("#uVideo").onclick = () => videoSession(VIDEOS[u.id], u);
   $("#dPractice").onclick = () => dialogPractice(u);
   $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
   $("#dPlay").onclick = () => playDialog(u.d);
@@ -1121,6 +1143,23 @@ function finalExam(lv, total) {
   if (total >= 30) shuffle(lv.units.filter(u => u.r)).slice(0, 2).forEach(u => rqSteps(u).slice(0, 2).forEach(x => steps.splice(Math.floor(Math.random() * (steps.length + 1)), 0, x)));
   runSession(steps, { mode: "final", level: lv, title: (total < 30 ? "Ubicación: " : "Examen final: ") + lv.short });
 }
+/* ---------- videos de YouTube con minutos reales vistos ---------- */
+let YTP = null, VTIMER = null, ytReady = null;
+function loadYT() {
+  if (ytReady) return ytReady;
+  ytReady = new Promise((res, rej) => {
+    if (window.YT && window.YT.Player) return res();
+    window.onYouTubeIframeAPIReady = () => res();
+    const sc = document.createElement("script"); sc.src = "https://www.youtube.com/iframe_api"; sc.onerror = () => { ytReady = null; rej(); };
+    document.head.appendChild(sc);
+  });
+  return ytReady;
+}
+function stopVideo() { clearInterval(VTIMER); VTIMER = null; try { if (YTP && YTP.destroy) YTP.destroy(); } catch (e) {} YTP = null; }
+const sumWords = lv => ({ k: 2, n0: 2, n1: 3, n2: 5 })[lv.id] || 8;
+function videoSession(v, u) {
+  runSession([{ k: "video", v, u }, { k: "vsum", v, u }], { mode: "video", unit: u, title: "Video: " + v.t });
+}
 function readingPractice(u) {
   runSession([{ k: "read", u }].concat(rqSteps(u)), { mode: "reading", unit: u, title: "Lectura: " + u.r.t });
 }
@@ -1158,7 +1197,7 @@ function feedback(ok, c, extra) {
 const LBL = { intro: "Frase nueva", listen: "Escucha y repite en voz alta", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Dictado: escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
 
 function step() {
-  setProg();
+  setProg(); stopVideo();
   const st = $("#stage"); st.className = "sbody";
   if (SES.i >= SES.steps.length) return finish();
   const s = SES.steps[SES.i], c = s.c;
@@ -1255,6 +1294,66 @@ function step() {
     });
     $("#sReveal").onclick = giveUp;
     $("#sType").onclick = () => { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); };
+    return;
+  }
+  if (s.k === "video") {
+    const v = s.v, seen0 = S.vw[v.id] || 0;
+    let watched = 0, need = videoNeed(0), failed = false;
+    st.innerHTML = `<div class="label">Video · ${esc(v.ch)}</div><h2 style="font-size:24px">${esc(v.t)}</h2>
+      <div class="vwrap"><div id="ytp"></div></div>
+      <div class="mini"><i id="vbar" style="width:0"></i></div>
+      <p class="muted" id="vtxt" style="margin:0">Dale play. Solo cuenta el tiempo en que el video se está reproduciendo.</p>
+      <p class="muted" style="margin:0;font-size:14px">Activa los subtítulos en inglés (CC) si los necesitas. Repite en voz alta las frases que entiendas.</p>
+      <div class="row"><button class="btn primary" id="vDone" disabled>Terminé de verlo</button><a class="btn ghost" id="vOpen" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">Abrir en YouTube</a></div>`;
+    const ui = () => {
+      const m = t => Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0");
+      $("#vbar").style.width = Math.min(100, watched / need * 100) + "%";
+      $("#vtxt").textContent = failed ? "Este video no se puede reproducir aquí. Ábrelo en YouTube, míralo completo y regresa: al volver te pediré un resumen más largo." : watched >= need ? "¡Listo! Ya puedes continuar." : `Visto: ${m(watched)} de ${m(need)} necesarios.`;
+      $("#vDone").disabled = !(watched >= need || failed);
+    };
+    loadYT().then(() => {
+      if (!$("#ytp")) return;
+      YTP = new YT.Player("ytp", { host: "https://www.youtube-nocookie.com", videoId: v.id,
+        playerVars: { rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: "en", hl: "en", modestbranding: 1 },
+        events: { onError: () => { failed = true; ui(); } } });
+      VTIMER = setInterval(() => {
+        try { if (YTP && YTP.getPlayerState && YTP.getPlayerState() === 1) watched++; const d = YTP && YTP.getDuration ? YTP.getDuration() : 0; if (d) need = videoNeed(d); } catch (e) {}
+        ui();
+      }, 1000);
+    }).catch(() => { failed = true; ui(); });
+    $("#vOpen").onclick = () => { if (!failed) return; };
+    $("#vDone").onclick = () => { S.vw[v.id] = Math.max(seen0, watched || 1); s.ext = failed; save(); nextStep(); };
+    ui();
+    return;
+  }
+  if (s.k === "vsum") {
+    const v = s.v, ext = SES.steps[SES.i - 1] && SES.steps[SES.i - 1].ext, need = sumWords(s.u.lv) * (ext ? 2 : 1);
+    st.innerHTML = `<div class="label">Resumen del video</div><div class="prompt" style="font-size:20px">¿Qué entendiste?</div>
+      <p style="margin:0">${need <= 3 ? `Di o escribe en inglés al menos ${need} palabras o frases que escuchaste en el video.` : `Di o escribe en inglés lo que recuerdes del video: de qué trató, qué aprendiste o una frase que te gustó (mínimo ${need} palabras).`}</p>
+      <div id="sumMic"></div>
+      <textarea class="type" id="sumTxt" rows="3" placeholder="Escribe aquí en inglés…" style="font-size:16px"></textarea>
+      <p class="heard" id="sumMsg"></p>
+      <div class="row"><button class="btn primary" id="sumOk">Revisar</button></div>`;
+    const enWords = t => (t.match(/[A-Za-z']+/g) || []).filter(w => w.length > 1 || /^(a|i)$/i.test(w));
+    const spanish = t => /[ñáéíóú¿¡]/i.test(t) || /\b(que|el|la|los|las|de|es|y|pero|porque|muy)\b/i.test(t);
+    const check = () => {
+      const t = $("#sumTxt").value.trim(), w = enWords(t);
+      if (spanish(t)) { $("#sumMsg").textContent = "Inténtalo en inglés, aunque sea sencillo. Está bien equivocarse."; return; }
+      if (w.length < need) { $("#sumMsg").textContent = `Llevas ${w.length} de ${need} palabras en inglés. Agrega un poco más.`; return; }
+      SES.graded++; SES.ok++; skill("hear", true); save();
+      st.querySelectorAll("button,textarea").forEach(x => x.disabled = true);
+      const d = document.createElement("div"); d.className = "fb ok"; d.innerHTML = `<b>¡Muy bien!</b><div>Resumir lo que escuchas es uno de los mejores ejercicios para hablar con fluidez.</div>`;
+      st.appendChild(d); const nx = document.createElement("div"); nx.className = "row"; nx.innerHTML = `<button class="btn primary" id="next">Continuar</button>`; st.appendChild(nx);
+      $("#next").onclick = nextStep; $("#next").focus();
+    };
+    if (srOK) {
+      $("#sumMic").innerHTML = `<div class="row"><button class="mic" type="button">${MIC} Dilo con el micrófono</button></div>`;
+      const b = $("#sumMic .mic");
+      b.onclick = async () => { b.classList.add("on"); b.disabled = true; const r = await hear(); b.classList.remove("on"); b.disabled = false;
+        if (r.err && (r.err === "not-allowed" || r.err === "service-not-allowed")) { srOK = false; $("#sumMsg").textContent = "No tengo permiso para el micrófono. Escríbelo."; return; }
+        if (r.alts && r.alts.length) { const t = $("#sumTxt"); t.value = (t.value ? t.value + " " : "") + r.alts[0]; check(); } else $("#sumMsg").textContent = "No te oí. Inténtalo otra vez o escríbelo."; };
+    }
+    $("#sumOk").onclick = check;
     return;
   }
   if (s.k === "gram") {
@@ -1369,6 +1468,12 @@ function finish() {
     }
     const nu = nextUnit();
     btns = pass && nu ? `<button class="btn primary" id="fNext">${nu.final ? "Siguiente: examen final de " + esc(nu.lv.short) : "Siguiente lección: " + esc(nu.t)}</button>` : `<button class="btn primary" id="fRetry">${m === "exam" ? "Volver a la unidad" : "Ver la etapa"}</button>`;
+  } else if (m === "video") {
+    title = SES.title;
+    msg = n && ok ? "¡Video completado! Escuchar inglés real todos los días es lo que te da oído y fluidez." : "Video visto. La próxima vez intenta el resumen: es lo que más te ayuda a hablar.";
+    const tip = LISTEN_TIP[(SES.unit ? SES.unit.lv : curLevel()).cefr];
+    if (tip) msg += " Si quieres más: " + tip;
+    btns = SES.unit ? `<button class="btn primary" id="fUnit">Ir a la unidad</button>` : "";
   } else if (m === "reading") {
     title = SES.title;
     const pass = ok >= Math.ceil(n * 0.66);
@@ -1450,7 +1555,8 @@ function merge(a, b) {
   if (dv(a.last) > dv(b.last)) { streak = a.streak; last = a.last; }
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
-  return { c, done, rd, dl, fin, gs, h, sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: a.prof || b.prof || null, xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
+  return { c, done, rd, dl, fin, gs, h, vw, sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: a.prof || b.prof || null, xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
