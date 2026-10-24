@@ -206,10 +206,30 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
 .chip{background:var(--chip);border:1px solid transparent;padding:6px 12px;font-size:16px}
 .chip:hover{border-color:var(--ink)}
 .chip.used{visibility:hidden}
-.fb{padding:12px 14px;display:flex;flex-direction:column;gap:6px}
-.fb.ok{background:var(--ok-soft);border-left:4px solid var(--ok)}
-.fb.bad{background:var(--bad-soft);border-left:4px solid var(--bad)}
-.fb b{font-family:var(--f-display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.fb{padding:14px 16px;display:flex;flex-direction:column;gap:8px;border:2px solid var(--line)}
+.fb.ok{background:var(--ok-soft);border-color:var(--ok);animation:pop .35s ease-out}
+.fb.bad{background:var(--bad-soft);border-color:var(--bad);animation:shake .45s ease-in-out}
+.fb.idk{animation:pop .35s ease-out}
+.fb b{font-family:var(--f-display);font-size:24px;text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.fb.ok .fbh b{color:var(--ok)}
+.fb.bad .fbh b{color:var(--bad)}
+.fbh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ico{width:46px;height:46px;border-radius:50%;display:inline-grid;place-items:center;font-size:26px;font-weight:800;line-height:1;color:var(--panel);flex:none}
+.fb.ok .ico{background:var(--ok)}
+.fb.bad .ico{background:var(--bad)}
+.combo{font-family:var(--f-mono);font-size:13px;font-weight:600;background:var(--accent);color:var(--accent-ink);padding:3px 9px}
+.verdict{display:inline-block;font-family:var(--f-body);font-weight:700;font-size:15px;padding:3px 10px;margin-right:6px}
+.verdict.ok{background:var(--ok);color:var(--panel)}
+.verdict.bad{background:var(--bad);color:var(--panel)}
+.opt.ok::after{content:"  ✓";color:var(--ok);font-weight:800}
+.opt.bad::after{content:"  ✗";color:var(--bad);font-weight:800}
+.opt.bad{animation:shake .45s ease-in-out}
+.session.flash-ok{animation:flashOk .7s ease-out}
+.session.flash-bad{animation:flashBad .7s ease-out}
+@keyframes pop{0%{transform:scale(.9);opacity:0}60%{transform:scale(1.03);opacity:1}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}
+@keyframes flashOk{0%{box-shadow:0 0 0 0 var(--ok)}25%{box-shadow:0 0 0 7px var(--ok)}100%{box-shadow:0 0 0 0 transparent}}
+@keyframes flashBad{0%{box-shadow:0 0 0 0 var(--bad)}25%{box-shadow:0 0 0 7px var(--bad)}100%{box-shadow:0 0 0 0 transparent}}
 .big-play{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--panel);padding:14px 22px;font-weight:600;font-size:17px}
 .big-play svg{width:22px;height:22px}
 .done{text-align:center;align-items:center;justify-content:center}
@@ -433,6 +453,7 @@ input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;
       <button class="x" id="quit" aria-label="Salir de la sesión">✕ Salir</button>
       <div class="bar"><i id="barFill" style="width:0"></i></div>
       <span class="count" id="count">1/10</span>
+      <button class="x" id="sndBtn" type="button" aria-label="Sonidos de acierto y error"></button>
     </div>
     <div class="sbody" id="stage"></div>
   </section>
@@ -599,6 +620,31 @@ function say(text, o) {
   } catch (e) { o.onend && o.onend(); }
 }
 const stopAudio = () => { try { speechSynthesis.cancel(); } catch (e) {} };
+/* ---------- reacción visible y con sonido al acertar o fallar (para que nadie se quede dormido) ---------- */
+let AC = null, SND = true;
+try { SND = localStorage.getItem("ip-snd") !== "0"; } catch (e) {}
+function tone(seq) {
+  if (!SND) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === "suspended") AC.resume();
+    const t0 = AC.currentTime + 0.01;
+    seq.forEach(([f, st, d, ty, vol]) => {
+      const o = AC.createOscillator(), g = AC.createGain();
+      o.type = ty || "sine"; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t0 + st); g.gain.exponentialRampToValueAtTime(vol || 0.2, t0 + st + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, t0 + st + d);
+      o.connect(g); g.connect(AC.destination); o.start(t0 + st); o.stop(t0 + st + d + 0.05);
+    });
+  } catch (e) {}
+}
+function react(ok, idk) {
+  const box = $("#vSession");
+  if (box) { box.classList.remove("flash-ok", "flash-bad"); void box.offsetWidth; box.classList.add(ok ? "flash-ok" : "flash-bad"); }
+  if (ok) tone(SES && SES.combo >= 3 ? [[660, 0, .1], [880, .08, .1], [1320, .16, .26]] : [[660, 0, .12], [990, .1, .24]]);
+  else tone(idk ? [[330, 0, .25, "triangle", .15]] : [[233, 0, .16, "sawtooth", .09], [175, .15, .32, "sawtooth", .09]]);
+  try { if (navigator.vibrate) navigator.vibrate(ok ? 30 : [80, 60, 80]); } catch (e) {}
+}
+function sndUI() { const b = $("#sndBtn"); if (b) { b.textContent = SND ? "🔊" : "🔇"; b.title = SND ? "Quitar sonidos" : "Activar sonidos"; } }
+const OKW = ["¡Correcto!", "¡Muy bien!", "¡Eso es!", "¡Perfecto!", "¡Excelente!"];
 // Textos largos: se leen oración por oración (algunos navegadores cortan las lecturas largas)
 function sayLong(text, slow) {
   stopAudio();
@@ -640,7 +686,8 @@ function speechScore(alts, en) {
   return best;
 }
 // Botón de micrófono reutilizable. onDone(ok, transcript, score) o onFail(mensaje)
-function micUI(host, en, onDone) {
+const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div style="margin-top:4px">${esc(t)}</div>`); };
+function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia reacción
   host.innerHTML = `<div class="row"><button class="mic" type="button">${MIC} Toca y habla</button></div><div class="heard" aria-live="polite"></div>`;
   const btn = host.querySelector(".mic"), out = host.querySelector(".heard");
   btn.onclick = async () => {
@@ -657,8 +704,10 @@ function micUI(host, en, onDone) {
     }
     if (!r.alts.length) { out.textContent = "No te oí. Inténtalo otra vez."; return; }
     const sc = speechScore(r.alts, en);
-    out.textContent = "Entendí: \"" + r.alts[0] + "\"";
-    onDone(sc >= 0.75, r.alts[0], sc);
+    const good = sc >= 0.75;
+    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span>Entendí: "${esc(r.alts[0])}"`;
+    if (!own || !good) react(good);
+    onDone(good, r.alts[0], sc);
   };
 }
 
@@ -1108,8 +1157,9 @@ function drawFrases() {
 let SES = null;
 function runSession(steps, opts) {
   SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, m: {}, recent: [], fixed: 0, boosts: 0, lastBoost: -99, recap: new Set(), base: steps.length, back: curView === "session" ? "hoy" : curView }, opts, SEGOPT || {});
-  view("session"); step();
+  view("session"); sndUI(); step();
 }
+$("#sndBtn").onclick = () => { SND = !SND; try { localStorage.setItem("ip-snd", SND ? "1" : "0"); } catch (e) {} sndUI(); if (SND) tone([[880, 0, .12]]); };
 function startReview() {
   const due = dueCards().sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, 20);
   if (!due.length) return;
@@ -1226,6 +1276,7 @@ function struggle(c) {
 }
 function answered(c, ok, help) {
   const st = SES.steps[SES.i] || {};
+  SES.combo = ok && !help ? (SES.combo || 0) + 1 : 0;
   if (isExam()) { skill(st.k, ok); grade(c, ok); SES.graded++; if (ok) SES.ok++; return; }
   const clean = ok && !help;
   const m = SES.m[c.id] || (SES.m[c.id] = { miss: 0, target: st.k, first: true, boost: !!st.boost });
@@ -1250,17 +1301,21 @@ function answered(c, ok, help) {
 function answerBlock(c) {
   return `<div><div class="en">${esc(c.en)}</div>${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}`;
 }
-function feedback(ok, c, extra) {
+function feedback(ok, c, extra, idk) {
   const st = $("#stage");
   const d = document.createElement("div");
-  d.className = "fb " + (ok ? "ok" : "bad");
-  d.innerHTML = `<b>${ok ? "¡Correcto!" : "Casi. La respuesta es:"}</b>${extra || ""}${ok ? "" : `<div class="en" style="font-size:20px">${esc(c.en)}</div><div class="muted" style="font-size:15px">${esc(c.es)}</div>`}${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}`;
+  d.className = "fb " + (ok ? "ok" : "bad") + (idk ? " idk" : "");
+  const combo = ok && SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : "";
+  d.innerHTML = `<div class="fbh"><span class="ico" aria-hidden="true">${ok ? "✓" : idk ? "?" : "✗"}</span><b>${ok ? rnd(OKW) : idk ? "Esta es la respuesta" : "Incorrecto"}</b>${combo}</div>
+    ${extra || ""}${ok ? "" : `${idk ? "" : `<div class="muted" style="font-size:14px">La respuesta correcta es:</div>`}<div class="en" style="font-size:22px">${esc(c.en)}</div><div class="muted" style="font-size:15px">${esc(c.es)}</div>`}${c.pron ? `<div class="pron">(${esc(c.pron)})</div>` : ""}`;
   st.appendChild(d);
+  react(ok, idk);
+  try { d.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) {}
   const nx = document.createElement("div"); nx.className = "row";
   nx.innerHTML = `<button class="btn primary" id="next">Continuar</button><button class="btn ghost speak" data-say="${esc(c.en)}">${SPK} Escuchar</button>`;
   st.appendChild(nx);
-  $("#next").onclick = nextStep; $("#next").focus();
-  say(c.en);
+  $("#next").onclick = nextStep; $("#next").focus({ preventScroll: true });
+  const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
 }
 const LBL = { intro: "Frase nueva", listen: "Escucha y repite en voz alta", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Dictado: escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
 
@@ -1284,7 +1339,7 @@ function step() {
       <p style="margin:0">Dila en voz alta 3 veces: primero lento, luego normal.</p>
       <div id="miniMic"></div>
       <div class="row"><button class="btn primary" id="gotIt">Ya la tengo</button></div>`;
-    if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === null) return; $("#miniMic .heard").textContent += ok ? " · ¡Muy bien!" : " · Escucha otra vez y repite."; });
+    if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     say(c.en, { slow: true });
     $("#gotIt").onclick = nextStep; $("#gotIt").focus();
     return;
@@ -1304,7 +1359,7 @@ function step() {
       <p style="margin:0">Escúchala y repítela en voz alta 2 o 3 veces.</p>
       <div id="miniMic"></div>
       <div class="row"><button class="btn primary" id="gotIt">Entendido</button></div>`;
-    if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === null) return; $("#miniMic .heard").textContent += ok ? " · ¡Muy bien!" : " · Escucha otra vez y repite."; });
+    if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     introduce(c); say(c.en);
     $("#gotIt").onclick = nextStep; $("#gotIt").focus();
     return;
@@ -1314,8 +1369,8 @@ function step() {
     $("#reveal").onclick = () => {
       st.innerHTML = `${head("listen")}<div class="prompt" style="font-size:18px;color:var(--muted)">${esc(c.es)}</div>${answerBlock(c)}${speakBtns(c.en)}<div class="label">¿Te salió?</div><div class="row"><button class="btn" id="no">No me acordé</button><button class="btn primary" id="yes">Sí, la dije bien</button></div>`;
       say(c.en);
-      $("#no").onclick = () => { answered(c, false); nextStep(); };
-      $("#yes").onclick = () => { answered(c, true); nextStep(); };
+      $("#no").onclick = () => { answered(c, false); react(false, true); nextStep(); };
+      $("#yes").onclick = () => { answered(c, true); react(true); nextStep(); };
     };
     return;
   }
@@ -1330,7 +1385,7 @@ function step() {
       const ok = !!b && b.dataset.id === c.id;
       st.querySelectorAll(".opt,#cIdk").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
       if (b && !ok) b.classList.add("bad");
-      answered(c, ok); feedback(ok, c, hearMode ? `<div class="en" style="font-size:20px">${esc(c.en)}</div>` : "");
+      answered(c, ok); feedback(ok, c, hearMode && ok ? `<div class="en" style="font-size:20px">${esc(c.en)}</div>` : "", !b);
     };
     st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickOpt(b));
     $("#cIdk").onclick = () => pickOpt(null);
@@ -1348,7 +1403,7 @@ function step() {
     let helped = false;
     if ($("#hint")) $("#hint").onclick = () => { helped = true; const w = words(c.en); inp.placeholder = w.slice(0, Math.max(1, Math.ceil(w.length / 3))).join(" ") + " …"; inp.focus(); };
     const lock = () => { inp.disabled = true; st.querySelectorAll("#tf button").forEach(b => b.disabled = true); };
-    $("#skip").onclick = () => { lock(); answered(c, false); feedback(false, c); };
+    $("#skip").onclick = () => { lock(); answered(c, false); feedback(false, c, "", true); };
     $("#tf").onsubmit = e => {
       e.preventDefault();
       const r = closeEnough(inp.value, c.en); if (!r) return;
@@ -1384,7 +1439,7 @@ function step() {
       $("#oMsg").textContent = p === 0 ? "La frase empieza así. Sigue tú." : "Hasta aquí va bien. Sigue tú.";
       say(picked.map(j => pool[j].t).join(" "));
     };
-    $("#oIdk").onclick = () => { st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true); answered(c, false); feedback(false, c); };
+    $("#oIdk").onclick = () => { st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true); answered(c, false); feedback(false, c, "", true); };
     $("#chk").onclick = () => {
       const ok = picked.map(j => lc(pool[j].t)).join(" ") === w.map(lc).join(" ");
       st.querySelectorAll(".chip,#chk,#clr,#oHint,#oIdk").forEach(x => x.disabled = true);
@@ -1402,8 +1457,8 @@ function step() {
       tries++;
       if (ok) { st.querySelectorAll("button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
       if (tries >= 3) giveUp();
-      else $("#micBox .heard").textContent += ` · No coincide del todo. Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`;
-    });
+      else addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
+    }, true);
     $("#sReveal").onclick = giveUp;
     $("#sType").onclick = () => { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); };
     return;
@@ -1455,7 +1510,8 @@ function step() {
       if (w.length < need) { $("#sumMsg").textContent = `Llevas ${w.length} de ${need} palabras en inglés. Agrega un poco más.`; return; }
       SES.graded++; SES.ok++; skill("hear", true); save();
       st.querySelectorAll("button,textarea").forEach(x => x.disabled = true);
-      const d = document.createElement("div"); d.className = "fb ok"; d.innerHTML = `<b>¡Muy bien!</b><div>Resumir lo que escuchas es uno de los mejores ejercicios para hablar con fluidez.</div>`;
+      react(true);
+      const d = document.createElement("div"); d.className = "fb ok"; d.innerHTML = `<div class="fbh"><span class="ico" aria-hidden="true">✓</span><b>¡Muy bien!</b></div><div>Resumir lo que escuchas es uno de los mejores ejercicios para hablar con fluidez.</div>`;
       st.appendChild(d); const nx = document.createElement("div"); nx.className = "row"; nx.innerHTML = `<button class="btn primary" id="next">Continuar</button>`; st.appendChild(nx);
       $("#next").onclick = nextStep; $("#next").focus();
     };
@@ -1500,10 +1556,10 @@ function step() {
       const ok = +b.dataset.i === ans;
       st.querySelectorAll(".opt").forEach(x => { x.disabled = true; if (+x.dataset.i === ans) x.classList.add("ok"); });
       if (!ok) b.classList.add("bad");
-      SES.graded++; if (ok) SES.ok++; skill("rq", ok); save();
+      SES.graded++; if (ok) SES.ok++; SES.combo = ok ? (SES.combo || 0) + 1 : 0; skill("rq", ok); save();
       const d = document.createElement("div"); d.className = "fb " + (ok ? "ok" : "bad");
-      d.innerHTML = `<b>${ok ? "¡Correcto!" : "No. La respuesta es:"}</b>${ok ? "" : `<div>${esc(opts[ans])}</div>`}`;
-      st.appendChild(d);
+      d.innerHTML = `<div class="fbh"><span class="ico" aria-hidden="true">${ok ? "✓" : "✗"}</span><b>${ok ? rnd(OKW) : "Incorrecto"}</b>${ok && SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : ""}</div>${ok ? "" : `<div class="muted" style="font-size:14px">La respuesta correcta es:</div><div>${esc(opts[ans])}</div>`}`;
+      st.appendChild(d); react(ok);
       const nx = document.createElement("div"); nx.className = "row"; nx.innerHTML = `<button class="btn primary" id="next">Continuar</button>`;
       st.appendChild(nx); $("#next").onclick = nextStep; $("#next").focus();
     });
@@ -1527,10 +1583,10 @@ function step() {
       box.innerHTML = auto === true ? `<div class="fb ok"><b>¡Muy bien!</b><div class="en" style="font-size:20px">${esc(en)}</div></div><div class="row"><button class="btn primary" id="dNext">Continuar</button></div>`
         : `<div class="en">${esc(en)}</div>${speakBtns(en)}<div class="label">¿Te salió?</div><div class="row"><button class="btn" id="dNo">No</button><button class="btn primary" id="dYes">Sí, más o menos igual</button></div>`;
       st.appendChild(box); say(en, { who: 1 });
-      if (auto === true) { SES.graded++; SES.ok++; skill("dlg", true); $("#dNext").onclick = nextStep; $("#dNext").focus(); }
+      if (auto === true) { SES.graded++; SES.ok++; skill("dlg", true); react(true); $("#dNext").onclick = nextStep; $("#dNext").focus(); }
       else { $("#dNo").onclick = () => { SES.graded++; skill("dlg", false); nextStep(); }; $("#dYes").onclick = () => { SES.graded++; SES.ok++; skill("dlg", true); nextStep(); }; }
     };
-    if (srOK) micUI($("#micBox"), en, ok => { if (ok === null) return; if (ok) reveal(true); else $("#micBox .heard").textContent += " · Casi. Inténtalo otra vez o mira la respuesta."; });
+    if (srOK) micUI($("#micBox"), en, ok => { if (ok === null) return; if (ok) reveal(true); else addNote($("#micBox"), "Inténtalo otra vez o mira la respuesta."); }, true);
     $("#dReveal").onclick = () => reveal(false);
     return;
   }
