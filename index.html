@@ -273,7 +273,12 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .speak.prep::after,.big-play.prep::after{content:"Preparando…"}
 .speak.playing::after,.big-play.playing::after{content:"Sonando…"}
 .w{white-space:nowrap;transition:color .1s}
-.w.cur{color:var(--accent);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+/* palabras que se pueden tocar para ver qué significan: en la frase grande y en la respuesta, con línea punteada; en lecturas y listas, sin línea */
+.w.t{cursor:pointer}
+.w.t:hover{text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:2px;text-underline-offset:.2em}
+.pen .w.t,.ans .w.t{text-decoration:underline dotted;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:.2em}
+.reading .w.t,.item .w.t,.ln .w.t{white-space:normal}
+.w.cur,.pen .w.t.cur,.ans .w.t.cur{color:var(--accent);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
 .plate.playing{border-color:var(--accent)}
 @keyframes pulse{50%{box-shadow:0 0 0 14px var(--accent-soft)}}
 .miclbl{font-weight:600;font-size:15px}
@@ -316,6 +321,35 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .chip.used{visibility:hidden}
 .omsg{margin:0;text-align:center;font-size:15px;color:var(--muted);min-height:1.5em}
 .omsg:empty{display:none}
+/* palabras: primero se aprenden (lista con audio y significado), luego se preguntan; en las frases se tocan para ver qué significan */
+.wlist{display:flex;flex-direction:column;gap:10px}
+.wrow{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;row-gap:2px;align-items:center;text-align:left;width:100%;background:var(--panel);border:2px solid var(--line);padding:12px 16px;color:var(--ink);font:inherit;cursor:pointer}
+.wrow .wi{grid-row:1 / span 2;width:44px;height:44px;border-radius:50%;background:var(--info-soft);color:var(--info-ink);display:grid;place-items:center}
+.wrow .wi svg{width:20px;height:20px}
+.wrow .wt{display:flex;align-items:baseline;gap:10px;font-size:clamp(24px,6.4vw,30px);line-height:1.15;min-width:0;overflow-wrap:anywhere}
+.wrow .wt b{font-weight:700}
+.wrow .wt i{font-style:normal;font-size:.85em}
+.wrow .wg{color:var(--accent);font-weight:600;font-size:17px;line-height:1.3}
+.wrow.playing{border-color:var(--accent)}
+.wword{font-size:clamp(40px,11vw,64px);font-weight:700;line-height:1.1;text-align:center;overflow-wrap:anywhere}
+.wword.long{font-size:clamp(30px,8vw,48px)}
+.chip.wm{display:inline-flex;flex-direction:column;align-items:center;gap:1px;line-height:1.2;padding:6px 12px 7px}
+.chip.wm b{font-weight:600}
+.chip.wm small{font-size:13px;color:var(--accent);font-weight:600;max-width:24ch;text-align:center}
+.chip.wm.ok{border-color:var(--ok)}
+.chip.wm .ck{color:var(--ok);font-size:.85em}
+.wbw{display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:4px;font-size:14px;color:var(--muted);line-height:1.35}
+.wbw .wl{width:100%}
+.wbw b{color:var(--ink);font-weight:600}
+.wtip{position:fixed;z-index:50;max-width:min(320px,calc(100vw - 16px));background:var(--ink);color:var(--panel);padding:8px 12px;font-size:15px;line-height:1.35;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.2);pointer-events:none}
+.wtip[hidden]{display:none}
+.wtip b{margin-right:6px}
+.uwords{border-top:1px solid var(--line);padding:12px 16px}
+.uwords summary{cursor:pointer;font-weight:600}
+.wgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.wgrid .chip{font-size:16px}
+.wmiss{width:100%;max-width:520px;margin:4px auto 0}
+.wmiss .rh{margin:0 0 10px;font-size:15px;color:var(--muted);text-align:center}
 /* escuchar */
 .big-play{display:inline-flex;align-items:center;gap:12px;border:2px solid var(--ink);background:var(--panel);padding:16px 28px;font-weight:600;font-size:18px}
 .big-play svg{width:26px;height:26px}
@@ -496,7 +530,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
   <section class="view prose" id="vMetodo" hidden>
     <div class="card strong">
       <h2>Cómo vas a aprender</h2>
-      <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>frases completas</strong> en vez de palabras sueltas, <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
+      <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>primero las palabras y luego las frases completas</strong> que las usan, <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
     </div>
 
     <div class="card">
@@ -511,7 +545,8 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li><strong>Si después se te olvida algo que ya aprobaste:</strong> si fallas varias frases de una unidad aprobada (más de 4 de cada 10), la app pausa lo nuevo, te vuelve a explicar esa unidad, la practican y te pone una prueba corta (7 de 8). Cuando la pasas, sigues con lo nuevo; si no, te la explica otra vez en el siguiente bloque.</li>
         <li><strong>Sin límite de tiempo:</strong> la práctica va en bloques de unos 10 minutos. Al terminar uno, sigues con el siguiente (más repaso y frases nuevas) todas las veces que quieras.</li>
         <li><strong>Tu objetivo:</strong> lo eliges al empezar y lo puedes cambiar en «Ajustar mi plan».</li>
-        <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando dominas lo que fallaste.</li>
+        <li><strong>Primero las palabras:</strong> antes de las frases nuevas te enseña las palabras que traen (cómo suenan y qué significan, de 3 en 3) y te las pregunta. Las que ya salieron en frases que aprendiste solo te las pregunta, para asegurarse de que las recuerdas. Si fallas una, te la vuelve a preguntar en un momento y la próxima vez te la enseña otra vez. Cuando ya sabes las palabras, siguen las frases. En cualquier frase puedes tocar una palabra para oírla y ver qué significa, y cuando fallas una frase te muestra qué significa cada palabra.</li>
+        <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con su significado, audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando dominas lo que fallaste.</li>
         <li><strong>El video del día:</strong> cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
       <p class="muted">Por eso no hay dos personas con la misma sesión: cada quien avanza a su propio ritmo. Las pestañas Curso y Frases siguen disponibles si quieres explorar por tu cuenta.</p>
@@ -618,6 +653,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 <!-- un video verificado de YouTube por unidad -->
 <script src="content/videos.js"></script>
 <script src="content/emoji.js"></script>
+<script src="content/words.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -654,6 +690,38 @@ COURSE.forEach((lv, li) => {
   });
 });
 
+/* ================= palabras =================
+   Antes de las frases nuevas se enseñan las palabras que traen (qué significan y cómo suenan) y se preguntan.
+   WORDS (content/words.js): palabra → significado. En cada frase: c.ws = palabras que se enseñan antes de ella
+   (si la frase es una sola palabra, como "red", ella misma la enseña: c.sw). u.words = palabras que aparecen por primera vez en la unidad. */
+const WORDS = window.WORDS || {};
+const tokW = t => (String(t).replace(/[’`´]/g, "'").replace(/\b(?:[A-Za-z]-)+[A-Za-z]\b/g, " ").match(/[A-Za-zÀ-ÿ]+(?:'[A-Za-zÀ-ÿ]+)?/g) || []).map(w => w.toLowerCase());
+const SOLO = {}, WCARDS = {}, FIRSTU = {};
+// Palabras que se dicen igual en español (sushi, hotel, ideal): no hace falta enseñarlas
+const sameW = w => WORDS[w].replace(/\([^)]*\)/g, "").split(/[\/,;]/).some(p => p.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "") === w);
+UNITS.forEach(u => u.words = []);
+// Cómo se escribe cada palabra: si nunca sale en minúsculas y a media frase va con mayúscula (I, Monday, English, HR), se muestra así
+const WLOW = {}, WFORM = {};
+const CAPW = /^(monday|tuesday|wednesday|thursday|friday|saturday|sunday|january|february|march|april|may|june|july|august|september|october|november|december)$/;
+const wDisp = w => WLOW[w] ? w : WFORM[w] || (CAPW.test(w) ? w[0].toUpperCase() + w.slice(1) : w);
+CARDS.forEach(c => {
+  const raw = (c.T ? defFill(c.T.en) : c.en).replace(/[’`´]/g, "'");
+  for (const m of raw.matchAll(/[A-Za-zÀ-ÿ]+(?:'[A-Za-zÀ-ÿ]+)?/g)) {
+    const w = m[0].toLowerCase(), before = raw.slice(0, m.index);
+    if (m[0] === w) WLOW[w] = 1; else if (!WFORM[w] && before.trim() && !/[.!?:"¿¡]\s*$/.test(before)) WFORM[w] = m[0];
+  }
+  let all = tokW(raw);
+  if (all.every(w => w.length === 1)) all = []; // letras sueltas (A, B, C), no palabras
+  const ws = [...new Set(all)].filter(w => WORDS[w] && !sameW(w));
+  c.sw = all.length === 1 && ws.length ? ws[0] : "";
+  c.ws = c.sw ? [] : ws;
+  if (c.sw) (SOLO[c.sw] = SOLO[c.sw] || []).push(c);
+  ws.forEach(w => (WCARDS[w] = WCARDS[w] || []).push(c));
+});
+// La unidad donde aparece primero cada palabra (la pista de trabajo va al final: es opcional). Si es una frase de una sola palabra, ya está en la lista de frases.
+[...CARDS.filter(c => c.u.lv.id !== "w"), ...CARDS.filter(c => c.u.lv.id === "w")].forEach(c => (c.sw ? [c.sw] : c.ws).forEach(w => { if (!FIRSTU[w]) { FIRSTU[w] = c.u; if (!c.sw) c.u.words.push(w); } }));
+const ALLW = Object.keys(WORDS);
+
 const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path class="w1" d="M16 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
 const SV = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 // Iconos de línea para los botones de ayuda
@@ -686,11 +754,12 @@ function migrate(o) {
   }
   o.done = o.done || {}; o.rd = o.rd || {}; o.dl = o.dl || {}; o.fin = o.fin || {}; o.gs = o.gs || {}; o.sk = o.sk || {}; o.h = o.h || {}; o.vw = o.vw || {}; o.v = 2;
   o.ul = o.ul || {}; o.rf = o.rf || {}; o.rfOk = o.rfOk || {}; // unidades aprobadas: últimas respuestas y repasos de lo que se olvidó
+  o.kw = o.kw || {}; // palabras: 1 = la contestaste bien a la primera, 0 = la fallaste (se vuelve a enseñar)
   if (o.prof === undefined) o.prof = null;
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -848,7 +917,7 @@ function speakSpans(text) {
     if (!w.trim()) return w;
     const cw = clean(w).trim(), i = cw ? spoken.indexOf(cw, at) : -1, c = i < 0 ? at : i;
     if (i >= 0) at = i + cw.length;
-    return `<span class="w" data-c="${c}">${esc(w)}</span>`;
+    return `<span class="w${tokW(w).some(x => WORDS[x]) ? " t" : ""}" data-c="${c}">${esc(w)}</span>`; // .t: se puede tocar para ver qué significa
   }).join("");
 }
 function say(text, o) {
@@ -944,6 +1013,8 @@ function sayLong(text, slow, group) {
 }
 // cualquier botón con data-say lo lee en voz alta
 document.addEventListener("click", e => {
+  const T = e.target.closest(".w.t"); if (T) { wordTip(T); return; }
+  hideTip();
   const L = e.target.closest("[data-saylong]"); if (L) { const u = UNITS.find(x => x.id === L.dataset.saylong); if (u && u.r) sayLong(u.r.en, L.dataset.slow === "1", btnKey(L)); return; }
   const R = e.target.closest(".rtile"); if (R) R.classList.add("on"); // repaso con dibujos: destapar
   const b = e.target.closest("[data-say]"); if (!b) return;
@@ -1274,7 +1345,7 @@ function fitKind(c, k) {
 const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", frases: "#vFrases", metodo: "#vMetodo", session: "#vSession" };
 let curView = "hoy", curUnit = null;
 function view(name) {
-  stopAudio(); stopVideo();
+  stopAudio(); stopVideo(); hideTip();
   Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
   $("#tabs").hidden = name === "session";
   document.body.classList.toggle("focus", name === "session");
@@ -1398,8 +1469,8 @@ function buildToday(blk) {
     const lu = units.find(u => unitSeen(u) < u.cards.length);
     if (lu && newN > 0) {
       if (!S.gs[lu.id]) add({ key: "gram-" + lu.id + sx, kind: "gram", u: lu, title: "Nueva lección: " + lu.t, desc: "Explicación en español con ejemplos", sec: 150 });
-      const n = Math.min(newN, lu.cards.length - unitSeen(lu));
-      add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, title: "Frases nuevas", desc: `${n} de «${lu.t}» (${lu.lv.short})`, sec: n * 45 });
+      const n = Math.min(newN, lu.cards.length - unitSeen(lu)), lp = learnPlan(lu, n), wn = lp.teach.length + lp.check.length, fn = lp.fresh.length;
+      add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, title: wn ? "Palabras y frases nuevas" : "Frases nuevas", desc: `${wn ? `Primero ${wn === 1 ? "1 palabra" : wn + " palabras"}, luego ` : ""}${fn} ${fn === 1 ? "frase" : "frases"} de «${lu.t}» (${lu.lv.short})`, sec: fn * 45 + lp.teach.length * 12 + lp.check.length * 8 });
       if (lu !== units[0] && !blk && !goingWell() && !unitReq(units[0]).ok) notes.push(`Mientras esperas a que tus repasos de «${units[0].t}» maduren en días distintos, avanzamos con la siguiente lección.`);
     }
     const dl = units.find(u => unitSeen(u) === u.cards.length && !S.dl[u.id]);
@@ -1613,15 +1684,19 @@ function dotsHTML(id) { const b = bx(id); return `<div class="dots" title="${see
 const LEGEND = `<p class="legend"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span>Los cuadritos verdes muestran qué tan bien te sabes cada frase. Sube uno cada vez que la contestas bien el día que le toca repaso; si la fallas, baja. Con 4 ya la dominas.</span></p>`;
 function itemHTML(c, showUnit) {
   const second = sameText(c) && c.pron ? `Se dice: ${c.pron}` : c.es;
-  return `<div class="item">${dotsHTML(c.id)}<span class="iemo${c.emC || ""}" aria-hidden="true">${c.emC ? c.em.match(EMO_ONE).map(x => `<i>${x}</i>`).join("") : c.em || ""}</span><div class="t"><div>${esc(c.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
+  return `<div class="item">${dotsHTML(c.id)}<span class="iemo${c.emC || ""}" aria-hidden="true">${c.emC ? c.em.match(EMO_ONE).map(x => `<i>${x}</i>`).join("") : c.em || ""}</span><div class="t"><div>${tapW(c.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
 }
 let showEs = false;
 let showRd = false;
-const paras = t => t.split(/\n+/).map(x => `<p>${esc(x)}</p>`).join("");
+// Texto en inglés donde cada palabra se puede tocar para ver qué significa
+const tapW = t => String(t).split(/([A-Za-zÀ-ÿ]+(?:['’][A-Za-zÀ-ÿ]+)?)/).map((p, i) => i % 2 && WORDS[p.replace(/’/g, "'").toLowerCase()] ? `<span class="w t">${esc(p)}</span>` : esc(p)).join("");
+// Párrafos de una lectura (en inglés, con palabras que se pueden tocar)
+const paras = (t, en) => t.split(/\n+/).map(x => `<p>${en ? tapW(x) : esc(x)}</p>`).join("");
 function renderUnit(u) {
   const sn = unitSeen(u), tot = u.cards.length, fresh = tot - sn, d = S.done[u.id], rq = unitReq(u), lock = prevLocked(u.lv);
   const prev = UNITS[u.n - 1], next = UNITS[u.n + 1];
-  const nq = Math.min(15, tot) + (u.r ? u.r.q.length : 0), sessionsLeft = Math.ceil(fresh / 6);
+  const nq = Math.min(15, tot) + (u.r ? u.r.q.length : 0), sessionsLeft = sessionsFor(u), lp = learnPlan(u);
+  const uw = u.words, uwk = uw.filter(knownW).length;
   const canExam = !lock && (d || rq.ok);
   const dis = lock ? " disabled" : "";
   $("#vUnit").innerHTML = `
@@ -1634,21 +1709,22 @@ function renderUnit(u) {
       ${lock ? `<p class="lock" style="margin:0">🔒 Esta unidad es de ${esc(u.lv.short)} (${esc(u.lv.cefr)}). Se abre cuando apruebes el examen final de ${esc(lock.short)}. Puedes leerla, pero todavía no practicarla: usa cosas que aún no aprendes. Tu entrenador en Hoy te lleva en orden.</p>` : ""}
     </div>
     <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
-    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} vistas</span></div>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
+    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} vistas</span></div>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div>
+      ${uw.length ? `<details class="uwords"><summary>Palabras nuevas de esta unidad (${uw.length})${uwk ? ` · ya sabes ${uwk}` : ""}</summary><div class="wgrid">${uw.map(w => `<button class="chip wm${knownW(w) ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}${knownW(w) ? ' <span class="ck" aria-label="ya la sabes">✓</span>' : ""}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></details>` : ""}</section>
     <section class="sec"><div class="sh"><span class="n">03</span><h3>Practica</h3></div><div class="sb">
-      <p>${fresh ? `Vas a conocer cada frase, oírla, repetirla en voz alta y ponerla a prueba, de 6 en 6. Te ${sessionsLeft === 1 ? "falta 1 sesión" : `faltan unas ${sessionsLeft} sesiones`} para conocer todas.` : `Ya conoces todas las frases. Ahora lo importante son tus repasos diarios en la pestaña Hoy; aquí puedes practicar extra las que más te cuestan.`}</p>
-      <div class="row"><button class="btn accent" id="uLearn"${dis}>${fresh ? `Aprender ${Math.min(6, fresh)} frases nuevas` : "Practicar esta unidad"}</button></div>
+      <p>${fresh ? `Primero ves las palabras nuevas que traen las frases (cómo suenan y qué significan) y te las pregunto. Luego conoces cada frase: la oyes, la repites en voz alta y la pones a prueba. Te ${sessionsLeft === 1 ? "falta 1 sesión" : `faltan unas ${sessionsLeft} sesiones`} para conocer todas.` : `Ya conoces todas las frases. Ahora lo importante son tus repasos diarios en la pestaña Hoy; aquí puedes practicar extra las que más te cuestan.`}</p>
+      <div class="row"><button class="btn accent" id="uLearn"${dis}>${fresh ? `Aprender ${lp.fresh.length} ${lp.fresh.length === 1 ? "frase nueva" : "frases nuevas"}` : "Practicar esta unidad"}</button></div>
     </div></section>
     <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</div><div class="sb">
-      <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${esc(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
+      <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
       <div class="row"><button class="btn speak" id="dPlay" data-saygroup="dlg:${u.id}">${SPK}<span class="lb">Escuchar diálogo</span></button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
       <div class="row"><button class="btn primary" id="dPractice"${dis}>Practicar: tú eres B</button></div>
     </div></section>
     ${u.r ? `<section class="sec"><div class="sh"><span class="n">05</span><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</div><div class="sb">
       <div class="label">${esc(u.r.t)}</div>
-      <div class="reading" id="rdEn">${paras(u.r.en)}</div>
+      <div class="reading" id="rdEn">${paras(u.r.en, true)}</div>
       <div class="reading es" id="rdEs" ${showRd ? "" : "hidden"}>${paras(u.r.es)}</div>
-      <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Primero intenta entenderla sin la traducción.</p>
+      <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Primero intenta entenderla sin la traducción. Si no conoces una palabra, tócala para ver qué significa.</p>
       <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK}<span class="lb">Escuchar lectura</span></button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK}<span class="lb">Lento</span></button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
       <div class="row"><button class="btn primary" id="rQ"${dis}>Contestar ${u.r.q.length} preguntas</button></div>
     </div></section>` : ""}
@@ -1739,10 +1815,56 @@ function freePractice(kind) {
   const pick = pool.map(c => ({ c, k: Math.random() * (7 - bx(c.id)) ** 2 })).sort((a, b) => b.k - a.k).slice(0, 10).map(x => x.c);
   runSession(pick.map(c => ({ k: fitKind(c, kind), c })), { mode: "free", title: "Práctica libre" });
 }
+/* ---------- primero las palabras ----------
+   Una palabra ya la sabes si la contestaste bien a la primera (S.kw = 1) o si ya aprendiste su frase de una sola palabra.
+   Si nunca la has visto (o la fallaste), primero te la enseño (de 3 en 3: cómo suena y qué significa) y luego te la pregunto.
+   Si ya salió en frases que aprendiste, solo te la pregunto para asegurarme de que la recuerdas.
+   Por sesión: hasta 6 palabras nuevas (las frases se toman en orden hasta llenar ese cupo) y hasta 6 para recordar. */
+const W_NEW = 6, W_CHK = 6;
+const knownW = w => S.kw[w] === 1 || (SOLO[w] || []).some(c => seen(c.id));
+const metW = w => (WCARDS[w] || []).some(c => seen(c.id));
+const teachW = w => S.kw[w] === 0 || !metW(w);
+const wEmo = w => { const c = (SOLO[w] || []).find(x => x.emS); return c ? c.em : ""; };
+// La frase aprendida donde ya viste la palabra (la más segura y corta), para recordártela si la fallas
+const wExample = w => (WCARDS[w] || []).filter(c => seen(c.id) && open(c)).sort((a, b) => bx(b.id) - bx(a.id) || a.en.length - b.en.length)[0] || null;
+function learnPlan(u, n) {
+  n = n || 6;
+  const fresh = [], teach = [], check = [], has = new Set();
+  for (const c of u.cards) {
+    if (seen(c.id)) continue;
+    if (fresh.length >= n) break;
+    const ws = c.ws.filter(w => !has.has(w) && !knownW(w)), t = ws.filter(teachW);
+    if (fresh.length && teach.length + t.length > W_NEW) break;
+    fresh.push(c); if (c.sw) has.add(c.sw);
+    ws.forEach(w => { has.add(w); (teachW(w) ? teach : check).push(w); });
+  }
+  return { fresh, teach, check: check.slice(0, W_CHK) };
+}
+// Cuántas sesiones faltan para conocer todas las frases de la unidad (con el mismo cupo de palabras nuevas)
+function sessionsFor(u) {
+  let s = 0, cnt = 0, nw = 0; const has = new Set();
+  u.cards.filter(c => !seen(c.id)).forEach(c => {
+    const t = c.ws.filter(w => !has.has(w) && !knownW(w) && teachW(w)).length;
+    if (cnt && (cnt >= 6 || nw + t > W_NEW)) { s++; cnt = 0; nw = 0; }
+    cnt++; nw += t; c.ws.forEach(w => has.add(w)); if (c.sw) has.add(c.sw);
+  });
+  return s + (cnt ? 1 : 0);
+}
+// Pasos de palabras: primero las que ya viste (solo te las pregunto) y luego las nuevas (te las enseño y te las pregunto)
+function wordSteps(teach, check) {
+  const out = [], parts = Math.ceil(teach.length / 3);
+  shuffle(check).forEach(w => out.push({ k: "wq", w, chk: true }));
+  for (let k = 0; k < teach.length; k += 3) {
+    const g = teach.slice(k, k + 3);
+    out.push({ k: "wlist", ws: g, part: k / 3 + 1, parts });
+    shuffle(g).forEach(w => out.push({ k: "wq", w }));
+  }
+  return out;
+}
 function learnUnit(u, n) {
-  const fresh = u.cards.filter(c => !seen(c.id)).slice(0, n || 6);
+  const { fresh, teach, check } = learnPlan(u, n);
   const old = shuffle(u.cards.filter(c => seen(c.id))).sort((a, b) => bx(a.id) - bx(b.id)).slice(0, fresh.length ? 4 : 10);
-  const steps = [];
+  const steps = wordSteps(teach, check);
   for (let k = 0; k < fresh.length; k += 2) {
     const g = fresh.slice(k, k + 2);
     g.forEach(c => steps.push({ k: "intro", c }));
@@ -1756,7 +1878,9 @@ const rqSteps = u => u.r ? u.r.q.map((q, i) => ({ k: "rq", u, q, qi: i })) : [];
 function fixPractice(u) {
   const w = c => (S.c[c.id] && S.c[c.id][2] === 0 ? 0 : 10) + bx(c.id);
   const pick = shuffle(u.cards.filter(c => seen(c.id))).sort((a, b) => w(a) - w(b)).slice(0, 8);
-  const steps = [];
+  // Antes, las palabras de esas frases: las que fallaste te las enseño otra vez; las demás te las pregunto (también las que ya sabías: se te pudieron olvidar)
+  const ws = [...new Set(pick.flatMap(c => c.ws))];
+  const steps = wordSteps(ws.filter(x => S.kw[x] === 0).slice(0, W_NEW), ws.filter(x => S.kw[x] !== 0).sort((a, b) => (S.kw[a] === 1) - (S.kw[b] === 1)).slice(0, W_CHK));
   pick.forEach((c, i) => { if (i < 4) steps.push({ k: "intro", c }); steps.push({ k: pickKind(c, "learn"), c }); });
   runSession(steps, { mode: "free", unit: u, title: "Práctica: " + u.t });
 }
@@ -1900,6 +2024,78 @@ function band(ok, idk, title, body, en, nextId) {
   const b = $("#" + id); b.onclick = nextStep; b.focus({ preventScroll: true });
 }
 const comboTag = () => SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : "";
+/* ---------- significado de las palabras ---------- */
+// De un significado con varias opciones ("todavía / ya (en preguntas)") elige la que aparece en la traducción de la frase
+function fitGloss(g, es) {
+  const alts = g.split(" / "); if (alts.length < 2 || !es) return g;
+  const E = " " + es.toLowerCase().replace(/[¿?¡!.,;:()"«»…]/g, " ").replace(/\s+/g, " ") + " ";
+  const core = a => a.replace(/\([^)]*\)/g, "").toLowerCase().split(/[,;]/).map(x => x.trim()).filter(Boolean);
+  return alts.find(a => core(a).some(k => E.includes(" " + k + " "))) || alts[0];
+}
+const tokGloss = (tok, es) => tokW(tok).filter(w => WORDS[w]).map(w => fitGloss(WORDS[w], es)).join(" + ");
+// Cuando fallas una frase: qué significa cada palabra
+function wbwHTML(c) {
+  const out = [], used = new Set();
+  words(c.en).forEach(t => { const k = t.toLowerCase(), g = tokGloss(t, c.es); if (g && !used.has(k)) { used.add(k); out.push([t.replace(/^[¿¡"«(]+|[")»:]+$/g, ""), g]); } });
+  return out.length < 2 ? "" : `<div class="wbw"><span class="wl">Palabra por palabra:</span>${out.map(([t, g]) => `<span class="wp"><b>${esc(t)}</b> ${esc(g)}</span>`).join("")}</div>`;
+}
+// Opciones para "¿qué significa?": otras palabras de la sesión, de la unidad o de la etapa, sin significados que se parezcan
+const gparts = g => g.replace(/\([^)]*\)/g, "").toLowerCase().split(/[\/,;]/).map(x => x.trim()).filter(Boolean);
+function wDistract(w, n) {
+  const taken = new Set(gparts(WORDS[w])), out = [], used = new Set([w]), u = FIRSTU[w];
+  const sesW = SES ? SES.steps.flatMap(s => s.k === "wlist" ? s.ws : s.k === "wq" ? [s.w] : []) : [];
+  const pool = [...shuffle(sesW), ...shuffle(u ? u.words : []), ...shuffle(u ? u.lv.units.flatMap(x => x.words) : []).slice(0, 60), ...shuffle(ALLW).slice(0, 80)];
+  for (const x of pool) {
+    if (out.length >= n) break;
+    if (used.has(x) || !WORDS[x]) continue; used.add(x);
+    const p = gparts(WORDS[x]); if (!p.length || p.some(y => taken.has(y))) continue;
+    p.forEach(y => taken.add(y)); out.push(x);
+  }
+  return out;
+}
+// Cuenta solo el primer intento: bien = ya la sabes; mal = te la vuelvo a preguntar (hasta 2 veces más, antes de las frases) y la próxima vez te la enseño
+function wAnswered(s, ok) {
+  const w = s.w;
+  SES.combo = ok ? (SES.combo || 0) + 1 : 0;
+  if (!s.again) { SES.wn = (SES.wn || 0) + 1; if (ok) SES.wok = (SES.wok || 0) + 1; else (SES.wmiss = SES.wmiss || []).push(w); S.kw[w] = ok ? 1 : 0; }
+  if (ok) S.xp += 2;
+  else if ((s.tries || 0) < 2) {
+    let end = SES.i; SES.steps.forEach((x, j) => { if (j > SES.i && (x.k === "wq" || x.k === "wlist")) end = j; });
+    SES.steps.splice(Math.min(SES.i + 3, end + 1), 0, { k: "wq", w, chk: s.chk, again: true, tries: (s.tries || 0) + 1 });
+  }
+  bumpStreak(); save(); renderMeta();
+}
+function wFeedback(s, ok, idk) {
+  const w = s.w, ex = !ok && wExample(w), more = !ok && (s.tries || 0) < 2;
+  const body = `<div class="ans">${esc(wDisp(w))}</div><div class="sub">Significa: <strong class="smean">${esc(WORDS[w])}</strong></div>`
+    + (ex ? `<div class="sub">La viste en: <strong class="smean">${esc(ex.en)}</strong> = ${escN(ex.es)}</div>` : "")
+    + (more ? `<div class="sub">Te la vuelvo a preguntar en un momento.</div>` : "");
+  band(ok, idk, ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto", body, w);
+  react(ok, idk);
+  const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(w); }, 450);
+}
+// Dice las palabras una tras otra (se detiene si tocas otra cosa)
+function sayList(arr) {
+  stopAudio(); const g = AGEN; let i = 0;
+  const next = () => { if (g === AGEN && i < arr.length) say(arr[i++], { keep: true, onend: () => setTimeout(next, 350) }); };
+  next();
+}
+// Tocar una palabra de una frase: la dice y muestra qué significa
+let tipT = null;
+function hideTip() { clearTimeout(tipT); const t = document.getElementById("wtip"); if (t) t.hidden = true; }
+function wordTip(el) {
+  const ws = tokW(el.textContent).filter(w => WORDS[w]); if (!ws.length) return;
+  let t = document.getElementById("wtip");
+  if (!t) { t = document.createElement("div"); t.id = "wtip"; t.className = "wtip"; t.setAttribute("role", "status"); document.body.appendChild(t); }
+  t.innerHTML = ws.map(w => `<div><b>${esc(wDisp(w))}</b> ${esc(WORDS[w])}</div>`).join("");
+  t.hidden = false;
+  const r = el.getBoundingClientRect(), tw = t.offsetWidth, th = t.offsetHeight;
+  t.style.left = Math.max(8, Math.min(innerWidth - tw - 8, r.left + r.width / 2 - tw / 2)) + "px";
+  t.style.top = (r.top - th - 10 >= 8 ? r.top - th - 10 : r.bottom + 10) + "px";
+  clearTimeout(tipT); tipT = setTimeout(hideTip, 5000);
+  say(ws.join(" "));
+}
+window.addEventListener("scroll", hideTip, { passive: true }); window.addEventListener("resize", hideTip);
 function feedback(ok, c, extra, idk) {
   const title = (ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto");
   // Cada dato en su renglón y con su nombre: la respuesta, cómo se pronuncia, qué significa (si la pregunta fue en audio) y el consejo
@@ -1907,7 +2103,8 @@ function feedback(ok, c, extra, idk) {
   const pr = c.pron && norm(c.pron) !== norm(c.en) ? `<div class="sub">Se pronuncia: <span class="pron">${esc(c.pron)}</span></div>` : "";
   const mean = `<div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`;
   const tip = !ok && c.note ? `<div class="sub tipline">${esc(c.note)}</div>` : "";
-  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${pr}${tip}`;
+  const wbw = ok ? "" : wbwHTML(c);
+  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${wbw}${pr}${tip}`;
   band(ok, idk, title, body, c.en);
   react(ok, idk);
   const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
@@ -1931,7 +2128,7 @@ document.addEventListener("keydown", e => {
 });
 
 function step() {
-  setProg(); stopVideo();
+  setProg(); stopVideo(); hideTip();
   const st = $("#stage"); st.className = "task"; foot("", "");
   try { window.scrollTo(0, 0); } catch (e) {}
   if (SES.i >= SES.steps.length) return finish();
@@ -1944,11 +2141,39 @@ function step() {
   const goBtn = (id, t, dis) => `<button class="btn go" id="${id}"${dis ? " disabled" : ""}>${t}</button>`;
   const help = (id, t, kind, ic) => `<button class="btn alt ${kind}" type="button" id="${id}"><span class="ic">${ic}</span>${t}</button>`;
 
+  // Primero las palabras: cómo suena cada una y qué significa (de 3 en 3)
+  if (s.k === "wlist") {
+    st.innerHTML = `<span class="tag">Primero las palabras${s.parts > 1 ? ` · ${s.part} de ${s.parts}` : ""}</span><h2 class="ttl">${s.ws.length === 1 ? "Una palabra nueva" : s.ws.length + " palabras nuevas"}</h2>
+      <p class="lead">Escucha cada una y fíjate qué significa. Luego te las pregunto.</p>
+      <div class="wlist">${s.ws.map(w => `<button class="wrow" type="button" data-say="${esc(w)}"><span class="wi">${SPK}</span><span class="wt"><b>${esc(wDisp(w))}</b>${wEmo(w) ? `<i aria-hidden="true">${wEmo(w)}</i>` : ""}</span><span class="wg">${esc(WORDS[w])}</span></button>`).join("")}</div>`;
+    foot("", goBtn("wGo", "Entendido"));
+    sayList(s.ws);
+    $("#wGo").onclick = nextStep; $("#wGo").focus({ preventScroll: true });
+    return;
+  }
+  // ¿Qué significa esta palabra? (4 opciones)
+  if (s.k === "wq") {
+    const w = s.w, opts = shuffle([w, ...wDistract(w, 3)]), two = opts.every(o => WORDS[o].length <= 26);
+    st.innerHTML = `<span class="tag">${s.again ? "Otra vez" : s.chk ? "¿Te acuerdas?" : "Palabras nuevas"}</span><h2 class="ttl">¿Qué significa?</h2>
+      <div class="wword${w.length > 11 ? " long" : ""}">${esc(wDisp(w))}</div><div class="row c">${playPair(w)}</div>
+      <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-w="${esc(o)}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(WORDS[o])}</button>`).join("")}</div>`;
+    foot(help("wIdk", "No sé", "warn", ICO.help), "");
+    say(w);
+    const pickW = b => {
+      const ok = !!b && b.dataset.w === w;
+      sesEl(".opt,#wIdk").forEach(x => { x.disabled = true; if (x.dataset.w === w) x.classList.add("ok"); });
+      if (b && !ok) b.classList.add("bad");
+      wAnswered(s, ok); wFeedback(s, ok, !b);
+    };
+    st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickW(b));
+    $("#wIdk").onclick = () => pickW(null);
+    return;
+  }
   if (s.k === "teach") {
     const ws = words(c.en), tip = gramTip(c.u);
     st.innerHTML = `<span class="tag">Vamos a verla con calma</span><h2 class="ttl">Esta te está costando. Mírala bien antes de volver a intentarlo.</h2>
       ${plate(c)}
-      ${ws.length > 1 ? `<p class="lead">Toca cada palabra para oírla:</p><div class="row c">${ws.map(w => `<button class="chip" type="button" data-say="${esc(w)}">${esc(w)}</button>`).join("")}</div>` : ""}
+      ${ws.length > 1 ? `<p class="lead">Toca cada palabra para oírla. Abajo de cada una está lo que significa.</p><div class="row c">${ws.map(w => { const g = tokGloss(w, c.es); return `<button class="chip wm" type="button" data-say="${esc(w)}"><b>${esc(w)}</b>${g ? `<small>${esc(g)}</small>` : ""}</button>`; }).join("")}</div>` : ""}
       ${tip ? `<div class="tip"><strong>Recuerda (${esc(c.u.t)}):</strong> ${esc(tip)}</div>` : ""}
       <p class="lead">Dila en voz alta 3 veces: primero lento, luego normal.</p>
       <div id="miniMic"></div>`;
@@ -1967,7 +2192,7 @@ function step() {
     return;
   }
   if (s.k === "intro") {
-    st.innerHTML = `${head("intro")}${plate(c)}<p class="lead">Escúchala y repítela en voz alta 2 o 3 veces.</p><div id="miniMic"></div>`;
+    st.innerHTML = `${head("intro")}${plate(c)}<p class="lead">Escúchala y repítela en voz alta 2 o 3 veces.${c.ws.length ? " Toca una palabra para ver qué significa." : ""}</p><div id="miniMic"></div>`;
     foot("", goBtn("gotIt", "Entendido"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     introduce(c); say(c.en);
@@ -2154,9 +2379,9 @@ function step() {
     const u = s.u;
     st.innerHTML = `<span class="tag">Lectura · ${esc(u.lv.short)}</span><h2 class="center">${esc(u.r.t)}</h2>
       <div class="row c"><button class="btn speak" data-saylong="${u.id}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK}<span class="lb">Lento</span></button><button class="btn ghost" id="sRdT">Ver traducción</button></div>
-      <div class="reading">${paras(u.r.en)}</div>
+      <div class="reading">${paras(u.r.en, true)}</div>
       <div class="reading es" id="sRdEs" hidden>${paras(u.r.es)}</div>
-      <p class="lead" style="font-size:14px">Léela en voz alta. Intenta entenderla antes de ver la traducción.</p>`;
+      <p class="lead" style="font-size:14px">Léela en voz alta. Intenta entenderla antes de ver la traducción. Si no conoces una palabra, tócala para ver qué significa.</p>`;
     foot("", goBtn("sRdGo", "Ir a las preguntas"));
     $("#sRdT").onclick = () => { const e = $("#sRdEs"); e.hidden = !e.hidden; $("#sRdT").textContent = (e.hidden ? "Ver" : "Ocultar") + " traducción"; };
     $("#sRdGo").onclick = nextStep;
@@ -2165,7 +2390,7 @@ function step() {
   if (s.k === "rq") {
     const [q, opts, ans] = s.q, order = shuffle(opts.map((t, i) => ({ t, i })));
     st.innerHTML = `<span class="tag">Comprensión de lectura</span>
-      <details class="rtext"${SES.mode === "reading" ? " open" : ""}><summary>Ver el texto: ${esc(s.u.r.t)}</summary><div class="reading" style="margin-top:8px;font-size:15px">${paras(s.u.r.en)}</div></details>
+      <details class="rtext"${SES.mode === "reading" ? " open" : ""}><summary>Ver el texto: ${esc(s.u.r.t)}</summary><div class="reading" style="margin-top:8px;font-size:15px">${paras(s.u.r.en, true)}</div></details>
       <div class="prompt sm">${esc(q)}</div>
       <div class="opts">${order.map((o, i) => `<button class="opt" data-i="${o.i}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(o.t)}</button>`).join("")}</div>`;
     st.querySelectorAll(".opt").forEach(b => b.onclick = () => {
@@ -2293,10 +2518,13 @@ function finish() {
         + (!missed ? "" : !SES.fixed ? ` ${missed === 1 ? "Vuelve" : "Vuelven"} mañana, empezando por ejercicios más fáciles.` : later ? ` ${later === 1 ? "Una todavía te cuesta: vuelve" : later + " todavía te cuestan: vuelven"} mañana, empezando por ejercicios más fáciles.` : " ¡Así se aprende!");
     if (missed && SES.fixed) { big = `${SES.fixed}/${missed}`; title = "Frases que fallaste y ya dominas"; }
     else extra = "";
-    recall = recallHTML();
+    if (SES.wn) msg += ` Palabras: ${SES.wok || 0} de ${SES.wn} a la primera.`;
+    // Las palabras que fallaste, con su significado, para darles otra mirada
+    const wm = [...new Set(SES.wmiss || [])];
+    recall = (wm.length ? `<div class="wmiss"><p class="rh">Palabras para repasar (toca para oírlas)</p><div class="row c">${wm.map(w => `<button class="chip wm" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></div>` : "") + recallHTML();
     if (m === "learn") {
-      const u = SES.unit, left = u.cards.length - unitSeen(u);
-      btns = left ? `<button class="btn primary" id="fMore">Aprender ${Math.min(6, left)} frases más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y la lectura</button>`;
+      const u = SES.unit, left = u.cards.length - unitSeen(u), nx = left ? learnPlan(u).fresh.length : 0;
+      btns = left ? `<button class="btn primary" id="fMore">Aprender ${nx} ${nx === 1 ? "frase" : "frases"} más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y la lectura</button>`;
     } else if (m === "review") {
       const left = dueCards().length;
       btns = left ? `<button class="btn primary" id="fRev">Repasar ${Math.min(20, left)} más</button>` : "";
@@ -2325,7 +2553,7 @@ function finish() {
     return;
   }
   const on = (id, fn) => { const b = $("#" + id); if (b) b.onclick = fn; };
-  const back = SES.back, unit = SES.unit, level = SES.level, kind = SES.steps[0] && SES.steps[0].k;
+  const back = SES.back, unit = SES.unit, level = SES.level, kind = (SES.steps.find(s => s.c) || {}).k; // el tipo de ejercicio de la primera frase (no el de las palabras)
   on("fNext", () => { const nu = nextUnit(); if (nu.final) finalExam(nu.lv); else openUnit(nu); });
   on("fRetry", () => { if (unit) openUnit(unit); else { view("curso"); const el = $("#lv-" + level.id); if (el) el.scrollIntoView(); } });
   on("fAgain", () => dialogPractice(unit));
@@ -2372,7 +2600,7 @@ function merge(a, b) {
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
   const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
-  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
