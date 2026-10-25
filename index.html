@@ -259,6 +259,15 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .plate.playing{border-color:var(--accent)}
 @keyframes pulse{50%{box-shadow:0 0 0 14px var(--accent-soft)}}
 .miclbl{font-weight:600;font-size:15px}
+.lvl{display:flex;gap:5px;height:30px;align-items:flex-end;--l:0}
+.lvl[hidden]{display:none}
+.lvl i{width:7px;border-radius:4px;background:var(--line);height:5px;transition:height .08s,background .2s}
+.lvl.live i{background:var(--ok)}
+.lvl.live i:nth-child(1),.lvl.live i:nth-child(5){height:calc(5px + var(--l) * 13px)}
+.lvl.live i:nth-child(2),.lvl.live i:nth-child(4){height:calc(5px + var(--l) * 20px)}
+.lvl.live i:nth-child(3){height:calc(5px + var(--l) * 25px)}
+.btn.alt{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);font-weight:700;font-size:15px;padding:10px 14px}
+.btn.alt .ic{font-size:18px;line-height:1}
 .heard{text-align:center;font-size:15px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
 .heard:empty{display:none}
 .heard .tgt{font-size:16px;color:var(--ink)}
@@ -921,22 +930,25 @@ let srOK = !!SR;
 // onReady: el micrófono ya está grabando de verdad (antes de eso, lo que digas se pierde)
 function hear(onState) { // onState("ready" | "speech" | "proc")
   return new Promise(res => {
-    let fin = false, ready = false, alts = [], guard = null; const r = new SR();
-    const done = x => { if (fin) return; fin = true; clearTimeout(guard); MIC_END = Date.now(); res(x); };
+    let fin = false, ready = false, alts = [], interim = "", guard = null; const r = new SR(), t0 = Date.now();
+    const done = x => { if (fin) return; fin = true; clearTimeout(guard); MIC_END = Date.now(); x.dur = Date.now() - t0; res(x); };
+    // Si el reconocedor no alcanza a dar un resultado final (pasa con palabras sueltas o cortas), usamos lo último que entendió
+    const best = () => alts.length ? { alts } : interim ? { alts: [interim], partial: true } : null;
     const tell = x => { if (!fin && onState) onState(x); };
     const isReady = () => { if (!ready && !fin) { ready = true; tell("ready"); } };
-    r.lang = "en-US"; r.interimResults = false; r.maxAlternatives = 5; r.continuous = false;
+    r.lang = "en-US"; r.interimResults = true; r.maxAlternatives = 5; r.continuous = false;
     r.onstart = () => setTimeout(isReady, 700);
     r.onaudiostart = isReady;
     r.onspeechstart = () => { isReady(); tell("speech"); };
     r.onspeechend = () => tell("proc");
     r.onresult = e => {
-      const f = Array.from(e.results).filter(x => x.isFinal); if (!f.length) return;
-      alts = f.length === 1 ? Array.from(f[0]).map(a => a.transcript) : [f.map(x => x[0].transcript).join(" ")];
+      const all = Array.from(e.results), f = all.filter(x => x.isFinal);
+      const it = all.map(x => x[0].transcript).join(" ").trim(); if (it) { interim = it; isReady(); tell("speech"); }
+      if (f.length) alts = f.length === 1 ? Array.from(f[0]).map(a => a.transcript) : [f.map(x => x[0].transcript).join(" ")];
     };
-    r.onerror = e => done(alts.length ? { alts } : { err: e.error });
-    r.onend = () => done({ alts });
-    guard = setTimeout(() => { try { r.stop(); } catch (e) {} setTimeout(() => done({ alts }), 1000); }, 15000);
+    r.onerror = e => done(best() || { err: e.error });
+    r.onend = () => done(best() || { alts: [] });
+    guard = setTimeout(() => { try { r.stop(); } catch (e) {} setTimeout(() => done(best() || { alts: [] }), 1000); }, 15000);
     try { stopAudio(); audioSleep(); r.start(); } catch (e) { done({ err: "start" }); }
   });
 }
@@ -1080,6 +1092,27 @@ function speechCheck(heard, en) {
   const W = T.filter(t => !t.wild && !t.opt).length, allowed = W >= 12 ? 2 : W >= 6 ? 1 : 0;
   return { ok: m > 0 && D[n][m] <= allowed, bad, hbad, miss, hw: HW, raw };
 }
+// Medidor del volumen del micrófono (solo en Chrome/Edge de computadora): ves que el micrófono sí te está captando
+const METER_OK = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && /Chrome|Edg\//.test(navigator.userAgent) && !/Android|Mobile|iPhone|iPad/i.test(navigator.userAgent);
+let METER = null;
+function meterStart(el) {
+  if (!METER_OK || !el) return;
+  const m = METER = { max: 0, raf: 0, stream: null, ctx: null };
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+    if (METER !== m) { stream.getTracks().forEach(t => t.stop()); return; }
+    const ctx = new (window.AudioContext || window.webkitAudioContext)(), an = ctx.createAnalyser(); an.fftSize = 512;
+    ctx.createMediaStreamSource(stream).connect(an); m.stream = stream; m.ctx = ctx;
+    const data = new Uint8Array(an.fftSize); el.hidden = false; el.classList.add("live");
+    const tick = () => { if (METER !== m) return; an.getByteTimeDomainData(data); let pk = 0; for (let k = 0; k < data.length; k++) pk = Math.max(pk, Math.abs(data[k] - 128)); const l = Math.min(1, pk / 48); m.max = Math.max(m.max, l); el.style.setProperty("--l", l.toFixed(2)); m.raf = requestAnimationFrame(tick); };
+    tick();
+  }).catch(() => {});
+}
+function meterStop(el) {
+  const m = METER; METER = null; if (el) { el.classList.remove("live"); el.style.setProperty("--l", 0); el.hidden = true; }
+  if (!m) return null;
+  cancelAnimationFrame(m.raf); if (m.stream) m.stream.getTracks().forEach(t => t.stop()); if (m.ctx) m.ctx.close().catch(() => {});
+  return m.stream ? m.max : null; // null = no hubo medidor
+}
 // Botón de micrófono reutilizable. onDone(ok, transcript, score) o onFail(mensaje)
 // Cómo se ve el micrófono en cada momento
 function micLook(btn, lbl, st) {
@@ -1090,22 +1123,29 @@ function micLook(btn, lbl, st) {
 }
 const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div>${esc(t)}</div>`); };
 function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia reacción
-  host.innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Toca y habla">${MIC}</button><div class="miclbl">Toca y habla</div></div><div class="heard" aria-live="polite"></div>`;
-  const btn = host.querySelector(".mic"), lbl = host.querySelector(".miclbl"), out = host.querySelector(".heard");
+  host.innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Toca y habla">${MIC}</button><div class="miclbl">Toca y habla</div><div class="lvl" hidden aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div><div class="heard" aria-live="polite"></div>`;
+  const btn = host.querySelector(".mic"), lbl = host.querySelector(".miclbl"), out = host.querySelector(".heard"), lv = host.querySelector(".lvl");
   btn.onclick = async () => {
     btn.classList.add("wait"); btn.disabled = true; lbl.textContent = "Espera…"; out.textContent = "";
-    const r = await hear(st => micLook(btn, lbl, st));
+    meterStart(lv);
+    let r = await hear(st => micLook(btn, lbl, st));
+    // Si se cortó solo enseguida sin oír nada (pasa a veces al arrancar), vuelve a escuchar una vez sin que tengas que tocar
+    if (!r.err && !r.alts.length && r.dur < 2500) { micLook(btn, lbl, "wait"); r = await hear(st => micLook(btn, lbl, st)); }
+    const peak = meterStop(lv);
     btn.classList.remove("on", "wait", "hearing", "proc"); btn.disabled = false; lbl.textContent = "Toca y habla";
     if (curView === "session") audioAwake(Infinity);
+    const quiet = peak !== null && peak < 0.06; // el medidor casi no se movió: el micrófono no está captando
+    const noHear = quiet ? "Tu micrófono no está captando sonido. Revisa que esté conectado y que sea el que usa tu computadora (en Configuración de Windows → Sonido → Entrada)."
+      : "No alcancé a oírte. Espera a que diga «¡Habla ahora!» y di la frase fuerte y clara, cerca del micrófono.";
     if (r.err) {
       if (r.err === "not-allowed" || r.err === "service-not-allowed" || r.err === "start") {
         srOK = false; out.textContent = "No tengo permiso para usar el micrófono. Actívalo en tu navegador o usa los otros ejercicios.";
         onDone(null); return;
       }
-      out.textContent = r.err === "no-speech" ? "No te oí. Acércate al micrófono e inténtalo otra vez." : "No pude escuchar bien. Inténtalo otra vez.";
+      out.textContent = r.err === "no-speech" || r.err === "audio-capture" ? noHear : r.err === "network" ? "Se perdió la conexión al revisar tu voz. Revisa tu internet e inténtalo otra vez." : "No pude escuchar bien. Inténtalo otra vez.";
       return;
     }
-    if (!r.alts.length) { out.textContent = "No te oí. Inténtalo otra vez."; return; }
+    if (!r.alts.length) { out.textContent = noHear; return; }
     const res = speechCheck(r.alts[0], en), good = res.ok;
     // lo que se entendió, con lo que sobra o está mal en rojo; si la respuesta está a la vista, también la frase con lo que faltó
     const red = (ws, set) => ws.map((w, k) => set.has(k) ? `<span class="miss">${esc(w)}</span>` : esc(w)).join(" ");
@@ -1996,7 +2036,7 @@ function step() {
   if (s.k === "speak") {
     let tries = 0;
     st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
-    foot(link("sReveal", "Ver respuesta") + link("sType", "Mejor escribirla"), "");
+    foot(`<button class="btn alt" type="button" id="sReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>`, `<button class="btn alt" type="button" id="sType"><span class="ic" aria-hidden="true">⌨️</span>Mejor escribirla</button>`);
     const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
     micUI($("#micBox"), c.en, (ok, heard) => {
       if (ok === null) { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); return; }
@@ -2119,7 +2159,7 @@ function step() {
     st.innerHTML = `<h2 class="ttl">Conversación: tu turno</h2>
       ${prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(prevA[1])}"</p>` : ""}
       <div class="prompt">${esc(es)}</div><p class="lead">Dilo en inglés.</p><div id="micBox"></div>`;
-    foot(srOK ? link("dReveal", "Ver respuesta") : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
+    foot(srOK ? `<button class="btn alt" type="button" id="dReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
     const reveal = (auto) => {
       sesEl("#micBox button,#dReveal").forEach(b => b.disabled = true);
       say(en, { who: 1 });
