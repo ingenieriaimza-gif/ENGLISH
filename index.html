@@ -306,6 +306,8 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .item .t div:first-child{font-weight:600}
 .item .t div:last-child{color:var(--muted);font-size:14px}
 .dots{display:flex;gap:3px}
+.legend{margin:0;padding:10px 16px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:12px;align-items:center}
+.legend .dots{flex:none}
 .dots i{width:7px;height:7px;background:var(--chip);display:block}
 .dots i.on{background:var(--ok)}
 .play{background:none;border:1px solid var(--line);width:36px;height:36px;display:grid;place-items:center;flex:none;padding:0}
@@ -415,7 +417,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <select class="type" id="fl" aria-label="Filtrar"></select>
     </div>
     <p class="muted" id="fcount" style="margin:0;font-size:14px"></p>
-    <div class="list-box"><div id="fitems"></div></div>
+    <div class="list-box"><div id="flegend"></div><div id="fitems"></div></div>
   </section>
 
   <!-- MÉTODO -->
@@ -1317,8 +1319,10 @@ function gramTip(u) {
   return s.length > 240 ? s.slice(0, s.lastIndexOf(" ", 237)) + "…" : s;
 }
 function dotsHTML(id) { const b = bx(id); return `<div class="dots" title="${seen(id) ? "Nivel " + b + " de 6" : "Aún no la aprendes"}">${[1, 2, 3, 4, 5, 6].map(n => `<i class="${b >= n ? "on" : ""}"></i>`).join("")}</div>`; }
+const LEGEND = `<p class="legend"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span>Los cuadritos verdes muestran qué tan bien te sabes cada frase. Sube uno cada vez que la contestas bien el día que le toca repaso; si la fallas, baja. Con 4 ya la dominas.</span></p>`;
 function itemHTML(c, showUnit) {
-  return `<div class="item">${dotsHTML(c.id)}<div class="t"><div>${esc(c.en)}</div><div>${esc(c.es)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
+  const second = sameText(c) && c.pron ? `Se dice: ${c.pron}` : c.es;
+  return `<div class="item">${dotsHTML(c.id)}<div class="t"><div>${esc(c.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
 }
 let showEs = false;
 let showRd = false;
@@ -1339,7 +1343,7 @@ function renderUnit(u) {
       ${lock ? `<p class="lock" style="margin:0">🔒 Esta unidad es de ${esc(u.lv.short)} (${esc(u.lv.cefr)}). Se abre cuando apruebes el examen final de ${esc(lock.short)}. Puedes leerla, pero todavía no practicarla: usa cosas que aún no aprendes. Tu entrenador en Hoy te lleva en orden.</p>` : ""}
     </div>
     <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
-    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn}/${tot} aprendidas</span></div><div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
+    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} vistas</span></div>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div></section>
     <section class="sec"><div class="sh"><span class="n">03</span><h3>Practica</h3></div><div class="sb">
       <p>${fresh ? `Vas a conocer cada frase, oírla, repetirla en voz alta y ponerla a prueba, de 6 en 6. Te ${sessionsLeft === 1 ? "falta 1 sesión" : `faltan unas ${sessionsLeft} sesiones`} para conocer todas.` : `Ya conoces todas las frases. Ahora lo importante son tus repasos diarios en la pestaña Hoy; aquí puedes practicar extra las que más te cuestan.`}</p>
       <div class="row"><button class="btn accent" id="uLearn"${dis}>${fresh ? `Aprender ${Math.min(6, fresh)} frases nuevas` : "Practicar esta unidad"}</button></div>
@@ -1417,6 +1421,7 @@ function drawFrases() {
   else if (f !== "all") list = list.filter(c => c.u.lv.id === f);
   if (q) list = list.filter(c => norm(c.en).includes(q) || c.es.toLowerCase().includes($("#fq").value.toLowerCase().trim()));
   $("#fcount").textContent = list.length + (list.length === 1 ? " frase" : " frases");
+  $("#flegend").innerHTML = list.length ? LEGEND : "";
   $("#fitems").innerHTML = list.length ? list.map(c => itemHTML(c, true)).join("") : `<p class="muted" style="padding:16px;margin:0">${f === "seen" ? "Todavía no aprendes frases. Ve a Hoy y abre tu primera lección." : "No hay frases aquí."}</p>`;
 }
 
