@@ -478,11 +478,12 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <h3>Tu entrenador personal</h3>
       <p>En la pestaña <strong>Hoy</strong> la app decide qué te toca cada día. Tú solo presionas <strong>Empezar</strong> y te lleva de una parte a la siguiente. Para decidir, revisa:</p>
       <ul>
-        <li><strong>Tus repasos pendientes:</strong> siempre van primero. Si se te juntan muchos, ese día no agrega frases nuevas hasta ponerte al día.</li>
+        <li><strong>Tus repasos pendientes:</strong> siempre van primero. Si se te juntan muchos, no agrega frases nuevas hasta ponerte al día.</li>
         <li><strong>Tus aciertos de los últimos días:</strong> si fallas mucho, baja el número de frases nuevas; si vas arriba del 90%, lo sube.</li>
         <li><strong>Los días que faltaste:</strong> al regresar, primero recupera lo que se te estaba olvidando.</li>
         <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): agrega ejercicios extra de esa habilidad.</li>
-        <li><strong>Tu objetivo y tu tiempo diario:</strong> los eliges al empezar y los puedes cambiar en «Ajustar mi plan».</li>
+        <li><strong>Sin límite de tiempo:</strong> la práctica va en bloques de unos 10 minutos. Al terminar uno, sigues con el siguiente (más repaso y frases nuevas) todas las veces que quieras.</li>
+        <li><strong>Tu objetivo:</strong> lo eliges al empezar y lo puedes cambiar en «Ajustar mi plan».</li>
         <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando dominas lo que fallaste.</li>
         <li><strong>El video del día:</strong> cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
@@ -1225,7 +1226,6 @@ const GOALS = [
   ["viajes", "Viajar", "Moverte sin problemas"],
   ["examen", "Escuela o examen", "Leer y escribir bien"]
 ];
-const MINS = [[10, "10 min", "Ligero"], [20, "20 min", "Normal"], [30, "30 min", "Intenso"], [45, "45 min", "Muy intenso"]];
 const STARTS = [["cero", "No sé nada", "Empiezo desde Kínder"], ["algo", "Sé un poco", "Examen corto de ubicación"], ["bien", "Me defiendo", "Examen corto de ubicación"]];
 const GOAL_FOCUS = { conversar: "speak", trabajo: "write", viajes: "listen", examen: "write" };
 function recentAcc(days) { let r = 0, ok = 0; const t = dayNum(); for (let d = t - (days || 7); d < t; d++) { const x = S.h[d]; if (x) { r += x.r; ok += x.ok; } } return r >= 12 ? ok / r : null; }
@@ -1256,8 +1256,13 @@ function pickVideo() {
   for (const u of pool) { const v = VIDEOS[u.id]; if (v && !S.vw[v.id]) return { v, u }; }
   const u = units[0]; return VIDEOS[u.id] ? { v: VIDEOS[u.id], u, again: true } : null;
 }
-function buildToday(extra) {
-  const P = S.prof, budget = P.min * 60, h = H(), doneKeys = h.dn, segs = [], notes = [];
+// La práctica va en bloques de unos 10 minutos, sin límite: al terminar uno se arma el siguiente (blk = número de bloque de hoy)
+const BLOCK = 600;
+function buildToday(blk) {
+  const P = S.prof, h = H(), doneKeys = h.dn, segs = [], notes = [];
+  if (blk === undefined) blk = h.b || 0;
+  const sx = blk ? "-" + blk : "", budget = BLOCK;
+  const doneToday = pre => doneKeys.some(k => k === pre || k.startsWith(pre + "-"));
   const add = seg => { if (doneKeys.includes(seg.key)) seg.done = true; segs.push(seg); };
   // Examen de ubicación
   if (P.placing) {
@@ -1271,59 +1276,61 @@ function buildToday(extra) {
     P.placing = false;
   }
   const due = dueCards(), acc = recentAcc(), away = daysAway(), weak = weakSkill(), anySeen = Object.keys(S.c).length > 0;
-  const base = { 10: 3, 20: 6, 30: 9, 45: 13 }[P.min] || 6;
+  const base = 6;
   let newN = base;
-  if (!extra) {
-    if (acc !== null && acc < 0.7) { newN = Math.max(2, Math.round(base * 0.5)); notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Vamos más despacio: hoy solo ${newN} frases nuevas y más repaso para que se te queden bien.`); }
-    else if (acc !== null && acc > 0.9) { newN = Math.round(base * 1.4); notes.push(`Llevas ${Math.round(acc * 100)}% de aciertos. ¡Vas muy bien! Hoy subimos el ritmo: ${newN} frases nuevas.`); }
-    const cap = Math.round(budget * 0.5 / 18);
-    if (due.length > cap * 2) { newN = 0; notes.push(`Tienes ${due.length} frases pendientes de repaso. Hoy no agregamos nada nuevo: primero hay que ponerte al día, o se te van a olvidar.`); }
-    else if (due.length > cap) newN = Math.ceil(newN / 2);
-    if (away !== null && away >= 3) notes.unshift(`Llevas ${away} días sin practicar. No pasa nada: hoy empezamos recuperando lo que se te estaba olvidando.`);
-    if (due.length) add({ key: "review", kind: "review", n: Math.min(due.length, newN ? cap : Math.round(budget / 18)), title: "Repaso", desc: "", sec: 0 });
-    const rv = segs.find(x => x.kind === "review"); if (rv) { rv.desc = `${rv.n} frases que estabas por olvidar`; rv.sec = rv.n * 18; }
-  }
+  if (acc !== null && acc < 0.7) { newN = 3; if (!blk) notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Vamos más despacio: ${newN} frases nuevas por bloque y más repaso para que se te queden bien.`); }
+  else if (acc !== null && acc > 0.9) { newN = 8; if (!blk) notes.push(`Llevas ${Math.round(acc * 100)}% de aciertos. ¡Vas muy bien! Subimos el ritmo: ${newN} frases nuevas por bloque.`); }
+  const cap = Math.round(budget * 0.5 / 18);
+  if (due.length > cap * 2) { newN = 0; notes.push(`Tienes ${due.length} frases pendientes de repaso. En este bloque no agregamos nada nuevo: primero hay que ponerte al día, o se te van a olvidar.`); }
+  else if (due.length > cap) newN = Math.ceil(newN / 2);
+  if (!blk && away !== null && away >= 3) notes.unshift(`Llevas ${away} días sin practicar. No pasa nada: hoy empezamos recuperando lo que se te estaba olvidando.`);
+  if (due.length) add({ key: "review" + sx, kind: "review", n: Math.min(due.length, newN ? cap : Math.round(budget / 18)), title: "Repaso", desc: "", sec: 0 });
+  const rv = segs.find(x => x.kind === "review"); if (rv) { rv.desc = `${rv.n} frases que estabas por olvidar`; rv.sec = rv.n * 18; }
   const nu = nextUnit();
   if (nu && nu.final) {
-    if (!prevLocked(nu.lv)) { add({ key: "final-" + nu.lv.id, kind: "final", lv: nu.lv, title: "Examen final: " + nu.lv.short, desc: "30 preguntas · 85% para abrir la siguiente etapa", sec: 720 }); notes.push(`Terminaste todas las unidades de ${nu.lv.short}. Hoy toca el examen final de la etapa.`); }
+    if (!prevLocked(nu.lv) && !(blk && doneToday("final-" + nu.lv.id))) { add({ key: "final-" + nu.lv.id + sx, kind: "final", lv: nu.lv, title: "Examen final: " + nu.lv.short, desc: "30 preguntas · 85% para abrir la siguiente etapa", sec: 720 }); notes.push(`Terminaste todas las unidades de ${nu.lv.short}. Hoy toca el examen final de la etapa.`); }
   } else if (nu) {
     const units = activeUnits();
     const ready = units.find(u => !prevLocked(u.lv) && unitReq(u).ok);
-    if (ready && !extra) { add({ key: "exam-" + ready.id, kind: "exam", u: ready, title: "Examen: " + ready.t, desc: "Cumpliste todos los requisitos · necesitas 85%", sec: 480 }); notes.push(`¡Ya estás listo para el examen de «${ready.t}»! Lo dejamos al final de la sesión.`); }
+    if (ready && !(blk && doneToday("exam-" + ready.id))) { add({ key: "exam-" + ready.id + sx, kind: "exam", u: ready, title: "Examen: " + ready.t, desc: "Cumpliste todos los requisitos · necesitas 85%", sec: 480 }); notes.push(`¡Ya estás listo para el examen de «${ready.t}»! Lo dejamos al final de la sesión.`); }
     const lu = units.find(u => unitSeen(u) < u.cards.length);
     if (lu && newN > 0) {
-      if (!S.gs[lu.id]) add({ key: "gram-" + lu.id, kind: "gram", u: lu, title: "Nueva lección: " + lu.t, desc: "Explicación en español con ejemplos", sec: 150 });
+      if (!S.gs[lu.id]) add({ key: "gram-" + lu.id + sx, kind: "gram", u: lu, title: "Nueva lección: " + lu.t, desc: "Explicación en español con ejemplos", sec: 150 });
       const n = Math.min(newN, lu.cards.length - unitSeen(lu));
-      add({ key: (extra ? "x-" : "") + "learn-" + lu.id, kind: "learn", u: lu, n, title: "Frases nuevas", desc: `${n} de «${lu.t}» (${lu.lv.short})`, sec: n * 45 });
-      if (lu !== units[0] && !extra) notes.push(`Mientras esperas a que tus repasos de «${units[0].t}» maduren en días distintos, avanzamos con la siguiente lección.`);
+      add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, title: "Frases nuevas", desc: `${n} de «${lu.t}» (${lu.lv.short})`, sec: n * 45 });
+      if (lu !== units[0] && !blk) notes.push(`Mientras esperas a que tus repasos de «${units[0].t}» maduren en días distintos, avanzamos con la siguiente lección.`);
     }
     const dl = units.find(u => unitSeen(u) === u.cards.length && !S.dl[u.id]);
-    if (dl) add({ key: "dlg-" + dl.id, kind: "dialog", u: dl, title: "Conversación", desc: `Tú respondes en «${dl.t}»`, sec: 150 });
+    if (dl) add({ key: "dlg-" + dl.id + sx, kind: "dialog", u: dl, title: "Conversación", desc: `Tú respondes en «${dl.t}»`, sec: 150 });
     const rd = units.find(u => u.r && unitSeen(u) >= Math.ceil(u.cards.length * 0.6) && !S.rd[u.id]);
-    if (rd) add({ key: "read-" + rd.id, kind: "reading", u: rd, title: "Lectura: " + rd.r.t, desc: "Lee, escucha y contesta 3 preguntas", sec: 240 });
+    if (rd) add({ key: "read-" + rd.id + sx, kind: "reading", u: rd, title: "Lectura: " + rd.r.t, desc: "Lee, escucha y contesta 3 preguntas", sec: 240 });
   } else notes.push("¡Terminaste el curso completo! Tu plan ahora es mantener lo aprendido con repasos y hablar con personas reales.");
   const seenN = Object.keys(S.c).length, used = segs.filter(x => !x.done).reduce((a, x) => a + x.sec, 0);
   const focus = weak || (used < budget * 0.8 ? GOAL_FOCUS[P.goal] : null);
   if (focus && seenN >= 12 && (focus !== "speak" || srOK)) {
-    add({ key: (extra ? "x-" : "") + "drill", kind: "drill", skill: focus, title: "Refuerzo: " + SKILL_NAME[focus], desc: weak ? "Tu habilidad más débil ahora mismo" : "Lo que más necesitas para tu objetivo", sec: 120 });
-    if (weak && !extra) notes.push(`Tu punto débil ahora es «${SKILL_NAME[weak].toLowerCase()}» (${Math.round(S.sk[weak] * 100)}% de aciertos). Hoy hay ejercicios extra de eso.`);
+    add({ key: "drill" + sx, kind: "drill", skill: focus, title: "Refuerzo: " + SKILL_NAME[focus], desc: weak ? "Tu habilidad más débil ahora mismo" : "Lo que más necesitas para tu objetivo", sec: 120 });
+    if (weak && !blk) notes.push(`Tu punto débil ahora es «${SKILL_NAME[weak].toLowerCase()}» (${Math.round(S.sk[weak] * 100)}% de aciertos). Hoy hay ejercicios extra de eso.`);
   }
-  const pv = !extra && pickVideo();
+  const pv = !blk && pickVideo(); // el video, una vez al día (en el primer bloque)
   if (pv) add({ key: "video", kind: "video", v: pv.v, u: pv.u, title: "Video: " + pv.v.t, desc: `${pv.v.ch} · ${pv.again ? "otra vez, ahora intenta sin ver los subtítulos" : "inglés real, de la vida diaria"}`, sec: 360 });
   if (!anySeen && !notes.length) notes.push("¡Bienvenido! Hoy empieza tu camino. Vamos poco a poco: primero una explicación sencilla y tus primeras frases.");
+  if (!notes.length && blk) notes.push(`Bloque ${blk + 1} de hoy. Puedes seguir todo lo que quieras: cada bloque trae repaso y frases nuevas a tu ritmo.`);
   if (!notes.length) notes.push(S.streak > 1 ? `Racha de ${S.streak} días. La constancia es lo que de verdad te va a hacer hablar con fluidez.` : "Este es tu plan de hoy. Lo armé con base en lo que ya sabes y en lo que se te está olvidando.");
   segs.sort((x, y) => ORDER[x.kind === "final" && x.place ? "place" : x.kind] - ORDER[y.kind === "final" && y.place ? "place" : y.kind]);
   return { segs, notes };
 }
 
 let PLAN = null, SEGOPT = null;
-function startToday(extra) {
-  const { segs } = buildToday(extra);
+function startToday() {
+  const { segs } = buildToday();
   const todo = segs.filter(x => !x.done && !x.manual);
-  if (!todo.length) return;
-  PLAN = { segs: todo, i: 0, extra: !!extra };
+  if (!todo.length) return false;
+  PLAN = { segs: todo, i: 0 };
   runSeg();
+  return true;
 }
+// Siguiente bloque de hoy (sin límite)
+function nextBlock() { const h = H(); h.b = (h.b || 0) + 1; save(); }
 function runSeg() {
   const sg = PLAN && PLAN.segs[PLAN.i];
   if (!sg) { PLAN = null; view("hoy"); return; }
@@ -1354,8 +1361,8 @@ function setName(n, l) {
   S.prof.name = n; S.prof.last = l; S.prof.nameT = Date.now(); applyNames();
 }
 function renderOnboarding() {
-  const first = !S.prof, P = S.prof || { goal: "conversar", min: 20, start: "cero" };
-  const pick = { goal: P.goal, min: P.min, start: P.start || "cero" };
+  const first = !S.prof, P = S.prof || { goal: "conversar", start: "cero" };
+  const pick = { goal: P.goal, start: P.start || "cero" };
   const chips = (key, list) => `<div class="chips" data-key="${key}">${list.map(([v, a, b]) => `<button type="button" data-v="${v}" aria-pressed="${String(pick[key]) === String(v)}"><span>${esc(a)}</span><small>${esc(b)}</small></button>`).join("")}</div>`;
   $("#coach").innerHTML = `<div class="card strong">
     <div class="label">${first ? "Bienvenido · vamos a armar tu plan" : "Ajustar mi plan"}</div>
@@ -1368,17 +1375,16 @@ function renderOnboarding() {
     <div class="namegrid"><input class="type" id="obName" maxlength="30" autocomplete="given-name" placeholder="Tu nombre" value="${esc(P.name || "")}"><input class="type" id="obLast" maxlength="30" autocomplete="family-name" placeholder="Apellido (opcional)" value="${esc(P.last || "")}"></div>
     <p class="muted" style="margin:0;font-size:14px">Lo uso en las frases donde hablas de ti: «My name is…», deletrear tu nombre, contestar el teléfono.</p>
     <div class="label">¿Para qué quieres el inglés?</div>${chips("goal", GOALS)}
-    <div class="label">¿Cuánto tiempo al día?</div>${chips("min", MINS)}
     ${first ? `<div class="label">¿Cuánto inglés sabes?</div>${chips("start", STARTS)}` : ""}
     <div class="row"><button class="btn primary" id="obSave">${first ? "Crear mi plan" : "Guardar"}</button>${first ? "" : `<button class="btn ghost" id="obCancel">Cancelar</button>`}</div>
   </div>`;
   document.querySelectorAll("#coach .chips").forEach(g => g.querySelectorAll("button").forEach(bt => bt.onclick = () => {
-    pick[g.dataset.key] = g.dataset.key === "min" ? +bt.dataset.v : bt.dataset.v;
+    pick[g.dataset.key] = bt.dataset.v;
     g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === bt ? "true" : "false"));
   }));
   $("#obSave").onclick = () => {
-    if (first) { S.prof = { goal: pick.goal, min: pick.min, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; }
-    else { S.prof.goal = pick.goal; S.prof.min = pick.min; }
+    if (first) { S.prof = { goal: pick.goal, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; }
+    else { S.prof.goal = pick.goal; }
     setName($("#obName").value, $("#obLast").value);
     editingProfile = false; PLAN = null; save(); renderMeta(); renderHoy();
   };
@@ -1401,15 +1407,22 @@ function renderHoy() {
   const sp = document.querySelector('.mode[data-mode="speak"] small'); if (!srOK && sp) sp.textContent = "Tu navegador no permite usar el micrófono aquí";
   $("#progressCard").hidden = !S.prof;
   if (!S.prof || editingProfile) return renderOnboarding();
-  const built = buildToday();
+  let built = buildToday(), nextBlk = false;
+  // Si ya terminaste este bloque, ya está listo el siguiente: puedes seguir sin límite
+  if (!PLAN && !built.segs.some(x => !x.done && !x.manual)) {
+    const nb = buildToday((H().b || 0) + 1);
+    if (nb.segs.some(x => !x.done && !x.manual)) { built = nb; nextBlk = true; }
+  }
   const segs = PLAN ? PLAN.segs.map((x, i) => Object.assign(x, { done: i < PLAN.i })).concat(built.segs.filter(x => x.manual)) : built.segs;
   const realSeg = segs.find(x => x.manual); if (realSeg) realSeg.done = H().dn.includes("real");
   const todo = segs.filter(x => !x.done && !x.manual), mins = Math.max(1, Math.round(todo.reduce((a, x) => a + x.sec, 0) / 60));
   const allDone = !todo.length;
   const d = new Date().toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "long" });
   const nm = nameParts().name;
-  const hello = allDone ? (nm ? `¡Sesión de hoy completa, ${nm}!` : "¡Sesión de hoy completa!") : PLAN ? (nm ? `Sigamos, ${nm}` : "Sigamos donde te quedaste") : (new Date().getHours() < 12 ? "Buenos días" : new Date().getHours() < 19 ? "Buenas tardes" : "Buenas noches") + (nm ? `, ${nm}` : "") + ", hoy toca esto";
-  const msgs = allDone ? [segs.filter(x => !x.manual).length ? "Terminaste todo lo que tenías planeado. Lo que aprendiste hoy vuelve en tus repasos de los próximos días." : "Hoy no tienes nada pendiente en la app.", realSeg && !realSeg.done ? "Te falta la parte de inglés real: es la que te da oído y fluidez." : "Si quieres seguir, puedes hacer una sesión extra con más frases nuevas."] : built.notes;
+  const hd = H(), tally = hd.r ? `Hoy llevas ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
+  const hello = nextBlk ? (nm ? `¡Bloque terminado, ${nm}! ¿Seguimos?` : "¡Bloque terminado! ¿Seguimos?") : allDone ? (nm ? `¡Todo al día, ${nm}!` : "¡Todo al día!") : PLAN ? (nm ? `Sigamos, ${nm}` : "Sigamos donde te quedaste") : (new Date().getHours() < 12 ? "Buenos días" : new Date().getHours() < 19 ? "Buenas tardes" : "Buenas noches") + (nm ? `, ${nm}` : "") + ", hoy toca esto";
+  const msgs = nextBlk ? [tally, "Aquí está el siguiente bloque. Puedes seguir todo lo que quieras: lo que aprendes vuelve en tus repasos de los próximos días."].filter(Boolean)
+    : allDone ? [tally || "Hoy no tienes nada pendiente en la app.", "Por ahora no hay más frases que practicar. Repasa en Frases o vuelve mañana: tus repasos te estarán esperando."].filter(Boolean) : built.notes;
   let n = 0;
   const askName = !nm && !S.prof.noName;
   $("#coach").innerHTML = (askName ? `<div class="card namecard">
@@ -1424,15 +1437,14 @@ function renderHoy() {
     <div class="parts">${segs.map(x => { const cur = PLAN && !x.done && !x.manual && x === PLAN.segs[PLAN.i]; if (!x.manual) n++;
       return `<div class="part${x.done ? " done" : ""}${cur ? " cur" : ""}"><span class="pn">${x.done ? "✓" : x.manual ? "★" : n}</span><div><div class="pt">${esc(x.title)}</div><div class="pd">${esc(x.desc)}</div></div>
       ${x.manual ? (x.done ? `<span class="pm">hecho</span>` : `<button class="btn ghost sm" id="realDone">Ya lo hice</button>`) : `<span class="pm">${x.sec ? Math.max(1, Math.round(x.sec / 60)) + " min" : ""}</span>`}</div>`; }).join("")}</div>
-    ${allDone ? `<button class="btn" id="goExtra">Sesión extra · más frases nuevas</button>` : `<button class="go" id="goToday">${PLAN ? "Continuar sesión" : "Empezar · " + mins + " min"}</button>`}
+    ${allDone ? "" : `<button class="go" id="goToday">${PLAN ? "Continuar sesión" : (nextBlk ? "Seguir practicando · " : "Empezar · ") + mins + " min"}</button>`}
     <div class="row" style="justify-content:space-between"><button class="btn ghost sm" id="editPlan">Ajustar mi plan</button><button class="btn ghost sm" id="goMetodo">Cómo funciona</button></div>
   </div>`;
   if (askName) {
     $("#nmForm").onsubmit = e => { e.preventDefault(); if (!cleanName($("#nmName").value)) { $("#nmName").focus(); return; } setName($("#nmName").value, $("#nmLast").value); save(); renderHoy(); };
     $("#nmLater").onclick = () => { S.prof.noName = 1; save(); renderHoy(); };
   }
-  if ($("#goToday")) $("#goToday").onclick = () => PLAN ? runSeg() : startToday(false);
-  if ($("#goExtra")) $("#goExtra").onclick = () => startToday(true);
+  if ($("#goToday")) $("#goToday").onclick = () => { if (PLAN) return runSeg(); if (nextBlk) nextBlock(); startToday(); };
   if ($("#realDone")) $("#realDone").onclick = () => { const h = H(); if (!h.dn.includes("real")) h.dn.push("real"); S.xp += 20; bumpStreak(); save(); renderMeta(); renderHoy(); };
   $("#editPlan").onclick = () => { editingProfile = true; renderHoy(); };
   $("#goMetodo").onclick = () => view("metodo");
@@ -2173,12 +2185,12 @@ function finish() {
     PLAN.i++;
     const nx = PLAN.segs[PLAN.i], total = PLAN.segs.length;
     title = `Parte ${PLAN.i} de ${total} · ${title}`;
-    btns = nx ? `<button class="btn primary" id="fPlan">Siguiente: ${esc(nx.title)}</button>` : `<button class="btn primary" id="fPlanEnd">Terminar sesión de hoy</button>`;
+    btns = nx ? `<button class="btn primary" id="fPlan">Siguiente: ${esc(nx.title)}</button>` : `<button class="btn primary" id="fPlanEnd">Seguir practicando</button>`;
     st.innerHTML = summary(title);
     foot(`<button class="btn link" id="fPause">${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
     if (!nx) PLAN = null;
     const b1 = $("#fPlan"); if (b1) b1.onclick = runSeg;
-    const b2 = $("#fPlanEnd"); if (b2) b2.onclick = () => view("hoy");
+    const b2 = $("#fPlanEnd"); if (b2) b2.onclick = () => { nextBlock(); if (!startToday()) view("hoy"); };
     $("#fPause").onclick = () => view("hoy");
     (b1 || b2).focus({ preventScroll: true });
     return;
@@ -2223,7 +2235,7 @@ function merge(a, b) {
   Object.entries(b.c || {}).forEach(([k, v]) => { const x = c[k]; if (!x || v[0] > x[0] || (v[0] === x[0] && v[1] > x[1])) c[k] = v; });
   const done = Object.assign({}, a.done, b.done), rd = Object.assign({}, a.rd, b.rd), dl = Object.assign({}, a.dl, b.dl), fin = Object.assign({}, a.fin, b.fin), gs = Object.assign({}, a.gs, b.gs);
   const h = Object.assign({}, b.h);
-  Object.entries(a.h || {}).forEach(([d, x]) => { const y = h[d]; h[d] = !y ? x : { n: Math.max(x.n, y.n), r: Math.max(x.r, y.r), ok: Math.max(x.ok, y.ok), dn: Array.from(new Set([...(x.dn || []), ...(y.dn || [])])) }; });
+  Object.entries(a.h || {}).forEach(([d, x]) => { const y = h[d]; h[d] = !y ? x : { n: Math.max(x.n, y.n), r: Math.max(x.r, y.r), ok: Math.max(x.ok, y.ok), dn: Array.from(new Set([...(x.dn || []), ...(y.dn || [])])), b: Math.max(x.b || 0, y.b || 0) }; });
   let streak, last;
   if (dv(a.last) > dv(b.last)) { streak = a.streak; last = a.last; }
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
