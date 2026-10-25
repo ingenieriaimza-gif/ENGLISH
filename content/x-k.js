@@ -12,7 +12,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["guion bajo", "underscore", "ánderskor", "ana_lopez"],
       ["guion", "dash", "dash", ""],
       ["doble L", "double L", "dábol el", "Para letras repetidas: double."],
-      ["B de burro", "B as in boy", "bi as in bói", "Para aclarar una letra por teléfono."],
+      ["B de «boy»", "B as in boy", "bi as in bói", "Para aclarar una letra: «as in» + una palabra en inglés con esa letra (B as in boy, V as in victory). «Burro» no se usa."],
       ["¿Con B o con V?", "With a B or a V?", "uíz a bi or a vi", ""],
       ["letra", "letter", "léter", "También significa carta."],
       ["palabra", "word", "uérd", ""],
