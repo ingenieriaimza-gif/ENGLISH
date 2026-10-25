@@ -482,6 +482,8 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li><strong>Tus aciertos de los últimos días:</strong> si fallas mucho, baja el número de frases nuevas; si vas arriba del 90%, lo sube.</li>
         <li><strong>Los días que faltaste:</strong> al regresar, primero recupera lo que se te estaba olvidando.</li>
         <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): agrega ejercicios extra de esa habilidad.</li>
+        <li><strong>Si vas muy bien (90% o más):</strong> no esperas días. Presentas el examen de la unidad en cuanto aprendes sus frases y haces su conversación y su lectura, y tienes más unidades abiertas a la vez. Para pasar la etapa completa está el examen final.</li>
+        <li><strong>Si después se te olvida algo que ya aprobaste:</strong> si fallas varias frases de una unidad aprobada (más de 4 de cada 10), la app pausa lo nuevo, te vuelve a explicar esa unidad, la practican y te pone una prueba corta (7 de 8). Cuando la pasas, sigues con lo nuevo; si no, te la explica otra vez en el siguiente bloque.</li>
         <li><strong>Sin límite de tiempo:</strong> la práctica va en bloques de unos 10 minutos. Al terminar uno, sigues con el siguiente (más repaso y frases nuevas) todas las veces que quieras.</li>
         <li><strong>Tu objetivo:</strong> lo eliges al empezar y lo puedes cambiar en «Ajustar mi plan».</li>
         <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando dominas lo que fallaste.</li>
@@ -647,11 +649,12 @@ function migrate(o) {
     delete o.box;
   }
   o.done = o.done || {}; o.rd = o.rd || {}; o.dl = o.dl || {}; o.fin = o.fin || {}; o.gs = o.gs || {}; o.sk = o.sk || {}; o.h = o.h || {}; o.vw = o.vw || {}; o.v = 2;
+  o.ul = o.ul || {}; o.rf = o.rf || {}; o.rfOk = o.rfOk || {}; // unidades aprobadas: últimas respuestas y repasos de lo que se olvidó
   if (o.prof === undefined) o.prof = null;
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -680,10 +683,26 @@ function grade(c, ok) {
   const cur = S.c[c.id], isDue = !cur || cur[1] <= dayNum();
   let b = bx(c.id);
   const h = H(); h.r++; if (ok) h.ok++;
-  if (ok) { if (isDue) { b = Math.min(6, b + 1); S.c[c.id] = [b, dayNum() + IV[b]]; } S.xp += 10; }
-  else { b = Math.max(1, b - 2); S.c[c.id] = [b, dayNum() + 1]; }
+  if (ok) { if (isDue) { b = Math.min(6, b + 1); S.c[c.id] = [b, dayNum() + IV[b], 1]; } else S.c[c.id] = [cur[0], cur[1], 1]; S.xp += 10; }
+  else { b = Math.max(1, b - 2); S.c[c.id] = [b, dayNum() + 1, 0]; }
+  watchUnit(c, ok);
   bumpStreak(); save(); renderMeta();
 }
+// Si una unidad que ya aprobaste empieza a fallar (más de 4 de cada 10 de sus últimas respuestas, con al menos 6),
+// se marca para volver a explicarla, practicarla y probarla antes de seguir con lo nuevo
+function watchUnit(c, ok) {
+  const u = c && c.u; if (!u || !S.done[u.id] || (SES && SES.mode === "check")) return;
+  const w = ((S.ul[u.id] || "") + (ok ? "1" : "0")).slice(-8); S.ul[u.id] = w;
+  const bad = w.split("").filter(x => x === "0").length;
+  if (w.length >= 6 && bad / w.length > 0.4 && !needsRefresh(u)) S.rf[u.id] = Date.now();
+}
+const needsRefresh = u => (S.rf[u.id] || 0) > (S.rfOk[u.id] || 0);
+const refreshUnit = () => UNITS.find(u => S.done[u.id] && needsRefresh(u) && !prevLocked(u.lv));
+const gotRight = id => !!S.c[id] && (S.c[id][0] >= 2 || S.c[id][2] === 1); // la contestaste bien la última vez (o ya la acertaste en días distintos)
+// Aciertos de los últimos 7 días, contando hoy (con al menos 20 respuestas)
+function accNow() { let r = 0, ok = 0; const t = dayNum(); for (let d = t - 6; d <= t; d++) { const x = S.h[d]; if (x) { r += x.r; ok += x.ok; } } return r >= 20 ? ok / r : null; }
+// Vas muy bien: 90% o más y nada pendiente por repasar de lo que ya aprobaste
+const goingWell = () => { const a = accNow(); return a !== null && a >= 0.9 && !refreshUnit(); };
 function introduce(c) { if (!S.c[c.id]) { S.c[c.id] = [0, dayNum()]; H().n++; } S.xp += 2; bumpStreak(); save(); renderMeta(); }
 const open = c => !prevLocked(c.u.lv); // frases de etapas que aún no abres: no salen en repasos ni prácticas
 const dueCards = () => { const t = dayNum(); return CARDS.filter(c => S.c[c.id] && S.c[c.id][1] <= t && open(c)); };
@@ -702,13 +721,15 @@ const curLevel = () => (nextUnit() || UNITS[UNITS.length - 1]).lv;
 const REQ_REV = 0.8;
 function unitReq(u) {
   const tot = u.cards.length, sn = unitSeen(u), need = Math.ceil(tot * REQ_REV), rev = u.cards.filter(c => bx(c.id) >= 2).length;
+  const fast = goingWell(), got = u.cards.filter(c => gotRight(c.id)).length;
   const items = [
     { ok: sn === tot, t: `Aprender todas las frases (${sn}/${tot})` },
-    { ok: rev >= need, t: `Acertarlas en días distintos: ${Math.min(rev, need)}/${need} frases con 2 o más aciertos en días diferentes` },
+    fast ? { ok: got >= need, t: `Contestarlas bien: ${Math.min(got, need)}/${need} frases. Como vas arriba del 90%, no tienes que esperar días` }
+      : { ok: rev >= need, t: `Acertarlas en días distintos: ${Math.min(rev, need)}/${need} frases con 2 o más aciertos en días diferentes` },
     { ok: !!S.dl[u.id], t: "Practicar la conversación completa" }
   ];
   if (u.r) items.push({ ok: !!S.rd[u.id], t: "Hacer la lectura y contestar bien sus preguntas" });
-  return { items, ok: items.every(x => x.ok) };
+  return { items, ok: items.every(x => x.ok), fast };
 }
 // Una etapa se abre cuando apruebas el examen final de todas las anteriores (la pista de trabajo se abre al terminar Secundaria)
 function prevLocked(lv) {
@@ -1241,12 +1262,13 @@ function activeUnits() {
   const list = [];
   for (const lv of COURSE) {
     if (lv.id === "w" && !useW()) continue;
-    for (const u of lv.units) if (!S.done[u.id] && list.length < 3) list.push(u);
+    const max = goingWell() ? 5 : 3; // si vas muy bien, más unidades abiertas a la vez
+    for (const u of lv.units) if (!S.done[u.id] && list.length < max) list.push(u);
     if (list.length) return list;
   }
   return list;
 }
-const ORDER = { place: 0, review: 1, gram: 2, learn: 3, dialog: 4, reading: 5, video: 6, drill: 7, exam: 8, final: 9 };
+const ORDER = { place: 0, review: 1, gram: 2, learn: 3, fix: 3, dialog: 4, reading: 5, video: 6, drill: 7, exam: 8, check: 8, final: 9 };
 const VIDEOS = window.VIDEOS || {};
 const videoNeed = dur => dur ? Math.max(30, Math.min(Math.round(dur * 0.7), 600)) : 120; // 70% del video, máximo 10 minutos
 // Elige el video del día: el de la unidad actual; si ya lo viste, uno de unidades anteriores de la etapa que no hayas visto
@@ -1276,6 +1298,18 @@ function buildToday(blk) {
     P.placing = false;
   }
   const due = dueCards(), acc = recentAcc(), away = daysAway(), weak = weakSkill(), anySeen = Object.keys(S.c).length > 0;
+  // Se te está olvidando una unidad que ya aprobaste: primero la explicación otra vez, práctica y una prueba corta.
+  // Hasta que la pases no hay nada nuevo (se repite en cada bloque hasta que quede).
+  const fixU = refreshUnit();
+  if (fixU) {
+    notes.push(blk ? `Seguimos con «${fixU.t}». Cuando pases la prueba corta, volvemos a lo nuevo.` : `Se te está olvidando «${fixU.t}», que ya habías aprobado. Te la vuelvo a explicar, la practicamos y luego hay una prueba corta. Cuando la pases, seguimos con lo nuevo.`);
+    if (due.length) add({ key: "review" + sx, kind: "review", n: Math.min(due.length, 15), title: "Repaso", desc: `${Math.min(due.length, 15)} frases que estabas por olvidar`, sec: Math.min(due.length, 15) * 18 });
+    add({ key: "rgram-" + fixU.id + sx, kind: "gram", recap: true, u: fixU, title: "Repasemos: " + fixU.t, desc: "La explicación otra vez, con calma", sec: 150 });
+    add({ key: "rfix-" + fixU.id + sx, kind: "fix", u: fixU, title: "Práctica: " + fixU.t, desc: "Las frases que se te están olvidando", sec: 240 });
+    add({ key: "rchk-" + fixU.id + sx, kind: "check", u: fixU, title: "Prueba corta: " + fixU.t, desc: "8 preguntas · necesitas 7 bien para seguir con lo nuevo", sec: 180 });
+    segs.sort((x, y) => ORDER[x.kind] - ORDER[y.kind]);
+    return { segs, notes };
+  }
   const base = 6;
   let newN = base;
   if (acc !== null && acc < 0.7) { newN = 3; if (!blk) notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Vamos más despacio: ${newN} frases nuevas por bloque y más repaso para que se te queden bien.`); }
@@ -1292,13 +1326,14 @@ function buildToday(blk) {
   } else if (nu) {
     const units = activeUnits();
     const ready = units.find(u => !prevLocked(u.lv) && unitReq(u).ok);
-    if (ready && !(blk && doneToday("exam-" + ready.id))) { add({ key: "exam-" + ready.id + sx, kind: "exam", u: ready, title: "Examen: " + ready.t, desc: "Cumpliste todos los requisitos · necesitas 85%", sec: 480 }); notes.push(`¡Ya estás listo para el examen de «${ready.t}»! Lo dejamos al final de la sesión.`); }
+    if (ready && !(blk && doneToday("exam-" + ready.id))) { add({ key: "exam-" + ready.id + sx, kind: "exam", u: ready, title: "Examen: " + ready.t, desc: "Cumpliste todos los requisitos · necesitas 85%", sec: 480 }); notes.push(unitReq(ready).fast ? `Vas arriba del 90%, así que no tienes que esperar días: ya puedes presentar el examen de «${ready.t}». Lo dejamos al final del bloque.` : `¡Ya estás listo para el examen de «${ready.t}»! Lo dejamos al final del bloque.`); }
+    else if (!blk && goingWell()) notes.push("Vas arriba del 90%: en cuanto aprendas todas las frases de una unidad y hagas su conversación y su lectura, presentas el examen el mismo día, sin esperar.");
     const lu = units.find(u => unitSeen(u) < u.cards.length);
     if (lu && newN > 0) {
       if (!S.gs[lu.id]) add({ key: "gram-" + lu.id + sx, kind: "gram", u: lu, title: "Nueva lección: " + lu.t, desc: "Explicación en español con ejemplos", sec: 150 });
       const n = Math.min(newN, lu.cards.length - unitSeen(lu));
       add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, title: "Frases nuevas", desc: `${n} de «${lu.t}» (${lu.lv.short})`, sec: n * 45 });
-      if (lu !== units[0] && !blk) notes.push(`Mientras esperas a que tus repasos de «${units[0].t}» maduren en días distintos, avanzamos con la siguiente lección.`);
+      if (lu !== units[0] && !blk && !goingWell() && !unitReq(units[0]).ok) notes.push(`Mientras esperas a que tus repasos de «${units[0].t}» maduren en días distintos, avanzamos con la siguiente lección.`);
     }
     const dl = units.find(u => unitSeen(u) === u.cards.length && !S.dl[u.id]);
     if (dl) add({ key: "dlg-" + dl.id + sx, kind: "dialog", u: dl, title: "Conversación", desc: `Tú respondes en «${dl.t}»`, sec: 150 });
@@ -1336,7 +1371,9 @@ function runSeg() {
   if (!sg) { PLAN = null; view("hoy"); return; }
   SEGOPT = { seg: sg, back: "hoy" };
   if (sg.kind === "review") { const due = dueCards().sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, sg.n); if (due.length) runSession(shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), { mode: "review", title: "Repaso" }); else { SEGOPT = null; segDone(sg); PLAN.i++; runSeg(); return; } }
-  else if (sg.kind === "gram") runSession([{ k: "gram", u: sg.u }], { mode: "gram", unit: sg.u, title: sg.title });
+  else if (sg.kind === "gram") runSession([{ k: "gram", u: sg.u, recap: !!sg.recap }], { mode: "gram", unit: sg.u, title: sg.title });
+  else if (sg.kind === "fix") fixPractice(sg.u);
+  else if (sg.kind === "check") refreshCheck(sg.u);
   else if (sg.kind === "learn") learnUnit(sg.u, sg.n);
   else if (sg.kind === "dialog") dialogPractice(sg.u);
   else if (sg.kind === "reading") readingPractice(sg.u);
@@ -1557,7 +1594,8 @@ function renderUnit(u) {
       ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>`
         : `<p>${nq} preguntas sin ayuda: escribir, dictado${srOK ? ", hablar" : ""}, comprensión auditiva${u.r ? " y lectura" : ""}. Necesitas 85% (${Math.ceil(nq * 0.85)} de ${nq}) para aprobar.</p>
            <div class="label">Para desbloquearlo</div>
-           <ul class="req">${rq.items.map(x => `<li class="${x.ok ? "ok" : ""}">${esc(x.t)}</li>`).join("")}</ul>`}
+           <ul class="req">${rq.items.map(x => `<li class="${x.ok ? "ok" : ""}">${esc(x.t)}</li>`).join("")}</ul>
+           <p class="muted" style="margin:0;font-size:14px">${rq.fast ? "⚡ Vas arriba del 90% de aciertos: en cuanto cumplas esto, presentas el examen el mismo día." : "Si llevas 90% de aciertos o más en la semana, no tienes que esperar días: basta con contestar bien las frases una vez."} Si después se te olvida lo que aprobaste, te lo vuelvo a explicar antes de seguir.</p>`}
       ${lock ? `<p class="lock" style="margin:0">🔒 Primero aprueba el examen final de ${esc(lock.short)}.</p>` : ""}
       <div class="row"><button class="btn ${d ? "" : "primary"}" id="uExam" ${canExam ? "" : "disabled"}>${d ? "Repetir examen" : canExam ? "Presentar examen" : "Examen bloqueado"}</button></div>
     </div></section>
@@ -1647,6 +1685,19 @@ function learnUnit(u, n) {
   runSession(steps, { mode: "learn", unit: u, title: u.t });
 }
 const rqSteps = u => u.r ? u.r.q.map((q, i) => ({ k: "rq", u, q, qi: i })) : [];
+// Volver a enseñar una unidad que se estaba olvidando: primero las que fallaste, con la frase otra vez antes de preguntarla
+function fixPractice(u) {
+  const w = c => (S.c[c.id] && S.c[c.id][2] === 0 ? 0 : 10) + bx(c.id);
+  const pick = shuffle(u.cards.filter(c => seen(c.id))).sort((a, b) => w(a) - w(b)).slice(0, 8);
+  const steps = [];
+  pick.forEach((c, i) => { if (i < 4) steps.push({ k: "intro", c }); steps.push({ k: pickKind(c, "learn"), c }); });
+  runSession(steps, { mode: "free", unit: u, title: "Práctica: " + u.t });
+}
+// Prueba corta para volver a lo nuevo: 8 preguntas sin ayuda, 7 bien
+function refreshCheck(u) {
+  const cards = shuffle(u.cards.filter(c => seen(c.id))).slice(0, 8);
+  runSession(cards.map(c => ({ k: pickKind(c, "exam"), c })), { mode: "check", unit: u, title: "Prueba corta: " + u.t });
+}
 function unitExam(u) {
   const cards = shuffle(u.cards).slice(0, 15);
   const steps = cards.map(c => ({ k: pickKind(c, "exam"), c }));
@@ -1699,7 +1750,7 @@ function nextStep() { SES.i++; step(); }
    y la regla). Si fallas varias seguidas, hacemos una pausa: repasamos la explicación y algo de temas anteriores que ya sabes,
    y dejamos las frases nuevas para después. La calificación del repaso espaciado solo usa el primer intento. */
 const RANK = { intro: 0, pic: 1, choice: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
-const isExam = () => SES.mode === "exam" || SES.mode === "final";
+const isExam = () => SES.mode === "exam" || SES.mode === "final" || SES.mode === "check";
 function easierKind(c, k) {
   if (sameText(c)) return "hear";
   return (RANK[k] || 1) >= 4 && canOrder(c) ? "order" : "choice";
@@ -2138,6 +2189,13 @@ function finish() {
     }
     const nu = nextUnit();
     btns = pass && nu ? `<button class="btn primary" id="fNext">${nu.final ? "Siguiente: examen final de " + esc(nu.lv.short) : "Siguiente lección: " + esc(nu.t)}</button>` : `<button class="btn primary" id="fRetry">${m === "exam" ? "Volver a la unidad" : "Ver la etapa"}</button>`;
+  } else if (m === "check") {
+    const u = SES.unit, pass = ok >= Math.ceil(n * 0.85);
+    title = pass ? "¡La dominas otra vez!" : "Todavía te cuesta";
+    if (pass) { S.rfOk[u.id] = Date.now(); S.ul[u.id] = ""; save(); }
+    msg = pass ? `Sacaste ${ok} de ${n}. Ya podemos seguir con lo nuevo.` : `Sacaste ${ok} de ${n} y necesitas ${Math.ceil(n * 0.85)}. No pasa nada: en el siguiente bloque te la vuelvo a explicar con calma y la practicamos otra vez.`;
+    extra = `<span class="badge ${pass ? "ok" : "bad"}">${pass ? "Aprobada" : "Aún no"}</span>`;
+    btns = `<button class="btn primary" id="fHoy">Ir a Hoy</button>`;
   } else if (m === "video") {
     title = SES.title;
     msg = n && ok ? "¡Video completado! Escuchar inglés real todos los días es lo que te da oído y fluidez." : "Video visto. La próxima vez intenta el resumen: es lo que más te ayuda a hablar.";
@@ -2174,7 +2232,7 @@ function finish() {
       if (!left) msg += " Ya no tienes repasos pendientes hoy.";
     } else btns = `<button class="btn primary" id="fFree">Otra ronda</button>`;
   }
-  if (m !== "exam" && m !== "final" ? n || m === "video" || m === "dialog" : extra.includes("badge ok")) sfx("win"); // fanfarria al terminar
+  if (m !== "exam" && m !== "final" && m !== "check" ? n || m === "video" || m === "dialog" : extra.includes("badge ok")) sfx("win"); // fanfarria al terminar
   const summary = t => `<h2 class="ttl">${esc(t)}</h2><div class="big">${big}</div>${extra}<p class="lead" style="max-width:46ch;color:var(--ink)">${msg}</p>
     <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>${recall}`;
   const goify = h => h.replace(/btn primary/g, "btn go");
@@ -2203,6 +2261,7 @@ function finish() {
   on("fMore", () => learnUnit(unit));
   on("fUnit", () => openUnit(unit));
   on("fRev", startReview);
+  on("fHoy", () => view("hoy"));
   on("fFree", () => freePractice(kind));
   on("fBack", () => { if (unit && back === "unit") openUnit(unit); else view(back === "session" ? "hoy" : back); });
   const first = $("#sfoot .btn.go") || $("#fBack"); first.focus({ preventScroll: true });
@@ -2241,7 +2300,8 @@ function merge(a, b) {
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
-  return { c, done, rd, dl, fin, gs, h, vw, sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
