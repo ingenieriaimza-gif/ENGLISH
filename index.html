@@ -325,6 +325,15 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 /* fin de sesión */
 .task.done{align-items:center;text-align:center}
 .done .big{font-family:var(--f-display);font-size:84px;font-weight:700;line-height:1}
+.recall{width:100%;max-width:520px;margin:4px auto 0}
+.recall .rh{margin:0 0 10px;font-size:15px;color:var(--muted);text-align:center}
+.rgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.rtile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:104px;padding:10px 6px;background:var(--panel);border:1px solid var(--line);color:var(--ink);font:inherit;cursor:pointer}
+.rtile .re{font-size:38px;line-height:1.1}.rtile .re.e2{font-size:28px}.rtile .re.e3{font-size:20px}
+.rtile .rq{font-family:var(--f-display);font-weight:700;font-size:24px;color:var(--muted);line-height:1}
+.rtile .rt{display:none;line-height:1.25;text-align:center}
+.rtile .rt b{display:block;font-size:14px}.rtile .rt small,.rtile .rc{display:block;color:var(--muted);font-size:12px;line-height:1.25;text-align:center}
+.rtile.on{border-color:var(--ok);background:var(--ok-soft)}.rtile.on .rq{display:none}.rtile.on .rt{display:block}
 .badge{font-family:var(--f-display);font-size:22px;font-weight:700;text-transform:uppercase;padding:6px 14px}
 .badge.ok{background:var(--ok-soft);color:var(--ok)}
 .badge.bad{background:var(--bad-soft);color:var(--bad)}
@@ -875,6 +884,7 @@ function sayLong(text, slow, group) {
 // cualquier botón con data-say lo lee en voz alta
 document.addEventListener("click", e => {
   const L = e.target.closest("[data-saylong]"); if (L) { const u = UNITS.find(x => x.id === L.dataset.saylong); if (u && u.r) sayLong(u.r.en, L.dataset.slow === "1", btnKey(L)); return; }
+  const R = e.target.closest(".rtile"); if (R) R.classList.add("on"); // repaso con dibujos: destapar
   const b = e.target.closest("[data-say]"); if (!b) return;
   say(b.dataset.say, { slow: b.dataset.slow === "1" });
 });
@@ -2044,12 +2054,21 @@ function step() {
   }
 }
 
+// Al terminar: repaso con dibujos. Ves el dibujo, dices la frase en inglés y tocas para comprobar (primero las que fallaste)
+function recallHTML() {
+  const ms = SES.m || {}, got = new Map();
+  SES.steps.forEach(s => { if (s.c && s.c.em && !got.has(s.c.id)) got.set(s.c.id, s.c); });
+  const w = c => (ms[c.id] && ms[c.id].miss ? 2 : 0) + (c.emS ? 1 : 0);
+  const list = [...got.values()].sort((a, b) => w(b) - w(a)).slice(0, 6);
+  if (list.length < 3) return "";
+  return `<div class="recall"><p class="rh">¿Te acuerdas? Mira cada dibujo, dilo en inglés y toca para comprobar.</p><div class="rgrid">${list.map(c => `<button class="rtile" data-say="${esc(c.en)}" aria-label="${esc(c.es)}"><span class="re${c.emC}" aria-hidden="true">${c.em}</span>${c.emS ? "" : `<span class="rc">${escN(c.es)}</span>`}<span class="rq" aria-hidden="true">?</span><span class="rt"><b>${esc(c.en)}</b>${c.emS ? `<small>${escN(c.es)}</small>` : ""}</span></button>`).join("")}</div></div>`;
+}
 function finish() {
   if (SES.mode === "gram" && SES.seg && PLAN) { segDone(SES.seg); PLAN.i++; runSeg(); return; }
   $("#barFill").style.width = "100%";
   const st = $("#stage"); st.className = "task done";
   const n = SES.graded, ok = SES.ok, m = SES.mode;
-  let title = "Sesión terminada", big = n ? `${ok}/${n}` : "✓", msg = "", extra = "", btns = "";
+  let title = "Sesión terminada", big = n ? `${ok}/${n}` : "✓", msg = "", extra = "", btns = "", recall = "";
   if (m === "exam" || m === "final") {
     const pass = ok >= Math.ceil(n * 0.85);
     title = SES.title;
@@ -2115,6 +2134,7 @@ function finish() {
         + (!missed ? "" : !SES.fixed ? ` ${missed === 1 ? "Vuelve" : "Vuelven"} mañana, empezando por ejercicios más fáciles.` : later ? ` ${later === 1 ? "Una todavía te cuesta: vuelve" : later + " todavía te cuestan: vuelven"} mañana, empezando por ejercicios más fáciles.` : " ¡Así se aprende!");
     if (missed && SES.fixed) { big = `${SES.fixed}/${missed}`; title = "Frases que fallaste y ya dominas"; }
     else extra = "";
+    recall = recallHTML();
     if (m === "learn") {
       const u = SES.unit, left = u.cards.length - unitSeen(u);
       btns = left ? `<button class="btn primary" id="fMore">Aprender ${Math.min(6, left)} frases más</button>` : `<button class="btn primary" id="fUnit">Ir a la conversación y la lectura</button>`;
@@ -2126,7 +2146,7 @@ function finish() {
   }
   if (m !== "exam" && m !== "final" ? n || m === "video" || m === "dialog" : extra.includes("badge ok")) sfx("win"); // fanfarria al terminar
   const summary = t => `<h2 class="ttl">${esc(t)}</h2><div class="big">${big}</div>${extra}<p class="lead" style="max-width:46ch;color:var(--ink)">${msg}</p>
-    <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>`;
+    <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>${recall}`;
   const goify = h => h.replace(/btn primary/g, "btn go");
   st.innerHTML = summary(title);
   foot(`<button class="btn link" id="fBack">Volver</button>`, goify(btns));
