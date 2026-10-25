@@ -23,11 +23,11 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "My name",
-      en: "Hello! My name is Ana. A-N-A.\nMy last name is Ruiz. R-U-I-Z.\nMy email is ana dot ruiz at gmail dot com.",
-      es: "¡Hola! Me llamo Ana. A-N-A.\nMi apellido es Ruiz. R-U-I-Z.\nMi correo es ana punto ruiz arroba gmail punto com.",
+      en: "Hello! My name is {name|Ana}. {nameS|A-N-A}.\nMy last name is {last|Ruiz}. {lastS|R-U-I-Z}.\nMy email is {email|ana dot ruiz} at gmail dot com.",
+      es: "¡Hola! Me llamo {name|Ana}. {nameS|A-N-A}.\nMi apellido es {last|Ruiz}. {lastS|R-U-I-Z}.\nMi correo es {email|ana punto ruiz} arroba gmail punto com.",
       q: [
-        ["¿Cómo se llama ella?", ["Ana", "Ruiz", "Gmail"], 0],
-        ["¿Cuál es su apellido?", ["Ana", "Ruiz", "Lopez"], 1],
+        ["¿Cuál es su nombre?", ["{name|Ana}", "{last|Ruiz}", "Gmail"], 0],
+        ["¿Cuál es su apellido?", ["{name|Ana}", "{last|Ruiz}", "Lopez"], 1],
         ["En un correo, 'dot' significa…", ["arroba", "guion", "punto"], 2]
       ]
     }

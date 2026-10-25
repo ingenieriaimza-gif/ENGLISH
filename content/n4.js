@@ -366,7 +366,7 @@
       ],
       d: [
         ["A", "Hi, I'm Rachel. Is this your first time at this conference?", "Hola, soy Rachel. ¿Es tu primera vez en esta conferencia?"],
-        ["B", "Yes, it is. I'm Luis. What brings you here?", "Sí. Soy Luis. ¿Qué te trae por aquí?"],
+        ["B", "Yes, it is. I'm {name|Luis}. What brings you here?", "Sí. Soy {name|Luis}. ¿Qué te trae por aquí?"],
         ["A", "I work in renewable energy. What line of work are you in?", "Trabajo en energías renovables. ¿Tú en qué trabajas?"],
         ["B", "I'm a project engineer. That sounds really interesting. Tell me more.", "Soy ingeniero de proyectos. Suena muy interesante. Cuéntame más."],
         ["A", "We design solar farms. We should keep in touch.", "Diseñamos granjas solares. Deberíamos seguir en contacto."],

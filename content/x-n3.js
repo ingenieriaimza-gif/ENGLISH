@@ -310,12 +310,12 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "A voicemail",
-      en: "Hi Mr. Brown, this is Carlos Ruiz from Grupo Delta. I'm calling about invoice number 7745.\nWe received the invoice yesterday, but the amount is different from the quote. The quote says twelve dollars per unit and the invoice says fourteen.\nCould you please check it and call me back? My number is 81 2345 6789. I'm in the office until six today.\nIf it's easier, you can also send me an email. Thanks, and have a good day.",
-      es: "Hola Sr. Brown, habla Carlos Ruiz de Grupo Delta. Le llamo por la factura número 7745.\nRecibimos la factura ayer, pero el monto es diferente al de la cotización. La cotización dice doce dólares por unidad y la factura dice catorce.\n¿Podría revisarlo y regresarme la llamada, por favor? Mi número es 81 2345 6789. Hoy estoy en la oficina hasta las seis.\nSi le es más fácil, también me puede mandar un correo. Gracias y que tenga buen día.",
+      en: "Hi Mr. Brown, this is {name|Carlos} {last|Ruiz} from Grupo Delta. I'm calling about invoice number 7745.\nWe received the invoice yesterday, but the amount is different from the quote. The quote says twelve dollars per unit and the invoice says fourteen.\nCould you please check it and call me back? My number is 81 2345 6789. I'm in the office until six today.\nIf it's easier, you can also send me an email. Thanks, and have a good day.",
+      es: "Hola Sr. Brown, habla {name|Carlos} {last|Ruiz} de Grupo Delta. Le llamo por la factura número 7745.\nRecibimos la factura ayer, pero el monto es diferente al de la cotización. La cotización dice doce dólares por unidad y la factura dice catorce.\n¿Podría revisarlo y regresarme la llamada, por favor? Mi número es 81 2345 6789. Hoy estoy en la oficina hasta las seis.\nSi le es más fácil, también me puede mandar un correo. Gracias y que tenga buen día.",
       q: [
-        ["Why is Carlos calling?", ["To place an order", "About a problem with an invoice", "To cancel a meeting"], 1],
+        ["Why is {name|Carlos} calling?", ["To place an order", "About a problem with an invoice", "To cancel a meeting"], 1],
         ["What is the problem?", ["The invoice price is different from the quote", "The invoice is late", "The parts are broken"], 0],
-        ["Until what time is Carlos in the office?", ["Until five", "Until seven", "Until six"], 2]
+        ["Until what time is {name|Carlos} in the office?", ["Until five", "Until seven", "Until six"], 2]
       ]
     }
   },

@@ -162,6 +162,11 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 .go{background:var(--accent);color:var(--accent-ink);border:0;padding:16px;font-family:var(--f-display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;width:100%}
 .go:hover{filter:brightness(1.05)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
+.namegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.namegrid input.type{font-size:17px;background:var(--panel)}
+#nmForm{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto}
+@media (max-width:520px){.namegrid,#nmForm{grid-template-columns:minmax(0,1fr)}}
+.namecard{border:2px solid var(--accent)}
 .chips button{border:1px solid var(--line);background:var(--panel);padding:10px 14px;font-size:15px;text-align:left;display:flex;flex-direction:column;gap:2px}
 .chips button small{color:var(--muted);font-size:12px}
 .chips button[aria-pressed="true"]{border:2px solid var(--accent);background:var(--accent-soft)}
@@ -196,6 +201,7 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .pen.md{font-size:clamp(22px,5vw,30px)}
 .ppr{font-family:var(--f-mono);font-size:15px;background:var(--chip);padding:2px 10px;margin-top:2px}
 .plate .row{justify-content:center;margin-top:12px}
+.nw{white-space:nowrap}
 .note{align-self:center;text-align:center;font-size:15px;background:var(--accent-soft);padding:6px 12px;max-width:100%}
 .en{font-size:clamp(22px,4.5vw,28px);font-weight:600;line-height:1.25}
 .pron{font-family:var(--f-mono);color:var(--muted);font-size:15px}
@@ -539,14 +545,21 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 const COURSE = window.COURSE || [];
 const EXTRA = window.EXTRA || {}; // vocabulario extra (v) y lectura (r) por unidad, en content/x-*.js
 const UNITS = [], CARDS = [], CARD = {};
+// Frases con tu nombre: {name|Ana} {last|López} {nameS|A-N-A} {lastS|L-O-P-E-Z} {email|ana dot ruiz}. Ver applyNames().
+const TOK = /\{(?:name|last|nameS|lastS|email)\|/, TOKG = /\{(name|last|nameS|lastS|email)\|([^}]*)\}/g;
+const defFill = t => typeof t === "string" ? t.replace(TOKG, (m, k, d) => d) : t;
 COURSE.forEach((lv, li) => {
   lv.short = lv.short || lv.name.split(" · ")[0];
   lv.units.forEach((u, ui) => {
     u.lv = lv; u.k = ui + 1; u.n = UNITS.length;
     const X = EXTRA[u.id];
     if (X) { if (X.v) u.c = u.c.concat(X.v); if (X.r) u.r = X.r; } // las frases extra van DESPUÉS de las base: así sus ids no cambian
+    if (TOK.test(JSON.stringify(u.d))) { u.dT = u.d; u.d = u.dT.map(l => l.map(defFill)); }
+    if (TOK.test(JSON.stringify(u.g))) { u.gT = u.g; u.g = u.gT.map(x => Array.isArray(x) ? x.map(defFill) : defFill(x)); }
+    if (u.r && TOK.test(JSON.stringify(u.r))) { u.rT = u.r; u.r = Object.assign({}, u.rT, { en: defFill(u.rT.en), es: defFill(u.rT.es), q: u.rT.q.map(q => [defFill(q[0]), q[1].map(defFill), q[2]]) }); }
     u.cards = u.c.map((c, k) => {
-      const o = { id: c[4] || (u.id + "." + k), es: c[0], en: c[1], pron: c[2] || "", note: c[3] || "", u };
+      const T = TOK.test(c.slice(0, 4).join("\u0001")) ? { es: c[0], en: c[1], pron: c[2] || "", note: c[3] || "" } : null;
+      const o = { id: c[4] || (u.id + "." + k), es: defFill(c[0]), en: defFill(c[1]), pron: defFill(c[2] || ""), note: defFill(c[3] || ""), u, T };
       CARD[o.id] = o; CARDS.push(o); return o;
     });
     UNITS.push(u);
@@ -660,7 +673,7 @@ function pickVoices() {
   voices = [a, b];
 }
 if (window.speechSynthesis) { pickVoices(); speechSynthesis.onvoiceschanged = pickVoices; }
-const clean = t => t.replace(/___/g, "Carlos").replace(/\.\.\./g, "").replace(/[→·—\/]/g, ", ");
+const clean = t => t.replace(/___/g, " ").replace(/\.\.\./g, "").replace(/[→·—\/]/g, ", ");
 function say(text, o) {
   o = o || {};
   if (!window.speechSynthesis) { o.onend && o.onend(); return; }
@@ -780,12 +793,50 @@ function names() { // nombres propios del curso (nunca aparecen en minúscula): 
     const b = stripAcc(w).replace(/'s\b/i, "").replace(/[^A-Za-z]/g, ""); if (b.length < 2) return;
     (/^[A-Z][a-z]/.test(b) ? cap : low).add(b.toLowerCase());
   }));
-  return NAMES = new Set([...cap].filter(x => !low.has(x)));
+  NAMES = new Set([...cap].filter(x => !low.has(x)));
+  const me = nameParts(); [me.name, me.last].join(" ").split(/[\s-]+/).forEach(w => { const b = stripAcc(w).toLowerCase().replace(/[^a-z]/g, ""); if (b.length > 1) NAMES.add(b); });
+  return NAMES;
 }
 function namesEq(a, b) {
   const ph = x => x.replace(/ph/g, "f").replace(/h/g, "").replace(/z/g, "s").replace(/y/g, "i").replace(/(.)\1+/g, "$1");
   const A = ph(a), B = ph(b);
   return A === B || (A.length >= 4 && A[0] === B[0] && lev(A, B) <= 1);
+}
+/* ---------- tu nombre en las frases donde hablas de ti ----------
+   Si pusiste tu nombre, «My name is Ana» se vuelve «My name is <tu nombre>», el deletreo usa tus letras
+   y en el trabajo tú eres quien llama y firma los correos. Si no, se quedan los nombres de ejemplo. */
+const LPRON = { a: "ei", b: "bi", c: "si", d: "di", e: "i", f: "ef", g: "yi", h: "eich", i: "ai", j: "yei", k: "kei", l: "el", m: "em", n: "en", o: "ou", p: "pi", q: "kiu", r: "ar", s: "es", t: "ti", u: "iu", v: "vi", w: "dábol-iu", x: "eks", y: "uái", z: "zi" };
+const cleanName = v => String(v || "").replace(/[^A-Za-zÀ-ÖØ-öø-ÿ' -]/g, "").replace(/\s+/g, " ").trim().slice(0, 30).replace(/(^|[\s-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase());
+function nameParts() { const p = S.prof || {}; return { name: cleanName(p.name), last: cleanName(p.last) }; }
+function spellName(v, f) { // f: en (sin acentos) · es (con acentos) · pron (cómo suenan las letras)
+  const ws = v.split(/[\s-]+/).filter(Boolean);
+  if (f === "pron") return ws.map(w => [...stripAcc(w).toLowerCase().replace(/[^a-z]/g, "")].map(ch => LPRON[ch]).join("-")).join(", ");
+  return ws.map(w => [...(f === "es" ? w.toUpperCase().replace(/[^A-ZÀ-ÖØ-Þ]/g, "") : stripAcc(w).toUpperCase().replace(/[^A-Z]/g, ""))].join("-")).join(", ");
+}
+function fillNames(t, f) {
+  if (typeof t !== "string" || !TOK.test(t)) return t;
+  const { name, last } = nameParts();
+  const first = x => stripAcc(x.split(/[\s-]+/)[0] || "").toLowerCase().replace(/[^a-z]/g, "");
+  return t.replace(TOKG, (m, k, def) => {
+    const v = k === "last" || k === "lastS" ? last : name;
+    if (!v) return def;
+    if (k === "name" || k === "last") return f === "pron" ? v.toLowerCase() : v;
+    if (k === "nameS" || k === "lastS") return spellName(v, f);
+    return [first(name), last ? first(last) : ""].filter(Boolean).join(f === "es" ? " punto " : " dot "); // email
+  });
+}
+function applyNames() {
+  CARDS.forEach(c => { if (c.T) { c.en = fillNames(c.T.en, "en"); c.es = fillNames(c.T.es, "es"); c.pron = fillNames(c.T.pron, "pron"); c.note = fillNames(c.T.note, "es"); } });
+  UNITS.forEach(u => {
+    if (u.dT) u.d = u.dT.map(l => [l[0], fillNames(l[1], "en"), fillNames(l[2], "es")]);
+    if (u.gT) u.g = u.gT.map(x => Array.isArray(x) ? [fillNames(x[0], "en"), fillNames(x[1], "es")] : fillNames(x, "es"));
+    if (u.rT) {
+      const q = u.rT.q.map(x => [fillNames(x[0], "en"), x[1].map(o => fillNames(o, "en")), x[2]]);
+      const clash = q.some(x => new Set(x[1].map(o => norm(o))).size < x[1].length); // tu nombre chocaría con otra opción: dejamos la lectura con los nombres de ejemplo
+      u.r = Object.assign({}, u.rT, clash ? { en: defFill(u.rT.en), es: defFill(u.rT.es), q: u.rT.q.map(x => [defFill(x[0]), x[1].map(defFill), x[2]]) } : { en: fillNames(u.rT.en, "en"), es: fillNames(u.rT.es, "es"), q });
+    }
+  });
+  NAMES = null;
 }
 function wordToks(w) { // una palabra → fichas comparables (mismo proceso para lo esperado y lo que oyó el reconocedor)
   const s = stripAcc(w).toLowerCase().replace(/[’`´]/g, "'")
@@ -1135,6 +1186,11 @@ function drill(sk) {
 }
 
 let editingProfile = false;
+function setName(n, l) {
+  n = cleanName(n); l = cleanName(l);
+  if (n === (S.prof.name || "") && l === (S.prof.last || "")) return;
+  S.prof.name = n; S.prof.last = l; S.prof.nameT = Date.now(); applyNames();
+}
 function renderOnboarding() {
   const first = !S.prof, P = S.prof || { goal: "conversar", min: 20, start: "cero" };
   const pick = { goal: P.goal, min: P.min, start: P.start || "cero" };
@@ -1143,6 +1199,9 @@ function renderOnboarding() {
     <div class="label">${first ? "Bienvenido · vamos a armar tu plan" : "Ajustar mi plan"}</div>
     <h2>${first ? "Tu entrenador personal de inglés" : "Tu plan"}</h2>
     ${first ? `<p>Cada día voy a decidir qué te toca: repasar, aprender, practicar la conversación, leer o presentar un examen. Me adapto a tu ritmo: si algo te cuesta, vamos más despacio; si vas bien, aceleramos.</p>` : ""}
+    <div class="label">¿Cómo te llamas?</div>
+    <div class="namegrid"><input class="type" id="obName" maxlength="30" autocomplete="given-name" placeholder="Tu nombre" value="${esc(P.name || "")}"><input class="type" id="obLast" maxlength="30" autocomplete="family-name" placeholder="Apellido (opcional)" value="${esc(P.last || "")}"></div>
+    <p class="muted" style="margin:0;font-size:14px">Lo uso en las frases donde hablas de ti: «My name is…», deletrear tu nombre, contestar el teléfono.</p>
     <div class="label">¿Para qué quieres el inglés?</div>${chips("goal", GOALS)}
     <div class="label">¿Cuánto tiempo al día?</div>${chips("min", MINS)}
     ${first ? `<div class="label">¿Cuánto inglés sabes?</div>${chips("start", STARTS)}` : ""}
@@ -1155,6 +1214,7 @@ function renderOnboarding() {
   $("#obSave").onclick = () => {
     if (first) { S.prof = { goal: pick.goal, min: pick.min, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; }
     else { S.prof.goal = pick.goal; S.prof.min = pick.min; }
+    setName($("#obName").value, $("#obLast").value);
     editingProfile = false; PLAN = null; save(); renderMeta(); renderHoy();
   };
   if ($("#obCancel")) $("#obCancel").onclick = () => { editingProfile = false; renderHoy(); };
@@ -1170,10 +1230,17 @@ function renderHoy() {
   const todo = segs.filter(x => !x.done && !x.manual), mins = Math.max(1, Math.round(todo.reduce((a, x) => a + x.sec, 0) / 60));
   const allDone = !todo.length;
   const d = new Date().toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "long" });
-  const hello = allDone ? "¡Sesión de hoy completa!" : PLAN ? "Sigamos donde te quedaste" : (new Date().getHours() < 12 ? "Buenos días" : new Date().getHours() < 19 ? "Buenas tardes" : "Buenas noches") + ", hoy toca esto";
+  const nm = nameParts().name;
+  const hello = allDone ? (nm ? `¡Sesión de hoy completa, ${nm}!` : "¡Sesión de hoy completa!") : PLAN ? (nm ? `Sigamos, ${nm}` : "Sigamos donde te quedaste") : (new Date().getHours() < 12 ? "Buenos días" : new Date().getHours() < 19 ? "Buenas tardes" : "Buenas noches") + (nm ? `, ${nm}` : "") + ", hoy toca esto";
   const msgs = allDone ? [segs.filter(x => !x.manual).length ? "Terminaste todo lo que tenías planeado. Lo que aprendiste hoy vuelve en tus repasos de los próximos días." : "Hoy no tienes nada pendiente en la app.", realSeg && !realSeg.done ? "Te falta la parte de inglés real: es la que te da oído y fluidez." : "Si quieres seguir, puedes hacer una sesión extra con más frases nuevas."] : built.notes;
   let n = 0;
-  $("#coach").innerHTML = `<div class="card strong">
+  const askName = !nm && !S.prof.noName;
+  $("#coach").innerHTML = (askName ? `<div class="card namecard">
+    <h3>¿Cómo te llamas?</h3>
+    <p>Escribe tu nombre y las frases donde hablas de ti lo van a usar: «My name is…», deletrearlo letra por letra, contestar el teléfono. Así practicas justo lo que vas a decir.</p>
+    <form class="namegrid" id="nmForm"><input class="type" id="nmName" maxlength="30" autocomplete="given-name" placeholder="Tu nombre" required><input class="type" id="nmLast" maxlength="30" autocomplete="family-name" placeholder="Apellido (opcional)"><button class="btn primary">Guardar</button></form>
+    <button class="btn link" id="nmLater" type="button" style="align-self:flex-start;padding-left:0">Ahora no</button>
+  </div>` : "") + `<div class="card strong">
     <div class="label">Tu entrenador · ${esc(d)}</div>
     <h2>${esc(hello)}</h2>
     <div class="coach-msg">${msgs.map(m => `<p>${esc(m)}</p>`).join("")}</div>
@@ -1183,6 +1250,10 @@ function renderHoy() {
     ${allDone ? `<button class="btn" id="goExtra">Sesión extra · más frases nuevas</button>` : `<button class="go" id="goToday">${PLAN ? "Continuar sesión" : "Empezar · " + mins + " min"}</button>`}
     <div class="row" style="justify-content:space-between"><button class="btn ghost sm" id="editPlan">Ajustar mi plan</button><button class="btn ghost sm" id="goMetodo">Cómo funciona</button></div>
   </div>`;
+  if (askName) {
+    $("#nmForm").onsubmit = e => { e.preventDefault(); if (!cleanName($("#nmName").value)) { $("#nmName").focus(); return; } setName($("#nmName").value, $("#nmLast").value); save(); renderHoy(); };
+    $("#nmLater").onclick = () => { S.prof.noName = 1; save(); renderHoy(); };
+  }
   if ($("#goToday")) $("#goToday").onclick = () => PLAN ? runSeg() : startToday(false);
   if ($("#goExtra")) $("#goExtra").onclick = () => startToday(true);
   if ($("#realDone")) $("#realDone").onclick = () => { const h = H(); if (!h.dn.includes("real")) h.dn.push("real"); S.xp += 20; bumpStreak(); save(); renderMeta(); renderHoy(); };
@@ -1496,6 +1567,8 @@ function answered(c, ok, help) {
 }
 /* ---------- pantalla de práctica: escenario + barra de acción ---------- */
 const sesEl = sel => $("#vSession").querySelectorAll(sel);
+// Un nombre deletreado (G-E-R-A-R-D-O) no se corta a la mitad de un renglón
+const escN = t => esc(t).replace(/(?:[A-ZÀ-Þ]-){2,9}[A-ZÀ-Þ]\b/g, m => `<span class="nw">${m}</span>`);
 // Barra de acción: a la izquierda las ayudas (texto), a la derecha el botón principal. Siempre en el mismo lugar.
 function foot(left, right) {
   const f = $("#sfoot"); f.className = "sfoot";
@@ -1505,7 +1578,7 @@ const playPair = en => `<button class="btn speak" type="button" data-say="${esc(
 // Tarjeta de la frase: español arriba, inglés grande, pronunciación y botones para oírla
 function plate(c, o) {
   o = o || {};
-  return `<div class="plate">${o.noEs ? "" : `<div class="pes">${esc(c.es)}</div>`}<div class="pen${o.md ? " md" : ""}">${esc(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+  return `<div class="plate">${o.noEs ? "" : `<div class="pes">${escN(c.es)}</div>`}<div class="pen${o.md ? " md" : ""}">${escN(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
 }
 // Resultado en la barra de acción (verde o rojo) con el botón para seguir
 function band(ok, idk, title, body, en, nextId) {
@@ -1519,8 +1592,8 @@ const comboTag = () => SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} s
 function feedback(ok, c, extra, idk) {
   const title = (ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto");
   const pr = c.pron && norm(c.pron) !== norm(c.en) ? `<span class="pron">${esc(c.pron)}</span>` : "";
-  const body = (extra || "") + (ok ? `<div class="ans">${esc(c.en)}</div>${pr ? `<div class="sub">${pr}</div>` : ""}`
-    : `${idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans">${esc(c.en)}</div><div class="sub">${esc(c.es)}${pr ? " · " + pr : ""}</div>`);
+  const body = (extra || "") + (ok ? `<div class="ans">${escN(c.en)}</div>${pr ? `<div class="sub">${pr}</div>` : ""}`
+    : `${idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans">${escN(c.en)}</div><div class="sub">${escN(c.es)}${pr ? " · " + pr : ""}</div>`);
   band(ok, idk, title, body, c.en);
   react(ok, idk);
   const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
@@ -1578,7 +1651,7 @@ function step() {
     return;
   }
   if (s.k === "listen") {
-    st.innerHTML = `${head("listen")}<div class="prompt">${esc(c.es)}</div><p class="lead">Piensa cómo se dice y dilo en voz alta. Luego revisa.</p>`;
+    st.innerHTML = `${head("listen")}<div class="prompt">${escN(c.es)}</div><p class="lead">Piensa cómo se dice y dilo en voz alta. Luego revisa.</p>`;
     foot("", goBtn("reveal", "Ver respuesta"));
     $("#reveal").onclick = () => {
       st.innerHTML = `${head("listen")}${plate(c)}<p class="lead">¿Te salió igual?</p>`;
@@ -1592,7 +1665,7 @@ function step() {
   if (s.k === "choice" || s.k === "hear") {
     const hearMode = s.k === "hear", field = hearMode ? "es" : "en";
     const opts = shuffle([c, ...distract(c, 3, field)]), two = opts.every(o => o[field].length <= 26);
-    st.innerHTML = `${head(s.k)}${hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
+    st.innerHTML = `${head(s.k)}${hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
       <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(o[field])}</button>`).join("")}</div>`;
     foot(link("cIdk", "No sé"), "");
     if (hearMode) say(c.en);
@@ -1608,7 +1681,7 @@ function step() {
   }
   if (s.k === "type" || s.k === "dict") {
     const dict = s.k === "dict";
-    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${esc(c.es)}</div>`}
+    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
       <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>
       <p class="omsg" id="tMsg"></p>`;
     foot((helpOK ? link("hint", "Pista") : "") + link("skip", "No sé"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
@@ -1629,7 +1702,7 @@ function step() {
   if (s.k === "order") {
     const w = words(c.en), pool = shuffle(w.map((t, k) => ({ t, k })));
     let picked = [];
-    st.innerHTML = `${head("order")}<div class="prompt">${esc(c.es)}</div>
+    st.innerHTML = `${head("order")}<div class="prompt">${escN(c.es)}</div>
       <div class="slot" id="slot" aria-label="Tu frase"></div>
       <div class="pool" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
       <p class="omsg" id="oMsg"></p>`;
@@ -1665,7 +1738,7 @@ function step() {
   }
   if (s.k === "speak") {
     let tries = 0;
-    st.innerHTML = `${head("speak")}<div class="prompt">${esc(c.es)}</div><div id="micBox"></div>`;
+    st.innerHTML = `${head("speak")}<div class="prompt">${escN(c.es)}</div><div id="micBox"></div>`;
     foot(link("sReveal", "Ver respuesta") + link("sType", "Mejor escribirla"), "");
     const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
     micUI($("#micBox"), c.en, (ok, heard) => {
@@ -1921,7 +1994,7 @@ function finish() {
 $("#quit").onclick = () => { const u = SES && SES.unit, b = SES ? SES.back : "hoy"; if (SES && SES.seg) { view("hoy"); return; } if (u && b === "unit") openUnit(u); else view(b); };
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => freePractice(b.dataset.mode));
 
-renderMeta(); view("hoy");
+applyNames(); renderMeta(); view("hoy");
 
 /* ================= sincronización (Supabase) ================= */
 const SB_URL = "https://cycqnzwdzokyrmghwisq.supabase.co";
@@ -1935,6 +2008,11 @@ async function rpc(fn, body) {
 function canon(x) { x = (x || "").toUpperCase().replace(/[^A-Z0-9]/g, ""); const g = x.match(/.{1,4}/g); return g ? g.join("-") : ""; }
 function newCode() { const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", b = new Uint8Array(20); crypto.getRandomValues(b); return canon(Array.from(b, v => A[v % A.length]).join("")); }
 function dv(d) { if (!d) return 0; const p = d.split("-").map(Number); return p[0] * 10000 + p[1] * 100 + p[2]; }
+function mergeProf(a, b) {
+  if (!a || !b) return a || b || null;
+  const n = (b.nameT || 0) > (a.nameT || 0) ? b : a;
+  return Object.assign({}, a, { name: n.name || "", last: n.last || "", nameT: n.nameT || 0 });
+}
 function merge(a, b) {
   a = migrate(Object.assign({}, a)); b = migrate(Object.assign({}, b));
   const c = Object.assign({}, a.c);
@@ -1947,7 +2025,7 @@ function merge(a, b) {
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
-  return { c, done, rd, dl, fin, gs, h, vw, sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: a.prof || b.prof || null, xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
@@ -1960,7 +2038,7 @@ async function pull() {
   try {
     const remote = await rpc("get_progress", { p_code: SYNC });
     if (remote) S = merge(S, remote);
-    store(); refreshView();
+    applyNames(); store(); refreshView();
     await rpc("save_progress", { p_code: SYNC, p_data: S });
     status("Sincronizado ✓ " + hhmm());
   } catch (e) { status(OFF); }

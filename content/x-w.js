@@ -20,12 +20,12 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "A follow-up email",
-      en: "Hi Mary,\nThanks for your call this morning. Sorry I didn't catch everything; the connection was bad.\nJust to confirm: you need the drawings and the datasheet for model V-20 by Friday. I'm copying my manager, Luis, on this email.\nPlease find the quote attached. I'll let you know about the lead time tomorrow.\nBest regards,\nCarlos",
-      es: "Hola Mary:\nGracias por tu llamada de esta mañana. Perdón por no entender todo; la conexión estaba mala.\nSolo para confirmar: necesitas los planos y la ficha técnica del modelo V-20 para el viernes. Le pongo copia a mi jefe, Luis.\nAdjunto la cotización. Mañana te aviso sobre el tiempo de entrega.\nSaludos cordiales,\nCarlos",
+      en: "Hi Mary,\nThanks for your call this morning. Sorry I didn't catch everything; the connection was bad.\nJust to confirm: you need the drawings and the datasheet for model V-20 by Friday. I'm copying my manager, Luis, on this email.\nPlease find the quote attached. I'll let you know about the lead time tomorrow.\nBest regards,\n{name|Carlos}",
+      es: "Hola Mary:\nGracias por tu llamada de esta mañana. Perdón por no entender todo; la conexión estaba mala.\nSolo para confirmar: necesitas los planos y la ficha técnica del modelo V-20 para el viernes. Le pongo copia a mi jefe, Luis.\nAdjunto la cotización. Mañana te aviso sobre el tiempo de entrega.\nSaludos cordiales,\n{name|Carlos}",
       q: [
-        ["Why didn't Carlos understand everything?", ["Mary spoke too fast", "The connection was bad", "He was busy"], 1],
+        ["Why didn't {name|Carlos} understand everything?", ["Mary spoke too fast", "The connection was bad", "He was busy"], 1],
         ["What does Mary need by Friday?", ["The drawings and the datasheet", "A new price", "A meeting"], 0],
-        ["What will Carlos send tomorrow?", ["The quote", "The drawings", "Information about the lead time"], 2]
+        ["What will {name|Carlos} send tomorrow?", ["The quote", "The drawings", "Information about the lead time"], 2]
       ]
     }
   },
@@ -49,10 +49,10 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "Quote request",
-      en: "Dear Atlas Supplies,\nWe would like a quote for 500 stainless steel valves, model V-20. Please include the unit price, the lead time and the payment terms.\nWe need the parts by November 15th. Is that possible? Also, please tell us if the price includes shipping to Monterrey.\nIf you have the parts in stock, we can send the purchase order this week.\nThank you,\nCarlos Ruiz, Project Engineer",
-      es: "Estimados Atlas Supplies:\nNos gustaría una cotización de 500 válvulas de acero inoxidable, modelo V-20. Por favor incluyan el precio unitario, el tiempo de entrega y las condiciones de pago.\nNecesitamos las piezas para el 15 de noviembre. ¿Es posible? Además, por favor díganos si el precio incluye el envío a Monterrey.\nSi tienen las piezas en inventario, podemos mandar la orden de compra esta semana.\nGracias,\nCarlos Ruiz, ingeniero de proyectos",
+      en: "Dear Atlas Supplies,\nWe would like a quote for 500 stainless steel valves, model V-20. Please include the unit price, the lead time and the payment terms.\nWe need the parts by November 15th. Is that possible? Also, please tell us if the price includes shipping to Monterrey.\nIf you have the parts in stock, we can send the purchase order this week.\nThank you,\n{name|Carlos} {last|Ruiz}, Project Engineer",
+      es: "Estimados Atlas Supplies:\nNos gustaría una cotización de 500 válvulas de acero inoxidable, modelo V-20. Por favor incluyan el precio unitario, el tiempo de entrega y las condiciones de pago.\nNecesitamos las piezas para el 15 de noviembre. ¿Es posible? Además, por favor díganos si el precio incluye el envío a Monterrey.\nSi tienen las piezas en inventario, podemos mandar la orden de compra esta semana.\nGracias,\n{name|Carlos} {last|Ruiz}, ingeniero de proyectos",
       q: [
-        ["How many valves does Carlos need?", ["50", "500", "5,000"], 1],
+        ["How many valves does {name|Carlos} need?", ["50", "500", "5,000"], 1],
         ["What does he want to know about shipping?", ["If the price includes shipping to Monterrey", "How long shipping takes", "Which company ships"], 0],
         ["When can he send the purchase order?", ["On November 15th", "Next month", "This week, if the parts are in stock"], 2]
       ]
@@ -78,12 +78,12 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "Quality claim",
-      en: "Dear Mr. Brown,\nYesterday we received batch 4521. During the inspection, we found that 30 out of 200 parts are out of spec. The thread diameter is outside the tolerance, so the parts don't fit.\nWe rejected the batch and quarantined the material. I'm attaching photos of the defect and the inspection report.\nThis is the second time this month. Please send us an 8D report with the root cause and the corrective action, and tell us when you can replace the parts.\nBest regards,\nCarlos Ruiz",
-      es: "Estimado Sr. Brown:\nAyer recibimos el lote 4521. Durante la inspección encontramos que 30 de 200 piezas están fuera de especificación. El diámetro de la cuerda está fuera de tolerancia, así que las piezas no encajan.\nRechazamos el lote y pusimos el material en cuarentena. Adjunto fotos del defecto y el reporte de inspección.\nEs la segunda vez este mes. Por favor envíenos un reporte 8D con la causa raíz y la acción correctiva, y díganos cuándo pueden reemplazar las piezas.\nSaludos cordiales,\nCarlos Ruiz",
+      en: "Dear Mr. Brown,\nYesterday we received batch 4521. During the inspection, we found that 30 out of 200 parts are out of spec. The thread diameter is outside the tolerance, so the parts don't fit.\nWe rejected the batch and quarantined the material. I'm attaching photos of the defect and the inspection report.\nThis is the second time this month. Please send us an 8D report with the root cause and the corrective action, and tell us when you can replace the parts.\nBest regards,\n{name|Carlos} {last|Ruiz}",
+      es: "Estimado Sr. Brown:\nAyer recibimos el lote 4521. Durante la inspección encontramos que 30 de 200 piezas están fuera de especificación. El diámetro de la cuerda está fuera de tolerancia, así que las piezas no encajan.\nRechazamos el lote y pusimos el material en cuarentena. Adjunto fotos del defecto y el reporte de inspección.\nEs la segunda vez este mes. Por favor envíenos un reporte 8D con la causa raíz y la acción correctiva, y díganos cuándo pueden reemplazar las piezas.\nSaludos cordiales,\n{name|Carlos} {last|Ruiz}",
       q: [
         ["How many parts were out of spec?", ["200", "30", "4521"], 1],
         ["What is the problem with the parts?", ["The thread diameter is outside the tolerance", "They are the wrong color", "They arrived late"], 0],
-        ["What does Carlos ask for?", ["A discount", "A new supplier", "An 8D report and a replacement date"], 2]
+        ["What does {name|Carlos} ask for?", ["A discount", "A new supplier", "An 8D report and a replacement date"], 2]
       ]
     }
   },
@@ -107,11 +107,11 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "Meeting minutes",
-      en: "Project status meeting, Monday 9:00 a.m.\nAttendees: Carlos (project engineer), Mary (supplier), Luis (manager).\n1. Project status: we are two weeks behind schedule because of the supplier's quality problem.\n2. Next steps: the supplier will replace the parts by Friday. Carlos will inspect the new batch on Monday.\n3. Action items: Mary will send the 8D report by Wednesday. Luis will inform the client about the new delivery date.\nNext meeting: Monday at 9:00 a.m.",
-      es: "Junta de estatus del proyecto, lunes 9:00 a. m.\nAsistentes: Carlos (ingeniero de proyectos), Mary (proveedora), Luis (gerente).\n1. Estatus del proyecto: vamos dos semanas atrasados por el problema de calidad del proveedor.\n2. Siguientes pasos: el proveedor reemplazará las piezas para el viernes. Carlos inspeccionará el nuevo lote el lunes.\n3. Acuerdos: Mary enviará el reporte 8D para el miércoles. Luis le informará al cliente la nueva fecha de entrega.\nPróxima junta: lunes a las 9:00 a. m.",
+      en: "Project status meeting, Monday 9:00 a.m.\nAttendees: {name|Carlos} (project engineer), Mary (supplier), Luis (manager).\n1. Project status: we are two weeks behind schedule because of the supplier's quality problem.\n2. Next steps: the supplier will replace the parts by Friday. {name|Carlos} will inspect the new batch on Monday.\n3. Action items: Mary will send the 8D report by Wednesday. Luis will inform the client about the new delivery date.\nNext meeting: Monday at 9:00 a.m.",
+      es: "Junta de estatus del proyecto, lunes 9:00 a. m.\nAsistentes: {name|Carlos} (ingeniero de proyectos), Mary (proveedora), Luis (gerente).\n1. Estatus del proyecto: vamos dos semanas atrasados por el problema de calidad del proveedor.\n2. Siguientes pasos: el proveedor reemplazará las piezas para el viernes. {name|Carlos} inspeccionará el nuevo lote el lunes.\n3. Acuerdos: Mary enviará el reporte 8D para el miércoles. Luis le informará al cliente la nueva fecha de entrega.\nPróxima junta: lunes a las 9:00 a. m.",
       q: [
-        ["Why is the project behind schedule?", ["The client changed the design", "Because of the supplier's quality problem", "Carlos was sick"], 1],
-        ["Who will inform the client?", ["Luis", "Mary", "Carlos"], 0],
+        ["Why is the project behind schedule?", ["The client changed the design", "Because of the supplier's quality problem", "{name|Carlos} was sick"], 1],
+        ["Who will inform the client?", ["Luis", "Mary", "{name|Carlos}"], 0],
         ["When will Mary send the 8D report?", ["On Monday", "On Friday", "By Wednesday"], 2]
       ]
     }

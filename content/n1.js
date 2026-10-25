@@ -406,11 +406,11 @@
       ],
       d: [
         ["A", "Good morning. I need some information. What's your last name?", "Buenos días. Necesito unos datos. ¿Cuál es su apellido?"],
-        ["B", "It's Hernández. H-E-R-N-A-N-D-E-Z.", "Hernández. H-E-R-N-A-N-D-E-Z."],
+        ["B", "It's {last|Hernández}. {lastS|H-E-R-N-A-N-D-E-Z}.", "{last|Hernández}. {lastS|H-E-R-N-A-N-D-E-Z}."],
         ["A", "Thank you. What's your date of birth?", "Gracias. ¿Su fecha de nacimiento?"],
         ["B", "I was born on March fifth, 1990.", "Nací el 5 de marzo de 1990."],
         ["A", "And your email address?", "¿Y su correo?"],
-        ["B", "It's luis dot hdz at gmail dot com.", "Es luis punto hdz arroba gmail punto com."]
+        ["B", "It's {email|luis dot hdz} at gmail dot com.", "Es {email|luis punto hdz} arroba gmail punto com."]
       ]
     }
   ]

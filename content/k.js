@@ -31,15 +31,15 @@
         ["V, W", "V, W", "vi, dábol-iu", "W = 'doble u'."],
         ["X, Y, Z", "X, Y, Z", "eks, uái, zi", ""],
         ["Deletrea tu nombre, por favor.", "Spell your name, please.", "spel iór néim, plís", ""],
-        ["Se escribe M-A-R-Í-A.", "It's M-A-R-I-A.", "its em-ei-ar-ai-ei", ""],
+        ["Se escribe {nameS|M-A-R-Í-A}.", "It's {nameS|M-A-R-I-A}.", "its {nameS|em-ei-ar-ai-ei}", ""],
         ["arroba (en un correo)", "at", "at", "ana@gmail.com = ana at gmail dot com"]
       ],
       d: [
         ["A", "What's your name?", "¿Cómo te llamas?"],
-        ["B", "My name is Ana.", "Me llamo Ana."],
+        ["B", "My name is {name|Ana}.", "Me llamo {name|Ana}."],
         ["A", "Spell your name, please.", "Deletrea tu nombre, por favor."],
-        ["B", "It's A-N-A.", "Es A-N-A."],
-        ["A", "Thank you, Ana.", "Gracias, Ana."],
+        ["B", "It's {nameS|A-N-A}.", "Es {nameS|A-N-A}."],
+        ["A", "Thank you, {name|Ana}.", "Gracias, {name|Ana}."],
         ["B", "You're welcome.", "De nada."]
       ]
     },

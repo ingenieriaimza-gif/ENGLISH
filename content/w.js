@@ -16,7 +16,7 @@
         "!Pedir que repitan no es mala educación. Es mucho peor fingir que entendiste."
       ],
       c: [
-        ["Hola, soy ___, ingeniero de proyectos en ___.", "Hi, I'm ___, project engineer at ___.", "jai, aim ___, próyect enyiníer at ___", "", "w0"],
+        ["Hola, soy {name|___}, ingeniero de proyectos en ___.", "Hi, I'm {name|___}, project engineer at ___.", "jai, aim {name|___}, próyect enyiníer at ___", "", "w0"],
         ["¿Puede repetir, por favor?", "Could you repeat that, please?", "cud iú ripít dat, plís", "", "w1"],
         ["¿Puede hablar más despacio, por favor?", "Could you speak more slowly, please?", "cud iú spik mor slóu-li, plís", "", "w2"],
         ["Déjeme revisar.", "Let me check.", "let mi chek", "", "w3"],
@@ -27,8 +27,8 @@
       ],
       d: [
         ["A", "Good morning, Atlas Supplies.", "Buenos días, Atlas Supplies."],
-        ["B", "Hi, I'm Carlos, project engineer at Grupo Delta.", "Hola, soy Carlos, ingeniero de proyectos en Grupo Delta."],
-        ["A", "Hi Carlos. How can I help you?", "Hola Carlos. ¿En qué le ayudo?"],
+        ["B", "Hi, I'm {name|Carlos}, project engineer at Grupo Delta.", "Hola, soy {name|Carlos}, ingeniero de proyectos en Grupo Delta."],
+        ["A", "Hi {name|Carlos}. How can I help you?", "Hola {name|Carlos}. ¿En qué le ayudo?"],
         ["B", "Sorry, could you speak more slowly, please?", "Perdón, ¿podría hablar más despacio, por favor?"],
         ["A", "Of course. How can I help you?", "Claro. ¿En qué le puedo ayudar?"],
         ["B", "I need some information. Can you send it to me by email?", "Necesito información. ¿Me la puede mandar por correo?"]
@@ -86,7 +86,7 @@
         ["¿Cuál es la acción correctiva?", "What's the corrective action?", "uáts de coréctiv ákshon", "", "w26"]
       ],
       d: [
-        ["A", "Hi Carlos, did you receive the parts?", "Hola Carlos, ¿recibiste las piezas?"],
+        ["A", "Hi {name|Carlos}, did you receive the parts?", "Hola {name|Carlos}, ¿recibiste las piezas?"],
         ["B", "Yes, we received the material, but there's an issue with the part.", "Sí, recibimos el material, pero hay un problema con la pieza."],
         ["A", "Oh no. What's the problem?", "¿Qué pasó?"],
         ["B", "The part doesn't fit. We found a defect in the thread.", "La pieza no encaja. Encontramos un defecto en la cuerda."],

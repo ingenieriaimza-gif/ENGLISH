@@ -61,6 +61,8 @@ n1u3: {
 ```
 El avance de cada frase se guarda por su posición dentro de la unidad (primero las de `c`, luego las de `v`). Por eso **no agregues frases a `c`**; agrégalas **al final de `v`**. En `w.js` cada frase lleva un identificador fijo (`w0`…`w44`): no lo cambies.
 
+**Tu nombre en las frases.** En las frases donde la persona habla de sí misma se usan marcadores con un nombre de ejemplo: `{name|Ana}` (nombre), `{last|López}` (apellido), `{nameS|A-N-A}` / `{lastS|L-O-P-E-Z}` (deletreado; en el campo de pronunciación se escribe cómo suenan las letras: `{nameS|ei-en-ei}`) y `{email|ana dot ruiz}`. Si la persona escribió su nombre (al crear su plan, en «Ajustar mi plan» o en la tarjeta de Hoy), `applyNames()` los cambia por sus datos; si no, se ven los de ejemplo. Funcionan en frases, conversaciones, explicaciones y lecturas (si el nombre chocara con una opción de las preguntas, esa lectura se queda con los nombres de ejemplo). Usa marcadores solo cuando la frase la dice o la recibe quien practica (en las conversaciones, la persona es B).
+
 Después de editar, sube el número de versión en `sw.js`.
 
 ## Sincronización (Supabase)

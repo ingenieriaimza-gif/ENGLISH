@@ -349,14 +349,14 @@
       id: "n3u7", t: "Hablar por teléfono",
       goal: "Hacer y recibir llamadas, dejar recados y resolver problemas de señal.",
       g: [
-        "Al teléfono no se dice 'I am Carlos', sino This is Carlos.",
-        ["Hello, this is Carlos from Grupo Delta.", "Bueno, habla Carlos de Grupo Delta."],
+        "Al teléfono no se dice 'I am {name|Carlos}', sino This is {name|Carlos}.",
+        ["Hello, this is {name|Carlos} from Grupo Delta.", "Bueno, habla {name|Carlos} de Grupo Delta."],
         "Frases para pedir que te comuniquen o dejar recado: Could I speak to…? · Could you ask her to call me back?",
         "call back = regresar la llamada · put through = comunicar · break up = cortarse la señal.",
         "!Habla más despacio de lo normal y deletrea nombres y correos. Al teléfono todos entienden menos."
       ],
       c: [
-        ["Bueno, habla Carlos.", "Hello, this is Carlos.", "", ""],
+        ["Bueno, habla {name|Carlos}.", "Hello, this is {name|Carlos}.", "", ""],
         ["¿Podría hablar con la señora Smith?", "Could I speak to Mrs. Smith, please?", "", ""],
         ["¿De parte de quién?", "Who's calling, please?", "", ""],
         ["Espere, lo comunico.", "Hold on, I'll put you through.", "", ""],
@@ -371,7 +371,7 @@
       ],
       d: [
         ["A", "Good morning, ABC Industries.", "Buenos días, ABC Industries."],
-        ["B", "Hello, this is Carlos from Grupo Delta. Could I speak to Mr. Brown, please?", "Bueno, habla Carlos de Grupo Delta. ¿Podría hablar con el señor Brown?"],
+        ["B", "Hello, this is {name|Carlos} from Grupo Delta. Could I speak to Mr. Brown, please?", "Bueno, habla {name|Carlos} de Grupo Delta. ¿Podría hablar con el señor Brown?"],
         ["A", "I'm sorry, he's in a meeting. Would you like to leave a message?", "Lo siento, está en una junta. ¿Quiere dejar un recado?"],
         ["B", "Yes, could you ask him to call me back? I'm calling about the invoice.", "Sí, ¿le puede pedir que me regrese la llamada? Es por lo de la factura."],
         ["A", "Sure. What's your number?", "Claro. ¿Cuál es su número?"],
@@ -394,7 +394,7 @@
         ["¿A qué hora empieza el abordaje?", "What time does boarding start?", "", ""],
         ["Mi vuelo se retrasó.", "My flight was delayed.", "", ""],
         ["Perdí mi conexión.", "I missed my connection.", "", ""],
-        ["Tengo una reservación a nombre de López.", "I have a reservation under López.", "", ""],
+        ["Tengo una reservación a nombre de {last|López}.", "I have a reservation under {last|López}.", "", ""],
         ["¿A qué hora es la salida del hotel?", "What time is checkout?", "", ""],
         ["¿El desayuno está incluido?", "Is breakfast included?", "", ""],
         ["El aire acondicionado no funciona.", "The air conditioning isn't working.", "", ""],

@@ -17,7 +17,7 @@
         ["Good evening.", "Buenas noches. (al llegar)"],
         "!Good night NO es un saludo: solo se usa para despedirse en la noche o al irse a dormir.",
         "Para presentarte usa My name is… o I'm… (I'm = I am = yo soy).",
-        ["I'm Ana. I'm from Mexico.", "Soy Ana. Soy de México."]
+        ["I'm {name|Ana}. I'm from Mexico.", "Soy {name|Ana}. Soy de México."]
       ],
       c: [
         ["Hola, ¿cómo estás?", "Hi, how are you?", "jai, jáu ar iú", ""],
@@ -25,7 +25,7 @@
         ["Buenos días.", "Good morning.", "gud mórning", ""],
         ["Buenas tardes.", "Good afternoon.", "gud áfternun", ""],
         ["Buenas noches (al llegar).", "Good evening.", "gud ívning", "Good night es solo para despedirse."],
-        ["Me llamo Ana.", "My name is Ana.", "mai néim is ána", ""],
+        ["Me llamo {name|Ana}.", "My name is {name|Ana}.", "mai néim is {name|ána}", ""],
         ["Soy de México.", "I'm from Mexico.", "aim from méksikou", ""],
         ["Mucho gusto.", "Nice to meet you.", "náis tu mit iú", ""],
         ["¿Cómo te llamas?", "What's your name?", "uáts iór néim", ""],
@@ -35,7 +35,7 @@
       ],
       d: [
         ["A", "Hi! What's your name?", "¡Hola! ¿Cómo te llamas?"],
-        ["B", "Hi, my name is Ana. And you?", "Hola, me llamo Ana. ¿Y tú?"],
+        ["B", "Hi, my name is {name|Ana}. And you?", "Hola, me llamo {name|Ana}. ¿Y tú?"],
         ["A", "I'm Carlos. Nice to meet you.", "Soy Carlos. Mucho gusto."],
         ["B", "Nice to meet you too. Where are you from?", "Igualmente. ¿De dónde eres?"],
         ["A", "I'm from Mexico.", "Soy de México."],
@@ -65,13 +65,13 @@
         ["¿Cuántos años tienes?", "How old are you?", "jáu óuld ar iú", ""],
         ["¿Cuál es tu número de teléfono?", "What's your phone number?", "uáts iór fóun námber", ""],
         ["¿Cómo se escribe?", "How do you spell it?", "jáu du iú spel it", ""],
-        ["Se escribe A-N-A.", "It's spelled A-N-A.", "its speld ei-en-ei", ""]
+        ["Se escribe {nameS|A-N-A}.", "It's spelled {nameS|A-N-A}.", "its speld {nameS|ei-en-ei}", ""]
       ],
       d: [
         ["A", "What's your phone number?", "¿Cuál es tu número de teléfono?"],
         ["B", "It's five five, two three four, six seven eight nine.", "Es 55 234 6789."],
         ["A", "Thanks. How do you spell your last name?", "Gracias. ¿Cómo se escribe tu apellido?"],
-        ["B", "It's spelled L-O-P-E-Z.", "Se escribe L-O-P-E-Z."],
+        ["B", "It's spelled {lastS|L-O-P-E-Z}.", "Se escribe {lastS|L-O-P-E-Z}."],
         ["A", "And how old are you?", "¿Y cuántos años tienes?"],
         ["B", "I'm thirty years old.", "Tengo treinta años."]
       ]
