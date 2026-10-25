@@ -166,6 +166,9 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 .go:hover{filter:brightness(1.05)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .namegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.obsync{display:flex;flex-direction:column;gap:8px;padding:12px 14px;background:var(--accent-soft);border-left:4px solid var(--accent)}
+.obsync p{margin:0}
+.obsync form{display:flex;gap:8px;flex-wrap:wrap}.obsync input{flex:1 1 200px;min-width:0}
 .namegrid input.type{font-size:17px;background:var(--panel)}
 #nmForm{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto}
 @media (max-width:520px){.namegrid,#nmForm{grid-template-columns:minmax(0,1fr)}}
@@ -1357,7 +1360,10 @@ function renderOnboarding() {
   $("#coach").innerHTML = `<div class="card strong">
     <div class="label">${first ? "Bienvenido · vamos a armar tu plan" : "Ajustar mi plan"}</div>
     <h2>${first ? "Tu entrenador personal de inglés" : "Tu plan"}</h2>
-    ${first ? `<p>Cada día voy a decidir qué te toca: repasar, aprender, practicar la conversación, leer o presentar un examen. Me adapto a tu ritmo: si algo te cuesta, vamos más despacio; si vas bien, aceleramos.</p>` : ""}
+    ${first ? `<p>Cada día voy a decidir qué te toca: repasar, aprender, practicar la conversación, leer o presentar un examen. Me adapto a tu ritmo: si algo te cuesta, vamos más despacio; si vas bien, aceleramos.</p>
+    <div class="obsync"><p><strong>¿Ya usabas la app?</strong> Escribe tu código de sincronización y recupero tu avance.</p>
+      <form id="obSync"><input class="type" id="obCode" placeholder="Tu código (20 letras y números)" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Código de sincronización"><button class="btn" type="submit">Recuperar mi avance</button></form>
+      <p class="pron" id="obSyncMsg" aria-live="polite"></p></div>` : ""}
     <div class="label">¿Cómo te llamas?</div>
     <div class="namegrid"><input class="type" id="obName" maxlength="30" autocomplete="given-name" placeholder="Tu nombre" value="${esc(P.name || "")}"><input class="type" id="obLast" maxlength="30" autocomplete="family-name" placeholder="Apellido (opcional)" value="${esc(P.last || "")}"></div>
     <p class="muted" style="margin:0;font-size:14px">Lo uso en las frases donde hablas de ti: «My name is…», deletrear tu nombre, contestar el teléfono.</p>
@@ -1377,6 +1383,18 @@ function renderOnboarding() {
     editingProfile = false; PLAN = null; save(); renderMeta(); renderHoy();
   };
   if ($("#obCancel")) $("#obCancel").onclick = () => { editingProfile = false; renderHoy(); };
+  // Recuperar el avance con el código de sincronización (por ejemplo, al cambiar de dirección o de teléfono)
+  if ($("#obSync")) $("#obSync").onsubmit = async e => {
+    e.preventDefault();
+    const c = canon($("#obCode").value), m = $("#obSyncMsg");
+    if (c.replace(/-/g, "").length < 16) { m.textContent = "Ese código está incompleto. Debe tener 20 letras y números."; return; }
+    m.textContent = "Buscando tu avance…";
+    try {
+      const remote = await rpc("get_progress", { p_code: c });
+      if (!remote) { m.textContent = "No encontré ese código. Revisa que esté bien escrito."; return; }
+      setCode(c); await pull(); renderHoy();
+    } catch (err) { m.textContent = "No pude conectarme. Revisa tu internet e inténtalo otra vez."; }
+  };
 }
 function renderHoy() {
   document.querySelectorAll(".mode").forEach(b => { if (b.dataset.mode === "speak") b.disabled = !srOK; });

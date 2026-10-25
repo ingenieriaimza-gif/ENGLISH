@@ -1,4 +1,4 @@
-const CACHE = "ingles-prov-v22";
+const CACHE = "ingles-prov-v23";
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png",
   "content/k.js", "content/n0.js", "content/n1.js", "content/n2.js", "content/w.js", "content/n3.js", "content/n4.js", "content/n5.js", "content/n6.js",
@@ -24,12 +24,15 @@ self.addEventListener("fetch", e => {
 
   // Página y contenido del curso: primero la red (para recibir mejoras), si no hay internet usa la copia guardada
   const isPage = req.mode === "navigate";
+  // (no-cache: siempre pregunta al servidor si hay versión nueva; si el servidor falla, usa la copia guardada)
   if (isPage || (url.origin === location.origin && url.pathname.endsWith(".js") && !url.pathname.endsWith("sw.js"))) {
+    const key = isPage ? "index.html" : req;
+    const net = isPage ? fetch(req.url, { cache: "no-cache", credentials: "same-origin" }) : fetch(req, { cache: "no-cache" });
     e.respondWith(
-      fetch(req).then(res => {
-        if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(isPage ? "index.html" : req, copy)); }
-        return res;
-      }).catch(() => caches.match(isPage ? "index.html" : req, { ignoreSearch: true }))
+      net.then(res => {
+        if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(key, copy)); return res; }
+        return caches.match(key, { ignoreSearch: true }).then(hit => hit || res);
+      }).catch(() => caches.match(key, { ignoreSearch: true }))
     );
     return;
   }
