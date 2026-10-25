@@ -23,6 +23,10 @@
   --accent:#d9480f; --accent-ink:#ffffff; --accent-soft:#fde7dc;
   --ok:#2b8a3e; --ok-soft:#e3f4e6; --bad:#c92a2a; --bad-soft:#fbe4e4;
   --chip:#e3e8ee;
+  --accent-2:#a5380c; --ok-2:#1f6b30; --bad-2:#9c1f1f;
+  --info:#1c7ed6; --info-soft:#e7f5ff; --info-ink:#1864ab; --info-2:#1561a8; --info-on:#ffffff;
+  --warn:#f59f00; --warn-soft:#fff9db; --warn-ink:#8f5b00; --warn-2:#c27c00;
+  --purp:#7048e8; --purp-soft:#f3f0ff; --purp-ink:#5f3dc4; --purp-2:#5733c0;
   --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -30,11 +34,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#11161d; --panel:#1a212b; --ink:#e6ebf1; --muted:#97a3b3; --line:#2e3946;
   --accent:#ff7a3d; --accent-ink:#1a0c04; --accent-soft:#3a2216;
-  --ok:#69db7c; --ok-soft:#173222; --bad:#ff8787; --bad-soft:#3b1d1f; --chip:#26303c; color-scheme:dark}}
+  --ok:#69db7c; --ok-soft:#173222; --bad:#ff8787; --bad-soft:#3b1d1f; --chip:#26303c; --accent-2:#c4551f; --ok-2:#3f9e50; --bad-2:#c95b5b; --info:#4dabf7; --info-soft:#132b40; --info-ink:#a5d8ff; --info-2:#2b7bbf; --info-on:#0b1a28; --warn:#fcc419; --warn-soft:#3a3010; --warn-ink:#ffe066; --warn-2:#b38800; --purp:#9775fa; --purp-soft:#251d3f; --purp-ink:#d0bfff; --purp-2:#6a4fc2; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#11161d; --panel:#1a212b; --ink:#e6ebf1; --muted:#97a3b3; --line:#2e3946;
   --accent:#ff7a3d; --accent-ink:#1a0c04; --accent-soft:#3a2216;
-  --ok:#69db7c; --ok-soft:#173222; --bad:#ff8787; --bad-soft:#3b1d1f; --chip:#26303c; color-scheme:dark}
+  --ok:#69db7c; --ok-soft:#173222; --bad:#ff8787; --bad-soft:#3b1d1f; --chip:#26303c; --accent-2:#c4551f; --ok-2:#3f9e50; --bad-2:#c95b5b; --info:#4dabf7; --info-soft:#132b40; --info-ink:#a5d8ff; --info-2:#2b7bbf; --info-on:#0b1a28; --warn:#fcc419; --warn-soft:#3a3010; --warn-ink:#ffe066; --warn-2:#b38800; --purp:#9775fa; --purp-soft:#251d3f; --purp-ink:#d0bfff; --purp-2:#6a4fc2; color-scheme:dark}
 *{box-sizing:border-box}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
@@ -162,7 +166,8 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 .part .pt{font-weight:600}
 .part .pd{font-size:13px;color:var(--muted)}
 .part .pm{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
-.go{background:var(--accent);color:var(--accent-ink);border:0;padding:16px;font-family:var(--f-display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;width:100%}
+.go{background:var(--accent);color:var(--accent-ink);border:0;padding:16px;font-family:var(--f-display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;width:100%;box-shadow:0 5px 0 var(--accent-2);margin-bottom:5px}
+.go:active{transform:translateY(4px);box-shadow:0 1px 0 var(--accent-2)}
 .go:hover{filter:brightness(1.05)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .namegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -228,12 +233,25 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .btn.accent{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .btn.ghost{border-color:var(--line)}
 .btn.sm{padding:6px 12px;font-size:14px}
-.btn.go{background:var(--ink);color:var(--panel);border:0;font-family:var(--f-display);font-size:21px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:12px 28px;min-width:170px}
-.btn.go:hover:not(:disabled){filter:brightness(1.15)}
+.btn.go{background:var(--accent);color:var(--accent-ink);border:0;font-family:var(--f-display);font-size:21px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:12px 28px;min-width:170px;box-shadow:0 4px 0 var(--accent-2);margin-bottom:4px;transition:transform .08s,box-shadow .08s}
+.btn.go:hover:not(:disabled){filter:brightness(1.08)}
+.btn.go:active:not(:disabled),.btn.alt:active:not(:disabled),.btn.speak:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--c2,var(--accent-2))}
+.btn.go:disabled{box-shadow:none}
+/* botones de ayuda con color: No sé, Pista, Ver respuesta, Mejor escribirla, Borrar */
+.btn.alt{--c:var(--line);--cs:var(--panel);--ct:var(--ink);--c2:var(--muted);display:inline-flex;align-items:center;gap:9px;border:2px solid var(--c);background:var(--cs);color:var(--ct);font-weight:700;font-size:15px;padding:6px 14px 6px 6px;box-shadow:0 4px 0 var(--c2);margin-bottom:4px;transition:transform .08s,box-shadow .08s}
+.btn.alt .ic{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--c);font-size:16px;line-height:1;flex:none}
+.btn.alt.warn{--c:var(--warn);--cs:var(--warn-soft);--ct:var(--warn-ink);--c2:var(--warn-2)}
+.btn.alt.info{--c:var(--info);--cs:var(--info-soft);--ct:var(--info-ink);--c2:var(--info-2)}
+.btn.alt.purp{--c:var(--purp);--cs:var(--purp-soft);--ct:var(--purp-ink);--c2:var(--purp-2)}
+.btn.alt:disabled{box-shadow:none}
+@media (max-width:520px){.btn.alt{font-size:14px;padding:5px 11px 5px 5px;gap:7px}.btn.alt .ic{width:26px;height:26px;font-size:14px}}
 .btn.link{border:0;background:none;color:var(--muted);padding:10px 8px;text-decoration:underline;text-underline-offset:4px;font-weight:500}
 .btn.link:hover:not(:disabled){color:var(--ink)}
 .speak{display:inline-flex;align-items:center;gap:8px}
 .speak svg{width:18px;height:18px}
+/* escuchar: azul; lento: azul claro */
+.btn.speak{--c2:var(--info-2);background:var(--info);color:var(--info-on);border:2px solid var(--info);box-shadow:0 3px 0 var(--info-2);margin-bottom:3px;transition:transform .08s,box-shadow .08s}
+.btn.ghost.speak{background:var(--info-soft);color:var(--info-ink);border-color:var(--info)}
 /* micrófono: un botón grande y redondo, el resultado debajo */
 .micwrap{display:flex;flex-direction:column;align-items:center;gap:8px}
 .mic{width:76px;height:76px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 0 0 6px var(--accent-soft)}
@@ -246,7 +264,7 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 /* la voz: preparando (parpadea), sonando (ondas que se mueven) y la palabra que se está diciendo */
 [data-say].prep svg,[data-saylong].prep svg,[data-saygroup].prep svg{animation:blink .6s ease-in-out infinite}
 .prep{cursor:progress}
-[data-say].playing,[data-saylong].playing,[data-saygroup].playing{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+[data-say].playing,[data-saylong].playing,[data-saygroup].playing,.btn.speak.playing{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);box-shadow:0 3px 0 var(--accent)}
 .playing svg .w1{animation:wave 1s ease-in-out infinite}
 .playing svg .w2{animation:wave 1s ease-in-out .3s infinite}
 @keyframes wave{0%,100%{opacity:.15}50%{opacity:1}}
@@ -266,8 +284,6 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .lvl.live i:nth-child(1),.lvl.live i:nth-child(5){height:calc(5px + var(--l) * 13px)}
 .lvl.live i:nth-child(2),.lvl.live i:nth-child(4){height:calc(5px + var(--l) * 20px)}
 .lvl.live i:nth-child(3){height:calc(5px + var(--l) * 25px)}
-.btn.alt{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);font-weight:700;font-size:15px;padding:10px 14px}
-.btn.alt .ic{font-size:18px;line-height:1}
 .heard{text-align:center;font-size:15px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
 .heard:empty{display:none}
 .heard .tgt{font-size:16px;color:var(--ink)}
@@ -322,8 +338,8 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .band .sub{font-size:15px;color:var(--muted)}
 .band .tipline{color:var(--ink);border-left:3px solid var(--accent);padding-left:8px;margin-top:4px}
 .band .fr{flex-wrap:nowrap}
-.band.ok .go{background:var(--ok);color:var(--panel)}
-.band.bad .go{background:var(--bad);color:var(--panel)}
+.band.ok .go{background:var(--ok);color:var(--panel);--c2:var(--ok-2);box-shadow:0 4px 0 var(--ok-2)}
+.band.bad .go{background:var(--bad);color:var(--panel);--c2:var(--bad-2);box-shadow:0 4px 0 var(--bad-2)}
 .ico{width:46px;height:46px;border-radius:50%;display:inline-grid;place-items:center;font-size:26px;font-weight:800;line-height:1;color:var(--panel);flex:none}
 .band.ok .ico{background:var(--ok)}
 .band.bad .ico{background:var(--bad)}
@@ -1915,7 +1931,7 @@ function step() {
   const head = k => `${tagTxt ? `<span class="tag">${tagTxt}</span>` : ""}<h2 class="ttl">${LBL[k]}</h2>`;
   const helpOK = !isExam();
   const goBtn = (id, t, dis) => `<button class="btn go" id="${id}"${dis ? " disabled" : ""}>${t}</button>`;
-  const link = (id, t, extra) => `<button class="btn link" type="button" id="${id}"${extra || ""}>${t}</button>`;
+  const help = (id, t, kind, ic) => `<button class="btn alt ${kind}" type="button" id="${id}"><span class="ic" aria-hidden="true">${ic}</span>${t}</button>`;
 
   if (s.k === "teach") {
     const ws = words(c.en), tip = gramTip(c.u);
@@ -1966,7 +1982,7 @@ function step() {
       : picMode ? `<div class="picq${c.emC}" role="img" aria-label="${esc(c.es)}">${c.em}</div>` : promptHTML(c);
     st.innerHTML = `${head(s.k)}${ask}
       <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${hearMode && o.em ? `<span class="oemo" aria-hidden="true">${o.em}</span>` : ""}${esc(o[field])}</button>`).join("")}</div>`;
-    foot(link("cIdk", "No sé"), "");
+    foot(help("cIdk", "No sé", "warn", "🤷"), "");
     if (hearMode) say(c.en);
     const pickOpt = b => {
       const ok = !!b && b.dataset.id === c.id;
@@ -1983,7 +1999,7 @@ function step() {
     st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `${promptHTML(c)}`}
       <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>
       <p class="omsg" id="tMsg"></p>`;
-    foot((helpOK ? link("hint", "Pista") : "") + link("skip", "No sé"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
+    foot((helpOK ? help("hint", "Pista", "purp", "💡") : "") + help("skip", "No sé", "warn", "🤷"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
     const inp = $("#tin"); inp.focus();
     if (dict) say(c.en);
     let helped = false;
@@ -2005,7 +2021,7 @@ function step() {
       <div class="slot" id="slot" aria-label="Tu frase"></div>
       <div class="pool" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
       <p class="omsg" id="oMsg"></p>`;
-    foot(link("clr", "Borrar") + (helpOK ? link("oHint", "Pista") : "") + link("oIdk", "No sé"), goBtn("chk", "Revisar", true));
+    foot(help("clr", "Borrar", "", "↩️") + (helpOK ? help("oHint", "Pista", "purp", "💡") : "") + help("oIdk", "No sé", "warn", "🤷"), goBtn("chk", "Revisar", true));
     let helped = false;
     const lc = t => t.toLowerCase();
     const draw = () => {
@@ -2038,7 +2054,7 @@ function step() {
   if (s.k === "speak") {
     let tries = 0;
     st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
-    foot(`<button class="btn alt" type="button" id="sReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>`, `<button class="btn alt" type="button" id="sType"><span class="ic" aria-hidden="true">⌨️</span>Mejor escribirla</button>`);
+    foot(help("sReveal", "Ver respuesta", "warn", "👁️") + help("sType", "Mejor escribirla", "info", "⌨️"), "");
     const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
     // Cambiar a escribir: la meta de esta frase pasa a ser escribirla bien, y en el resto de la sesión no pide hablar
     const toWriting = () => { const k2 = fitKind(c, "type"), m = SES.m[c.id]; if (m) m.target = k2; SES.write = true; SES.steps[SES.i] = { k: k2, c, wr: true, fix: s.fix }; step(); };
@@ -2163,7 +2179,7 @@ function step() {
     st.innerHTML = `<h2 class="ttl">Conversación: tu turno</h2>
       ${prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(prevA[1])}"</p>` : ""}
       <div class="prompt">${esc(es)}</div><p class="lead">Dilo en inglés.</p><div id="micBox"></div>`;
-    foot(srOK ? `<button class="btn alt" type="button" id="dReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
+    foot(srOK ? `<button class="btn alt warn" type="button" id="dReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
     const reveal = (auto) => {
       sesEl("#micBox button,#dReveal").forEach(b => b.disabled = true);
       say(en, { who: 1 });
@@ -2281,7 +2297,7 @@ function finish() {
     <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>${recall}`;
   const goify = h => h.replace(/btn primary/g, "btn go");
   st.innerHTML = summary(title);
-  foot(`<button class="btn link" id="fBack">Volver</button>`, goify(btns));
+  foot(`<button class="btn alt" id="fBack"><span class="ic" aria-hidden="true">🏠</span>Volver</button>`, goify(btns));
   if (SES.seg && PLAN) {
     segDone(SES.seg);
     PLAN.i++;
@@ -2289,7 +2305,7 @@ function finish() {
     title = `Parte ${PLAN.i} de ${total} · ${title}`;
     btns = nx ? `<button class="btn primary" id="fPlan">Siguiente: ${esc(nx.title)}</button>` : `<button class="btn primary" id="fPlanEnd">Seguir practicando</button>`;
     st.innerHTML = summary(title);
-    foot(`<button class="btn link" id="fPause">${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
+    foot(`<button class="btn alt" id="fPause"><span class="ic" aria-hidden="true">${nx ? "⏸️" : "🏠"}</span>${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
     if (!nx) PLAN = null;
     const b1 = $("#fPlan"); if (b1) b1.onclick = runSeg;
     const b2 = $("#fPlanEnd"); if (b2) b2.onclick = () => { nextBlock(); if (!startToday()) view("hoy"); };
