@@ -1909,7 +1909,9 @@ function step() {
   try { window.scrollTo(0, 0); } catch (e) {}
   if (SES.i >= SES.steps.length) return finish();
   const s = SES.steps[SES.i], c = s.c;
-  const tagTxt = s.fix === "easy" ? "Paso a paso" : s.fix === "final" ? "Ahora sin ayuda" : s.boost ? "De un tema anterior" : "";
+  // Si en esta sesión elegiste escribir porque no puedes hablar, ya no te pide hablar (se convierte en escribir)
+  if (SES.write && s.k === "speak" && c) { s.k = fitKind(c, "type"); s.wr = true; const m = SES.m[c.id]; if (m && m.target === "speak") m.target = s.k; }
+  const tagTxt = s.fix === "easy" ? "Paso a paso" : s.fix === "final" ? "Ahora sin ayuda" : s.boost ? "De un tema anterior" : s.wr ? "Escribiendo en lugar de hablar" : "";
   const head = k => `${tagTxt ? `<span class="tag">${tagTxt}</span>` : ""}<h2 class="ttl">${LBL[k]}</h2>`;
   const helpOK = !isExam();
   const goBtn = (id, t, dis) => `<button class="btn go" id="${id}"${dis ? " disabled" : ""}>${t}</button>`;
@@ -2038,15 +2040,17 @@ function step() {
     st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
     foot(`<button class="btn alt" type="button" id="sReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>`, `<button class="btn alt" type="button" id="sType"><span class="ic" aria-hidden="true">⌨️</span>Mejor escribirla</button>`);
     const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
+    // Cambiar a escribir: la meta de esta frase pasa a ser escribirla bien, y en el resto de la sesión no pide hablar
+    const toWriting = () => { const k2 = fitKind(c, "type"), m = SES.m[c.id]; if (m) m.target = k2; SES.write = true; SES.steps[SES.i] = { k: k2, c, wr: true, fix: s.fix }; step(); };
     micUI($("#micBox"), c.en, (ok, heard) => {
-      if (ok === null) { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); return; }
+      if (ok === null) { toWriting(); return; }
       tries++;
       if (ok) { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
       if (tries >= 3) giveUp();
       else addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
     }, true);
     $("#sReveal").onclick = giveUp;
-    $("#sType").onclick = () => { SES.steps[SES.i] = { k: fitKind(c, "type"), c }; step(); };
+    $("#sType").onclick = toWriting;
     return;
   }
   if (s.k === "video") {
