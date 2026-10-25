@@ -3,17 +3,17 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   w1: {
     v: [
       ["¿Con quién hablo?", "Who am I speaking with?", "ju am ai spíiking uíz", ""],
-      ["Le llamo de parte de Grupo Delta.", "I'm calling from Grupo Delta.", "aim cóling from grúpo délta", ""],
+      ["Le llamo de parte de Grupo Delta.", "I'm calling from Grupo Delta.", "aim cóling fram grúpo délta", ""],
       ["¿Tiene un minuto?", "Do you have a minute?", "du iú jav a mínit", ""],
-      ["Perdón, no le escuché bien.", "Sorry, I didn't catch that.", "sóri, ai dídent cach dat", ""],
-      ["¿Me lo puede deletrear?", "Could you spell that, please?", "cud iú spel dat, plís", ""],
-      ["Le confirmo por correo.", "I'll confirm by email.", "ail confírm bai iméil", ""],
-      ["Quedo atento.", "I look forward to hearing from you.", "ai luk fóruard tu jíring from iú", "Al final de un correo."],
+      ["Perdón, no le escuché bien.", "Sorry, I didn't catch that.", "sári, ai dídent cach dat", ""],
+      ["¿Me lo puede deletrear, por favor?", "Could you spell that, please?", "cud iú spel dat, plís", ""],
+      ["Le confirmo por correo.", "I'll confirm by email.", "ail confírm bái iméil", ""],
+      ["Quedo atento.", "I look forward to hearing from you.", "ai luk fóruard tu jíring fram iú", "Al final de un correo."],
       ["Adjunto el archivo.", "Please find the file attached.", "plís fáind de fáil atácht", ""],
-      ["Con copia a mi jefe.", "I'm copying my manager.", "aim cópiing mai mánayer", "cc = copia."],
+      ["Con copia a mi jefe.", "I'm copying my manager.", "aim cápiing mai mánayer", "cc = copia."],
       ["¿Recibió mi correo?", "Did you get my email?", "did iú guet mai iméil", ""],
       ["Le reenvío el correo.", "I'll forward you the email.", "ail fóruard iú di iméil", ""],
-      ["Disculpe la demora.", "Sorry for the delay.", "sóri for de diléi", ""],
+      ["Disculpe la demora.", "Sorry for the delay.", "sári for de diléi", ""],
       ["Gracias por su pronta respuesta.", "Thanks for your quick reply.", "zenks for iór kuík riplái", ""],
       ["Que tenga buen día.", "Have a great day.", "jav a gréit déi", ""],
       ["Saludos cordiales,", "Best regards,", "best rigárds", ""]
@@ -32,20 +32,20 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   w2: {
     v: [
       ["pedido mínimo", "minimum order", "mínimum órder", ""],
-      ["precio por volumen", "volume pricing", "vólium práising", ""],
+      ["precio por volumen", "volume pricing", "válium práising", ""],
       ["condiciones de pago", "payment terms", "péiment terms", ""],
       ["a 30 días", "net 30", "net zérti", "Pago a 30 días."],
       ["factura", "invoice", "ínvois", ""],
       ["anticipo", "down payment", "dáun péiment", ""],
       ["envío incluido", "shipping included", "shíping inclúded", ""],
-      ["¿La cotización incluye el envío?", "Does the quote include shipping?", "das de kuót inclúd shíping", ""],
-      ["¿Cuánto tiempo es válida la cotización?", "How long is the quote valid?", "jáu long is de kuót válid", ""],
+      ["¿La cotización incluye el envío?", "Does the quote include shipping?", "das de kuóut inclúd shíping", ""],
+      ["¿Cuánto tiempo es válida la cotización?", "How long is the quote valid?", "jáu long is de kuóut válid", ""],
       ["Necesitamos 500 piezas.", "We need 500 pieces.", "ui niid fáiv jándred píises", ""],
       ["El pedido está confirmado.", "The order is confirmed.", "di órder is confírmd", ""],
-      ["¿Hay inventario?", "Do you have it in stock?", "du iú jav it in stok", ""],
-      ["Está agotado.", "It's out of stock.", "its áut of stok", ""],
+      ["¿Lo tiene en inventario?", "Do you have it in stock?", "du iú jav it in stak", ""],
+      ["Está agotado.", "It's out of stock.", "its áut of stak", ""],
       ["Le mando la orden de compra hoy.", "I'll send you the PO today.", "ail send iú de pi-óu tudéi", ""],
-      ["¿Cuál es la fecha estimada de entrega?", "What's the estimated delivery date?", "uáts di éstimeited delívery déit", ""]
+      ["¿Cuál es la fecha estimada de entrega?", "What's the estimated delivery date?", "uáts di éstimeited delíveri déit", ""]
     ],
     r: {
       t: "Quote request",
@@ -60,7 +60,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   },
   w3: {
     v: [
-      ["tolerancia", "tolerance", "tólerans", ""],
+      ["tolerancia", "tolerance", "tálerans", ""],
       ["fuera de especificación", "out of spec", "áut of spek", ""],
       ["inspección", "inspection", "inspékshon", ""],
       ["muestra", "sample", "sámpol", ""],
@@ -71,10 +71,10 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Rechazamos el lote.", "We rejected the batch.", "ui riyékted de bach", ""],
       ["Necesitamos un reporte 8D.", "We need an 8D report.", "ui niid an éit-di ripórt", ""],
       ["¿Cuándo pueden reemplazar las piezas?", "When can you replace the parts?", "uén can iú ripléis de parts", ""],
-      ["Adjunto fotos del defecto.", "I'm attaching photos of the defect.", "aim atáching fóutous of de dífect", ""],
+      ["Adjunto fotos del defecto.", "I'm attaching photos of the defect.", "aim atáching fóutous of de díifekt", ""],
       ["Es un problema recurrente.", "It's a recurring issue.", "its a rikéring íshu", ""],
-      ["Vamos a contener el material.", "We're going to quarantine the material.", "uír góuing tu kuórantin de matírial", ""],
-      ["¿Qué van a hacer para que no vuelva a pasar?", "What will you do to prevent it from happening again?", "uát uíl iú du tu privént it from jápening aguén", ""]
+      ["Vamos a contener el material.", "We're going to quarantine the material.", "uír góuing tu kuórantiin de matírial", ""],
+      ["¿Qué van a hacer para que no vuelva a pasar?", "What will you do to prevent it from happening again?", "uát uíl iú du tu privént it fram jápening aguén", ""]
     ],
     r: {
       t: "Quality claim",
@@ -90,7 +90,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   w4: {
     v: [
       ["agenda (de la junta)", "agenda", "ayénda", ""],
-      ["minuta", "meeting minutes", "míting mínits", ""],
+      ["minuta", "meeting minutes", "míiting mínits", ""],
       ["acuerdos", "action items", "ákshon áitems", ""],
       ["responsable", "owner", "óuner", ""],
       ["¿Me escuchan bien?", "Can everyone hear me?", "can évriuan jir mi", ""],
@@ -102,8 +102,8 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Lo vemos fuera de la junta.", "Let's discuss it offline.", "lets diskás it óflain", ""],
       ["Vamos atrasados.", "We're behind schedule.", "uír bijáind skéyul", ""],
       ["Vamos a tiempo.", "We're on track.", "uír on trak", ""],
-      ["¿Quién se encarga de eso?", "Who's going to take care of that?", "jus góuing tu teik ker of dat", ""],
-      ["Agendemos otra junta.", "Let's schedule a follow-up meeting.", "lets skéyul a fálou-ap míting", ""]
+      ["¿Quién se encarga de eso?", "Who's going to take care of that?", "jus góuing tu téik ker of dat", ""],
+      ["Agendemos una junta de seguimiento.", "Let's schedule a follow-up meeting.", "lets skéyul a fálou-ap míiting", ""]
     ],
     r: {
       t: "Meeting minutes",
@@ -121,17 +121,17 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["presupuesto", "budget", "báyet", ""],
       ["cronograma", "schedule", "skéyul", ""],
       ["riesgo", "risk", "risk", ""],
-      ["contrato", "contract", "cóntrakt", ""],
+      ["contrato", "contract", "cántrakt", ""],
       ["proveedor", "supplier", "sapláier", ""],
       ["cliente", "client", "cláient", ""],
       ["arranque del proyecto", "kick-off", "kik-of", ""],
-      ["entregar a tiempo", "deliver on time", "delíver on taim", ""],
+      ["entregar a tiempo", "deliver on time", "delíver on táim", ""],
       ["dentro del presupuesto", "within budget", "uidín báyet", ""],
       ["Necesitamos la aprobación del cliente.", "We need the client's approval.", "ui niid de cláients aprúval", ""],
-      ["El alcance cambió.", "The scope changed.", "de scóup chéinchd", ""],
+      ["El alcance cambió.", "The scope changed.", "de scóup chéinyd", ""],
       ["¿Podemos llegar a un acuerdo?", "Can we reach an agreement?", "can ui riich an agríiment", ""],
       ["Es nuestra mejor oferta.", "That's our best offer.", "dats áuer best ófer", ""],
-      ["Lo tengo que consultar.", "I need to check with my team.", "ai niid tu chek uíz mai tim", ""],
+      ["Lo tengo que consultar con mi equipo.", "I need to check with my team.", "ai niid tu chek uíz mai tiim", ""],
       ["Trato hecho.", "It's a deal.", "its a diil", ""]
     ],
     r: {

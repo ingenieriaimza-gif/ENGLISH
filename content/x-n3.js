@@ -43,7 +43,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["No he dormido bien últimamente.", "I haven't slept well lately.", "", ""],
       ["Llevo años queriendo hacerlo.", "I've wanted to do it for years.", "", ""],
       ["Hace un mes que no llueve.", "It hasn't rained for a month.", "", ""],
-      ["Llevas mucho tiempo esperando?", "Have you been waiting long?", "", ""],
+      ["¿Llevas mucho tiempo esperando?", "Have you been waiting long?", "", ""],
       ["Trabajo aquí desde marzo.", "I've worked here since March.", "", ""],
       ["Hace siglos que no te veo.", "I haven't seen you in ages.", "", ""]
     ],
@@ -73,7 +73,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ya estoy acostumbrado al tráfico.", "I'm used to the traffic now.", "", ""],
       ["Nunca me voy a acostumbrar a esto.", "I'll never get used to this.", "", ""],
       ["En aquel entonces no había celulares.", "Back then, there were no cell phones.", "", ""],
-      ["Cuando era joven", "when I was young", "", ""],
+      ["cuando era joven", "when I was young", "", ""],
       ["Las cosas han cambiado mucho.", "Things have changed a lot.", "", ""]
     ],
     r: {
@@ -157,7 +157,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Quizás.", "Perhaps.", "", "Más formal que maybe."],
       ["Lo más seguro es que sí.", "Most likely, yes.", "", ""],
       ["No es seguro.", "It's not certain.", "", ""],
-      ["Estoy casi seguro.", "I'm pretty sure.", "", ""],
+      ["Estoy bastante seguro.", "I'm pretty sure.", "", ""],
       ["Hay una buena probabilidad.", "There's a good chance.", "", ""],
       ["Puede que no funcione.", "It might not work.", "", ""],
       ["Ya veremos.", "We'll see.", "", ""],
@@ -266,7 +266,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Desde mi punto de vista...", "From my point of view...", "", ""],
       ["Si me preguntas a mí...", "If you ask me...", "", ""],
       ["Hasta cierto punto.", "To some extent.", "", ""],
-      ["Exactamente lo que pienso.", "That's exactly what I think.", "", ""],
+      ["Eso es exactamente lo que pienso.", "That's exactly what I think.", "", ""],
       ["No podría estar más de acuerdo.", "I couldn't agree more.", "", ""],
       ["No lo veo así.", "I don't see it that way.", "", ""],
       ["Me temo que no estoy de acuerdo.", "I'm afraid I disagree.", "", ""],
@@ -274,7 +274,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Eso es cierto, pero...", "That's true, but...", "", ""],
       ["Lo dudo.", "I doubt it.", "", ""],
       ["No es tan simple.", "It's not that simple.", "", ""],
-      ["Tienes un punto.", "You have a point.", "", ""],
+      ["Tienes razón en eso.", "You have a point.", "", ""],
       ["¿Y tú qué piensas?", "How about you?", "", ""],
       ["Prefiero no opinar.", "I'd rather not say.", "", ""],
       ["Cada quien tiene su opinión.", "Everyone is entitled to their opinion.", "", ""]

@@ -5,7 +5,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Me encargué de coordinar a tres áreas.", "I was in charge of coordinating three departments.", "", ""],
       ["Implementé un nuevo sistema de control.", "I implemented a new tracking system.", "", ""],
       ["Superamos la meta en un 20%.", "We exceeded the target by 20%.", "", ""],
-      ["Negocié un contrato de dos millones.", "I negotiated a two-million-dollar contract.", "", ""],
+      ["Negocié un contrato de dos millones de dólares.", "I negotiated a two-million-dollar contract.", "", ""],
       ["Tuve que tomar una decisión difícil.", "I had to make a tough call.", "", ""],
       ["Lo manejé de forma proactiva.", "I handled it proactively.", "", ""],
       ["Recibí un reconocimiento por ese proyecto.", "I was recognized for that project.", "", ""],
@@ -60,7 +60,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   },
   n6u3: {
     v: [
-      ["Te voy a dar autonomía en esto.", "I'm going to give you full autonomy on this.", "", ""],
+      ["Te voy a dar autonomía total en esto.", "I'm going to give you full autonomy on this.", "", ""],
       ["¿Qué necesitas para lograrlo?", "What do you need to make it happen?", "", ""],
       ["Revisemos el avance cada semana.", "Let's check in on progress weekly.", "", ""],
       ["Hay que priorizar.", "We need to prioritize.", "", ""],
@@ -124,7 +124,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Análisis costo-beneficio", "Cost-benefit analysis", "", ""],
       ["Retorno de inversión", "Return on investment (ROI)", "", ""],
       ["Plan de implementación", "Implementation plan", "", ""],
-      ["Indicadores clave", "Key performance indicators (KPIs)", "", ""],
+      ["Indicadores clave de desempeño (KPI)", "Key performance indicators (KPIs)", "", ""],
       ["Supuestos", "Assumptions", "", ""],
       ["Anexo", "Appendix", "", ""],
       ["Se recomienda aprobar la propuesta.", "We recommend approving the proposal.", "", ""],
@@ -206,17 +206,17 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   n6u8: {
     v: [
       ["Estar en la misma sintonía.", "Be on the same page.", "", ""],
-      ["Tener mucho en el plato.", "Have a lot on your plate.", "", ""],
-      ["Hacer un seguimiento.", "Touch base.", "", ""],
+      ["Tener mucho que hacer.", "Have a lot on your plate.", "", ""],
+      ["Ponerse en contacto.", "Touch base.", "", ""],
       ["Ver el panorama completo.", "See the big picture.", "", ""],
       ["Cerrar el trato.", "Seal the deal.", "", ""],
       ["Ir más allá.", "Go the extra mile.", "", ""],
-      ["Mover la aguja.", "Move the needle.", "", "Lograr un impacto real."],
+      ["Lograr un impacto real.", "Move the needle.", "", "Literal: mover la aguja."],
       ["Algo seguro.", "A safe bet.", "", ""],
       ["Un cambio radical.", "A game changer.", "", ""],
       ["Volver a lo básico.", "Back to basics.", "", ""],
       ["Ponerse manos a la obra.", "Roll up your sleeves.", "", ""],
-      ["Aprender sobre la marcha.", "Learn the ropes.", "", ""],
+      ["Aprender lo básico.", "Learn the ropes.", "", ""],
       ["Por encima de lo esperado.", "Above and beyond.", "", ""],
       ["Al pie de la letra.", "By the book.", "", ""],
       ["A largo plazo.", "In the long run.", "", ""]
@@ -245,7 +245,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Para ser breve,...", "To keep it brief,...", "", ""],
       ["No tengo la respuesta exacta, pero...", "I don't have the exact answer, but...", "", ""],
       ["Lo platicamos al final, si gusta.", "Happy to discuss it after the session.", "", ""],
-      ["Ya casi terminamos.", "We're almost out of time.", "", ""],
+      ["Ya casi se nos acaba el tiempo.", "We're almost out of time.", "", ""],
       ["Para cerrar,...", "To close,...", "", ""],
       ["Muchas gracias por su atención.", "Thank you so much for your attention.", "", ""],
       ["Mis datos de contacto están en la última diapositiva.", "My contact details are on the last slide.", "", ""]

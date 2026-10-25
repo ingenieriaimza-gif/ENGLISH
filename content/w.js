@@ -16,12 +16,12 @@
         "!Pedir que repitan no es mala educación. Es mucho peor fingir que entendiste."
       ],
       c: [
-        ["Hola, soy {name|___}, ingeniero de proyectos en ___.", "Hi, I'm {name|___}, project engineer at ___.", "jai, aim {name|___}, próyect enyiníer at ___", "", "w0"],
+        ["Hola, soy {name|___}, ingeniero de proyectos en ___.", "Hi, I'm {name|___}, project engineer at ___.", "jai, aim {name|___}, práyect enyiníer at ___", "", "w0"],
         ["¿Puede repetir, por favor?", "Could you repeat that, please?", "cud iú ripít dat, plís", "", "w1"],
-        ["¿Puede hablar más despacio, por favor?", "Could you speak more slowly, please?", "cud iú spik mor slóu-li, plís", "", "w2"],
+        ["¿Puede hablar más despacio, por favor?", "Could you speak more slowly, please?", "cud iú spiik mor slóu-li, plís", "", "w2"],
         ["Déjeme revisar.", "Let me check.", "let mi chek", "", "w3"],
         ["Un momento, por favor.", "One moment, please.", "uán móument, plís", "", "w4"],
-        ["¿Me lo puede mandar por correo?", "Can you send it to me by email?", "can iú send it tu mi bai iméil", "", "w5"],
+        ["¿Me lo puede mandar por correo?", "Can you send it to me by email?", "can iú send it tu mi bái iméil", "", "w5"],
         ["Le mando un correo.", "I'll send you an email.", "ail send iú an iméil", "", "w6"],
         ["Yo le aviso.", "I'll let you know.", "ail let iú nóu", "", "w7"]
       ],
@@ -45,11 +45,11 @@
         "!quote suena 'kuót', parecido a 'cuota', pero significa cotización."
       ],
       c: [
-        ["¿Nos puede mandar una cotización de...?", "Could you send us a quote for...?", "cud iú send as a kuót for", "quote = cotización (suena a 'cuota')", "w8"],
-        ["¿Cuál es el precio unitario?", "What is the unit price?", "uát is de iúnit prais", "", "w9"],
-        ["¿Cuál es el tiempo de entrega?", "What is the lead time?", "uát is de lid taim", "lead time = tiempo de entrega", "w10"],
-        ["Lo necesitamos para el 15 de noviembre.", "We need it by November 15th.", "ui nid it bai novémber fiftínz", "", "w11"],
-        ["¿Es posible?", "Is that possible?", "is dat pósibol", "", "w12"],
+        ["¿Nos puede mandar una cotización de...?", "Could you send us a quote for...?", "cud iú send as a kuóut for", "quote = cotización (no es «cuota»)", "w8"],
+        ["¿Cuál es el precio unitario?", "What is the unit price?", "uát is de iúnit práis", "", "w9"],
+        ["¿Cuál es el tiempo de entrega?", "What is the lead time?", "uát is de liid táim", "lead time = tiempo de entrega", "w10"],
+        ["Lo necesitamos para el 15 de noviembre.", "We need it by November 15th.", "ui niid it bái nouvémber fiftínz", "", "w11"],
+        ["¿Es posible?", "Is that possible?", "is dat pásibol", "", "w12"],
         ["Le doy seguimiento a la orden de compra.", "I'm following up on the purchase order.", "aim fálouing ap on de pérches órder", "PO = purchase order", "w13"],
         ["¿Cuándo se envía?", "When will it ship?", "uén uil it ship", "", "w14"],
         ["¿Me puede mandar el número de rastreo?", "Can you send me the tracking number?", "can iú send mi de tráking námber", "", "w15"]
@@ -74,21 +74,21 @@
       ],
       c: [
         ["¿Cumple con las especificaciones?", "Does it meet the specifications?", "das it mit de spesifikéishons", "", "w16"],
-        ["Por favor mande la ficha técnica.", "Please send the datasheet.", "plís send de déita-shit", "", "w17"],
+        ["Por favor mande la ficha técnica.", "Please send the datasheet.", "plís send de déita-shiit", "", "w17"],
         ["Por favor mande los planos.", "Please send the drawings.", "plís send de dróings", "", "w18"],
-        ["Necesitamos el certificado.", "We need the certificate.", "ui nid de sertífiket", "", "w19"],
-        ["Recibimos el material.", "We received the material.", "ui risívd de matírial", "", "w20"],
-        ["Hay un retraso con el envío.", "There's a delay with the shipment.", "ders a diléi uiz de shípment", "", "w21"],
-        ["Hay un problema con la pieza.", "There's an issue with the part.", "ders an íshu uiz de part", "", "w22"],
+        ["Necesitamos el certificado.", "We need the certificate.", "ui niid de sertífiket", "", "w19"],
+        ["Recibimos el material.", "We received the material.", "ui risiivd de matírial", "", "w20"],
+        ["Hay un retraso con el envío.", "There's a delay with the shipment.", "ders a diléi uíz de shípment", "", "w21"],
+        ["Hay un problema con la pieza.", "There's an issue with the part.", "ders an íshu uíz de part", "", "w22"],
         ["La pieza no encaja.", "The part doesn't fit.", "de part dásent fit", "", "w23"],
-        ["Encontramos un defecto.", "We found a defect.", "ui fáund a dífect", "", "w24"],
+        ["Encontramos un defecto.", "We found a defect.", "ui fáund a díifekt", "", "w24"],
         ["¿Cuál es la causa raíz?", "What's the root cause?", "uáts de rut cos", "", "w25"],
         ["¿Cuál es la acción correctiva?", "What's the corrective action?", "uáts de coréctiv ákshon", "", "w26"]
       ],
       d: [
         ["A", "Hi {name|Carlos}, did you receive the parts?", "Hola {name|Carlos}, ¿recibiste las piezas?"],
         ["B", "Yes, we received the material, but there's an issue with the part.", "Sí, recibimos el material, pero hay un problema con la pieza."],
-        ["A", "Oh no. What's the problem?", "¿Qué pasó?"],
+        ["A", "Oh no. What's the problem?", "¡Ay, no! ¿Cuál es el problema?"],
         ["B", "The part doesn't fit. We found a defect in the thread.", "La pieza no encaja. Encontramos un defecto en la cuerda."],
         ["A", "I'm sorry. We'll check it today.", "Lo siento. Lo revisamos hoy."],
         ["B", "Thanks. What's the corrective action?", "Gracias. ¿Cuál es la acción correctiva?"]
@@ -105,12 +105,12 @@
       ],
       c: [
         ["Solo para confirmar, ¿dice que...?", "Just to confirm, you're saying that...?", "yast tu confírm, iúr séying dat", "", "w27"],
-        ["¿Puede compartir su pantalla?", "Can you share your screen?", "can iú sher iór scrin", "", "w28"],
-        ["Revisemos el estatus del proyecto.", "Let's go over the project status.", "lets góu óuver de próyect stéitus", "", "w29"],
+        ["¿Puede compartir su pantalla?", "Can you share your screen?", "can iú sher iór scriin", "", "w28"],
+        ["Revisemos el estatus del proyecto.", "Let's go over the project status.", "lets góu óuver de práyect stéitus", "", "w29"],
         ["Siguiente punto.", "Next point.", "nekst póint", "", "w30"],
         ["Los siguientes pasos son...", "The next steps are...", "de nekst steps ar", "", "w31"],
         ["Le mando un resumen.", "I'll send you a summary.", "ail send iú a sámari", "", "w32"],
-        ["Gracias por conectarse.", "Thanks for joining.", "zanks for yóining", "", "w33"]
+        ["Gracias por conectarse.", "Thanks for joining.", "zenks for yóining", "", "w33"]
       ],
       d: [
         ["A", "Okay, everyone is here.", "Bien, ya estamos todos."],
@@ -136,12 +136,12 @@
         ["alcance", "scope", "scóup", "That's out of scope.", "w36"],
         ["entregables", "deliverables", "delívarabols", "What are the deliverables?", "w37"],
         ["hito", "milestone", "máilstoun", "We reached the first milestone.", "w38"],
-        ["envío", "shipment", "shípment", "'ship' = barco que trae tu pedido", "w39"],
-        ["¿Hay descuento por volumen?", "Is there a discount for volume?", "is der a díscaunt for vólium", "", "w40"],
-        ["¿Puede mejorar el precio?", "Can you improve the price?", "can iú imprúv de prais", "", "w41"],
+        ["envío", "shipment", "shípment", "ship = enviar; shipment = el envío", "w39"],
+        ["¿Hay descuento por volumen?", "Is there a discount for volume?", "is der a díscaunt for válium", "", "w40"],
+        ["¿Puede mejorar el precio?", "Can you improve the price?", "can iú imprúv de práis", "", "w41"],
         ["¿Puede entregar antes?", "Can you deliver earlier?", "can iú delíver érlier", "", "w42"],
-        ["Eso nos funciona.", "That works for us.", "dat uórks for as", "", "w43"],
-        ["No hay problema, yo me encargo.", "No problem, I'll take care of it.", "nóu próblem, ail teik ker of it", "", "w44"]
+        ["Eso nos funciona.", "That works for us.", "dat uérks for as", "", "w43"],
+        ["No hay problema, yo me encargo.", "No problem, I'll take care of it.", "nóu práblem, ail téik ker of it", "", "w44"]
       ],
       d: [
         ["A", "Here's our quote. The unit price is twelve dollars.", "Aquí está nuestra cotización. El precio unitario es de doce dólares."],

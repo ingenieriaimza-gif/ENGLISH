@@ -59,7 +59,7 @@
         "!Exagera los sonidos al practicar. Al principio se siente raro: es normal."
       ],
       c: [
-        ["gracias", "thank you", "zénk iu", "TH: lengua entre los dientes."],
+        ["gracias", "thank you", "zénk iú", "TH: lengua entre los dientes."],
         ["tres", "three", "zri", "TH + R."],
         ["pensar", "think", "zink", ""],
         ["madre", "mother", "máder", "TH suave, casi como una d."],
@@ -104,7 +104,7 @@
         ["🟣 morado", "purple", "pérpol", ""],
         ["🟤 café", "brown", "bráun", ""],
         ["gris", "gray", "gréi", ""],
-        ["¿De qué color es?", "What color is it?", "uát cólor is it", ""]
+        ["¿De qué color es?", "What color is it?", "uát cálor is it", ""]
       ],
       d: [
         ["A", "What color is your car?", "¿De qué color es tu carro?"],
@@ -204,13 +204,13 @@
         ["brazo", "arm", "arm", ""],
         ["pierna", "leg", "leg", ""],
         ["pies", "feet", "fiit", "Singular: foot."],
-        ["estómago", "stomach", "stómak", ""],
+        ["estómago", "stomach", "stámak", ""],
         ["Me duele la mano.", "My hand hurts.", "mai jand jerts", ""]
       ],
       d: [
         ["A", "Are you okay?", "¿Estás bien?"],
         ["B", "No. My head hurts.", "No. Me duele la cabeza."],
-        ["A", "Oh no! Do you need water?", "¡No! ¿Necesitas agua?"],
+        ["A", "Oh no! Do you need water?", "¡Ay, no! ¿Necesitas agua?"],
         ["B", "Yes, please.", "Sí, por favor."],
         ["A", "Here you go.", "Aquí tienes."],
         ["B", "Thank you.", "Gracias."]
@@ -226,7 +226,7 @@
         "!parents = papás (mamá y papá juntos). No significa 'parientes'; eso es relatives."
       ],
       c: [
-        ["mamá", "mom", "mom", ""],
+        ["mamá", "mom", "mam", ""],
         ["papá", "dad", "dad", ""],
         ["papás (los dos)", "parents", "pérents", "No es 'parientes'."],
         ["hermano", "brother", "bráder", ""],
@@ -237,7 +237,7 @@
         ["tío", "uncle", "ánkol", ""],
         ["tía", "aunt", "ant", ""],
         ["primo, prima", "cousin", "cásen", "Igual para hombre y mujer."],
-        ["Esta es mi mamá.", "This is my mom.", "dis is mai mom", ""]
+        ["Esta es mi mamá.", "This is my mom.", "dis is mai mam", ""]
       ],
       d: [
         ["A", "Who is she?", "¿Quién es ella?"],
@@ -266,7 +266,7 @@
         ["🥚 huevo", "egg", "eg", ""],
         ["🧀 queso", "cheese", "chiis", ""],
         ["🥛 leche", "milk", "milk", ""],
-        ["💧 agua", "water", "uóter", "En EE. UU. suena casi 'uárer'."],
+        ["💧 agua", "water", "uáter", "En EE. UU. suena casi 'uárer'."],
         ["🍚 arroz", "rice", "ráis", ""],
         ["🍗 pollo", "chicken", "chíken", ""],
         ["Me gustan las manzanas.", "I like apples.", "ai láik ápols", ""],
@@ -291,14 +291,14 @@
         "!pants en EE. UU. = pantalones. shoes = zapatos; sneakers = tenis."
       ],
       c: [
-        ["👕 camiseta", "T-shirt", "tí-shert", ""],
+        ["👕 playera", "T-shirt", "tí-shert", ""],
         ["camisa", "shirt", "shert", ""],
         ["👖 pantalón", "pants", "pants", "Siempre en plural."],
         ["👗 vestido", "dress", "dres", ""],
         ["falda", "skirt", "skert", ""],
         ["👟 tenis", "sneakers", "sníkers", ""],
         ["👞 zapatos", "shoes", "shus", ""],
-        ["🧦 calcetines", "socks", "soks", ""],
+        ["🧦 calcetines", "socks", "saks", ""],
         ["🧢 gorra", "cap", "kap", ""],
         ["🧥 chamarra", "jacket", "yáket", ""],
         ["👓 lentes", "glasses", "gláses", ""],
@@ -376,7 +376,7 @@
         ["A", "Do you read?", "¿Lees?"],
         ["B", "Yes, I read at night.", "Sí, leo en la noche."],
         ["A", "Can you swim?", "¿Sabes nadar?"],
-        ["B", "Yes, I can.", "Sí."]
+        ["B", "Yes, I can.", "Sí, sí sé."]
       ]
     },
     {
@@ -397,8 +397,8 @@
         ["🤒 enfermo", "sick", "sik", ""],
         ["😑 aburrido", "bored", "bord", ""],
         ["😳 nervioso", "nervous", "nérvos", ""],
-        ["🥶 tengo frío", "I'm cold.", "aim cóuld", ""],
-        ["🥵 tengo calor", "I'm hot.", "aim jat", ""],
+        ["🥶 Tengo frío.", "I'm cold.", "aim cóuld", ""],
+        ["🥵 Tengo calor.", "I'm hot.", "aim jat", ""],
         ["Estoy muy feliz.", "I'm very happy.", "aim véri jápi", ""],
         ["¿Estás bien?", "Are you okay?", "ar iú okéi", ""]
       ],
@@ -424,7 +424,7 @@
       c: [
         ["grande / pequeño", "big / small", "big / smol", ""],
         ["caliente / frío", "hot / cold", "jat / cóuld", ""],
-        ["nuevo / viejo", "new / old", "niú / óuld", ""],
+        ["nuevo / viejo", "new / old", "nu / óuld", ""],
         ["rápido / lento", "fast / slow", "fast / slóu", ""],
         ["bueno / malo", "good / bad", "gud / bad", ""],
         ["alto / bajo", "tall / short", "tol / short", ""],
@@ -433,7 +433,7 @@
         ["limpio / sucio", "clean / dirty", "cliin / dérti", ""],
         ["fácil / difícil", "easy / difficult", "íisi / dífikolt", ""],
         ["Mi casa es pequeña.", "My house is small.", "mai jáus is smol", ""],
-        ["El café está caliente.", "The coffee is hot.", "de cófi is jat", ""]
+        ["El café está caliente.", "The coffee is hot.", "de káfi is jat", ""]
       ],
       d: [
         ["A", "Is your house big?", "¿Tu casa es grande?"],

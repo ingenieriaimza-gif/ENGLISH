@@ -89,7 +89,7 @@
         ["La gente suele llegar tarde.", "People tend to arrive late.", "", ""],
         ["No estoy del todo convencido.", "I'm not entirely convinced.", "", ""],
         ["Puede que se retrase.", "It might be delayed.", "", ""],
-        ["Entiendo de dónde vienes, pero...", "I see where you're coming from, but...", "", ""],
+        ["Entiendo tu punto de vista, pero...", "I see where you're coming from, but...", "", ""],
         ["Para ser honesto, no me encanta.", "To be honest, I'm not a big fan.", "", ""],
         ["Sería mejor revisarlo otra vez.", "It might be better to review it again.", "", ""],
         ["Hasta donde sé, sí.", "As far as I know, yes.", "", ""],
@@ -175,13 +175,13 @@
       goal: "Dirigir una junta o dar una presentación de principio a fin.",
       g: [
         "Estructura de una buena presentación: objetivo → puntos → preguntas → resumen y siguientes pasos.",
-        ["Let's get started. · The goal of today's meeting is… · Let's move on to…", "Empecemos. · El objetivo de hoy es… · Pasemos a…"],
+        ["Let's get started. · The goal of today's meeting is… · Let's move on to…", "Empecemos. · El objetivo de la junta de hoy es… · Pasemos a…"],
         "Si no sabes una respuesta, no inventes: Let me look into it and get back to you.",
         "!item = punto de la agenda. action items = tareas acordadas con responsable."
       ],
       c: [
         ["Empecemos.", "Let's get started.", "", ""],
-        ["El objetivo de hoy es acordar el calendario.", "The goal of today's meeting is to agree on the schedule.", "", ""],
+        ["El objetivo de la junta de hoy es acordar el calendario.", "The goal of today's meeting is to agree on the schedule.", "", ""],
         ["Como pueden ver en esta gráfica, las ventas subieron.", "As you can see in this chart, sales went up.", "", ""],
         ["Pasemos al siguiente punto.", "Let's move on to the next item.", "", ""],
         ["¿Alguien tiene preguntas?", "Does anyone have any questions?", "", ""],
@@ -195,7 +195,7 @@
       ],
       d: [
         ["A", "Okay, everyone is here.", "Bien, ya estamos todos."],
-        ["B", "Let's get started. The goal of today's meeting is to agree on the schedule.", "Empecemos. El objetivo de hoy es acordar el calendario."],
+        ["B", "Let's get started. The goal of today's meeting is to agree on the schedule.", "Empecemos. El objetivo de la junta de hoy es acordar el calendario."],
         ["A", "Will the new machine arrive in March?", "¿La máquina nueva llega en marzo?"],
         ["B", "That's a good question. Let me look into it and get back to you.", "Buena pregunta. Lo reviso y te contesto."],
         ["A", "Perfect. We're running out of time.", "Perfecto. Se nos acaba el tiempo."],
@@ -275,14 +275,14 @@
       goal: "Usar estructuras elegantes de discursos, reportes y presentaciones.",
       g: [
         "En inglés formal, algunas expresiones negativas al inicio invierten el orden (como una pregunta):",
-        ["Never have I seen such results.", "Nunca había visto resultados así."],
+        ["Never have I seen such results.", "Nunca he visto resultados así."],
         ["Not only did we meet the goal, but we also exceeded it.", "No solo cumplimos la meta, sino que la superamos."],
         "Otras: Rarely… · Under no circumstances… · Only then… · Hardly had… when…",
         "Condicionales formales sin if: Should you need help… (Si necesita ayuda…) · Had I known… (Si hubiera sabido…).",
         "!Úsalas con moderación: en una plática normal suenan exageradas; en un discurso suenan profesionales."
       ],
       c: [
-        ["Nunca había visto resultados así.", "Never have I seen such results.", "", ""],
+        ["Nunca he visto resultados así.", "Never have I seen such results.", "", ""],
         ["No solo cumplimos la meta, sino que la superamos.", "Not only did we meet the goal, but we also exceeded it.", "", ""],
         ["Rara vez cometemos ese tipo de errores.", "Rarely do we make that kind of mistake.", "", ""],
         ["Bajo ninguna circunstancia abra esta puerta.", "Under no circumstances should you open this door.", "", ""],
@@ -354,7 +354,7 @@
         ["Un ejemplo claro de esto es...", "A clear example of this is...", "", ""],
         ["Esto demuestra que...", "This shows that...", "", ""],
         ["Cabe mencionar que...", "It is worth mentioning that...", "", ""],
-        ["Desde mi punto de vista, los beneficios son mayores.", "From my point of view, the benefits outweigh the costs.", "", ""],
+        ["Desde mi punto de vista, los beneficios superan los costos.", "From my point of view, the benefits outweigh the costs.", "", ""],
         ["Para concluir, la propuesta es viable.", "To conclude, the proposal is feasible.", "", ""],
         ["En resumen, se necesitan más estudios.", "In summary, further research is needed.", "", ""],
         ["Tomando todo en cuenta, recomiendo la opción B.", "All things considered, I recommend option B.", "", ""]
@@ -379,7 +379,7 @@
         "!Entiende estas formas para comprender series y pláticas, pero úsalas solo con confianza. En el trabajo formal, mejor evítalas."
       ],
       c: [
-        ["Voy a ir.", "I'm gonna go.", "", "gonna = going to"],
+        ["Me voy a ir.", "I'm gonna go.", "", "gonna = going to"],
         ["¿Quieres ir por algo de comer?", "Wanna grab something to eat?", "", "wanna = want to"],
         ["Me tengo que ir.", "I gotta go.", "", "gotta = have got to"],
         ["Me apunto.", "I'm down.", "", ""],

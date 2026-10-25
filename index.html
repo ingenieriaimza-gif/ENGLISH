@@ -566,6 +566,20 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     </div>
 
     <div class="card">
+      <h3>Cómo leer la pronunciación</h3>
+      <p>Hasta Secundaria, cada frase trae cómo se pronuncia, escrito para leerlo en español. Es una ayuda: lo que manda es el audio, que es inglés de Estados Unidos.</p>
+      <ul>
+        <li><strong>El acento</strong> marca dónde va la fuerza: <em>afternún</em> (afternoon), <em>tumárou</em> (tomorrow).</li>
+        <li><strong>ii, uu</strong> = vocal larga: <em>iit</em> (eat) no suena igual que <em>it</em> (it), ni <em>shiip</em> (sheep) igual que <em>ship</em>.</li>
+        <li><strong>z</strong> en palabras con TH: la punta de la lengua entre los dientes y soplas (<em>zenks</em>, thanks; <em>zri</em>, three). La <strong>d</strong> de <em>de, dis, dat</em> (the, this, that) es suave, también con la lengua entre los dientes.</li>
+        <li><strong>j</strong> = una h suave, como un suspiro: <em>jáu</em> (how). No es la j fuerte del español.</li>
+        <li><strong>y</strong> = el sonido de la J y la G inglesas: <em>yab</em> (job), <em>yus</em> (juice).</li>
+        <li><strong>v</strong> = los dientes de arriba tocan el labio de abajo; no es igual a la b.</li>
+        <li>En inglés americano, la <strong>o</strong> de muchas palabras suena como <strong>a</strong>: <em>nat</em> (not), <em>jat</em> (hot), <em>káfi</em> (coffee).</li>
+      </ul>
+    </div>
+
+    <div class="card">
       <h3>Tu rutina diaria</h3>
       <ol>
         <li><strong>Repaso (5–10 min).</strong> La app te muestra las frases que estás por olvidar. Hazlo primero, todos los días: es lo que hace que se te queden para siempre.</li>
@@ -694,8 +708,20 @@ COURSE.forEach((lv, li) => {
    Antes de las frases nuevas se enseñan las palabras que traen (qué significan y cómo suenan) y se preguntan.
    WORDS (content/words.js): palabra → significado. En cada frase: c.ws = palabras que se enseñan antes de ella
    (si la frase es una sola palabra, como "red", ella misma la enseña: c.sw). u.words = palabras que aparecen por primera vez en la unidad. */
-const WORDS = window.WORDS || {};
+// Palabras y expresiones de varias palabras (get up = levantarse, how much = cuánto), todo en un mismo diccionario
+const WORDS = Object.assign({}, window.WORDS || {}, window.PHRASES || {});
+const PHRMAX = Math.max(1, ...Object.keys(window.PHRASES || {}).map(k => k.split(" ").length));
 const tokW = t => (String(t).replace(/[’`´]/g, "'").replace(/\b(?:[A-Za-z]-)+[A-Za-z]\b/g, " ").match(/[A-Za-zÀ-ÿ]+(?:'[A-Za-zÀ-ÿ]+)?/g) || []).map(w => w.toLowerCase());
+// Junta las palabras que forman una expresión (get + up → "get up"): la más larga que empiece en cada lugar
+function groupW(ws) {
+  const out = [];
+  for (let i = 0; i < ws.length; i++) {
+    let L = 0;
+    for (let n = Math.min(PHRMAX, ws.length - i); n >= 2; n--) if (WORDS[ws.slice(i, i + n).join(" ")]) { L = n; break; }
+    if (L) { out.push(ws.slice(i, i + L).join(" ")); i += L - 1; } else out.push(ws[i]);
+  }
+  return out;
+}
 const SOLO = {}, WCARDS = {}, FIRSTU = {};
 // Palabras que se dicen igual en español (sushi, hotel, ideal): no hace falta enseñarlas
 const sameW = w => WORDS[w].replace(/\([^)]*\)/g, "").split(/[\/,;]/).some(p => p.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "") === w);
@@ -703,7 +729,8 @@ UNITS.forEach(u => u.words = []);
 // Cómo se escribe cada palabra: si nunca sale en minúsculas y a media frase va con mayúscula (I, Monday, English, HR), se muestra así
 const WLOW = {}, WFORM = {};
 const CAPW = /^(monday|tuesday|wednesday|thursday|friday|saturday|sunday|january|february|march|april|may|june|july|august|september|october|november|december)$/;
-const wDisp = w => WLOW[w] ? w : WFORM[w] || (CAPW.test(w) ? w[0].toUpperCase() + w.slice(1) : w);
+const wDisp1 = w => WLOW[w] ? w : WFORM[w] || (CAPW.test(w) ? w[0].toUpperCase() + w.slice(1) : w);
+const wDisp = w => String(w).split(" ").map(wDisp1).join(" ");
 CARDS.forEach(c => {
   const raw = (c.T ? defFill(c.T.en) : c.en).replace(/[’`´]/g, "'");
   for (const m of raw.matchAll(/[A-Za-zÀ-ÿ]+(?:'[A-Za-zÀ-ÿ]+)?/g)) {
@@ -712,8 +739,8 @@ CARDS.forEach(c => {
   }
   let all = tokW(raw);
   if (all.every(w => w.length === 1)) all = []; // letras sueltas (A, B, C), no palabras
-  const ws = [...new Set(all)].filter(w => WORDS[w] && !sameW(w));
-  c.sw = all.length === 1 && ws.length ? ws[0] : "";
+  const keys = groupW(all), ws = [...new Set(keys)].filter(w => WORDS[w] && !sameW(w));
+  c.sw = keys.length === 1 && ws.length ? ws[0] : ""; // la frase es una sola palabra o expresión: ella misma la enseña
   c.ws = c.sw ? [] : ws;
   if (c.sw) (SOLO[c.sw] = SOLO[c.sw] || []).push(c);
   ws.forEach(w => (WCARDS[w] = WCARDS[w] || []).push(c));
@@ -912,12 +939,13 @@ function ttsWord(text, ci) {
 }
 // Frase en inglés con cada palabra marcable mientras se oye (y sin cortar palabras como G-E-R-A-R-D-O)
 function speakSpans(text) {
-  const spoken = clean(text); let at = 0;
+  const spoken = clean(text); let at = 0, k = 0;
   return text.split(/(\s+)/).map(w => {
     if (!w.trim()) return w;
     const cw = clean(w).trim(), i = cw ? spoken.indexOf(cw, at) : -1, c = i < 0 ? at : i;
     if (i >= 0) at = i + cw.length;
-    return `<span class="w${tokW(w).some(x => WORDS[x]) ? " t" : ""}" data-c="${c}">${esc(w)}</span>`; // .t: se puede tocar para ver qué significa
+    const ws = tokW(w); // .t: se puede tocar para ver qué significa; data-k: su lugar en la frase (para saber qué significa ahí)
+    return `<span class="w${ws.some(x => WORDS[x]) ? " t" : ""}"${ws.length ? ` data-k="${k++}"` : ""} data-c="${c}">${esc(w)}</span>`;
   }).join("");
 }
 function say(text, o) {
@@ -1689,7 +1717,7 @@ function itemHTML(c, showUnit) {
 let showEs = false;
 let showRd = false;
 // Texto en inglés donde cada palabra se puede tocar para ver qué significa
-const tapW = t => String(t).split(/([A-Za-zÀ-ÿ]+(?:['’][A-Za-zÀ-ÿ]+)?)/).map((p, i) => i % 2 && WORDS[p.replace(/’/g, "'").toLowerCase()] ? `<span class="w t">${esc(p)}</span>` : esc(p)).join("");
+const tapW = t => { let k = 0; return `<span class="tw" data-tx="${esc(t)}">${String(t).split(/(\s+)/).map(p => { const ws = tokW(p); if (!ws.length) return esc(p); const i = k++; return ws.some(x => WORDS[x]) ? `<span class="w t" data-k="${i}">${esc(p)}</span>` : esc(p); }).join("")}</span>`; };
 // Párrafos de una lectura (en inglés, con palabras que se pueden tocar)
 const paras = (t, en) => t.split(/\n+/).map(x => `<p>${en ? tapW(x) : esc(x)}</p>`).join("");
 function renderUnit(u) {
@@ -2013,7 +2041,7 @@ const playPair = en => `<button class="btn speak" type="button" data-say="${esc(
 // Tarjeta de la frase: español arriba, inglés grande, pronunciación y botones para oírla
 function plate(c, o) {
   o = o || {};
-  return `<div class="plate" data-text="${esc(c.en)}">${c.em ? `<div class="pic${c.emC}" aria-hidden="true">${c.em}</div>` : ""}<div class="pen${o.md ? " md" : ""}">${speakSpans(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}${o.noEs ? "" : `<div class="pmean"><span class="eq" aria-hidden="true">=</span>${escN(c.es)}</div>`}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+  return `<div class="plate" data-text="${esc(c.en)}" data-id="${esc(c.id)}">${c.em ? `<div class="pic${c.emC}" aria-hidden="true">${c.em}</div>` : ""}<div class="pen${o.md ? " md" : ""}">${speakSpans(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}${o.noEs ? "" : `<div class="pmean"><span class="eq" aria-hidden="true">=</span>${escN(c.es)}</div>`}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
 }
 // Resultado en la barra de acción (verde o rojo) con el botón para seguir
 function band(ok, idk, title, body, en, nextId) {
@@ -2024,23 +2052,83 @@ function band(ok, idk, title, body, en, nextId) {
   const b = $("#" + id); b.onclick = nextStep; b.focus({ preventScroll: true });
 }
 const comboTag = () => SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : "";
-/* ---------- significado de las palabras ---------- */
-// De un significado con varias opciones ("todavía / ya (en preguntas)") elige la que aparece en la traducción de la frase
-function fitGloss(g, es) {
-  const alts = g.split(" / "); if (alts.length < 2 || !es) return g;
-  const E = " " + es.toLowerCase().replace(/[¿?¡!.,;:()"«»…]/g, " ").replace(/\s+/g, " ") + " ";
+/* ---------- qué significa cada palabra DENTRO de su frase ----------
+   El diccionario trae todos los significados de una palabra; aquí se elige el que corresponde en la frase:
+   - expresiones de varias palabras van juntas: get up = levantarse, how much = cuánto, there is = hay
+   - auxiliares que no se traducen: do/does/did al preguntar (How do you spell it?), do not = no
+   - have/has/had + participio = he/ha/había; «to» antes de un verbo (want to go = querer ir); «it» como sujeto (It's cold)
+   - si una palabra tiene varios significados, el que aparece en la traducción (también conjugado: gustar → gusta) */
+const gparts = g => g.replace(/\([^)]*\)/g, "").toLowerCase().split(/[\/,;]/).map(x => x.trim()).filter(Boolean);
+const normEs = t => " " + String(t).toLowerCase().replace(/[¿?¡!.,;:()"«»…]/g, " ").replace(/\s+/g, " ") + " ";
+function fitGlossM(g, es) {
+  const alts = g.split(" / ");
+  if (!es) return { g, hit: false };
+  const E = normEs(es), Ew = E.trim().split(" ");
   const core = a => a.replace(/\([^)]*\)/g, "").toLowerCase().split(/[,;]/).map(x => x.trim()).filter(Boolean);
-  return alts.find(a => core(a).some(k => E.includes(" " + k + " "))) || alts[0];
+  let a = alts.find(x => core(x).some(k => E.includes(" " + k + " ")));
+  if (!a) a = alts.find(x => core(x).some(k => k.split(" ").some(part => { const st = part.replace(/(arse|erse|irse|ar|er|ir)$/, ""); return st.length >= 3 && Ew.some(y => y.startsWith(st)); })));
+  return a ? { g: a.trim(), hit: true } : { g: alts.length > 1 ? alts[0].trim() : g, hit: false };
 }
-const tokGloss = (tok, es) => tokW(tok).filter(w => WORDS[w]).map(w => fitGloss(WORDS[w], es)).join(" + ");
-// Cuando fallas una frase: qué significa cada palabra
+const fitGloss = (g, es) => fitGlossM(g, es).g;
+const bandG = g => g.replace(/\s*\([^)]*=[^)]*\)/g, "").trim(); // sin los ejemplos de uso: "(turn on = prender)"
+// Los pedazos de una frase separados por espacios que tienen palabras (en el mismo orden que data-k)
+const chunksOf = t => String(t).replace(/[’`´]/g, "'").split(/\s+/).filter(x => tokW(x).length);
+const cleanTok = t => t.replace(/^[¿¡"«(]+|[")»:;,.!?…]+$/g, "");
+const AUXS = new Set("is was are were am will would can could might must should may has had have does did do isn't wasn't aren't weren't won't wouldn't can't couldn't doesn't didn't hasn't haven't".split(" "));
+const SUBJ = new Set("i you he she it we they this that these those the a an my your his her its our their any some anyone anybody someone somebody everyone everybody people there".split(" "));
+const IT_V = new Set("is was will would can could might must should may has had isn't wasn't won't doesn't didn't wouldn't can't couldn't depends rains looks seems takes costs works makes feels sounds happens means starts opens closes says gets goes comes hurts fits snows rained started happened turned broke arrived took cost got went came".split(" "));
+const BE_W = new Set("am is are was were be been being i'm you're he's she's it's we're they're that's get gets got getting".split(" "));
+const ADV_W = new Set("never ever already just not recently always also finally still".split(" "));
+const IRR_PP = new Set("been gone done seen eaten taken made had known given written spoken forgotten gotten got lost found bought brought thought told said left met read heard felt kept slept sold sent spent won worn broken chosen driven flown grown hidden ridden stolen thrown woken begun drunk rung sung swum run come become cut put set hit hurt let quit shut understood stood taught caught fought built lent meant paid laid held fed led hung stuck sat shot fallen forgiven drawn shown torn".split(" "));
+const isPP = w => IRR_PP.has(w) || (w.length >= 5 && /ed$/.test(w));
+const verbish = w => !!WORDS[w] && gparts(WORDS[w]).some(p => /^[a-záéíóúñ]*(ar|er|ir|ír)(se)?$/.test(p.split(" ")[0]));
+// [{k0, k1, t, g, ctx}]: k0–k1 = pedazos que abarca, t = texto, g = qué significa aquí, ctx = depende de la frase
+function ctxItems(text, es) {
+  const ch = chunksOf(text), W = [], out = [];
+  ch.forEach((raw, k) => tokW(raw).forEach(w => W.push({ w, k, cap: /^[¿¡"«(]*[A-Z]/.test(raw) })));
+  const qAt = k => { for (let j = k; j < ch.length; j++) { const m = ch[j].match(/([.!?])["')»]*$/); if (m) return m[1] === "?"; } return /\?\s*["')»]*$/.test(text); };
+  const add = (i0, i1, g, ctx) => {
+    const k0 = W[i0].k, k1 = W[i1].k, last = out[out.length - 1];
+    if (last && k0 <= last.k1) { last.g += " + " + g; last.k1 = Math.max(last.k1, k1); last.ctx = last.ctx || ctx; last.t = ch.slice(last.k0, last.k1 + 1).map(cleanTok).join(" "); return; }
+    out.push({ k0, k1, t: ch.slice(k0, k1 + 1).map(cleanTok).join(" "), g, ctx });
+  };
+  // la expresión más larga que empieza en j (o la palabra sola)
+  const keyAt = j => { for (let n = Math.min(PHRMAX, W.length - j); n >= 2; n--) { const k = W.slice(j, j + n).map(x => x.w).join(" "); if (WORDS[k]) return k; } return W[j] ? W[j].w : ""; };
+  for (let i = 0; i < W.length; i++) {
+    const w = W[i].w, nx = W[i + 1] && W[i + 1].w, pv = W[i - 1] && W[i - 1].w, q = qAt(W[i].k);
+    const kk = keyAt(i), L = kk.includes(" ") ? kk.split(" ").length : 0;
+    if (L) {
+      const key = kk;
+      let g = bandG(fitGloss(WORDS[key], es));
+      if (/^(used|use) to$/.test(key) && BE_W.has(pv)) g = "acostumbrado a";
+      add(i, i + L - 1, g, true); i += L - 1; continue;
+    }
+    if (!WORDS[w]) continue;
+    let g = "";
+    if (/^(do|does|did)$/.test(w)) {
+      if (nx === "not") { add(i, i + 1, w === "did" ? "no (en pasado)" : "no", true); i++; continue; }
+      g = q && (SUBJ.has(nx) || (W[i + 1] && W[i + 1].cap)) ? (w === "did" ? "auxiliar para preguntar en pasado: no se traduce" : "auxiliar para preguntar: no se traduce") : { do: "hacer", does: "hace", did: "hizo, hice" }[w];
+    } else if (/^(have|has|had)$/.test(w)) {
+      const inv = q && SUBJ.has(nx); let j = i + (inv ? 2 : 1);
+      while (W[j] && ADV_W.has(W[j].w)) j++;
+      if (W[j] && isPP(W[j].w)) g = w === "had" ? "había (+ participio)" : w === "has" ? "ha (+ participio)" : (({ i: "he", you: "has", we: "hemos", they: "han" })[inv ? nx : pv] || "he, has, han") + " (+ participio)";
+      else if (w === "had") g = "tuve, tenía";
+    } else if (w === "to") {
+      // antes de un verbo (want to go = querer ir) no se traduce, salvo que en español diga «para»
+      g = nx && verbish(keyAt(i + 1)) ? (normEs(es).includes(" para ") ? "para" : "antes de un verbo: no se traduce") : fitGloss("a / para", es);
+    } else if (w === "it") g = IT_V.has(nx) || (q && AUXS.has(pv)) ? "sujeto: no se traduce" : "lo, la";
+    else if (w === "there") g = "ahí, allá";
+    else if (w === "will") g = "para el futuro (no se traduce sola)";
+    add(i, i, g || bandG(fitGloss(WORDS[w], es)), !!g);
+  }
+  return out;
+}
+// Cuando fallas una frase: qué significa cada palabra (o expresión) en esa frase
 function wbwHTML(c) {
-  const out = [], used = new Set();
-  words(c.en).forEach(t => { const k = t.toLowerCase(), g = tokGloss(t, c.es); if (g && !used.has(k)) { used.add(k); out.push([t.replace(/^[¿¡"«(]+|[")»:]+$/g, ""), g]); } });
-  return out.length < 2 ? "" : `<div class="wbw"><span class="wl">Palabra por palabra:</span>${out.map(([t, g]) => `<span class="wp"><b>${esc(t)}</b> ${esc(g)}</span>`).join("")}</div>`;
+  const used = new Set(), its = ctxItems(c.en, c.es).filter(x => { const k = x.t.toLowerCase(); if (used.has(k)) return false; used.add(k); return true; });
+  return its.length < 2 ? "" : `<div class="wbw"><span class="wl">Palabra por palabra:</span>${its.map(x => `<span class="wp"><b>${esc(x.t)}</b> ${esc(x.g)}</span>`).join("")}</div>`;
 }
 // Opciones para "¿qué significa?": otras palabras de la sesión, de la unidad o de la etapa, sin significados que se parezcan
-const gparts = g => g.replace(/\([^)]*\)/g, "").toLowerCase().split(/[\/,;]/).map(x => x.trim()).filter(Boolean);
 function wDistract(w, n) {
   const taken = new Set(gparts(WORDS[w])), out = [], used = new Set([w]), u = FIRSTU[w];
   const sesW = SES ? SES.steps.flatMap(s => s.k === "wlist" ? s.ws : s.k === "wq" ? [s.w] : []) : [];
@@ -2084,16 +2172,25 @@ function sayList(arr) {
 let tipT = null;
 function hideTip() { clearTimeout(tipT); const t = document.getElementById("wtip"); if (t) t.hidden = true; }
 function wordTip(el) {
-  const ws = tokW(el.textContent).filter(w => WORDS[w]); if (!ws.length) return;
+  const ws = tokW(el.textContent).filter(w => WORDS[w]);
+  // en qué frase está: para decir qué significa ahí (get up = levantarse; do al preguntar no se traduce)
+  const box = el.closest("[data-id],[data-tx],[data-text]"), k = el.dataset.k;
+  let it = null;
+  if (box && k !== undefined) {
+    const c = box.dataset.id ? CARD[box.dataset.id] : null, text = c ? c.en : (box.dataset.tx || box.dataset.text || "");
+    it = ctxItems(text, c ? c.es : "").find(x => +k >= x.k0 && +k <= x.k1) || null;
+  }
+  if (it && !it.ctx && it.k0 === it.k1) it = null; // palabra normal: su significado del diccionario, completo
+  if (!ws.length && !it) return;
   let t = document.getElementById("wtip");
   if (!t) { t = document.createElement("div"); t.id = "wtip"; t.className = "wtip"; t.setAttribute("role", "status"); document.body.appendChild(t); }
-  t.innerHTML = ws.map(w => `<div><b>${esc(wDisp(w))}</b> ${esc(WORDS[w])}</div>`).join("");
+  t.innerHTML = it ? `<div><b>${esc(it.t)}</b> ${esc(it.g)}</div>` : ws.map(w => `<div><b>${esc(wDisp(w))}</b> ${esc(WORDS[w])}</div>`).join("");
   t.hidden = false;
   const r = el.getBoundingClientRect(), tw = t.offsetWidth, th = t.offsetHeight;
   t.style.left = Math.max(8, Math.min(innerWidth - tw - 8, r.left + r.width / 2 - tw / 2)) + "px";
   t.style.top = (r.top - th - 10 >= 8 ? r.top - th - 10 : r.bottom + 10) + "px";
   clearTimeout(tipT); tipT = setTimeout(hideTip, 5000);
-  say(ws.join(" "));
+  say(it ? it.t : ws.join(" "));
 }
 window.addEventListener("scroll", hideTip, { passive: true }); window.addEventListener("resize", hideTip);
 function feedback(ok, c, extra, idk) {
@@ -2104,7 +2201,7 @@ function feedback(ok, c, extra, idk) {
   const mean = `<div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`;
   const tip = !ok && c.note ? `<div class="sub tipline">${esc(c.note)}</div>` : "";
   const wbw = ok ? "" : wbwHTML(c);
-  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${wbw}${pr}${tip}`;
+  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}" data-id="${esc(c.id)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${wbw}${pr}${tip}`;
   band(ok, idk, title, body, c.en);
   react(ok, idk);
   const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
@@ -2170,10 +2267,10 @@ function step() {
     return;
   }
   if (s.k === "teach") {
-    const ws = words(c.en), tip = gramTip(c.u);
+    const its = ctxItems(c.en, c.es), tip = gramTip(c.u);
     st.innerHTML = `<span class="tag">Vamos a verla con calma</span><h2 class="ttl">Esta te está costando. Mírala bien antes de volver a intentarlo.</h2>
       ${plate(c)}
-      ${ws.length > 1 ? `<p class="lead">Toca cada palabra para oírla. Abajo de cada una está lo que significa.</p><div class="row c">${ws.map(w => { const g = tokGloss(w, c.es); return `<button class="chip wm" type="button" data-say="${esc(w)}"><b>${esc(w)}</b>${g ? `<small>${esc(g)}</small>` : ""}</button>`; }).join("")}</div>` : ""}
+      ${its.length > 1 ? `<p class="lead">Toca cada palabra para oírla. Abajo de cada una está lo que significa en esta frase.</p><div class="row c">${its.map(x => `<button class="chip wm" type="button" data-say="${esc(x.t)}"><b>${esc(x.t)}</b><small>${esc(x.g)}</small></button>`).join("")}</div>` : ""}
       ${tip ? `<div class="tip"><strong>Recuerda (${esc(c.u.t)}):</strong> ${esc(tip)}</div>` : ""}
       <p class="lead">Dila en voz alta 3 veces: primero lento, luego normal.</p>
       <div id="miniMic"></div>`;

@@ -51,7 +51,7 @@
       c: [
         ["La pieza se fabrica en China.", "The part is made in China.", "", ""],
         ["El pedido se envió ayer.", "The order was shipped yesterday.", "", ""],
-        ["La junta se pospuso.", "The meeting has been postponed.", "", ""],
+        ["La junta se ha pospuesto.", "The meeting has been postponed.", "", ""],
         ["Se requiere casco.", "Helmets are required.", "", ""],
         ["El reporte se revisará mañana.", "The report will be reviewed tomorrow.", "", ""],
         ["Me contrataron en 2020.", "I was hired in 2020.", "", ""],
@@ -227,8 +227,8 @@
         ["Tengo una junta a las tres.", "I have a meeting at three.", "", ""],
         ["¿Me dejas echarle un vistazo?", "Can I have a look?", "", ""],
         ["Tiene sentido.", "It makes sense.", "", ""],
-        ["Hacer un esfuerzo", "make an effort", "", ""],
-        ["Tomarlo en serio", "take it seriously", "", ""],
+        ["hacer un esfuerzo", "make an effort", "", ""],
+        ["tomarlo en serio", "take it seriously", "", ""],
         ["Me tomó dos horas.", "It took me two hours.", "", ""]
       ],
       d: [
@@ -302,7 +302,7 @@
         ["B", "You won't believe what happened to me on Monday.", "No vas a creer lo que me pasó el lunes."],
         ["A", "What happened?", "¿Qué pasó?"],
         ["B", "I was walking to work when it started raining, and I didn't have an umbrella.", "Iba caminando al trabajo cuando empezó a llover, y no traía paraguas."],
-        ["A", "Oh no! And then what happened?", "¡No! ¿Y luego qué pasó?"],
+        ["A", "Oh no! And then what happened?", "¡Ay, no! ¿Y luego qué pasó?"],
         ["B", "Long story short, I gave a presentation in wet clothes.", "En pocas palabras, di una presentación con la ropa mojada."]
       ]
     },
@@ -392,7 +392,7 @@
         ["¿Y si lo hacemos más corto?", "What if we made it shorter?", "", ""],
         ["En general, está muy bien.", "Overall, it's really strong.", "", ""],
         ["Gracias por la retroalimentación.", "Thanks for the feedback.", "", ""],
-        ["Es un punto justo.", "That's a fair point.", "", ""],
+        ["Es un punto válido.", "That's a fair point.", "", ""],
         ["Voy a trabajar en eso.", "I'll work on it.", "", ""],
         ["¿Me puedes dar un ejemplo?", "Could you give me an example?", "", ""],
         ["¿Qué harías diferente?", "What would you do differently?", "", ""]
@@ -402,7 +402,7 @@
         ["B", "You did a great job. I really liked how you presented the data.", "Hiciste un gran trabajo. Me gustó mucho cómo presentaste los datos."],
         ["A", "Thanks! What would you do differently?", "¡Gracias! ¿Qué harías diferente?"],
         ["B", "One thing I'd change is the length. What if we made it shorter?", "Una cosa que cambiaría es la duración. ¿Y si la hacemos más corta?"],
-        ["A", "That's a fair point. I'll work on it.", "Es un punto justo. Voy a trabajar en eso."],
+        ["A", "That's a fair point. I'll work on it.", "Es un punto válido. Voy a trabajar en eso."],
         ["B", "Overall, it's really strong.", "En general, está muy bien."]
       ]
     },

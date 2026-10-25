@@ -17,7 +17,7 @@
         ["Cuéntame de una vez que resolviste un conflicto.", "Tell me about a time you resolved a conflict.", "", ""],
         ["Me tocó encontrar un reemplazo en dos semanas.", "I was responsible for finding a replacement within two weeks.", "", ""],
         ["Tomé la iniciativa y reorganicé el equipo.", "I took the initiative and restructured the team.", "", ""],
-        ["Como resultado, entregamos a tiempo y bajo presupuesto.", "As a result, we delivered on time and under budget.", "", ""],
+        ["Como resultado, entregamos a tiempo y por debajo del presupuesto.", "As a result, we delivered on time and under budget.", "", ""],
         ["Lo que aprendí de esa experiencia fue...", "What I learned from that experience was...", "", ""],
         ["Antes me costaba delegar, así que empecé a...", "I used to struggle with delegating, so I started to...", "", ""],
         ["Me apasiona resolver problemas complejos.", "I'm passionate about solving complex problems.", "", ""],
@@ -86,7 +86,7 @@
         ["Confío en tu criterio.", "I trust your judgment.", "", ""],
         ["Avísame si te puedo quitar algún obstáculo.", "Let me know if I can remove any roadblocks.", "", ""],
         ["¿Quién es responsable de esta entrega?", "Who's accountable for this deliverable?", "", ""],
-        ["Reconozco el esfuerzo que pusieron.", "I want to recognize the effort you all put in.", "", ""],
+        ["Quiero reconocer el esfuerzo que todos pusieron.", "I want to recognize the effort you all put in.", "", ""],
         ["Necesito que esto esté listo para el jueves.", "I need this done by Thursday.", "", ""],
         ["Hablemos de tus metas de desarrollo.", "Let's talk about your development goals.", "", ""],
         ["Mi puerta siempre está abierta.", "My door is always open.", "", ""]
@@ -186,7 +186,7 @@
         ["El retorno de inversión es de seis meses.", "The return on investment is six months.", "", ""],
         ["No tiene que decidir hoy.", "You don't have to decide today.", "", ""],
         ["¿Agendamos una demostración la próxima semana?", "Shall we schedule a demo for next week?", "", ""],
-        ["Esta es una oportunidad que no queremos dejar pasar.", "This is an opportunity we can't afford to miss.", "", ""],
+        ["Esta es una oportunidad que no podemos darnos el lujo de perder.", "This is an opportunity we can't afford to miss.", "", ""],
         ["Los números hablan por sí solos.", "The numbers speak for themselves.", "", ""],
         ["¿Qué necesitaría ver para dar el siguiente paso?", "What would you need to see to move forward?", "", ""]
       ],
@@ -253,7 +253,7 @@
         ["No reinventemos la rueda.", "Let's not reinvent the wheel.", "", ""],
         ["Mantengámonos en contacto sobre los avances.", "Let's keep each other posted.", "", ""],
         ["Ya estamos en la recta final.", "We're in the home stretch.", "", ""],
-        ["Lo platicamos offline.", "Let's take this offline.", "", "= lo hablamos fuera de la junta."]
+        ["Lo platicamos fuera de la junta.", "Let's take this offline.", "", "= lo hablamos fuera de la junta."]
       ],
       d: [
         ["A", "Okay, let's get the ball rolling. What's the bottom line on the new plant?", "Bien, arranquemos. ¿Cuál es lo esencial de la nueva planta?"],
@@ -286,7 +286,7 @@
         ["No tengo ese dato aquí, pero se lo envío después.", "I don't have that figure with me, but I'll follow up after the session.", "", ""],
         ["Eso va un poco más allá del tema de hoy.", "That's a bit beyond the scope of today's talk.", "", ""],
         ["Tenemos tiempo para una pregunta más.", "We have time for one more question.", "", ""],
-        ["Pueden encontrarme después de la sesión.", "Feel free to find me after the session.", "", ""]
+        ["Búsquenme con confianza después de la sesión.", "Feel free to find me after the session.", "", ""]
       ],
       d: [
         ["A", "Thank you for the talk. How did you calculate the savings?", "Gracias por la plática. ¿Cómo calcularon los ahorros?"],

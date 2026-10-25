@@ -36,7 +36,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Si hubiera nacido en Canadá, hablaría francés.", "If I had been born in Canada, I'd speak French.", "", ""],
       ["Si no hubiera desayunado, ahora tendría hambre.", "If I hadn't had breakfast, I'd be hungry now.", "", ""],
       ["Si supiera manejar, te habría llevado.", "If I could drive, I would have taken you.", "", ""],
-      ["Si no fuera tan tímido, lo habría invitado a salir.", "If I weren't so shy, I would have asked her out.", "", ""],
+      ["Si no fuera tan tímido, la habría invitado a salir.", "If I weren't so shy, I would have asked her out.", "", ""],
       ["Si me hubiera puesto bloqueador, no estaría tan quemado.", "If I had worn sunscreen, I wouldn't be so sunburned.", "", ""],
       ["Si hubiéramos comprado los boletos antes, estaríamos en primera fila.", "If we had bought the tickets earlier, we'd be in the front row.", "", ""],
       ["Si hablara inglés, habría aceptado el trabajo.", "If I spoke English, I would have taken the job.", "", ""],
@@ -118,7 +118,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
   },
   n5u4: {
     v: [
-      ["Por un lado..., pero por otro...", "While it's true that..., we also need to consider...", "", ""],
+      ["Si bien es cierto que..., también hay que considerar...", "While it's true that..., we also need to consider...", "", ""],
       ["No hay evidencia que lo respalde.", "There's no evidence to support that.", "", ""],
       ["Eso es una generalización.", "That's a generalization.", "", ""],
       ["Estás mezclando dos temas distintos.", "You're mixing up two different issues.", "", ""],
@@ -155,7 +155,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Me gustaría resaltar...", "I'd like to highlight...", "", ""],
       ["En resumen,...", "To summarize,...", "", ""],
       ["¿Hay algún comentario?", "Any comments?", "", ""],
-      ["Dejemos eso para el final.", "Let's park that for now.", "", ""],
+      ["Dejemos eso para después.", "Let's park that for now.", "", ""],
       ["Nos estamos desviando del tema.", "We're getting off track.", "", ""],
       ["Volvamos al tema principal.", "Let's get back on track.", "", ""],
       ["¿Quién toma la minuta?", "Who's taking the minutes?", "", ""],
@@ -178,7 +178,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     v: [
       ["¿Cuál es su presupuesto?", "What's your budget?", "", ""],
       ["Podemos ser flexibles en las fechas.", "We can be flexible on the dates.", "", ""],
-      ["Eso está fuera de nuestro alcance.", "That's beyond our budget.", "", ""],
+      ["Eso está fuera de nuestro presupuesto.", "That's beyond our budget.", "", ""],
       ["¿Qué pueden ofrecernos a cambio?", "What can you offer in return?", "", ""],
       ["Si ustedes..., nosotros...", "If you can..., we can...", "", ""],
       ["Es nuestra última oferta.", "That's our final offer.", "", ""],

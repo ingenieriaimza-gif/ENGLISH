@@ -134,7 +134,7 @@
       d: [
         ["A", "Why were you late for the interview?", "¿Por qué llegaste tarde a la entrevista?"],
         ["B", "When I got to the station, the train had already left.", "Cuando llegué a la estación, el tren ya se había ido."],
-        ["A", "Oh no! What did you do?", "¡No! ¿Qué hiciste?"],
+        ["A", "Oh no! What did you do?", "¡Ay, no! ¿Qué hiciste?"],
         ["B", "I took a taxi, but by the time I arrived, they had interviewed two people.", "Tomé un taxi, pero para cuando llegué ya habían entrevistado a dos personas."],
         ["A", "Did they still see you?", "¿Aun así te recibieron?"],
         ["B", "Yes, luckily. I had prepared a lot, so it went well.", "Sí, por suerte. Me había preparado mucho, así que me fue bien."]
@@ -320,7 +320,7 @@
         "!Error clásico: 'I am agree'. Agree ya es verbo: I agree / I don't agree.",
         ["I agree with you. · I don't think so.", "Estoy de acuerdo contigo. · No lo creo."],
         "Para no sonar agresivo, reconoce primero la idea del otro:",
-        ["That's a good point, but… · I see your point, but…", "Buen punto, pero… · Entiendo, pero…"]
+        ["That's a good point, but… · I see your point, but…", "Buen punto, pero… · Entiendo tu punto, pero…"]
       ],
       c: [
         ["Creo que tienes razón.", "I think you're right.", "", ""],
@@ -339,7 +339,7 @@
       d: [
         ["A", "What do you think about working from home?", "¿Qué opinas de trabajar desde casa?"],
         ["B", "In my opinion, it's great. I'm more productive.", "En mi opinión, es genial. Soy más productivo."],
-        ["A", "I see your point, but I miss my coworkers.", "Entiendo, pero extraño a mis compañeros."],
+        ["A", "I see your point, but I miss my coworkers.", "Entiendo tu punto, pero extraño a mis compañeros."],
         ["B", "That's a good point. Maybe two days at the office is the best option.", "Buen punto. Tal vez dos días en la oficina es la mejor opción."],
         ["A", "I totally agree.", "Estoy totalmente de acuerdo."],
         ["B", "Great, let's suggest it to the manager.", "Perfecto, propongámoslo al gerente."]

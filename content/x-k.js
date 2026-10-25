@@ -19,7 +19,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["nombre", "first name", "ferst néim", ""],
       ["apellido", "last name", "last néim", ""],
       ["¿Me lo repite, por favor?", "Can you repeat that, please?", "can iú ripít dat, plís", ""],
-      ["Está bien escrito.", "That's correct.", "dats corréct", ""]
+      ["Es correcto.", "That's correct.", "dats corréct", ""]
     ],
     r: {
       t: "My name",
@@ -38,7 +38,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["eso, esa", "that", "dat", ""],
       ["jueves", "Thursday", "zérsdei", ""],
       ["pulgar", "thumb", "zam", "La b no suena."],
-      ["tienda", "shop", "shop", ""],
+      ["tienda", "shop", "shap", ""],
       ["pescado", "fish", "fish", "SH al final."],
       ["silla", "chair", "cher", "CH igual que en español."],
       ["queso", "cheese", "chiis", "i larga."],
@@ -69,13 +69,13 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["dorado", "gold", "góuld", ""],
       ["plateado", "silver", "sílver", ""],
       ["beige", "beige", "béish", ""],
-      ["colorido", "colorful", "cólorful", ""],
+      ["colorido", "colorful", "cálorful", ""],
       ["El cielo es azul.", "The sky is blue.", "de skái is blu", ""],
       ["El pasto es verde.", "The grass is green.", "de gras is griin", ""],
       ["El sol es amarillo.", "The sun is yellow.", "de san is iélou", ""],
       ["un carro rojo", "a red car", "a red car", "El color va antes."],
       ["una casa blanca", "a white house", "a uáit jáus", ""],
-      ["Mi color favorito es el verde.", "My favorite color is green.", "mai féivorit cólor is griin", ""],
+      ["Mi color favorito es el verde.", "My favorite color is green.", "mai féivorit cálor is griin", ""],
       ["¿Te gusta el rosa?", "Do you like pink?", "du iú láik pink", ""],
       ["Es rojo y negro.", "It's red and black.", "its red and blak", ""]
     ],
@@ -210,14 +210,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     v: [
       ["🍓 fresa", "strawberry", "stróberi", ""],
       ["🍇 uvas", "grapes", "gréips", ""],
-      ["🍉 sandía", "watermelon", "uóter-mélon", ""],
+      ["🍉 sandía", "watermelon", "uáter-mélon", ""],
       ["🍍 piña", "pineapple", "páinapol", ""],
       ["🥑 aguacate", "avocado", "avocádou", ""],
       ["🍅 jitomate", "tomato", "toméitou", ""],
       ["🥔 papa", "potato", "potéitou", ""],
       ["🥕 zanahoria", "carrot", "cárrot", ""],
       ["🥩 carne", "meat", "miit", ""],
-      ["☕ café", "coffee", "cófi", ""],
+      ["☕ café", "coffee", "káfi", ""],
       ["🧃 jugo", "juice", "yus", ""],
       ["sal y azúcar", "salt and sugar", "solt and shúgar", ""],
       ["desayuno, comida, cena", "breakfast, lunch, dinner", "brékfast, lanch, díner", ""],
@@ -250,7 +250,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["cinturón", "belt", "belt", ""],
       ["⌚ reloj", "watch", "uách", ""],
       ["ponerse (ropa)", "put on", "put on", ""],
-      ["quitarse (ropa)", "take off", "teik of", ""],
+      ["quitarse (ropa)", "take off", "téik of", ""],
       ["Ponte la chamarra.", "Put on your jacket.", "put on iór yáket", ""]
     ],
     r: {
@@ -305,11 +305,11 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["ir", "go", "góu", ""],
       ["venir", "come", "cam", ""],
       ["tener", "have", "jav", ""],
-      ["querer (desear)", "want", "uónt", ""],
+      ["querer (desear)", "want", "uánt", ""],
       ["necesitar", "need", "niid", ""],
       ["ayudar", "help", "jelp", ""],
       ["Necesito ayuda.", "I need help.", "ai niid jelp", ""],
-      ["Quiero agua.", "I want water.", "ai uónt uóter", ""]
+      ["Quiero agua.", "I want water.", "ai uánt uáter", ""]
     ],
     r: {
       t: "My day",
@@ -335,7 +335,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["estresado", "stressed", "strest", ""],
       ["Estoy bien, gracias.", "I'm fine, thanks.", "aim fáin, zenks", ""],
       ["Estoy un poco cansado.", "I'm a little tired.", "aim a lítol táierd", ""],
-      ["No estoy enojado.", "I'm not angry.", "aim not ángri", ""],
+      ["No estoy enojado.", "I'm not angry.", "aim nat ángri", ""],
       ["¿Por qué estás triste?", "Why are you sad?", "uái ar iú sad", ""],
       ["porque", "because", "bicós", ""],
       ["Estoy feliz porque es viernes.", "I'm happy because it's Friday.", "aim jápi bicós its fráidei", ""]
@@ -365,7 +365,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["mojado / seco", "wet / dry", "uét / drái", ""],
       ["correcto / incorrecto", "right / wrong", "ráit / rong", ""],
       ["El carro es caro.", "The car is expensive.", "de car is ekspénsiv", ""],
-      ["La caja es muy pesada.", "The box is very heavy.", "de boks is véri jévi", ""],
+      ["La caja es muy pesada.", "The box is very heavy.", "de baks is véri jévi", ""],
       ["Mi abuelo es viejo, pero fuerte.", "My grandpa is old, but strong.", "mai grándpa is óuld, bat strong", ""],
       ["Llegué temprano.", "I'm early.", "aim érli", ""]
     ],
@@ -390,7 +390,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["tarea", "homework", "jóumuerk", ""],
       ["examen", "test", "test", ""],
       ["maestro, maestra", "teacher", "tíicher", ""],
-      ["alumno", "student", "stiúdent", ""],
+      ["alumno", "student", "stúdent", ""],
       ["borrador / goma", "eraser", "iréiser", ""],
       ["mochila", "backpack", "bákpak", ""],
       ["¿Cómo se dice ... en inglés?", "How do you say ... in English?", "jáu du iú séi ... in ínglish", ""],

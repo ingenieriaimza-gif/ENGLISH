@@ -20,14 +20,14 @@
         ["Vivo en Guadalajara.", "I live in Guadalajara.", "ai liv in guadalajára", ""],
         ["Me levanto a las seis.", "I get up at six.", "ai guet ap at siks", ""],
         ["Desayuno en casa.", "I have breakfast at home.", "ai jav brékfast at jóum", "have breakfast = desayunar"],
-        ["Voy al trabajo en carro.", "I go to work by car.", "ai góu tu uérk bai car", ""],
-        ["No tomo café.", "I don't drink coffee.", "ai dóunt drink cófi", ""],
+        ["Voy al trabajo en carro.", "I go to work by car.", "ai góu tu uérk bái car", ""],
+        ["No tomo café.", "I don't drink coffee.", "ai dóunt drink káfi", ""],
         ["Siempre llego temprano.", "I always arrive early.", "ai ólueis arráiv érli", ""],
-        ["A veces trabajo los sábados.", "I sometimes work on Saturdays.", "ai sámtaims uérk on sáturdeis", ""],
-        ["Nunca como carne.", "I never eat meat.", "ai néver it mit", ""],
+        ["A veces trabajo los sábados.", "I sometimes work on Saturdays.", "ai sámtaims uérk on sáterdeis", ""],
+        ["Nunca como carne.", "I never eat meat.", "ai néver iit miit", ""],
         ["¿Trabajas los domingos?", "Do you work on Sundays?", "du iú uérk on sándeis", ""],
         ["No, no trabajo.", "No, I don't.", "nóu, ai dóunt", "Respuesta corta."],
-        ["¿Qué haces en tu tiempo libre?", "What do you do in your free time?", "uát du iú du in iór fri taim", ""]
+        ["¿Qué haces en tu tiempo libre?", "What do you do in your free time?", "uát du iú du in iór fri táim", ""]
       ],
       d: [
         ["A", "What time do you get up?", "¿A qué hora te levantas?"],
@@ -55,14 +55,14 @@
         ["Él vive cerca.", "He lives nearby.", "ji livs nírbai", ""],
         ["Mi hermano estudia inglés.", "My brother studies English.", "mai bráder stádis ínglish", ""],
         ["Ella tiene dos hijos.", "She has two kids.", "shi jas tu kids", ""],
-        ["El camión sale a las ocho.", "The bus leaves at eight.", "de bas livs at éit", ""],
-        ["Él no habla español.", "He doesn't speak Spanish.", "ji dásent spik spánish", ""],
+        ["El camión sale a las ocho.", "The bus leaves at eight.", "de bas liivs at éit", ""],
+        ["Él no habla español.", "He doesn't speak Spanish.", "ji dásent spiik spánish", ""],
         ["La máquina no funciona.", "The machine doesn't work.", "de mashín dásent uérk", ""],
-        ["¿Ella habla inglés?", "Does she speak English?", "das shi spik ínglish", ""],
+        ["¿Ella habla inglés?", "Does she speak English?", "das shi spiik ínglish", ""],
         ["Sí, sí habla.", "Yes, she does.", "ies, shi das", ""],
         ["¿A qué se dedica él?", "What does he do?", "uát das ji du", "Pregunta por el trabajo de alguien."],
         ["¿Dónde vive ella?", "Where does she live?", "uér das shi liv", ""],
-        ["Le gusta su trabajo.", "He likes his job.", "ji láiks jis yob", ""]
+        ["Le gusta su trabajo.", "He likes his job.", "ji láiks jis yab", ""]
       ],
       d: [
         ["A", "What does your sister do?", "¿A qué se dedica tu hermana?"],
@@ -87,13 +87,13 @@
       ],
       c: [
         ["Me gusta la música.", "I like music.", "ai láik miúsik", ""],
-        ["Me encanta viajar.", "I love traveling.", "ai lav trávelin", ""],
-        ["Odio esperar.", "I hate waiting.", "ai jeit uéiting", ""],
-        ["No me gusta el café.", "I don't like coffee.", "ai dóunt láik cófi", ""],
+        ["Me encanta viajar.", "I love traveling.", "ai lav tráveling", ""],
+        ["Odio esperar.", "I hate waiting.", "ai jéit uéiting", ""],
+        ["No me gusta el café.", "I don't like coffee.", "ai dóunt láik káfi", ""],
         ["¿Te gusta cocinar?", "Do you like cooking?", "du iú láik cúking", ""],
         ["Sí, me encanta.", "Yes, I love it.", "ies, ai lav it", ""],
         ["A ella le encantan los perros.", "She loves dogs.", "shi lavs dogs", ""],
-        ["A él no le gusta el futbol.", "He doesn't like soccer.", "ji dásent láik sóker", ""],
+        ["A él no le gusta el futbol.", "He doesn't like soccer.", "ji dásent láik sáker", ""],
         ["¿Qué tipo de música te gusta?", "What kind of music do you like?", "uát káind of miúsik du iú láik", ""],
         ["No me molesta.", "I don't mind.", "ai dóunt máind", ""],
         ["Mi comida favorita es la pizza.", "My favorite food is pizza.", "mai féivorit fud is pítsa", ""],
@@ -121,18 +121,18 @@
         "!Días y meses siempre van con mayúscula: Monday, May."
       ],
       c: [
-        ["¿Qué hora es?", "What time is it?", "uát taim is it", ""],
-        ["Son las tres en punto.", "It's three o'clock.", "its zri oclók", ""],
+        ["¿Qué hora es?", "What time is it?", "uát táim is it", ""],
+        ["Son las tres en punto.", "It's three o'clock.", "its zri aklák", ""],
         ["Son las cuatro y media.", "It's four thirty.", "its for zérti", "También: half past four."],
-        ["La junta es a las nueve.", "The meeting is at nine.", "de míting is at náin", ""],
-        ["lunes, martes, miércoles", "Monday, Tuesday, Wednesday", "mándei, tiúsdei, uénsdei", "Wednesday suena 'uénsdei'."],
+        ["La junta es a las nueve.", "The meeting is at nine.", "de míiting is at náin", ""],
+        ["lunes, martes, miércoles", "Monday, Tuesday, Wednesday", "mándei, túsdei, uénsdei", "Wednesday suena 'uénsdei'."],
         ["jueves, viernes", "Thursday, Friday", "zérsdei, fráidei", ""],
-        ["sábado, domingo", "Saturday, Sunday", "sáturdei, sándei", ""],
+        ["sábado, domingo", "Saturday, Sunday", "sáterdei, sándei", ""],
         ["Te veo el lunes.", "See you on Monday.", "si iú on mándei", ""],
         ["Mi cumpleaños es en mayo.", "My birthday is in May.", "mai bérzdei is in méi", ""],
         ["Hoy es tres de marzo.", "Today is March third.", "tudéi is march zerd", ""],
         ["¿Qué día es hoy?", "What day is it today?", "uát déi is it tudéi", ""],
-        ["Nos vemos mañana.", "See you tomorrow.", "si iú tumórou", ""]
+        ["Nos vemos mañana.", "See you tomorrow.", "si iú tumárou", ""]
       ],
       d: [
         ["A", "What time is it?", "¿Qué hora es?"],
@@ -159,13 +159,13 @@
         ["Mis papás viven en Puebla.", "My parents live in Puebla.", "mai pérents liv in puébla", "parents = papás (no 'parientes')."],
         ["Tengo un hermano y una hermana.", "I have a brother and a sister.", "ai jav a bráder and a síster", ""],
         ["El hijo de ella tiene diez años.", "Her son is ten years old.", "jer san is ten íers óuld", ""],
-        ["La hija de él es doctora.", "His daughter is a doctor.", "jis dóter is a dóktor", ""],
+        ["La hija de él es doctora.", "His daughter is a doctor.", "jis dóter is a dáktor", ""],
         ["Nuestra casa es pequeña.", "Our house is small.", "áuer jáus is smol", ""],
-        ["El carro de ellos es nuevo.", "Their car is new.", "der car is niú", ""],
+        ["El carro de ellos es nuevo.", "Their car is new.", "der car is nu", ""],
         ["El carro de Ana es rojo.", "Ana's car is red.", "ánas car is red", ""],
         ["¿Tienes hijos?", "Do you have kids?", "du iú jav kids", ""],
-        ["¿Cómo se llama tu mamá?", "What's your mom's name?", "uáts iór moms néim", ""],
-        ["Estoy casado.", "I'm married.", "aim márid", ""]
+        ["¿Cómo se llama tu mamá?", "What's your mom's name?", "uáts iór mams néim", ""],
+        ["Estoy casado.", "I'm married.", "aim mérid", ""]
       ],
       d: [
         ["A", "Do you have kids?", "¿Tienes hijos?"],
@@ -197,9 +197,9 @@
         ["Trabajo en un banco.", "I work at a bank.", "ai uérk at a bank", ""],
         ["Trabajo en ventas.", "I work in sales.", "ai uérk in séils", ""],
         ["Trabajo por mi cuenta.", "I'm self-employed.", "aim self-emplóid", ""],
-        ["Estoy buscando trabajo.", "I'm looking for a job.", "aim lúking for a yob", ""],
-        ["Soy estudiante.", "I'm a student.", "aim a stiúdent", ""],
-        ["¿Te gusta tu trabajo?", "Do you like your job?", "du iú láik iór yob", ""]
+        ["Estoy buscando trabajo.", "I'm looking for a job.", "aim lúking for a yab", ""],
+        ["Soy estudiante.", "I'm a student.", "aim a stúdent", ""],
+        ["¿Te gusta tu trabajo?", "Do you like your job?", "du iú láik iór yab", ""]
       ],
       d: [
         ["A", "What do you do?", "¿A qué te dedicas?"],
@@ -223,17 +223,17 @@
       ],
       c: [
         ["Hay un banco cerca.", "There is a bank nearby.", "der is a bank nírbai", ""],
-        ["Hay muchas tiendas.", "There are a lot of stores.", "der ar a lot of stors", ""],
+        ["Hay muchas tiendas.", "There are a lot of stores.", "der ar a lat of stors", ""],
         ["No hay estacionamiento.", "There isn't any parking.", "der ísent éni párking", ""],
         ["¿Hay una farmacia por aquí?", "Is there a pharmacy around here?", "is der a fármasi aráund jir", ""],
         ["¿Hay baños?", "Are there restrooms?", "ar der réstrums", ""],
         ["Está junto al hotel.", "It's next to the hotel.", "its nekst tu de joutél", ""],
-        ["Está enfrente del parque.", "It's across from the park.", "its acrós from de park", ""],
+        ["Está enfrente del parque.", "It's across from the park.", "its acrós fram de park", ""],
         ["Está entre el banco y la tienda.", "It's between the bank and the store.", "its bituín de bank and de stor", ""],
         ["La oficina está en el segundo piso.", "The office is on the second floor.", "di ófis is on de sékond flor", ""],
         ["¿Hay wifi?", "Is there wifi?", "is der uáifai", ""],
         ["Mi colonia es tranquila.", "My neighborhood is quiet.", "mai néiborjud is kuáiet", ""],
-        ["Hay un problema.", "There's a problem.", "ders a próblem", ""]
+        ["Hay un problema.", "There's a problem.", "ders a práblem", ""]
       ],
       d: [
         ["A", "Excuse me, is there a pharmacy around here?", "Disculpe, ¿hay una farmacia por aquí?"],
@@ -259,13 +259,13 @@
         ["Una mesa para dos, por favor.", "A table for two, please.", "a téibol for tu, plís", ""],
         ["¿Me da el menú, por favor?", "Can I have the menu, please?", "can ai jav de méniu, plís", ""],
         ["Quisiera una hamburguesa.", "I'd like a hamburger.", "aid láik a jámberguer", ""],
-        ["Para mí, un vaso de agua.", "I'll have a glass of water.", "ail jav a glas of uóter", ""],
-        ["Sin cebolla, por favor.", "No onions, please.", "nóu ónions, plís", ""],
+        ["Para mí, un vaso de agua.", "I'll have a glass of water.", "ail jav a glas of uáter", ""],
+        ["Sin cebolla, por favor.", "No onions, please.", "nóu ánions, plís", ""],
         ["¿Qué me recomienda?", "What do you recommend?", "uát du iú rekoménd", ""],
-        ["Soy alérgico al cacahuate.", "I'm allergic to peanuts.", "aim alérllik tu pínats", ""],
+        ["Soy alérgico al cacahuate.", "I'm allergic to peanuts.", "aim aléryik tu pínats", ""],
         ["Está delicioso.", "It's delicious.", "its delíshos", ""],
         ["¿Me trae la cuenta, por favor?", "Can I get the check, please?", "can ai guet de chek, plís", ""],
-        ["¿Aceptan tarjeta?", "Do you take cards?", "du iú teik cards", ""],
+        ["¿Aceptan tarjeta?", "Do you take cards?", "du iú téik cards", ""],
         ["Para llevar, por favor.", "To go, please.", "tu góu, plís", ""],
         ["Tengo hambre.", "I'm hungry.", "aim jángri", "Hambre y sed van con be."]
       ],
@@ -292,16 +292,16 @@
       ],
       c: [
         ["¿Cuántos huevos necesitas?", "How many eggs do you need?", "jáu méni egs du iú niid", ""],
-        ["¿Cuánta agua hay?", "How much water is there?", "jáu mach uóter is der", ""],
+        ["¿Cuánta agua hay?", "How much water is there?", "jáu mach uáter is der", ""],
         ["¿Cuánto dinero tienes?", "How much money do you have?", "jáu mach máni du iú jav", ""],
         ["Hay un poco de leche.", "There's some milk.", "ders sam milk", ""],
         ["No hay azúcar.", "There isn't any sugar.", "der ísent éni shúgar", ""],
         ["¿Hay pan?", "Is there any bread?", "is der éni bred", ""],
-        ["Mucha gente", "a lot of people", "a lot of pípol", ""],
-        ["No tengo mucho tiempo.", "I don't have much time.", "ai dóunt jav mach taim", ""],
-        ["Tengo muchos amigos.", "I have a lot of friends.", "ai jav a lot of frends", ""],
+        ["mucha gente", "a lot of people", "a lat of pípol", ""],
+        ["No tengo mucho tiempo.", "I don't have much time.", "ai dóunt jav mach táim", ""],
+        ["Tengo muchos amigos.", "I have a lot of friends.", "ai jav a lat of frends", ""],
         ["Necesito unas manzanas.", "I need some apples.", "ai niid sam ápols", ""],
-        ["¿Quieres más café?", "Do you want some more coffee?", "du iú uónt sam mor cófi", "En ofrecimientos se usa some."],
+        ["¿Quieres más café?", "Do you want some more coffee?", "du iú uánt sam mor káfi", "En ofrecimientos se usa some."],
         ["Es suficiente, gracias.", "That's enough, thanks.", "dats ináf, zenks", ""]
       ],
       d: [
@@ -327,13 +327,13 @@
       c: [
         ["Sé manejar.", "I can drive.", "ai can dráiv", ""],
         ["No sé nadar.", "I can't swim.", "ai cant suím", ""],
-        ["Ella habla tres idiomas.", "She can speak three languages.", "shi can spik zri lánguiyes", ""],
+        ["Ella habla tres idiomas.", "She can speak three languages.", "shi can spiik zri lánguiyes", ""],
         ["¿Puedes ayudarme?", "Can you help me?", "can iú jelp mi", ""],
         ["¿Podría abrir la puerta?", "Could you open the door?", "cud iú óupen de dor", ""],
         ["¿Puedo pasar?", "Can I come in?", "can ai cam in", ""],
         ["¿Puedo usar tu pluma?", "Can I use your pen?", "can ai iús iór pen", ""],
         ["Claro.", "Sure.", "shur", ""],
-        ["Lo siento, no puedo.", "Sorry, I can't.", "sóri, ai cant", ""],
+        ["Lo siento, no puedo.", "Sorry, I can't.", "sári, ai cant", ""],
         ["No te oigo.", "I can't hear you.", "ai cant jir iú", ""],
         ["¿Me ves? (en videollamada)", "Can you see me?", "can iú si mi", ""],
         ["Aquí no se puede fumar.", "You can't smoke here.", "iú cant smóuk jir", ""]
@@ -395,13 +395,13 @@
         ["¿Cuál es tu dirección?", "What's your address?", "uáts iór ádres", ""],
         ["Vivo en la calle Juárez 25.", "I live at 25 Juárez Street.", "ai liv at tuénti-fáiv juárez striit", "El número va antes de la calle."],
         ["¿Cuál es tu correo?", "What's your email address?", "uáts iór iméil ádres", ""],
-        ["Es ana punto lopez arroba gmail punto com.", "It's ana dot lopez at gmail dot com.", "its ána dat lópez at yiméil dat com", ""],
+        ["Es ana punto lopez arroba gmail punto com.", "It's ana dot lopez at gmail dot com.", "its ána dat lópez at yiméil dat cam", ""],
         ["¿Cuál es tu fecha de nacimiento?", "What's your date of birth?", "uáts iór déit of berz", ""],
-        ["Nací el 5 de marzo de 1990.", "I was born on March fifth, 1990.", "ai uás born on march fifz, náintin náinti", ""],
+        ["Nací el 5 de marzo de 1990.", "I was born on March fifth, 1990.", "ai uás born on march fifz, naintín náinti", ""],
         ["¿Dónde naciste?", "Where were you born?", "uér uér iú born", ""],
-        ["¿Me lo puede deletrear?", "Can you spell that, please?", "can iú spel dat, plís", ""],
+        ["¿Me lo puede deletrear, por favor?", "Can you spell that, please?", "can iú spel dat, plís", ""],
         ["Firme aquí, por favor.", "Please sign here.", "plís sáin jir", "La g de sign no suena."],
-        ["Llene este formulario.", "Please fill out this form.", "plís fil áut dis form", ""],
+        ["Llene este formulario, por favor.", "Please fill out this form.", "plís fil áut dis form", ""],
         ["Soy mexicano.", "I'm Mexican.", "aim méksikan", "Nacionalidades con mayúscula."]
       ],
       d: [
