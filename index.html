@@ -223,6 +223,7 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .mic{width:76px;height:76px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 0 0 6px var(--accent-soft)}
 .mic svg{width:30px;height:30px}
 .mic.on,.mic.on:disabled{opacity:1;animation:pulse 1s infinite}
+.mic.wait,.mic.wait:disabled{opacity:1;background:var(--muted);box-shadow:0 0 0 6px var(--chip)}
 @keyframes pulse{50%{box-shadow:0 0 0 14px var(--accent-soft)}}
 .miclbl{font-weight:600;font-size:15px}
 .heard{text-align:center;font-size:15px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -676,19 +677,47 @@ function pickVoices() {
 }
 if (window.speechSynthesis) { pickVoices(); speechSynthesis.onvoiceschanged = pickVoices; }
 const clean = t => t.replace(/___/g, " ").replace(/\.\.\./g, "").replace(/[→·—\/]/g, ", ");
+/* Que no se coma el principio de la frase:
+   - Audífonos Bluetooth, bocinas USB/HDMI y algunas laptops apagan la salida de audio tras unos segundos de silencio
+     y tardan medio segundo en "despertar": se perdía el inicio. Mantenemos la salida despierta con un sonido inaudible
+     (durante la práctica y unos segundos después de escuchar algo) y, si estaba dormida, esperamos a que despierte.
+   - Después de usar el micrófono, los audífonos Bluetooth tardan en volver al modo de música: esperamos un poco.
+   - Cancelar y hablar en el mismo instante hace que Chrome a veces corte el inicio: dejamos una pausa corta. */
+let KEEP = null, keepT = null, sayT = null, MIC_END = 0;
+function audioAwake(ms) {
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === "suspended") AC.resume();
+    if (!KEEP) { const o = AC.createOscillator(), g = AC.createGain(); o.frequency.value = 30; g.gain.value = 0.0003; o.connect(g); g.connect(AC.destination); o.start(); KEEP = { o, g, since: Date.now() }; }
+  } catch (e) { return; }
+  clearTimeout(keepT);
+  if (ms !== Infinity) keepT = setTimeout(audioSleep, ms);
+}
+function audioSleep() { clearTimeout(keepT); if (KEEP) { try { KEEP.o.stop(); KEEP.o.disconnect(); KEEP.g.disconnect(); } catch (e) {} KEEP = null; } }
+function audioRelax() { clearTimeout(keepT); if (KEEP) keepT = setTimeout(audioSleep, 20000); }
 function say(text, o) {
   o = o || {};
   if (!window.speechSynthesis) { o.onend && o.onend(); return; }
   try {
-    if (!o.keep) speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(clean(text));
-    u.lang = "en-US"; const v = voices[o.who || 0]; if (v) u.voice = v;
-    u.rate = o.slow ? 0.6 : 0.9; if (o.who && voices[0] === voices[1]) u.pitch = 0.8;
-    if (o.onend) { u.onend = o.onend; u.onerror = o.onend; }
-    speechSynthesis.speak(u);
+    audioAwake(curView === "session" ? Infinity : 30000);
+    const busy = speechSynthesis.speaking || speechSynthesis.pending;
+    if (!o.keep) { clearTimeout(sayT); if (busy) speechSynthesis.cancel(); }
+    const wake = KEEP ? Math.max(0, 450 - (Date.now() - KEEP.since)) : 0;
+    const afterMic = Math.max(0, 1200 - (Date.now() - MIC_END));
+    const delay = Math.max(wake, afterMic, !o.keep && busy ? 150 : 0);
+    const go = () => {
+      try {
+        const u = new SpeechSynthesisUtterance(clean(text));
+        u.lang = "en-US"; const v = voices[o.who || 0]; if (v) u.voice = v;
+        u.rate = o.slow ? 0.6 : 0.9; if (o.who && voices[0] === voices[1]) u.pitch = 0.8;
+        if (o.onend) { u.onend = o.onend; u.onerror = o.onend; }
+        say.last = u; // Chrome a veces corta frases si el objeto se libera antes de terminar
+        speechSynthesis.speak(u);
+      } catch (e) { o.onend && o.onend(); }
+    };
+    if (delay) sayT = setTimeout(go, delay); else go();
   } catch (e) { o.onend && o.onend(); }
 }
-const stopAudio = () => { try { speechSynthesis.cancel(); } catch (e) {} };
+const stopAudio = () => { clearTimeout(sayT); try { speechSynthesis.cancel(); } catch (e) {} };
 /* ---------- reacción visible y con sonido al acertar o fallar (para que nadie se quede dormido) ---------- */
 let AC = null, SND = true;
 try { SND = localStorage.getItem("ip-snd") !== "0"; } catch (e) {}
@@ -760,14 +789,23 @@ const playBtn = (en, label) => `<button class="play" data-say="${esc(en)}" aria-
 /* ================= reconocimiento de voz ================= */
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 let srOK = !!SR;
-function hear() {
+// onReady: el micrófono ya está grabando de verdad (antes de eso, lo que digas se pierde)
+function hear(onReady) {
   return new Promise(res => {
-    let fin = false; const r = new SR();
+    let fin = false, ready = false, alts = [], guard = null; const r = new SR();
+    const done = x => { if (fin) return; fin = true; clearTimeout(guard); MIC_END = Date.now(); res(x); };
+    const isReady = () => { if (!ready && !fin) { ready = true; onReady && onReady(); } };
     r.lang = "en-US"; r.interimResults = false; r.maxAlternatives = 5; r.continuous = false;
-    r.onresult = e => { if (fin) return; fin = true; res({ alts: Array.from(e.results[0]).map(a => a.transcript) }); };
-    r.onerror = e => { if (fin) return; fin = true; res({ err: e.error }); };
-    r.onend = () => { if (fin) return; fin = true; res({ alts: [] }); };
-    try { stopAudio(); r.start(); } catch (e) { fin = true; res({ err: "start" }); }
+    r.onstart = () => setTimeout(isReady, 700);
+    r.onaudiostart = isReady;
+    r.onresult = e => {
+      const f = Array.from(e.results).filter(x => x.isFinal); if (!f.length) return;
+      alts = f.length === 1 ? Array.from(f[0]).map(a => a.transcript) : [f.map(x => x[0].transcript).join(" ")];
+    };
+    r.onerror = e => done(alts.length ? { alts } : { err: e.error });
+    r.onend = () => done({ alts });
+    guard = setTimeout(() => { try { r.stop(); } catch (e) {} setTimeout(() => done({ alts }), 1000); }, 15000);
+    try { stopAudio(); audioSleep(); r.start(); } catch (e) { done({ err: "start" }); }
   });
 }
 /* ---------- revisión estricta de lo que dices ----------
@@ -915,9 +953,10 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
   host.innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Toca y habla">${MIC}</button><div class="miclbl">Toca y habla</div></div><div class="heard" aria-live="polite"></div>`;
   const btn = host.querySelector(".mic"), lbl = host.querySelector(".miclbl"), out = host.querySelector(".heard");
   btn.onclick = async () => {
-    btn.classList.add("on"); btn.disabled = true; lbl.textContent = "Escuchando…"; out.textContent = "";
-    const r = await hear();
-    btn.classList.remove("on"); btn.disabled = false; lbl.textContent = "Toca y habla";
+    btn.classList.add("wait"); btn.disabled = true; lbl.textContent = "Espera…"; out.textContent = "";
+    const r = await hear(() => { btn.classList.remove("wait"); btn.classList.add("on"); lbl.textContent = "¡Habla ahora!"; });
+    btn.classList.remove("on", "wait"); btn.disabled = false; lbl.textContent = "Toca y habla";
+    if (curView === "session") audioAwake(Infinity);
     if (r.err) {
       if (r.err === "not-allowed" || r.err === "service-not-allowed" || r.err === "start") {
         srOK = false; out.textContent = "No tengo permiso para usar el micrófono. Actívalo en tu navegador o usa los otros ejercicios.";
@@ -1030,6 +1069,7 @@ function view(name) {
   Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
   $("#tabs").hidden = name === "session";
   document.body.classList.toggle("focus", name === "session");
+  if (name !== "session") audioRelax();
   const tab = name === "unit" ? "curso" : name;
   document.querySelectorAll(".tab").forEach(t => { if (t.dataset.tab === tab) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current"); });
   curView = name;
@@ -1429,7 +1469,7 @@ function drawFrases() {
 let SES = null;
 function runSession(steps, opts) {
   SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, m: {}, recent: [], fixed: 0, boosts: 0, lastBoost: -99, recap: new Set(), base: steps.length, back: curView === "session" ? "hoy" : curView }, opts, SEGOPT || {});
-  view("session"); sndUI(); step();
+  view("session"); sndUI(); audioAwake(Infinity); step();
 }
 $("#sndBtn").onclick = () => { SND = !SND; try { localStorage.setItem("ip-snd", SND ? "1" : "0"); } catch (e) {} sndUI(); if (SND) sfx("click"); };
 function startReview() {
@@ -1810,7 +1850,7 @@ function step() {
     if (srOK) {
       $("#sumMic").innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Dilo con el micrófono">${MIC}</button><div class="miclbl">Dilo con el micrófono</div></div>`;
       const b = $("#sumMic .mic"), l = $("#sumMic .miclbl");
-      b.onclick = async () => { b.classList.add("on"); b.disabled = true; l.textContent = "Escuchando…"; const r = await hear(); b.classList.remove("on"); b.disabled = false; l.textContent = "Dilo con el micrófono";
+      b.onclick = async () => { b.classList.add("wait"); b.disabled = true; l.textContent = "Espera…"; const r = await hear(() => { b.classList.remove("wait"); b.classList.add("on"); l.textContent = "¡Habla ahora!"; }); b.classList.remove("on", "wait"); b.disabled = false; l.textContent = "Dilo con el micrófono"; audioAwake(Infinity);
         if (r.err && (r.err === "not-allowed" || r.err === "service-not-allowed")) { srOK = false; $("#sumMsg").textContent = "No tengo permiso para el micrófono. Escríbelo."; return; }
         if (r.alts && r.alts.length) { const t = $("#sumTxt"); t.value = (t.value ? t.value + " " : "") + r.alts[0]; check(); } else $("#sumMsg").textContent = "No te oí. Inténtalo otra vez o escríbelo."; };
     }
