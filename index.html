@@ -224,6 +224,23 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .mic svg{width:30px;height:30px}
 .mic.on,.mic.on:disabled{opacity:1;animation:pulse 1s infinite}
 .mic.wait,.mic.wait:disabled{opacity:1;background:var(--muted);box-shadow:0 0 0 6px var(--chip)}
+.mic.hearing,.mic.hearing:disabled{opacity:1;background:var(--ok);color:var(--panel);box-shadow:0 0 0 8px var(--ok-soft);animation:hearing .45s ease-in-out infinite alternate}
+@keyframes hearing{to{box-shadow:0 0 0 16px var(--ok-soft)}}
+.mic.proc,.mic.proc:disabled{opacity:1;background:var(--muted);box-shadow:0 0 0 6px var(--chip);animation:blink .8s ease-in-out infinite}
+/* la voz: preparando (parpadea), sonando (ondas que se mueven) y la palabra que se está diciendo */
+[data-say].prep svg,[data-saylong].prep svg,[data-saygroup].prep svg{animation:blink .6s ease-in-out infinite}
+.prep{cursor:progress}
+[data-say].playing,[data-saylong].playing,[data-saygroup].playing{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.playing svg .w1{animation:wave 1s ease-in-out infinite}
+.playing svg .w2{animation:wave 1s ease-in-out .3s infinite}
+@keyframes wave{0%,100%{opacity:.15}50%{opacity:1}}
+@keyframes blink{50%{opacity:.25}}
+.speak.prep .lb,.speak.playing .lb,.big-play.prep .lb,.big-play.playing .lb{display:none}
+.speak.prep::after,.big-play.prep::after{content:"Preparando…"}
+.speak.playing::after,.big-play.playing::after{content:"Sonando…"}
+.w{white-space:nowrap;transition:color .1s}
+.w.cur{color:var(--accent);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.plate.playing{border-color:var(--accent)}
 @keyframes pulse{50%{box-shadow:0 0 0 14px var(--accent-soft)}}
 .miclbl{font-weight:600;font-size:15px}
 .heard{text-align:center;font-size:15px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -569,7 +586,7 @@ COURSE.forEach((lv, li) => {
   });
 });
 
-const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path class="w1" d="M16 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
 const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -683,7 +700,7 @@ const clean = t => t.replace(/___/g, " ").replace(/\.\.\./g, "").replace(/[→·
      (durante la práctica y unos segundos después de escuchar algo) y, si estaba dormida, esperamos a que despierte.
    - Después de usar el micrófono, los audífonos Bluetooth tardan en volver al modo de música: esperamos un poco.
    - Cancelar y hablar en el mismo instante hace que Chrome a veces corte el inicio: dejamos una pausa corta. */
-let KEEP = null, keepT = null, sayT = null, MIC_END = 0;
+let KEEP = null, keepT = null, sayT = null, MIC_END = 0, AGEN = 0; // AGEN cambia cada vez que se corta el audio: las cadenas (diálogo, lectura) se detienen
 function audioAwake(ms) {
   try {
     AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === "suspended") AC.resume();
@@ -694,30 +711,79 @@ function audioAwake(ms) {
 }
 function audioSleep() { clearTimeout(keepT); if (KEEP) { try { KEEP.o.stop(); KEEP.o.disconnect(); KEEP.g.disconnect(); } catch (e) {} KEEP = null; } }
 function audioRelax() { clearTimeout(keepT); if (KEEP) keepT = setTimeout(audioSleep, 20000); }
+/* ---------- qué está pasando con el audio (visible) ----------
+   Botones con data-say / data-saylong: «prep» mientras despierta el audio, «playing» mientras suena.
+   Elementos con data-text: se marca la palabra que se está diciendo. */
+let TTS = { key: "", text: "", state: "idle" }, ttsIdleT = null, ttsPoll = null;
+const btnKey = b => b.dataset.saygroup ? b.dataset.saygroup : b.dataset.saylong ? "long:" + b.dataset.saylong + (b.dataset.slow === "1" ? ":s" : "") : "t:" + b.dataset.say + (b.dataset.slow === "1" ? ":s" : "");
+function ttsState(state, key, text) {
+  clearTimeout(ttsIdleT);
+  TTS = { key: key || "", text: text || "", state };
+  document.querySelectorAll("[data-say],[data-saylong],[data-saygroup]").forEach(b => {
+    const me = state !== "idle" && btnKey(b) === TTS.key;
+    b.classList.toggle("prep", me && state === "prep");
+    b.classList.toggle("playing", me && state === "play");
+  });
+  document.querySelectorAll("[data-text]").forEach(el => {
+    const me = state === "play" && el.dataset.text === TTS.text;
+    el.classList.toggle("playing", me);
+    if (!me) el.querySelectorAll(".w.cur").forEach(w => w.classList.remove("cur"));
+  });
+  clearInterval(ttsPoll);
+  let quiet = 0;
+  if (state === "play") ttsPoll = setInterval(() => { // por si el navegador no avisa cuando termina (dos revisiones seguidas en silencio)
+    try { quiet = !speechSynthesis.speaking && !speechSynthesis.pending ? quiet + 1 : 0; if (quiet >= 2) ttsState("idle"); } catch (e) {}
+  }, 700);
+}
+function ttsWord(text, ci) {
+  document.querySelectorAll("[data-text]").forEach(el => {
+    if (el.dataset.text !== text) return;
+    let cur = null; el.querySelectorAll(".w").forEach(w => { if (+w.dataset.c <= ci) cur = w; });
+    el.querySelectorAll(".w.cur").forEach(w => { if (w !== cur) w.classList.remove("cur"); });
+    if (cur) cur.classList.add("cur");
+  });
+}
+// Frase en inglés con cada palabra marcable mientras se oye (y sin cortar palabras como G-E-R-A-R-D-O)
+function speakSpans(text) {
+  const spoken = clean(text); let at = 0;
+  return text.split(/(\s+)/).map(w => {
+    if (!w.trim()) return w;
+    const cw = clean(w).trim(), i = cw ? spoken.indexOf(cw, at) : -1, c = i < 0 ? at : i;
+    if (i >= 0) at = i + cw.length;
+    return `<span class="w" data-c="${c}">${esc(w)}</span>`;
+  }).join("");
+}
 function say(text, o) {
   o = o || {};
   if (!window.speechSynthesis) { o.onend && o.onend(); return; }
+  const key = o.group || "t:" + text + (o.slow ? ":s" : "");
   try {
     audioAwake(curView === "session" ? Infinity : 30000);
     const busy = speechSynthesis.speaking || speechSynthesis.pending;
-    if (!o.keep) { clearTimeout(sayT); if (busy) speechSynthesis.cancel(); }
+    if (!o.keep) { AGEN++; clearTimeout(sayT); if (say.last) say.last.dead = true; if (busy) speechSynthesis.cancel(); }
     const wake = KEEP ? Math.max(0, 450 - (Date.now() - KEEP.since)) : 0;
     const afterMic = Math.max(0, 1200 - (Date.now() - MIC_END));
     const delay = Math.max(wake, afterMic, !o.keep && busy ? 150 : 0);
+    if (TTS.key !== key || TTS.state === "idle") ttsState("prep", key, text);
     const go = () => {
       try {
         const u = new SpeechSynthesisUtterance(clean(text));
         u.lang = "en-US"; const v = voices[o.who || 0]; if (v) u.voice = v;
         u.rate = o.slow ? 0.6 : 0.9; if (o.who && voices[0] === voices[1]) u.pitch = 0.8;
-        if (o.onend) { u.onend = o.onend; u.onerror = o.onend; }
+        // si la cortaste (Salir, otra frase, otro botón) no sigue con lo que venía después (p. ej. el resto del diálogo)
+        const fin = () => { if (u.dead) return; if (say.last === u) { clearTimeout(ttsIdleT); ttsIdleT = setTimeout(() => { if (say.last === u) ttsState("idle"); }, 250); } o.onend && o.onend(); };
+        u.onstart = () => { if (say.last === u) ttsState("play", key, text); };
+        u.onboundary = e => { if (say.last === u && e.charIndex != null) ttsWord(text, e.charIndex); };
+        u.onend = fin; u.onerror = fin;
         say.last = u; // Chrome a veces corta frases si el objeto se libera antes de terminar
         speechSynthesis.speak(u);
-      } catch (e) { o.onend && o.onend(); }
+        setTimeout(() => { if (say.last === u && TTS.state === "prep") ttsState("play", key, text); }, 1500); // si el navegador no avisa que empezó
+      } catch (e) { ttsState("idle"); o.onend && o.onend(); }
     };
     if (delay) sayT = setTimeout(go, delay); else go();
   } catch (e) { o.onend && o.onend(); }
 }
-const stopAudio = () => { clearTimeout(sayT); try { speechSynthesis.cancel(); } catch (e) {} };
+const stopAudio = () => { AGEN++; clearTimeout(sayT); if (say.last) say.last.dead = true; say.last = null; try { speechSynthesis.cancel(); } catch (e) {} if (TTS.state !== "idle") ttsState("idle"); };
 /* ---------- reacción visible y con sonido al acertar o fallar (para que nadie se quede dormido) ---------- */
 let AC = null, SND = true;
 try { SND = localStorage.getItem("ip-snd") !== "0"; } catch (e) {}
@@ -772,15 +838,15 @@ function react(ok, idk) {
 function sndUI() { const b = $("#sndBtn"); if (b) { b.textContent = SND ? "🔊" : "🔇"; b.title = SND ? "Quitar sonidos" : "Activar sonidos"; } }
 const OKW = ["¡Correcto!", "¡Muy bien!", "¡Eso es!", "¡Perfecto!", "¡Excelente!"];
 // Textos largos: se leen oración por oración (algunos navegadores cortan las lecturas largas)
-function sayLong(text, slow) {
+function sayLong(text, slow, group) {
   stopAudio();
-  const parts = text.replace(/\n+/g, " ").match(/[^.!?]+[.!?]+["')]?|[^.!?]+$/g) || [text];
-  let i = 0; const next = () => { if (i < parts.length) say(parts[i++].trim(), { slow, keep: true, onend: next }); };
+  const parts = text.replace(/\n+/g, " ").match(/[^.!?]+[.!?]+["')]?|[^.!?]+$/g) || [text], g = AGEN;
+  let i = 0; const next = () => { if (g === AGEN && i < parts.length) say(parts[i++].trim(), { slow, keep: true, group, onend: next }); };
   next();
 }
 // cualquier botón con data-say lo lee en voz alta
 document.addEventListener("click", e => {
-  const L = e.target.closest("[data-saylong]"); if (L) { const u = UNITS.find(x => x.id === L.dataset.saylong); if (u && u.r) sayLong(u.r.en, L.dataset.slow === "1"); return; }
+  const L = e.target.closest("[data-saylong]"); if (L) { const u = UNITS.find(x => x.id === L.dataset.saylong); if (u && u.r) sayLong(u.r.en, L.dataset.slow === "1", btnKey(L)); return; }
   const b = e.target.closest("[data-say]"); if (!b) return;
   say(b.dataset.say, { slow: b.dataset.slow === "1" });
 });
@@ -790,14 +856,17 @@ const playBtn = (en, label) => `<button class="play" data-say="${esc(en)}" aria-
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 let srOK = !!SR;
 // onReady: el micrófono ya está grabando de verdad (antes de eso, lo que digas se pierde)
-function hear(onReady) {
+function hear(onState) { // onState("ready" | "speech" | "proc")
   return new Promise(res => {
     let fin = false, ready = false, alts = [], guard = null; const r = new SR();
     const done = x => { if (fin) return; fin = true; clearTimeout(guard); MIC_END = Date.now(); res(x); };
-    const isReady = () => { if (!ready && !fin) { ready = true; onReady && onReady(); } };
+    const tell = x => { if (!fin && onState) onState(x); };
+    const isReady = () => { if (!ready && !fin) { ready = true; tell("ready"); } };
     r.lang = "en-US"; r.interimResults = false; r.maxAlternatives = 5; r.continuous = false;
     r.onstart = () => setTimeout(isReady, 700);
     r.onaudiostart = isReady;
+    r.onspeechstart = () => { isReady(); tell("speech"); };
+    r.onspeechend = () => tell("proc");
     r.onresult = e => {
       const f = Array.from(e.results).filter(x => x.isFinal); if (!f.length) return;
       alts = f.length === 1 ? Array.from(f[0]).map(a => a.transcript) : [f.map(x => x[0].transcript).join(" ")];
@@ -948,14 +1017,21 @@ function speechCheck(heard, en) {
   return { ok: m > 0 && D[n][m] <= allowed, bad, hbad, miss, hw: HW, raw };
 }
 // Botón de micrófono reutilizable. onDone(ok, transcript, score) o onFail(mensaje)
+// Cómo se ve el micrófono en cada momento
+function micLook(btn, lbl, st) {
+  btn.classList.remove("wait", "on", "hearing", "proc");
+  const L = { wait: "Espera…", ready: "¡Habla ahora!", speech: "Te estoy oyendo…", proc: "Revisando…" };
+  btn.classList.add({ wait: "wait", ready: "on", speech: "hearing", proc: "proc" }[st]);
+  lbl.textContent = L[st];
+}
 const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div>${esc(t)}</div>`); };
 function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia reacción
   host.innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Toca y habla">${MIC}</button><div class="miclbl">Toca y habla</div></div><div class="heard" aria-live="polite"></div>`;
   const btn = host.querySelector(".mic"), lbl = host.querySelector(".miclbl"), out = host.querySelector(".heard");
   btn.onclick = async () => {
     btn.classList.add("wait"); btn.disabled = true; lbl.textContent = "Espera…"; out.textContent = "";
-    const r = await hear(() => { btn.classList.remove("wait"); btn.classList.add("on"); lbl.textContent = "¡Habla ahora!"; });
-    btn.classList.remove("on", "wait"); btn.disabled = false; lbl.textContent = "Toca y habla";
+    const r = await hear(st => micLook(btn, lbl, st));
+    btn.classList.remove("on", "wait", "hearing", "proc"); btn.disabled = false; lbl.textContent = "Toca y habla";
     if (curView === "session") audioAwake(Infinity);
     if (r.err) {
       if (r.err === "not-allowed" || r.err === "service-not-allowed" || r.err === "start") {
@@ -1390,7 +1466,7 @@ function renderUnit(u) {
     </div></section>
     <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</div><div class="sb">
       <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${esc(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
-      <div class="row"><button class="btn speak" id="dPlay">${SPK} Escuchar diálogo</button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
+      <div class="row"><button class="btn speak" id="dPlay" data-saygroup="dlg:${u.id}">${SPK}<span class="lb">Escuchar diálogo</span></button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
       <div class="row"><button class="btn primary" id="dPractice"${dis}>Practicar: tú eres B</button></div>
     </div></section>
     ${u.r ? `<section class="sec"><div class="sh"><span class="n">05</span><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</div><div class="sb">
@@ -1398,7 +1474,7 @@ function renderUnit(u) {
       <div class="reading" id="rdEn">${paras(u.r.en)}</div>
       <div class="reading es" id="rdEs" ${showRd ? "" : "hidden"}>${paras(u.r.es)}</div>
       <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Primero intenta entenderla sin la traducción.</p>
-      <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar lectura</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
+      <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK}<span class="lb">Escuchar lectura</span></button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK}<span class="lb">Lento</span></button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
       <div class="row"><button class="btn primary" id="rQ"${dis}>Contestar ${u.r.q.length} preguntas</button></div>
     </div></section>` : ""}
     ${VIDEOS[u.id] ? `<section class="sec"><div class="sh"><span class="n">${u.r ? "06" : "05"}</span><h3>Video</h3>${S.vw[VIDEOS[u.id].id] ? `<span class="ustat ok" style="margin-left:auto">✓ Visto</span>` : ""}</div><div class="sb">
@@ -1421,7 +1497,7 @@ function renderUnit(u) {
   if ($("#uVideo")) $("#uVideo").onclick = () => { if (!lock) videoSession(VIDEOS[u.id], u); };
   $("#dPractice").onclick = () => { if (!lock) dialogPractice(u); };
   $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
-  $("#dPlay").onclick = () => playDialog(u.d);
+  $("#dPlay").onclick = () => playDialog(u.d, "dlg:" + u.id);
   if (u.r) {
     $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
     $("#rQ").onclick = () => { if (!lock) readingPractice(u); };
@@ -1429,16 +1505,17 @@ function renderUnit(u) {
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
 }
-function playDialog(lines) {
+function playDialog(lines, group) {
   stopAudio();
-  let i = 0;
+  let i = 0; const g = AGEN;
   const rows = document.querySelectorAll("#dlg .ln");
   const step = () => {
     rows.forEach(r => r.style.background = "");
-    if (i >= lines.length) return;
+    if (g !== AGEN) return; // lo detuviste o pusiste otra cosa
+    if (i >= lines.length) { ttsState("idle"); return; }
     if (rows[i]) rows[i].style.background = "var(--accent-soft)";
     const l = lines[i++];
-    say(l[1], { who: l[0] === "B" ? 1 : 0, keep: true, onend: () => setTimeout(step, 350) });
+    say(l[1], { who: l[0] === "B" ? 1 : 0, keep: true, group, onend: () => setTimeout(step, 350) });
   };
   step();
 }
@@ -1619,26 +1696,26 @@ function foot(left, right) {
   const f = $("#sfoot"); f.className = "sfoot";
   f.innerHTML = left || right ? `<div class="fl">${left || ""}</div><div class="fr">${right || ""}</div>` : "";
 }
-const playPair = en => `<button class="btn speak" type="button" data-say="${esc(en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(en)}" data-slow="1">${SPK} Lento</button>`;
+const playPair = en => `<button class="btn speak" type="button" data-say="${esc(en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button>`;
 // Tarjeta de la frase: español arriba, inglés grande, pronunciación y botones para oírla
 function plate(c, o) {
   o = o || {};
-  return `<div class="plate">${o.noEs ? "" : `<div class="pes">${escN(c.es)}</div>`}<div class="pen${o.md ? " md" : ""}">${escN(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+  return `<div class="plate" data-text="${esc(c.en)}">${o.noEs ? "" : `<div class="pes">${escN(c.es)}</div>`}<div class="pen${o.md ? " md" : ""}">${speakSpans(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
 }
 // Resultado en la barra de acción (verde o rojo) con el botón para seguir
 function band(ok, idk, title, body, en, nextId) {
   const f = $("#sfoot"), id = nextId || "next";
   f.className = "sfoot band " + (ok ? "ok" : "bad");
   f.innerHTML = `<div class="bmsg"><span class="ico" aria-hidden="true">${ok ? "✓" : idk ? "?" : "✗"}</span><div class="btxt"><div class="bt">${title}</div>${body || ""}</div></div>
-    <div class="fr">${en ? `<button class="btn ghost speak" type="button" data-say="${esc(en)}">${SPK} Escuchar</button>` : ""}<button class="btn go" id="${id}">Continuar</button></div>`;
+    <div class="fr">${en ? `<button class="btn ghost speak" type="button" data-say="${esc(en)}">${SPK}<span class="lb">Escuchar</span></button>` : ""}<button class="btn go" id="${id}">Continuar</button></div>`;
   const b = $("#" + id); b.onclick = nextStep; b.focus({ preventScroll: true });
 }
 const comboTag = () => SES.combo >= 3 ? `<span class="combo">🔥 ${SES.combo} seguidas</span>` : "";
 function feedback(ok, c, extra, idk) {
   const title = (ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto");
   const pr = c.pron && norm(c.pron) !== norm(c.en) ? `<span class="pron">${esc(c.pron)}</span>` : "";
-  const body = (extra || "") + (ok ? `<div class="ans">${escN(c.en)}</div>${pr ? `<div class="sub">${pr}</div>` : ""}`
-    : `${idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans">${escN(c.en)}</div><div class="sub">${escN(c.es)}${pr ? " · " + pr : ""}</div>`);
+  const body = (extra || "") + (ok ? `<div class="ans" data-text="${esc(c.en)}">${speakSpans(c.en)}</div>${pr ? `<div class="sub">${pr}</div>` : ""}`
+    : `${idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}">${speakSpans(c.en)}</div><div class="sub">${escN(c.es)}${pr ? " · " + pr : ""}</div>`);
   band(ok, idk, title, body, c.en);
   react(ok, idk);
   const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
@@ -1710,7 +1787,7 @@ function step() {
   if (s.k === "choice" || s.k === "hear") {
     const hearMode = s.k === "hear", field = hearMode ? "es" : "en";
     const opts = shuffle([c, ...distract(c, 3, field)]), two = opts.every(o => o[field].length <= 26);
-    st.innerHTML = `${head(s.k)}${hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
+    st.innerHTML = `${head(s.k)}${hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
       <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(o[field])}</button>`).join("")}</div>`;
     foot(link("cIdk", "No sé"), "");
     if (hearMode) say(c.en);
@@ -1726,7 +1803,7 @@ function step() {
   }
   if (s.k === "type" || s.k === "dict") {
     const dict = s.k === "dict";
-    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK} Escuchar</button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK} Lento</button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
+    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
       <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>
       <p class="omsg" id="tMsg"></p>`;
     foot((helpOK ? link("hint", "Pista") : "") + link("skip", "No sé"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
@@ -1850,7 +1927,7 @@ function step() {
     if (srOK) {
       $("#sumMic").innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Dilo con el micrófono">${MIC}</button><div class="miclbl">Dilo con el micrófono</div></div>`;
       const b = $("#sumMic .mic"), l = $("#sumMic .miclbl");
-      b.onclick = async () => { b.classList.add("wait"); b.disabled = true; l.textContent = "Espera…"; const r = await hear(() => { b.classList.remove("wait"); b.classList.add("on"); l.textContent = "¡Habla ahora!"; }); b.classList.remove("on", "wait"); b.disabled = false; l.textContent = "Dilo con el micrófono"; audioAwake(Infinity);
+      b.onclick = async () => { b.classList.add("wait"); b.disabled = true; l.textContent = "Espera…"; const r = await hear(st => micLook(b, l, st)); b.classList.remove("on", "wait", "hearing", "proc"); b.disabled = false; l.textContent = "Dilo con el micrófono"; audioAwake(Infinity);
         if (r.err && (r.err === "not-allowed" || r.err === "service-not-allowed")) { srOK = false; $("#sumMsg").textContent = "No tengo permiso para el micrófono. Escríbelo."; return; }
         if (r.alts && r.alts.length) { const t = $("#sumTxt"); t.value = (t.value ? t.value + " " : "") + r.alts[0]; check(); } else $("#sumMsg").textContent = "No te oí. Inténtalo otra vez o escríbelo."; };
     }
@@ -1870,7 +1947,7 @@ function step() {
   if (s.k === "read") {
     const u = s.u;
     st.innerHTML = `<span class="tag">Lectura · ${esc(u.lv.short)}</span><h2 class="center">${esc(u.r.t)}</h2>
-      <div class="row c"><button class="btn speak" data-saylong="${u.id}">${SPK} Escuchar</button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK} Lento</button><button class="btn ghost" id="sRdT">Ver traducción</button></div>
+      <div class="row c"><button class="btn speak" data-saylong="${u.id}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK}<span class="lb">Lento</span></button><button class="btn ghost" id="sRdT">Ver traducción</button></div>
       <div class="reading">${paras(u.r.en)}</div>
       <div class="reading es" id="sRdEs" hidden>${paras(u.r.es)}</div>
       <p class="lead" style="font-size:14px">Léela en voz alta. Intenta entenderla antes de ver la traducción.</p>`;
@@ -1898,7 +1975,7 @@ function step() {
   if (s.k === "dlg") {
     const [who, en, es] = s.line;
     if (who === "A") {
-      st.innerHTML = `<h2 class="ttl">Conversación: te dicen</h2><div class="plate"><div class="pen md">${esc(en)}</div><div class="pes">${esc(es)}</div><div class="row">${playPair(en)}</div></div>`;
+      st.innerHTML = `<h2 class="ttl">Conversación: te dicen</h2><div class="plate" data-text="${esc(en)}"><div class="pen md">${speakSpans(en)}</div><div class="pes">${esc(es)}</div><div class="row">${playPair(en)}</div></div>`;
       foot("", goBtn("dNext", "Continuar"));
       say(en, { who: 0 }); $("#dNext").onclick = nextStep; $("#dNext").focus({ preventScroll: true });
       return;
@@ -1912,7 +1989,7 @@ function step() {
       sesEl("#micBox button,#dReveal").forEach(b => b.disabled = true);
       say(en, { who: 1 });
       if (auto === true) { SES.graded++; SES.ok++; skill("dlg", true); band(true, false, "¡Muy bien!", `<div class="ans">${esc(en)}</div>`, en, "dNext"); react(true); return; }
-      st.insertAdjacentHTML("beforeend", `<div class="plate"><div class="pen md">${esc(en)}</div><div class="row">${playPair(en)}</div></div><p class="lead">¿Te salió?</p>`);
+      st.insertAdjacentHTML("beforeend", `<div class="plate" data-text="${esc(en)}"><div class="pen md">${speakSpans(en)}</div><div class="row">${playPair(en)}</div></div><p class="lead">¿Te salió?</p>`);
       foot(`<button class="btn" id="dNo">No</button>`, goBtn("dYes", "Sí, más o menos igual"));
       $("#dNo").onclick = () => { SES.graded++; skill("dlg", false); nextStep(); };
       $("#dYes").onclick = () => { SES.graded++; SES.ok++; skill("dlg", true); nextStep(); };
