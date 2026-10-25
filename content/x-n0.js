@@ -30,23 +30,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     }
   },
   n0u2: {
-    v: [
-      ["cuarenta", "forty", "fórti", "Se escribe sin u: forty."],
-      ["cincuenta", "fifty", "fífti", ""],
-      ["sesenta", "sixty", "síksti", ""],
-      ["setenta", "seventy", "séventi", ""],
-      ["ochenta", "eighty", "éiti", ""],
-      ["noventa", "ninety", "náinti", ""],
-      ["veintiuno", "twenty-one", "tuénti-uán", ""],
-      ["treinta y cinco", "thirty-five", "zérti-fáiv", ""],
-      ["doscientos", "two hundred", "tu jándred", ""],
-      ["mil", "one thousand", "uán záusand", ""],
-      ["primero, segundo, tercero", "first, second, third", "ferst, sékond, zerd", ""],
-      ["Mi número es cinco, cinco, uno, dos.", "My number is five, five, one, two.", "mai námber is fáiv, fáiv, uán, tu", ""],
-      ["Tengo cuarenta años.", "I'm forty years old.", "aim fórti íers óuld", ""],
-      ["Cuesta cincuenta pesos.", "It's fifty pesos.", "its fífti péisos", ""],
-      ["Vivo en el número veinte.", "I live at number twenty.", "ai liv at námber tuénti", ""]
-    ],
+    v: [], // las frases de esta unidad llevan su id fijo y están todas en n0.js, en el orden en que se enseñan
     r: {
       t: "Contact information",
       en: "Name: Sofía Gómez. Age: thirty-two.\nPhone number: five five, eight three four, one two six nine.\nEmail: sofia dot gomez at mail dot com.\nAddress: forty-five Hidalgo Street.",

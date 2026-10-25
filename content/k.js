@@ -116,12 +116,15 @@
       ]
     },
     {
-      id: "k4", t: "Contar del 1 al 10",
-      goal: "Contar cosas y decir cuántas hay.",
+      id: "k4", t: "Los números del 0 al 20",
+      goal: "Contar del 0 al 20 y decir cuántas cosas hay.",
       g: [
         "Los números del 1 al 10 son la base de todo. Repítelos hasta que salgan solos.",
         ["one, two, three, four, five", "1, 2, 3, 4, 5"],
         ["six, seven, eight, nine, ten", "6, 7, 8, 9, 10"],
+        "El 11 y el 12 son especiales: eleven, twelve. Del 13 al 19 terminan en -teen (con fuerza al final) y el 20 es twenty.",
+        ["eleven, twelve, thirteen, fourteen, fifteen", "11, 12, 13, 14, 15"],
+        ["sixteen, seventeen, eighteen, nineteen, twenty", "16, 17, 18, 19, 20"],
         "Para el plural, casi siempre se agrega una -s:",
         ["one apple · two apples", "una manzana · dos manzanas"],
         "Para preguntar cuántos: How many…?",
