@@ -166,8 +166,8 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 .part .pt{font-weight:600}
 .part .pd{font-size:13px;color:var(--muted)}
 .part .pm{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
-.go{background:var(--accent);color:var(--accent-ink);border:0;padding:16px;font-family:var(--f-display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;width:100%;box-shadow:0 5px 0 var(--accent-2);margin-bottom:5px}
-.go:active{transform:translateY(4px);box-shadow:0 1px 0 var(--accent-2)}
+.go{background:var(--accent);color:var(--accent-ink);border:0;padding:16px;font-size:18px;font-weight:600;width:100%;border-radius:16px;transition:filter .15s,transform .1s}
+.go:active{transform:scale(.98)}
 .go:hover{filter:brightness(1.05)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .namegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -228,30 +228,30 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .pron{font-family:var(--f-mono);color:var(--muted);font-size:15px}
 .row{display:flex;flex-wrap:wrap;gap:8px}
 .row.c{justify-content:center}
-.btn{border:1px solid var(--ink);background:var(--panel);padding:10px 16px;font-weight:600;font-size:15px}
-.btn.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
-.btn.accent{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.btn.ghost{border-color:var(--line)}
-.btn.sm{padding:6px 12px;font-size:14px}
-.btn.go{background:var(--accent);color:var(--accent-ink);border:0;font-family:var(--f-display);font-size:21px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:12px 28px;min-width:170px;box-shadow:0 4px 0 var(--accent-2);margin-bottom:4px;transition:transform .08s,box-shadow .08s}
-.btn.go:hover:not(:disabled){filter:brightness(1.08)}
-.btn.go:active:not(:disabled),.btn.alt:active:not(:disabled),.btn.speak:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--c2,var(--accent-2))}
-.btn.go:disabled{box-shadow:none}
-/* botones de ayuda con color: No sé, Pista, Ver respuesta, Mejor escribirla, Borrar */
-.btn.alt{--c:var(--line);--cs:var(--panel);--ct:var(--ink);--c2:var(--muted);display:inline-flex;align-items:center;gap:9px;border:2px solid var(--c);background:var(--cs);color:var(--ct);font-weight:700;font-size:15px;padding:6px 14px 6px 6px;box-shadow:0 4px 0 var(--c2);margin-bottom:4px;transition:transform .08s,box-shadow .08s}
-.btn.alt .ic{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--c);font-size:16px;line-height:1;flex:none}
-.btn.alt.warn{--c:var(--warn);--cs:var(--warn-soft);--ct:var(--warn-ink);--c2:var(--warn-2)}
-.btn.alt.info{--c:var(--info);--cs:var(--info-soft);--ct:var(--info-ink);--c2:var(--info-2)}
-.btn.alt.purp{--c:var(--purp);--cs:var(--purp-soft);--ct:var(--purp-ink);--c2:var(--purp-2)}
-.btn.alt:disabled{box-shadow:none}
-@media (max-width:520px){.btn.alt{font-size:14px;padding:5px 11px 5px 5px;gap:7px}.btn.alt .ic{width:26px;height:26px;font-size:14px}}
-.btn.link{border:0;background:none;color:var(--muted);padding:10px 8px;text-decoration:underline;text-underline-offset:4px;font-weight:500}
-.btn.link:hover:not(:disabled){color:var(--ink)}
+.btn{border:0;background:var(--chip);color:var(--ink);padding:11px 18px;font-weight:600;font-size:15px;line-height:1.2;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:filter .15s,transform .1s,background .15s}
+.btn:hover:not(:disabled){filter:brightness(.96)}
+.btn:active:not(:disabled){transform:scale(.97)}
+.btn.primary{background:var(--ink);color:var(--panel)}
+.btn.accent{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.sm{padding:7px 13px;font-size:14px;border-radius:10px}
+.btn.go{background:var(--accent);color:var(--accent-ink);font-size:17px;font-weight:600;padding:14px 30px;min-width:170px;border-radius:14px}
+.btn.go:hover:not(:disabled){filter:brightness(1.06)}
+/* ayudas: píldoras suaves con icono de línea (No sé, Pista, Ver respuesta, Mejor escribirla, Borrar) */
+.btn.alt{--cs:var(--chip);--ct:var(--ink);background:var(--cs);color:var(--ct);border-radius:999px;padding:9px 16px 9px 13px;gap:7px}
+.btn.alt .ic{display:inline-grid;place-items:center;flex:none}
+.btn.alt .ic svg{width:18px;height:18px}
+.btn.alt.warn{--cs:var(--warn-soft);--ct:var(--warn-ink)}
+.btn.alt.info{--cs:var(--info-soft);--ct:var(--info-ink)}
+.btn.alt.purp{--cs:var(--purp-soft);--ct:var(--purp-ink)}
+@media (max-width:520px){.btn.alt{font-size:14px;padding:8px 13px 8px 11px}}
+.btn.link{background:none;color:var(--muted);padding:10px 8px;text-decoration:underline;text-underline-offset:4px;font-weight:500;border-radius:8px}
+.btn.link:hover:not(:disabled){color:var(--ink);filter:none}
 .speak{display:inline-flex;align-items:center;gap:8px}
 .speak svg{width:18px;height:18px}
 /* escuchar: azul; lento: azul claro */
-.btn.speak{--c2:var(--info-2);background:var(--info);color:var(--info-on);border:2px solid var(--info);box-shadow:0 3px 0 var(--info-2);margin-bottom:3px;transition:transform .08s,box-shadow .08s}
-.btn.ghost.speak{background:var(--info-soft);color:var(--info-ink);border-color:var(--info)}
+.btn.speak{background:var(--info);color:var(--info-on);border-radius:999px;padding:10px 18px 10px 15px}
+.btn.ghost.speak{background:var(--info-soft);color:var(--info-ink);box-shadow:none}
 /* micrófono: un botón grande y redondo, el resultado debajo */
 .micwrap{display:flex;flex-direction:column;align-items:center;gap:8px}
 .mic{width:76px;height:76px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 0 0 6px var(--accent-soft)}
@@ -264,7 +264,7 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 /* la voz: preparando (parpadea), sonando (ondas que se mueven) y la palabra que se está diciendo */
 [data-say].prep svg,[data-saylong].prep svg,[data-saygroup].prep svg{animation:blink .6s ease-in-out infinite}
 .prep{cursor:progress}
-[data-say].playing,[data-saylong].playing,[data-saygroup].playing,.btn.speak.playing{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);box-shadow:0 3px 0 var(--accent)}
+[data-say].playing,[data-saylong].playing,[data-saygroup].playing,.btn.speak.playing{color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 2px var(--accent)}
 .playing svg .w1{animation:wave 1s ease-in-out infinite}
 .playing svg .w2{animation:wave 1s ease-in-out .3s infinite}
 @keyframes wave{0%,100%{opacity:.15}50%{opacity:1}}
@@ -338,8 +338,8 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .band .sub{font-size:15px;color:var(--muted)}
 .band .tipline{color:var(--ink);border-left:3px solid var(--accent);padding-left:8px;margin-top:4px}
 .band .fr{flex-wrap:nowrap}
-.band.ok .go{background:var(--ok);color:var(--panel);--c2:var(--ok-2);box-shadow:0 4px 0 var(--ok-2)}
-.band.bad .go{background:var(--bad);color:var(--panel);--c2:var(--bad-2);box-shadow:0 4px 0 var(--bad-2)}
+.band.ok .go{background:var(--ok);color:var(--panel)}
+.band.bad .go{background:var(--bad);color:var(--panel)}
 .ico{width:46px;height:46px;border-radius:50%;display:inline-grid;place-items:center;font-size:26px;font-weight:800;line-height:1;color:var(--panel);flex:none}
 .band.ok .ico{background:var(--ok)}
 .band.bad .ico{background:var(--bad)}
@@ -382,7 +382,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .legend .dots{flex:none}
 .dots i{width:7px;height:7px;background:var(--chip);display:block}
 .dots i.on{background:var(--ok)}
-.play{background:none;border:1px solid var(--line);width:36px;height:36px;display:grid;place-items:center;flex:none;padding:0}
+.play{background:var(--info-soft);color:var(--info-ink);border:0;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;flex:none;padding:0}
 .play svg{width:16px;height:16px}
 .filters{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
 .filters select.type{width:auto;font-size:16px}
@@ -655,6 +655,17 @@ COURSE.forEach((lv, li) => {
 });
 
 const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path class="w1" d="M16 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>';
+const SV = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+// Iconos de línea para los botones de ayuda
+const ICO = {
+  bulb: SV('<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4.2 12.6c.7.5 1.2 1.4 1.2 2.3V17h6v-.1c0-.9.5-1.8 1.2-2.3A7 7 0 0 0 12 2z"/>'),
+  help: SV('<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>'),
+  eye: SV('<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'),
+  keys: SV('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01M7 16h10"/>'),
+  undo: SV('<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>'),
+  home: SV('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>'),
+  pause: SV('<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>')
+};
 const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -1931,7 +1942,7 @@ function step() {
   const head = k => `${tagTxt ? `<span class="tag">${tagTxt}</span>` : ""}<h2 class="ttl">${LBL[k]}</h2>`;
   const helpOK = !isExam();
   const goBtn = (id, t, dis) => `<button class="btn go" id="${id}"${dis ? " disabled" : ""}>${t}</button>`;
-  const help = (id, t, kind, ic) => `<button class="btn alt ${kind}" type="button" id="${id}"><span class="ic" aria-hidden="true">${ic}</span>${t}</button>`;
+  const help = (id, t, kind, ic) => `<button class="btn alt ${kind}" type="button" id="${id}"><span class="ic">${ic}</span>${t}</button>`;
 
   if (s.k === "teach") {
     const ws = words(c.en), tip = gramTip(c.u);
@@ -1982,7 +1993,7 @@ function step() {
       : picMode ? `<div class="picq${c.emC}" role="img" aria-label="${esc(c.es)}">${c.em}</div>` : promptHTML(c);
     st.innerHTML = `${head(s.k)}${ask}
       <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${hearMode && o.em ? `<span class="oemo" aria-hidden="true">${o.em}</span>` : ""}${esc(o[field])}</button>`).join("")}</div>`;
-    foot(help("cIdk", "No sé", "warn", "🤷"), "");
+    foot(help("cIdk", "No sé", "warn", ICO.help), "");
     if (hearMode) say(c.en);
     const pickOpt = b => {
       const ok = !!b && b.dataset.id === c.id;
@@ -1999,7 +2010,7 @@ function step() {
     st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `${promptHTML(c)}`}
       <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>
       <p class="omsg" id="tMsg"></p>`;
-    foot((helpOK ? help("hint", "Pista", "purp", "💡") : "") + help("skip", "No sé", "warn", "🤷"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
+    foot((helpOK ? help("hint", "Pista", "purp", ICO.bulb) : "") + help("skip", "No sé", "warn", ICO.help), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
     const inp = $("#tin"); inp.focus();
     if (dict) say(c.en);
     let helped = false;
@@ -2021,7 +2032,7 @@ function step() {
       <div class="slot" id="slot" aria-label="Tu frase"></div>
       <div class="pool" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
       <p class="omsg" id="oMsg"></p>`;
-    foot(help("clr", "Borrar", "", "↩️") + (helpOK ? help("oHint", "Pista", "purp", "💡") : "") + help("oIdk", "No sé", "warn", "🤷"), goBtn("chk", "Revisar", true));
+    foot(help("clr", "Borrar", "", ICO.undo) + (helpOK ? help("oHint", "Pista", "purp", ICO.bulb) : "") + help("oIdk", "No sé", "warn", ICO.help), goBtn("chk", "Revisar", true));
     let helped = false;
     const lc = t => t.toLowerCase();
     const draw = () => {
@@ -2054,7 +2065,7 @@ function step() {
   if (s.k === "speak") {
     let tries = 0;
     st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
-    foot(help("sReveal", "Ver respuesta", "warn", "👁️") + help("sType", "Mejor escribirla", "info", "⌨️"), "");
+    foot(help("sReveal", "Ver respuesta", "warn", ICO.eye) + help("sType", "Mejor escribirla", "info", ICO.keys), "");
     const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
     // Cambiar a escribir: la meta de esta frase pasa a ser escribirla bien, y en el resto de la sesión no pide hablar
     const toWriting = () => { const k2 = fitKind(c, "type"), m = SES.m[c.id]; if (m) m.target = k2; SES.write = true; SES.steps[SES.i] = { k: k2, c, wr: true, fix: s.fix }; step(); };
@@ -2179,7 +2190,7 @@ function step() {
     st.innerHTML = `<h2 class="ttl">Conversación: tu turno</h2>
       ${prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(prevA[1])}"</p>` : ""}
       <div class="prompt">${esc(es)}</div><p class="lead">Dilo en inglés.</p><div id="micBox"></div>`;
-    foot(srOK ? `<button class="btn alt warn" type="button" id="dReveal"><span class="ic" aria-hidden="true">👁️</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
+    foot(srOK ? `<button class="btn alt warn" type="button" id="dReveal"><span class="ic">${ICO.eye}</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
     const reveal = (auto) => {
       sesEl("#micBox button,#dReveal").forEach(b => b.disabled = true);
       say(en, { who: 1 });
@@ -2297,7 +2308,7 @@ function finish() {
     <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>${recall}`;
   const goify = h => h.replace(/btn primary/g, "btn go");
   st.innerHTML = summary(title);
-  foot(`<button class="btn alt" id="fBack"><span class="ic" aria-hidden="true">🏠</span>Volver</button>`, goify(btns));
+  foot(`<button class="btn alt" id="fBack"><span class="ic">${ICO.home}</span>Volver</button>`, goify(btns));
   if (SES.seg && PLAN) {
     segDone(SES.seg);
     PLAN.i++;
@@ -2305,7 +2316,7 @@ function finish() {
     title = `Parte ${PLAN.i} de ${total} · ${title}`;
     btns = nx ? `<button class="btn primary" id="fPlan">Siguiente: ${esc(nx.title)}</button>` : `<button class="btn primary" id="fPlanEnd">Seguir practicando</button>`;
     st.innerHTML = summary(title);
-    foot(`<button class="btn alt" id="fPause"><span class="ic" aria-hidden="true">${nx ? "⏸️" : "🏠"}</span>${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
+    foot(`<button class="btn alt" id="fPause"><span class="ic">${nx ? ICO.pause : ICO.home}</span>${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
     if (!nx) PLAN = null;
     const b1 = $("#fPlan"); if (b1) b1.onclick = runSeg;
     const b2 = $("#fPlanEnd"); if (b2) b2.onclick = () => { nextBlock(); if (!startToday()) view("hoy"); };
