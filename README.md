@@ -30,7 +30,7 @@ App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profes
 - **Método:** rutina diaria, etapas y qué escuchar en cada nivel.
 
 ## Uso
-Dirección: **https://ingenieriaimza-gif.github.io/ENGLISH/**
+Dirección: **https://english-har.netlify.app/**
 
 Instálala desde el navegador:
 - **Android (Chrome):** menú ⋮ → *Instalar app*
@@ -73,9 +73,9 @@ El avance de cada frase se guarda por su posición dentro de la unidad (primero 
 Después de editar, sube el número de versión en `sw.js`.
 
 ## Publicación
-La app se publica con **GitHub Pages** desde la rama `main` (carpeta raíz): cada `git push` a `main` la publica en 1–2 minutos, sin límite de publicaciones. `.nojekyll` hace que GitHub sirva los archivos tal cual. El service worker pregunta siempre al servidor si hay versión nueva (`cache: "no-cache"`) y, si el servidor falla, usa la copia guardada.
+La app se publica en **Netlify**, proyecto `english-har` (https://english-har.netlify.app/): cada `git push` a `main` la publica sola en segundos. El plan gratis da 300 créditos al mes y cada publicación gasta 15 (unas 20 al mes), así que se juntan varios cambios en un solo push, y los cambios que solo tocan documentación se dejan en la rama `pendiente` hasta el siguiente cambio de la app. El service worker pregunta siempre al servidor si hay versión nueva (`cache: "no-cache"`) y, si el servidor falla, usa la copia guardada. (`.nojekyll` queda por si algún día se usa GitHub Pages.)
 
-La dirección anterior en Netlify (`english-practico.netlify.app`) se quedó en la versión del 25 de octubre: el plan gratis de Netlify da 300 créditos al mes y cada publicación gasta 15 (unas 20 al mes). Para pasar el avance a la nueva dirección: en la app anterior, Hoy → «Sincronizar teléfono y PC» → «Activar en este dispositivo» y copiar el código; en la nueva, escribirlo en «¿Ya usabas la app?» de la primera pantalla.
+La dirección anterior, `english-practico.netlify.app` (otra cuenta de Netlify), se quedó en la versión del 25 de octubre porque se acabaron sus créditos del periodo (17 oct – 16 nov). Para pasar el avance: en la app anterior, Hoy → «Sincronizar teléfono y PC» → «Activar en este dispositivo» y copiar el código; en la nueva, escribirlo en «¿Ya usabas la app?» de la primera pantalla.
 
 ## Sincronización (Supabase)
 El avance se sincroniza entre dispositivos con un código personal de 20 caracteres.
