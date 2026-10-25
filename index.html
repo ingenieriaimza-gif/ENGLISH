@@ -107,7 +107,10 @@ h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-tra
 .urow{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 16px}
 .urow:last-child{border-bottom:0}
 .urow:hover{background:var(--bg)}
-.unum{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.unum{font-family:var(--f-mono);font-size:11px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1}
+.unum .uic{font-family:var(--f-body);font-size:24px;line-height:1.1}
+.hic{display:block;font-size:44px;line-height:1.1;margin-bottom:4px}
+.task .hic{text-align:center;font-size:56px}
 .urow .t{min-width:0}
 .urow .t div:first-child{font-weight:600}
 .urow .t div:last-child{color:var(--muted);font-size:13px}
@@ -201,6 +204,16 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .pen.md{font-size:clamp(22px,5vw,30px)}
 .ppr{font-family:var(--f-mono);font-size:15px;background:var(--chip);padding:2px 10px;margin-top:2px}
 .plate .row{justify-content:center;margin-top:12px}
+.pic{font-size:clamp(64px,16vw,96px);line-height:1.1;margin-bottom:2px}
+.pmean{display:inline-flex;align-items:baseline;gap:10px;margin-top:10px;padding:6px 16px;background:var(--accent-soft);color:var(--accent);font-size:clamp(22px,5vw,30px);font-weight:700;line-height:1.2;text-wrap:balance}
+.pmean .eq{font-weight:500;opacity:.7}
+.pemo{display:block;font-size:clamp(52px,13vw,72px);line-height:1.15;margin-bottom:6px}
+.picq{font-size:clamp(96px,26vw,140px);line-height:1.1;text-align:center}
+.picq.e2{font-size:clamp(72px,19vw,110px)}.picq.e3{font-size:clamp(52px,14vw,84px)}
+.pic.e3{font-size:clamp(46px,12vw,72px)}.pemo.e3{font-size:clamp(40px,10vw,56px)}
+.oemo{font-size:26px;line-height:1;margin-right:10px;vertical-align:-4px}
+.aemo{font-size:26px;margin-right:8px;vertical-align:-3px}
+.band .smean{color:var(--ink)}
 .nw{white-space:nowrap}
 .note{align-self:center;text-align:center;font-size:15px;background:var(--accent-soft);padding:6px 12px;max-width:100%}
 .en{font-size:clamp(22px,4.5vw,28px);font-weight:600;line-height:1.25}
@@ -319,7 +332,10 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 /* Lists */
 .items{border-top:1px solid var(--line)}
 .list-box{background:var(--panel);border:1px solid var(--line)}
-.item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line)}
+.iemo{font-size:24px;line-height:1;width:36px;text-align:center}
+.iemo.e2{font-size:15px;letter-spacing:-1px}.iemo.e3{font-size:12px;line-height:1.25}
+.iemo i{font-style:normal;display:inline-block}
+.item{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line)}
 .item:last-child{border-bottom:0}
 .item .t{min-width:0}
 .item .t div:first-child{font-weight:600}
@@ -561,6 +577,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 <script src="content/x-n6.js"></script>
 <!-- un video verificado de YouTube por unidad -->
 <script src="content/videos.js"></script>
+<script src="content/emoji.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -569,10 +586,16 @@ const UNITS = [], CARDS = [], CARD = {};
 // Frases con tu nombre: {name|Ana} {last|López} {nameS|A-N-A} {lastS|L-O-P-E-Z} {email|ana dot ruiz}. Ver applyNames().
 const TOK = /\{(?:name|last|nameS|lastS|email)\|/, TOKG = /\{(name|last|nameS|lastS|email)\|([^}]*)\}/g;
 const defFill = t => typeof t === "string" ? t.replace(TOKG, (m, k, d) => d) : t;
+// Dibujos: EMOJI[id] = "👍" (representa el significado por sí solo) o "~📅" (solo acompaña). "" = sin dibujo.
+const EMO = window.EMOJI || {}, UICON = window.UNIT_ICON || {};
+const LEAD_EMO = /^((?:\p{Extended_Pictographic}|\uFE0F|\u200D|\p{Emoji_Modifier})+)\s+/u;
+// Cuántos dibujos lleva (para achicarlos si son 2 o más y que quepan en una línea)
+const EMO_ONE = /[0-9#*]\uFE0F?\u20E3|\p{Extended_Pictographic}(?:\uFE0F|\p{Emoji_Modifier}|\u200D\p{Extended_Pictographic})*/gu;
+const emCls = e => { const n = (String(e).match(EMO_ONE) || []).length; return n >= 3 ? " e3" : n === 2 ? " e2" : ""; };
 COURSE.forEach((lv, li) => {
   lv.short = lv.short || lv.name.split(" · ")[0];
   lv.units.forEach((u, ui) => {
-    u.lv = lv; u.k = ui + 1; u.n = UNITS.length;
+    u.lv = lv; u.k = ui + 1; u.n = UNITS.length; u.icon = UICON[u.id] || "";
     const X = EXTRA[u.id];
     if (X) { if (X.v) u.c = u.c.concat(X.v); if (X.r) u.r = X.r; } // las frases extra van DESPUÉS de las base: así sus ids no cambian
     if (TOK.test(JSON.stringify(u.d))) { u.dT = u.d; u.d = u.dT.map(l => l.map(defFill)); }
@@ -581,6 +604,10 @@ COURSE.forEach((lv, li) => {
     u.cards = u.c.map((c, k) => {
       const T = TOK.test(c.slice(0, 4).join("\u0001")) ? { es: c[0], en: c[1], pron: c[2] || "", note: c[3] || "" } : null;
       const o = { id: c[4] || (u.id + "." + k), es: defFill(c[0]), en: defFill(c[1]), pron: defFill(c[2] || ""), note: defFill(c[3] || ""), u, T };
+      const m = o.es.match(LEAD_EMO); let e = "";
+      if (m) { e = m[1]; o.es = o.es.slice(m[0].length); if (T) T.es = T.es.replace(LEAD_EMO, ""); }
+      if (EMO[o.id] !== undefined) e = EMO[o.id];
+      o.emS = !!e && e[0] !== "~"; o.em = e.replace(/^~/, ""); o.emC = emCls(o.em);
       CARD[o.id] = o; CARDS.push(o); return o;
     });
     UNITS.push(u);
@@ -631,9 +658,9 @@ const mastered = id => bx(id) >= 4;
 // Historial del día: n = frases nuevas, r = respuestas, ok = aciertos, dn = partes del plan terminadas
 function H() { const k = dayNum(); return S.h[k] || (S.h[k] = { n: 0, r: 0, ok: 0, dn: [] }); }
 // Habilidades: promedio móvil de aciertos por tipo de ejercicio
-const SKILL = { choice: "vocab", hear: "listen", dict: "listen", type: "write", order: "write", speak: "speak", listen: "speak", dlg: "speak", rq: "read" };
+const SKILL = { pic: "vocab", choice: "vocab", hear: "listen", dict: "listen", type: "write", order: "write", speak: "speak", listen: "speak", dlg: "speak", rq: "read" };
 const SKILL_NAME = { vocab: "Vocabulario", listen: "Escuchar", speak: "Hablar", write: "Escribir", read: "Leer" };
-const SKILL_KINDS = { vocab: ["choice"], listen: ["dict", "hear"], speak: ["speak"], write: ["type", "order"], read: ["hear"] };
+const SKILL_KINDS = { vocab: ["choice", "pic"], listen: ["dict", "hear"], speak: ["speak"], write: ["type", "order"], read: ["hear"] };
 function skill(kind, ok) { const k = SKILL[kind]; if (!k) return; const v = S.sk[k] === undefined ? 0.8 : S.sk[k]; S.sk[k] = Math.round((v * 0.93 + (ok ? 0.07 : 0)) * 1000) / 1000; }
 function grade(c, ok) {
   // Solo sube de nivel si le tocaba repaso hoy: practicar 10 veces el mismo día no cuenta como "dominarla".
@@ -1126,13 +1153,14 @@ function pickKind(c, mode) {
     if (canType(c)) o.push("type", "dict"); if (canOrder(c)) o.push("order"); if (srOK) o.push("speak"); o.push("hear");
     return rnd(o);
   }
-  if (b <= 1) { o.push("choice", "hear"); if (canOrder(c)) o.push("order", "order"); }
-  else if (b <= 3) { if (canOrder(c)) o.push("order"); if (canType(c)) o.push("type", "dict"); o.push("hear"); o.push(srOK ? "speak" : "listen"); }
+  if (b <= 1) { o.push("choice", "hear"); if (canOrder(c)) o.push("order", "order"); if (c.emS) o.push("pic", "pic"); }
+  else if (b <= 3) { if (c.emS) o.push("pic"); if (canOrder(c)) o.push("order"); if (canType(c)) o.push("type", "dict"); o.push("hear"); o.push(srOK ? "speak" : "listen"); }
   else { if (canType(c)) o.push("type", "dict"); if (srOK) o.push("speak", "speak"); else o.push("listen"); }
   const w = weakSkill(); if (w) SKILL_KINDS[w].forEach(k => { if (o.includes(k)) o.push(k, k); }); // más práctica de tu punto débil
   return rnd(o.length ? o : ["choice"]);
 }
 function fitKind(c, k) {
+  if (k === "pic" && !c.emS) return "choice";
   if (sameText(c) && (k === "choice" || k === "type" || k === "listen")) return "dict";
   if ((k === "type" || k === "dict") && !canType(c)) return "choice";
   if (k === "order" && !canOrder(c)) return "choice";
@@ -1411,7 +1439,7 @@ function renderCurso() {
       </div>
       ${lv.units.map(u => {
         const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id];
-        return `<button class="urow${nu === u ? " next" : ""}" data-unit="${u.id}"><span class="unum">${String(u.k).padStart(2, "0")}</span>
+        return `<button class="urow${nu === u ? " next" : ""}" data-unit="${u.id}"><span class="unum">${u.icon ? `<span class="uic" aria-hidden="true">${u.icon}</span>` : ""}${String(u.k).padStart(2, "0")}</span>
           <span class="t"><div>${esc(u.t)}</div><div>${nu === u ? "Siguiente lección · " : ""}${sn}/${tot} frases${!d && sn === tot && unitReq(u).ok ? " · examen listo" : ""}</div></span>
           <span class="ustat${d ? " ok" : ""}">${d ? "✓ Aprobada" : lock ? "🔒" : sn ? Math.round(sn / tot * 100) + "%" : "›"}</span></button>`;
       }).join("")}
@@ -1441,7 +1469,7 @@ function dotsHTML(id) { const b = bx(id); return `<div class="dots" title="${see
 const LEGEND = `<p class="legend"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span>Los cuadritos verdes muestran qué tan bien te sabes cada frase. Sube uno cada vez que la contestas bien el día que le toca repaso; si la fallas, baja. Con 4 ya la dominas.</span></p>`;
 function itemHTML(c, showUnit) {
   const second = sameText(c) && c.pron ? `Se dice: ${c.pron}` : c.es;
-  return `<div class="item">${dotsHTML(c.id)}<div class="t"><div>${esc(c.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
+  return `<div class="item">${dotsHTML(c.id)}<span class="iemo${c.emC || ""}" aria-hidden="true">${c.emC ? c.em.match(EMO_ONE).map(x => `<i>${x}</i>`).join("") : c.em || ""}</span><div class="t"><div>${esc(c.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
 }
 let showEs = false;
 let showRd = false;
@@ -1455,7 +1483,7 @@ function renderUnit(u) {
   $("#vUnit").innerHTML = `
     <button class="back" id="uBack">← Curso</button>
     <div style="display:flex;flex-direction:column;gap:6px">
-      <div class="label">${esc(u.lv.short)} · Unidad ${u.k} · ${esc(u.lv.cefr)}</div>
+      ${u.icon ? `<span class="hic" aria-hidden="true">${u.icon}</span>` : ""}<div class="label">${esc(u.lv.short)} · Unidad ${u.k} · ${esc(u.lv.cefr)}</div>
       <h2>${esc(u.t)}</h2>
       <p class="muted" style="margin:0">${esc(u.goal)}</p>
       <p class="ustat multi" style="margin:0">${tot} frases · normalmente toma de 3 a 6 días, porque el examen pide que las aciertes en días distintos</p>
@@ -1573,7 +1601,7 @@ function learnUnit(u, n) {
   for (let k = 0; k < fresh.length; k += 2) {
     const g = fresh.slice(k, k + 2);
     g.forEach(c => steps.push({ k: "intro", c }));
-    g.forEach(c => steps.push({ k: sameText(c) ? "dict" : rnd(canOrder(c) ? ["choice", "order", "hear"] : ["choice", "hear"]), c }));
+    g.forEach(c => steps.push({ k: sameText(c) ? "dict" : c.emS ? rnd(["pic", "pic", "hear"]) : rnd(canOrder(c) ? ["choice", "order", "hear"] : ["choice", "hear"]), c }));
   }
   shuffle(old).forEach(c => steps.push({ k: pickKind(c, "learn"), c }));
   runSession(steps, { mode: "learn", unit: u, title: u.t });
@@ -1630,7 +1658,7 @@ function nextStep() { SES.i++; step(); }
    y cuando la aciertas regresa en el ejercicio original. Si la fallas dos veces, te la enseño con calma (palabra por palabra
    y la regla). Si fallas varias seguidas, hacemos una pausa: repasamos la explicación y algo de temas anteriores que ya sabes,
    y dejamos las frases nuevas para después. La calificación del repaso espaciado solo usa el primer intento. */
-const RANK = { intro: 0, choice: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
+const RANK = { intro: 0, pic: 1, choice: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
 const isExam = () => SES.mode === "exam" || SES.mode === "final";
 function easierKind(c, k) {
   if (sameText(c)) return "hear";
@@ -1703,7 +1731,7 @@ const playPair = en => `<button class="btn speak" type="button" data-say="${esc(
 // Tarjeta de la frase: español arriba, inglés grande, pronunciación y botones para oírla
 function plate(c, o) {
   o = o || {};
-  return `<div class="plate" data-text="${esc(c.en)}">${o.noEs ? "" : `<div class="pes">${escN(c.es)}</div>`}<div class="pen${o.md ? " md" : ""}">${speakSpans(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
+  return `<div class="plate" data-text="${esc(c.en)}">${c.em ? `<div class="pic${c.emC}" aria-hidden="true">${c.em}</div>` : ""}<div class="pen${o.md ? " md" : ""}">${speakSpans(c.en)}</div>${c.pron ? `<div class="ppr">${esc(c.pron)}</div>` : ""}${o.noEs ? "" : `<div class="pmean"><span class="eq" aria-hidden="true">=</span>${escN(c.es)}</div>`}<div class="row">${playPair(c.en)}</div></div>${c.note && !o.noNote ? `<div class="note">${esc(c.note)}</div>` : ""}`;
 }
 // Resultado en la barra de acción (verde o rojo) con el botón para seguir
 function band(ok, idk, title, body, en, nextId) {
@@ -1719,14 +1747,22 @@ function feedback(ok, c, extra, idk) {
   // Cada dato en su renglón y con su nombre: la respuesta, cómo se pronuncia, qué significa (si la pregunta fue en audio) y el consejo
   const k = (SES.steps[SES.i] || {}).k;
   const pr = c.pron && norm(c.pron) !== norm(c.en) ? `<div class="sub">Se pronuncia: <span class="pron">${esc(c.pron)}</span></div>` : "";
-  const mean = k === "dict" ? `<div class="sub">Significa: ${escN(c.es)}</div>` : "";
+  const mean = `<div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`;
   const tip = !ok && c.note ? `<div class="sub tipline">${esc(c.note)}</div>` : "";
-  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}">${speakSpans(c.en)}</div>${pr}${mean}${tip}`;
+  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${pr}${tip}`;
   band(ok, idk, title, body, c.en);
   react(ok, idk);
   const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450); // primero el sonido, luego la voz
 }
-const LBL = { intro: "Frase nueva", listen: "¿Cómo se dice en inglés?", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
+const promptHTML = c => `<div class="prompt">${c.em ? `<span class="pemo${c.emC}" aria-hidden="true">${c.em}</span>` : ""}${escN(c.es)}</div>`;
+// Distractores con dibujo distinto (para el ejercicio de solo dibujo)
+function distractPic(c, n) {
+  const pool = [...shuffle(c.u.cards), ...shuffle(c.u.lv.units.flatMap(u => u.cards))].filter(x => x.emS);
+  const out = [], ems = new Set([c.em]), ens = new Set([c.en.toLowerCase()]);
+  for (const x of pool) { if (out.length >= n) break; if (x.id === c.id || ems.has(x.em) || ens.has(x.en.toLowerCase())) continue; ems.add(x.em); ens.add(x.en.toLowerCase()); out.push(x); }
+  return out.length >= n ? out : out.concat(distract(c, n - out.length, "en").filter(x => !ens.has(x.en.toLowerCase())));
+}
+const LBL = { pic: "¿Cómo se dice en inglés?", intro: "Frase nueva", listen: "¿Cómo se dice en inglés?", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
 // En computadora: teclas 1 a 4 para elegir una opción
 document.addEventListener("keydown", e => {
   if (curView !== "session" || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -1779,7 +1815,7 @@ function step() {
     return;
   }
   if (s.k === "listen") {
-    st.innerHTML = `${head("listen")}<div class="prompt">${escN(c.es)}</div><p class="lead">Piensa cómo se dice y dilo en voz alta. Luego revisa.</p>`;
+    st.innerHTML = `${head("listen")}${promptHTML(c)}<p class="lead">Piensa cómo se dice y dilo en voz alta. Luego revisa.</p>`;
     foot("", goBtn("reveal", "Ver respuesta"));
     $("#reveal").onclick = () => {
       st.innerHTML = `${head("listen")}${plate(c)}<p class="lead">¿Te salió igual?</p>`;
@@ -1790,11 +1826,13 @@ function step() {
     };
     return;
   }
-  if (s.k === "choice" || s.k === "hear") {
-    const hearMode = s.k === "hear", field = hearMode ? "es" : "en";
-    const opts = shuffle([c, ...distract(c, 3, field)]), two = opts.every(o => o[field].length <= 26);
-    st.innerHTML = `${head(s.k)}${hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
-      <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${esc(o[field])}</button>`).join("")}</div>`;
+  if (s.k === "choice" || s.k === "hear" || s.k === "pic") {
+    const hearMode = s.k === "hear", picMode = s.k === "pic", field = hearMode ? "es" : "en";
+    const opts = shuffle([c, ...(picMode ? distractPic(c, 3) : distract(c, 3, field))]), two = opts.every(o => o[field].length <= 26);
+    const ask = hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>`
+      : picMode ? `<div class="picq${c.emC}" role="img" aria-label="${esc(c.es)}">${c.em}</div>` : promptHTML(c);
+    st.innerHTML = `${head(s.k)}${ask}
+      <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${hearMode && o.em ? `<span class="oemo" aria-hidden="true">${o.em}</span>` : ""}${esc(o[field])}</button>`).join("")}</div>`;
     foot(link("cIdk", "No sé"), "");
     if (hearMode) say(c.en);
     const pickOpt = b => {
@@ -1809,7 +1847,7 @@ function step() {
   }
   if (s.k === "type" || s.k === "dict") {
     const dict = s.k === "dict";
-    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `<div class="prompt">${escN(c.es)}</div>`}
+    st.innerHTML = `${head(s.k)}${dict ? `<div class="row c"><button class="big-play" type="button" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>` : `${promptHTML(c)}`}
       <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>
       <p class="omsg" id="tMsg"></p>`;
     foot((helpOK ? link("hint", "Pista") : "") + link("skip", "No sé"), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
@@ -1830,7 +1868,7 @@ function step() {
   if (s.k === "order") {
     const w = words(c.en), pool = shuffle(w.map((t, k) => ({ t, k })));
     let picked = [];
-    st.innerHTML = `${head("order")}<div class="prompt">${escN(c.es)}</div>
+    st.innerHTML = `${head("order")}${promptHTML(c)}
       <div class="slot" id="slot" aria-label="Tu frase"></div>
       <div class="pool" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.t)}</button>`).join("")}</div>
       <p class="omsg" id="oMsg"></p>`;
@@ -1866,7 +1904,7 @@ function step() {
   }
   if (s.k === "speak") {
     let tries = 0;
-    st.innerHTML = `${head("speak")}<div class="prompt">${escN(c.es)}</div><div id="micBox"></div>`;
+    st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
     foot(link("sReveal", "Ver respuesta") + link("sType", "Mejor escribirla"), "");
     const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
     micUI($("#micBox"), c.en, (ok, heard) => {
@@ -1942,7 +1980,7 @@ function step() {
   }
   if (s.k === "gram") {
     const u = s.u;
-    st.innerHTML = `<span class="tag">${s.recap ? "Repasemos la explicación" : "Nueva lección"} · ${esc(u.lv.short)} · Unidad ${u.k}</span><h2 class="center">${esc(u.t)}</h2><p class="lead">${esc(u.goal)}</p>
+    st.innerHTML = `<span class="tag">${s.recap ? "Repasemos la explicación" : "Nueva lección"} · ${esc(u.lv.short)} · Unidad ${u.k}</span>${u.icon ? `<span class="hic" aria-hidden="true">${u.icon}</span>` : ""}<h2 class="center">${esc(u.t)}</h2><p class="lead">${esc(u.goal)}</p>
       <div class="gram" style="display:flex;flex-direction:column;gap:12px">${gramHTML(u.g)}</div>
       <p class="lead" style="font-size:14px">${s.recap ? "Léela con calma y escucha los ejemplos. Muchas veces el error viene de aquí: cuando entiendes la regla, las frases salen solas." : "Escucha los ejemplos y repítelos en voz alta. No tienes que memorizar la regla: la vas a aprender usando las frases."}</p>`;
     foot("", goBtn("gramOk", s.recap ? "Entendido, sigamos" : "Entendido, a practicar"));
