@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: una "hoja de taller" — bloque de título tipo plano de ingeniería arriba, pestañas, y tarjetas de trabajo */
+/* Layout: una "hoja de taller" — bloque de título tipo plano de ingeniería arriba y tarjetas de trabajo (sin pestañas: todo empieza en tu clase) */
 :root{
   --bg:#eceff2; --panel:#ffffff; --ink:#18212d; --muted:#5b6675; --line:#c9d0d8;
   --accent:#d9480f; --accent-ink:#ffffff; --accent-soft:#fde7dc;
@@ -187,6 +187,54 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 .skill.weak span{color:var(--accent);font-weight:600}
 details.rtext{border:1px solid var(--line);padding:8px 12px}
 details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
+
+/* Tu instructor: la clase de 3 pasos, «Mi camino» y «Más» */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.instr h2{text-wrap:balance}
+.where{display:flex;flex-direction:column;gap:6px}
+.where p{margin:0;font-size:15px;color:var(--muted)}
+.where b{color:var(--ink)}
+.ctitle{margin-top:4px}
+.road{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;text-align:left}
+.rstep{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rstep:last-child{border-bottom:0}
+.rsn{width:36px;height:36px;border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-size:20px;font-weight:700}
+.rstep.done .rsn{background:var(--ok);border-color:var(--ok);color:var(--panel)}
+.rstep.cur .rsn{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.rstep.none .rsn{border:2px dashed var(--line);color:var(--muted)}
+.rsb{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rst{font-family:var(--f-display);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.rstep.done .rst,.rstep.none .rst{color:var(--muted)}
+.rsd{font-size:14px;color:var(--muted)}
+.rsi{margin-top:6px;font-size:15px;color:var(--ink);border-left:3px solid var(--accent);padding-left:10px}
+.instr .go{margin-top:2px}
+.hint{font-size:13px;text-align:center;margin:0}
+.homenav,.morelist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.morelist{grid-template-columns:minmax(0,1fr)}
+.navbtn{background:var(--panel);border:2px solid var(--ink);padding:14px 44px 14px 16px;text-align:left;display:flex;flex-direction:column;gap:2px;min-width:0;position:relative}
+.navbtn::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:30px;line-height:1;color:var(--muted)}
+.x .ic{display:inline-grid;vertical-align:-3px;margin-right:6px}.x .ic svg{width:16px;height:16px}
+.navbtn:hover{background:var(--bg)}
+.navbtn b{font-family:var(--f-display);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.navbtn small{color:var(--muted);font-size:14px}
+@media (max-width:420px){.homenav{grid-template-columns:minmax(0,1fr)}}
+.back{font-size:16px;font-weight:600;color:var(--ink);padding:6px 0}
+.sstep{padding:8px 16px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600;color:var(--accent);text-align:center}
+.nextbox{align-self:stretch;width:100%;max-width:520px;margin:0 auto;text-align:left;border:2px solid var(--ink);padding:12px 16px;background:var(--panel);display:flex;flex-direction:column;gap:4px}
+.nextbox p{margin:0;font-weight:600}
+.done .big.sm{font-size:52px}
+.ustate{border:2px solid var(--ink);background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.ustate p{margin:0}
+.ustate.here{border-color:var(--accent);background:var(--accent-soft)}
+.ustate.ok{border-color:var(--ok);background:var(--ok-soft)}
+.ustat.here{color:var(--accent);font-weight:600}
+details.level>summary,details.sec>summary{list-style:none;cursor:pointer}
+details.level>summary::-webkit-details-marker,details.sec>summary::-webkit-details-marker{display:none}
+details.level>summary .top::after,details.sec>summary::after{content:"+";font-family:var(--f-mono);font-size:18px;color:var(--muted);margin-left:auto}
+details.sec>summary h3{flex:1}details.sec>summary::after{margin-left:12px}details.sec>summary .ustat{margin-left:0!important}
+details.level[open]>summary .top::after,details.sec[open]>summary::after{content:"−"}
+details.level:not([open])>summary{border-bottom:0}
+details.level.cur{border-color:var(--accent)}
 
 /* Sesión: una tarea por pantalla. Arriba el progreso, al centro la tarea, abajo la barra de acción (ahí llega el resultado) */
 .focus .tblock{display:none}
@@ -492,18 +540,25 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     </div>
   </header>
 
-  <nav class="tabs" id="tabs" aria-label="Secciones">
-    <button class="tab" data-tab="hoy">Hoy</button>
-    <button class="tab" data-tab="curso">Curso</button>
-    <button class="tab" data-tab="frases">Frases</button>
-    <button class="tab" data-tab="leer">Leer</button>
-    <button class="tab" data-tab="metodo">Método</button>
-  </nav>
 
   <!-- HOY -->
   <section class="view" id="vHoy">
     <div id="coach"></div>
 
+    <div class="homenav" id="homeNav">
+      <button class="navbtn" type="button" data-go="curso"><b>Mi camino</b><small>En qué tema vas y qué sigue</small></button>
+      <button class="navbtn" type="button" data-go="mas"><b>Más</b><small>Tus frases, lecturas, práctica libre y ajustes</small></button>
+    </div>
+  </section>
+
+  <!-- CURSO -->
+  <section class="view" id="vCurso" hidden>
+    <button class="back" type="button" data-back="hoy">← Volver a mi clase</button>
+    <div class="card strong">
+      <h2>Mi camino</h2>
+      <p>Como en la escuela: de Kínder a Carrera, tema por tema. Aquí solo ves cómo vas; no tienes que elegir nada: tu instructor te lleva en orden en tu clase.</p>
+    </div>
+    <div id="levels" style="display:flex;flex-direction:column;gap:16px"></div>
     <div class="card" id="progressCard">
       <div class="label">Tu avance</div>
       <div class="stat" id="stats"></div>
@@ -512,8 +567,23 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <div id="skills"></div>
     </div>
 
+  </section>
+
+  <!-- MÁS: lo opcional -->
+  <section class="view" id="vMas" hidden>
+    <button class="back" type="button" data-back="hoy">← Volver a mi clase</button>
+    <div class="card strong">
+      <h2>Más</h2>
+      <p class="muted">Todo esto es opcional. Lo más importante es tu clase: ahí te llevo paso a paso.</p>
+    </div>
+    <div class="morelist">
+      <button class="navbtn" type="button" data-go="frases"><b>Mis frases</b><small>Busca, escucha y practica las que ya aprendiste</small></button>
+      <button class="navbtn" type="button" data-go="leer"><b>Lecturas y conversaciones</b><small>Escúchalas otra vez, todas las veces que quieras</small></button>
+      <button class="navbtn" type="button" data-go="metodo"><b>Cómo funciona</b><small>Cómo te enseño y por qué</small></button>
+      <button class="navbtn" type="button" data-go="plan"><b>Ajustar mi plan</b><small>Tu nombre, tu objetivo o un examen de ubicación</small></button>
+    </div>
     <details class="extra">
-    <summary>Práctica extra (opcional)</summary>
+    <summary>Práctica libre (opcional)</summary>
     <div class="modes" style="margin-top:12px">
       <button class="mode" data-mode="speak"><strong>Habla</strong><small>Di la frase en inglés con el micrófono</small></button>
       <button class="mode" data-mode="dict"><strong>Dictado</strong><small>Escucha y escribe lo que oyes</small></button>
@@ -546,20 +616,12 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <p class="foot">Sin sincronización, tu avance se guarda solo en este dispositivo. El audio usa la voz en inglés de tu dispositivo; si no suena, revisa el volumen o el modo silencio. El micrófono funciona mejor en Chrome (Android y PC) y en Safari. Al hablar, la app es estricta: cuenta lo que entendió de tu voz palabra por palabra y te marca en rojo lo que no coincidió.</p>
   </section>
 
-  <!-- CURSO -->
-  <section class="view" id="vCurso" hidden>
-    <div class="card">
-      <p><strong>Como en la escuela: de Kínder a Carrera.</strong> Empiezas con letras, sonidos y primeras palabras, y terminas hablando como profesional. Sigue el orden: cada unidad tiene explicación, frases, práctica, conversación y un examen.</p>
-      <p class="muted" style="font-size:15px">¿Ya sabes algo de inglés? Haz el examen de una etapa para saltártela.</p>
-    </div>
-    <div id="levels" style="display:flex;flex-direction:column;gap:16px"></div>
-  </section>
-
   <!-- UNIDAD -->
   <section class="view" id="vUnit" hidden></section>
 
   <!-- FRASES -->
   <section class="view" id="vFrases" hidden>
+    <button class="back" type="button" data-back="mas">← Más</button>
     <div class="filters">
       <input class="type" id="fq" type="search" placeholder="Buscar en inglés o español…" aria-label="Buscar frase">
       <select class="type" id="fl" aria-label="Filtrar"></select>
@@ -578,36 +640,43 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 
   <!-- MÉTODO -->
   <section class="view prose" id="vMetodo" hidden>
+    <button class="back" type="button" data-back="mas">← Más</button>
     <div class="card strong">
       <h2>Cómo vas a aprender</h2>
       <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>primero las palabras y luego las frases completas</strong> que las usan, <strong>entender antes de hablar</strong> (Krashen), <strong>responder con el cuerpo</strong> (TPR), <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
     </div>
 
     <div class="card">
-      <h3>Tu entrenador personal</h3>
-      <p>En la pestaña <strong>Hoy</strong> la app decide qué te toca cada día. Tú solo presionas <strong>Empezar</strong> y te lleva de una parte a la siguiente. Para decidir, revisa:</p>
+      <h3>Tu instructor y tu clase</h3>
+      <p>La app la guía tu instructor. Al abrirla ves tu clase y un solo botón: tú no tienes que elegir nada. Cada clase tiene siempre los mismos 3 pasos, en el mismo orden:</p>
+      <ol>
+        <li><strong>Repasa:</strong> lo que ya aprendiste, ahora sin ayuda. Las frases que estás por olvidar y las del tema que todavía no dominas: las dices, las escribes o las armas tú.</li>
+        <li><strong>Aprende:</strong> lo nuevo del tema. La explicación (la primera vez), las palabras y las frases nuevas: las escuchas, ves qué significan y eliges cuál es la que oyes.</li>
+        <li><strong>Úsalo:</strong> una actividad para usar el inglés del tema: una conversación, una lectura, un video o «Haz lo que oyes». Cuando ya dominas todo el tema, aquí va su examen.</li>
+      </ol>
+      <p>Durante la clase siempre ves en qué paso vas, y al terminar cada uno te digo qué sigue. Si un paso hoy no hace falta (por ejemplo, todavía no hay nada que repasar), te digo por qué. <strong>No hay tiempo límite:</strong> si no terminas tu clase, la próxima vez sigues donde te quedaste. Al terminarla puedes tomar otra si quieres; si no, mañana te espera la siguiente.</p>
+      <p>Para decidir qué va en cada paso, reviso:</p>
       <ul>
-        <li><strong>Tus repasos pendientes:</strong> siempre van primero. Si se te juntan muchos, no agrega frases nuevas hasta ponerte al día.</li>
+        <li><strong>Tus repasos pendientes:</strong> van en «Repasa». Si se te juntan muchos, no agrego frases nuevas hasta que te pongas al día.</li>
         <li><strong>Tus aciertos de los últimos días:</strong> si fallas mucho, baja el número de frases nuevas; si vas arriba del 90%, lo sube.</li>
         <li><strong>Los días que faltaste:</strong> al regresar, primero recupera lo que se te estaba olvidando.</li>
-        <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): agrega ejercicios extra de esa habilidad.</li>
+        <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): te pongo más ejercicios de esa habilidad.</li>
         <li><strong>Un tema a la vez:</strong> no pasas al siguiente tema hasta que apruebas el examen del actual. Y dentro del tema, no te enseña frases nuevas hasta que dominas las que ya viste: primero te las pone a prueba sin ayuda (decirlas, escribirlas o armarlas a partir del español). Si fallas alguna, la vuelve a practicar contigo antes de seguir. Por ejemplo, en los números no pasas del 20 al 100 hasta que del 1 al 20 te salen bien.</li>
-        <li><strong>Si después se te olvida algo que ya aprobaste:</strong> si fallas varias frases de una unidad aprobada (más de 4 de cada 10), la app pausa lo nuevo, te vuelve a explicar esa unidad, la practican y te pone una prueba corta (7 de 8). Cuando la pasas, sigues con lo nuevo; si no, te la explica otra vez en el siguiente bloque.</li>
-        <li><strong>Sin límite de tiempo:</strong> la práctica va en bloques de unos 10 minutos. Al terminar uno, sigues con el siguiente (más repaso y frases nuevas) todas las veces que quieras.</li>
+        <li><strong>Si después se te olvida algo que ya aprobaste:</strong> si fallas varias frases de una unidad aprobada (más de 4 de cada 10), la app pausa lo nuevo, te vuelve a explicar esa unidad, la practican y te pone una prueba corta (7 de 8). Todo eso va en «Repasa». Cuando la pasas, sigues con lo nuevo; si no, te la explica otra vez en tu siguiente clase.</li>
         <li><strong>Tu objetivo:</strong> lo eliges al empezar y lo puedes cambiar en «Ajustar mi plan».</li>
         <li><strong>Primero las palabras:</strong> antes de las frases nuevas te enseña las palabras que traen (cómo suenan y qué significan, de 3 en 3) y te las pregunta. Las que ya salieron en frases que aprendiste solo te las pregunta, para asegurarse de que las recuerdas. Si fallas una, te la vuelve a preguntar en un momento y la próxima vez te la enseña otra vez. Cuando ya sabes las palabras, siguen las frases. En cualquier frase puedes tocar una palabra para oírla y ver qué significa, y cuando fallas una frase te muestra qué significa cada palabra.</li>
         <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con su significado, audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando corriges lo que fallaste. Cuando escribes, armas o dices una frase, o cuando te equivocas, escuchas la respuesta: el botón para seguir se activa cuando termina de sonar. Si ya la oíste en la pregunta y acertaste, no se repite y sigues de inmediato.</li>
-        <li><strong>El video del día:</strong> cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés. Cuando ya viste los de tu etapa, vuelve uno día sí y otro no, y cada vez otro distinto.</li>
+        <li><strong>El video:</strong> es una de las actividades de «Úsalo». Cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés. Cuando ya viste los de tu etapa, vuelve uno día sí y otro no, y cada vez otro distinto.</li>
       </ul>
-      <p class="muted">Por eso no hay dos personas con la misma sesión: cada quien avanza a su propio ritmo. Las pestañas Curso y Frases siguen disponibles si quieres explorar por tu cuenta. En <strong>Frases</strong> puedes practicar lo que quieras: usa el buscador o el filtro (o toca «Elegir frases») y luego «Practicar». Cada frase pasa por 3 ejercicios: entenderla, armarla o escribirla, y decirla con buena pronunciación.</p>
+      <p class="muted">Por eso no hay dos personas con la misma clase: cada quien avanza a su propio ritmo. En <strong>Mi camino</strong> ves en qué tema vas y qué sigue. En <strong>Más</strong> está lo opcional: tus frases (búscalas y practícalas: cada una pasa por 3 ejercicios, entenderla, armarla o escribirla, y decirla), las lecturas y conversaciones, y la práctica libre.</p>
     </div>
 
     <div class="card">
       <h3>Aprender como los niños: Krashen y TPR</h3>
       <p>Dos métodos muy estudiados, adaptados a la app:</p>
       <ul>
-        <li><strong>Enfoque natural (Stephen Krashen):</strong> un idioma se adquiere sobre todo <strong>entendiendo</strong> mensajes un poquito arriba de tu nivel, sin presión; el habla sale después. Por eso cada frase nueva primero se entiende —la oyes con su dibujo, luego «¿Es lo que oyes?» (sí o no) y «Escucha y toca» (sin español)— y hasta después la dices, la escribes y la armas: en «Dominar», al empezar el siguiente bloque (recordarla un rato después te ayuda más que repetirla enseguida). En la pestaña <strong>Leer</strong> están las lecturas y conversaciones de tus temas para escucharlas todas las veces que quieras.</li>
-        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, tu día en Hoy empieza con un calentamiento corto, <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (las nuevas primero las ves y las haces junto con el audio; luego solo las oyes) y el juego <strong>«Simón dice»</strong>. Cuando ya las entiendes todas, va un día sí y otro no. En «Práctica extra» están «Haz lo que oyes» y «Escucha y toca» (tocar en la pantalla lo que oyes, como «Touch forty-eight»).</li>
+        <li><strong>Enfoque natural (Stephen Krashen):</strong> un idioma se adquiere sobre todo <strong>entendiendo</strong> mensajes un poquito arriba de tu nivel, sin presión; el habla sale después. Por eso cada frase nueva primero se entiende —la oyes con su dibujo, luego «¿Es lo que oyes?» (sí o no) y «Escucha y toca» (sin español)— y hasta después la dices, la escribes y la armas: en «Repasa» de tu siguiente clase (recordarla un rato después te ayuda más que repetirla enseguida). En «Más» → <strong>Lecturas y conversaciones</strong> están las de tus temas para escucharlas todas las veces que quieras.</li>
+        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, en «Úsalo» sale <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (las nuevas primero las ves y las haces junto con el audio; luego solo las oyes) y el juego <strong>«Simón dice»</strong>. Cuando ya las entiendes todas, sale un día sí y otro no. En «Más» → «Práctica libre» están «Haz lo que oyes» y «Escucha y toca» (tocar en la pantalla lo que oyes, como «Touch forty-eight»).</li>
       </ul>
       <p class="muted">Lo demás —repaso espaciado, recuerdo activo y dominar antes de seguir— hace que lo que entiendes también se te quede y te salga.</p>
     </div>
@@ -621,7 +690,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li>practicaste la conversación completa,</li>
         <li>y leíste la lectura y contestaste bien sus preguntas.</li>
       </ul>
-      <p>El examen de unidad pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, presenta su examen final para saltarla.</p>
+      <p>El examen de unidad pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, en «Más» → «Ajustar mi plan» puedes hacer un examen de ubicación y saltarla.</p>
       <p class="muted">Por eso cada tema toma lo que tú necesites: si vas bien, lo terminas en uno o dos días; si te cuesta, la app se queda en ese tema hasta que lo domines. Lo que ya aprobaste sigue saliendo en tus repasos para que no se te olvide.</p>
     </div>
 
@@ -642,12 +711,11 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <div class="card">
       <h3>Tu rutina diaria</h3>
       <ol>
-        <li><strong>Repaso (5–10 min).</strong> La app te muestra las frases que estás por olvidar. Hazlo primero, todos los días: es lo que hace que se te queden para siempre.</li>
-        <li><strong>Lección (10–15 min).</strong> Avanza una unidad: lee la explicación, aprende las frases nuevas, practica la conversación y, cuando te sientas listo, haz el examen.</li>
+        <li><strong>Tu clase en la app.</strong> Repasa, Aprende y Úsalo, en ese orden y sin prisa. Hazla todos los días: el repaso es lo que hace que se te quede para siempre. Si no la terminas, mañana sigues donde te quedaste.</li>
         <li><strong>Inglés real (10–20 min).</strong> Escucha o mira algo en inglés que entiendas casi todo. Este paso es el que te da oído y fluidez; ninguna app lo sustituye.</li>
         <li><strong>Hablar (1 vez por semana o más).</strong> Practica con una persona: un compañero, un tutor en línea o un grupo de conversación. Al principio será incómodo; así se rompe el miedo.</li>
       </ol>
-      <p class="muted">Es mejor 20 minutos diarios que 3 horas el domingo. La constancia vale más que la intensidad.</p>
+      <p class="muted">Es mejor un poco cada día que 3 horas el domingo. La constancia vale más que la intensidad.</p>
     </div>
 
     <div class="card">
@@ -700,6 +768,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <span class="count" id="count">1/10</span>
       <button class="x" id="sndBtn" type="button" aria-label="Sonidos de acierto y error"></button>
     </div>
+    <div class="sstep" id="sstep" hidden></div>
     <div class="sbody"><div class="task" id="stage"></div></div>
     <div class="sfoot" id="sfoot"></div>
   </section>
@@ -821,7 +890,8 @@ const ICO = {
   keys: SV('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01M7 16h10"/>'),
   undo: SV('<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>'),
   home: SV('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>'),
-  pause: SV('<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>')
+  pause: SV('<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>'),
+  plus: SV('<path d="M12 5v14"/><path d="M5 12h14"/>')
 };
 const MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
 const $ = s => document.querySelector(s);
@@ -847,10 +917,11 @@ function migrate(o) {
   o.dm = o.dm || {}; // frases: qué tanto las dominas (ver «dominar» más abajo)
   o.tp = o.tp || {}; // «Haz lo que oyes»: 1 = la entendiste a la primera, 0 = no (se vuelve a mostrar)
   if (o.prof === undefined) o.prof = null;
+  if (o.cls === undefined) o.cls = null; // tu clase (ver «La clase»)
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -1497,16 +1568,13 @@ function fitKind(c, k) {
 }
 
 /* ================= vistas ================= */
-const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", frases: "#vFrases", leer: "#vLeer", metodo: "#vMetodo", session: "#vSession" };
+const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", mas: "#vMas", frases: "#vFrases", leer: "#vLeer", metodo: "#vMetodo", session: "#vSession" };
 let curView = "hoy", curUnit = null;
 function view(name) {
   stopAudio(); stopVideo(); hideTip();
   Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
-  $("#tabs").hidden = name === "session";
   document.body.classList.toggle("focus", name === "session");
   if (name !== "session") audioRelax();
-  const tab = name === "unit" ? "curso" : name;
-  document.querySelectorAll(".tab").forEach(t => { if (t.dataset.tab === tab) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current"); });
   curView = name;
   renderCurrent();
   window.scrollTo(0, 0);
@@ -1517,10 +1585,18 @@ function renderCurrent() {
   if (curView === "unit") renderUnit(curUnit);
   if (curView === "frases") renderFrases();
   if (curView === "leer") renderLeer();
+  if (curView === "mas") renderMas();
 }
-document.querySelectorAll(".tab").forEach(t => t.onclick = () => view(t.dataset.tab));
+// Sin pestañas: todo empieza en tu clase. Desde Inicio vas a «Mi camino» o a «Más», y siempre hay un botón para volver
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-back],[data-go]"); if (!b) return;
+  const to = b.dataset.back || b.dataset.go;
+  if (to === "leer") LEER = null;
+  if (to === "plan") { editingProfile = true; view("hoy"); return; }
+  view(to);
+});
 
-/* ---------- HOY ---------- */
+/* ---------- INICIO: tu instructor ---------- */
 const LISTEN_TIP = {
   "Inicio": "Una canción o caricatura infantil en inglés. Escucha los colores, números y animales que ya conoces.",
   "C2": "Conferencias, podcasts de negocios o de tu carrera. Toma notas en inglés y resume en voz alta.",
@@ -1532,9 +1608,9 @@ const LISTEN_TIP = {
   "B2": "Un podcast o una serie para nativos. Intenta sin subtítulos en español.",
   "C1": "Noticias, conferencias o series sin subtítulos. Resume en voz alta lo que oíste."
 };
-/* ================= ENTRENADOR PERSONAL =================
-   Cada día decide qué hacer según tu perfil, tus repasos pendientes, tu porcentaje de aciertos,
-   los días que faltaste y tu habilidad más débil. Tú solo presionas "Empezar". */
+/* ================= TU INSTRUCTOR =================
+   La app la guía tu instructor: abre en tu clase, te dice en qué tema vas y te lleva paso a paso con un solo botón.
+   Decide qué te toca según tus repasos pendientes, tus aciertos, los días que faltaste y tu habilidad más débil. */
 const GOALS = [
   ["conversar", "Hablar con fluidez", "Platicar con cualquier persona"],
   ["trabajo", "Mi trabajo", "Juntas, correos, llamadas"],
@@ -1555,12 +1631,9 @@ function weakSkill() {
 function activeUnits() { const u = nextUnit(); return u && !u.final ? [u] : []; }
 // Un tema que ya aprobaste y al que después se le agregaron frases: se aprenden antes de seguir
 const catchUnit = () => UNITS.find(u => S.done[u.id] && !prevLocked(u.lv) && (u.lv.id !== "w" || useW()) && u.cards.some(c => !seen(c.id)));
-const ORDER = { place: 0, review: 1, tpr: 1.2, master: 1.5, gram: 2, learn: 3, fix: 3, dialog: 4, reading: 5, video: 6, drill: 7, exam: 8, check: 8, final: 9 };
-// Dominar va antes de lo nuevo (las frases nuevas de un bloque se dominan al empezar el siguiente)
-const ordOf = x => x.kind === "final" && x.place ? ORDER.place : ORDER[x.kind];
 const VIDEOS = window.VIDEOS || {};
 const videoNeed = dur => dur ? Math.max(30, Math.min(Math.round(dur * 0.7), 600)) : 120; // 70% del video, máximo 10 minutos
-// Elige el video del día: el de la unidad actual; si ya lo viste, uno de unidades anteriores de la etapa que no hayas visto.
+// Elige el video: el de la unidad actual; si ya lo viste, uno de unidades anteriores de la etapa que no hayas visto.
 // Si ya los viste todos, uno día sí y otro no, y cada vez otro (así no es el mismo video todos los días)
 function pickVideo() {
   const nu = nextUnit(); if (!nu) return null;
@@ -1571,139 +1644,238 @@ function pickVideo() {
   const u = seenV[(d / 2) % seenV.length];
   return { v: VIDEOS[u.id], u, again: true };
 }
-// La práctica va en bloques de unos 10 minutos, sin límite: al terminar uno se arma el siguiente (blk = número de bloque de hoy)
-const BLOCK = 600;
-function buildToday(blk) {
-  const P = S.prof, h = H(), doneKeys = h.dn, segs = [], notes = [];
-  if (blk === undefined) blk = h.b || 0;
-  const sx = blk ? "-" + blk : "", budget = BLOCK;
-  const doneToday = pre => doneKeys.some(k => k === pre || k.startsWith(pre + "-"));
-  const add = seg => { if (doneKeys.includes(seg.key)) seg.done = true; segs.push(seg); };
-  // Examen de ubicación
+
+/* ================= LA CLASE =================
+   Cada clase tiene siempre los mismos 3 pasos, en el mismo orden:
+   1. Repasa: lo que ya aprendiste, ahora sin ayuda. Lo que estás por olvidar (repaso espaciado) y las frases del tema
+      que todavía no dominas (decirlas, escribirlas o armarlas tú), en una sola práctica. Si no hay nada de eso, un
+      refuerzo de tu punto débil. Si se te está olvidando un tema que ya aprobaste: su explicación otra vez, práctica y
+      una prueba corta (hasta que la pases no hay nada nuevo).
+   2. Aprende: lo nuevo del tema. La explicación (la primera vez), las palabras y las frases nuevas: escucharlas y
+      entenderlas. Espera si todavía no dominas las que ya viste (un tema a la vez) o si tienes muchos repasos pendientes.
+   3. Úsalo: una sola actividad para usar el inglés. El examen del tema cuando ya toca; si no, la que más sirve y no
+      hiciste hoy: la conversación, la lectura, «Haz lo que oyes» (Kínder a Primaria 2), el video del tema o escuchar
+      frases que ya sabes.
+   Un paso que hoy no hace falta se muestra con su motivo. La clase se guarda (S.cls): no hay tiempo límite y, si no la
+   terminas, la sigues otro día donde te quedaste. Al terminarla puedes tomar otra si quieres (opcional).
+   S.cls = { id, n: número de clase, k: número de clase del día, d: día en que se armó, place: es el examen de ubicación,
+             names: nombre de cada paso, why: por qué un paso no tiene nada, notes: avisos del instructor,
+             parts: [{ key, step, kind, uid?, lvid?, n?, ids?, skill?, recap?, place?, gate? }],
+             done: [claves hechas], skip: { clave: por qué se saltó }, end: día en que se terminó (0 = sin terminar) } */
+const STEP_NAMES = ["Repasa", "Aprende", "Úsalo"];
+const KIDS = ["k", "n0", "n1"];
+function buildClass() {
+  const P = S.prof, notes = [], st = STEP_NAMES.map(name => ({ name, why: "", parts: [] }));
+  const [R, A, U] = st.map(s => s.parts);
+  // Examen de ubicación: una clase de un solo paso (si pasas una etapa, sigue la siguiente)
   if (P.placing) {
     const lv = COURSE.find(l => l.id !== "w" && !S.fin[l.id]);
     if (lv) {
-      add({ key: "place-" + lv.id, kind: "final", place: true, lv, title: "Ubicación: " + lv.short, desc: "15 preguntas para ver si ya dominas esta etapa", sec: 360 });
-      notes.push(lv.id === "k" ? "Primero vamos a encontrar tu nivel. Empezamos con lo más básico; si lo dominas, subimos de etapa automáticamente." : `Vas muy bien. Ahora veamos si también dominas ${lv.short}.`);
-      notes.push("Si no sabes una respuesta, no adivines: usa «No sé». Así tu plan empieza justo donde lo necesitas.");
-      return { segs, notes };
+      notes.push(lv.id === "k" ? "Primero vamos a encontrar tu nivel. Empezamos con lo más básico; si lo dominas, subimos de etapa." : `Vas muy bien. Ahora veamos si también dominas ${lv.short}.`);
+      notes.push("Si no sabes una respuesta, no adivines: toca «No sé». Así tu clase empieza justo donde la necesitas.");
+      return { steps: [{ name: "Ubicación", why: "", parts: [{ kind: "final", place: true, lvid: lv.id }] }], notes, place: true };
     }
     P.placing = false;
   }
-  const due = dueCards(), acc = recentAcc(), away = daysAway(), weak = weakSkill(), anySeen = Object.keys(S.c).length > 0;
-  // Se te está olvidando una unidad que ya aprobaste: primero la explicación otra vez, práctica y una prueba corta.
-  // Hasta que la pases no hay nada nuevo (se repite en cada bloque hasta que quede).
+  const due = dueCards(), acc = recentAcc(), away = daysAway(), weak = weakSkill();
+  if (away !== null && away >= 3) notes.push(`Llevas ${away} días sin practicar. No pasa nada: empezamos recuperando lo que se te estaba olvidando.`);
+  // Se te está olvidando un tema que ya aprobaste: primero se recupera
   const fixU = refreshUnit();
   if (fixU) {
-    notes.push(blk ? `Seguimos con «${fixU.t}». Cuando pases la prueba corta, volvemos a lo nuevo.` : `Se te está olvidando «${fixU.t}», que ya habías aprobado. Te la vuelvo a explicar, la practicamos y luego hay una prueba corta. Cuando la pases, seguimos con lo nuevo.`);
-    if (due.length) add({ key: "review" + sx, kind: "review", n: Math.min(due.length, 15), title: "Repaso", desc: `${Math.min(due.length, 15)} frases que estabas por olvidar`, sec: Math.min(due.length, 15) * 18 });
-    add({ key: "rgram-" + fixU.id + sx, kind: "gram", recap: true, u: fixU, title: "Repasemos: " + fixU.t, desc: "La explicación otra vez, con calma", sec: 150 });
-    add({ key: "rfix-" + fixU.id + sx, kind: "fix", u: fixU, title: "Práctica: " + fixU.t, desc: "Las frases que se te están olvidando", sec: 240 });
-    add({ key: "rchk-" + fixU.id + sx, kind: "check", u: fixU, title: "Prueba corta: " + fixU.t, desc: "8 preguntas · necesitas 7 bien para seguir con lo nuevo", sec: 180 });
-    segs.sort((x, y) => ORDER[x.kind] - ORDER[y.kind]);
-    return { segs, notes };
+    notes.push(`Se te está olvidando «${fixU.t}», que ya habías aprobado. En Repasa te lo vuelvo a explicar, lo practicamos y hay una prueba corta. Cuando la pases, seguimos con lo nuevo.`);
+    const other = due.filter(c => c.u !== fixU).length; // las del tema que se olvida van en su práctica, no aquí
+    if (other) R.push({ kind: "review", n: Math.min(other, 8), exU: fixU.id });
+    R.push({ kind: "gram", recap: true, uid: fixU.id }, { kind: "fix", uid: fixU.id }, { kind: "check", uid: fixU.id });
+    st[1].why = st[2].why = `Hoy no: primero recuperamos «${fixU.t}».`;
+    return { steps: st, notes };
   }
-  const base = 6;
-  let newN = base;
-  // Un tema a la vez: las frases que ya viste del tema actual y todavía no dominas van primero (en «Dominar», no en el repaso)
   const nu = nextUnit(), cu = nu && !nu.final ? nu : null, und = cu ? undom(cu) : [], domIds = cu ? domPick(cu).map(c => c.id) : [];
-  const dueN = due.filter(c => !domIds.includes(c.id));
-  if (acc !== null && acc < 0.7) { newN = 3; if (!blk) notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Vamos más despacio: ${newN} frases nuevas por bloque y más repaso para que se te queden bien.`); }
-  else if (acc !== null && acc > 0.9) { newN = 8; if (!blk) notes.push(`Llevas ${Math.round(acc * 100)}% de aciertos. ¡Vas muy bien! Subimos el ritmo: ${newN} frases nuevas por bloque.`); }
-  const cap = Math.round(budget * 0.5 / 18);
-  if (dueN.length > cap * 2) { newN = 0; notes.push(`Tienes ${dueN.length} frases pendientes de repaso. En este bloque no agregamos nada nuevo: primero hay que ponerte al día, o se te van a olvidar.`); }
-  else if (dueN.length > cap) newN = Math.ceil(newN / 2);
-  if (!blk && away !== null && away >= 3) notes.unshift(`Llevas ${away} días sin practicar. No pasa nada: hoy empezamos recuperando lo que se te estaba olvidando.`);
-  if (dueN.length) add({ key: "review" + sx, kind: "review", ex: domIds, n: Math.min(dueN.length, newN ? cap : Math.round(budget / 18)), title: "Repaso", desc: "", sec: 0 });
-  const rv = segs.find(x => x.kind === "review"); if (rv) { rv.desc = `${rv.n} frases que estabas por olvidar`; rv.sec = rv.n * 18; }
-  // Haz lo que oyes (TPR): un calentamiento corto al día, de Kínder a Primaria 2. Cuando ya entiendes todas las órdenes,
-  // un día sí y otro no (siempre está en «Práctica extra»)
-  const tprNew = TPRS.some(t => S.tp[t.id] !== 1);
-  if (!blk && TPRS.length && nu && ["k", "n0", "n1"].includes(nu.lv.id) && (tprNew || dayNum() % 2 === 0)) add({ key: "tpr", kind: "tpr", title: "Haz lo que oyes", desc: tprNew ? "Órdenes nuevas que haces con el cuerpo, y «Simón dice»" : "Órdenes que haces con el cuerpo, y «Simón dice»", sec: 120 });
-  if (nu && nu.final) {
-    if (!prevLocked(nu.lv) && !(blk && doneToday("final-" + nu.lv.id))) { add({ key: "final-" + nu.lv.id + sx, kind: "final", lv: nu.lv, title: "Examen final: " + nu.lv.short, desc: "30 preguntas · 85% para abrir la siguiente etapa", sec: 720 }); notes.push(`Terminaste todas las unidades de ${nu.lv.short}. Hoy toca el examen final de la etapa.`); }
-  } else if (cu) {
-    const left = cu.cards.length - unitSeen(cu);
-    if (unitReq(cu).ok && !prevLocked(cu.lv) && !(blk && doneToday("exam-" + cu.id))) { add({ key: "exam-" + cu.id + sx, kind: "exam", u: cu, title: "Examen: " + cu.t, desc: "Ya dominas todas sus frases · necesitas 85%", sec: 480 }); notes.push(`¡Ya dominas «${cu.t}»! Al final del bloque va su examen; al aprobarlo pasamos al siguiente tema.`); }
-    if (domIds.length && !doneKeys.includes("learn-" + cu.id + sx)) {
-      add({ key: "dom-" + cu.id + sx, kind: "master", u: cu, ids: domIds, title: "Dominar: " + cu.t, desc: `${domIds.length === 1 ? "1 frase que ya viste: escríbela, ármala o dila" : domIds.length + " frases que ya viste: escríbelas, ármalas o dilas"} sin ayuda`, sec: domIds.length * 35 });
-      // un aviso corto (y solo en el primer bloque del día: en los demás ya sabes cómo va)
-      const one = und.length === 1;
-      if (!left) notes.push(`Para el examen de «${cu.t}» ${one ? "te falta dominar 1 frase" : `te faltan ${und.length} frases por dominar`}.`);
-      else if (!blk) notes.push(`Un tema a la vez: primero dominas lo que ya viste de «${cu.t}» (${one ? "te falta 1 frase" : `te faltan ${und.length}`}); luego siguen las frases nuevas.`);
+  const dueN = due.filter(c => !domIds.includes(c.id)).length;
+  let newN = 6;
+  if (acc !== null && acc < 0.7) { newN = 3; notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Vamos más despacio: ${newN} frases nuevas por clase.`); }
+  else if (acc !== null && acc > 0.9) newN = 8;
+  if (dueN > 24) { newN = 0; notes.push(`Tienes ${dueN} frases por repasar. Hoy no hay nada nuevo: primero te pones al día, o se te van a olvidar.`); }
+  else if (dueN > 12) newN = Math.ceil(newN / 2);
+  // 1 · Repasa
+  const revN = Math.min(dueN, newN ? Math.max(6, 15 - domIds.length) : 20);
+  let sk = weak || GOAL_FOCUS[P.goal] || "vocab"; if (sk === "speak" && !srOK) sk = "write";
+  if (revN || domIds.length) R.push({ kind: "repasa", n: revN, uid: cu ? cu.id : null, ids: domIds });
+  else if (Object.keys(S.c).length >= 4) R.push({ kind: "drill", skill: sk });
+  else st[0].why = "Todavía no hay nada que repasar.";
+  // 2 · Aprende
+  if (nu && nu.final) st[1].why = `Ya terminaste los temas de ${nu.lv.short}.`;
+  else if (!cu) st[1].why = "¡Terminaste el curso completo!";
+  else {
+    const left = cu.cards.length - unitSeen(cu), cat = catchUnit(), lu = cat || (left ? cu : null);
+    const canOpen = !und.length || (und.length <= domIds.length && und.every(c => (dmV(c.id) & 3) >= 1));
+    if (!lu) st[1].why = `Ya conoces todas las frases de «${cu.t}».`;
+    else if (!newN) st[1].why = "Hoy no hay frases nuevas: primero te pones al día con tus repasos.";
+    else if (lu === cu && !canOpen) st[1].why = `Las frases nuevas esperan a que domines las de «${cu.t}» que ya viste.`;
+    else {
+      if (!S.gs[lu.id]) A.push({ kind: "gram", uid: lu.id });
+      A.push({ kind: "learn", uid: lu.id, n: Math.min(newN, lu.cards.length - unitSeen(lu)), gate: lu === cu && und.length > 0 });
+      if (cat) notes.push(`Agregué frases nuevas a «${cat.t}», un tema que ya aprobaste. Las vemos antes de seguir con «${cu.t}».`);
     }
-    const cat = catchUnit(), lu = cat || (left ? cu : null);
-    // Lo nuevo del tema solo va en este bloque si todavía puede pasar: que «Dominar» pueda terminar con todas (todas van en él
-    // y a ninguna le faltan 2 aciertos) y que no se haya hecho ya sin lograrlo. Si ya aprendiste las de este bloque, sigue su práctica.
-    const learnDone = !!lu && doneKeys.includes("learn-" + lu.id + sx), domDone = doneKeys.includes("dom-" + cu.id + sx);
-    const canOpen = !und.length || (!domDone && und.length <= domIds.length && und.every(c => (dmV(c.id) & 3) >= 1));
-    if (lu && newN > 0 && (lu !== cu || learnDone || canOpen)) {
-      const gate = lu === cu && und.length > 0 && !learnDone; // si al llegar aquí todavía no dominas las anteriores, lo nuevo espera al siguiente bloque
-      if (!S.gs[lu.id]) add({ key: "gram-" + lu.id + sx, kind: "gram", u: lu, title: "Nueva lección: " + lu.t, desc: "Explicación en español con ejemplos", sec: 150 });
-      const n = Math.min(newN, lu.cards.length - unitSeen(lu)), lp = learnPlan(lu, n), wn = lp.teach.length + lp.check.length, fn = lp.fresh.length;
-      const what = `${wn ? `primero ${wn === 1 ? "1 palabra" : wn + " palabras"}, luego ` : ""}${fn} ${fn === 1 ? "frase" : "frases"} de «${lu.t}» (${lu.lv.short})`;
-      // decirlas, escribirlas y armarlas va en «Dominar» del siguiente bloque (un rato después ayuda más que enseguida, y no se repite lo mismo)
-      add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, gate, title: wn ? "Palabras y frases nuevas" : "Frases nuevas", desc: gate ? "Cuando domines las anteriores · " + what : what[0].toUpperCase() + what.slice(1), sec: fn * 45 + lp.teach.length * 12 + lp.check.length * 8 });
-      if (cat && !blk) notes.push(`Agregué frases nuevas a «${cat.t}», un tema que ya aprobaste. Las vemos antes de seguir con «${cu.t}».`);
-    }
-    if (!left && !S.dl[cu.id]) add({ key: "dlg-" + cu.id + sx, kind: "dialog", u: cu, title: "Conversación", desc: `Tú respondes en «${cu.t}»`, sec: 150 });
-    if (cu.r && unitSeen(cu) >= Math.ceil(cu.cards.length * 0.6) && !S.rd[cu.id]) add({ key: "read-" + cu.id + sx, kind: "reading", u: cu, title: "Lectura: " + cu.r.t, desc: "Lee, escucha y contesta 3 preguntas", sec: 240 });
-  } else notes.push("¡Terminaste el curso completo! Tu plan ahora es mantener lo aprendido con repasos y hablar con personas reales.");
-  const seenN = Object.keys(S.c).length, used = segs.reduce((a, x) => a + x.sec, 0); // lo planeado en el bloque (también lo ya hecho): así el plan no cambia al terminar sus partes
-  const focus = weak || (used < budget * 0.8 ? GOAL_FOCUS[P.goal] : null);
-  const planned = h.pk && h.pk.b === blk ? h.pk.keys : null; // lo que se planeó al empezar este bloque
-  if (focus && seenN >= 12 && (focus !== "speak" || srOK) && (!planned || planned.includes("drill" + sx))) {
-    add({ key: "drill" + sx, kind: "drill", skill: focus, title: "Refuerzo: " + SKILL_NAME[focus], desc: weak ? "Tu habilidad más débil ahora mismo" : "Lo que más necesitas para tu objetivo", sec: 120 });
-    if (weak && !blk) notes.push(`Tu punto débil ahora es «${SKILL_NAME[weak].toLowerCase()}» (${Math.round(S.sk[weak] * 100)}% de aciertos). Hoy hay ejercicios extra de eso.`);
   }
-  const pv = !blk && pickVideo(); // el video, una vez al día (en el primer bloque)
-  if (pv) add({ key: "video", kind: "video", v: pv.v, u: pv.u, title: "Video: " + pv.v.t, desc: `${pv.v.ch} · ${pv.again ? "otra vez, ahora intenta sin ver los subtítulos" : "inglés real, de la vida diaria"}`, sec: 360 });
-  if (!anySeen && !notes.length) notes.push("¡Bienvenido! Hoy empieza tu camino. Vamos poco a poco: primero una explicación sencilla y tus primeras frases.");
-  if (!notes.length && blk) notes.push(`Bloque ${blk + 1} de hoy.`);
-  if (!notes.length) notes.push(S.streak > 1 ? `Racha de ${S.streak} días. ¡Sigue así!` : "Tu plan de hoy, según lo que ya sabes y lo que se te está olvidando.");
-  segs.sort((x, y) => ordOf(x) - ordOf(y));
-  return { segs, notes };
+  // 3 · Úsalo
+  const use = useActivity(nu, cu);
+  if (use) U.push(use); else st[2].why = "Hoy no hace falta.";
+  return { steps: st, notes };
 }
-
-let PLAN = null, SEGOPT = null;
-function startToday() {
-  const { segs } = buildToday();
-  const todo = segs.filter(x => !x.done && !x.manual);
-  if (!todo.length) return false;
-  const h = H(); h.pk = { b: h.b || 0, keys: segs.map(x => x.key) }; // lo planeado en este bloque
-  PLAN = { segs: todo, i: 0 };
-  runSeg();
-  return true;
+// Úsalo: una sola actividad. El examen cuando ya toca; si no, la que más sirve ahora y no hiciste hoy
+function useActivity(nu, cu) {
+  if (nu && nu.final) return prevLocked(nu.lv) ? null : { kind: "final", lvid: nu.lv.id };
+  if (cu && unitReq(cu).ok && !prevLocked(cu.lv)) return { kind: "exam", uid: cu.id };
+  const dn = H().dn, kids = !!(nu && KIDS.includes(nu.lv.id) && TPRS.length), c = [];
+  if (cu && !S.dl[cu.id] && unitSeen(cu) >= Math.ceil(cu.cards.length / 2) && !dn.includes("dlg-" + cu.id)) c.push({ kind: "dialog", uid: cu.id });
+  if (cu && cu.r && !S.rd[cu.id] && unitSeen(cu) >= Math.ceil(cu.cards.length * 0.6) && !dn.includes("read-" + cu.id)) c.push({ kind: "reading", uid: cu.id });
+  if (kids && TPRS.some(t => S.tp[t.id] !== 1) && !dn.includes("tpr")) c.push({ kind: "tpr" });
+  const pv = !dn.includes("video") && pickVideo(); if (pv) c.push({ kind: "video", uid: pv.u.id, again: !!pv.again });
+  if (kids && !dn.includes("tpr") && dayNum() % 2 === 0) c.push({ kind: "tpr" });
+  if (c.length) return c[0];
+  return Object.keys(S.c).length >= 4 ? { kind: "listen", uid: cu ? cu.id : null } : null;
 }
-// Siguiente bloque de hoy (sin límite)
-function nextBlock() { const h = H(); h.b = (h.b || 0) + 1; save(); }
-// Las frases nuevas de un tema esperan hasta que domines las que ya viste: si al llegar a ellas todavía no, se quitan del bloque (con su práctica)
-function skipGated() {
-  const sg = PLAN && PLAN.segs[PLAN.i];
-  if (sg && sg.kind === "learn" && sg.gate && undom(sg.u).length) PLAN.segs = PLAN.segs.filter((x, j) => j < PLAN.i || !(x.gate && x.u === sg.u));
+function newClass() {
+  const b = buildClass(), prev = S.cls, t = dayNum(), parts = [];
+  b.steps.forEach((s, i) => s.parts.forEach((p, j) => parts.push(Object.assign({ key: `${i}.${j}.${p.kind}`, step: i }, p))));
+  S.cls = { id: Date.now().toString(36), n: ((prev && prev.n) || 0) + 1, k: prev && prev.d === t && !prev.place ? (prev.k || 1) + 1 : 1, d: t, place: !!b.place,
+    names: b.steps.map(s => s.name), why: b.steps.map(s => s.why), notes: b.notes, parts, done: [], skip: {}, end: 0 };
+  save();
+  return S.cls;
 }
-function runSeg() {
-  skipGated();
-  const sg = PLAN && PLAN.segs[PLAN.i];
-  if (!sg) { PLAN = null; view("hoy"); return; }
-  SEGOPT = { seg: sg, back: "hoy" };
-  const skip = () => { SEGOPT = null; segDone(sg); PLAN.i++; runSeg(); }; // no quedó nada que hacer en esta parte
-  if (sg.kind === "review") { const due = dueCards().filter(c => !(sg.ex || []).includes(c.id)).sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, sg.n); if (due.length) runSession(shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), { mode: "review", title: "Repaso" }); else return skip(); }
-  else if (sg.kind === "master") { if (!masterPractice(sg.u, sg.ids)) return skip(); }
-  else if (sg.kind === "gram") runSession([{ k: "gram", u: sg.u, recap: !!sg.recap }], { mode: "gram", unit: sg.u, title: sg.title });
-  else if (sg.kind === "fix") fixPractice(sg.u);
-  else if (sg.kind === "check") refreshCheck(sg.u);
-  else if (sg.kind === "learn") learnUnit(sg.u, sg.n);
-  else if (sg.kind === "dialog") dialogPractice(sg.u);
-  else if (sg.kind === "reading") readingPractice(sg.u);
-  else if (sg.kind === "drill") drill(sg.skill);
-  else if (sg.kind === "exam") unitExam(sg.u);
-  else if (sg.kind === "final") finalExam(sg.lv, sg.place ? 15 : 30);
-  else if (sg.kind === "video") videoSession(sg.v, sg.u);
-  else if (sg.kind === "tpr") { if (!tprSession()) return skip(); }
+// La clase de ahora: la que no has terminado (aunque sea de otro día), la de hoy ya terminada, o una nueva
+function curClass() {
+  const c = S.cls;
+  // una clase de otro día que ni empezaste se vuelve a armar (con los repasos de hoy)
+  if (c && c.parts && !c.end && c.d < dayNum() && !c.done.length && !Object.keys(c.skip || {}).length) return newClass();
+  if (c && c.parts && !c.end) return c;
+  if (c && c.parts && c.end === dayNum() && !c.place) return c;
+  return newClass();
+}
+const isDone = (c, p) => c.done.includes(p.key) || !!(c.skip && c.skip[p.key]);
+const nextPart = c => c && !c.end ? c.parts.find(p => !isDone(c, p)) || null : null;
+const unitById = id => id ? UNITS.find(u => u.id === id) || null : null;
+function hydrate(p) {
+  const u = unitById(p.uid), lv = p.lvid ? COURSE.find(l => l.id === p.lvid) : u ? u.lv : null;
+  const h = Object.assign({}, p, { u, lv, v: p.kind === "video" && u ? VIDEOS[u.id] : null, cls: true });
+  h.title = partLabel(h);
+  return h;
+}
+// Qué es cada parte, en pocas palabras (en la clase y arriba de la práctica)
+function partLabel(p) {
+  const nu = nextUnit(), mine = p.u && p.u === nu, t = !p.u ? "" : mine ? "del tema" : `de «${p.u.t}»`, fr = n => n === 1 ? "1 frase" : n + " frases";
+  switch (p.kind) {
+    case "repasa": return [p.n ? `${fr(p.n)} que estás por olvidar` : "", p.ids && p.ids.length ? `${fr(p.ids.length)} ${t} sin ayuda` : ""].filter(Boolean).join(" y ");
+    case "review": return `${fr(p.n)} que estás por olvidar`;
+    case "drill": return `Refuerzo: ${SKILL_NAME[p.skill].toLowerCase()}`;
+    case "gram": return p.recap ? `La explicación de «${p.u.t}» otra vez` : `La explicación ${t}`;
+    case "fix": return `Práctica de «${p.u.t}»`;
+    case "check": return `Prueba corta de «${p.u.t}»`;
+    case "learn": { const lp = learnPlan(p.u, p.n), w = lp.teach.length + lp.check.length, f = lp.fresh.length; if (!f) return `Ya conoces todas las frases ${t}`; return `${w ? (w === 1 ? "1 palabra" : w + " palabras") + " y " : ""}${f === 1 ? "1 frase nueva" : f + " frases nuevas"}${mine ? "" : " " + t}`; }
+    case "tpr": return "Haz lo que oyes: órdenes con el cuerpo";
+    case "dialog": return `Una conversación ${t}`;
+    case "reading": return p.u && p.u.r ? `Lectura: ${p.u.r.t}` : "Lectura";
+    case "video": return p.v ? `Video: ${p.v.t}` : "Video";
+    case "exam": return `El examen ${t}`;
+    case "final": return p.place ? `Ubicación: ${p.lv.short}` : `Examen final de ${p.lv.short}`;
+    case "listen": return "Escucha y entiende frases que ya sabes";
+  }
+  return "";
+}
+// Lo que el instructor explica antes de cada paso: qué vas a hacer y para qué
+function stepIntro(c, i) {
+  const ps = c.parts.filter(p => p.step === i && !isDone(c, p)); if (!ps.length) return "";
+  if (c.place) return "Preguntas de cada etapa, de lo más fácil a lo más difícil. Si no sabes una, toca «No sé»: así tu clase empieza justo donde la necesitas.";
+  const k = ps[0].kind;
+  if (i === 0) return ps.some(p => p.kind === "check") ? "Te explico otra vez el tema que se te estaba olvidando, lo practicamos y al final hay una prueba corta."
+    : k === "drill" || k === "review" ? "Preguntas de lo que ya sabes, para que no se te olvide."
+    : "Lo que ya aprendiste, ahora sin ayuda: lo dices, lo escribes o lo armas tú. Así se te queda.";
+  if (i === 1) return ps.some(p => p.kind === "gram") ? "Te explico el tema nuevo y luego conoces sus frases: las escuchas y ves qué significan. Todavía no tienes que decirlas."
+    : "Conoces frases nuevas: las escuchas, ves qué significan y eliges cuál es la que oyes. Todavía no tienes que decirlas.";
+  return ({ tpr: "Escuchas órdenes en inglés y las haces con el cuerpo, como «Stand up». Al final juegas «Simón dice».",
+    dialog: "Una conversación del tema: te hablan en inglés y tú contestas.", reading: "Lees y escuchas un texto corto del tema y contestas 3 preguntas.",
+    video: "Un video corto de inglés real. Al final escribes lo que entendiste.", exam: "Preguntas sin ayuda de todo el tema. Con 85% pasas al siguiente.",
+    final: "30 preguntas de toda la etapa. Con 85% se abre la siguiente.", listen: "Escuchas frases que ya sabes y eliges o escribes lo que entendiste." })[k] || "";
+}
+// Cómo va cada paso: hecho, sin nada que hacer hoy (con su motivo) o pendiente (con sus partes)
+function stepState(c, i) {
+  const ps = c.parts.filter(p => p.step === i);
+  if (!ps.length) return { st: "none", why: c.why[i] || "Hoy no hace falta." };
+  const left = ps.filter(p => !isDone(c, p));
+  if (left.length) return { st: "todo", parts: left };
+  const sk = ps.filter(p => c.skip && c.skip[p.key] && !c.done.includes(p.key));
+  return sk.length === ps.length ? { st: "none", why: c.skip[sk[0].key] } : { st: "done" };
+}
+// Los pasos de la clase: hecho ✓, el que sigue (con lo que vas a hacer) y los que faltan
+function roadHTML(c, o) {
+  o = o || {};
+  const nx = nextPart(c), cur = o.cur !== undefined ? o.cur : nx ? nx.step : -1;
+  return `<ol class="road">${c.names.map((name, i) => {
+    const s = stepState(c, i), isCur = i === cur && s.st === "todo";
+    const half = p => SES && SES.seg && SES.cid === c.id && SES.seg.key === p.key && SES.i > 0 && SES.i < SES.steps.length; // la dejaste a la mitad
+    const sub = s.st === "done" ? "Listo" : s.st === "none" ? s.why : s.parts.map(p => half(p) ? `${SES.seg.title} · vas a la mitad` : partLabel(hydrate(p))).join(" · ");
+    return `<li class="rstep${s.st === "done" ? " done" : s.st === "none" ? " none" : isCur ? " cur" : ""}"><span class="rsn" aria-hidden="true">${s.st === "done" ? "✓" : s.st === "none" ? "–" : i + 1}</span><div class="rsb"><div class="rst">${c.names.length > 1 ? `<span class="sr">Paso ${i + 1}: </span>` : ""}${esc(name)}</div><div class="rsd">${esc(sub)}</div>${isCur && o.intro ? `<div class="rsi">${esc(stepIntro(c, i))}</div>` : ""}</div></li>`;
+  }).join("")}</ol>`;
+}
+// Lo que ya no se puede hacer al llegar a esa parte (se salta con su motivo)
+function blockedWhy(c, p) {
+  if (p.kind === "learn" || (p.kind === "gram" && !p.recap)) {
+    const fixU = refreshUnit(); if (fixU) return `Espera a que pases la prueba corta de «${fixU.t}».`;
+    const gated = p.kind === "learn" ? p.gate : c.parts.some(x => x.kind === "learn" && x.uid === p.uid && x.gate);
+    if (gated && undom(p.u).length) return "Lo nuevo espera: primero domina las frases que ya viste. En tu siguiente clase empiezas por ahí.";
+    if (p.kind === "learn" && !p.u.cards.some(x => !seen(x.id))) return `Ya conoces todas las frases de «${p.u.t}».`;
+  }
+  if (p.kind === "exam" && (S.done[p.u.id] || !unitReq(p.u).ok)) return S.done[p.u.id] ? `Ya aprobaste «${p.u.t}».` : "El examen se abre cuando cumplas todo lo del tema.";
+  if (p.kind === "final" && !p.place && (S.fin[p.lv.id] || prevLocked(p.lv))) return `Ya aprobaste ${p.lv.short}.`;
+  return "";
+}
+// Salta lo que ya no se puede hacer y devuelve la parte que sigue; si ya no queda nada, la clase se termina
+function settle(c) {
+  let p = nextPart(c), ch = false;
+  while (p) { const why = blockedWhy(c, hydrate(p)); if (!why) break; c.skip[p.key] = why; ch = true; p = nextPart(c); }
+  if (!p && !c.end) { c.end = dayNum(); ch = true; }
+  if (ch) save();
+  return p;
+}
+const dayKey = p => ({ tpr: "tpr", video: "video", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid })[p.kind] || p.kind + "-" + (p.uid || "");
+function markPart(c, p) {
+  if (!c.done.includes(p.key)) c.done.push(p.key);
+  const h = H(), k = dayKey(p); if (!h.dn.includes(k)) h.dn.push(k);
+  save();
+}
+// Empieza una parte de la clase. false = no había nada que hacer (se da por hecha)
+function startPart(p) {
+  const u = p.u;
+  switch (p.kind) {
+    case "repasa": return repasaPractice(u, p.n, p.ids);
+    case "review": { const due = dueCards().filter(c => c.u.id !== p.exU).sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, p.n); if (!due.length) return false; runSession(shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), { mode: "review", title: "Repaso" }); return true; }
+    case "drill": drill(p.skill); return true;
+    case "gram": runSession([{ k: "gram", u, recap: !!p.recap }], { mode: "gram", unit: u, title: p.title }); return true;
+    case "fix": fixPractice(u); return true;
+    case "check": refreshCheck(u); return true;
+    case "learn": learnUnit(u, p.n); return true;
+    case "tpr": return tprSession();
+    case "dialog": dialogPractice(u); return true;
+    case "reading": if (!u.r) return false; readingPractice(u); return true;
+    case "video": if (!p.v) return false; videoSession(p.v, u); return true;
+    case "exam": unitExam(u); return true;
+    case "final": finalExam(p.lv, p.place ? 15 : 30); return true;
+    case "listen": return listenPractice(u);
+  }
+  return false;
+}
+let SEGOPT = null;
+// Sigue con la clase: si la pausaste a la mitad de una parte, justo donde te quedaste; si no, la parte que sigue
+function runClass() {
+  const c = curClass(), p = settle(c);
+  if (!p) { view("hoy"); return; }
+  if (SES && SES.seg && SES.seg.key === p.key && SES.cid === c.id && SES.i < SES.steps.length) { view("session"); step(); return; }
+  const h = hydrate(p);
+  SEGOPT = { seg: h, back: "hoy", cid: c.id };
+  const ok = startPart(h);
   SEGOPT = null;
+  if (!ok) { markPart(c, p); runClass(); }
 }
-function segDone(sg) { const h = H(); if (!h.dn.includes(sg.key)) h.dn.push(sg.key); save(); }
 function drill(sk) {
   const kinds = SKILL_KINDS[sk] || ["choice"];
   // Frases que no practicaste hoy (las de hace un rato ya las viste: aquí van otras para no repetir)
@@ -1713,6 +1885,15 @@ function drill(sk) {
   if (pool.length < 4) pool = base;
   const pick = pool.map(c => ({ c, k: Math.random() * (7 - bx(c.id)) ** 2 })).sort((a, b) => b.k - a.k).slice(0, 6).map(x => x.c);
   runSession(pick.map(c => ({ k: fitKind(c, rnd(kinds)), c })), { mode: "free", title: "Refuerzo: " + SKILL_NAME[sk] });
+}
+// Úsalo cuando no hay otra cosa: escuchar frases que ya sabes (primero del tema actual, de las que no practicaste hoy)
+function listenPractice(u) {
+  const ok = c => seen(c.id) && open(c) && !pracToday(c.id);
+  let pick = [...shuffle((u ? u.cards : []).filter(ok)).slice(0, 4), ...shuffle(CARDS.filter(c => ok(c) && (!u || c.u !== u)))].slice(0, 6);
+  if (pick.length < 4) pick = shuffle(CARDS.filter(c => seen(c.id) && open(c))).slice(0, 6);
+  if (!pick.length) return false;
+  runSession(pick.map(c => ({ k: fitKind(c, c.emS ? rnd(["tap", "hear"]) : rnd(["hear", "hear", "dict"])), c })), { mode: "free", title: "Escucha y entiende" });
+  return true;
 }
 
 let editingProfile = false;
@@ -1726,9 +1907,9 @@ function renderOnboarding() {
   const pick = { goal: P.goal, start: P.start || "cero" };
   const chips = (key, list) => `<div class="chips" data-key="${key}">${list.map(([v, a, b]) => `<button type="button" data-v="${v}" aria-pressed="${String(pick[key]) === String(v)}"><span>${esc(a)}</span><small>${esc(b)}</small></button>`).join("")}</div>`;
   $("#coach").innerHTML = `<div class="card strong">
-    <div class="label">${first ? "Bienvenido · vamos a armar tu plan" : "Ajustar mi plan"}</div>
-    <h2>${first ? "Tu entrenador personal de inglés" : "Tu plan"}</h2>
-    ${first ? `<p>Cada día voy a decidir qué te toca: repasar, aprender, practicar la conversación, leer o presentar un examen. Me adapto a tu ritmo: si algo te cuesta, vamos más despacio; si vas bien, aceleramos.</p>
+    <div class="label">${first ? "Bienvenido · vamos a empezar" : "Ajustar mi plan"}</div>
+    <h2>${first ? "Tu instructor de inglés" : "Tu plan"}</h2>
+    ${first ? `<p>Yo te guío paso a paso. Cada clase tiene siempre 3 pasos: <strong>Repasa</strong> lo que ya sabes, <strong>Aprende</strong> algo nuevo y <strong>Úsalo</strong>. Voy a tu ritmo: si algo te cuesta, vamos más despacio; si vas bien, aceleramos.</p>
     <div class="obsync"><p><strong>¿Ya usabas la app?</strong> Escribe tu código de sincronización y recupero tu avance.</p>
       <form id="obSync"><input class="type" id="obCode" placeholder="Tu código (20 letras y números)" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Código de sincronización"><button class="btn" type="submit">Recuperar mi avance</button></form>
       <p class="pron" id="obSyncMsg" aria-live="polite"></p></div>` : ""}
@@ -1736,20 +1917,21 @@ function renderOnboarding() {
     <div class="namegrid"><input class="type" id="obName" maxlength="30" autocomplete="given-name" placeholder="Tu nombre" value="${esc(P.name || "")}"><input class="type" id="obLast" maxlength="30" autocomplete="family-name" placeholder="Apellido (opcional)" value="${esc(P.last || "")}"></div>
     <p class="muted" style="margin:0;font-size:14px">Lo uso en las frases donde hablas de ti: «My name is…», deletrear tu nombre, contestar el teléfono.</p>
     <div class="label">¿Para qué quieres el inglés?</div>${chips("goal", GOALS)}
-    ${first ? `<div class="label">¿Cuánto inglés sabes?</div>${chips("start", STARTS)}` : ""}
-    <div class="row"><button class="btn primary" id="obSave">${first ? "Crear mi plan" : "Guardar"}</button>${first ? "" : `<button class="btn ghost" id="obCancel">Cancelar</button>`}</div>
+    ${first ? `<div class="label">¿Cuánto inglés sabes?</div>${chips("start", STARTS)}` : `<p class="muted" style="margin:0;font-size:14px">¿Ya sabes más de lo que estás viendo? Haz un examen de ubicación y tu siguiente clase empieza donde de verdad estás.</p><div class="row"><button class="btn ghost" type="button" id="obPlace">Hacer examen de ubicación</button></div>`}
+    <div class="row"><button class="btn primary" id="obSave">${first ? "Empezar" : "Guardar"}</button>${first ? "" : `<button class="btn ghost" id="obCancel">Cancelar</button>`}</div>
   </div>`;
   document.querySelectorAll("#coach .chips").forEach(g => g.querySelectorAll("button").forEach(bt => bt.onclick = () => {
     pick[g.dataset.key] = bt.dataset.v;
     g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === bt ? "true" : "false"));
   }));
   $("#obSave").onclick = () => {
-    if (first) { S.prof = { goal: pick.goal, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; }
+    if (first) { S.prof = { goal: pick.goal, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; S.cls = null; }
     else { S.prof.goal = pick.goal; }
     setName($("#obName").value, $("#obLast").value);
-    editingProfile = false; PLAN = null; save(); renderMeta(); renderHoy();
+    editingProfile = false; save(); renderMeta(); view("hoy");
   };
   if ($("#obCancel")) $("#obCancel").onclick = () => { editingProfile = false; renderHoy(); };
+  if ($("#obPlace")) $("#obPlace").onclick = () => { S.prof.placing = true; S.cls = null; SES = null; editingProfile = false; save(); view("hoy"); };
   // Recuperar el avance con el código de sincronización (por ejemplo, al cambiar de dirección o de teléfono)
   if ($("#obSync")) $("#obSync").onsubmit = async e => {
     e.preventDefault();
@@ -1763,55 +1945,84 @@ function renderOnboarding() {
     } catch (err) { m.textContent = "No pude conectarme. Revisa tu internet e inténtalo otra vez."; }
   };
 }
+// En qué tema vas (con la barra de la etapa)
+function whereHTML() {
+  const nu = nextUnit();
+  if (!nu) return `<p class="where">Terminaste todo el curso. Ahora tus clases te ayudan a no olvidar.</p>`;
+  const lv = nu.lv, dn = lv.units.filter(u => S.done[u.id]).length, tot = lv.units.length;
+  const t = nu.final ? `${esc(lv.short)} · terminaste sus temas: falta el examen final` : `${esc(lv.short)} · tema ${nu.k} de ${tot}: <b>${esc(nu.t)}</b>`;
+  return `<div class="where"><p>Vas en ${t}</p><div class="mini" aria-hidden="true"><i style="width:${Math.round(dn / tot * 100)}%"></i></div></div>`;
+}
+// Lo que sigue después de terminar la clase
+function nextHint() {
+  const nu = nextUnit(), r = refreshUnit();
+  if (r) return `Mañana seguimos con «${r.t}» hasta que pases su prueba corta.`;
+  if (!nu) return "Mañana te espera tu repaso.";
+  return nu.final ? `Mañana sigue el examen final de ${nu.lv.short}.` : `Mañana sigues con «${nu.t}».`;
+}
 function renderHoy() {
-  document.querySelectorAll(".mode").forEach(b => { if (b.dataset.mode === "speak") b.disabled = !srOK; });
-  const sp = document.querySelector('.mode[data-mode="speak"] small'); if (!srOK && sp) sp.textContent = "Tu navegador no permite usar el micrófono aquí";
-  $("#progressCard").hidden = !S.prof;
-  if (!S.prof || editingProfile) return renderOnboarding();
-  let built = buildToday(), nextBlk = false;
-  // Si ya terminaste este bloque, ya está listo el siguiente: puedes seguir sin límite
-  if (!PLAN && !built.segs.some(x => !x.done && !x.manual)) {
-    const nb = buildToday((H().b || 0) + 1);
-    if (nb.segs.some(x => !x.done && !x.manual)) { built = nb; nextBlk = true; }
-  }
-  const segs = PLAN ? PLAN.segs.map((x, i) => Object.assign(x, { done: i < PLAN.i })).concat(built.segs.filter(x => x.manual)) : built.segs;
-  const realSeg = segs.find(x => x.manual); if (realSeg) realSeg.done = H().dn.includes("real");
-  const todo = segs.filter(x => !x.done && !x.manual), mins = Math.max(1, Math.round(todo.reduce((a, x) => a + x.sec, 0) / 60));
-  const allDone = !todo.length;
+  if (!S.prof || editingProfile) { $("#homeNav").hidden = true; return renderOnboarding(); }
+  $("#homeNav").hidden = false;
+  const c = curClass(), nx = settle(c), nm = nameParts().name;
   const d = new Date().toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "long" });
-  const nm = nameParts().name;
-  const hd = H(), tally = hd.r ? `Hoy llevas ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
-  const hello = nextBlk ? (nm ? `¡Bloque terminado, ${nm}! ¿Seguimos?` : "¡Bloque terminado! ¿Seguimos?") : allDone ? (nm ? `¡Todo al día, ${nm}!` : "¡Todo al día!") : PLAN ? (nm ? `Sigamos, ${nm}` : "Sigamos donde te quedaste") : (new Date().getHours() < 12 ? "Buenos días" : new Date().getHours() < 19 ? "Buenas tardes" : "Buenas noches") + (nm ? `, ${nm}` : "") + ", hoy toca esto";
-  const msgs = nextBlk ? [tally || "Aquí está el siguiente bloque."]
-    : allDone ? [tally || "Hoy no tienes nada pendiente en la app.", "Por ahora no hay más frases que practicar. Repasa en Frases o vuelve mañana: tus repasos te estarán esperando."].filter(Boolean) : built.notes;
-  let n = 0;
+  const hr = new Date().getHours(), greet = (hr < 12 ? "Buenos días" : hr < 19 ? "Buenas tardes" : "Buenas noches") + (nm ? `, ${nm}` : "");
+  const started = c.done.length > 0 || Object.keys(c.skip || {}).length > 0;
   const askName = !nm && !S.prof.noName;
+  let body;
+  if (!nx) {
+    const hd = H(), tally = hd.r ? `Hoy: ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
+    body = `<h2>${nm ? `¡Clase terminada, ${esc(nm)}!` : "¡Clase terminada!"}</h2>
+      ${tally ? `<p>${tally}</p>` : ""}
+      ${roadHTML(c)}
+      <p class="muted">${esc(nextHint())} Lo mejor es venir un poco cada día.</p>
+      <button class="btn ghost" id="goMore">Tomar otra clase (opcional)</button>`;
+  } else {
+    const title = c.place ? "Examen de ubicación" : c.d < dayNum() && started ? "Tu clase: sigues donde te quedaste" : c.k > 1 ? `Clase ${c.k} de hoy` : "Tu clase de hoy";
+    body = `<h2>${esc(greet)}</h2>
+      ${c.place ? "" : whereHTML()}
+      ${!started && c.notes.length ? `<div class="coach-msg">${c.notes.map(m => `<p>${esc(m)}</p>`).join("")}</div>` : ""}
+      <h3 class="ctitle">${esc(title)}</h3>
+      ${roadHTML(c, { intro: true })}
+      <button class="go" id="goToday">${started ? `Seguir con el paso ${nx.step + 1}: ${esc(c.names[nx.step])}` : c.place ? "Empezar el examen" : "Empezar la clase"}</button>
+      <p class="muted hint">Yo te llevo paso a paso. No hay tiempo límite: si no terminas, la próxima vez sigues donde te quedaste.</p>`;
+  }
   $("#coach").innerHTML = (askName ? `<div class="card namecard">
     <h3>¿Cómo te llamas?</h3>
     <p>Escribe tu nombre y las frases donde hablas de ti lo van a usar: «My name is…», deletrearlo letra por letra, contestar el teléfono. Así practicas justo lo que vas a decir.</p>
     <form class="namegrid" id="nmForm"><input class="type" id="nmName" maxlength="30" autocomplete="given-name" placeholder="Tu nombre" required><input class="type" id="nmLast" maxlength="30" autocomplete="family-name" placeholder="Apellido (opcional)"><button class="btn primary">Guardar</button></form>
     <button class="btn link" id="nmLater" type="button" style="align-self:flex-start;padding-left:0">Ahora no</button>
-  </div>` : "") + `<div class="card strong">
-    <div class="label">Tu entrenador · ${esc(d)}</div>
-    <h2>${esc(hello)}</h2>
-    <div class="coach-msg">${msgs.map(m => `<p>${esc(m)}</p>`).join("")}</div>
-    <div class="parts">${segs.map(x => { const cur = PLAN && !x.done && !x.manual && x === PLAN.segs[PLAN.i]; if (!x.manual) n++;
-      return `<div class="part${x.done ? " done" : ""}${cur ? " cur" : ""}"><span class="pn">${x.done ? "✓" : x.manual ? "★" : n}</span><div><div class="pt">${esc(x.title)}</div><div class="pd">${esc(x.desc)}</div></div>
-      ${x.manual ? (x.done ? `<span class="pm">hecho</span>` : `<button class="btn ghost sm" id="realDone">Ya lo hice</button>`) : `<span class="pm">${x.sec ? Math.max(1, Math.round(x.sec / 60)) + " min" : ""}</span>`}</div>`; }).join("")}</div>
-    ${allDone ? "" : `<button class="go" id="goToday">${PLAN ? "Continuar sesión" : (nextBlk ? "Seguir practicando · " : "Empezar · ") + mins + " min"}</button>`}
-    <div class="row" style="justify-content:space-between"><button class="btn ghost sm" id="editPlan">Ajustar mi plan</button><button class="btn ghost sm" id="goMetodo">Cómo funciona</button></div>
-  </div>`;
+  </div>` : "") + `<div class="card strong instr"><div class="label">Tu instructor · ${esc(d)}</div>${body}</div>`;
   if (askName) {
     $("#nmForm").onsubmit = e => { e.preventDefault(); if (!cleanName($("#nmName").value)) { $("#nmName").focus(); return; } setName($("#nmName").value, $("#nmLast").value); save(); renderHoy(); };
     $("#nmLater").onclick = () => { S.prof.noName = 1; save(); renderHoy(); };
   }
-  if ($("#goToday")) $("#goToday").onclick = () => { if (PLAN) return runSeg(); if (nextBlk) nextBlock(); startToday(); };
-  if ($("#realDone")) $("#realDone").onclick = () => { const h = H(); if (!h.dn.includes("real")) h.dn.push("real"); S.xp += 20; bumpStreak(); save(); renderMeta(); renderHoy(); };
-  $("#editPlan").onclick = () => { editingProfile = true; renderHoy(); };
-  $("#goMetodo").onclick = () => view("metodo");
+  if ($("#goToday")) $("#goToday").onclick = runClass;
+  if ($("#goMore")) $("#goMore").onclick = () => { newClass(); renderHoy(); window.scrollTo(0, 0); };
+}
 
+/* ---------- MI CAMINO: en qué tema vas (solo para ver; las clases las lleva tu instructor) ---------- */
+function renderCurso() {
+  const nu = nextUnit(), curLv = nu ? nu.lv : null;
+  $("#levels").innerHTML = COURSE.map(lv => {
+    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length, fin = S.fin[lv.id] || (lv.id === "w" && all), lock = prevLocked(lv), isCur = lv === curLv;
+    return `<details class="level${isCur ? " cur" : ""}" id="lv-${lv.id}"${isCur ? " open" : ""}>
+      <summary class="lhead"><div class="top"><h3>${esc(lv.name)}</h3><span class="cefr">${esc(lv.cefr)}</span></div>
+        <span class="ustat multi${fin ? " ok" : isCur ? " here" : ""}">${isCur ? `Estás aquí · ${dn} de ${lv.units.length} temas aprobados` : fin ? "✓ Aprobada" : lock ? `🔒 Se abre al terminar ${esc(lock.short)}` : `${dn} de ${lv.units.length} temas aprobados`}</span>
+        ${isCur ? `<p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p><div class="mini"><i style="width:${dn / lv.units.length * 100}%"></i></div>` : ""}</summary>
+      ${lv.units.map(u => {
+        const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id], here = nu === u;
+        const sub = d ? "Aprobado" : here ? `Estás aquí · ${sn} de ${tot} frases aprendidas` : "Viene después";
+        return `<button class="urow${here ? " next" : ""}" data-unit="${u.id}"><span class="unum">${u.icon ? `<span class="uic" aria-hidden="true">${u.icon}</span>` : ""}${String(u.k).padStart(2, "0")}</span>
+          <span class="t"><div>${esc(u.t)}</div><div>${sub}</div></span>
+          <span class="ustat${d ? " ok" : here ? " here" : ""}">${d ? "✓" : here ? "●" : lock ? "🔒" : "○"}</span></button>`;
+      }).join("")}
+      ${isCur && nu.final ? `<div class="urow next"><span class="unum">★</span><span class="t"><div>Examen final de ${esc(lv.short)}</div><div>Estás aquí · tu instructor te lo pone en tu clase</div></span><span class="ustat here">●</span></div>` : ""}
+    </details>`;
+  }).join("");
+  document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => openUnit(UNITS.find(u => u.id === b.dataset.unit)));
+  // Tu avance
   const learned = Object.keys(S.c).filter(id => CARD[id]).length, mast = CARDS.filter(c => dominated(c.id)).length, doneU = UNITS.filter(u => S.done[u.id]).length;
-  $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>unidades aprobadas</span></div>`;
+  $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>temas aprobados</span></div>`;
   $("#courseBar").style.width = (doneU / UNITS.length * 100) + "%";
   const lv = curLevel(), left = lv.units.reduce((a, u) => a + u.cards.filter(c => !seen(c.id)).length, 0), pace = newPerDay();
   $("#statsTxt").textContent = pace
@@ -1820,34 +2031,10 @@ function renderHoy() {
   const sk = ["vocab", "listen", "speak", "write", "read"].filter(k => S.sk[k] !== undefined), wk = weakSkill();
   $("#skills").innerHTML = sk.length ? `<div class="label" style="margin:4px 0 8px">Tus habilidades (aciertos recientes)</div>` + sk.map(k => `<div class="skill${k === wk ? " weak" : ""}"><span>${SKILL_NAME[k]}</span><div class="mini"><i style="width:${Math.round(S.sk[k] * 100)}%"></i></div><b>${Math.round(S.sk[k] * 100)}%</b></div>`).join("") : "";
 }
-
-/* ---------- CURSO ---------- */
-function renderCurso() {
-  const nu = nextUnit();
-  $("#levels").innerHTML = COURSE.map(lv => {
-    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length, fin = S.fin[lv.id], lock = prevLocked(lv);
-    const nCards = lv.units.reduce((a, u) => a + u.cards.length, 0);
-    const finBtn = lv.id === "w" ? (all ? `<span class="ustat ok">✓ Pista completa</span>` : "")
-      : fin ? `<span class="ustat ok">✓ Etapa aprobada</span>`
-      : lock ? "" : `<button class="btn ${all ? "primary" : "ghost"} sm" data-lvexam="${lv.id}">${all ? "Presentar examen final" : "Ya domino esta etapa · examen final"}</button>`;
-    return `<div class="level" id="lv-${lv.id}">
-      <div class="lhead"><div class="top"><h3>${esc(lv.name)}</h3><span class="cefr">${esc(lv.cefr)}</span></div>
-        <p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p>
-        <p class="ustat multi" style="margin:0">${lv.units.length} unidades · ${nCards} frases · ${WEEKS[lv.id] || ""} a 30–45 min diarios</p>
-        ${lock ? `<p class="lock" style="margin:0">🔒 Esta etapa se abre al aprobar el examen final de ${esc(lock.short)}. Puedes leer sus lecciones, pero no practicarlas todavía.</p>` : ""}
-        <div class="mini"><i style="width:${dn / lv.units.length * 100}%"></i></div>
-        <div class="row" style="justify-content:space-between;align-items:center"><span class="ustat">${dn}/${lv.units.length} unidades aprobadas</span>${finBtn}</div>
-      </div>
-      ${lv.units.map(u => {
-        const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id];
-        return `<button class="urow${nu === u ? " next" : ""}" data-unit="${u.id}"><span class="unum">${u.icon ? `<span class="uic" aria-hidden="true">${u.icon}</span>` : ""}${String(u.k).padStart(2, "0")}</span>
-          <span class="t"><div>${esc(u.t)}</div><div>${nu === u ? "Siguiente lección · " : ""}${sn}/${tot} frases${!d && sn === tot && unitReq(u).ok ? " · examen listo" : ""}</div></span>
-          <span class="ustat${d ? " ok" : ""}">${d ? "✓ Aprobada" : lock ? "🔒" : sn ? Math.round(sn / tot * 100) + "%" : "›"}</span></button>`;
-      }).join("")}
-    </div>`;
-  }).join("");
-  document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => openUnit(UNITS.find(u => u.id === b.dataset.unit)));
-  document.querySelectorAll("[data-lvexam]").forEach(b => b.onclick = () => finalExam(COURSE.find(l => l.id === b.dataset.lvexam)));
+// Más: lo opcional (tus frases, lecturas, práctica libre, ajustes, sincronizar)
+function renderMas() {
+  document.querySelectorAll(".mode").forEach(b => { if (b.dataset.mode === "speak") b.disabled = !srOK; });
+  const sp = document.querySelector('.mode[data-mode="speak"] small'); if (!srOK && sp) sp.textContent = "Tu navegador no permite usar el micrófono aquí";
 }
 
 /* ---------- UNIDAD ---------- */
@@ -1880,76 +2067,43 @@ let showRd = false;
 const tapW = t => { let k = 0; return `<span class="tw" data-tx="${esc(t)}">${String(t).split(/(\s+)/).map(p => { const ws = tokW(p); if (!ws.length) return esc(p); const i = k++; return ws.some(x => WORDS[x]) ? `<span class="w t" data-k="${i}">${esc(p)}</span>` : esc(p); }).join("")}</span>`; };
 // Párrafos de una lectura (en inglés, con palabras que se pueden tocar)
 const paras = (t, en) => t.split(/\n+/).map(x => `<p>${en ? tapW(x) : esc(x)}</p>`).join("");
+// Un tema: solo para ver y escuchar (la explicación, sus frases, la conversación y la lectura). Practicarlo te toca en tu
+// clase, en orden: aquí no hay botones para empezar cosas sueltas.
 function renderUnit(u) {
-  const sn = unitSeen(u), tot = u.cards.length, fresh = tot - sn, d = S.done[u.id], rq = unitReq(u), lock = prevLocked(u.lv);
+  const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id], rq = unitReq(u), lock = prevLocked(u.lv), cur = nextUnit(), here = cur === u;
+  const dm = u.cards.filter(c => dominated(c.id)).length, uw = u.words, uwk = uw.filter(knownW).length;
   const prev = UNITS[u.n - 1], next = UNITS[u.n + 1];
-  const nq = Math.min(15, tot) + (u.r ? u.r.q.length : 0), sessionsLeft = sessionsFor(u), lp = learnPlan(u);
-  const uw = u.words, uwk = uw.filter(knownW).length;
-  const canExam = !lock && (d || rq.ok);
-  const dis = lock ? " disabled" : "";
-  // Un tema a la vez: lo que sigue en esta unidad (dominar lo que ya viste, aprender frases nuevas o practicar)
-  const und = undom(u).length, cur = nextUnit(), later = !d && !lock && cur && !cur.final && cur !== u && u.n > cur.n;
-  const pr = later ? { t: `Esta lección viene después de «${cur.t}». Termina primero esa para no saltar entre temas: tu entrenador en Hoy te lleva en orden.`, b: `Ir a «${cur.t}»`, go: () => openUnit(cur) }
-    : und && !d ? { t: `Antes de aprender frases nuevas, domina las que ya viste: ${und === 1 ? "te falta 1" : `te faltan ${und}`}. Dominar una frase es contestarla bien y sin ayuda en 2 prácticas distintas, al menos una vez escribiéndola, armándola o diciéndola.`, b: `Dominar ${Math.min(und, DOM_MAX)} ${Math.min(und, DOM_MAX) === 1 ? "frase" : "frases"}`, go: () => masterPractice(u) }
-    : fresh ? { t: `Primero ves las palabras nuevas que traen las frases (cómo suenan y qué significan) y te las pregunto. Luego conoces cada frase: la oyes y compruebas que la entiendes; en la siguiente práctica la dices, la escribes o la armas tú. Te ${sessionsLeft === 1 ? "falta 1 sesión" : `faltan unas ${sessionsLeft} sesiones`} para conocer todas.`, b: `Aprender ${lp.fresh.length} ${lp.fresh.length === 1 ? "frase nueva" : "frases nuevas"}`, go: () => learnUnit(u) }
-    : und ? { t: `Ya aprobaste esta unidad, pero ${und === 1 ? "1 frase se te está olvidando" : `${und} frases se te están olvidando`}. Practícalas sin ayuda para volver a dominarlas.`, b: "Practicar las que se me olvidan", go: () => masterPractice(u) }
-    : { t: `Ya dominas todas las frases. Ahora lo importante son tus repasos diarios en la pestaña Hoy; aquí puedes practicar extra las que más te cuestan.`, b: "Practicar esta unidad", go: () => learnUnit(u) };
+  const state = here ? `<div class="ustate here"><p><b>Estás aquí.</b> Llevas ${sn} de ${tot} frases aprendidas y ${dm} dominadas. Tu instructor te lleva paso a paso en tu clase.</p>
+      <div class="label">Para pasar al siguiente tema</div><ul class="req">${rq.items.map(x => `<li class="${x.ok ? "ok" : ""}">${esc(x.t)}</li>`).join("")}<li class="${d ? "ok" : ""}">Aprobar el examen del tema (85%)</li></ul>
+      <div class="row"><button class="btn go" type="button" data-back="hoy">Ir a mi clase</button></div></div>`
+    : d ? `<div class="ustate ok"><p><b>✓ Ya aprobaste este tema.</b> Sus frases siguen saliendo en tus repasos para que no se te olviden.</p></div>`
+    : lock ? `<div class="ustate"><p>🔒 Este tema es de ${esc(u.lv.short)}: se abre al terminar ${esc(lock.short)}. Tu instructor te trae aquí cuando toque.</p></div>`
+    : `<div class="ustate"><p>Este tema viene después${cur && !cur.final ? ` de «${esc(cur.t)}»` : ""}. Tu instructor te trae aquí cuando toque: un tema a la vez.</p></div>`;
   $("#vUnit").innerHTML = `
-    <button class="back" id="uBack">← Curso</button>
+    <button class="back" type="button" data-back="curso">← Mi camino</button>
     <div style="display:flex;flex-direction:column;gap:6px">
-      ${u.icon ? `<span class="hic" aria-hidden="true">${u.icon}</span>` : ""}<div class="label">${esc(u.lv.short)} · Unidad ${u.k} · ${esc(u.lv.cefr)}</div>
+      ${u.icon ? `<span class="hic" aria-hidden="true">${u.icon}</span>` : ""}<div class="label">${esc(u.lv.short)} · Tema ${u.k} de ${u.lv.units.length} · ${esc(u.lv.cefr)}</div>
       <h2>${esc(u.t)}</h2>
       <p class="muted" style="margin:0">${esc(u.goal)}</p>
-      <p class="ustat multi" style="margin:0">${tot} frases · para pasar al siguiente tema hay que dominarlas todas y aprobar el examen</p>
-      ${later ? `<p class="lock" style="margin:0">Viene después de «${esc(cur.t)}». Primero termina esa: un tema a la vez.</p>` : ""}
-      ${lock ? `<p class="lock" style="margin:0">🔒 Esta unidad es de ${esc(u.lv.short)} (${esc(u.lv.cefr)}). Se abre cuando apruebes el examen final de ${esc(lock.short)}. Puedes leerla, pero todavía no practicarla: usa cosas que aún no aprendes. Tu entrenador en Hoy te lleva en orden.</p>` : ""}
     </div>
-    <section class="sec"><div class="sh"><span class="n">01</span><h3>Explicación</h3></div><div class="sb gram">${gramHTML(u.g)}</div></section>
-    <section class="sec"><div class="sh"><span class="n">02</span><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} vistas</span></div>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div>
-      ${uw.length ? `<details class="uwords"><summary>Palabras nuevas de esta unidad (${uw.length})${uwk ? ` · ya sabes ${uwk}` : ""}</summary><div class="wgrid">${uw.map(w => `<button class="chip wm${knownW(w) ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}${knownW(w) ? ' <span class="ck" aria-label="ya la sabes">✓</span>' : ""}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></details>` : ""}</section>
-    <section class="sec"><div class="sh"><span class="n">03</span><h3>Practica</h3></div><div class="sb">
-      <p>${esc(pr.t)}</p>
-      <div class="row"><button class="btn accent" id="uLearn"${dis}>${esc(pr.b)}</button></div>
-    </div></section>
-    <section class="sec"><div class="sh"><span class="n">04</span><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</div><div class="sb">
-      <div class="dlg" id="dlg">${u.d.map((l, i) => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
-      <div class="row"><button class="btn speak" id="dPlay" data-saygroup="dlg:${u.id}">${SPK}<span class="lb">Escuchar diálogo</span></button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
-      <div class="row"><button class="btn primary" id="dPractice"${dis}>Practicar: tú eres B</button></div>
-    </div></section>
-    ${u.r ? `<section class="sec"><div class="sh"><span class="n">05</span><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</div><div class="sb">
+    ${state}
+    <details class="sec"><summary class="sh"><h3>Explicación</h3></summary><div class="sb gram">${gramHTML(u.g)}</div></details>
+    <details class="sec"><summary class="sh"><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} aprendidas</span></summary>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div>
+      ${uw.length ? `<details class="uwords"><summary>Palabras nuevas de este tema (${uw.length})${uwk ? ` · ya sabes ${uwk}` : ""}</summary><div class="wgrid">${uw.map(w => `<button class="chip wm${knownW(w) ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}${knownW(w) ? ' <span class="ck" aria-label="ya la sabes">✓</span>' : ""}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></details>` : ""}</details>
+    <details class="sec"><summary class="sh"><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</summary><div class="sb">
+      <div class="dlg" id="dlg">${u.d.map(l => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
+      <div class="row"><button class="btn speak" id="dPlay" data-saygroup="dlg:${u.id}">${SPK}<span class="lb">Escuchar conversación</span></button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
+    </div></details>
+    ${u.r ? `<details class="sec"><summary class="sh"><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</summary><div class="sb">
       <div class="label">${esc(u.r.t)}</div>
       <div class="reading" id="rdEn">${paras(u.r.en, true)}</div>
       <div class="reading es" id="rdEs" ${showRd ? "" : "hidden"}>${paras(u.r.es)}</div>
-      <p class="muted" style="margin:0;font-size:14px">Léela en voz alta. Primero intenta entenderla sin la traducción. Si no conoces una palabra, tócala para ver qué significa.</p>
       <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK}<span class="lb">Escuchar lectura</span></button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK}<span class="lb">Lento</span></button><button class="btn ghost" id="rEs">${showRd ? "Ocultar" : "Ver"} traducción</button></div>
-      <div class="row"><button class="btn primary" id="rQ"${dis}>Contestar ${u.r.q.length} preguntas</button></div>
-    </div></section>` : ""}
-    ${VIDEOS[u.id] ? `<section class="sec"><div class="sh"><span class="n">${u.r ? "06" : "05"}</span><h3>Video</h3>${S.vw[VIDEOS[u.id].id] ? `<span class="ustat ok" style="margin-left:auto">✓ Visto</span>` : ""}</div><div class="sb">
-      <p style="margin:0"><strong>${esc(VIDEOS[u.id].t)}</strong><br><span class="muted" style="font-size:14px">${esc(VIDEOS[u.id].ch)} · YouTube</span></p>
-      <p class="muted" style="margin:0;font-size:14px">Inglés real sobre el tema de esta unidad. La app cuenta los minutos que de verdad lo ves y al final te pide un resumen.</p>
-      <div class="row"><button class="btn primary" id="uVideo"${dis}>Ver video</button></div>
-    </div></section>` : ""}
-    <section class="sec"><div class="sh"><span class="n">${(u.r ? 6 : 5) + (VIDEOS[u.id] ? 1 : 0) < 10 ? "0" : ""}${(u.r ? 6 : 5) + (VIDEOS[u.id] ? 1 : 0)}</span><h3>Examen de la unidad</h3></div><div class="sb">
-      ${d ? `<p><span class="ustat ok">✓ Unidad aprobada.</span> Puedes repetir el examen cuando quieras.</p>`
-        : `<p>${nq} preguntas sin ayuda: escribir, dictado${srOK ? ", hablar" : ""}, comprensión auditiva${u.r ? " y lectura" : ""}. Necesitas 85% (${Math.ceil(nq * 0.85)} de ${nq}) para aprobar.</p>
-           <div class="label">Para desbloquearlo</div>
-           <ul class="req">${rq.items.map(x => `<li class="${x.ok ? "ok" : ""}">${esc(x.t)}</li>`).join("")}</ul>
-           <p class="muted" style="margin:0;font-size:14px">Dominar una frase es contestarla bien y sin ayuda en 2 prácticas distintas (pueden ser el mismo día), al menos una vez escribiéndola, armándola o diciéndola. Si la fallas, vuelve a empezar. Si después se te olvida lo que aprobaste, te lo vuelvo a explicar antes de seguir.</p>`}
-      ${lock ? `<p class="lock" style="margin:0">🔒 Primero aprueba el examen final de ${esc(lock.short)}.</p>` : ""}
-      <div class="row"><button class="btn ${d ? "" : "primary"}" id="uExam" ${canExam ? "" : "disabled"}>${d ? "Repetir examen" : canExam ? "Presentar examen" : "Examen bloqueado"}</button></div>
-    </div></section>
+    </div></details>` : ""}
     <div class="pager">${prev ? `<button class="btn ghost" id="uPrev">← ${esc(prev.t)}</button>` : "<span></span>"}${next ? `<button class="btn ghost" id="uNext">${esc(next.t)} →</button>` : ""}</div>`;
-  $("#uBack").onclick = () => view("curso");
-  $("#uLearn").onclick = () => { if (!lock) pr.go(); };
-  $("#uExam").onclick = () => { if (canExam) unitExam(u); };
-  if ($("#uVideo")) $("#uVideo").onclick = () => { if (!lock) videoSession(VIDEOS[u.id], u); };
-  $("#dPractice").onclick = () => { if (!lock) dialogPractice(u); };
   $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
   $("#dPlay").onclick = () => playDialog(u.d, "dlg:" + u.id);
-  if (u.r) {
-    $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
-    $("#rQ").onclick = () => { if (!lock) readingPractice(u); };
-  }
+  if (u.r) $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
 }
@@ -1977,7 +2131,7 @@ function renderLeer() {
   if (LEER) return readerView(box);
   const cu = activeUnits()[0], list = UNITS.filter(u => !prevLocked(u.lv) && (u === cu || S.done[u.id] || unitSeen(u) > 0)).reverse();
   if (cu) list.sort((a, b) => (b === cu) - (a === cu));
-  box.innerHTML = `<div class="card strong"><h2>Escuchar y leer</h2>
+  box.innerHTML = `<button class="back" type="button" data-back="mas">← Más</button><div class="card strong"><h2>Escuchar y leer</h2>
       <p>Aquí están las lecturas y conversaciones de tus temas. Escúchalas y léelas todas las veces que quieras: se aprende sobre todo <strong>entendiendo</strong> mucho inglés, un poquito arriba de tu nivel (Krashen). No tienes que entender cada palabra; si una te detiene, tócala para ver qué significa.</p></div>`
     + (list.length ? `<div class="lgrid">${list.map(u => `<div class="lcard${u === cu ? " cur" : ""}"><div class="lhd">${u.icon ? `<span class="lic" aria-hidden="true">${u.icon}</span>` : ""}<div><div class="label">${u === cu ? "Tu tema de ahora · " : ""}${esc(u.lv.short)} · Unidad ${u.k}</div><div class="lt">${esc(u.t)}</div></div></div>
         <div class="row">${u.r ? `<button class="btn" type="button" data-lopen="${u.id}:r">📖 Lectura: ${esc(u.r.t)}</button>` : ""}<button class="btn" type="button" data-lopen="${u.id}:d">💬 Conversación</button></div></div>`).join("")}</div>`
@@ -2175,14 +2329,34 @@ function domPick(u, n) {
   return undom(u).sort((a, b) => w(a) - w(b)).slice(0, n || DOM_MAX);
 }
 const prodKind = (c, k) => { const f = fitKind(c, k); return PROD[f] ? f : fitKind(c, "speak"); };
-function masterPractice(u, ids) {
+// Las frases del tema que todavía no dominas (las de la clase primero; hasta 10)
+function masterCards(u, ids) {
   const cards = (ids || []).map(id => CARD[id]).filter(c => c && seen(c.id) && !dominated(c.id));
   domPick(u).forEach(c => { if (cards.length < DOM_MAX && !cards.includes(c)) cards.push(c); });
-  if (!cards.length) return false;
+  return cards;
+}
+// Cada una una vez, en un ejercicio donde la produces tú (el tipo va cambiando); antes, las palabras que fallaste
+function masterSteps(cards) {
   const steps = wordSteps([...new Set(cards.flatMap(c => c.ws).filter(w => S.kw[w] === 0))].slice(0, 3), []);
   const kinds = shuffle(srOK ? ["speak", "type", "order"] : ["listen", "type", "order"]);
   shuffle(cards).forEach((c, i) => steps.push({ k: prodKind(c, kinds[i % kinds.length]), c }));
-  runSession(steps, { mode: "master", unit: u, title: "Dominar: " + u.t });
+  return steps;
+}
+function masterPractice(u, ids) {
+  const cards = masterCards(u, ids);
+  if (!cards.length) return false;
+  runSession(masterSteps(cards), { mode: "master", unit: u, title: "Dominar: " + u.t });
+  return true;
+}
+// Repasa (el primer paso de la clase): lo que estás por olvidar (repaso espaciado) y luego las frases del tema que todavía
+// no dominas, ahora dichas, escritas o armadas por ti sin ayuda. Todo en una sola práctica.
+function repasaPractice(u, n, ids) {
+  const dom = u ? masterCards(u, ids) : [];
+  const due = dueCards().filter(c => !dom.includes(c)).sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, n || 0);
+  if (!due.length && !dom.length) return false;
+  const ms = dom.length ? masterSteps(dom) : []; // primero las palabras que fallaste, luego el repaso y al final las del tema
+  const steps = [...ms.filter(x => !x.c), ...shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), ...ms.filter(x => x.c)];
+  runSession(steps, { mode: dom.length ? "master" : "review", unit: u, title: "Repasa" });
   return true;
 }
 /* ---------- Haz lo que oyes (Respuesta Física Total, TPR, de James Asher) ----------
@@ -2190,7 +2364,7 @@ function masterPractice(u, ids) {
    hasta 2 nuevas (o 1 nueva y 1 que fallaste), que primero se ven con su dibujo y se hacen junto con el audio; luego, solo
    con el audio, esas y 2 que ya conoces (4 si no hay nuevas): las haces y eliges qué hiciste. Al final, 3 de «Simón dice»,
    de preferencia con otras órdenes que ya conoces (así repasas más sin repetir las mismas).
-   Tocar en la pantalla lo que oyes («Touch the dog», «Touch forty-eight») está en «Práctica extra» → «Escucha y toca».
+   Tocar en la pantalla lo que oyes («Touch the dog», «Touch forty-eight») está en «Más» → «Práctica libre» → «Escucha y toca».
    S.tp[orden] = 1 la entendiste, 0 no (se vuelve a mostrar). */
 const TPRS = window.TPR || [];
 // Qué temas tienen palabras para tocar en la pantalla: n = números, c = colores, t = cosas («Touch the dog»)
@@ -2224,7 +2398,7 @@ function tprSession() {
 /* ---------- aprender frases nuevas: primero entender, luego decir (Krashen) ----------
    De 2 en 2: las conoces (las oyes con su dibujo y su significado), luego «¿Es lo que oyes?» con una de las dos (sí o no,
    no cuenta) y «¿Cuál es?» con las dos (escucha y toca el dibujo, o escucha y elige qué significa). Decirlas, escribirlas
-   y armarlas viene en el siguiente bloque, en «Dominar»: un rato después, que es cuando más ayuda recordarlas. */
+   y armarlas viene en «Repasa» de la siguiente clase: un rato después, que es cuando más ayuda recordarlas. */
 const compKind = c => c.emS ? rnd(["tap", "tap", "pic"]) : "hear";
 function learnUnit(u, n) {
   const { fresh, teach, check } = learnPlan(u, n);
@@ -2349,7 +2523,7 @@ function answered(c, ok, help) {
   const st = SES.steps[SES.i] || {};
   SES.combo = ok && !help ? (SES.combo || 0) + 1 : 0;
   markPrac(c.id);
-  if (isExam()) { skill(st.k, ok); dmMark(c, ok, st.k, "count"); grade(c, ok); SES.graded++; if (ok) SES.ok++; return; }
+  if (isExam()) { skill(st.k, ok); if (!(SES.seg && SES.seg.place) || seen(c.id)) { dmMark(c, ok, st.k, "count"); grade(c, ok); } SES.graded++; if (ok) SES.ok++; return; }
   const clean = ok && !help;
   const m = SES.m[c.id] || (SES.m[c.id] = { miss: 0, target: st.k, first: true, boost: !!st.boost });
   skill(st.k, clean);
@@ -2605,8 +2779,23 @@ document.addEventListener("keydown", e => {
   if (o && !o.disabled) { e.preventDefault(); o.click(); }
 });
 
+// Arriba de la práctica: en qué paso de tu clase vas (y «Pausar» en lugar de «Salir»)
+function stepLine() {
+  const el = $("#sstep"), q = $("#quit"), inC = !!(SES.seg && SES.seg.cls && S.cls && SES.cid === S.cls.id);
+  if (inC) {
+    const si = SES.seg.step, c = S.cls, multi = c.parts.filter(p => p.step === si).length > 1;
+    el.textContent = c.place ? SES.seg.title : `Paso ${si + 1} de ${c.names.length} · ${c.names[si]}${multi ? " · " + SES.seg.title : ""}`;
+  } else el.textContent = SES.title || "";
+  el.hidden = !el.textContent;
+  setQuit(inC);
+}
+function setQuit(pause) {
+  const q = $("#quit");
+  q.innerHTML = pause ? `<span class="ic" aria-hidden="true">${ICO.pause}</span>Pausar` : "✕ Salir";
+  q.setAttribute("aria-label", pause ? "Pausar la clase y seguir después" : "Salir");
+}
 function step() {
-  setProg(); stopVideo(); hideTip();
+  setProg(); stopVideo(); hideTip(); stepLine();
   const st = $("#stage"); st.className = "task"; foot("", "");
   try { window.scrollTo(0, 0); } catch (e) {}
   if (SES.i >= SES.steps.length) return finish();
@@ -3009,7 +3198,12 @@ function recallHTML() {
   return `<div class="recall"><p class="rh">¿Te acuerdas? Mira cada dibujo, dilo en inglés y toca para comprobar.</p><div class="rgrid">${list.map(c => `<button class="rtile" data-say="${esc(c.en)}" aria-label="${esc(c.es)}"><span class="re${c.emC}" aria-hidden="true">${c.em}</span>${c.emS ? "" : `<span class="rc">${escN(c.es)}</span>`}<span class="rq" aria-hidden="true">?</span><span class="rt"><b>${esc(c.en)}</b>${c.emS ? `<small>${escN(c.es)}</small>` : ""}</span></button>`).join("")}</div></div>`;
 }
 function finish() {
-  if (SES.mode === "gram" && SES.seg && PLAN) { segDone(SES.seg); PLAN.i++; runSeg(); return; }
+  const inClass = !!(SES.seg && SES.seg.cls && S.cls && SES.cid === S.cls.id); // una parte de tu clase
+  if (SES.mode === "gram" && inClass) { // la explicación sigue directo con lo que viene en el mismo paso
+    markPart(S.cls, SES.seg);
+    const nx = settle(S.cls);
+    if (nx && nx.step === SES.seg.step) { runClass(); return; }
+  }
   $("#barFill").style.width = "100%";
   const st = $("#stage"); st.className = "task done";
   const n = SES.graded, ok = SES.ok, m = SES.mode;
@@ -3024,7 +3218,7 @@ function finish() {
         SES.level.units.forEach(u => { S.done[u.id] = 1; u.cards.forEach(c => { if (!S.c[c.id]) S.c[c.id] = [3, t + 4 + Math.floor(Math.random() * 20)]; }); });
         S.fin[SES.level.id] = 1; S.xp += 100;
         const nx = COURSE.find(l => l.id !== "w" && !S.fin[l.id]);
-        if (nx && PLAN) PLAN.segs.splice(PLAN.i + 1, 0, { key: "place-" + nx.id, kind: "final", place: true, lv: nx, title: "Ubicación: " + nx.short, desc: "15 preguntas", sec: 360 });
+        if (nx && inClass) S.cls.parts.push({ key: "0." + S.cls.parts.length + ".final", step: 0, kind: "final", place: true, lvid: nx.id }); // sigue la ubicación de la siguiente etapa
         if (!nx) S.prof.placing = false;
         msg = nx ? `¡Dominas ${SES.level.short}! Veamos si también dominas ${nx.short}.` : "¡Dominas todo el curso! Impresionante.";
         extra = `<span class="badge ok">Aprobado</span>`;
@@ -3057,7 +3251,7 @@ function finish() {
     const u = SES.unit, pass = ok >= Math.ceil(n * 0.85);
     title = pass ? "¡La dominas otra vez!" : "Todavía te cuesta";
     if (pass) { S.rfOk[u.id] = Date.now(); S.ul[u.id] = ""; save(); }
-    msg = pass ? `Sacaste ${ok} de ${n}. Ya podemos seguir con lo nuevo.` : `Sacaste ${ok} de ${n} y necesitas ${Math.ceil(n * 0.85)}. No pasa nada: en el siguiente bloque te la vuelvo a explicar con calma y la practicamos otra vez.`;
+    msg = pass ? `Sacaste ${ok} de ${n}. Ya podemos seguir con lo nuevo.` : `Sacaste ${ok} de ${n} y necesitas ${Math.ceil(n * 0.85)}. No pasa nada: en tu siguiente clase te la vuelvo a explicar con calma y la practicamos otra vez.`;
     extra = `<span class="badge ${pass ? "ok" : "bad"}">${pass ? "Aprobada" : "Aún no"}</span>`;
     btns = `<button class="btn primary" id="fHoy">Ir a Hoy</button>`;
   } else if (m === "video") {
@@ -3119,23 +3313,40 @@ function finish() {
   const summary = t => `<h2 class="ttl">${esc(t)}</h2><div class="big">${big}</div>${extra}<p class="lead" style="max-width:46ch;color:var(--ink)">${msg}</p>
     <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>${recall}`;
   const goify = h => h.replace(/btn primary/g, "btn go");
-  st.innerHTML = summary(title);
-  foot(`<button class="btn alt" id="fBack"><span class="ic">${ICO.home}</span>Volver</button>`, goify(btns));
-  if (SES.seg && PLAN) {
-    segDone(SES.seg);
-    PLAN.i++; skipGated(); // si lo nuevo todavía tiene que esperar, ni se ofrece
-    const nx = PLAN.segs[PLAN.i], total = PLAN.segs.length;
-    title = `Parte ${PLAN.i} de ${total} · ${title}`;
-    btns = nx ? `<button class="btn primary" id="fPlan">Siguiente: ${esc(nx.title)}</button>` : `<button class="btn primary" id="fPlanEnd">Seguir practicando</button>`;
-    st.innerHTML = summary(title);
-    foot(`<button class="btn alt" id="fPause"><span class="ic">${nx ? ICO.pause : ICO.home}</span>${nx ? "Pausar y seguir después" : "Volver"}</button>`, goify(btns));
-    if (!nx) PLAN = null;
-    const b1 = $("#fPlan"); if (b1) b1.onclick = runSeg;
-    const b2 = $("#fPlanEnd"); if (b2) b2.onclick = () => { nextBlock(); if (!startToday()) view("hoy"); };
-    $("#fPause").onclick = () => view("hoy");
-    (b1 || b2).focus({ preventScroll: true });
+  if (inClass) {
+    const c = S.cls, p = SES.seg, si = p.step, tot = c.names.length;
+    markPart(c, p);
+    const nx = settle(c);
+    $("#sstep").hidden = true;
+    const res = `${n ? `<div class="big sm">${big}</div>` : ""}${extra}${msg ? `<p class="lead">${msg}</p>` : ""}`;
+    const pause = "";
+    if (!nx) { // terminaste la clase: aquí se acaba (otra clase es opcional)
+      const nm = nameParts().name, last = `<p class="lead"><b>${esc(c.names[si])} ✓</b>${n ? ` · ${ok} de ${n} bien` : ""}</p>${extra}${msg ? `<p class="lead">${msg}</p>` : ""}`;
+      setQuit(false);
+      st.innerHTML = c.place ? `<span class="tag">Ubicación terminada</span><h2 class="ttl">${esc(title)}</h2>${res}`
+        : `<span class="tag">Clase terminada</span><h2 class="ttl">¡Terminaste tu clase${nm ? ", " + esc(nm) : ""}!</h2>
+          <div class="nextbox">${roadHTML(c)}</div>${last}<p class="lead">${esc(nextHint())} Si todavía quieres practicar, puedes tomar otra clase.</p>`;
+      foot(c.place ? "" : `<button class="btn alt" id="fPlanEnd"><span class="ic">${ICO.plus}</span>Otra clase</button>`, `<button class="btn go" id="fDayDone">${c.place ? "Ir a mi clase" : "Listo por hoy"}</button>`);
+      $("#fDayDone").onclick = () => view("hoy");
+      if ($("#fPlanEnd")) $("#fPlanEnd").onclick = () => { newClass(); view("hoy"); };
+      $("#fDayDone").focus({ preventScroll: true });
+      return;
+    }
+    if (nx.step === si) { // sigue otra parte del mismo paso
+      st.innerHTML = `<span class="tag">Paso ${si + 1} de ${tot} · ${esc(c.names[si])}</span><h2 class="ttl">${esc(p.title)} ✓</h2>${res}
+        <div class="nextbox"><div class="label">Sigue</div><p>${esc(hydrate(nx).title)}</p></div>`;
+      foot(pause, `<button class="btn go" id="fPlan">Seguir</button>`);
+    } else { // terminaste un paso: tu instructor te dice qué sigue
+      st.innerHTML = `<span class="tag">Paso ${si + 1} de ${tot} · listo</span><h2 class="ttl">${esc(c.names[si])} ✓</h2>${res}
+        <div class="nextbox"><div class="label">Ahora: paso ${nx.step + 1} de ${tot}</div>${roadHTML(c, { cur: nx.step, intro: true })}</div>`;
+      foot(pause, `<button class="btn go" id="fPlan">Empezar el paso ${nx.step + 1}: ${esc(c.names[nx.step])}</button>`);
+    }
+    $("#fPlan").onclick = runClass;
+    $("#fPlan").focus({ preventScroll: true });
     return;
   }
+  st.innerHTML = summary(title);
+  foot(`<button class="btn alt" id="fBack"><span class="ic">${ICO.home}</span>Volver</button>`, goify(btns));
   const on = (id, fn) => { const b = $("#" + id); if (b) b.onclick = fn; };
   const back = SES.back, unit = SES.unit, level = SES.level, kind = (SES.steps.find(s => s.c) || {}).k; // el tipo de ejercicio de la primera frase (no el de las palabras)
   on("fNext", () => { const nu = nextUnit(); if (nu.final) finalExam(nu.lv); else openUnit(nu); });
@@ -3155,7 +3366,6 @@ function finish() {
 $("#quit").onclick = () => { const u = SES && SES.unit, b = SES ? SES.back : "hoy"; if (SES && SES.seg) { view("hoy"); return; } if (u && b === "unit") openUnit(u); else view(b); };
 document.querySelectorAll(".mode").forEach(b => b.onclick = () => b.dataset.mode === "tpr" ? tprSession() : freePractice(b.dataset.mode));
 
-applyNames(); renderMeta(); view("hoy");
 
 /* ================= sincronización (Supabase) ================= */
 const SB_URL = "https://cycqnzwdzokyrmghwisq.supabase.co";
@@ -3174,20 +3384,27 @@ function mergeProf(a, b) {
   const n = (b.nameT || 0) > (a.nameT || 0) ? b : a;
   return Object.assign({}, a, { name: n.name || "", last: n.last || "", nameT: n.nameT || 0 });
 }
+// Tu clase en dos dispositivos: si es la misma, se juntan las partes hechas; si son distintas, la más nueva (o la más avanzada)
+function mergeCls(a, b) {
+  if (!a || !b || !a.parts || !b.parts) return a || b || null;
+  if (a.id !== b.id) return (b.d > a.d || (b.d === a.d && b.done.length > a.done.length)) ? b : a;
+  const parts = a.parts.slice(); b.parts.forEach(p => { if (!parts.some(x => x.key === p.key)) parts.push(p); });
+  return Object.assign({}, a, { parts, done: [...new Set([...a.done, ...b.done])], skip: Object.assign({}, b.skip, a.skip), end: Math.max(a.end || 0, b.end || 0) });
+}
 function merge(a, b) {
   a = migrate(Object.assign({}, a)); b = migrate(Object.assign({}, b));
   const c = Object.assign({}, a.c);
   Object.entries(b.c || {}).forEach(([k, v]) => { const x = c[k]; if (!x || v[0] > x[0] || (v[0] === x[0] && v[1] > x[1])) c[k] = v; });
   const done = Object.assign({}, a.done, b.done), rd = Object.assign({}, a.rd, b.rd), dl = Object.assign({}, a.dl, b.dl), fin = Object.assign({}, a.fin, b.fin), gs = Object.assign({}, a.gs, b.gs);
   const h = Object.assign({}, b.h);
-  Object.entries(a.h || {}).forEach(([d, x]) => { const y = h[d]; h[d] = !y ? x : { n: Math.max(x.n, y.n), r: Math.max(x.r, y.r), ok: Math.max(x.ok, y.ok), dn: Array.from(new Set([...(x.dn || []), ...(y.dn || [])])), b: Math.max(x.b || 0, y.b || 0), pk: x.pk && y.pk ? (x.pk.b >= y.pk.b ? x.pk : y.pk) : x.pk || y.pk }; });
+  Object.entries(a.h || {}).forEach(([d, x]) => { const y = h[d]; h[d] = !y ? x : { n: Math.max(x.n, y.n), r: Math.max(x.r, y.r), ok: Math.max(x.ok, y.ok), dn: Array.from(new Set([...(x.dn || []), ...(y.dn || [])])), t: x.t || y.t ? [...new Set([...(x.t || []), ...(y.t || [])])] : undefined, b: Math.max(x.b || 0, y.b || 0), pk: x.pk && y.pk ? (x.pk.b >= y.pk.b ? x.pk : y.pk) : x.pk || y.pk }; });
   let streak, last;
   if (dv(a.last) > dv(b.last)) { streak = a.streak; last = a.last; }
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
   const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
-  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
@@ -3232,6 +3449,8 @@ function selectCode() { const r = document.createRange(); r.selectNodeContents($
 $("#syncStop").onclick = () => { setCode(null); status("Sincronización desactivada en este dispositivo. Tu avance en línea sigue guardado."); };
 window.addEventListener("online", pull);
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") pull(); });
+// La primera pantalla, ya con todo listo (armar tu clase guarda tu avance, y guardar usa la sincronización)
+applyNames(); renderMeta(); view("hoy");
 renderSync(); pull();
 </script>
 
