@@ -65,7 +65,7 @@ a{color:var(--accent)}
 @media (max-width:520px){.tblock{grid-template-columns:1fr}.tblock .name{border-right:0;border-bottom:2px solid var(--ink)}.tblock .meta{grid-template-rows:none;grid-template-columns:repeat(3,1fr)}.tblock .meta div{flex-direction:column;align-items:flex-start;gap:0;border-bottom:0;border-right:1px solid var(--line)}.tblock .meta div:last-child{border-right:0}}
 
 /* Tabs */
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:2px solid var(--ink);background:var(--panel);position:sticky;top:0;z-index:5}
+.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:2px solid var(--ink);background:var(--panel);position:sticky;top:0;z-index:5}
 .tab{background:none;border:0;border-right:1px solid var(--line);padding:10px 2px;font-family:var(--f-display);font-size:clamp(15px,4.4vw,19px);min-width:0;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .tab:last-child{border-right:0}
 .tab[aria-current="page"]{background:var(--ink);color:var(--panel)}
@@ -315,6 +315,17 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .opt.ok::after,.opt.bad::after{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:800;font-size:20px}
 .opt.ok::after{content:"✓";color:var(--ok)}
 .opt.bad::after{content:"✗";color:var(--bad)}
+/* escucha y toca: 4 dibujos grandes en 2 columnas (también «¿Qué hiciste?» de Haz lo que oyes) */
+.opts.taps,.opts.yn{grid-template-columns:repeat(2,minmax(0,1fr))}
+.opt.tapo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:14px 10px;min-height:118px}
+.opt.tapo .k{top:10px;transform:none}
+.tapo .te{font-size:clamp(46px,13vw,64px);line-height:1.1}
+.tapo .te.e2{font-size:clamp(34px,9vw,46px)}.tapo .te.e3{font-size:clamp(24px,6.5vw,34px)}
+.tapo .te.t2{font-size:clamp(26px,7vw,36px)}.tapo .te.t3{font-size:clamp(17px,4.6vw,24px)}
+.tapo small{font-size:14px;color:var(--muted);line-height:1.25}
+.opt.tapo.ok::after,.opt.tapo.bad::after{top:12px;transform:none}
+.opts.yn .opt{text-align:center;padding:16px 30px;font-size:18px;font-weight:600}
+@media (hover:none),(pointer:coarse){.opts.yn .opt{padding:16px 26px}}
 /* escribir */
 input.type,select.type{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:0}
 .task input.type{font-size:20px;padding:14px 16px;border:2px solid var(--ink);background:var(--panel)}
@@ -441,6 +452,15 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .pick{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:transparent;font-weight:800;font-size:15px;line-height:1;flex:none;margin-inline:14px}
 .item.pk.on .pick{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 
+/* Leer */
+.lgrid{display:flex;flex-direction:column;gap:10px}
+.lcard{background:var(--panel);border:1px solid var(--line);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lcard.cur{border:2px solid var(--accent)}
+.lhd{display:flex;gap:12px;align-items:center}
+.lic{font-size:30px;line-height:1}
+.lt{font-weight:600}
+.lcard .row .btn{text-align:left}
+
 /* Método */
 .prose p,.prose li{margin:0}
 .prose ul,.prose ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
@@ -476,6 +496,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <button class="tab" data-tab="hoy">Hoy</button>
     <button class="tab" data-tab="curso">Curso</button>
     <button class="tab" data-tab="frases">Frases</button>
+    <button class="tab" data-tab="leer">Leer</button>
     <button class="tab" data-tab="metodo">Método</button>
   </nav>
 
@@ -500,6 +521,8 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <button class="mode" data-mode="order"><strong>Arma la frase</strong><small>Ordena las palabras</small></button>
       <button class="mode" data-mode="hear"><strong>Comprensión</strong><small>Oye en inglés y elige qué significa</small></button>
       <button class="mode" data-mode="listen"><strong>Escucha y repite</strong><small>Dila en voz alta y califícate</small></button>
+      <button class="mode" data-mode="tap"><strong>Escucha y toca</strong><small>Oye la palabra y toca su dibujo, sin español</small></button>
+      <button class="mode" data-mode="tpr"><strong>Haz lo que oyes</strong><small>Órdenes con el cuerpo y «Simón dice»</small></button>
     </div>
     </details>
 
@@ -550,11 +573,14 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <div class="pickbar" id="fpick" hidden></div>
   </section>
 
+  <!-- LEER: escuchar y leer mucho inglés que entiendes -->
+  <section class="view" id="vLeer" hidden></section>
+
   <!-- MÉTODO -->
   <section class="view prose" id="vMetodo" hidden>
     <div class="card strong">
       <h2>Cómo vas a aprender</h2>
-      <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>primero las palabras y luego las frases completas</strong> que las usan, <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
+      <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>primero las palabras y luego las frases completas</strong> que las usan, <strong>entender antes de hablar</strong> (Krashen), <strong>responder con el cuerpo</strong> (TPR), <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
     </div>
 
     <div class="card">
@@ -574,6 +600,16 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li><strong>El video del día:</strong> cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
       <p class="muted">Por eso no hay dos personas con la misma sesión: cada quien avanza a su propio ritmo. Las pestañas Curso y Frases siguen disponibles si quieres explorar por tu cuenta. En <strong>Frases</strong> puedes practicar lo que quieras: usa el buscador o el filtro (o toca «Elegir frases») y luego «Practicar». Cada frase pasa por 3 ejercicios: entenderla, armarla o escribirla, y decirla con buena pronunciación.</p>
+    </div>
+
+    <div class="card">
+      <h3>Aprender como los niños: Krashen y TPR</h3>
+      <p>Dos métodos muy estudiados, adaptados a la app:</p>
+      <ul>
+        <li><strong>Enfoque natural (Stephen Krashen):</strong> un idioma se adquiere sobre todo <strong>entendiendo</strong> mensajes un poquito arriba de tu nivel, sin presión; el habla sale después. Por eso cada frase nueva primero se entiende —la oyes con su dibujo, luego «¿Es lo que oyes?» (sí o no) y «Escucha y toca» (sin español)— y hasta después la dices, la escribes y la armas, en «Practicar lo nuevo». En la pestaña <strong>Leer</strong> están las lecturas y conversaciones de tus temas para escucharlas todas las veces que quieras.</li>
+        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, tu día en Hoy trae <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (primero las ves y las haces junto con el audio; luego solo las oyes), tocar en la pantalla lo que oyes («Touch forty-eight») y el juego <strong>«Simón dice»</strong>. También está en «Práctica extra».</li>
+      </ul>
+      <p class="muted">Lo demás —repaso espaciado, recuerdo activo y dominar antes de seguir— hace que lo que entiendes también se te quede y te salga.</p>
     </div>
 
     <div class="card">
@@ -692,6 +728,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 <script src="content/videos.js"></script>
 <script src="content/emoji.js"></script>
 <script src="content/words.js"></script>
+<script src="content/tpr.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -808,11 +845,12 @@ function migrate(o) {
   o.ul = o.ul || {}; o.rf = o.rf || {}; o.rfOk = o.rfOk || {}; // unidades aprobadas: últimas respuestas y repasos de lo que se olvidó
   o.kw = o.kw || {}; // palabras: 1 = la contestaste bien a la primera, 0 = la fallaste (se vuelve a enseñar)
   o.dm = o.dm || {}; // frases: qué tanto las dominas (ver «dominar» más abajo)
+  o.tp = o.tp || {}; // «Haz lo que oyes»: 1 = la entendiste a la primera, 0 = no (se vuelve a mostrar)
   if (o.prof === undefined) o.prof = null;
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -831,9 +869,9 @@ const seen = id => !!S.c[id];
 // Historial del día: n = frases nuevas, r = respuestas, ok = aciertos, dn = partes del plan terminadas
 function H() { const k = dayNum(); return S.h[k] || (S.h[k] = { n: 0, r: 0, ok: 0, dn: [] }); }
 // Habilidades: promedio móvil de aciertos por tipo de ejercicio
-const SKILL = { pic: "vocab", choice: "vocab", hear: "listen", dict: "listen", type: "write", order: "write", speak: "speak", listen: "speak", dlg: "speak", rq: "read" };
+const SKILL = { pic: "vocab", choice: "vocab", hear: "listen", tap: "listen", yesno: "listen", tpr: "listen", dict: "listen", type: "write", order: "write", speak: "speak", listen: "speak", dlg: "speak", rq: "read" };
 const SKILL_NAME = { vocab: "Vocabulario", listen: "Escuchar", speak: "Hablar", write: "Escribir", read: "Leer" };
-const SKILL_KINDS = { vocab: ["choice", "pic"], listen: ["dict", "hear"], speak: ["speak"], write: ["type", "order"], read: ["hear"] };
+const SKILL_KINDS = { vocab: ["choice", "pic"], listen: ["dict", "hear", "tap"], speak: ["speak"], write: ["type", "order"], read: ["hear"] };
 function skill(kind, ok) { const k = SKILL[kind]; if (!k) return; const v = S.sk[k] === undefined ? 0.8 : S.sk[k]; S.sk[k] = Math.round((v * 0.93 + (ok ? 0.07 : 0)) * 1000) / 1000; }
 function grade(c, ok) {
   // Solo sube de nivel si le tocaba repaso hoy: practicar 10 veces el mismo día no cuenta como "dominarla".
@@ -1430,14 +1468,15 @@ function pickKind(c, mode) {
     if (canType(c)) o.push("type", "dict"); if (canOrder(c)) o.push("order"); if (srOK) o.push("speak"); o.push("hear");
     return rnd(o);
   }
-  if (b <= 1) { o.push("choice", "hear"); if (canOrder(c)) o.push("order", "order"); if (c.emS) o.push("pic", "pic"); }
-  else if (b <= 3) { if (c.emS) o.push("pic"); if (canOrder(c)) o.push("order"); if (canType(c)) o.push("type", "dict"); o.push("hear"); o.push(srOK ? "speak" : "listen"); }
+  if (b <= 1) { o.push("choice", "hear"); if (canOrder(c)) o.push("order", "order"); if (c.emS) o.push("pic", "pic", "tap", "tap"); }
+  else if (b <= 3) { if (c.emS) o.push("pic", "tap"); if (canOrder(c)) o.push("order"); if (canType(c)) o.push("type", "dict"); o.push("hear"); o.push(srOK ? "speak" : "listen"); }
   else { if (canType(c)) o.push("type", "dict"); if (srOK) o.push("speak", "speak"); else o.push("listen"); }
   const w = weakSkill(); if (w) SKILL_KINDS[w].forEach(k => { if (o.includes(k)) o.push(k, k); }); // más práctica de tu punto débil
   return rnd(o.length ? o : ["choice"]);
 }
 function fitKind(c, k) {
   if (k === "pic" && !c.emS) return "choice";
+  if (k === "tap" && !c.emS) return "hear"; // sin dibujo propio: escucha y elige qué significa
   if (sameText(c) && (k === "choice" || k === "type" || k === "listen")) return "dict";
   if ((k === "type" || k === "dict") && !canType(c)) return "choice";
   if (k === "order" && !canOrder(c)) return "choice";
@@ -1446,7 +1485,7 @@ function fitKind(c, k) {
 }
 
 /* ================= vistas ================= */
-const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", frases: "#vFrases", metodo: "#vMetodo", session: "#vSession" };
+const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", frases: "#vFrases", leer: "#vLeer", metodo: "#vMetodo", session: "#vSession" };
 let curView = "hoy", curUnit = null;
 function view(name) {
   stopAudio(); stopVideo(); hideTip();
@@ -1465,6 +1504,7 @@ function renderCurrent() {
   if (curView === "curso") renderCurso();
   if (curView === "unit") renderUnit(curUnit);
   if (curView === "frases") renderFrases();
+  if (curView === "leer") renderLeer();
 }
 document.querySelectorAll(".tab").forEach(t => t.onclick = () => view(t.dataset.tab));
 
@@ -1503,7 +1543,7 @@ function weakSkill() {
 function activeUnits() { const u = nextUnit(); return u && !u.final ? [u] : []; }
 // Un tema que ya aprobaste y al que después se le agregaron frases: se aprenden antes de seguir
 const catchUnit = () => UNITS.find(u => S.done[u.id] && !prevLocked(u.lv) && (u.lv.id !== "w" || useW()) && u.cards.some(c => !seen(c.id)));
-const ORDER = { place: 0, review: 1, master: 1.5, gram: 2, learn: 3, fix: 3, dialog: 4, reading: 5, video: 6, drill: 7, exam: 8, check: 8, final: 9 };
+const ORDER = { place: 0, review: 1, tpr: 1.2, master: 1.5, gram: 2, learn: 3, fix: 3, dialog: 4, reading: 5, video: 6, drill: 7, exam: 8, check: 8, final: 9 };
 // Dominar va antes de lo nuevo; «Practicar lo nuevo» va justo después de las frases nuevas
 const ordOf = x => x.kind === "final" && x.place ? ORDER.place : x.kind === "master" && x.after ? 3.5 : ORDER[x.kind];
 const VIDEOS = window.VIDEOS || {};
@@ -1560,6 +1600,8 @@ function buildToday(blk) {
   if (!blk && away !== null && away >= 3) notes.unshift(`Llevas ${away} días sin practicar. No pasa nada: hoy empezamos recuperando lo que se te estaba olvidando.`);
   if (dueN.length) add({ key: "review" + sx, kind: "review", ex: domIds, n: Math.min(dueN.length, newN ? cap : Math.round(budget / 18)), title: "Repaso", desc: "", sec: 0 });
   const rv = segs.find(x => x.kind === "review"); if (rv) { rv.desc = `${rv.n} frases que estabas por olvidar`; rv.sec = rv.n * 18; }
+  // Haz lo que oyes (TPR): un calentamiento al día, de Kínder a Primaria 2 (después también está en «Práctica extra»)
+  if (!blk && TPRS.length && nu && ["k", "n0", "n1"].includes(nu.lv.id)) add({ key: "tpr", kind: "tpr", title: "Haz lo que oyes", desc: "Órdenes en inglés que haces con el cuerpo, y «Simón dice»", sec: 180 });
   if (nu && nu.final) {
     if (!prevLocked(nu.lv) && !(blk && doneToday("final-" + nu.lv.id))) { add({ key: "final-" + nu.lv.id + sx, kind: "final", lv: nu.lv, title: "Examen final: " + nu.lv.short, desc: "30 preguntas · 85% para abrir la siguiente etapa", sec: 720 }); notes.push(`Terminaste todas las unidades de ${nu.lv.short}. Hoy toca el examen final de la etapa.`); }
   } else if (cu) {
@@ -1581,7 +1623,7 @@ function buildToday(blk) {
       if (!S.gs[lu.id]) add({ key: "gram-" + lu.id + sx, kind: "gram", u: lu, title: "Nueva lección: " + lu.t, desc: "Explicación en español con ejemplos", sec: 150 });
       const n = Math.min(newN, lu.cards.length - unitSeen(lu)), lp = learnPlan(lu, n), wn = lp.teach.length + lp.check.length, fn = lp.fresh.length;
       const what = `${wn ? `primero ${wn === 1 ? "1 palabra" : wn + " palabras"}, luego ` : ""}${fn} ${fn === 1 ? "frase" : "frases"} de «${lu.t}» (${lu.lv.short})`;
-      add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, gate, title: wn ? "Palabras y frases nuevas" : "Frases nuevas", desc: gate ? "Cuando domines las anteriores · " + what : what[0].toUpperCase() + what.slice(1), sec: fn * 45 + lp.teach.length * 12 + lp.check.length * 8 });
+      add({ key: "learn-" + lu.id + sx, kind: "learn", u: lu, n, gate, title: wn ? "Palabras y frases nuevas" : "Frases nuevas", desc: gate ? "Cuando domines las anteriores · " + what : what[0].toUpperCase() + what.slice(1), sec: fn * 55 + lp.teach.length * 12 + lp.check.length * 8 });
       add({ key: "dom2-" + lu.id + sx, kind: "master", after: true, gate, u: lu, title: "Practicar lo nuevo", desc: `Las ${fn === 1 ? "frase" : fn + " frases"} que acabas de aprender, sin ayuda: decirlas, escribirlas y armarlas`, sec: fn * 35 });
       if (cat && !blk) notes.push(`Agregué frases nuevas a «${cat.t}», un tema que ya aprobaste. Las vemos antes de seguir con «${cu.t}».`);
     }
@@ -1639,6 +1681,7 @@ function runSeg() {
   else if (sg.kind === "exam") unitExam(sg.u);
   else if (sg.kind === "final") finalExam(sg.lv, sg.place ? 15 : 30);
   else if (sg.kind === "video") videoSession(sg.v, sg.u);
+  else if (sg.kind === "tpr") { if (!tprSession()) return skip(); }
   SEGOPT = null;
 }
 function segDone(sg) { const h = H(); if (!h.dn.includes(sg.key)) h.dn.push(sg.key); save(); }
@@ -1887,10 +1930,10 @@ function renderUnit(u) {
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
 }
-function playDialog(lines, group) {
+function playDialog(lines, group, sel) {
   stopAudio();
   let i = 0; const g = AGEN;
-  const rows = document.querySelectorAll("#dlg .ln");
+  const rows = document.querySelectorAll(sel || "#dlg .ln");
   const step = () => {
     rows.forEach(r => r.style.background = "");
     if (g !== AGEN) return; // lo detuviste o pusiste otra cosa
@@ -1900,6 +1943,51 @@ function playDialog(lines, group) {
     say(l[1], { who: l[0] === "B" ? 1 : 0, keep: true, group, onend: () => setTimeout(step, 350) });
   };
   step();
+}
+
+/* ---------- LEER: escuchar y leer mucho inglés que entiendes (Krashen) ----------
+   Las lecturas y conversaciones del tema actual y de los que ya empezaste o aprobaste, de lo más nuevo a lo más viejo.
+   Se aprende sobre todo entendiendo: escucharlas varias veces, leerlas, tocar las palabras que no sabes. */
+let LEER = null; // lo que tienes abierto: { u, k: "r" (lectura) | "d" (conversación) }
+function renderLeer() {
+  const box = $("#vLeer");
+  if (LEER) return readerView(box);
+  const cu = activeUnits()[0], list = UNITS.filter(u => !prevLocked(u.lv) && (u === cu || S.done[u.id] || unitSeen(u) > 0)).reverse();
+  if (cu) list.sort((a, b) => (b === cu) - (a === cu));
+  box.innerHTML = `<div class="card strong"><h2>Escuchar y leer</h2>
+      <p>Aquí están las lecturas y conversaciones de tus temas. Escúchalas y léelas todas las veces que quieras: se aprende sobre todo <strong>entendiendo</strong> mucho inglés, un poquito arriba de tu nivel (Krashen). No tienes que entender cada palabra; si una te detiene, tócala para ver qué significa.</p></div>`
+    + (list.length ? `<div class="lgrid">${list.map(u => `<div class="lcard${u === cu ? " cur" : ""}"><div class="lhd">${u.icon ? `<span class="lic" aria-hidden="true">${u.icon}</span>` : ""}<div><div class="label">${u === cu ? "Tu tema de ahora · " : ""}${esc(u.lv.short)} · Unidad ${u.k}</div><div class="lt">${esc(u.t)}</div></div></div>
+        <div class="row">${u.r ? `<button class="btn" type="button" data-lopen="${u.id}:r">📖 Lectura: ${esc(u.r.t)}</button>` : ""}<button class="btn" type="button" data-lopen="${u.id}:d">💬 Conversación</button></div></div>`).join("")}</div>`
+      : `<p class="muted">Cuando empieces tu primer tema, aquí vas a encontrar sus lecturas y conversaciones para escucharlas.</p>`);
+  box.querySelectorAll("[data-lopen]").forEach(b => b.onclick = () => { const [id, k] = b.dataset.lopen.split(":"); LEER = { u: UNITS.find(x => x.id === id), k }; renderLeer(); window.scrollTo(0, 0); });
+}
+function readerView(box) {
+  const { u, k } = LEER, top = `<button class="back" id="lBack">← Escuchar y leer</button>`;
+  const tip = `<p class="muted" style="margin:0;font-size:14px">Escúchala primero sin leer, luego leyendo, y al final léela tú en voz alta. Cada vez vas a entender más.</p>`;
+  if (k === "r") {
+    box.innerHTML = top + `<div class="sec"><div class="sh"><span class="n">Lectura</span><h3>${esc(u.r.t)}</h3></div><div class="sb">
+      <p class="muted" style="margin:0;font-size:14px">${esc(u.lv.short)} · Unidad ${u.k}: ${esc(u.t)}</p>
+      <div class="row"><button class="btn speak" data-saylong="${u.id}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-saylong="${u.id}" data-slow="1">${SPK}<span class="lb">Lento</span></button><button class="btn ghost" id="lEs">Ver traducción</button></div>
+      <div class="reading">${paras(u.r.en, true)}</div>
+      <div class="reading es" id="lEsT" hidden>${paras(u.r.es)}</div>
+      ${tip}
+      <div class="row"><button class="btn primary" id="lGo"${prevLocked(u.lv) ? " disabled" : ""}>Contestar ${u.r.q.length} preguntas</button></div>
+    </div></div>`;
+    $("#lGo").onclick = () => readingPractice(u);
+    $("#lEs").onclick = () => { const e = $("#lEsT"); e.hidden = !e.hidden; $("#lEs").textContent = (e.hidden ? "Ver" : "Ocultar") + " traducción"; };
+  } else {
+    box.innerHTML = top + `<div class="sec"><div class="sh"><span class="n">Conversación</span><h3>${esc(u.t)}</h3></div><div class="sb">
+      <p class="muted" style="margin:0;font-size:14px">${esc(u.lv.short)} · Unidad ${u.k}. Tú eres B cuando practiques.</p>
+      <div class="dlg" id="ldlg">${u.d.map(l => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" hidden>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
+      <div class="row"><button class="btn speak" id="lPlay" data-saygroup="ldlg:${u.id}">${SPK}<span class="lb">Escuchar conversación</span></button><button class="btn ghost" id="lEs">Ver traducción</button></div>
+      ${tip.replace("léela tú en voz alta", "di tú las frases de B")}
+      <div class="row"><button class="btn primary" id="lGo"${prevLocked(u.lv) ? " disabled" : ""}>Practicar: tú eres B</button></div>
+    </div></div>`;
+    $("#lPlay").onclick = () => playDialog(u.d, "ldlg:" + u.id, "#ldlg .ln");
+    $("#lGo").onclick = () => dialogPractice(u);
+    $("#lEs").onclick = () => { const es = box.querySelectorAll("#ldlg .es2"), show = es[0] && es[0].hidden; es.forEach(e => e.hidden = !show); $("#lEs").textContent = (show ? "Ocultar" : "Ver") + " traducción"; };
+  }
+  $("#lBack").onclick = () => { stopAudio(); LEER = null; renderLeer(); window.scrollTo(0, 0); };
 }
 
 /* ---------- FRASES ----------
@@ -1976,9 +2064,10 @@ function practiceRound() {
   pick.forEach(c => PRUN.done.add(c.id));
   const ws = [...new Set(pick.flatMap(c => c.ws))].filter(w => !knownW(w));
   const steps = wordSteps(ws.filter(teachW).slice(0, 3), ws.filter(w => !teachW(w)).slice(0, 3));
-  pick.filter(c => !seen(c.id)).forEach(c => steps.push({ k: "intro", c }));
+  const neu = pick.filter(c => !seen(c.id));
+  neu.forEach(c => steps.push({ k: "intro", c })); neu.forEach(c => steps.push({ k: "yesno", c }));
   const round = f => { const r = shuffle(pick).map(c => ({ k: fitKind(c, f(c)), c })), last = steps[steps.length - 1]; if (last && last.c === r[0].c && r.length > 1) r.push(r.shift()); steps.push(...r); };
-  round(c => c.emS ? rnd(["pic", "hear"]) : rnd(["hear", "choice"]));              // 1) entenderla
+  round(c => c.emS ? rnd(["tap", "tap", "pic"]) : rnd(["hear", "choice"]));       // 1) entenderla
   round(c => canOrder(c) ? rnd(["order", "type", "dict"]) : rnd(["type", "dict"]));  // 2) armarla o escribirla
   round(() => "speak");                                                             // 3) decirla (pronunciación)
   runSession(steps, { mode: "practice", title: "Practicar: " + PRUN.label });
@@ -2001,6 +2090,7 @@ function freePractice(kind) {
   if (!pool.length) pool = UNITS[0].cards;
   if (kind === "type" || kind === "dict") pool = pool.filter(canType);
   if (kind === "order") pool = pool.filter(canOrder);
+  if (kind === "tap") pool = pool.filter(c => c.emS);
   if (!pool.length) pool = CARDS.filter(canOrder).slice(0, 12);
   const pick = pool.map(c => ({ c, k: Math.random() * (7 - bx(c.id)) ** 2 })).sort((a, b) => b.k - a.k).slice(0, 10).map(x => x.c);
   runSession(pick.map(c => ({ k: fitKind(c, kind), c })), { mode: "free", title: "Práctica libre" });
@@ -2071,6 +2161,48 @@ function masterPractice(u, ids, fresh) {
   runSession(steps, { mode: "master", unit: u, title: fresh ? "Practicar lo nuevo" : "Dominar: " + u.t });
   return true;
 }
+/* ---------- Haz lo que oyes (Respuesta Física Total, TPR, de James Asher) ----------
+   Órdenes en inglés que haces con el cuerpo (content/tpr.js, de lo más fácil a lo más difícil). Cada vez: hasta 3 nuevas
+   (primero se ven con su dibujo y se hacen junto con el audio) y las que fallaste; luego, solo con el audio, las haces y eliges
+   qué hiciste. Después, tocar en la pantalla palabras que ya aprendiste («Touch the dog», «Touch forty-eight») y «Simón dice».
+   S.tp[orden] = 1 la entendiste, 0 no (se vuelve a mostrar). */
+const TPRS = window.TPR || [];
+// Qué temas tienen palabras para tocar en la pantalla: n = números, c = colores, t = cosas («Touch the dog»)
+const TOUCH = { k3: "c", k4: "n", k5: "t", k6: "t", k8: "t", k9: "t", k10: "t", k14: "t", n0u2: "n" };
+const touchOK = c => c.emS && TOUCH[c.u.id] && (TOUCH[c.u.id] === "n" ? /^[a-z]+(?:[ -][a-z]+)*$/i.test(c.en) : /^[a-z]+$/i.test(c.en));
+const touchSay = c => TOUCH[c.u.id] === "t" ? `Touch the ${c.en.toLowerCase()}.` : `Touch ${c.en.toLowerCase()}.`;
+// Lo que se puede tocar: palabras ya aprendidas, primero las del tema actual
+function touchCards(n) {
+  const cu = activeUnits()[0], cand = CARDS.filter(c => touchOK(c) && seen(c.id) && open(c));
+  return [...shuffle(cand.filter(c => c.u === cu)), ...shuffle(cand.filter(c => c.u !== cu))].slice(0, n);
+}
+// Opciones para «¿Qué hiciste?»: órdenes con otros dibujos (primero las que ya conoces)
+function tprOpts(t) {
+  const em = x => x.em.match(EMO_ONE) || [], mine = new Set(em(t)), out = [];
+  for (const x of [...shuffle(TPRS.filter(x => S.tp[x.id] !== undefined)), ...shuffle(TPRS)]) {
+    if (out.length >= 3) break;
+    if (x === t || out.includes(x) || x.es === t.es || em(x).some(e => mine.has(e))) continue;
+    out.push(x);
+  }
+  return shuffle([t, ...out]);
+}
+function tprSession() {
+  if (!TPRS.length) return false;
+  const missed = TPRS.filter(t => S.tp[t.id] === 0).slice(0, 2), fresh = TPRS.filter(t => S.tp[t.id] === undefined).slice(0, 3 - Math.min(1, missed.length));
+  const show = [...missed, ...fresh], known = shuffle(TPRS.filter(t => S.tp[t.id] === 1)).slice(0, show.length ? 3 : 6);
+  const steps = show.map(t => ({ k: "tprshow", t }));
+  shuffle([...show, ...known]).forEach(t => steps.push({ k: "tprdo", t }));
+  const tc = touchCards(3); if (tc.length >= 2) tc.forEach(c => steps.push({ k: "tap", c, say: touchSay(c), touch: true }));
+  const sim = shuffle([...show, ...known]).slice(0, 5), says = shuffle(sim.map((t, i) => i < Math.ceil(sim.length * 0.6)));
+  sim.forEach((t, i) => steps.push({ k: "simon", t, simon: says[i] }));
+  runSession(steps, { mode: "tpr", title: "Haz lo que oyes" });
+  return true;
+}
+/* ---------- aprender frases nuevas: primero entender, luego decir (Krashen) ----------
+   Cada frase nueva: la conoces (la oyes con su dibujo y su significado), luego «¿Es lo que oyes?» (sí o no, no cuenta) y
+   «¿Cuál es?» (escucha y toca el dibujo, o escucha y elige qué significa). Decirla, escribirla y armarla viene después,
+   en «Practicar lo nuevo»: así primero la entiendes y luego te sale. */
+const compKind = c => c.emS ? rnd(["tap", "tap", "pic"]) : "hear";
 function learnUnit(u, n) {
   const { fresh, teach, check } = learnPlan(u, n);
   const old = shuffle(u.cards.filter(c => seen(c.id))).sort((a, b) => bx(a.id) - bx(b.id)).slice(0, fresh.length ? 2 : 10);
@@ -2078,7 +2210,8 @@ function learnUnit(u, n) {
   for (let k = 0; k < fresh.length; k += 2) {
     const g = fresh.slice(k, k + 2);
     g.forEach(c => steps.push({ k: "intro", c }));
-    g.forEach(c => steps.push({ k: sameText(c) ? "dict" : c.emS ? rnd(["pic", "pic", "hear"]) : rnd(canOrder(c) ? ["choice", "order", "hear"] : ["choice", "hear"]), c }));
+    g.forEach(c => steps.push({ k: "yesno", c }));
+    g.forEach(c => steps.push({ k: compKind(c), c }));
   }
   shuffle(old).forEach(c => steps.push({ k: pickKind(c, "learn"), c }));
   runSession(steps, { mode: "learn", unit: u, title: u.t });
@@ -2150,9 +2283,10 @@ function nextStep() { SES.i++; step(); }
    y cuando la aciertas regresa en el ejercicio original. Si la fallas dos veces, te la enseño con calma (palabra por palabra
    y la regla). Si fallas varias seguidas, hacemos una pausa: repasamos la explicación y algo de temas anteriores que ya sabes,
    y dejamos las frases nuevas para después. La calificación del repaso espaciado solo usa el primer intento. */
-const RANK = { intro: 0, pic: 1, choice: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
+const RANK = { intro: 0, yesno: 0, pic: 1, choice: 1, tap: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
 const isExam = () => SES.mode === "exam" || SES.mode === "final" || SES.mode === "check";
 function easierKind(c, k) {
+  if (k === "tap" || k === "yesno") return c.emS ? "tap" : "hear"; // escuchar y tocar: no hay nada más fácil, se repite igual
   if (sameText(c)) return "hear";
   return (RANK[k] || 1) >= 4 && canOrder(c) ? "order" : "choice";
 }
@@ -2417,7 +2551,18 @@ function distractPic(c, n) {
   for (const x of pool) { if (out.length >= n) break; if (x.id === c.id || ems.has(x.em) || ens.has(x.en.toLowerCase())) continue; ems.add(x.em); ens.add(x.en.toLowerCase()); out.push(x); }
   return out.length >= n ? out : out.concat(distract(c, n - out.length, "en").filter(x => !ens.has(x.en.toLowerCase())));
 }
-const LBL = { pic: "¿Cómo se dice en inglés?", intro: "Frase nueva", listen: "¿Cómo se dice en inglés?", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
+function distractTap(c, n) {
+  const pool = [...shuffle(c.u.cards), ...shuffle(c.u.lv.units.flatMap(u => u.cards)), ...shuffle(CARDS)].filter(x => x.emS);
+  const out = [], ems = new Set([c.em]), ens = new Set([c.en.toLowerCase()]);
+  for (const x of pool) { if (out.length >= n) break; if (x.id === c.id || ems.has(x.em) || ens.has(x.en.toLowerCase())) continue; ems.add(x.em); ens.add(x.en.toLowerCase()); out.push(x); }
+  return out;
+}
+// Para «¿Es lo que oyes?»: otra frase que suene en lugar de la correcta (de las nuevas de la sesión, si se puede: así también se entiende)
+function yesnoOther(c) {
+  const pool = [...shuffle(SES.steps.filter(x => x.k === "intro" && x.c && x.c !== c).map(x => x.c)), ...shuffle(c.u.cards.filter(x => x !== c && seen(x.id))), ...shuffle(c.u.cards.filter(x => x !== c))];
+  return pool.find(x => x.en.toLowerCase() !== c.en.toLowerCase() && x.es.toLowerCase() !== c.es.toLowerCase() && (!c.emS || x.em !== c.em)) || null;
+}
+const LBL = { tap: "Escucha y toca el dibujo", yesno: "¿Es lo que oyes?", pic: "¿Cómo se dice en inglés?", intro: "Frase nueva", listen: "¿Cómo se dice en inglés?", choice: "Elige la traducción correcta", hear: "Escucha y elige qué significa", type: "Escríbela en inglés", dict: "Escribe lo que oyes", order: "Arma la frase en inglés", speak: "Dilo en inglés" };
 // En computadora: teclas 1 a 4 para elegir una opción
 document.addEventListener("keydown", e => {
   if (curView !== "session" || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -2469,6 +2614,89 @@ function step() {
     $("#wIdk").onclick = () => pickW(null);
     return;
   }
+  // Primero entender (Krashen): ¿lo que oyes es esto? La mitad de las veces suena otra frase. No cuenta como examen: es para entender.
+  if (s.k === "yesno") {
+    if (!("other" in s)) { const o = yesnoOther(c); s.other = o && Math.random() < 0.5 ? o : null; }
+    const heard = s.other || c, pic = c.emS;
+    st.innerHTML = `<span class="tag">Primero entender</span><h2 class="ttl">${pic ? "Mira el dibujo y escucha: ¿es lo que dice?" : "Escucha: ¿significa esto?"}</h2>
+      ${pic ? `<div class="picq${c.emC}" role="img" aria-label="${esc(c.es)}">${c.em}</div>` : promptHTML(c)}
+      <div class="row c"><button class="big-play" type="button" data-say="${esc(heard.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(heard.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>
+      <div class="opts two yn"><button class="opt" id="ynY" data-v="1"><span class="k" aria-hidden="true">1</span>✓ Sí</button><button class="opt" id="ynN" data-v="0"><span class="k" aria-hidden="true">2</span>✗ No</button></div>`;
+    say(heard.en); holdGo(["ynN", "ynY"]); // primero escúchala completa
+    const pickYN = b => {
+      const ok = (b.dataset.v === "1") === !s.other;
+      sesEl(".opt").forEach(x => { x.disabled = true; if ((x.dataset.v === "1") === !s.other) x.classList.add("ok"); });
+      if (!ok) b.classList.add("bad");
+      SES.combo = ok ? (SES.combo || 0) + 1 : 0; skill("yesno", ok); save();
+      const body = (s.other ? `<div class="sub">Dijo: <strong class="smean">${esc(heard.en)}</strong> = ${escN(heard.es)}</div><div class="sub">${pic ? "El dibujo es:" : "Esto se dice:"}</div>` : "")
+        + `<div class="ans" data-text="${esc(c.en)}" data-id="${esc(c.id)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div><div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`;
+      band(ok, false, ok ? rnd(OKW) + comboTag() : s.other ? "No era" : "Sí era", body, c.en, undefined, true);
+      react(ok);
+      const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(c.en); }, 450);
+    };
+    st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickYN(b));
+    return;
+  }
+  // Haz lo que oyes (TPR): orden nueva. La ves, la oyes y la haces al mismo tiempo
+  if (s.k === "tprshow") {
+    const t = s.t;
+    st.innerHTML = `<span class="tag">Orden nueva · Haz lo que oyes</span><h2 class="ttl">Escucha y hazlo con tu cuerpo</h2>
+      <div class="plate" data-text="${esc(t.en)}"><div class="pic${emCls(t.em)}" aria-hidden="true">${t.em}</div><div class="pen md">${speakSpans(t.en)}</div>${t.pron ? `<div class="ppr">${esc(t.pron)}</div>` : ""}<div class="pmean"><span class="eq" aria-hidden="true">=</span>${esc(t.es)}</div><div class="row">${playPair(t.en)}</div></div>
+      <p class="lead">Hazlo mientras lo escuchas. Muévete de verdad: tu cuerpo te ayuda a recordarlo.</p>`;
+    foot("", goBtn("tGo", "Ya lo hice"));
+    say(t.en); $("#tGo").onclick = nextStep; holdGo(["tGo"]);
+    return;
+  }
+  // Haz lo que oyes: solo la oyes, la haces y luego dices qué hiciste
+  if (s.k === "tprdo") {
+    const t = s.t;
+    const pickT = b => {
+      const ok = !!b && b.dataset.t === t.id;
+      sesEl(".opt,#tIdk,#tGo").forEach(x => { x.disabled = true; if (x.dataset.t === t.id) x.classList.add("ok"); });
+      if (b && !ok) b.classList.add("bad");
+      if (!s.again) S.tp[t.id] = ok ? 1 : 0;
+      SES.graded++; if (ok) SES.ok++; SES.combo = ok ? (SES.combo || 0) + 1 : 0; skill("tpr", ok); bumpStreak(); save(); renderMeta();
+      if (!ok && !s.again) addLater({ k: "tprdo", t, again: true }, 3); // vuelve en un rato
+      const body = `<div class="ans" data-text="${esc(t.en)}"><span class="aemo" aria-hidden="true">${t.em}</span>${speakSpans(t.en)}</div><div class="sub">Significa: <strong class="smean">${esc(t.es)}</strong></div>`
+        + (t.pron ? `<div class="sub">Se pronuncia: <span class="pron">${esc(t.pron)}</span></div>` : "") + (ok ? "" : `<div class="sub">Hazlo ahora, mientras lo escuchas.</div>`);
+      band(ok, !b, ok ? rnd(OKW) + comboTag() : !b ? "Así se hace" : "No era eso", body, t.en, undefined, true);
+      react(ok, !b);
+      const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(t.en); }, 450);
+    };
+    st.innerHTML = `<span class="tag">${s.again ? "Otra vez · " : ""}Haz lo que oyes</span><h2 class="ttl">Escucha y hazlo con tu cuerpo</h2>
+      <div class="row c"><button class="big-play" type="button" data-say="${esc(t.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" type="button" data-say="${esc(t.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>
+      ${window.speechSynthesis ? "" : `<div class="prompt sm">${esc(t.en)}</div>`}<p class="lead">Primero hazlo de verdad. Luego toca «Ya lo hice» y elige qué hiciste.</p>`;
+    foot(help("tIdk", "No entendí", "warn", ICO.help), goBtn("tGo", "Ya lo hice"));
+    say(t.en); holdGo(["tGo"]);
+    $("#tIdk").onclick = () => pickT(null);
+    $("#tGo").onclick = () => {
+      st.innerHTML = `<span class="tag">Haz lo que oyes</span><h2 class="ttl">¿Qué hiciste?</h2>
+        <div class="opts two taps">${tprOpts(t).map((o, i) => `<button class="opt tapo tpo" data-t="${o.id}"><span class="k" aria-hidden="true">${i + 1}</span><span class="te${emCls(o.em)}" aria-hidden="true">${o.em}</span><small>${esc(o.es)}</small></button>`).join("")}</div>`;
+      foot(help("tIdk", "No entendí", "warn", ICO.help), "");
+      st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickT(b));
+      $("#tIdk").onclick = () => pickT(null);
+    };
+    return;
+  }
+  // Simón dice: si la orden empieza con «Simon says», la haces; si no, te quedas quieto
+  if (s.k === "simon") {
+    const t = s.t, line = s.simon ? "Simon says, " + t.en[0].toLowerCase() + t.en.slice(1) : t.en;
+    st.innerHTML = `<span class="tag">Simón dice</span><h2 class="ttl">Si oyes «Simon says», hazlo. Si no, ¡no te muevas!</h2>
+      <div class="row c"><button class="big-play" type="button" data-say="${esc(line)}">${SPK}<span class="lb">Escuchar</span></button></div>
+      ${window.speechSynthesis ? "" : `<div class="prompt sm">${esc(line)}</div>`}<div class="opts two yn"><button class="opt" id="smY" data-v="1"><span class="k" aria-hidden="true">1</span>👍 Lo hice</button><button class="opt" id="smN" data-v="0"><span class="k" aria-hidden="true">2</span>✋ No me moví</button></div>`;
+    say(line); holdGo(["smN", "smY"]);
+    st.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const did = b.dataset.v === "1", ok = did === s.simon;
+      sesEl(".opt").forEach(x => { x.disabled = true; if ((x.dataset.v === "1") === s.simon) x.classList.add("ok"); });
+      if (!ok) b.classList.add("bad");
+      SES.graded++; if (ok) SES.ok++; SES.combo = ok ? (SES.combo || 0) + 1 : 0; skill("tpr", ok); save();
+      const title = ok ? (s.simon ? "¡Bien! Simón sí lo dijo" : "¡Bien! Simón no lo dijo") : (s.simon ? "Simón sí lo dijo" : "¡Te atrapé! Simón no lo dijo");
+      band(ok, false, title + comboTag(), `<div class="ans" data-text="${esc(line)}">${speakSpans(line)}</div><div class="sub"><span aria-hidden="true">${t.em}</span> ${esc(t.es)}</div>`, line, undefined, true);
+      react(ok);
+      const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(line); }, 450);
+    });
+    return;
+  }
   if (s.k === "teach") {
     const its = ctxItems(c.en, c.es), tip = gramTip(c.u);
     st.innerHTML = `<span class="tag">Vamos a verla con calma</span><h2 class="ttl">Esta te está costando. Mírala bien antes de volver a intentarlo.</h2>
@@ -2492,7 +2720,7 @@ function step() {
     return;
   }
   if (s.k === "intro") {
-    st.innerHTML = `${head("intro")}${plate(c)}<p class="lead">Escúchala y repítela en voz alta 2 o 3 veces.${c.ws.length ? " Toca una palabra para ver qué significa." : ""}</p><div id="miniMic"></div>`;
+    st.innerHTML = `${head("intro")}${plate(c)}<p class="lead">Escúchala y fíjate en lo que significa: primero hay que entenderla. Si quieres, repítela en voz alta.${c.ws.length ? " Toca una palabra para ver qué significa." : ""}</p><div id="miniMic"></div>`;
     foot("", goBtn("gotIt", "Entendido"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     introduce(c); say(c.en);
@@ -2511,15 +2739,17 @@ function step() {
     };
     return;
   }
-  if (s.k === "choice" || s.k === "hear" || s.k === "pic") {
-    const hearMode = s.k === "hear", picMode = s.k === "pic", field = hearMode ? "es" : "en";
-    const opts = shuffle([c, ...(picMode ? distractPic(c, 3) : distract(c, 3, field))]), two = opts.every(o => o[field].length <= 26);
-    const ask = hearMode ? `<div class="row c"><button class="big-play" data-say="${esc(c.en)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-say="${esc(c.en)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>`
+  if (s.k === "choice" || s.k === "hear" || s.k === "pic" || s.k === "tap") {
+    // tap = escucha y toca el dibujo: entender sin traducción (en «Haz lo que oyes» dice «Touch the…»)
+    const hearMode = s.k === "hear", picMode = s.k === "pic", tapMode = s.k === "tap", field = hearMode ? "es" : "en", audio = s.say || c.en;
+    const opts = shuffle([c, ...(tapMode ? distractTap(c, 3) : picMode ? distractPic(c, 3) : distract(c, 3, field))]), two = tapMode || opts.every(o => o[field].length <= 26);
+    const ask = hearMode || tapMode ? `<div class="row c"><button class="big-play" data-say="${esc(audio)}">${SPK}<span class="lb">Escuchar</span></button><button class="btn ghost speak" data-say="${esc(audio)}" data-slow="1">${SPK}<span class="lb">Lento</span></button></div>`
       : picMode ? `<div class="picq${c.emC}" role="img" aria-label="${esc(c.es)}">${c.em}</div>` : promptHTML(c);
-    st.innerHTML = `${head(s.k)}${ask}
-      <div class="opts${two ? " two" : ""}">${opts.map((o, i) => `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${hearMode && o.em ? `<span class="oemo" aria-hidden="true">${o.em}</span>` : ""}${esc(o[field])}</button>`).join("")}</div>`;
+    st.innerHTML = `${s.touch ? `<span class="tag">Haz lo que oyes · en la pantalla</span>` : ""}${head(s.k)}${ask}
+      <div class="opts${two ? " two" : ""}${tapMode ? " taps" : ""}">${opts.map((o, i) => tapMode ? `<button class="opt tapo" data-id="${esc(o.id)}" aria-label="Opción ${i + 1}"><span class="k" aria-hidden="true">${i + 1}</span><span class="te${o.emC}" aria-hidden="true">${o.em}</span></button>`
+        : `<button class="opt" data-id="${esc(o.id)}"><span class="k" aria-hidden="true">${i + 1}</span>${hearMode && o.em ? `<span class="oemo" aria-hidden="true">${o.em}</span>` : ""}${esc(o[field])}</button>`).join("")}</div>`;
     foot(help("cIdk", "No sé", "warn", ICO.help), "");
-    if (hearMode) say(c.en);
+    if (hearMode || tapMode) say(audio);
     const pickOpt = b => {
       const ok = !!b && b.dataset.id === c.id;
       sesEl(".opt,#cIdk").forEach(x => { x.disabled = true; if (x.dataset.id === c.id) x.classList.add("ok"); });
@@ -2809,6 +3039,12 @@ function finish() {
     S.dl[SES.unit.id] = 1; save();
     msg = ok === n ? "¡Excelente! Repite el diálogo hasta que te salga sin pensar." : "Repítela un par de veces más: la meta es responder sin pensar.";
     btns = `<button class="btn primary" id="fAgain">Repetir conversación</button>`;
+  } else if (m === "tpr") {
+    title = "Haz lo que oyes";
+    const nw = SES.steps.filter(s => s.k === "tprshow").length;
+    msg = (ok === n ? "¡Excelente! Entendiste todo." : `Entendiste ${ok} de ${n}.`) + (nw ? ` Aprendiste ${nw === 1 ? "1 orden nueva" : nw + " órdenes nuevas"}.` : "")
+      + " Moverte mientras escuchas hace que el inglés se te quede: así aprenden los niños (es el método TPR).";
+    btns = `<button class="btn primary" id="fTpr">Otra vez</button>`;
   } else {
     const ms = Object.values(SES.m || {}), missed = ms.filter(x => x.miss).length, later = ms.filter(x => x.miss && !x.done).length;
     extra = n ? `<span class="pron">${ok} de ${n} a la primera</span>` : "";
@@ -2869,6 +3105,7 @@ function finish() {
   on("fMore", () => learnUnit(unit));
   on("fDom", () => { if (!masterPractice(unit)) openUnit(unit); });
   on("fPr", practiceRound);
+  on("fTpr", tprSession);
   on("fUnit", () => openUnit(unit));
   on("fRev", startReview);
   on("fHoy", () => view("hoy"));
@@ -2877,7 +3114,7 @@ function finish() {
   const first = $("#sfoot .btn.go") || $("#fBack"); first.focus({ preventScroll: true });
 }
 $("#quit").onclick = () => { const u = SES && SES.unit, b = SES ? SES.back : "hoy"; if (SES && SES.seg) { view("hoy"); return; } if (u && b === "unit") openUnit(u); else view(b); };
-document.querySelectorAll(".mode").forEach(b => b.onclick = () => freePractice(b.dataset.mode));
+document.querySelectorAll(".mode").forEach(b => b.onclick = () => b.dataset.mode === "tpr" ? tprSession() : freePractice(b.dataset.mode));
 
 applyNames(); renderMeta(); view("hoy");
 
@@ -2911,7 +3148,7 @@ function merge(a, b) {
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
   const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
-  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
