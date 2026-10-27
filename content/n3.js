@@ -2,7 +2,7 @@
    Desde aquí ya no se escribe la pronunciación aproximada: usa los botones Escuchar y Lento. */
 (window.COURSE = window.COURSE || []).push({
   id: "n3", name: "Preparatoria · Intermedio", short: "Prepa", cefr: "B1",
-  desc: "Experiencias, costumbres pasadas, posibilidad, consejos, condiciones, phrasal verbs, opiniones, entrevistas, correos formales y noticias.",
+  desc: "Experiencias, costumbres, posibilidad, consejos, condiciones, phrasal verbs, opiniones, personalidad, salud, viajes y geografía, medio ambiente, creencias, arte, trabajo y carrera, la fábrica, dinero, política, crimen y noticias.",
   units: [
     {
       id: "n3u1", t: "Presente perfecto: experiencias",
@@ -141,6 +141,71 @@
       ]
     },
     {
+      id: "n3u17", t: "Unir ideas: during, without, instead",
+      goal: "Unir tus ideas para sonar más natural: durante, sin, aunque, en lugar de, excepto.",
+      g: [
+        "during (durante) va con un sustantivo: during the meeting. while (mientras) va con una oración: while I was working.",
+        ["I fell asleep during the movie. · I can't live without coffee.", "Me dormí durante la película. · No puedo vivir sin café."],
+        "although / though = aunque · however = sin embargo · instead = en lugar de eso · instead of + -ing = en lugar de.",
+        "either… or = o… o · neither… nor = ni… ni · whether = si (cuando hay dos opciones).",
+        "!except = excepto · especially = sobre todo · apart from = aparte de."
+      ],
+      c: [
+        ["Me dormí durante la película.", "I fell asleep during the movie.", "", ""],
+        ["No puedo vivir sin café.", "I can't live without coffee.", "", ""],
+        ["Aunque estaba cansado, fui a trabajar.", "Although I was tired, I went to work.", "", ""],
+        ["En lugar de manejar, tomé el metro.", "Instead of driving, I took the subway.", "", "instead of + -ing."],
+        ["Puedes pagar con tarjeta o en efectivo.", "You can pay either by card or in cash.", "", ""],
+        ["No sé si ir o no.", "I don't know whether to go or not.", "", "whether = si (entre dos opciones)."],
+        ["Me gustan todas las frutas, excepto el plátano.", "I like all fruits except bananas.", "", ""],
+        ["Me encanta el mar, sobre todo en verano.", "I love the sea, especially in summer.", "", ""],
+        ["Estoy en contra de la idea.", "I'm against the idea.", "", ""],
+        ["Es muy popular entre los jóvenes.", "It's very popular among young people.", "", ""],
+        ["Hace calor todo el año.", "It's hot throughout the year.", "", ""],
+        ["Al principio fue difícil, pero después fue más fácil.", "At the beginning it was hard, but afterwards it was easier.", "", ""]
+      ],
+      d: [
+        ["A", "Did you go to the gym this morning?", "¿Fuiste al gimnasio en la mañana?"],
+        ["B", "No. Instead, I went for a run in the park.", "No. En lugar de eso, salí a correr al parque."],
+        ["A", "Without your headphones?", "¿Sin tus audífonos?"],
+        ["B", "Yes, though I missed my music.", "Sí, aunque extrañé mi música."],
+        ["A", "I usually run either in the morning or at night.", "Yo normalmente corro o en la mañana o en la noche."],
+        ["B", "Me too, except on Sundays.", "Yo también, excepto los domingos."]
+      ]
+    },
+    {
+      id: "n3u18", t: "Cantidades: whole, plenty, a bunch",
+      goal: "Decir cantidades exactas y aproximadas, porcentajes y totales.",
+      g: [
+        "Para cantidades aproximadas: about / around / approximately / roughly (como, aproximadamente) · nearly / almost (casi).",
+        ["There were about fifty people. · It costs nearly two thousand pesos.", "Había como cincuenta personas. · Cuesta casi dos mil pesos."],
+        "plenty of = de sobra · a bunch of = un montón de (informal) · a dozen = una docena · none of = ninguno de.",
+        "!En inglés, a billion = mil millones, no un billón. Y percent va después del número: 20 percent (20%)."
+      ],
+      c: [
+        ["Hay comida de sobra.", "There's plenty of food.", "", ""],
+        ["Tengo un montón de cosas que hacer.", "I have a bunch of things to do.", "", "a bunch of = un montón de (informal)."],
+        ["Me comí la pizza entera.", "I ate the whole pizza.", "", ""],
+        ["Pasé el día entero en casa.", "I spent the entire day at home.", "", ""],
+        ["Cuesta cincuenta pesos por persona.", "It costs fifty pesos per person.", "", ""],
+        ["¿Cuál es el total?", "What's the total?", "", ""],
+        ["El veinte por ciento de los empleados trabaja desde casa.", "Twenty percent of the employees work from home.", "", ""],
+        ["Hay varias opciones.", "There are various options.", "", ""],
+        ["Ninguno de mis amigos vino.", "None of my friends came.", "", ""],
+        ["Casi todos estuvieron de acuerdo.", "Nearly everyone agreed.", "", ""],
+        ["Compré una docena de huevos.", "I bought a dozen eggs.", "", ""],
+        ["Vinieron aproximadamente cien personas.", "Approximately a hundred people came.", "", ""]
+      ],
+      d: [
+        ["A", "How many people are coming to the party?", "¿Cuánta gente viene a la fiesta?"],
+        ["B", "Roughly forty, plus the kids.", "Como cuarenta, más los niños."],
+        ["A", "Do we have enough food?", "¿Tenemos suficiente comida?"],
+        ["B", "Yes, plenty. I bought three dozen tamales.", "Sí, de sobra. Compré tres docenas de tamales."],
+        ["A", "And drinks?", "¿Y bebidas?"],
+        ["B", "A bunch. Don't worry, there's a wide variety.", "Un montón. No te preocupes, hay mucha variedad."]
+      ]
+    },
+    {
       id: "n3u3", t: "Consejos y obligaciones",
       goal: "Dar consejos y hablar de lo que tienes o no tienes que hacer.",
       g: [
@@ -172,6 +237,38 @@
         ["B", "You don't have to, but you should look professional.", "No es necesario, pero deberías verte profesional."],
         ["A", "And I must be on time, right?", "Y tengo que llegar puntual, ¿verdad?"],
         ["B", "Of course. You should arrive ten minutes early.", "Claro. Deberías llegar diez minutos antes."]
+      ]
+    },
+    {
+      id: "n3u20", t: "Salud: enfermedades y tratamientos",
+      goal: "Hablar de enfermedades, síntomas y tratamientos con el doctor o con tu familia.",
+      g: [
+        "Para enfermedades: have + enfermedad: I have the flu. · She has diabetes. Para síntomas: I feel… · My… hurts.",
+        ["The doctor gave me a treatment. · It's a very common disease.", "El doctor me dio un tratamiento. · Es una enfermedad muy común."],
+        "ill = enfermo (más formal que sick) · illness y disease = enfermedad · treat = tratar · cure = curar.",
+        "!drug = medicamento y también droga. En la farmacia (drugstore) venden medicinas."
+      ],
+      c: [
+        ["Es una enfermedad muy común.", "It's a very common disease.", "", ""],
+        ["¿Cuáles son los síntomas?", "What are the symptoms?", "", ""],
+        ["El tratamiento dura tres meses.", "The treatment lasts three months.", "", ""],
+        ["Le trataron la infección con antibióticos.", "They treated her infection with antibiotics.", "", ""],
+        ["Le van a hacer una operación.", "He's going to have an operation.", "", ""],
+        ["Me pusieron la vacuna contra la gripa.", "I got a flu shot.", "", "shot = inyección o vacuna."],
+        ["Necesitas una radiografía.", "You need an X-ray.", "", ""],
+        ["Mi tía tiene cáncer.", "My aunt has cancer.", "", ""],
+        ["Sufre de ansiedad y depresión.", "He suffers from anxiety and depression.", "", ""],
+        ["La salud mental es muy importante.", "Mental health is very important.", "", ""],
+        ["No hay cura para este virus.", "There's no cure for this virus.", "", ""],
+        ["Está enferma desde hace una semana.", "She's been ill for a week.", "", ""]
+      ],
+      d: [
+        ["A", "How's your father?", "¿Cómo está tu papá?"],
+        ["B", "Better, thanks. The operation went well.", "Mejor, gracias. La operación salió bien."],
+        ["A", "Is he still in the hospital?", "¿Sigue en el hospital?"],
+        ["B", "Yes, but the doctor says his recovery is going fast.", "Sí, pero el doctor dice que se está recuperando rápido."],
+        ["A", "That's great news. Does he need any treatment?", "¡Qué buena noticia! ¿Necesita algún tratamiento?"],
+        ["B", "Some therapy for his back, and lots of rest.", "Un poco de terapia para la espalda y mucho descanso."]
       ]
     },
     {
@@ -279,6 +376,38 @@
       ]
     },
     {
+      id: "n3u32", t: "Verbos útiles: choose, provide, deserve",
+      goal: "Usar verbos muy comunes que todavía te faltaban, con su preposición correcta.",
+      g: [
+        "Muchos verbos van con una preposición fija: belong to (pertenecer a) · focus on (enfocarse en) · respond to (responder a) · get rid of (deshacerse de).",
+        ["Choose the one you like best. · This bag belongs to me.", "Escoge el que más te guste. · Esta bolsa es mía."],
+        "pretend = fingir (no «pretender») · suppose = suponer: I suppose so. (Supongo que sí.)",
+        "!Unos van con to: I refuse to pay. · I deserve to rest. Otros con -ing: I suggest leaving early."
+      ],
+      c: [
+        ["Escoge el que más te guste.", "Choose the one you like best.", "", ""],
+        ["No tengo opción.", "I don't have a choice.", "", ""],
+        ["Vamos a continuar mañana.", "We'll continue tomorrow.", "", ""],
+        ["Concéntrate en tu trabajo.", "Focus on your work.", "", ""],
+        ["Te mereces unas vacaciones.", "You deserve a vacation.", "", ""],
+        ["No me ignores.", "Don't ignore me.", "", ""],
+        ["Me niego a pagar eso.", "I refuse to pay that.", "", ""],
+        ["Esta bolsa es mía.", "This bag belongs to me.", "", "belong to = pertenecer a."],
+        ["Tengo que deshacerme de estas cosas.", "I need to get rid of this stuff.", "", "get rid of = deshacerse de."],
+        ["Se hace el dormido.", "He's pretending to sleep.", "", "pretend = fingir."],
+        ["Supongo que tienes razón.", "I suppose you're right.", "", ""],
+        ["La empresa nos da los uniformes.", "The company provides the uniforms.", "", "provide = proporcionar, dar."]
+      ],
+      d: [
+        ["A", "Can you help me choose a gift for my wife?", "¿Me ayudas a escoger un regalo para mi esposa?"],
+        ["B", "Sure. What does she like?", "Claro. ¿Qué le gusta?"],
+        ["A", "I don't know. She always pretends she likes everything.", "No sé. Siempre finge que todo le gusta."],
+        ["B", "Ha! Focus on her hobbies. Does she like to cook?", "¡Ja! Enfócate en sus pasatiempos. ¿Le gusta cocinar?"],
+        ["A", "Yes! She loves it.", "¡Sí! Le encanta."],
+        ["B", "Then get her a cooking class. She deserves something special.", "Entonces regálale una clase de cocina. Se merece algo especial."]
+      ]
+    },
+    {
       id: "n3u10", t: "Gerundio o infinitivo: doing o to do",
       goal: "Saber cuándo un verbo va con -ing y cuándo con to.",
       g: [
@@ -343,6 +472,38 @@
         ["B", "That's a good point. Maybe two days at the office is the best option.", "Buen punto. Tal vez dos días en la oficina es la mejor opción."],
         ["A", "I totally agree.", "Estoy totalmente de acuerdo."],
         ["B", "Great, let's suggest it to the manager.", "Perfecto, propongámoslo al gerente."]
+      ]
+    },
+    {
+      id: "n3u19", t: "Personalidad y carácter",
+      goal: "Describir cómo es una persona por dentro: su carácter, actitud y forma de ser.",
+      g: [
+        "Para el carácter se pregunta What's he like? (¿Cómo es?). Para el físico: What does he look like?",
+        ["He's very reliable. · She has a great personality.", "Es muy confiable. · Tiene una personalidad padrísima."],
+        "Para suavizar algo negativo: a bit (un poco) · not very (no muy): He's a bit aggressive. · She's not very patient.",
+        "!sensitive = sensible (que se ofende o llora fácil). sensible en inglés = sensato."
+      ],
+      c: [
+        ["Tiene una personalidad muy fuerte.", "She has a very strong personality.", "", ""],
+        ["Es muy confiable y responsable.", "He's very reliable and responsible.", "", ""],
+        ["Es muy creativa.", "She's very creative.", "", ""],
+        ["Tiene mucha confianza en sí mismo.", "He has a lot of confidence.", "", ""],
+        ["Tiene muy buena actitud.", "She has a great attitude.", "", ""],
+        ["Es muy sensible.", "He's very sensitive.", "", "sensitive = sensible · sensible = sensato."],
+        ["Es muy maduro para su edad.", "He's very mature for his age.", "", ""],
+        ["Siempre está dispuesta a ayudar.", "She's always willing to help.", "", ""],
+        ["Es muy competitivo.", "He's very competitive.", "", ""],
+        ["Es una persona muy positiva.", "She's a very positive person.", "", ""],
+        ["Tiene talento para la música.", "He has a talent for music.", "", ""],
+        ["Siempre está contando chistes.", "He's always telling jokes.", "", ""]
+      ],
+      d: [
+        ["A", "What's your new boss like?", "¿Cómo es tu jefe nuevo?"],
+        ["B", "He's very intelligent and helpful, but a bit aggressive.", "Es muy inteligente y servicial, pero un poco agresivo."],
+        ["A", "Aggressive?", "¿Agresivo?"],
+        ["B", "Well, he gets defensive when someone disagrees with him.", "Bueno, se pone a la defensiva cuando alguien no está de acuerdo con él."],
+        ["A", "Maybe he just needs time.", "A lo mejor solo necesita tiempo."],
+        ["B", "I hope so. He's very capable, and the team respects him.", "Ojalá. Es muy capaz y el equipo lo respeta."]
       ]
     },
     {
@@ -411,6 +572,166 @@
       ]
     },
     {
+      id: "n3u21", t: "El mapa: geografía del mundo",
+      goal: "Ubicar lugares y describir la geografía de tu país y del mundo.",
+      g: [
+        "Los puntos cardinales: north, south, east, west. Para decir «del norte, del sur…»: northern, southern, eastern, western.",
+        ["Monterrey is in the north of Mexico. · Northern Mexico is very hot.", "Monterrey está en el norte de México. · El norte de México es muy caluroso."],
+        "Llevan the los océanos, mares, ríos y golfos: the Pacific Ocean, the Gulf of Mexico. Sin the: países, ciudades y lagos.",
+        "!border = frontera · coast = costa · shore = orilla (del mar o de un lago)."
+      ],
+      c: [
+        ["Monterrey está en el norte de México.", "Monterrey is in the north of Mexico.", "", ""],
+        ["Yucatán está en el sureste.", "Yucatán is in the southeast.", "", ""],
+        ["Me encanta el mar.", "I love the sea.", "", ""],
+        ["Vivimos cerca de la frontera.", "We live near the border.", "", ""],
+        ["Es una isla muy pequeña.", "It's a very small island.", "", ""],
+        ["Subimos la montaña.", "We climbed the mountain.", "", ""],
+        ["Hay un bosque detrás de la casa.", "There's a forest behind the house.", "", ""],
+        ["¿Cuál es la población de México?", "What's the population of Mexico?", "", ""],
+        ["Es la región más bonita del país.", "It's the most beautiful region in the country.", "", ""],
+        ["Busca la ciudad en el mapa.", "Look for the city on the map.", "", ""],
+        ["el Golfo de México", "the Gulf of Mexico", "", ""],
+        ["Es un problema global.", "It's a global problem.", "", ""]
+      ],
+      d: [
+        ["A", "Where is your hometown?", "¿Dónde está tu pueblo?"],
+        ["B", "In the south of Veracruz, near the coast.", "En el sur de Veracruz, cerca de la costa."],
+        ["A", "Is it near the sea?", "¿Está cerca del mar?"],
+        ["B", "Yes, you can see the Gulf of Mexico from the hills.", "Sí, desde los cerros se ve el Golfo de México."],
+        ["A", "It sounds beautiful.", "Suena precioso."],
+        ["B", "It is. There are mountains, rivers and beaches.", "Lo es. Hay montañas, ríos y playas."]
+      ]
+    },
+    {
+      id: "n3u22", t: "Turismo y aventura",
+      goal: "Contar viajes de aventura y recomendar lugares para visitar.",
+      g: [
+        "trip = viaje (ir y volver) · journey = el trayecto, un viaje largo · tour = recorrido con guía.",
+        ["We took a tour of the historic center. · The journey took ten hours.", "Hicimos un recorrido por el centro histórico. · El viaje duró diez horas."],
+        "Para recomendar lugares: It's worth visiting. (Vale la pena visitarlo.) · You can't miss it. (No te lo puedes perder.)",
+        "!go camping = ir de campamento · go hiking = ir de excursión · see the sights = conocer los lugares famosos."
+      ],
+      c: [
+        ["Hicimos un recorrido por el centro histórico.", "We took a tour of the historic center.", "", ""],
+        ["El guía nos explicó todo.", "The guide explained everything to us.", "", ""],
+        ["Vimos los lugares más famosos.", "We saw the main sights.", "", "sights = los lugares famosos de una ciudad."],
+        ["Fue un viaje muy largo.", "It was a very long journey.", "", ""],
+        ["¿Cuál es la mejor ruta?", "What's the best route?", "", ""],
+        ["Nos encanta la aventura.", "We love adventure.", "", ""],
+        ["Fuimos de campamento al bosque.", "We went camping in the forest.", "", ""],
+        ["Sigue el sendero hasta el río.", "Follow the trail to the river.", "", ""],
+        ["Me encanta explorar lugares nuevos.", "I love exploring new places.", "", ""],
+        ["El turismo es muy importante para Cancún.", "Tourism is very important for Cancún.", "", ""],
+        ["Nos quedamos en un hotel todo incluido.", "We stayed at an all-inclusive resort.", "", ""],
+        ["¿Has viajado al extranjero?", "Have you traveled overseas?", "", "overseas = al extranjero (cruzando el mar)."]
+      ],
+      d: [
+        ["A", "How was your trip to Chiapas?", "¿Qué tal tu viaje a Chiapas?"],
+        ["B", "Amazing! We hiked through the jungle with a local guide.", "¡Increíble! Caminamos por la selva con un guía de la zona."],
+        ["A", "Wasn't it dangerous?", "¿No era peligroso?"],
+        ["B", "Not at all. We followed a safe path, and the views were incredible.", "Para nada. Seguimos un camino seguro y las vistas eran increíbles."],
+        ["A", "Did you camp?", "¿Acamparon?"],
+        ["B", "Yes, two nights. We woke up at dawn to see the sunrise.", "Sí, dos noches. Nos despertamos al amanecer para ver salir el sol."]
+      ]
+    },
+    {
+      id: "n3u23", t: "Medio ambiente y energía",
+      goal: "Hablar de los problemas del planeta y de lo que podemos hacer.",
+      g: [
+        "Para el planeta: environment (medio ambiente) · pollution (contaminación) · climate change (cambio climático) · renewable energy (energía renovable).",
+        ["We need to protect the environment. · Solar energy is clean.", "Tenemos que proteger el medio ambiente. · La energía solar es limpia."],
+        "Para proponer soluciones: We should… · We need to… · If we…, we'll…",
+        "!save = ahorrar (energía, agua) y también salvar (animales, el planeta)."
+      ],
+      c: [
+        ["Tenemos que cuidar la naturaleza.", "We have to take care of nature.", "", ""],
+        ["Pusimos paneles solares en la casa.", "We put solar panels on the house.", "", ""],
+        ["Hay que ahorrar energía.", "We need to save energy.", "", ""],
+        ["El carbón contamina mucho.", "Coal causes a lot of pollution.", "", ""],
+        ["Muchas especies están en peligro.", "Many species are in danger.", "", ""],
+        ["El agua es un recurso muy valioso.", "Water is a very valuable resource.", "", ""],
+        ["La agricultura necesita mucha agua.", "Agriculture needs a lot of water.", "", ""],
+        ["Los agricultores siembran maíz.", "The farmers plant corn.", "", ""],
+        ["Reduce tus desperdicios.", "Reduce your waste.", "", ""],
+        ["El petróleo se está acabando.", "Oil is running out.", "", ""],
+        ["La contaminación del aire es un problema serio.", "Air pollution is a serious problem.", "", ""],
+        ["Hay que reducir las emisiones de carbono.", "We need to reduce carbon emissions.", "", ""]
+      ],
+      d: [
+        ["A", "Did you see the electricity bill? It's huge!", "¿Viste el recibo de la luz? ¡Está carísimo!"],
+        ["B", "I know. We should put in solar panels.", "Ya sé. Deberíamos poner paneles solares."],
+        ["A", "Aren't they expensive?", "¿No son caros?"],
+        ["B", "At first, yes, but you save money in a few years.", "Al principio sí, pero en unos años ahorras dinero."],
+        ["A", "And it's better for the environment.", "Y es mejor para el medio ambiente."],
+        ["B", "Exactly. Clean energy for a cleaner planet.", "Exacto. Energía limpia para un planeta más limpio."]
+      ]
+    },
+    {
+      id: "n3u24", t: "Creencias, religión y misterios",
+      goal: "Hablar con respeto de religión y creencias, y también de misterios y supersticiones.",
+      g: [
+        "Para hablar de creencias: believe in (creer en): I believe in God. · Do you believe in ghosts?",
+        ["My family is Catholic. · We go to Mass on Sundays.", "Mi familia es católica. · Vamos a misa los domingos."],
+        "Las religiones y sus adjetivos van con mayúscula: Catholic, Christian, Jewish, Muslim. God también.",
+        "!Para hablar con respeto de creencias distintas: Everyone has the right to believe what they want."
+      ],
+      c: [
+        ["¿Crees en Dios?", "Do you believe in God?", "", ""],
+        ["Mi familia es católica.", "My family is Catholic.", "", ""],
+        ["Vamos a misa los domingos.", "We go to Mass on Sundays.", "", ""],
+        ["Mi abuela reza todas las noches.", "My grandma prays every night.", "", ""],
+        ["Es una persona muy religiosa.", "She's a very religious person.", "", ""],
+        ["Respeto todas las religiones.", "I respect all religions.", "", ""],
+        ["El padre da la misa.", "The priest says Mass.", "", ""],
+        ["¿Crees en los fantasmas?", "Do you believe in ghosts?", "", ""],
+        ["Es un misterio.", "It's a mystery.", "", ""],
+        ["Tiene fe en que todo va a salir bien.", "She has faith that everything will be fine.", "", ""],
+        ["Muchos mexicanos le rezan a la Virgen de Guadalupe.", "Many Mexicans pray to the Virgin of Guadalupe.", "", ""],
+        ["la Semana Santa", "Holy Week", "", ""]
+      ],
+      d: [
+        ["A", "Are you religious?", "¿Eres religioso?"],
+        ["B", "Not very, but my parents are. They go to church every Sunday.", "No mucho, pero mis papás sí. Van a la iglesia cada domingo."],
+        ["A", "What religion are they?", "¿De qué religión son?"],
+        ["B", "Catholic. And you?", "Católicos. ¿Y tú?"],
+        ["A", "I'm Christian, but I don't go to church. I pray at home.", "Soy cristiano, pero no voy a la iglesia. Rezo en mi casa."],
+        ["B", "Everyone has their own way.", "Cada quien tiene su forma."]
+      ]
+    },
+    {
+      id: "n3u25", t: "Libros, arte y museos",
+      goal: "Platicar de libros, autores, arte y exposiciones.",
+      g: [
+        "Para hablar de libros: It's a novel about… · The author is… · I'm on chapter five.",
+        ["I'm reading a novel by a Mexican author. · The exhibition opens on Friday.", "Estoy leyendo una novela de un autor mexicano. · La exposición abre el viernes."],
+        "art = arte · an artist = un artista · a work of art = una obra de arte · a painting = una pintura.",
+        "!Para recomendar un libro: I couldn't put it down. (No lo podía soltar.)"
+      ],
+      c: [
+        ["Estoy leyendo una novela.", "I'm reading a novel.", "", ""],
+        ["¿Quién es el autor?", "Who's the author?", "", ""],
+        ["Voy en el capítulo cinco.", "I'm on chapter five.", "", ""],
+        ["Es mi escritor favorito.", "He's my favorite writer.", "", ""],
+        ["Me gusta el arte moderno.", "I like modern art.", "", ""],
+        ["Fuimos a una exposición de fotografía.", "We went to a photography exhibition.", "", ""],
+        ["La galería tiene obras de Frida Kahlo.", "The gallery has works by Frida Kahlo.", "", ""],
+        ["Es actor de teatro.", "He's a theater actor.", "", ""],
+        ["Me gusta la poesía.", "I like poetry.", "", ""],
+        ["¿De qué se trata la historia?", "What's the story about?", "", ""],
+        ["un cuento de hadas", "a fairy tale", "", ""],
+        ["Ella es mi inspiración.", "She's my inspiration.", "", ""]
+      ],
+      d: [
+        ["A", "What are you reading?", "¿Qué estás leyendo?"],
+        ["B", "A novel by Gabriel García Márquez.", "Una novela de Gabriel García Márquez."],
+        ["A", "Is it good?", "¿Está buena?"],
+        ["B", "Amazing. I can't put it down. I'm already on chapter ten.", "Buenísima. No la puedo soltar. Ya voy en el capítulo diez."],
+        ["A", "Can I borrow it when you finish?", "¿Me la prestas cuando la termines?"],
+        ["B", "Sure!", "¡Claro!"]
+      ]
+    },
+    {
       id: "n3u13", t: "Entrevista de trabajo",
       goal: "Presentarte, hablar de tu experiencia y responder las preguntas típicas.",
       g: [
@@ -440,6 +761,102 @@
         ["B", "I led a project that reduced costs by fifteen percent.", "Dirigí un proyecto que redujo los costos en un quince por ciento."],
         ["A", "Impressive. Do you have any questions for us?", "Impresionante. ¿Tienes alguna pregunta para nosotros?"],
         ["B", "Yes. What does a typical day look like in this role?", "Sí. ¿Cómo es un día normal en este puesto?"]
+      ]
+    },
+    {
+      id: "n3u26", t: "En el trabajo: puestos y tareas",
+      goal: "Hablar de tu puesto, tus tareas y la organización del trabajo.",
+      g: [
+        "Para hablar de tu puesto: I work as a… · I'm in charge of… · I report to… (mi jefe directo es…).",
+        ["I work the night shift. · My boss assigned me a new task.", "Trabajo en el turno de noche. · Mi jefe me asignó una tarea nueva."],
+        "former = anterior (de antes) · current = actual · previous = previo, anterior.",
+        "!Ojo: actual en inglés = real. El «actual» del español se dice current."
+      ],
+      c: [
+        ["Trabajo en el turno de noche.", "I work the night shift.", "", ""],
+        ["Mi jefe me asignó una tarea nueva.", "My boss assigned me a new task.", "", ""],
+        ["¿Cuál es tu puesto actual?", "What's your current position?", "", "current = actual."],
+        ["Mi jefe anterior era muy estricto.", "My former boss was very strict.", "", ""],
+        ["Tengo que entregar el reporte antes del viernes.", "I have to submit the report by Friday.", "", ""],
+        ["El personal de limpieza llega a las seis.", "The cleaning staff arrives at six.", "", ""],
+        ["Es la asistente del director.", "She's the director's assistant.", "", ""],
+        ["Hay que seguir el procedimiento.", "We have to follow the procedure.", "", ""],
+        ["¿Me da permiso de salir temprano?", "Can I have permission to leave early?", "", ""],
+        ["Mi extensión es la 204.", "My extension is 204.", "", ""],
+        ["Tengo una presentación a las diez.", "I have a presentation at ten.", "", ""],
+        ["Llena el documento y fírmalo.", "Complete the document and sign it.", "", ""]
+      ],
+      d: [
+        ["A", "Do you have a minute? I need help with this document.", "¿Tienes un minuto? Necesito ayuda con este documento."],
+        ["B", "Sure. What's the problem?", "Claro. ¿Cuál es el problema?"],
+        ["A", "My manager wants it today, but I don't understand the instructions.", "Mi gerente lo quiere hoy, pero no entiendo las instrucciones."],
+        ["B", "Let me see. First complete this section, then send it to HR.", "A ver. Primero llena esta sección y luego mándalo a Recursos Humanos."],
+        ["A", "That's it?", "¿Eso es todo?"],
+        ["B", "That's it. And put the deadline on the shared calendar.", "Eso es todo. Y pon la fecha límite en el calendario compartido."]
+      ]
+    },
+    {
+      id: "n3u27", t: "Estudios y carrera",
+      goal: "Hablar de tus estudios, tu carrera, tus logros y lo que buscas en un trabajo.",
+      g: [
+        "Para tus estudios: I studied… · I have a degree in… (soy licenciado en…) · I'm majoring in… (estudio la carrera de…).",
+        ["I studied industrial engineering. · She's doing a master's in psychology.", "Estudié Ingeniería Industrial. · Está haciendo una maestría en Psicología."],
+        "career = tu trayectoria profesional. La carrera de la universidad es major o degree.",
+        "!apply for = solicitar (un trabajo, una beca) · application = solicitud."
+      ],
+      c: [
+        ["Estudié Ingeniería Industrial.", "I studied industrial engineering.", "", ""],
+        ["¿Qué carrera estudias?", "What's your major?", "", "major = la carrera que estudias."],
+        ["Está haciendo una maestría en Psicología.", "She's doing a master's in psychology.", "", ""],
+        ["Quiero crecer en mi carrera.", "I want to grow in my career.", "", "career = trayectoria profesional."],
+        ["Mandé mi solicitud ayer.", "I sent my application yesterday.", "", ""],
+        ["Tengo una entrevista mañana.", "I have an interview tomorrow.", "", ""],
+        ["¿Cuáles son los requisitos del puesto?", "What are the requirements for the job?", "", ""],
+        ["Me dieron un ascenso.", "I got a promotion.", "", ""],
+        ["Es una líder muy exitosa.", "She's a very successful leader.", "", ""],
+        ["Es un trabajo temporal.", "It's a temporary job.", "", ""],
+        ["Busco un trabajo de planta.", "I'm looking for a permanent job.", "", ""],
+        ["Tiene muchas habilidades.", "She has a lot of skills.", "", ""]
+      ],
+      d: [
+        ["A", "Congratulations on your promotion!", "¡Felicidades por tu ascenso!"],
+        ["B", "Thanks! It's a big achievement for me.", "¡Gracias! Es un gran logro para mí."],
+        ["A", "You deserve it. You work so hard.", "Te lo mereces. Trabajas muchísimo."],
+        ["B", "I also finished my master's last year. I think that helped.", "También terminé mi maestría el año pasado. Creo que ayudó."],
+        ["A", "What's your new position?", "¿Cuál es tu nuevo puesto?"],
+        ["B", "Production manager. I'll lead a team of thirty people.", "Gerente de producción. Voy a dirigir un equipo de treinta personas."]
+      ]
+    },
+    {
+      id: "n3u28", t: "La fábrica y la producción",
+      goal: "Hablar de la planta, las máquinas, la producción y la calidad.",
+      g: [
+        "En la fábrica se usa mucho la voz pasiva: It's made in Mexico. · The parts are produced here. (be + participio)",
+        ["We produce two thousand parts a day. · The equipment needs maintenance.", "Producimos dos mil piezas al día. · El equipo necesita mantenimiento."],
+        "produce = producir · product = producto · production = producción · output = lo que se produce.",
+        "!labor = mano de obra, trabajo: labor costs = costos de mano de obra. En Inglaterra se escribe labour."
+      ],
+      c: [
+        ["Trabajo en una línea de ensamble.", "I work on an assembly line.", "", ""],
+        ["Producimos dos mil piezas al día.", "We produce two thousand parts a day.", "", ""],
+        ["El equipo necesita mantenimiento.", "The equipment needs maintenance.", "", ""],
+        ["La planta está trabajando al cien por ciento.", "The plant is working at full capacity.", "", ""],
+        ["Hay que darles mantenimiento a las máquinas cada semana.", "We have to maintain the machines every week.", "", ""],
+        ["¿Quién opera esta máquina?", "Who operates this machine?", "", ""],
+        ["Los trabajadores tienen sindicato.", "The workers have a union.", "", ""],
+        ["Cumple con el estándar de calidad.", "It meets the quality standard.", "", ""],
+        ["Cargamos el camión en la mañana.", "We load the truck in the morning.", "", ""],
+        ["Uno de los componentes está dañado.", "One of the components is damaged.", "", ""],
+        ["Revisa la etiqueta.", "Check the label.", "", ""],
+        ["La construcción ya casi está terminada.", "The construction is almost finished.", "", ""]
+      ],
+      d: [
+        ["A", "How's production going this week?", "¿Cómo va la producción esta semana?"],
+        ["B", "Not great. Line three stopped for four hours.", "No muy bien. La línea tres estuvo parada cuatro horas."],
+        ["A", "What happened?", "¿Qué pasó?"],
+        ["B", "A mechanical problem. We were waiting for a part from the supplier.", "Una falla mecánica. Estábamos esperando una pieza del proveedor."],
+        ["A", "Can we still meet the target?", "¿Todavía podemos llegar a la meta?"],
+        ["B", "If we add an extra shift on Saturday, yes.", "Si agregamos un turno extra el sábado, sí."]
       ]
     },
     {
@@ -507,6 +924,38 @@
       ]
     },
     {
+      id: "n3u29", t: "Dinero: banco, préstamos y pagos",
+      goal: "Manejar tu dinero en inglés: pagos, préstamos, intereses e impuestos.",
+      g: [
+        "Para pagar: pay in cash (en efectivo) · pay by card (con tarjeta) · pay in installments (a meses).",
+        ["I need to make a transfer. · I have to pay the rent.", "Necesito hacer una transferencia. · Tengo que pagar la renta."],
+        "borrow = pedir prestado · lend = prestar · a loan = un préstamo · debt = deuda.",
+        "!a mortgage = una hipoteca (crédito para una casa) · interest rate = tasa de interés · afford = alcanzarte el dinero."
+      ],
+      c: [
+        ["Necesito hacer una transferencia.", "I need to make a transfer.", "", ""],
+        ["Tengo que pagar la renta.", "I have to pay the rent.", "", ""],
+        ["Pedí un préstamo al banco.", "I asked the bank for a loan.", "", ""],
+        ["Tengo muchas deudas.", "I have a lot of debt.", "", ""],
+        ["¿Cuál es la tasa de interés?", "What's the interest rate?", "", ""],
+        ["Pagamos la hipoteca cada mes.", "We pay the mortgage every month.", "", ""],
+        ["Hay que pagar impuestos.", "We have to pay taxes.", "", ""],
+        ["Dividamos la cuenta.", "Let's split the bill.", "", ""],
+        ["¿Cuánto es la comisión?", "How much is the fee?", "", ""],
+        ["Es un precio razonable.", "It's a reasonable price.", "", ""],
+        ["Me dieron un bono.", "I got a bonus.", "", ""],
+        ["¿Me alcanza para comprarlo?", "Can I afford it?", "", "afford = alcanzarte el dinero para algo."]
+      ],
+      d: [
+        ["A", "I want to buy a car, but I don't have enough savings.", "Quiero comprar un carro, pero no me alcanzan mis ahorros."],
+        ["B", "You could get a loan.", "Podrías sacar un préstamo."],
+        ["A", "The interest rates are very high right now.", "Las tasas de interés están muy altas ahorita."],
+        ["B", "Then save for a few more months.", "Entonces ahorra unos meses más."],
+        ["A", "You're right. I don't want more debt.", "Tienes razón. No quiero más deudas."],
+        ["B", "Smart decision.", "Buena decisión."]
+      ]
+    },
+    {
       id: "n3u16", t: "Noticias y temas actuales",
       goal: "Entender y comentar noticias con vocabulario clave.",
       g: [
@@ -536,6 +985,70 @@
         ["B", "According to the article, it will create three thousand jobs.", "Según el artículo, va a crear tres mil empleos."],
         ["A", "But what about the environment?", "¿Pero y el medio ambiente?"],
         ["B", "They said it will use solar energy.", "Dijeron que va a usar energía solar."]
+      ]
+    },
+    {
+      id: "n3u30", t: "Política y elecciones",
+      goal: "Entender noticias de política y platicar de elecciones sin perderte.",
+      g: [
+        "Para elecciones: vote for (votar por) · run for (postularse a) · win an election (ganar una elección).",
+        ["Who are you going to vote for? · She's running for mayor.", "¿Por quién vas a votar? · Se va a lanzar para presidenta municipal."],
+        "president = presidente · prime minister = primer ministro · governor = gobernador · mayor = presidente municipal.",
+        "!politics = la política (el tema) · a policy = una política, una norma (company policy) · a politician = un político."
+      ],
+      c: [
+        ["¿Por quién vas a votar?", "Who are you going to vote for?", "", ""],
+        ["Las elecciones son en junio.", "The election is in June.", "", ""],
+        ["Se va a lanzar para presidenta municipal.", "She's running for mayor.", "", "run for = postularse a."],
+        ["El presidente dio un discurso.", "The president gave a speech.", "", ""],
+        ["No me gusta hablar de política.", "I don't like to talk about politics.", "", ""],
+        ["Es un político con mucha experiencia.", "He's a very experienced politician.", "", ""],
+        ["Hubo un debate entre los candidatos.", "There was a debate between the candidates.", "", ""],
+        ["El partido ganó la mayoría en el Congreso.", "The party won a majority in Congress.", "", ""],
+        ["Es una decisión del gobierno federal.", "It's a decision of the federal government.", "", ""],
+        ["Sus simpatizantes salieron a protestar.", "His supporters went out to protest.", "", ""],
+        ["Según las encuestas, ella va ganando.", "According to the polls, she's winning.", "", ""],
+        ["La democracia depende de los votantes.", "Democracy depends on voters.", "", ""]
+      ],
+      d: [
+        ["A", "Are you going to vote on Sunday?", "¿Vas a votar el domingo?"],
+        ["B", "Of course. It's important.", "Claro. Es importante."],
+        ["A", "Who's your candidate?", "¿Quién es tu candidato?"],
+        ["B", "I'd rather not say, but I watched all the debates.", "Prefiero no decir, pero vi todos los debates."],
+        ["A", "Me too. The campaign was very long.", "Yo también. La campaña fue muy larga."],
+        ["B", "At least it's almost over.", "Por lo menos ya casi se acaba."]
+      ]
+    },
+    {
+      id: "n3u31", t: "Crimen y policía",
+      goal: "Entender noticias de delitos y contar lo que pasó si te roban o ves un accidente.",
+      g: [
+        "steal = robar algo · rob = asaltar a alguien o un lugar: They stole my phone. · They robbed a bank.",
+        ["Someone stole my phone. · The police arrested two suspects.", "Me robaron el celular. · La policía arrestó a dos sospechosos."],
+        "En las noticias se usa la voz pasiva: He was arrested. (Lo arrestaron.) · Nobody was hurt. (Nadie salió herido.)",
+        "!police va con verbo en plural: The police are here. · cop = policía (informal)."
+      ],
+      c: [
+        ["Me robaron el celular.", "Someone stole my phone.", "", ""],
+        ["Asaltaron un banco en el centro.", "They robbed a bank downtown.", "", ""],
+        ["La policía arrestó a dos sospechosos.", "The police arrested two suspects.", "", ""],
+        ["Fue víctima de un fraude.", "She was the victim of a fraud.", "", ""],
+        ["¿Hubo testigos?", "Were there any witnesses?", "", ""],
+        ["La policía está investigando el caso.", "The police are investigating the case.", "", ""],
+        ["El crimen bajó este año.", "Crime went down this year.", "", ""],
+        ["Lo mandaron a la cárcel.", "He was sent to prison.", "", ""],
+        ["Es ilegal manejar sin licencia.", "It's illegal to drive without a license.", "", ""],
+        ["Alguien disparó un arma.", "Someone fired a gun.", "", ""],
+        ["La violencia es un problema grave.", "Violence is a serious problem.", "", ""],
+        ["Un criminal muy peligroso escapó.", "A very dangerous criminal escaped.", "", ""]
+      ],
+      d: [
+        ["A", "Did you hear what happened at the store last night?", "¿Supiste lo que pasó en la tienda anoche?"],
+        ["B", "No, what happened?", "No, ¿qué pasó?"],
+        ["A", "Two men robbed it. They had a gun.", "Dos hombres la asaltaron. Traían una pistola."],
+        ["B", "That's terrible! Was anyone hurt?", "¡Qué horror! ¿Hubo heridos?"],
+        ["A", "No, thank God. The police arrested them an hour later.", "No, gracias a Dios. La policía los arrestó una hora después."],
+        ["B", "Good. I hope they go to jail.", "Qué bueno. Ojalá se vayan a la cárcel."]
       ]
     }
   ]

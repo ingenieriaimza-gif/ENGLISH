@@ -1,15 +1,15 @@
 # Inglés Práctico
 
-App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profesional**, organizada como la escuela: 114 unidades, 3,149 frases y 114 lecturas.
+App web instalable (PWA) para aprender inglés **de cero absoluto a nivel profesional**, organizada como la escuela: 146 unidades, 4,060 frases y 146 lecturas.
 
 | Etapa | Lecciones | Vocabulario y lectura | MCER | Unidades |
 |---|---|---|---|---|
 | Kínder · Primeras palabras | `k.js` | `x-k.js` | Inicio | 14 |
 | Primaria 1 · Primeras frases | `n0.js` | `x-n0.js` | Pre-A1 | 10 |
 | Primaria 2 · Lo básico | `n1.js` | `x-n1.js` | A1 | 16 |
-| Secundaria · Básico alto | `n2.js` | `x-n2.js` | A2 | 16 |
+| Secundaria · Básico alto | `n2.js` | `x-n2.js` | A2 | 32 |
 | Pista extra · Inglés de trabajo | `w.js` | `x-w.js` | A2–B1 | 5 |
-| Preparatoria · Intermedio | `n3.js` | `x-n3.js` | B1 | 16 |
+| Preparatoria · Intermedio | `n3.js` | `x-n3.js` | B1 | 32 |
 | Universidad 1 · Intermedio alto | `n4.js` | `x-n4.js` | B2 | 15 |
 | Universidad 2 · Avanzado | `n5.js` | `x-n5.js` | C1 | 12 |
 | Carrera profesional · Dominio | `n6.js` | `x-n6.js` | C2 | 10 |

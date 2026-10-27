@@ -1022,7 +1022,7 @@ function prevLocked(lv) {
   for (const l of COURSE) { if (l === lv) return null; if (l.id !== "w" && !S.fin[l.id]) return l; }
   return null;
 }
-const WEEKS = { k: "3 a 6 semanas", n0: "1 a 2 meses", n1: "3 a 5 meses", n2: "4 a 6 meses", w: "3 a 5 semanas", n3: "7 a 9 meses", n4: "6 a 8 meses", n5: "8 a 11 meses", n6: "1 a 1.5 años" };
+const WEEKS = { k: "3 a 6 semanas", n0: "1 a 2 meses", n1: "3 a 5 meses", n2: "8 a 12 meses", w: "3 a 5 semanas", n3: "1 a 1.5 años", n4: "6 a 8 meses", n5: "8 a 11 meses", n6: "1 a 1.5 años" };
 const unitSeen = u => u.cards.filter(c => seen(c.id)).length;
 
 function renderMeta() {

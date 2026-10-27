@@ -464,5 +464,481 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
         ["Why is she writing?", ["To say goodbye", "To ask for a job", "To see Kate in Toronto in July"], 2]
       ]
     }
+  },
+  n2u17: {
+    v: [
+      ["La muerte de su papá fue muy dura.", "His father's death was very hard.", "jis fáders dez uós véri jard", ""],
+      ["Su abuelo ya murió, pero su abuela sigue viva.", "His grandpa is dead, but his grandma is still alive.", "jis grándpa is ded, bat jis grándma is stil aláiv", ""],
+      ["una señora mayor", "an old lady", "an óuld léidi", ""],
+      ["mi pareja", "my partner", "mai pártner", "partner = pareja (novio, esposa) y también socio."],
+      ["tres generaciones", "three generations", "zri yeneréishons", ""],
+      ["adultos y adolescentes", "adults and teens", "adálts and tiins", ""],
+      ["En mi juventud jugaba futbol.", "In my youth, I played soccer.", "in mai iuz, ai pléid sáker", ""],
+      ["para siempre", "forever", "forréver", ""],
+      ["Tienen un matrimonio feliz.", "They have a happy marriage.", "déi jav a jápi mérich", ""],
+      ["Está ahorrando para su jubilación.", "She's saving for her retirement.", "shis séiving for jer ritáierment", ""],
+      ["las personas mayores", "senior citizens", "sínior sítisens", ""],
+      ["Tengo muchos parientes en Veracruz.", "I have a lot of relatives in Veracruz.", "ai jav a lat ov rélativs in verakrús", "relatives = parientes, no «relativos»."],
+      ["la vida diaria", "everyday life", "évridei láif", ""],
+      ["una amistad para toda la vida", "a lifetime friendship", "a láiftaim fréndship", ""],
+      ["El funeral es mañana.", "The funeral is tomorrow.", "de fiúneral is tumárou", ""],
+      ["Lo enterraron en su pueblo.", "They buried him in his hometown.", "déi bérid jim in jis jóumtaun", ""],
+      ["un anillo de compromiso", "an engagement ring", "an enguéichment ring", ""],
+      ["en el pasado", "in the past", "in de past", ""]
+    ],
+    r: {
+      t: "Grandpa Pedro",
+      en: "My grandfather Pedro was born in 1940 in a small town in Oaxaca. He grew up on a farm with eight brothers and sisters.\nWhen he was twenty, he moved to Mexico City and became a bus driver. He met my grandmother on his bus! They got married in 1965 and had five children.\nHe retired in 2005. He died last year, but we have wonderful memories of him. He always said, \"Life is short. Enjoy it with your family.\"",
+      es: "Mi abuelo Pedro nació en 1940 en un pueblo pequeño de Oaxaca. Creció en una granja con ocho hermanos.\nCuando tenía veinte años, se mudó a la Ciudad de México y se hizo chofer de camión. ¡Conoció a mi abuela en su camión! Se casaron en 1965 y tuvieron cinco hijos.\nSe jubiló en 2005. Murió el año pasado, pero tenemos recuerdos muy bonitos de él. Siempre decía: «La vida es corta. Disfrútala con tu familia».",
+      q: [
+        ["¿Dónde creció Pedro?", ["En la Ciudad de México", "En una granja", "En Monterrey"], 1],
+        ["¿Dónde conoció a la abuela?", ["En su camión", "En la escuela", "En una boda"], 0],
+        ["¿Qué decía siempre?", ["Trabaja mucho", "Estudia inglés", "La vida es corta"], 2]
+      ]
+    }
+  },
+  n2u31: {
+    v: [
+      ["un festival de música", "a music festival", "a miúsik féstival", ""],
+      ["una boda tradicional", "a traditional wedding", "a tradíshonal uéding", ""],
+      ["la ceremonia", "the ceremony", "de sérimouni", ""],
+      ["una gran celebración", "a big celebration", "a big selebréishon", ""],
+      ["El lunes es día festivo.", "Monday is a holiday.", "mándei is a jálidei", ""],
+      ["Pascua", "Easter", "íister", ""],
+      ["Acción de Gracias", "Thanksgiving", "zanksguíving", "Se celebra en EE. UU. el cuarto jueves de noviembre."],
+      ["los fuegos artificiales", "fireworks", "fáieruerks", ""],
+      ["un disfraz", "a costume", "a cástum", ""],
+      ["Decoramos la casa.", "We decorated the house.", "uí décoreited de jáus", ""],
+      ["el pastel de cumpleaños", "the birthday cake", "de bérzdei kéik", ""],
+      ["Pedimos deseos.", "We make wishes.", "uí méik uíshis", ""],
+      ["un evento familiar", "a family event", "a fámili ivént", ""],
+      ["Hagamos un brindis.", "Let's make a toast.", "lets méik a tóust", ""],
+      ["¡Feliz Año Nuevo!", "Happy New Year!", "jápi niú íir", ""]
+    ],
+    r: {
+      t: "The Day of the Dead",
+      en: "The Day of the Dead is one of the most important traditions in Mexico. We celebrate it on November first and second.\nFamilies make altars with flowers, candles, photos and the favorite food of their loved ones who died. Some people visit the cemetery and spend the night there, talking, singing and remembering.\nIt isn't a sad holiday. It's a celebration of life and a way to say, \"We still love you.\" Many tourists come to see it, and now it's famous around the world.",
+      es: "El Día de Muertos es una de las tradiciones más importantes de México. Lo celebramos el 1 y el 2 de noviembre.\nLas familias hacen altares con flores, velas, fotos y la comida favorita de sus seres queridos que murieron. Algunas personas visitan el panteón y pasan la noche ahí, platicando, cantando y recordando.\nNo es una fiesta triste. Es una celebración de la vida y una forma de decir: «Te seguimos queriendo». Muchos turistas vienen a verlo y ahora es famoso en todo el mundo.",
+      q: [
+        ["¿Cuándo se celebra?", ["El 1 y el 2 de noviembre", "El 24 de diciembre", "El 16 de septiembre"], 0],
+        ["¿Qué ponen en los altares?", ["Juguetes y dinero", "Flores, velas, fotos y comida", "Libros"], 1],
+        ["¿Cómo es esta fiesta?", ["Muy triste", "Solo para turistas", "Una celebración de la vida"], 2]
+      ]
+    }
+  },
+  n2u18: {
+    v: [
+      ["Es un diseño muy original.", "It's a very original design.", "its a véri oríyinal disáin", ""],
+      ["una oferta exclusiva", "an exclusive offer", "an eksklúsiv áfer", ""],
+      ["un carro muy potente", "a very powerful car", "a véri páuerful car", ""],
+      ["un resultado sobresaliente", "an outstanding result", "an autstánding risált", ""],
+      ["Fue un viaje extraordinario.", "It was an extraordinary trip.", "it uós an ekstrórdineri trip", ""],
+      ["¡Estuvo épico!", "It was epic!", "it uós épik", ""],
+      ["Es una pieza muy rara.", "It's a very rare piece.", "its a véri rer piis", "rare = que hay muy poco; para «extraño» se dice weird o strange."],
+      ["un regalo muy valioso", "a precious gift", "a préshos guift", ""],
+      ["un hombre atractivo", "an attractive man", "an atráktiv man", ""],
+      ["Es un sueldo decente.", "It's a decent salary.", "its a dísent sálari", ""],
+      ["Es muy práctico.", "It's very practical.", "its véri práktikol", ""],
+      ["el mejor regalo de todos", "the ultimate gift", "di áltimet guift", "ultimate = el mejor, lo máximo."],
+      ["¡Es fantástico!", "It's fantastic!", "its fantástik", ""],
+      ["Es de verdad, no es falso.", "It's real, not fake.", "its ríal, nat féik", ""],
+      ["¡Excelente trabajo!", "Excellent work!", "ékselent uérk", ""]
+    ],
+    r: {
+      t: "A weekend in Oaxaca",
+      en: "Last weekend we went to Oaxaca, and it was such a special trip. The city is so lovely, with colorful streets and incredible food.\nWe had dinner at a fancy restaurant. It wasn't cheap, but the mole was outstanding. The service was excellent too.\nThe best part was Monte Albán. The view from the top is absolutely gorgeous. It's a unique place. If you can, go! It's an extraordinary experience.",
+      es: "El fin de semana pasado fuimos a Oaxaca y fue un viaje muy especial. La ciudad es preciosa, con calles de colores y comida increíble.\nCenamos en un restaurante elegante. No fue barato, pero el mole estuvo buenísimo. El servicio también fue excelente.\nLo mejor fue Monte Albán. La vista desde arriba es preciosa. Es un lugar único. Si puedes, ¡ve! Es una experiencia extraordinaria.",
+      q: [
+        ["¿Cómo describe la ciudad?", ["Preciosa, con calles de colores", "Fea y sucia", "Muy cara"], 0],
+        ["¿Qué tal estuvo el mole?", ["Normal", "Buenísimo", "Muy picante"], 1],
+        ["¿Qué fue lo mejor del viaje?", ["El hotel", "El restaurante", "Monte Albán"], 2]
+      ]
+    }
+  },
+  n2u19: {
+    v: [
+      ["Es una idea tonta.", "That's a dumb idea.", "dats a dam aidía", "dumb y stupid = tonto; los dos suenan fuertes."],
+      ["Me sentí como un idiota.", "I felt like an idiot.", "ai felt láik an ídiot", ""],
+      ["una pregunta estúpida", "a stupid question", "a stúpid kuéschon", ""],
+      ["un problema menor", "a minor problem", "a máinor práblem", ""],
+      ["calor extremo", "extreme heat", "ekstrím jiit", ""],
+      ["Es un número al azar.", "It's a random number.", "its a rándom námber", "random = al azar, o cualquiera sin razón."],
+      ["un artista desconocido", "an unknown artist", "an annóun ártist", ""],
+      ["Tenemos tiempo limitado.", "We have limited time.", "uí jav límited táim", ""],
+      ["Es un caso poco común.", "It's an unusual case.", "its an aniúshual kéis", ""],
+      ["una persona común y corriente", "an ordinary person", "an órdineri pérson", ""],
+      ["una camisa lisa", "a plain shirt", "a pléin shert", "plain = sencillo, liso, sin adornos."],
+      ["¡Está loquísimo!", "That's insane!", "dats inséin", ""],
+      ["una bolsa pirata", "a fake bag", "a féik bag", ""],
+      ["la manera correcta", "the proper way", "de práper uéi", ""],
+      ["Es extraño, pero cierto.", "It's strange, but true.", "its stréinch, bat tru", ""]
+    ],
+    r: {
+      t: "The worst vacation",
+      en: "Our vacation started badly. The flight was four hours late, and the airline lost my suitcase. \"It's very common,\" they said. Ridiculous!\nThe hotel was awful. The room was small and dirty, and the shower was cold. The food was horrible too. My son said it was gross.\nBut something odd happened on the last day. We found a small, unknown beach with no people. It was the best day of the trip!",
+      es: "Nuestras vacaciones empezaron mal. El vuelo se retrasó cuatro horas y la aerolínea perdió mi maleta. «Es muy común», nos dijeron. ¡Ridículo!\nEl hotel fue horrible. El cuarto era pequeño y sucio, y la regadera estaba fría. La comida también era horrible. Mi hijo dijo que daba asco.\nPero el último día pasó algo raro. Encontramos una playa pequeña y desconocida, sin gente. ¡Fue el mejor día del viaje!",
+      q: [
+        ["¿Qué perdió la aerolínea?", ["Su maleta", "Su pasaporte", "Su celular"], 0],
+        ["¿Cómo era el hotel?", ["Elegante", "Horrible", "Nuevo"], 1],
+        ["¿Qué pasó el último día?", ["Se enfermaron", "Perdieron el vuelo", "Encontraron una playa"], 2]
+      ]
+    }
+  },
+  n2u20: {
+    v: [
+      ["el largo, el ancho y el alto", "the length, the width and the height", "de lenz, de uídz and de jáit", ""],
+      ["la profundidad del lago", "the depth of the lake", "de depz ov de léik", ""],
+      ["una pizza gigante", "a giant pizza", "a yáiant píitsa", ""],
+      ["un camión enorme", "a massive truck", "a másiv trak", ""],
+      ["una pared gruesa", "a thick wall", "a zik uól", "thick = grueso · thin = delgado."],
+      ["hombros anchos", "broad shoulders", "brod shóulders", ""],
+      ["una superficie lisa", "a smooth surface", "a smuuz sérfes", ""],
+      ["un color brillante", "a bright color", "a bráit cálor", ""],
+      ["un desierto inmenso", "a vast desert", "a vast désert", ""],
+      ["Pesa una tonelada.", "It weighs a ton.", "it uéis a tan", ""],
+      ["Mide treinta centímetros.", "It's thirty centimeters.", "its zérti séntimiters", ""],
+      ["Está a una milla de aquí.", "It's a mile from here.", "its a máil from jir", "a mile = una milla (1.6 km)."],
+      ["una pelota redonda", "a round ball", "a ráund bol", ""],
+      ["un cuadrado y un círculo", "a square and a circle", "a skuér and a sérkol", ""],
+      ["hielo sólido", "solid ice", "sálid áis", ""]
+    ],
+    r: {
+      t: "The giant pumpkin",
+      en: "Every October, my town has a pumpkin contest. This year the winner was huge: it weighed more than half a ton!\nIt was almost two meters wide and very round. The farmer needed a big truck to move it. Next to it, my pumpkin looked tiny.\nNext year I want to grow a giant one too. My dad says I need a lot of space, sun and water... and a lot of luck.",
+      es: "Cada octubre, en mi pueblo hay un concurso de calabazas. Este año la ganadora era enorme: ¡pesaba más de media tonelada!\nMedía casi dos metros de ancho y era muy redonda. El granjero necesitó un camión grande para moverla. Junto a ella, mi calabaza se veía pequeñita.\nEl próximo año yo también quiero cultivar una gigante. Mi papá dice que necesito mucho espacio, sol y agua... y mucha suerte.",
+      q: [
+        ["¿Cuánto pesaba la calabaza ganadora?", ["Más de media tonelada", "Diez kilos", "Dos toneladas"], 0],
+        ["¿Cómo se veía su calabaza junto a la ganadora?", ["Enorme", "Pequeñita", "Cuadrada"], 1],
+        ["¿Qué necesita para cultivar una gigante?", ["Un camión", "Un concurso", "Espacio, sol, agua y suerte"], 2]
+      ]
+    }
+  },
+  n2u30: {
+    v: [
+      ["Su mayor miedo es perder su trabajo.", "His biggest fear is losing his job.", "jis bíguest fir is lúusing jis yab", ""],
+      ["El miedo y el enojo son emociones normales.", "Fear and anger are normal emotions.", "fir and ánguer ar nórmal imóushons", ""],
+      ["El dinero no compra la felicidad.", "Money can't buy happiness.", "máni cant bái jápines", ""],
+      ["Es una persona muy sentimental.", "She's a very emotional person.", "shis a véri imóushonal pérson", "emotional = que se emociona fácil, sentimental."],
+      ["Canta con mucha pasión.", "He sings with a lot of passion.", "ji sings uíz a lat ov páshon", ""],
+      ["Lo hago con orgullo.", "I do it with pride.", "ai du it uíz práid", ""],
+      ["lágrimas de alegría", "tears of joy", "tirs ov yói", ""],
+      ["Fue un golpe para todos.", "It was a shock for everyone.", "it uós a shak for évriuan", ""],
+      ["¡No grites!", "Don't scream!", "dóunt skriim", ""],
+      ["Me sentí incómodo.", "I felt awkward.", "ai felt ókuerd", ""],
+      ["Estaba desesperado.", "I was desperate.", "ai uós désperet", ""],
+      ["Tengo muchas ganas de viajar.", "I have a strong desire to travel.", "ai jav a strong disáier tu trável", ""],
+      ["Me lo dijo en un tono muy feo.", "She said it in a very rude tone.", "shi sed it in a véri ruud tóun", ""],
+      ["Quiere venganza.", "He wants revenge.", "ji uánts rivénch", ""],
+      ["Tenemos un lazo muy fuerte.", "We have a very strong bond.", "uí jav a véri strong band", ""],
+      ["Las palabras de mi mamá me consolaron.", "My mom's words gave me comfort.", "mai mams uérds guéiv mi cámfort", ""],
+      ["Tengo un presentimiento raro.", "I have a strange feeling.", "ai jav a stréinch fíiling", ""]
+    ],
+    r: {
+      t: "My sister's wedding",
+      en: "My sister got married last Saturday. It was a day full of emotions. In the morning she was very nervous and a little scared. \"What if something goes wrong?\" she said.\nMy mom tried to calm her down. Then my dad saw her in her white dress and cried with joy. I felt so much pride and happiness.\nThere was one awkward moment: the groom forgot the rings at home! But his brother went back for them, and everything was fine. What a relief! At the end of the night we were all tired but grateful.",
+      es: "Mi hermana se casó el sábado pasado. Fue un día lleno de emociones. En la mañana estaba muy nerviosa y un poco asustada. «¿Y si algo sale mal?», decía.\nMi mamá trató de calmarla. Luego mi papá la vio con su vestido blanco y lloró de alegría. Yo sentí mucho orgullo y felicidad.\nHubo un momento incómodo: ¡al novio se le olvidaron los anillos en su casa! Pero su hermano regresó por ellos y todo salió bien. ¡Qué alivio! Al final de la noche todos estábamos cansados, pero agradecidos.",
+      q: [
+        ["¿Cómo estaba la novia en la mañana?", ["Nerviosa y un poco asustada", "Enojada", "Muy tranquila"], 0],
+        ["¿Qué hizo el papá al verla?", ["Se rio", "Lloró de alegría", "Se fue"], 1],
+        ["¿Qué se le olvidó al novio?", ["El traje", "Los zapatos", "Los anillos"], 2]
+      ]
+    }
+  },
+  n2u21: {
+    v: [
+      ["la ubicación", "the location", "de lokéishon", ""],
+      ["un parque de diversiones", "a theme park", "a ziim park", ""],
+      ["un centro de convenciones", "a convention center", "a convénshon sénter", ""],
+      ["la gran inauguración", "the grand opening", "de grand óupening", ""],
+      ["una torre muy alta", "a very tall tower", "a véri tol táuer", ""],
+      ["una banca en el parque", "a bench in the park", "a bench in de park", ""],
+      ["un columpio", "a swing", "a suíng", ""],
+      ["el estacionamiento subterráneo", "the underground parking", "di ándergraund párking", ""],
+      ["una plaza comercial pequeña", "a strip mall", "a strip mol", "strip mall: locales en fila con estacionamiento enfrente."],
+      ["el condado", "the county", "de cáunti", "En EE. UU. cada estado se divide en counties."],
+      ["el distrito financiero", "the financial district", "de fainánshal dístrikt", ""],
+      ["la residencia del gobernador", "the governor's residence", "de gávernors résidens", ""],
+      ["la vida urbana", "urban life", "érban láif", ""],
+      ["el edificio más alto del pueblo", "the tallest building in town", "de tólest bílding in táun", ""],
+      ["un puente sobre el río", "a bridge over the river", "a brich óuver de ríver", ""],
+      ["los servicios públicos", "public services", "páblik sérvises", ""]
+    ],
+    r: {
+      t: "My village",
+      en: "I grew up in a small village in Jalisco. It had one main square, a church, a market and a lot of friendly people. Everyone knew everyone.\nNow I live in Guadalajara, in a residential area near the center. City life is exciting: there are museums, theaters and great spots to eat.\nBut sometimes I miss my village. In the city there's traffic chaos and big crowds everywhere. In my village, life was slow and quiet.",
+      es: "Crecí en un pueblito de Jalisco. Tenía una plaza principal, una iglesia, un mercado y mucha gente amable. Todos se conocían.\nAhora vivo en Guadalajara, en una zona residencial cerca del centro. La vida en la ciudad es emocionante: hay museos, teatros y lugares buenísimos para comer.\nPero a veces extraño mi pueblo. En la ciudad hay caos de tráfico y multitudes por todos lados. En mi pueblo la vida era lenta y tranquila.",
+      q: [
+        ["¿Dónde creció?", ["En Guadalajara", "En un pueblito de Jalisco", "En Monterrey"], 1],
+        ["¿Qué hay en la ciudad?", ["Museos, teatros y lugares para comer", "Una sola plaza", "Muy poca gente"], 0],
+        ["¿Qué extraña de su pueblo?", ["El tráfico", "Los museos", "La vida lenta y tranquila"], 2]
+      ]
+    }
+  },
+  n2u22: {
+    v: [
+      ["Es un vehículo eléctrico.", "It's an electric vehicle.", "its an iléktrik víjikol", ""],
+      ["Nos quedamos sin gasolina.", "We ran out of fuel.", "uí ran áut ov fiúel", "fuel = combustible; a la gasolina en EE. UU. le dicen gas."],
+      ["la bomba de gasolina", "the gas pump", "de gas pamp", ""],
+      ["la llanta de refacción", "the spare tire", "de sper táier", ""],
+      ["el vidrio trasero", "the rear window", "de rir uíndou", ""],
+      ["un barco en el puerto", "a ship in the port", "a ship in de port", ""],
+      ["el capitán y la tripulación", "the captain and the crew", "de cápten and de cru", ""],
+      ["un avión privado", "a private jet", "a práivet yet", ""],
+      ["una aeronave", "an aircraft", "an érkraft", "aircraft no cambia en plural."],
+      ["un vuelo nacional", "a domestic flight", "a doméstik fláit", "domestic = nacional (vuelos)."],
+      ["el cruce de peatones", "the pedestrian crossing", "de pedéstrian crósing", ""],
+      ["Ve en la dirección contraria.", "Go in the opposite direction.", "góu in di ápozit dairékshon", ""],
+      ["un choque en la carretera", "a crash on the road", "a crash on de róud", ""],
+      ["una lancha de motor", "a motor boat", "a móutor bóut", ""],
+      ["el transporte público", "public transport", "páblik tránsport", ""],
+      ["Prohibida la entrada", "No entry", "nóu éntri", ""]
+    ],
+    r: {
+      t: "A road trip",
+      en: "Last summer we drove from Monterrey to Mazatlán. The distance is about eight hundred kilometers. We left at five in the morning to avoid the traffic.\nThe road through the mountains is beautiful, but it has a lot of curves. The speed limit is low, so we drove slowly. We stopped twice to fill up the tank.\nIn Mazatlán we left the car at the hotel and rode bikes everywhere. On the last day we took a boat tour. Next time, maybe we'll take a plane!",
+      es: "El verano pasado manejamos de Monterrey a Mazatlán. La distancia es de unos ochocientos kilómetros. Salimos a las cinco de la mañana para evitar el tráfico.\nLa carretera por las montañas es preciosa, pero tiene muchas curvas. El límite de velocidad es bajo, así que manejamos despacio. Paramos dos veces a llenar el tanque.\nEn Mazatlán dejamos el carro en el hotel y anduvimos en bici por todos lados. El último día hicimos un paseo en barco. ¡La próxima vez a lo mejor nos vamos en avión!",
+      q: [
+        ["¿Cuántos kilómetros manejaron?", ["Unos ochocientos", "Unos ochenta", "Dos mil"], 0],
+        ["¿Por qué manejaron despacio?", ["Por la lluvia", "Porque el límite de velocidad es bajo", "Porque el carro era viejo"], 1],
+        ["¿Cómo se movieron en Mazatlán?", ["En taxi", "En camión", "En bici"], 2]
+      ]
+    }
+  },
+  n2u23: {
+    v: [
+      ["una tienda de ropa", "a clothing store", "a clóuzing stor", "clothing = ropa (más formal que clothes)."],
+      ["productos de belleza", "beauty products", "biúti prádakts", ""],
+      ["barniz de uñas", "nail polish", "néil pálish", ""],
+      ["un reloj de metal", "a metal watch", "a métal uách", ""],
+      ["una puerta de hierro", "an iron door", "an áiron dor", ""],
+      ["acero inoxidable", "stainless steel", "stéinles stiil", ""],
+      ["una caja de madera", "a wooden box", "a uúden baks", ""],
+      ["una bolsa de plástico", "a plastic bag", "a plástik bag", ""],
+      ["una copa de cristal", "a crystal glass", "a crístal glas", ""],
+      ["una olla de barro", "a clay pot", "a cléi pat", ""],
+      ["cables de cobre", "copper wires", "cáper uáiers", ""],
+      ["un vestido dorado", "a golden dress", "a góulden dres", ""],
+      ["Me gusta tu estilo.", "I like your style.", "ai láik iór stáil", ""],
+      ["Ya no está de moda.", "It's out of fashion.", "its áut ov fáshon", ""],
+      ["Es una marca muy cara.", "It's a very expensive brand.", "its a véri ekspénsiv brand", ""],
+      ["Es de oro macizo.", "It's solid gold.", "its sálid góuld", ""]
+    ],
+    r: {
+      t: "Shopping for a wedding",
+      en: "My cousin's wedding is next month, so I went shopping for formal clothes. I didn't want anything too fancy or expensive.\nIn the first store the suits were beautiful, but they were made of wool and very hot. In the second store I found a light gray suit made of cotton. It wasn't too tight or too loose. Perfect!\nI also bought leather shoes and a tie. My wife says my style is a little old-fashioned, but I like it.",
+      es: "La boda de mi prima es el próximo mes, así que fui a comprar ropa formal. No quería nada muy elegante ni caro.\nEn la primera tienda los trajes estaban bonitos, pero eran de lana y daban mucho calor. En la segunda encontré un traje gris claro de algodón. No me quedaba ni apretado ni flojo. ¡Perfecto!\nTambién compré zapatos de piel y una corbata. Mi esposa dice que mi estilo es un poco anticuado, pero a mí me gusta.",
+      q: [
+        ["¿Para qué necesita ropa formal?", ["Para una boda", "Para una entrevista", "Para un funeral"], 0],
+        ["¿De qué era el traje que compró?", ["De lana", "De algodón", "De piel"], 1],
+        ["¿Qué dice su esposa de su estilo?", ["Que es muy moderno", "Que es elegante", "Que es un poco anticuado"], 2]
+      ]
+    }
+  },
+  n2u24: {
+    v: [
+      ["el cuerpo humano", "the human body", "de jiúman bádi", ""],
+      ["actividad física", "physical activity", "físikal aktíviti", ""],
+      ["Estoy en buena forma.", "I'm physically fit.", "aim físikli fit", ""],
+      ["Me importa mi condición física.", "Fitness is important to me.", "fítnes is impórtant tu mi", ""],
+      ["una alimentación alta en proteína", "a high-protein diet", "a jái próutiin dáiet", ""],
+      ["comida con mucha grasa", "food with a lot of fat", "fud uíz a lat ov fat", ""],
+      ["un estilo de vida sano", "a healthy lifestyle", "a jélzi láifstail", ""],
+      ["mi rutina de ejercicio", "my workout routine", "mai uérkaut rutíin", ""],
+      ["Me duelen las articulaciones.", "My joints hurt.", "mai yóints jert", ""],
+      ["Se lastimó la espalda.", "He injured his back.", "ji ínyerd jis bak", ""],
+      ["Fue muy doloroso.", "It was very painful.", "it uós véri péinful", ""],
+      ["ejercicios de respiración", "breathing exercises", "bríizing éksersaises", ""],
+      ["Tengo la presión alta.", "I have high blood pressure.", "ai jav jái blad préshur", ""],
+      ["El corazón me late muy rápido.", "My heart is beating very fast.", "mai jart is bíiting véri fast", ""],
+      ["Estírate antes de correr.", "Stretch before you run.", "strech bifór iú ran", ""]
+    ],
+    r: {
+      t: "A new me",
+      en: "Two years ago I weighed ninety-five kilos and I had high blood pressure. My doctor said, \"You need to change your lifestyle.\"\nFirst I changed my diet: less fat and sugar, more vegetables and protein. Then I started walking thirty minutes a day. After six months I joined a gym and started lifting weights.\nNow I weigh seventy-eight kilos and I feel great. I'm more active, I sleep better and my back doesn't hurt anymore. The secret? A simple routine, every day.",
+      es: "Hace dos años pesaba noventa y cinco kilos y tenía la presión alta. Mi doctor me dijo: «Necesitas cambiar tu estilo de vida».\nPrimero cambié mi alimentación: menos grasa y azúcar, más verduras y proteína. Luego empecé a caminar treinta minutos al día. A los seis meses me inscribí a un gimnasio y empecé a levantar pesas.\nAhora peso setenta y ocho kilos y me siento muy bien. Soy más activo, duermo mejor y ya no me duele la espalda. ¿El secreto? Una rutina sencilla, todos los días.",
+      q: [
+        ["¿Qué le dijo el doctor?", ["Que cambiara su estilo de vida", "Que comiera más", "Que dejara el trabajo"], 0],
+        ["¿Qué hizo primero?", ["Fue al gimnasio", "Cambió su alimentación", "Corrió un maratón"], 1],
+        ["¿Cuál es el secreto?", ["Una dieta muy estricta", "Muchas medicinas", "Una rutina sencilla todos los días"], 2]
+      ]
+    }
+  },
+  n2u25: {
+    v: [
+      ["¡Peligro! No pasar.", "Danger! Keep out.", "déinyer! kiip áut", ""],
+      ["una advertencia", "a warning", "a uórning", ""],
+      ["primeros auxilios", "first aid", "ferst éid", ""],
+      ["el guardia de seguridad", "the security guard", "de sekiúriti gard", ""],
+      ["protección para los ojos", "eye protection", "ái protékshon", ""],
+      ["Protege a tus hijos.", "Protect your children.", "protékt iór chíldren", ""],
+      ["un desastre natural", "a natural disaster", "a náchural disáster", ""],
+      ["una alerta de huracán", "a hurricane alert", "a jérikein alért", ""],
+      ["No es seguro.", "It's not safe.", "its nat séif", ""],
+      ["una salida de emergencia", "an emergency exit", "an iméryensi éksit", ""],
+      ["el extintor", "the fire extinguisher", "de fáier ekstínguisher", ""],
+      ["el equipo de rescate", "the rescue team", "de réskiu tiim", ""],
+      ["el número de emergencias", "the emergency number", "di iméryensi námber", ""],
+      ["Cuidado con el perro.", "Beware of the dog.", "biuér ov de dog", ""],
+      ["Aléjate del fuego.", "Stay away from the fire.", "stéi auéi from de fáier", ""]
+    ],
+    r: {
+      t: "Fire drill",
+      en: "Today we had a fire drill at the factory. At ten o'clock the fire alarm started ringing. Everyone stopped working and walked to the emergency exits.\nWe met in the parking lot. The safety manager counted everyone. \"Good job,\" she said. \"It took only four minutes.\"\nThen a firefighter showed us how to use a fire extinguisher and where to find the first aid kits. In an emergency, every second counts.",
+      es: "Hoy hubo un simulacro de incendio en la fábrica. A las diez empezó a sonar la alarma de incendios. Todos dejamos de trabajar y caminamos a las salidas de emergencia.\nNos reunimos en el estacionamiento. La gerente de seguridad contó a todos. «Buen trabajo», dijo. «Tardamos solo cuatro minutos».\nLuego un bombero nos enseñó a usar un extintor y dónde están los botiquines. En una emergencia, cada segundo cuenta.",
+      q: [
+        ["¿Qué pasó a las diez?", ["Sonó la alarma", "Hubo un incendio de verdad", "Llegó la ambulancia"], 0],
+        ["¿Cuánto tardaron en salir?", ["Diez minutos", "Cuatro minutos", "Una hora"], 1],
+        ["¿Qué les enseñó el bombero?", ["A manejar", "A cocinar", "A usar un extintor"], 2]
+      ]
+    }
+  },
+  n2u26: {
+    v: [
+      ["la cancha de futbol", "the soccer field", "de sáker fiild", ""],
+      ["la membresía del club deportivo", "the sports club membership", "de sports clab mémbership", ""],
+      ["futbol americano", "football", "fútbol", "En EE. UU. football = futbol americano."],
+      ["basquetbol y beisbol", "basketball and baseball", "básketbol and béisbol", ""],
+      ["golf, hockey y rugby", "golf, hockey and rugby", "golf, jáki and rágbi", ""],
+      ["una carrera de diez kilómetros", "a ten-kilometer race", "a ten kilómiter réis", ""],
+      ["el torneo", "the tournament", "de térnament", ""],
+      ["El ganador del concurso se llevó el primer premio.", "The winner of the contest got first prize.", "de uíner ov de cántest gat ferst práis", ""],
+      ["una gran victoria para el campeón", "a great victory for the champion", "a gréit víktori for de chámpion", ""],
+      ["Se clasificaron al Mundial.", "They qualified for the World Cup.", "déi kuálifaid for de uérld cap", ""],
+      ["Ella compite en natación.", "She competes in swimming.", "shi compíits in suíming", ""],
+      ["un atleta profesional", "a professional athlete", "a proféshonal ázlit", ""],
+      ["la camiseta de mi equipo", "my team's jersey", "mai tiims yérsi", ""],
+      ["Anunciaron la selección para el Mundial.", "They announced the squad for the World Cup.", "déi anáunst de skuád for de uérld cap", ""],
+      ["Es la número uno del mundo.", "She's ranked number one in the world.", "shis rankt námber uán in de uérld", ""],
+      ["equipo deportivo", "sports gear", "sports guir", ""],
+      ["La competencia es muy dura.", "The competition is very tough.", "de campetíshon is véri taf", ""]
+    ],
+    r: {
+      t: "My son's soccer team",
+      en: "My son Diego plays for a soccer club in our neighborhood. The team practices on Tuesdays and Thursdays, and they play a game every Saturday on the big field near the park.\nThis season they are in first place in the league. Their coach is very strict, but the kids love him. Diego is the team captain and wears number ten on his jersey.\nLast weekend they played the final of a local tournament. It was a tie until the last minute, when Diego scored a penalty. They won the championship! The players got medals and a small trophy.",
+      es: "Mi hijo Diego juega en un club de futbol de nuestra colonia. El equipo entrena los martes y jueves, y juegan un partido cada sábado en la cancha grande cerca del parque.\nEsta temporada van en primer lugar de la liga. Su entrenador es muy estricto, pero los niños lo quieren mucho. Diego es el capitán del equipo y lleva el número diez en su camiseta.\nEl fin de semana pasado jugaron la final de un torneo local. Iban empatados hasta el último minuto, cuando Diego metió un penal. ¡Ganaron el campeonato! Los jugadores recibieron medallas y un trofeo pequeño.",
+      q: [
+        ["¿Cuándo entrena el equipo?", ["Martes y jueves", "Lunes y miércoles", "Solo los sábados"], 0],
+        ["¿Qué número lleva Diego?", ["El siete", "El diez", "El uno"], 1],
+        ["¿Cómo ganaron la final?", ["Por muchos goles", "En penales después del partido", "Con un penal en el último minuto"], 2]
+      ]
+    }
+  },
+  n2u27: {
+    v: [
+      ["el bajo y la batería", "the bass and the drums", "de béis and de drams", ""],
+      ["un solo de guitarra", "a guitar solo", "a guitár sóulou", ""],
+      ["música folclórica", "folk music", "fóuk miúsik", ""],
+      ["jazz y blues", "jazz and blues", "yas and bluus", ""],
+      ["el hip-hop", "hip-hop", "jip jap", ""],
+      ["un musical de Broadway", "a Broadway musical", "a bródwei miúsikal", ""],
+      ["el productor del disco", "the album's producer", "di álbums prodúser", ""],
+      ["Su primer disco salió en 2015.", "Her debut album came out in 2015.", "jer déibiu álbum kéim áut in tuénti fiftíin", "debut = el primero, el debut."],
+      ["Tocaron en vivo en la arena.", "They performed live at the arena.", "déi perfórmd láiv at di aríina", ""],
+      ["la fama y el dinero", "fame and money", "féim and máni", ""],
+      ["las estrellas de rock", "rock stars", "rak stars", ""],
+      ["Ganó un premio por su canción.", "She won an award for her song.", "shi uán an auórd for jer song", ""],
+      ["Pon música, por favor.", "Put on some music, please.", "put on sam miúsik, plís", ""],
+      ["El concierto fue un éxito.", "The concert was a success.", "de cánsert uós a saksés", ""],
+      ["una gira por Estados Unidos", "a tour of the United States", "a tur ov de iunáited stéits", ""]
+    ],
+    r: {
+      t: "Music in my life",
+      en: "Music is a big part of my life. I listen to it on the way to work, while I cook and when I clean the house. My favorite is rock, but I also like jazz and Mexican folk music.\nWhen I was a teenager, I played the bass in a band with my friends. We performed at parties and small bars. We weren't famous, but we had a lot of fun.\nLast month my favorite band released a new album, and I bought tickets for their concert. When they came on stage, everyone started singing. It was the best night of the year!",
+      es: "La música es una parte muy importante de mi vida. La escucho de camino al trabajo, mientras cocino y cuando limpio la casa. Mi favorito es el rock, pero también me gusta el jazz y la música folclórica mexicana.\nCuando era adolescente, tocaba el bajo en un grupo con mis amigos. Tocábamos en fiestas y bares pequeños. No éramos famosos, pero nos divertíamos mucho.\nEl mes pasado mi grupo favorito sacó un disco nuevo y compré boletos para su concierto. Cuando salieron al escenario, todos empezaron a cantar. ¡Fue la mejor noche del año!",
+      q: [
+        ["¿Qué música le gusta más?", ["El rock", "El pop", "El jazz"], 0],
+        ["¿Qué tocaba de adolescente?", ["La guitarra", "El bajo", "La batería"], 1],
+        ["¿Qué pasó cuando el grupo salió al escenario?", ["Se fue la luz", "Todos se fueron", "Todos empezaron a cantar"], 2]
+      ]
+    }
+  },
+  n2u28: {
+    v: [
+      ["el reparto", "the cast", "de cast", "cast = los actores de una película."],
+      ["una escena muy dramática", "a very dramatic scene", "a véri dramátik siin", ""],
+      ["La trama es muy complicada.", "The plot is very complicated.", "de plat is véri cámplikeitid", ""],
+      ["Me encantan las historias de amor.", "I love a good romance.", "ai lav a gud róumans", ""],
+      ["ciencia ficción y fantasía", "science fiction and fantasy", "sáiens fíkshon and fántasi", ""],
+      ["una película con dragones y héroes", "a movie with dragons and heroes", "a múvi uíz drágons and jírous", ""],
+      ["un extraterrestre", "an alien", "an éilien", ""],
+      ["el guion", "the script", "de skript", ""],
+      ["Vimos el tráiler.", "We watched the trailer.", "uí uácht de tréiler", ""],
+      ["un documental sobre animales", "a documentary about animals", "a dakiuméntari abáut ánimals", ""],
+      ["los próximos estrenos", "upcoming movies", "ápcaming múvis", "upcoming = que viene pronto."],
+      ["Su actuación fue increíble.", "Her acting was amazing.", "jer ákting uós améising", ""],
+      ["la industria del entretenimiento", "the entertainment industry", "di entertéinment índastri", ""],
+      ["un programa de televisión", "a TV program", "a tiví próugram", ""],
+      ["Es una estrella de cine.", "He's a movie star.", "jis a múvi star", ""],
+      ["una película clásica", "a classic film", "a clásik film", ""]
+    ],
+    r: {
+      t: "Movie night",
+      en: "Every Friday is movie night at our house. We make popcorn, turn off the lights and choose a film together. It isn't easy: my wife likes romantic comedies, my son loves horror movies, and my daughter only wants fantasy films with dragons.\nLast Friday we watched a classic: a science fiction movie from the eighties about a friendly alien. The special effects are old, but the story is beautiful and the acting is great.\nAt the end everyone was crying, even my son. Now he wants to watch it again!",
+      es: "Todos los viernes es noche de película en mi casa. Hacemos palomitas, apagamos las luces y elegimos una película juntos. No es fácil: a mi esposa le gustan las comedias románticas, mi hijo ama las películas de terror y mi hija solo quiere películas de fantasía con dragones.\nEl viernes pasado vimos un clásico: una película de ciencia ficción de los ochenta sobre un extraterrestre amigable. Los efectos especiales son viejos, pero la historia es preciosa y la actuación es muy buena.\nAl final todos estábamos llorando, hasta mi hijo. ¡Ahora quiere volver a verla!",
+      q: [
+        ["¿Qué películas le gustan al hijo?", ["Las de terror", "Las comedias románticas", "Los documentales"], 0],
+        ["¿De qué se trataba la película?", ["De un dragón", "De un extraterrestre amigable", "De una familia"], 1],
+        ["¿Qué pasó al final?", ["Se durmieron", "Se fue la luz", "Todos estaban llorando"], 2]
+      ]
+    }
+  },
+  n2u29: {
+    v: [
+      ["Me lastimé.", "I hurt myself.", "ai jert maisélf", ""],
+      ["Mírate en el espejo.", "Look at yourself in the mirror.", "luk at iorsélf in de mírror", ""],
+      ["La puerta se cierra sola.", "The door closes by itself.", "de dor clóusis bái itsélf", ""],
+      ["Se sirvieron ellos mismos.", "They served themselves.", "déi servd demsélvs", ""],
+      ["¡Diviértanse!", "Enjoy yourselves!", "enyói iorsélvs", ""],
+      ["Hablo solo.", "I talk to myself.", "ai tok tu maisélf", ""],
+      ["Él mismo me lo dijo.", "He told me himself.", "ji tóuld mi jimsélf", ""],
+      ["Ella se compró un vestido.", "She bought herself a dress.", "shi bot jersélf a dres", ""],
+      ["No conocemos a nadie aquí.", "We don't know anybody here.", "uí dóunt nóu énibadi jir", ""],
+      ["Busquemos en otro lado.", "Let's look elsewhere.", "lets luk élsuer", ""],
+      ["Estaba en medio de la nada.", "I was in the middle of nowhere.", "ai uós in de mídol ov nóuuer", ""],
+      ["Invita a quien quieras.", "Invite whoever you want.", "inváit juéver iú uánt", ""],
+      ["Se miraron el uno al otro.", "They looked at each other.", "déi lukt at iich áder", ""],
+      ["Hazlo tú mismo.", "Do it yourself.", "du it iorsélf", ""],
+      ["Estoy orgulloso de mí mismo.", "I'm proud of myself.", "aim práud ov maisélf", ""]
+    ],
+    r: {
+      t: "Living alone",
+      en: "Last year I moved out of my parents' house. Now I live by myself in a small apartment. At first it was hard: I had to cook for myself, wash my own clothes and pay all the bills.\nSomehow I learned to do everything. I taught myself to cook with videos on the internet, and now I make delicious soups.\nMy friends and I help each other. Whenever someone needs something, we're there. And on Sundays my mom invites me for lunch. Living alone is great, but nothing is like mom's food!",
+      es: "El año pasado me salí de la casa de mis papás. Ahora vivo solo en un departamento pequeño. Al principio fue difícil: tenía que cocinarme, lavar mi propia ropa y pagar todas las cuentas.\nDe alguna manera aprendí a hacer todo. Aprendí a cocinar solo con videos en internet y ahora hago sopas deliciosas.\nMis amigos y yo nos ayudamos. Cuando alguien necesita algo, ahí estamos. Y los domingos mi mamá me invita a comer. Vivir solo está padre, pero ¡nada como la comida de mamá!",
+      q: [
+        ["¿Dónde vive ahora?", ["Solo, en un departamento", "Con sus papás", "Con amigos"], 0],
+        ["¿Cómo aprendió a cocinar?", ["Su mamá le enseñó", "Con videos en internet", "En una escuela"], 1],
+        ["¿Qué pasa los domingos?", ["Limpia la casa", "Trabaja", "Su mamá lo invita a comer"], 2]
+      ]
+    }
+  },
+  n2u32: {
+    v: [
+      ["Ella crea contenido en línea.", "She creates content online.", "shi criéits cántent anláin", ""],
+      ["una plataforma de streaming", "a streaming platform", "a stríiming plátform", ""],
+      ["Tiene un blog de cocina en la web.", "She has a cooking blog on the web.", "shi jas a cúking blog on de ueb", ""],
+      ["un foro de mecánica", "a car forum", "a car fórum", ""],
+      ["Platiquemos por chat.", "Let's chat online.", "lets chat anláin", ""],
+      ["Toca la pantalla y selecciona una opción.", "Tap the screen and select an option.", "tap de skriin and selékt an ápshon", ""],
+      ["Arrastra el archivo aquí.", "Drag the file here.", "drag de fáil jir", ""],
+      ["Edita la foto.", "Edit the photo.", "édit de fóutou", ""],
+      ["una conexión segura", "a secure connection", "a sekiúr konékshon", ""],
+      ["No tengo acceso a internet.", "I don't have internet access.", "ai dóunt jav ínternet ákses", ""],
+      ["un nombre de dominio", "a domain name", "a doméin néim", ""],
+      ["los comentarios de la publicación", "the comment thread", "de cáment zred", ""],
+      ["más información", "more info", "mor ínfou", "info = information (informal)."],
+      ["Es una aplicación para celular.", "It's a mobile app.", "its a móubail ap", ""],
+      ["Dale clic al enlace.", "Click on the link.", "clik on de link", ""],
+      ["Comparte la publicación.", "Share the post.", "sher de póust", ""]
+    ],
+    r: {
+      t: "My online life",
+      en: "I spend a lot of time online. In the morning I check my email and read the news on my phone. At work I use a lot of apps and platforms to talk with my team.\nAt night I like to watch videos and chat with my friends. I also have a small cooking blog with three thousand followers. I post a new recipe every week.\nBut I'm careful with my privacy. My profile is private, I never share my password, and I only download apps from secure websites. The internet is great, but it can also be dangerous.",
+      es: "Paso mucho tiempo en línea. En la mañana reviso mi correo y leo las noticias en el celular. En el trabajo uso muchas aplicaciones y plataformas para hablar con mi equipo.\nEn la noche me gusta ver videos y platicar con mis amigos. También tengo un blog de cocina pequeño con tres mil seguidores. Publico una receta nueva cada semana.\nPero cuido mi privacidad. Mi perfil es privado, nunca comparto mi contraseña y solo bajo aplicaciones de sitios seguros. El internet es muy útil, pero también puede ser peligroso.",
+      q: [
+        ["¿Cuántos seguidores tiene su blog?", ["Tres mil", "Trescientos", "Treinta mil"], 0],
+        ["¿Qué publica cada semana?", ["Una foto", "Una receta", "Un video"], 1],
+        ["¿Cómo cuida su privacidad?", ["No usa internet", "Comparte todo", "Perfil privado y nunca comparte su contraseña"], 2]
+      ]
+    }
   }
 });
