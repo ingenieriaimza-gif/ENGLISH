@@ -347,5 +347,153 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
         ["Why is Mike moving to Hawaii?", ["For a new job", "His family lives there", "He was fed up with the cold"], 2]
       ]
     }
+  },
+  n5u13: {
+    v: [
+      ["una categoría nueva", "a new category", "", ""],
+      ["una comparación entre dos productos", "a comparison between two products", "", ""],
+      ["una técnica nueva", "a new technique", "", ""],
+      ["la visión de la empresa", "the company's vision", "", ""],
+      ["una característica importante", "an important characteristic", "", ""],
+      ["la presencia de la empresa en México", "the company's presence in Mexico", "", ""],
+      ["un aspecto importante", "an important aspect", "", ""],
+      ["la definición de la palabra", "the definition of the word", "", ""],
+      ["el elemento clave", "the key element", "", ""],
+      ["la diferencia entre los dos", "the difference between the two", "", ""],
+      ["Es un ejemplo perfecto.", "It's a perfect example.", "", ""],
+      ["un análisis detallado", "a detailed analysis", "", ""],
+      ["el principal problema", "the main issue", "", ""],
+      ["una solución a largo plazo", "a long-term solution", "", ""],
+      ["las causas y las consecuencias", "causes and consequences", "", ""],
+      ["un punto de vista distinto", "a different point of view", "", ""]
+    ],
+    r: {
+      t: "What is success?",
+      en: "In a recent study, researchers asked a thousand people a simple question: how do you define success? The answers showed a clear pattern.\nYoung people mostly defined success as money and a good career. People over fifty, in contrast, talked about health, family and peace of mind. For many of them, success was a combination of small things.\nThe researchers say the gap between the two groups is not a moral problem. It's a question of context: our idea of success changes as we live. Perhaps the core of success is knowing what really matters to you.",
+      es: "En un estudio reciente, unos investigadores le hicieron a mil personas una pregunta sencilla: ¿cómo defines el éxito? Las respuestas mostraron un patrón claro.\nLos jóvenes definieron el éxito sobre todo como dinero y una buena carrera. Las personas de más de cincuenta, en cambio, hablaron de salud, familia y tranquilidad. Para muchas de ellas, el éxito era una combinación de cosas pequeñas.\nLos investigadores dicen que la brecha entre los dos grupos no es un problema moral. Es una cuestión de contexto: nuestra idea del éxito cambia conforme vivimos. Tal vez el núcleo del éxito es saber qué es lo que de verdad te importa.",
+      q: [
+        ["¿Cómo definieron el éxito los jóvenes?", ["Como dinero y una buena carrera", "Como salud", "Como tranquilidad"], 0],
+        ["¿De qué hablaron las personas de más de cincuenta?", ["De viajes", "De salud, familia y tranquilidad", "De su trabajo"], 1],
+        ["Según los investigadores, ¿qué explica la diferencia?", ["La educación", "El dinero", "El contexto: la idea del éxito cambia con la vida"], 2]
+      ]
+    }
+  },
+  n5u14: {
+    v: [
+      ["información relevante", "relevant information", "", ""],
+      ["Me refiero al contrato.", "I'm referring to the contract.", "", ""],
+      ["auditores externos", "external auditors", "", ""],
+      ["La empresa adquirió dos fábricas.", "The company acquired two factories.", "", ""],
+      ["Las ventas disminuyeron.", "Sales declined.", "", "decline = disminuir y también rechazar (una invitación)."],
+      ["resultados consistentes", "consistent results", "", ""],
+      ["No recuerdo su nombre.", "I don't recall his name.", "", ""],
+      ["El equipo consiste en cinco personas.", "The team consists of five people.", "", ""],
+      ["El proyecto generó mil empleos.", "The project generated a thousand jobs.", "", ""],
+      ["Los trabajadores están expuestos al ruido.", "The workers are exposed to noise.", "", ""],
+      ["Queremos que los empleados participen más.", "We want employees to engage more.", "", ""],
+      ["por el bien de los niños", "for the sake of the children", "", ""],
+      ["Esto nos permite trabajar más rápido.", "This enables us to work faster.", "", ""],
+      ["la equidad salarial", "pay equity", "", ""],
+      ["un esquema de fraude", "a fraud scheme", "", ""]
+    ],
+    r: {
+      t: "A formal complaint",
+      en: "Dear Sir or Madam, I am writing on behalf of my family regarding our stay at your hotel from June 3 to 6. Unfortunately, several problems occurred during our visit.\nFirst, we were unable to check in until five o'clock, although our reservation clearly said two. Second, the information on your website was not accurate: the pool was closed, and the restaurant was not open for dinner. We also received numerous calls to our room by mistake.\nWe believe a partial refund is appropriate. Please ensure that this matter is reviewed as soon as possible. I look forward to your response. Sincerely, Ana Ruiz.",
+      es: "Estimados señores: les escribo en nombre de mi familia en relación con nuestra estancia en su hotel del 3 al 6 de junio. Desafortunadamente, ocurrieron varios problemas durante nuestra visita.\nPrimero, no pudimos registrarnos sino hasta las cinco, aunque nuestra reservación decía claramente las dos. Segundo, la información de su página no era exacta: la alberca estaba cerrada y el restaurante no abría para la cena. También recibimos numerosas llamadas a nuestro cuarto por error.\nCreemos que es adecuado un reembolso parcial. Les pido que se aseguren de revisar este asunto lo antes posible. Quedo en espera de su respuesta. Atentamente, Ana Ruiz.",
+      q: [
+        ["¿A qué hora pudieron registrarse?", ["A las cinco", "A las dos", "A las doce"], 0],
+        ["¿Qué estaba cerrado?", ["El gimnasio", "La alberca", "La recepción"], 1],
+        ["¿Qué pide Ana?", ["Otra noche gratis", "Una disculpa pública", "Un reembolso parcial"], 2]
+      ]
+    }
+  },
+  n5u15: {
+    v: [
+      ["El éxito se debe en gran parte al equipo.", "The success is largely due to the team.", "", ""],
+      ["un poco más caro", "somewhat more expensive", "", ""],
+      ["Funcionó de manera eficaz.", "It worked effectively.", "", ""],
+      ["principalmente para niños", "primarily for children", "", ""],
+      ["trabajar junto a expertos", "working alongside experts", "", ""],
+      ["Tienen 20 y 25 años, respectivamente.", "They are 20 and 25, respectively.", "", ""],
+      ["En esencia, es lo mismo.", "Essentially, it's the same thing.", "", ""],
+      ["un riesgo potencialmente grave", "a potentially serious risk", "", ""],
+      ["en los años siguientes", "in the subsequent years", "", ""],
+      ["ir y venir", "back and forth", "", ""],
+      ["De la misma manera, ...", "Similarly, ...", "", ""],
+      ["Entre el carro y la moto, prefiero la segunda.", "Between the car and the motorcycle, I prefer the latter.", "", "the former = el primero · the latter = el segundo."],
+      ["Así, el proyecto terminó a tiempo.", "Thus, the project finished on time.", "", ""],
+      ["En general, todo está bien.", "Overall, everything is fine.", "", ""],
+      ["Además, ...", "Furthermore, ...", "", ""],
+      ["Sin embargo, ...", "Nevertheless, ...", "", ""],
+      ["Por consiguiente, ...", "Consequently, ...", "", ""]
+    ],
+    r: {
+      t: "Quarterly report",
+      en: "During the third quarter, total sales rose significantly, mainly due to the launch of two new products. Revenue increased by twelve percent compared to the previous quarter.\nResults were not the same in every region, however. The north grew by eighteen percent, whereas the south grew only four percent, largely because of the hurricane season. Hence, the company will invest in better distribution centers in the south.\nPrior to the next meeting, managers should review their budgets. Ultimately, our objective remains the same: steady growth, regardless of short-term problems.",
+      es: "Durante el tercer trimestre, las ventas totales subieron de manera importante, principalmente por el lanzamiento de dos productos nuevos. Los ingresos aumentaron un doce por ciento comparados con el trimestre anterior.\nSin embargo, los resultados no fueron iguales en todas las regiones. El norte creció un dieciocho por ciento, mientras que el sur creció solo un cuatro por ciento, en gran parte por la temporada de huracanes. Por lo tanto, la empresa va a invertir en mejores centros de distribución en el sur.\nAntes de la próxima junta, los gerentes deben revisar sus presupuestos. En última instancia, nuestro objetivo sigue siendo el mismo: un crecimiento estable, sin importar los problemas a corto plazo.",
+      q: [
+        ["¿Por qué subieron las ventas?", ["Por el lanzamiento de dos productos", "Por bajar los precios", "Por abrir tiendas"], 0],
+        ["¿Cuánto creció el sur?", ["Dieciocho por ciento", "Cuatro por ciento", "Doce por ciento"], 1],
+        ["¿Qué va a hacer la empresa?", ["Cerrar el sur", "Despedir gerentes", "Invertir en centros de distribución en el sur"], 2]
+      ]
+    }
+  },
+  n5u16: {
+    v: [
+      ["el equivalente en pesos", "the equivalent in pesos", "", ""],
+      ["una experiencia amplia", "extensive experience", "", ""],
+      ["un idioma universal", "a universal language", "", ""],
+      ["de calidad superior", "of superior quality", "", ""],
+      ["visible desde lejos", "visible from far away", "", ""],
+      ["un reporte completo", "a comprehensive report", "", ""],
+      ["una figura destacada", "a prominent figure", "", ""],
+      ["un cambio radical", "a radical change", "", ""],
+      ["Es evidente que...", "It's apparent that...", "", ""],
+      ["un trabajo intelectual", "intellectual work", "", ""],
+      ["dos grupos distintos", "two distinct groups", "", ""],
+      ["Merece consideración.", "It's worthy of consideration.", "", ""],
+      ["Depende económicamente de sus papás.", "He's financially dependent on his parents.", "", ""],
+      ["doble nacionalidad", "dual citizenship", "", ""],
+      ["un nivel aceptable", "an acceptable level", "", ""],
+      ["un trabajo estable", "a steady job", "", ""],
+      ["atletas de élite", "elite athletes", "", ""],
+      ["una decisión estratégica", "a strategic decision", "", ""]
+    ],
+    r: {
+      t: "A dual citizen",
+      en: "Mariana was born in Texas to Mexican parents, so she has dual citizenship. She grew up between two cultures, and she speaks both languages with ease.\nFor her, this is not merely a detail on her passport. It's a fundamental part of her identity. She says it's a genuine advantage at work: she has extensive experience with clients on both sides of the border.\nBeing dual is not always easy, though. Sometimes she feels that she's \"too American\" in Mexico and \"too Mexican\" in the United States. But over time she learned that she doesn't need to choose. Both are vital parts of who she is.",
+      es: "Mariana nació en Texas, de papás mexicanos, así que tiene doble nacionalidad. Creció entre dos culturas y habla los dos idiomas con facilidad.\nPara ella, esto no es solo un detalle en su pasaporte. Es una parte fundamental de su identidad. Dice que es una ventaja auténtica en el trabajo: tiene amplia experiencia con clientes de los dos lados de la frontera.\nPero ser de dos países no siempre es fácil. A veces siente que es «demasiado americana» en México y «demasiado mexicana» en Estados Unidos. Con el tiempo aprendió que no tiene que escoger. Las dos son partes vitales de quien es.",
+      q: [
+        ["¿Por qué tiene doble nacionalidad?", ["Nació en Texas de papás mexicanos", "Se casó con un estadounidense", "Vivió en Canadá"], 0],
+        ["¿Qué ventaja tiene en el trabajo?", ["Gana más", "Tiene experiencia con clientes de los dos lados de la frontera", "Viaja gratis"], 1],
+        ["¿Qué aprendió con el tiempo?", ["Que debe escoger un país", "Que es mejor ser mexicana", "Que no tiene que escoger"], 2]
+      ]
+    }
+  },
+  n5u17: {
+    v: [
+      ["la formación de las nubes", "cloud formation", "", ""],
+      ["una narrativa diferente", "a different narrative", "", ""],
+      ["la representación de las mujeres", "the representation of women", "", ""],
+      ["su participación en el proyecto", "his involvement in the project", "", ""],
+      ["los profesores de la universidad", "the university faculty", "", ""],
+      ["una excepción a la regla", "an exception to the rule", "", ""],
+      ["los hallazgos del estudio", "the study's findings", "", ""],
+      ["una muestra representativa", "a representative sample", "", ""],
+      ["Llegamos a una conclusión.", "We reached a conclusion.", "", ""],
+      ["una hipótesis", "a hypothesis", "", ""],
+      ["el método científico", "the scientific method", "", ""],
+      ["una variable", "a variable", "", ""]
+    ],
+    r: {
+      t: "Does music help you study?",
+      en: "A group of researchers wanted to know if music helps students study. They divided three hundred participants into three groups: one studied in silence, one with classical music, and one with pop songs.\nUnder the guidance of a professor, each participant read a text and answered the same questions in sequence. The results showed an interesting pattern: the silent group and the classical music group got similar scores, whereas the pop music group did worse.\nThe researchers reached a simple conclusion: music with lyrics makes it harder to concentrate. With the exception of a few students, most people learn with more ease in silence.",
+      es: "Un grupo de investigadores quería saber si la música ayuda a estudiar. Dividieron a trescientos participantes en tres grupos: uno estudió en silencio, otro con música clásica y otro con canciones de pop.\nBajo la guía de una profesora, cada participante leyó un texto y contestó las mismas preguntas en orden. Los resultados mostraron un patrón interesante: el grupo en silencio y el de música clásica sacaron calificaciones parecidas, mientras que el grupo de pop salió peor.\nLos investigadores llegaron a una conclusión sencilla: la música con letra hace más difícil concentrarse. Con excepción de unos cuantos estudiantes, la mayoría aprende con más facilidad en silencio.",
+      q: [
+        ["¿Cuántos grupos había?", ["Tres", "Dos", "Cinco"], 0],
+        ["¿Qué grupo salió peor?", ["El de silencio", "El de música pop", "El de música clásica"], 1],
+        ["¿Cuál fue la conclusión?", ["La música siempre ayuda", "Hay que estudiar de noche", "La música con letra hace más difícil concentrarse"], 2]
+      ]
+    }
   }
 });

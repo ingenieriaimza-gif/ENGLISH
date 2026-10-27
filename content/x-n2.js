@@ -627,7 +627,7 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Me sentí incómodo.", "I felt awkward.", "ai felt ókuerd", ""],
       ["Estaba desesperado.", "I was desperate.", "ai uós désperet", ""],
       ["Tengo muchas ganas de viajar.", "I have a strong desire to travel.", "ai jav a strong disáier tu trável", ""],
-      ["Me lo dijo en un tono muy feo.", "She said it in a very rude tone.", "shi sed it in a véri ruud tóun", ""],
+      ["Lo dijo en un tono muy grosero.", "She said it in a very rude tone.", "shi sed it in a véri ruud tóun", ""],
       ["Quiere venganza.", "He wants revenge.", "ji uánts rivénch", ""],
       ["Tenemos un lazo muy fuerte.", "We have a very strong bond.", "uí jav a véri strong band", ""],
       ["Las palabras de mi mamá me consolaron.", "My mom's words gave me comfort.", "mai mams uérds guéiv mi cámfort", ""],

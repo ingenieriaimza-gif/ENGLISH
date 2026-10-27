@@ -1,7 +1,7 @@
 /* Nivel 4 · Intermedio alto (B2) */
 (window.COURSE = window.COURSE || []).push({
   id: "n4", name: "Universidad 1 · Intermedio alto", short: "Universidad 1", cefr: "B2",
-  desc: "Situaciones imaginarias, voz pasiva, estilo indirecto, conectores, collocations, small talk, retroalimentación, datos y sonar natural.",
+  desc: "Situaciones imaginarias, voz pasiva, estilo indirecto, conectores, sonar natural, gobierno y justicia, conflictos, medios, ciencia, historia, sociedad, tecnología, ideas, empresas y economía.",
   units: [
     {
       id: "n4u1", t: "Segundo condicional: si fuera…",
@@ -69,6 +69,102 @@
         ["B", "Yes, the invoice and the certificate were attached.", "Sí, se adjuntaron la factura y el certificado."],
         ["A", "Great. Was the client informed?", "Perfecto. ¿Se le avisó al cliente?"],
         ["B", "Not yet. I'll email them now.", "Todavía no. Les escribo ahorita."]
+      ]
+    },
+    {
+      id: "n4u21", t: "Gobierno e instituciones",
+      goal: "Entender noticias sobre leyes, reformas, autoridades e instituciones.",
+      g: [
+        "Con instituciones se usa mucho la voz pasiva: The law was approved. · He was appointed ambassador.",
+        ["Congress approved the reform. · There are new regulations for companies.", "El Congreso aprobó la reforma. · Hay nuevas regulaciones para las empresas."],
+        "the government = el gobierno · the administration = el gobierno de un presidente en turno · the authorities = las autoridades.",
+        "!ban = prohibir (y también la prohibición): They banned plastic bags."
+      ],
+      c: [
+        ["El Congreso aprobó la reforma.", "Congress approved the reform.", "", ""],
+        ["Las autoridades cerraron la carretera.", "The authorities closed the highway.", "", ""],
+        ["La Constitución protege nuestros derechos.", "The Constitution protects our rights.", "", ""],
+        ["Lo nombraron embajador en Canadá.", "He was appointed ambassador to Canada.", "", ""],
+        ["Prohibieron las bolsas de plástico.", "They banned plastic bags.", "", ""],
+        ["Hay nuevas regulaciones para las empresas.", "There are new regulations for companies.", "", ""],
+        ["La Suprema Corte tomó una decisión.", "The Supreme Court made a decision.", "", ""],
+        ["Es una institución pública.", "It's a public institution.", "", ""],
+        ["Firmaron un tratado comercial.", "They signed a trade treaty.", "", ""],
+        ["El gobierno invirtió en infraestructura.", "The government invested in infrastructure.", "", ""],
+        ["Hay restricciones para viajar.", "There are travel restrictions.", "", ""],
+        ["Es un trámite administrativo.", "It's an administrative procedure.", "", ""]
+      ],
+      d: [
+        ["A", "Did you hear about the new law?", "¿Supiste de la nueva ley?"],
+        ["B", "The one about plastic bags?", "¿La de las bolsas de plástico?"],
+        ["A", "Yes. Stores can't give them out anymore.", "Sí. Las tiendas ya no pueden darlas."],
+        ["B", "I think it's a good regulation. There's too much plastic everywhere.", "Creo que es una buena regulación. Hay demasiado plástico por todos lados."],
+        ["A", "I agree, but people need time to get used to it.", "Estoy de acuerdo, pero la gente necesita tiempo para acostumbrarse."],
+        ["B", "True. The authorities should explain it better.", "Es cierto. Las autoridades deberían explicarlo mejor."]
+      ]
+    },
+    {
+      id: "n4u22", t: "Juicios y justicia",
+      goal: "Entender noticias de juicios y hablar de la justicia y la corrupción.",
+      g: [
+        "En un juicio: the judge (el juez) · the jury (el jurado) · the attorney o lawyer (el abogado) · the defendant (el acusado).",
+        ["The jury found him guilty. · She was innocent.", "El jurado lo declaró culpable. · Ella era inocente."],
+        "be accused of = ser acusado de · be sentenced to = ser condenado a: He was sentenced to five years.",
+        "!allegedly = presuntamente: así hablan las noticias antes de que haya sentencia."
+      ],
+      c: [
+        ["El juicio empieza mañana.", "The trial starts tomorrow.", "", ""],
+        ["El jurado lo declaró culpable.", "The jury found him guilty.", "", ""],
+        ["Era inocente.", "She was innocent.", "", ""],
+        ["Lo acusan de fraude.", "He's accused of fraud.", "", ""],
+        ["Necesito un abogado.", "I need an attorney.", "", "attorney = lawyer (abogado)."],
+        ["Fue a juicio.", "He went to court.", "", ""],
+        ["Vamos a apelar la decisión.", "We're going to appeal the decision.", "", ""],
+        ["Juro decir la verdad.", "I swear to tell the truth.", "", ""],
+        ["La corrupción es un gran problema.", "Corruption is a big problem.", "", ""],
+        ["No cometí ningún delito.", "I didn't commit any crime.", "", ""],
+        ["Llegaron a un acuerdo.", "They reached a settlement.", "", "settlement = acuerdo para no seguir el juicio."],
+        ["Queremos justicia.", "We want justice.", "", ""]
+      ],
+      d: [
+        ["A", "Did you hear? Our neighbor is going to court.", "¿Supiste? Nuestro vecino va a ir a juicio."],
+        ["B", "Why? What did he do?", "¿Por qué? ¿Qué hizo?"],
+        ["A", "His business partner accused him of stealing money.", "Su socio lo acusó de robar dinero."],
+        ["B", "Wow. Do you think he's guilty?", "¡Guau! ¿Crees que es culpable?"],
+        ["A", "I don't know. He says he's innocent and that he has proof.", "No sé. Él dice que es inocente y que tiene pruebas."],
+        ["B", "Well, the jury will decide.", "Bueno, el jurado va a decidir."]
+      ]
+    },
+    {
+      id: "n4u23", t: "Conflictos y seguridad",
+      goal: "Entender noticias de guerras, ejércitos y acuerdos de paz.",
+      g: [
+        "En noticias de conflictos: The army attacked… · Troops were sent to… · The two countries signed a peace agreement.",
+        ["The war destroyed the city. · They sent troops to the border.", "La guerra destruyó la ciudad. · Mandaron tropas a la frontera."],
+        "army = ejército · navy = marina · air force = fuerza aérea · the military = las fuerzas armadas.",
+        "!defeat = derrotar (y la derrota) · survive = sobrevivir · survival = la supervivencia."
+      ],
+      c: [
+        ["Mi abuelo estuvo en el ejército.", "My grandfather was in the army.", "", ""],
+        ["La guerra destruyó la ciudad.", "The war destroyed the city.", "", ""],
+        ["Mandaron tropas a la frontera.", "They sent troops to the border.", "", ""],
+        ["Los soldados defendieron el puente.", "The soldiers defended the bridge.", "", ""],
+        ["Es una amenaza para la paz.", "It's a threat to peace.", "", ""],
+        ["Firmaron un acuerdo de paz.", "They signed a peace agreement.", "", ""],
+        ["Sobrevivió a la guerra.", "He survived the war.", "", ""],
+        ["las fuerzas armadas", "the armed forces", "", ""],
+        ["Fue un ataque terrorista.", "It was a terrorist attack.", "", ""],
+        ["Derrotaron al enemigo.", "They defeated the enemy.", "", ""],
+        ["armas nucleares", "nuclear weapons", "", ""],
+        ["Es un veterano de guerra.", "He's a war veteran.", "", ""]
+      ],
+      d: [
+        ["A", "What's that movie about?", "¿De qué se trata esa película?"],
+        ["B", "It's about a young soldier in the Second World War.", "Se trata de un soldado joven en la Segunda Guerra Mundial."],
+        ["A", "Is it very violent?", "¿Es muy violenta?"],
+        ["B", "Some scenes are, but it's really about survival and friendship.", "Algunas escenas sí, pero en realidad trata de la supervivencia y la amistad."],
+        ["A", "Sounds interesting. Does he survive?", "Suena interesante. ¿Sobrevive?"],
+        ["B", "I won't tell you!", "¡No te voy a decir!"]
       ]
     },
     {
@@ -140,6 +236,38 @@
       ]
     },
     {
+      id: "n4u18", t: "Medios: prensa, radio y TV",
+      goal: "Entender y comentar lo que dicen los medios, y saber de dónde viene una noticia.",
+      g: [
+        "Para citar noticias: According to… (según…) · The newspaper reported that… · Sources say that…",
+        ["According to the newspaper, prices will go up. · The company made a statement.", "Según el periódico, los precios van a subir. · La empresa dio un comunicado."],
+        "the media = los medios · the press = la prensa · a journalist = un periodista · a reporter = un reportero.",
+        "!advertising = la publicidad (no lleva plural) · an ad o a commercial = un anuncio."
+      ],
+      c: [
+        ["Leo el periódico todas las mañanas.", "I read the newspaper every morning.", "", ""],
+        ["Lo escuché en la radio y lo vi en la televisión.", "I heard it on the radio and saw it on television.", "", ""],
+        ["¿En qué canal pasan el partido?", "What channel is the game on?", "", ""],
+        ["Es periodista.", "She's a journalist.", "", ""],
+        ["La empresa dio un comunicado.", "The company made a statement.", "", ""],
+        ["según fuentes oficiales", "according to official sources", "", ""],
+        ["El anuncio salió en la tele.", "The commercial was on TV.", "", ""],
+        ["Me suscribí a una revista.", "I subscribed to a magazine.", "", ""],
+        ["El evento tuvo mucha cobertura.", "The event got a lot of coverage.", "", ""],
+        ["El programa tiene mucha audiencia.", "The show has a big audience.", "", ""],
+        ["Las imágenes son impactantes.", "The images are shocking.", "", ""],
+        ["Trabaja en publicidad.", "He works in advertising.", "", ""]
+      ],
+      d: [
+        ["A", "Did you see the president's interview last night?", "¿Viste la entrevista del presidente anoche?"],
+        ["B", "No, I don't watch much television anymore. I read the news online.", "No, ya casi no veo la tele. Leo las noticias en internet."],
+        ["A", "Which websites?", "¿Qué páginas?"],
+        ["B", "A couple of newspapers and a few journalists I trust.", "Un par de periódicos y algunos periodistas en los que confío."],
+        ["A", "That's smart. There's a lot of fake news out there.", "Eso es inteligente. Hay muchas noticias falsas."],
+        ["B", "Exactly. I always check the source.", "Exacto. Siempre reviso la fuente."]
+      ]
+    },
+    {
       id: "n4u4", t: "Relativos: who, which, that, where",
       goal: "Unir ideas para describir personas, cosas y lugares con más detalle.",
       g: [
@@ -207,6 +335,70 @@
       ]
     },
     {
+      id: "n4u24", t: "Ideas: pros, contras y alternativas",
+      goal: "Hablar de ideas, ventajas y desventajas, y buscar alternativas.",
+      g: [
+        "Para analizar una idea: What are the pros and cons? · Let's look at the alternatives. · It has a lot of potential.",
+        ["What are the pros and cons? · Let's look at other alternatives.", "¿Cuáles son los pros y los contras? · Veamos otras alternativas."],
+        "Muchas palabras abstractas se parecen al español: concept, structure, principle, reality. Ojo con cómo suenan.",
+        "!be aware of = estar consciente de, saber de algo (no «estar alerta»)."
+      ],
+      c: [
+        ["¿Cuáles son los pros y los contras?", "What are the pros and cons?", "", ""],
+        ["Veamos otras alternativas.", "Let's look at other alternatives.", "", ""],
+        ["Es una cuestión de principios.", "It's a matter of principle.", "", ""],
+        ["No estaba consciente del problema.", "I wasn't aware of the problem.", "", ""],
+        ["Tiene mucho potencial.", "It has a lot of potential.", "", ""],
+        ["En este contexto, tiene sentido.", "In this context, it makes sense.", "", ""],
+        ["Del uno al diez, ¿cómo lo calificas?", "On a scale of one to ten, how would you rate it?", "", ""],
+        ["La realidad es muy diferente.", "The reality is very different.", "", ""],
+        ["Su influencia fue enorme.", "His influence was huge.", "", ""],
+        ["Es una posibilidad.", "It's a possibility.", "", ""],
+        ["Es un concepto difícil de explicar.", "It's a hard concept to explain.", "", ""],
+        ["¿Cuál es el objetivo?", "What's the objective?", "", ""]
+      ],
+      d: [
+        ["A", "So, should we open a second store or not?", "Entonces, ¿abrimos una segunda tienda o no?"],
+        ["B", "Let's look at the pros and cons first.", "Primero veamos los pros y los contras."],
+        ["A", "The pro is clear: more customers.", "El pro es claro: más clientes."],
+        ["B", "Right, but the con is the cost. And there's a lot of competition in that area.", "Sí, pero el contra es el costo. Y hay mucha competencia en esa zona."],
+        ["A", "Is there an alternative?", "¿Hay alguna alternativa?"],
+        ["B", "We could sell online first and see the outcome.", "Podríamos vender en línea primero y ver el resultado."]
+      ]
+    },
+    {
+      id: "n4u28", t: "Adverbios para precisar: closely, heavily, greatly",
+      goal: "Decir con precisión cuánto, qué tan seguido y de qué manera pasa algo.",
+      g: [
+        "Muchos adverbios se forman con -ly: strong → strongly · rapid → rapidly · equal → equally.",
+        ["I strongly recommend it. · Prices rose rapidly.", "Te lo recomiendo muchísimo. · Los precios subieron rápidamente."],
+        "Combinaciones típicas: highly recommended (muy recomendable) · deeply sorry (profundamente apenado) · fully booked (lleno, sin lugares).",
+        "!barely = apenas, casi no: I barely slept. (Casi no dormí.)"
+      ],
+      c: [
+        ["Te lo recomiendo muchísimo.", "I strongly recommend it.", "", ""],
+        ["Casi no dormí.", "I barely slept.", "", ""],
+        ["Lo siento muchísimo.", "I'm deeply sorry.", "", ""],
+        ["El hotel está lleno.", "The hotel is fully booked.", "", ""],
+        ["Es muy recomendable.", "It's highly recommended.", "", ""],
+        ["Llueve muchísimo en septiembre.", "It rains heavily in September.", "", ""],
+        ["Los precios subieron rápidamente.", "Prices rose rapidly.", "", ""],
+        ["Trabajamos muy de cerca con el cliente.", "We work closely with the client.", "", ""],
+        ["Hablamos con bastante frecuencia.", "We talk fairly often.", "", "fairly = bastante."],
+        ["Voy al doctor con regularidad.", "I go to the doctor regularly.", "", ""],
+        ["De vez en cuando como carne.", "I occasionally eat meat.", "", ""],
+        ["Terminamos el proyecto con éxito.", "We successfully finished the project.", "", ""]
+      ],
+      d: [
+        ["A", "How was your trip to Canada?", "¿Qué tal tu viaje a Canadá?"],
+        ["B", "Incredibly cold! It snowed heavily every day.", "¡Increíblemente frío! Nevó muchísimo todos los días."],
+        ["A", "Did you like it?", "¿Te gustó?"],
+        ["B", "I absolutely loved it. The people were friendly and the hotels were very clean.", "Me encantó. La gente era amable y los hoteles muy limpios."],
+        ["A", "Would you go back?", "¿Regresarías?"],
+        ["B", "Definitely, but in the summer!", "¡Definitivamente, pero en verano!"]
+      ]
+    },
+    {
       id: "n4u10", t: "Collocations: make, do, take, have",
       goal: "Usar las combinaciones de palabras que suenan naturales.",
       g: [
@@ -238,6 +430,38 @@
         ["B", "Sure. I did my best, but I'm tired.", "Claro. Hice mi mejor esfuerzo, pero estoy cansado."],
         ["A", "Let's take a break and finish it after lunch.", "Tomemos un descanso y lo terminamos después de comer."],
         ["B", "That makes sense.", "Tiene sentido."]
+      ]
+    },
+    {
+      id: "n4u29", t: "Verbos útiles: rely, participate, determine",
+      goal: "Usar verbos frecuentes de trabajo y de la vida diaria con su preposición correcta.",
+      g: [
+        "Muchos verbos llevan preposición: rely on (contar con) · participate in (participar en) · dedicate to (dedicar a) · apply to (aplicar a).",
+        ["You can rely on me. · Twenty companies participated.", "Puedes contar conmigo. · Participaron veinte empresas."],
+        "intend to = tener la intención de · tend to = soler: I tend to sleep late. (Suelo dormirme tarde.)",
+        "!settle = establecerse / resolver: They settled in Monterrey. · We settled the problem."
+      ],
+      c: [
+        ["Puedes contar conmigo.", "You can rely on me.", "", "rely on = contar con."],
+        ["Participaron veinte empresas.", "Twenty companies participated.", "", ""],
+        ["Le dedicó el libro a su mamá.", "He dedicated the book to his mother.", "", ""],
+        ["No tengo la intención de renunciar.", "I don't intend to quit.", "", ""],
+        ["Ampliaron el plazo una semana.", "They extended the deadline by a week.", "", ""],
+        ["Su historia me inspiró.", "Her story inspired me.", "", ""],
+        ["Abandonaron el carro en la carretera.", "They abandoned the car on the highway.", "", ""],
+        ["Me impresionó su trabajo.", "Her work impressed me.", "", ""],
+        ["Hay que determinar la causa del problema.", "We have to determine the cause of the problem.", "", ""],
+        ["Lo sacrificó todo por sus hijos.", "She sacrificed everything for her children.", "", ""],
+        ["Se establecieron en Monterrey.", "They settled in Monterrey.", "", ""],
+        ["Todo el mundo lo elogió.", "Everyone praised him.", "", ""]
+      ],
+      d: [
+        ["A", "Are you going to participate in the marathon?", "¿Vas a participar en el maratón?"],
+        ["B", "I intend to, but I'm not sure I'm ready.", "Tengo la intención, pero no sé si estoy listo."],
+        ["A", "You've been training for months. You can do it.", "Llevas meses entrenando. Tú puedes."],
+        ["B", "Thanks. I tend to get nervous before races.", "Gracias. Suelo ponerme nervioso antes de las carreras."],
+        ["A", "Don't worry. I'll be there to support you.", "No te preocupes. Voy a estar ahí para apoyarte."],
+        ["B", "I knew I could rely on you.", "Sabía que podía contar contigo."]
       ]
     },
     {
@@ -274,6 +498,38 @@
       ]
     },
     {
+      id: "n4u27", t: "Adverbios para sonar natural: honestly, basically",
+      goal: "Usar los adverbios que más se oyen en una plática: la verdad, básicamente, obviamente, ojalá.",
+      g: [
+        "Muchos adverbios van al principio de la oración: Honestly, … · Basically, … · Hopefully, … · Personally, …",
+        ["Honestly, I don't like it. · Basically, we need more time.", "La verdad, no me gusta. · Básicamente, necesitamos más tiempo."],
+        "actually = en realidad (no «actualmente») · currently = actualmente.",
+        "!literally = literalmente; en plática también se usa para exagerar: I literally laughed through the whole movie."
+      ],
+      c: [
+        ["La verdad, no me gusta.", "Honestly, I don't like it.", "", ""],
+        ["Básicamente, necesitamos más tiempo.", "Basically, we need more time.", "", ""],
+        ["Ojalá llegue a tiempo.", "Hopefully, I'll get there on time.", "", "hopefully = ojalá (con algo que puede pasar)."],
+        ["Personalmente, prefiero el té.", "Personally, I prefer tea.", "", ""],
+        ["Obviamente, ella tenía razón.", "Obviously, she was right.", "", ""],
+        ["Actualmente vivo en Puebla.", "I currently live in Puebla.", "", "currently = actualmente."],
+        ["De hecho, ya terminé.", "In fact, I already finished.", "", ""],
+        ["En general, todo salió bien.", "In general, everything went well.", "", ""],
+        ["Simplemente no tengo tiempo.", "I simply don't have time.", "", ""],
+        ["Normalmente me levanto a las seis.", "I normally get up at six.", "", ""],
+        ["Me reí literalmente toda la película.", "I literally laughed through the whole movie.", "", ""],
+        ["Es caro. Aunque está bueno.", "It's expensive. It's good, though.", "", "though al final = aunque, de todos modos."]
+      ],
+      d: [
+        ["A", "So, what did you think of the new boss?", "¿Y qué te pareció el jefe nuevo?"],
+        ["B", "Honestly? He seems nice, though he talks too much.", "¿La verdad? Parece buena onda, aunque habla demasiado."],
+        ["A", "Ha! Basically, he likes to hear himself.", "¡Ja! Básicamente le gusta oírse a sí mismo."],
+        ["B", "Exactly. Hopefully the meetings will be shorter.", "Exacto. Ojalá las juntas sean más cortas."],
+        ["A", "Personally, I doubt it.", "Personalmente, lo dudo."],
+        ["B", "Me too, actually.", "Yo también, la verdad."]
+      ]
+    },
+    {
       id: "n4u7", t: "Contar una historia o anécdota",
       goal: "Narrar algo que te pasó, con orden y suspenso.",
       g: [
@@ -304,6 +560,70 @@
         ["B", "I was walking to work when it started raining, and I didn't have an umbrella.", "Iba caminando al trabajo cuando empezó a llover, y no traía paraguas."],
         ["A", "Oh no! And then what happened?", "¡Ay, no! ¿Y luego qué pasó?"],
         ["B", "Long story short, I gave a presentation in wet clothes.", "En pocas palabras, di una presentación con la ropa mojada."]
+      ]
+    },
+    {
+      id: "n4u16", t: "Ciencia y el espacio",
+      goal: "Hablar de descubrimientos, experimentos y del universo.",
+      g: [
+        "Para describir un proceso científico se usa mucho la voz pasiva: The samples were analyzed. · Penicillin was discovered in 1928.",
+        ["Scientists discovered a new planet. · The experiment proved the theory.", "Los científicos descubrieron un planeta nuevo. · El experimento comprobó la teoría."],
+        "research = investigación (no lleva plural: a lot of research) · a researcher = un investigador · a study = un estudio.",
+        "!discover = descubrir algo que ya existía · invent = inventar algo nuevo."
+      ],
+      c: [
+        ["Los científicos descubrieron un planeta nuevo.", "Scientists discovered a new planet.", "", ""],
+        ["El experimento comprobó la teoría.", "The experiment proved the theory.", "", ""],
+        ["La Tierra gira alrededor del Sol.", "The Earth goes around the Sun.", "", ""],
+        ["Quiero viajar al espacio.", "I want to travel to space.", "", ""],
+        ["Es un descubrimiento muy importante.", "It's a very important discovery.", "", ""],
+        ["Trabaja en un laboratorio.", "She works in a laboratory.", "", ""],
+        ["El agua es un líquido.", "Water is a liquid.", "", ""],
+        ["Es una reacción química.", "It's a chemical reaction.", "", ""],
+        ["la teoría de la evolución", "the theory of evolution", "", ""],
+        ["El ADN está en cada célula.", "DNA is found in every cell.", "", ""],
+        ["Lanzaron un cohete a la Luna.", "They launched a rocket to the Moon.", "", ""],
+        ["Hay miles de millones de galaxias en el universo.", "There are billions of galaxies in the universe.", "", ""]
+      ],
+      d: [
+        ["A", "Did you see the news about the new planet?", "¿Viste la noticia del planeta nuevo?"],
+        ["B", "Yes! Scientists think it might have water.", "¡Sí! Los científicos creen que podría tener agua."],
+        ["A", "How did they discover it?", "¿Cómo lo descubrieron?"],
+        ["B", "With a new space telescope.", "Con un telescopio espacial nuevo."],
+        ["A", "Could there be life there?", "¿Podría haber vida ahí?"],
+        ["B", "Maybe. They need more research to prove it.", "Tal vez. Necesitan más investigación para comprobarlo."]
+      ]
+    },
+    {
+      id: "n4u17", t: "Historia: reyes, imperios y revoluciones",
+      goal: "Contar hechos históricos y hablar del pasado de tu país.",
+      g: [
+        "Para contar historia se usa el pasado y la voz pasiva: The city was founded in 1325. · The war lasted ten years.",
+        ["Mexico gained its independence in 1821. · The pyramids were built centuries ago.", "México se independizó en 1821. · Las pirámides se construyeron hace siglos."],
+        "century = siglo: the sixteenth century (el siglo XVI) · decade = década · era = época.",
+        "!found = fundar (founded) · find = encontrar (found). The city was founded in 1325."
+      ],
+      c: [
+        ["La guerra duró diez años.", "The war lasted ten years.", "", ""],
+        ["México se independizó en 1821.", "Mexico gained its independence in 1821.", "", ""],
+        ["La ciudad fue fundada en 1325.", "The city was founded in 1325.", "", ""],
+        ["el siglo XVI", "the sixteenth century", "", ""],
+        ["El rey y la reina viven en el palacio.", "The king and queen live in the palace.", "", ""],
+        ["Fue una batalla muy importante.", "It was a very important battle.", "", ""],
+        ["el Imperio azteca", "the Aztec Empire", "", ""],
+        ["la Revolución mexicana", "the Mexican Revolution", "", ""],
+        ["Fue un acontecimiento histórico.", "It was a historical event.", "", ""],
+        ["Visitamos las ruinas mayas.", "We visited the Mayan ruins.", "", ""],
+        ["Según la leyenda...", "According to the legend...", "", ""],
+        ["Es parte de nuestro patrimonio.", "It's part of our heritage.", "", ""]
+      ],
+      d: [
+        ["A", "Have you been to Teotihuacan?", "¿Has ido a Teotihuacan?"],
+        ["B", "Yes, last year. The pyramids are amazing.", "Sí, el año pasado. Las pirámides son impresionantes."],
+        ["A", "Who built them?", "¿Quién las construyó?"],
+        ["B", "Nobody knows for sure. The city is much older than the Aztec Empire.", "Nadie sabe con seguridad. La ciudad es mucho más antigua que el Imperio azteca."],
+        ["A", "Really? I thought the Aztecs built it.", "¿En serio? Yo creía que la habían construido los aztecas."],
+        ["B", "No. When the Aztecs found it, it was already in ruins.", "No. Cuando los aztecas la encontraron, ya estaba en ruinas."]
       ]
     },
     {
@@ -374,6 +694,38 @@
       ]
     },
     {
+      id: "n4u20", t: "Sociedad y derechos",
+      goal: "Hablar con respeto de temas sociales: igualdad, pobreza, migración y derechos.",
+      g: [
+        "Para hablar de derechos: have the right to (tener derecho a): Everyone has the right to an education.",
+        ["We all have equal rights. · She volunteers at a foundation.", "Todos tenemos los mismos derechos. · Ella es voluntaria en una fundación."],
+        "Para opinar con cuidado: I believe that… · In my view… · It's important to respect…",
+        "!Son temas delicados: escucha con respeto y usa un lenguaje neutral."
+      ],
+      c: [
+        ["Todos tenemos los mismos derechos.", "We all have equal rights.", "", ""],
+        ["Es voluntaria en una fundación.", "She volunteers at a foundation.", "", ""],
+        ["La pobreza es un problema muy grande.", "Poverty is a very big problem.", "", ""],
+        ["La discriminación es ilegal.", "Discrimination is illegal.", "", ""],
+        ["Donamos dinero a la beneficencia.", "We donate money to charity.", "", ""],
+        ["Es una sociedad muy diversa.", "It's a very diverse society.", "", ""],
+        ["la libertad de expresión", "freedom of speech", "", ""],
+        ["Hay mucha inmigración en esta zona.", "There's a lot of immigration in this area.", "", ""],
+        ["Es una organización sin fines de lucro.", "It's a nonprofit organization.", "", ""],
+        ["un movimiento social", "a social movement", "", ""],
+        ["los derechos civiles", "civil rights", "", ""],
+        ["Fue un comentario ofensivo.", "It was an offensive comment.", "", ""]
+      ],
+      d: [
+        ["A", "What do you do on Saturdays?", "¿Qué haces los sábados?"],
+        ["B", "I volunteer at a shelter for migrants.", "Soy voluntaria en un albergue para migrantes."],
+        ["A", "That's great. What do you do there?", "¡Qué bien! ¿Qué haces ahí?"],
+        ["B", "I help in the kitchen and teach English to the kids.", "Ayudo en la cocina y les enseño inglés a los niños."],
+        ["A", "Do you need more volunteers?", "¿Necesitan más voluntarios?"],
+        ["B", "Always! You should come with me.", "¡Siempre! Deberías venir conmigo."]
+      ]
+    },
+    {
       id: "n4u12", t: "Dar y recibir retroalimentación",
       goal: "Dar opiniones sobre el trabajo de otros sin ofender, y recibirlas bien.",
       g: [
@@ -441,6 +793,38 @@
       ]
     },
     {
+      id: "n4u19", t: "Tecnología: aparatos y sistemas",
+      goal: "Resolver problemas técnicos y hablar de aparatos, programas y redes.",
+      g: [
+        "Para problemas técnicos: It's not working. · It keeps crashing. (Se traba.) · It won't turn on. (No prende.)",
+        ["My battery is dead. · Did you restart the device?", "Se me acabó la pila. · ¿Reiniciaste el aparato?"],
+        "Muchas palabras se dicen igual que en español, pero suenan distinto: software, hardware, chip, server («sérver»).",
+        "!AI = artificial intelligence (inteligencia artificial)."
+      ],
+      c: [
+        ["Se me acabó la batería.", "My battery is dead.", "", ""],
+        ["No hay señal aquí.", "There's no signal here.", "", ""],
+        ["Pon el celular en silencio.", "Put your phone on silent.", "", ""],
+        ["Actualiza el software.", "Update the software.", "", ""],
+        ["Es la versión nueva de la aplicación.", "It's the new version of the app.", "", ""],
+        ["Tiene muchas funciones nuevas.", "It has a lot of new features.", "", ""],
+        ["La inteligencia artificial está cambiando el mundo.", "Artificial intelligence is changing the world.", "", ""],
+        ["El aparato no funciona.", "The device isn't working.", "", ""],
+        ["Se guarda automáticamente.", "It saves automatically.", "", ""],
+        ["Tenemos un problema técnico.", "We have a technical problem.", "", ""],
+        ["La red está caída.", "The network is down.", "", ""],
+        ["Conecta el cable al monitor.", "Connect the cable to the monitor.", "", ""]
+      ],
+      d: [
+        ["A", "The system is very slow today.", "El sistema está muy lento hoy."],
+        ["B", "I know. The IT guys say there's a problem with the server.", "Ya sé. Los de sistemas dicen que hay un problema con el servidor."],
+        ["A", "Can I still access the database?", "¿Todavía puedo entrar a la base de datos?"],
+        ["B", "Yes, but it might take a while.", "Sí, pero puede tardar."],
+        ["A", "Great. I have to send a report by noon.", "Genial. Tengo que mandar un reporte antes del mediodía."],
+        ["B", "Save it on your computer first, just in case.", "Guárdalo primero en tu computadora, por si acaso."]
+      ]
+    },
+    {
       id: "n4u14", t: "Futuro continuo y futuro perfecto",
       goal: "Hablar de lo que estarás haciendo y lo que ya habrás hecho.",
       g: [
@@ -504,6 +888,70 @@
         ["B", "Yes, and let's figure out a plan before Friday.", "Sí, y armemos un plan antes del viernes."],
         ["A", "Okay. If we need more time, can we push back the launch?", "Va. Si necesitamos más tiempo, ¿podemos posponer el lanzamiento?"],
         ["B", "Maybe. I'll follow up with the director.", "Tal vez. Le doy seguimiento con el director."]
+      ]
+    },
+    {
+      id: "n4u25", t: "Empresas y negocios",
+      goal: "Hablar de una empresa: su historia, su estrategia, sus productos y su crecimiento.",
+      g: [
+        "Para presentar una empresa: It was founded in… · Its headquarters are in… · It has offices in…",
+        ["The company was founded in 1990. · Its headquarters are in Monterrey.", "La empresa se fundó en 1990. · Su sede está en Monterrey."],
+        "firm = empresa (sobre todo de servicios: a law firm) · corporation = corporativo · enterprise = empresa (formal).",
+        "!launch = lanzar (un producto) · expand = expandirse, crecer · develop = desarrollar."
+      ],
+      c: [
+        ["La empresa se fundó en 1990.", "The company was founded in 1990.", "", ""],
+        ["Su sede está en Monterrey.", "Its headquarters are in Monterrey.", "", "headquarters siempre termina en s."],
+        ["El director general es el fundador.", "The CEO is the founder.", "", "CEO = director general."],
+        ["Vamos a lanzar un producto nuevo.", "We're going to launch a new product.", "", ""],
+        ["La empresa quiere expandirse a Estados Unidos.", "The company wants to expand to the United States.", "", ""],
+        ["Trabajo en mercadotecnia.", "I work in marketing.", "", ""],
+        ["Necesitamos una estrategia nueva.", "We need a new strategy.", "", ""],
+        ["Es un despacho de abogados.", "It's a law firm.", "", ""],
+        ["Tiene una franquicia de pizzas.", "He has a pizza franchise.", "", ""],
+        ["Desarrollan software para bancos.", "They develop software for banks.", "", ""],
+        ["Firmamos una sociedad con otra empresa.", "We formed a partnership with another company.", "", ""],
+        ["La innovación es clave.", "Innovation is key.", "", ""]
+      ],
+      d: [
+        ["A", "How's the new business going?", "¿Cómo va el negocio nuevo?"],
+        ["B", "Great! We opened our third franchise last month.", "¡Muy bien! Abrimos nuestra tercera franquicia el mes pasado."],
+        ["A", "Congratulations! What's your strategy now?", "¡Felicidades! ¿Cuál es tu estrategia ahora?"],
+        ["B", "We want to expand to Texas next year.", "Queremos expandirnos a Texas el próximo año."],
+        ["A", "That's a big step. Do you have investors?", "Es un paso grande. ¿Tienen inversionistas?"],
+        ["B", "Not yet. I'm going to pitch the idea to a bank next week.", "Todavía no. La próxima semana le voy a presentar la idea a un banco."]
+      ]
+    },
+    {
+      id: "n4u26", t: "Economía y mercados",
+      goal: "Entender noticias de economía: comercio, inversiones, ganancias y crisis.",
+      g: [
+        "Para hablar de la economía: The economy is growing. · Prices are rising. · There's a crisis.",
+        ["Profits went up by 10%. · Mexico trades a lot with the United States.", "Las ganancias subieron un 10%. · México comercia mucho con Estados Unidos."],
+        "economy = la economía (de un país) · economics = la economía (la carrera) · economic = económico (de la economía) · economical = económico (barato).",
+        "!revenue = ingresos de una empresa · profit = ganancia (lo que queda después de los gastos)."
+      ],
+      c: [
+        ["La crisis económica afectó a todos.", "The economic crisis affected everyone.", "", ""],
+        ["Las ganancias subieron un 10%.", "Profits went up by 10%.", "", ""],
+        ["México comercia mucho con Estados Unidos.", "Mexico trades a lot with the United States.", "", ""],
+        ["Los ingresos de la empresa crecieron.", "The company's revenue grew.", "", ""],
+        ["Estudió Economía.", "She studied economics.", "", ""],
+        ["Es un fondo de inversión.", "It's an investment fund.", "", ""],
+        ["Los consumidores están gastando menos.", "Consumers are spending less.", "", ""],
+        ["Trabaja en ventas al menudeo.", "He works in retail.", "", ""],
+        ["Buscan financiamiento para su proyecto.", "They're looking for funding for their project.", "", ""],
+        ["Los inversionistas están preocupados.", "Investors are worried.", "", ""],
+        ["un rango de precios", "a price range", "", ""],
+        ["La empresa reportó ganancias récord.", "The company reported record earnings.", "", ""]
+      ],
+      d: [
+        ["A", "Did you read the business news?", "¿Leíste las noticias de negocios?"],
+        ["B", "Yes. The peso is strong against the dollar.", "Sí. El peso está fuerte frente al dólar."],
+        ["A", "That's good for imports, but bad for exports.", "Eso es bueno para las importaciones, pero malo para las exportaciones."],
+        ["B", "And for families that receive money from the U.S.", "Y para las familias que reciben dinero de Estados Unidos."],
+        ["A", "True. The economy is complicated.", "Es cierto. La economía es complicada."],
+        ["B", "That's why I studied engineering, not economics!", "¡Por eso estudié Ingeniería y no Economía!"]
       ]
     }
   ]

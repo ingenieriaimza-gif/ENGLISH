@@ -289,5 +289,31 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
         ["What did Luis teach his team?", ["To speak Spanish", "To give exact times", "That building a personal relationship first makes business easier"], 2]
       ]
     }
+  },
+  n6u11: {
+    v: [
+      ["Cita tus fuentes.", "Cite your sources.", "", ""],
+      ["la interacción con los clientes", "interaction with customers", "", ""],
+      ["una carta de intención", "a letter of intent", "", ""],
+      ["Compuso una canción para su esposa.", "He composed a song for his wife.", "", ""],
+      ["la composición del equipo", "the composition of the team", "", ""],
+      ["la estabilidad económica", "economic stability", "", ""],
+      ["Estamos en la fase final.", "We're in the final phase.", "", ""],
+      ["Realizamos una encuesta.", "We conducted a survey.", "", ""],
+      ["un enfoque paso a paso", "a step-by-step approach", "", ""],
+      ["Lo puse en el calendario compartido.", "I put it on the shared calendar.", "", ""],
+      ["Respetamos la privacidad de los datos.", "We respect data privacy.", "", ""],
+      ["la transmisión de datos", "data transmission", "", ""]
+    ],
+    r: {
+      t: "A difficult integration",
+      en: "Last year our company bought a smaller competitor. My job was to integrate their production system with ours. The timing was difficult: we had only six months, and both companies had very different cultures.\nAt the beginning, there were disputes about everything, from software to schedules. So we built a clear framework: weekly meetings, one shared calendar, and every decision in writing. We also asked for the employees' consent before changing their shifts.\nLittle by little, cooperation replaced conflict. The execution wasn't perfect, but we finished on time, and the client was satisfied. The biggest lesson? Collaboration is not about systems. It's about people.",
+      es: "El año pasado nuestra empresa compró a un competidor más pequeño. Mi trabajo era integrar su sistema de producción con el nuestro. Los tiempos eran difíciles: teníamos solo seis meses y las dos empresas tenían culturas muy distintas.\nAl principio había disputas por todo, desde el software hasta los horarios. Así que construimos un marco de trabajo claro: juntas semanales, un solo calendario compartido y cada decisión por escrito. También pedimos el consentimiento de los empleados antes de cambiar sus turnos.\nPoco a poco, la cooperación reemplazó al conflicto. La ejecución no fue perfecta, pero terminamos a tiempo y el cliente quedó satisfecho. ¿La lección más importante? La colaboración no se trata de sistemas. Se trata de personas.",
+      q: [
+        ["¿Cuánto tiempo tenían para la integración?", ["Seis meses", "Dos años", "Un mes"], 0],
+        ["¿Qué pidieron antes de cambiar los turnos?", ["Más dinero", "El consentimiento de los empleados", "Permiso al gobierno"], 1],
+        ["¿Cuál fue la lección más importante?", ["Que el software es lo principal", "Que hay que trabajar más horas", "Que la colaboración se trata de personas"], 2]
+      ]
+    }
   }
 });

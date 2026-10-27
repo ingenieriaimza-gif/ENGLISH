@@ -1,7 +1,7 @@
 /* Carrera profesional · Dominio (C2) */
 (window.COURSE = window.COURSE || []).push({
   id: "n6", name: "Carrera profesional · Dominio", short: "Carrera", cefr: "C2",
-  desc: "Inglés de nivel profesional: entrevistas, liderazgo, conflictos, escritura de negocios, persuasión, conferencias y comunicación intercultural.",
+  desc: "Inglés de nivel profesional: entrevistas, liderazgo, proyectos y colaboración, conflictos, escritura de negocios, persuasión, conferencias y comunicación intercultural.",
   units: [
     {
       id: "n6u1", t: "Entrevista profesional avanzada",
@@ -98,6 +98,38 @@
         ["B", "Kick-off is next week. Do you have the bandwidth for it?", "El arranque es la próxima semana. ¿Tienes capacidad?"],
         ["A", "I'll need to hand off the training plan to someone.", "Tendría que pasarle el plan de capacitación a alguien."],
         ["B", "No problem. I trust your judgment. Let me know if I can remove any roadblocks.", "No hay problema. Confío en tu criterio. Avísame si te puedo quitar algún obstáculo."]
+      ]
+    },
+    {
+      id: "n6u11", t: "Proyectos y colaboración: execute, integrate, consent",
+      goal: "Coordinar proyectos con otras áreas y empresas: ejecutar, integrar, resolver disputas y lograr acuerdos.",
+      g: [
+        "Para proyectos: execute a plan (ejecutar un plan) · integrate systems (integrar sistemas) · in collaboration with (en colaboración con).",
+        ["We need to execute the plan on time. · We did it in collaboration with the university.", "Necesitamos ejecutar el plan a tiempo. · Lo hicimos en colaboración con la universidad."],
+        "Para acuerdos: give consent (dar consentimiento) · settle a dispute (resolver una disputa) · satisfy the client (dejar satisfecho al cliente).",
+        "!derive from = derivarse de, venir de: Many English words derive from Latin."
+      ],
+      c: [
+        ["Necesitamos ejecutar el plan a tiempo.", "We need to execute the plan on time.", "", ""],
+        ["La ejecución fue impecable.", "The execution was flawless.", "", ""],
+        ["Lo hicimos en colaboración con la universidad.", "We did it in collaboration with the university.", "", ""],
+        ["Gracias por su cooperación.", "Thank you for your cooperation.", "", ""],
+        ["Hay que integrar los dos sistemas.", "We have to integrate the two systems.", "", ""],
+        ["El momento fue perfecto.", "The timing was perfect.", "", ""],
+        ["Necesitamos su consentimiento por escrito.", "We need your written consent.", "", ""],
+        ["Resolvimos la disputa con el proveedor.", "We settled the dispute with the supplier.", "", ""],
+        ["Nuestro objetivo es satisfacer al cliente.", "Our goal is to satisfy the customer.", "", ""],
+        ["Muchas palabras del inglés vienen del latín.", "Many English words derive from Latin.", "", ""],
+        ["Construyeron un puente nuevo.", "They constructed a new bridge.", "", ""],
+        ["Necesitamos un marco de trabajo claro.", "We need a clear framework.", "", ""]
+      ],
+      d: [
+        ["A", "How's the integration project going?", "¿Cómo va el proyecto de integración?"],
+        ["B", "Well, but the timing is tight. The new system has to be ready by March.", "Bien, pero el tiempo está justo. El sistema nuevo tiene que estar listo para marzo."],
+        ["A", "Do you have enough support from the other teams?", "¿Tienes suficiente apoyo de los otros equipos?"],
+        ["B", "Yes, the collaboration has been great. IT and production are working together.", "Sí, la colaboración ha sido excelente. Sistemas y producción están trabajando juntos."],
+        ["A", "And the client?", "¿Y el cliente?"],
+        ["B", "So far, they're satisfied. Now we just need to execute.", "Hasta ahora está satisfecho. Ahora solo falta ejecutar."]
       ]
     },
     {

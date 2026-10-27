@@ -1,7 +1,7 @@
 /* Nivel 5 · Avanzado (C1) */
 (window.COURSE = window.COURSE || []).push({
   id: "n5", name: "Universidad 2 · Avanzado", short: "Universidad 2", cefr: "C1",
-  desc: "Condicionales avanzados, matizar, énfasis, inversión, lenguaje académico, ensayos, debates, juntas, negociación y lenguaje coloquial.",
+  desc: "Condicionales avanzados, matizar, énfasis, inversión, lenguaje formal y académico, conceptos, ensayos, debates, juntas, negociación y lenguaje coloquial.",
   units: [
     {
       id: "n5u1", t: "Tercer condicional y arrepentimientos",
@@ -171,6 +171,38 @@
       ]
     },
     {
+      id: "n5u13", t: "Hablar de conceptos: definición, patrón, símbolo",
+      goal: "Analizar un tema: definir, comparar, encontrar patrones y explicar intenciones.",
+      g: [
+        "Para analizar un tema: The key point is… · There's a pattern here. · By definition,…",
+        ["How do you define success? · There's a clear pattern in the data.", "¿Cómo defines el éxito? · Hay un patrón claro en los datos."],
+        "Muchos sustantivos van con of: the definition of… · a combination of… · a symbol of… · the core of the problem.",
+        "!moral = moral (adjetivo) · morale = el ánimo de un equipo: Team morale is low."
+      ],
+      c: [
+        ["¿Cómo defines el éxito?", "How do you define success?", "", ""],
+        ["Hay un patrón claro en los datos.", "There's a clear pattern in the data.", "", ""],
+        ["Según las estadísticas, el desempleo bajó.", "According to the statistics, unemployment went down.", "", ""],
+        ["Es una combinación de factores.", "It's a combination of factors.", "", ""],
+        ["La paloma es un símbolo de paz.", "The dove is a symbol of peace.", "", ""],
+        ["Es un problema moral.", "It's a moral problem.", "", ""],
+        ["Hay una gran brecha entre ricos y pobres.", "There's a big gap between rich and poor.", "", ""],
+        ["Mi intención era ayudar.", "My intention was to help.", "", ""],
+        ["Eso no tiene lógica.", "There's no logic in that.", "", ""],
+        ["¿Cuál es la filosofía de la empresa?", "What's the company's philosophy?", "", ""],
+        ["el núcleo del problema", "the core of the problem", "", ""],
+        ["Por definición, un líder escucha.", "By definition, a leader listens.", "", ""]
+      ],
+      d: [
+        ["A", "Our sales went down again this month.", "Nuestras ventas volvieron a bajar este mes."],
+        ["B", "Is there a pattern?", "¿Hay algún patrón?"],
+        ["A", "Yes. They always drop in summer, especially in July.", "Sí. Siempre bajan en verano, sobre todo en julio."],
+        ["B", "Then we need a different technique for those months.", "Entonces necesitamos una técnica distinta para esos meses."],
+        ["A", "Like what?", "¿Como qué?"],
+        ["B", "A combination of discounts and online ads.", "Una combinación de descuentos y anuncios en línea."]
+      ]
+    },
+    {
       id: "n5u5", t: "Juntas y presentaciones",
       goal: "Dirigir una junta o dar una presentación de principio a fin.",
       g: [
@@ -305,6 +337,70 @@
       ]
     },
     {
+      id: "n5u14", t: "Lenguaje formal 1: ensure, obtain, seek",
+      goal: "Escribir y hablar en un tono formal con los verbos que usan las empresas y las instituciones.",
+      g: [
+        "En inglés formal se usan verbos de origen latino en lugar de phrasal verbs: get → obtain · look for → seek · make sure → ensure · happen → occur.",
+        ["Please ensure that all doors are closed. · We are unable to process your request.", "Asegúrese de que todas las puertas estén cerradas. · No podemos procesar su solicitud."],
+        "on behalf of = en nombre de: I'm writing on behalf of the company.",
+        "!ought to = should (debería), más formal: You ought to apologize."
+      ],
+      c: [
+        ["Asegúrese de que todas las puertas estén cerradas.", "Please ensure that all doors are closed.", "", ""],
+        ["No podemos procesar su solicitud.", "We are unable to process your request.", "", ""],
+        ["Escribo en nombre de la empresa.", "I'm writing on behalf of the company.", "", ""],
+        ["Es esencial llegar a tiempo.", "It's essential to arrive on time.", "", ""],
+        ["Obtuvo una beca.", "She obtained a scholarship.", "", ""],
+        ["El accidente ocurrió a las tres.", "The accident occurred at three.", "", ""],
+        ["Buscamos nuevas oportunidades.", "We are seeking new opportunities.", "", "seek = buscar (formal)."],
+        ["La información no es exacta.", "The information isn't accurate.", "", "accurate = exacto, preciso."],
+        ["Debería disculparse.", "You ought to apologize.", "", ""],
+        ["No es el momento adecuado.", "It's not the appropriate time.", "", ""],
+        ["Esto refleja nuestros valores.", "This reflects our values.", "", ""],
+        ["Hubo numerosas quejas.", "There were numerous complaints.", "", ""]
+      ],
+      d: [
+        ["A", "I'm calling on behalf of the hotel. Is this Mr. López?", "Le llamo de parte del hotel. ¿Hablo con el señor López?"],
+        ["B", "Yes, speaking.", "Sí, él habla."],
+        ["A", "I'm afraid we are unable to confirm your reservation for Friday.", "Lamento informarle que no podemos confirmar su reservación del viernes."],
+        ["B", "Why? I booked it two months ago.", "¿Por qué? La hice hace dos meses."],
+        ["A", "There was a problem with our system. We will ensure that you get a room at a nearby hotel.", "Hubo un problema con nuestro sistema. Nos aseguraremos de que tenga cuarto en un hotel cercano."],
+        ["B", "I appreciate it, but I ought to get a discount.", "Se lo agradezco, pero debería tener un descuento."]
+      ]
+    },
+    {
+      id: "n5u15", t: "Lenguaje formal 2: whereas, hence, merely",
+      goal: "Unir ideas en reportes y textos formales: mientras que, por lo tanto, principalmente, en gran parte.",
+      g: [
+        "Para textos formales: whereas (mientras que) · hence (por lo tanto) · thus (así) · prior to (antes de).",
+        ["Sales rose significantly. · Prior to the meeting, please read the report.", "Las ventas subieron de manera importante. · Antes de la junta, por favor lean el reporte."],
+        "the former… the latter = el primero… el segundo (de dos cosas que ya mencionaste).",
+        "!respectively = respectivamente: Ana and Luis are 20 and 25, respectively."
+      ],
+      c: [
+        ["Las ventas subieron de manera importante.", "Sales rose significantly.", "", ""],
+        ["Antes de la junta, lean el reporte.", "Prior to the meeting, read the report.", "", "prior to = antes de (formal)."],
+        ["Es relativamente fácil.", "It's relatively easy.", "", ""],
+        ["El problema es principalmente económico.", "The problem is mainly economic.", "", ""],
+        ["En última instancia, la decisión es tuya.", "Ultimately, the decision is yours.", "", ""],
+        ["Ella prefiere el té, mientras que yo prefiero el café.", "She prefers tea, whereas I prefer coffee.", "", ""],
+        ["Al principio fue difícil.", "Initially, it was difficult.", "", ""],
+        ["Es solo una idea.", "It's merely an idea.", "", "merely = solamente (formal)."],
+        ["cada vez más popular", "increasingly popular", "", ""],
+        ["Fue en parte mi culpa.", "It was partly my fault.", "", ""],
+        ["Llovió mucho; por lo tanto, se canceló el partido.", "It rained a lot; hence, the game was canceled.", "", "hence = por lo tanto (formal)."],
+        ["Pagaremos, sin importar el precio.", "We'll pay regardless of the price.", "", ""]
+      ],
+      d: [
+        ["A", "How did the first quarter go?", "¿Cómo nos fue en el primer trimestre?"],
+        ["B", "Overall, sales increased significantly, mainly in the north.", "En general, las ventas subieron bastante, sobre todo en el norte."],
+        ["A", "And the south?", "¿Y el sur?"],
+        ["B", "Sales there were somewhat lower, largely because of the rain.", "Ahí fueron un poco más bajas, en gran parte por las lluvias."],
+        ["A", "So the problem is temporary.", "O sea que el problema es temporal."],
+        ["B", "Essentially, yes. We expect a recovery in the next quarter.", "Básicamente, sí. Esperamos una recuperación el próximo trimestre."]
+      ]
+    },
+    {
       id: "n5u10", t: "Vocabulario académico",
       goal: "Entender y usar las palabras de textos universitarios y técnicos.",
       g: [
@@ -334,6 +430,70 @@
         ["B", "The evidence suggests that training has a significant impact on safety.", "La evidencia sugiere que la capacitación tiene un impacto significativo en la seguridad."],
         ["A", "Was the actual cost of training high?", "¿El costo real de la capacitación fue alto?"],
         ["B", "Not really. Consequently, we recommend this approach.", "No mucho. En consecuencia, recomendamos este enfoque."]
+      ]
+    },
+    {
+      id: "n5u16", t: "Adjetivos formales: genuine, vital, sufficient",
+      goal: "Sonar preciso y profesional con adjetivos formales.",
+      g: [
+        "En textos formales hay adjetivos que reemplazan palabras sencillas: enough → sufficient · very important → vital · clear → apparent · fast → rapid.",
+        ["We don't have sufficient information. · Water is vital for life.", "No tenemos información suficiente. · El agua es vital para la vida."],
+        "be eligible for = tener derecho a, cumplir los requisitos para: You're eligible for a discount.",
+        "!genuine = auténtico, sincero · ongoing = en curso: an ongoing investigation."
+      ],
+      c: [
+        ["No tenemos información suficiente.", "We don't have sufficient information.", "", ""],
+        ["El agua es vital para la vida.", "Water is vital for life.", "", ""],
+        ["Es un diamante auténtico.", "It's a genuine diamond.", "", ""],
+        ["Es un cambio fundamental.", "It's a fundamental change.", "", ""],
+        ["La investigación sigue en curso.", "The investigation is ongoing.", "", ""],
+        ["Tienes derecho a un descuento.", "You're eligible for a discount.", "", ""],
+        ["Es un lugar adecuado para niños.", "It's a suitable place for children.", "", ""],
+        ["Es una persona muy dinámica.", "She's a very dynamic person.", "", ""],
+        ["El dolor era muy intenso.", "The pain was very intense.", "", ""],
+        ["un crecimiento rápido", "rapid growth", "", ""],
+        ["Es la única dueña.", "She's the sole owner.", "", ""],
+        ["Es un esfuerzo colectivo.", "It's a collective effort.", "", ""]
+      ],
+      d: [
+        ["A", "Did you read the report about the new plant?", "¿Leíste el reporte de la planta nueva?"],
+        ["B", "Yes. It's very comprehensive.", "Sí. Es muy completo."],
+        ["A", "Do you think the project is worthy of investment?", "¿Crees que el proyecto merece la inversión?"],
+        ["B", "It's apparent that the market is growing, but the risks are significant.", "Es evidente que el mercado está creciendo, pero los riesgos son importantes."],
+        ["A", "So what's your recommendation?", "Entonces, ¿qué recomiendas?"],
+        ["B", "A steady, strategic approach. Let's start small.", "Un enfoque estable y estratégico. Empecemos poco a poco."]
+      ]
+    },
+    {
+      id: "n5u17", t: "Palabras académicas: ratio, sequence, guidance",
+      goal: "Entender y explicar estudios, reportes y datos con vocabulario académico.",
+      g: [
+        "En reportes y estudios: a ratio of 3 to 1 (una proporción de 3 a 1) · in sequence (en orden) · with the exception of (con excepción de).",
+        ["The ratio is three to one. · With the exception of Mondays, we're open every day.", "La proporción es de tres a uno. · Con excepción de los lunes, abrimos todos los días."],
+        "with ease = con facilidad · under the guidance of = bajo la guía de · be bound to = seguro que va a…",
+        "!faculty = el cuerpo de profesores de una universidad."
+      ],
+      c: [
+        ["La proporción es de tres a uno.", "The ratio is three to one.", "", ""],
+        ["Con excepción de los lunes, abrimos todos los días.", "With the exception of Mondays, we're open every day.", "", ""],
+        ["Lo hizo con facilidad.", "She did it with ease.", "", ""],
+        ["Sigue la secuencia correcta.", "Follow the correct sequence.", "", ""],
+        ["Hubo una reducción de costos.", "There was a reduction in costs.", "", ""],
+        ["un periodo de transición", "a transition period", "", ""],
+        ["Bajo la guía de su maestra, mejoró mucho.", "Under the guidance of her teacher, she improved a lot.", "", ""],
+        ["Los participantes contestaron una encuesta.", "The participants answered a survey.", "", ""],
+        ["la participación de los ciudadanos", "citizen participation", "", ""],
+        ["Seguro que va a pasar.", "It's bound to happen.", "", ""],
+        ["la densidad de población", "population density", "", ""],
+        ["el índice de precios", "the price index", "", ""]
+      ],
+      d: [
+        ["A", "How was the study designed?", "¿Cómo se diseñó el estudio?"],
+        ["B", "We had two hundred participants, divided into two groups.", "Tuvimos doscientos participantes, divididos en dos grupos."],
+        ["A", "And the results?", "¿Y los resultados?"],
+        ["B", "The first group showed a forty percent reduction in stress.", "El primer grupo mostró una reducción del estrés del cuarenta por ciento."],
+        ["A", "That's impressive. What was the ratio of men to women?", "Es impresionante. ¿Cuál fue la proporción de hombres y mujeres?"],
+        ["B", "Almost one to one.", "Casi uno a uno."]
       ]
     },
     {

@@ -434,5 +434,439 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
         ["Why did they rule out a discount?", ["The client didn't want it", "It was too late", "Their margins are already low"], 2]
       ]
     }
+  },
+  n4u16: {
+    v: [
+      ["un investigador de la universidad", "a university researcher", "", ""],
+      ["un estudio científico", "a scientific study", "", ""],
+      ["un experimento de laboratorio", "a lab experiment", "", ""],
+      ["un tubo de ensayo", "a test tube", "", ""],
+      ["Observa los resultados.", "Observe the results.", "", ""],
+      ["una fórmula matemática", "a mathematical formula", "", ""],
+      ["los elementos químicos", "the chemical elements", "", ""],
+      ["la lluvia ácida", "acid rain", "", ""],
+      ["la capa de ozono", "the ozone layer", "", ""],
+      ["un satélite de comunicaciones", "a communications satellite", "", ""],
+      ["Es una enfermedad genética.", "It's a genetic disease.", "", ""],
+      ["Lo trae en los genes.", "It's in his genes.", "", ""],
+      ["ciencias biológicas", "biological sciences", "", ""],
+      ["la frecuencia de la radio", "the radio frequency", "", ""],
+      ["un tratamiento experimental", "an experimental treatment", "", ""],
+      ["Hacen mucha investigación médica.", "They do a lot of medical research.", "", ""],
+      ["Analizaron muestras de tejido.", "They analyzed tissue samples.", "", ""],
+      ["Evita la exposición al sol.", "Avoid sun exposure.", "", ""]
+    ],
+    r: {
+      t: "A window to the universe",
+      en: "In 2021, scientists launched the most powerful space telescope in history. It travels around the Sun, about one and a half million kilometers from the Earth.\nThe telescope observes the universe with infrared light. It can see galaxies that formed more than thirteen billion years ago, not long after the beginning of the universe.\nEvery week, researchers around the world study its images. Some are looking for planets with water and an atmosphere. Maybe one day they will prove that we are not alone.",
+      es: "En 2021, los científicos lanzaron el telescopio espacial más potente de la historia. Viaja alrededor del Sol, a como un millón y medio de kilómetros de la Tierra.\nEl telescopio observa el universo con luz infrarroja. Puede ver galaxias que se formaron hace más de trece mil millones de años, poco después del principio del universo.\nCada semana, investigadores de todo el mundo estudian sus imágenes. Algunos buscan planetas con agua y atmósfera. Tal vez un día comprueben que no estamos solos.",
+      q: [
+        ["¿Cuándo lanzaron el telescopio?", ["En 2021", "En 1990", "En 2010"], 0],
+        ["¿Qué puede ver?", ["Solo la Luna", "Galaxias de hace más de trece mil millones de años", "Solo planetas cercanos"], 1],
+        ["¿Qué buscan algunos investigadores?", ["Petróleo", "Satélites viejos", "Planetas con agua y atmósfera"], 2]
+      ]
+    }
+  },
+  n4u17: {
+    v: [
+      ["el periodo colonial", "the colonial period", "", ""],
+      ["en la última década", "in the last decade", "", ""],
+      ["la era digital", "the digital era", "", ""],
+      ["la familia real", "the royal family", "", ""],
+      ["el reino de España", "the kingdom of Spain", "", ""],
+      ["un príncipe y una princesa", "a prince and a princess", "", ""],
+      ["la corona del rey", "the king's crown", "", ""],
+      ["un castillo medieval", "a medieval castle", "", ""],
+      ["la República Mexicana", "the Mexican Republic", "", ""],
+      ["el origen del nombre", "the origin of the name", "", ""],
+      ["un monumento a los héroes", "a memorial to the heroes", "", ""],
+      ["la gloria del imperio", "the glory of the empire", "", ""],
+      ["una espada y un escudo", "a sword and a shield", "", ""],
+      ["los caballeros del rey", "the king's knights", "", ""],
+      ["los guerreros aztecas", "the Aztec warriors", "", ""],
+      ["el legado de los mayas", "the legacy of the Maya", "", ""],
+      ["un país comunista", "a communist country", "", ""],
+      ["Establecieron una nueva ley.", "They established a new law.", "", ""]
+    ],
+    r: {
+      t: "Tenochtitlan",
+      en: "According to legend, the Aztecs left their home in the north to look for a sign: an eagle on a cactus, eating a snake. In 1325 they found it on an island in a lake, and there they founded Tenochtitlan.\nIn less than two centuries, Tenochtitlan became the capital of a powerful empire. When the Spanish arrived in 1519, it was one of the biggest cities in the world, with palaces, temples and markets.\nIn 1521, after a long battle, the city fell. The Spanish built Mexico City on its ruins. Today the eagle and the snake are on the Mexican flag, part of a legacy that is still alive.",
+      es: "Según la leyenda, los aztecas dejaron su hogar en el norte para buscar una señal: un águila sobre un nopal, comiéndose una serpiente. En 1325 la encontraron en una isla de un lago, y ahí fundaron Tenochtitlan.\nEn menos de dos siglos, Tenochtitlan se convirtió en la capital de un imperio poderoso. Cuando llegaron los españoles en 1519, era una de las ciudades más grandes del mundo, con palacios, templos y mercados.\nEn 1521, después de una batalla larga, la ciudad cayó. Los españoles construyeron la Ciudad de México sobre sus ruinas. Hoy el águila y la serpiente están en la bandera de México, parte de un legado que sigue vivo.",
+      q: [
+        ["¿Qué señal buscaban los aztecas?", ["Un águila sobre un nopal comiéndose una serpiente", "Un río grande", "Una montaña nevada"], 0],
+        ["¿Cuándo llegaron los españoles?", ["En 1325", "En 1519", "En 1821"], 1],
+        ["¿Dónde están hoy el águila y la serpiente?", ["En un museo", "En una moneda antigua", "En la bandera de México"], 2]
+      ]
+    }
+  },
+  n4u18: {
+    v: [
+      ["una revista científica", "a scientific journal", "", ""],
+      ["la edición del domingo", "the Sunday edition", "", ""],
+      ["el editor del periódico", "the newspaper editor", "", ""],
+      ["un anuncio en internet", "an online ad", "", ""],
+      ["una cámara digital", "a digital camera", "", ""],
+      ["un muy buen orador", "a very good public speaker", "", "speaker = orador y también bocina."],
+      ["críticas al gobierno", "criticism of the government", "", ""],
+      ["el crítico de cine", "the film critic", "", ""],
+      ["una publicación semanal", "a weekly publication", "", ""],
+      ["la calificación de la película", "the movie's rating", "", ""],
+      ["Transmiten el partido en vivo.", "They broadcast the game live.", "", ""],
+      ["la columna de opinión", "the opinion column", "", ""],
+      ["los lectores del periódico", "the newspaper's readers", "", ""],
+      ["imágenes de la cámara de seguridad", "security camera footage", "", ""],
+      ["un fotógrafo profesional", "a professional photographer", "", ""],
+      ["Tomó una fotografía.", "She took a photograph.", "", ""],
+      ["un anuncio importante", "an important announcement", "", ""],
+      ["Publicaron el artículo ayer.", "They published the article yesterday.", "", ""]
+    ],
+    r: {
+      t: "Where do you get your news?",
+      en: "My grandfather read the newspaper every morning and listened to the radio in the car. My parents watched the news on television every night at ten.\nI get my news in a different way. I follow a few journalists on social media and read articles from different sources. I also listen to news podcasts while I drive.\nThe problem is that anyone can publish anything online. That's why I always check where the information comes from. If I only see a story on one website, I don't believe it until a serious newspaper confirms it.",
+      es: "Mi abuelo leía el periódico todas las mañanas y escuchaba la radio en el carro. Mis papás veían las noticias en la tele todas las noches a las diez.\nYo me informo de otra manera. Sigo a algunos periodistas en redes sociales y leo artículos de distintas fuentes. También escucho podcasts de noticias mientras manejo.\nEl problema es que cualquiera puede publicar cualquier cosa en internet. Por eso siempre reviso de dónde viene la información. Si solo veo una noticia en una página, no la creo hasta que la confirma un periódico serio.",
+      q: [
+        ["¿Cómo se informaba su abuelo?", ["Con el periódico y la radio", "Con internet", "Con revistas"], 0],
+        ["¿Qué escucha mientras maneja?", ["Música", "Podcasts de noticias", "Audiolibros"], 1],
+        ["¿Qué hace si una noticia solo sale en una página?", ["La comparte", "La cree", "No la cree hasta que la confirme un periódico serio"], 2]
+      ]
+    }
+  },
+  n4u19: {
+    v: [
+      ["un archivo digital en otro formato", "a digital file in a different format", "", ""],
+      ["modo avión", "airplane mode", "", ""],
+      ["almacenamiento en la nube", "cloud storage", "", ""],
+      ["aparatos electrónicos", "electronic devices", "", ""],
+      ["la pantalla del celular", "the phone's display", "", ""],
+      ["el servidor de la empresa", "the company server", "", ""],
+      ["Los carros nuevos usan muchos chips.", "New cars use a lot of chips.", "", ""],
+      ["la base de datos", "the database", "", ""],
+      ["el hardware y el software", "hardware and software", "", ""],
+      ["el idioma predeterminado", "the default language", "", ""],
+      ["una reunión virtual", "a virtual meeting", "", ""],
+      ["La función de filtro es muy útil.", "The filter function is very useful.", "", ""],
+      ["el NIP de tu tarjeta", "your card's PIN", "", ""],
+      ["el audio del video", "the video's audio", "", ""],
+      ["una memoria USB", "a flash drive", "", ""],
+      ["un circuito eléctrico", "an electrical circuit", "", ""],
+      ["Llama al teléfono de la oficina.", "Call the office telephone.", "", ""],
+      ["Estudia programación.", "She studies programming.", "", ""],
+      ["una puerta automática", "an automatic door", "", ""]
+    ],
+    r: {
+      t: "Working from home",
+      en: "Since the pandemic, I work from home three days a week. My company gave me a laptop, a second monitor and a headset with good audio. I connect to the company network with a secure password.\nMost of my meetings are virtual. At first it was hard: the internet signal was weak, and my computer was always asking for software updates. Now I have a better connection, and everything updates automatically at night.\nTechnology makes my life easier, but I also learned to disconnect. At six o'clock I turn off my devices and put my phone on silent. My family deserves my attention too.",
+      es: "Desde la pandemia trabajo desde casa tres días a la semana. Mi empresa me dio una laptop, un segundo monitor y unos audífonos con buen audio. Me conecto a la red de la empresa con una contraseña segura.\nLa mayoría de mis juntas son virtuales. Al principio fue difícil: la señal de internet era débil y mi computadora siempre pedía actualizaciones del software. Ahora tengo mejor conexión y todo se actualiza solo en la noche.\nLa tecnología me hace la vida más fácil, pero también aprendí a desconectarme. A las seis apago mis aparatos y pongo el celular en silencio. Mi familia también merece mi atención.",
+      q: [
+        ["¿Cuántos días trabaja desde casa?", ["Tres a la semana", "Todos los días", "Uno al mes"], 0],
+        ["¿Qué problema tenía al principio?", ["No tenía computadora", "La señal era débil", "Su jefe no le hablaba"], 1],
+        ["¿Qué hace a las seis?", ["Empieza a trabajar", "Tiene una junta", "Apaga sus aparatos"], 2]
+      ]
+    }
+  },
+  n4u20: {
+    v: [
+      ["empleados hombres y mujeres", "male and female employees", "", ""],
+      ["la igualdad de género", "gender equality", "", ""],
+      ["los grupos minoritarios", "minority groups", "", ""],
+      ["la diversidad cultural", "cultural diversity", "", ""],
+      ["grupos étnicos", "ethnic groups", "", ""],
+      ["Los comentarios racistas son una forma de discriminación racial.", "Racist comments are a form of racial discrimination.", "", ""],
+      ["el acoso sexual", "sexual harassment", "", ""],
+      ["El matrimonio gay es legal en México.", "Gay marriage is legal in Mexico.", "", ""],
+      ["la identidad de cada persona", "each person's identity", "", ""],
+      ["una asociación de vecinos", "a neighborhood association", "", ""],
+      ["Faltan viviendas que la gente pueda pagar.", "There's a lack of affordable housing.", "", ""],
+      ["programas de bienestar social", "social welfare programs", "", ""],
+      ["la conciencia sobre el medio ambiente", "environmental awareness", "", ""],
+      ["Mi abuelo era inmigrante.", "My grandfather was an immigrant.", "", ""],
+      ["la Estatua de la Libertad", "the Statue of Liberty", "", ""],
+      ["la humanidad", "humanity", "", ""],
+      ["los derechos de cada individuo", "the rights of each individual", "", ""],
+      ["mis conciudadanos", "my fellow citizens", "", ""]
+    ],
+    r: {
+      t: "A community that helps",
+      en: "In my neighborhood there's a small foundation that helps families living in poverty. It started fifteen years ago, when a group of neighbors decided to collect food for the people in need.\nToday it's a nonprofit organization with more than a hundred volunteers. They give classes, help immigrants find jobs and run a free clinic on weekends. Many of the volunteers are retired teachers and doctors.\nThe foundation works with everyone, without discrimination. Its message is simple: we are all equal, and everyone has the right to a decent life. When people work together, a whole community can change.",
+      es: "En mi colonia hay una fundación pequeña que ayuda a familias que viven en pobreza. Empezó hace quince años, cuando un grupo de vecinos decidió juntar comida para las personas necesitadas.\nHoy es una organización sin fines de lucro con más de cien voluntarios. Dan clases, ayudan a inmigrantes a encontrar trabajo y tienen una clínica gratuita los fines de semana. Muchos de los voluntarios son maestros y doctores jubilados.\nLa fundación trabaja con todos, sin discriminación. Su mensaje es sencillo: todos somos iguales y todos tenemos derecho a una vida digna. Cuando la gente trabaja junta, una comunidad entera puede cambiar.",
+      q: [
+        ["¿Cómo empezó la fundación?", ["Un grupo de vecinos juntó comida", "El gobierno la abrió", "Una empresa grande la creó"], 0],
+        ["¿Quiénes son muchos de los voluntarios?", ["Estudiantes", "Maestros y doctores jubilados", "Políticos"], 1],
+        ["¿Cuál es su mensaje?", ["Hay que trabajar más", "Hay que ahorrar", "Todos somos iguales"], 2]
+      ]
+    }
+  },
+  n4u21: {
+    v: [
+      ["el gobierno actual", "the current administration", "", ""],
+      ["la Comisión de Derechos Humanos", "the Human Rights Commission", "", ""],
+      ["el comisionado de policía", "the police commissioner", "", ""],
+      ["el Parlamento británico", "the British Parliament", "", ""],
+      ["el Ministerio de Salud", "the Ministry of Health", "", ""],
+      ["Los diputados votaron la ley.", "The deputies voted on the law.", "", ""],
+      ["una nueva legislación", "new legislation", "", ""],
+      ["el poder legislativo", "the legislative branch", "", ""],
+      ["una enmienda a la Constitución", "an amendment to the Constitution", "", ""],
+      ["un cambio constitucional", "a constitutional change", "", ""],
+      ["un régimen autoritario", "an authoritarian regime", "", ""],
+      ["la oficina del censo", "the census bureau", "", ""],
+      ["el fallo del juez", "the judge's ruling", "", ""],
+      ["Está en contra del sistema.", "He's against the establishment.", "", ""],
+      ["una declaración oficial", "an official statement", "", ""],
+      ["Elegimos a nuestros representantes.", "We elect our representatives.", "", ""],
+      ["El reglamento exige casco.", "The rules require a helmet.", "", ""]
+    ],
+    r: {
+      t: "A new law",
+      en: "Last year Congress approved a reform to ban single-use plastics. The new legislation affects stores, restaurants and factories all over the country.\nSome business associations were against the law. They said it was too fast and that small businesses needed more time. After a long debate, the authorities extended the deadline by one year.\nNow the regulations are clear: stores can't give out plastic bags, and restaurants must use paper straws. Environmental groups say it's an important first step. The real test, they say, is whether the authorities enforce the law.",
+      es: "El año pasado el Congreso aprobó una reforma para prohibir los plásticos de un solo uso. La nueva legislación afecta a tiendas, restaurantes y fábricas de todo el país.\nAlgunas asociaciones de empresas estuvieron en contra de la ley. Dijeron que era demasiado rápida y que los negocios pequeños necesitaban más tiempo. Después de un debate largo, las autoridades ampliaron el plazo un año.\nAhora las regulaciones son claras: las tiendas no pueden dar bolsas de plástico y los restaurantes deben usar popotes de papel. Los grupos ambientalistas dicen que es un primer paso importante. La verdadera prueba, dicen, es si las autoridades hacen cumplir la ley.",
+      q: [
+        ["¿Qué prohíbe la reforma?", ["Los plásticos de un solo uso", "Los carros viejos", "El papel"], 0],
+        ["¿Qué hicieron las autoridades después del debate?", ["Cancelaron la ley", "Ampliaron el plazo un año", "Cerraron las tiendas"], 1],
+        ["¿Cuál es la verdadera prueba según los grupos ambientalistas?", ["Que la gente esté contenta", "Que las tiendas vendan más", "Que las autoridades hagan cumplir la ley"], 2]
+      ]
+    }
+  },
+  n4u22: {
+    v: [
+      ["la sentencia del juez", "the judge's sentence", "", ""],
+      ["un castigo muy severo", "a very severe punishment", "", ""],
+      ["las autoridades que hacen cumplir la ley", "law enforcement", "", ""],
+      ["posesión de drogas", "drug possession", "", ""],
+      ["El hombre presuntamente robó un carro.", "The man allegedly stole a car.", "", ""],
+      ["No hay pruebas de que lo hizo.", "There's no proof that he did it.", "", ""],
+      ["un asunto legal", "a legal matter", "", ""],
+      ["Tienes derecho a guardar silencio.", "You have the right to remain silent.", "", ""],
+      ["Ganaron el caso.", "They won the case.", "", ""],
+      ["El testigo declaró en el juicio.", "The witness testified at the trial.", "", ""],
+      ["Es contra la ley.", "It's against the law.", "", ""],
+      ["Admitió su culpa.", "He admitted his guilt.", "", ""],
+      ["Nadie está por encima de la ley.", "No one is above the law.", "", ""],
+      ["Lo condenaron a cinco años.", "He was sentenced to five years.", "", ""],
+      ["un juicio justo", "a fair trial", "", ""]
+    ],
+    r: {
+      t: "The case of the missing money",
+      en: "Last year a famous businessman was accused of stealing millions of pesos from his own company. According to the authorities, he allegedly used fake documents to send the money to other countries.\nThe trial lasted six months. His attorneys said he was innocent and that there was no proof. But several witnesses testified against him, and the evidence was very strong.\nIn the end, the judge found him guilty of fraud and corruption, and he was sentenced to twelve years in prison. His attorneys say they will appeal the decision. Many people hope that this case shows that no one is above the law.",
+      es: "El año pasado un empresario famoso fue acusado de robar millones de pesos de su propia empresa. Según las autoridades, presuntamente usó documentos falsos para mandar el dinero a otros países.\nEl juicio duró seis meses. Sus abogados dijeron que era inocente y que no había pruebas. Pero varios testigos declararon en su contra y la evidencia era muy fuerte.\nAl final, el juez lo declaró culpable de fraude y corrupción, y lo condenaron a doce años de cárcel. Sus abogados dicen que van a apelar la decisión. Mucha gente espera que este caso demuestre que nadie está por encima de la ley.",
+      q: [
+        ["¿De qué acusaron al empresario?", ["De robar dinero de su empresa", "De manejar borracho", "De no pagar la renta"], 0],
+        ["¿Cuánto duró el juicio?", ["Una semana", "Seis meses", "Cinco años"], 1],
+        ["¿Qué van a hacer sus abogados?", ["Nada", "Renunciar", "Apelar la decisión"], 2]
+      ]
+    }
+  },
+  n4u23: {
+    v: [
+      ["un coronel y un teniente", "a colonel and a lieutenant", "", ""],
+      ["el comandante de las tropas", "the commander of the troops", "", ""],
+      ["Su hijo está en los Marines.", "His son is in the Marines.", "", ""],
+      ["una flota de barcos", "a fleet of ships", "", ""],
+      ["un avión de combate", "a fighter jet", "", ""],
+      ["Es una historia de supervivencia en combate.", "It's a story of survival in combat.", "", ""],
+      ["Capturaron al líder.", "They captured the leader.", "", ""],
+      ["una alianza militar", "a military alliance", "", ""],
+      ["México y Canadá son aliados.", "Mexico and Canada are allies.", "", ""],
+      ["la resistencia", "the resistance", "", ""],
+      ["La bomba causó mucha destrucción.", "The bomb caused a lot of destruction.", "", ""],
+      ["Ocuparon la ciudad.", "They occupied the city.", "", ""],
+      ["una protesta pacífica", "a peaceful protest", "", ""],
+      ["Amenazó con renunciar.", "He threatened to quit.", "", ""],
+      ["Está bajo el mando del general.", "It's under the general's command.", "", ""],
+      ["un conflicto armado", "an armed conflict", "", ""],
+      ["la fuerza aérea", "the air force", "", ""],
+      ["el secretario de la Defensa", "the defense minister", "", ""]
+    ],
+    r: {
+      t: "The war that changed my grandfather",
+      en: "My grandfather was born in Texas, and when he was nineteen he joined the army. It was 1944, during the Second World War. A few months later, he was sent to Europe with thousands of other soldiers.\nHe didn't talk much about combat. He said the worst part was the destruction: cities and villages that were completely destroyed. But he also talked about friendship, and how the soldiers protected each other to survive.\nWhen the war ended, he came back home and became a teacher. He always said, \"Peace is not something we have. It's something we build every day.\" He died at ninety-two, a proud veteran and a very peaceful man.",
+      es: "Mi abuelo nació en Texas y a los diecinueve años entró al ejército. Era 1944, durante la Segunda Guerra Mundial. Unos meses después, lo mandaron a Europa con miles de soldados más.\nNo hablaba mucho del combate. Decía que lo peor era la destrucción: ciudades y pueblos completamente destruidos. Pero también hablaba de la amistad y de cómo los soldados se protegían unos a otros para sobrevivir.\nCuando terminó la guerra, regresó a casa y se hizo maestro. Siempre decía: «La paz no es algo que tenemos. Es algo que construimos todos los días». Murió a los noventa y dos años, un veterano orgulloso y un hombre muy pacífico.",
+      q: [
+        ["¿Cuándo entró al ejército?", ["En 1944, a los diecinueve años", "En 1960", "Después de la guerra"], 0],
+        ["¿Qué decía que era lo peor?", ["El frío", "La destrucción", "La comida"], 1],
+        ["¿Qué hizo cuando terminó la guerra?", ["Se quedó en Europa", "Siguió en el ejército", "Regresó y se hizo maestro"], 2]
+      ]
+    }
+  },
+  n4u24: {
+    v: [
+      ["la estructura de la empresa", "the structure of the company", "", ""],
+      ["un análisis crítico", "a critical analysis", "", ""],
+      ["Eso no existe.", "That doesn't exist.", "", ""],
+      ["la existencia de vida en otros planetas", "the existence of life on other planets", "", ""],
+      ["un problema relacionado con el dinero", "a problem related to money", "", ""],
+      ["No hay relación entre los dos casos.", "There's no relation between the two cases.", "", ""],
+      ["la importancia de la educación", "the importance of education", "", ""],
+      ["el resultado final", "the final outcome", "", ""],
+      ["un enfoque diferente", "a different approach", "", ""],
+      ["un factor importante", "an important factor", "", ""],
+      ["desde otra perspectiva", "from another perspective", "", ""],
+      ["¿Cuál es el propósito?", "What's the purpose?", "", ""],
+      ["un buen argumento", "a good argument", "", ""],
+      ["Depende de la situación.", "It depends on the situation.", "", ""],
+      ["Tiene ventajas y desventajas.", "It has advantages and disadvantages.", "", ""]
+    ],
+    r: {
+      t: "Should I buy a car?",
+      en: "I live twenty kilometers from my job, and I'm thinking about buying a car. Before deciding, I made a list of the pros and cons.\nThe main pro is time: by car I would save almost two hours a day. The cons are the cost of gas, insurance and parking, and the stress of driving in traffic. In this context, a car is not a luxury, but it's not cheap either.\nI also looked at the alternatives. A motorcycle is cheaper, but more dangerous. Working from home two days a week is another possibility. In the end, my objective is simple: more time with my family and less money spent on transport.",
+      es: "Vivo a veinte kilómetros de mi trabajo y estoy pensando en comprar un carro. Antes de decidir, hice una lista de los pros y los contras.\nEl pro principal es el tiempo: en carro me ahorraría casi dos horas al día. Los contras son el costo de la gasolina, el seguro y el estacionamiento, y el estrés de manejar en el tráfico. En este contexto, un carro no es un lujo, pero tampoco es barato.\nTambién vi las alternativas. Una moto es más barata, pero más peligrosa. Trabajar desde casa dos días a la semana es otra posibilidad. Al final, mi objetivo es sencillo: más tiempo con mi familia y menos dinero gastado en transporte.",
+      q: [
+        ["¿Cuál es el pro principal del carro?", ["Ahorrar tiempo", "Ahorrar dinero", "Hacer ejercicio"], 0],
+        ["¿Qué dice de la moto?", ["Que es más cara", "Que es más barata pero más peligrosa", "Que es más cómoda"], 1],
+        ["¿Cuál es su objetivo?", ["Tener el carro más caro", "Cambiar de trabajo", "Más tiempo con su familia y gastar menos"], 2]
+      ]
+    }
+  },
+  n4u25: {
+    v: [
+      ["la dirección de la empresa", "company management", "", ""],
+      ["una agencia de viajes", "a travel agency", "", ""],
+      ["la misión de la empresa", "the company's mission", "", ""],
+      ["la división de ventas", "the sales division", "", ""],
+      ["la cultura corporativa", "corporate culture", "", ""],
+      ["la comunicación interna", "internal communication", "", ""],
+      ["el sector automotriz", "the automotive sector", "", ""],
+      ["una gran corporación", "a large corporation", "", ""],
+      ["la expansión de la empresa", "the company's expansion", "", ""],
+      ["la Cámara de Comercio", "the Chamber of Commerce", "", ""],
+      ["Presentó su idea a los inversionistas.", "She pitched her idea to the investors.", "", "pitch = presentar una idea para convencer."],
+      ["nuestro compromiso con la calidad", "our commitment to quality", "", ""],
+      ["pequeñas y medianas empresas", "small and medium enterprises", "", ""],
+      ["el logotipo de la empresa", "the company logo", "", ""],
+      ["Ganamos la licitación.", "We won the bid.", "", ""],
+      ["el departamento de contabilidad", "the accounting department", "", ""],
+      ["un ejecutivo de ventas", "a sales executive", "", ""],
+      ["nuestro mercado meta", "our target market", "", ""]
+    ],
+    r: {
+      t: "From a small shop to a franchise",
+      en: "In 1998, Rosa opened a small coffee shop in Puebla with her husband. They roasted their own coffee and sold homemade bread. Their mission was simple: good coffee at a fair price.\nTen years later, they had five shops. Rosa's son studied marketing and helped them develop a new strategy: a modern logo, an online store and coffee for offices. In 2015 they launched their first franchise.\nToday the company has more than eighty shops in Mexico, and its headquarters are still in Puebla. Investors want to expand to the United States, but Rosa is careful. \"Growth is good,\" she says, \"but our commitment to quality comes first.\"",
+      es: "En 1998, Rosa abrió un café pequeño en Puebla con su esposo. Tostaban su propio café y vendían pan casero. Su misión era sencilla: buen café a un precio justo.\nDiez años después tenían cinco cafés. El hijo de Rosa estudió mercadotecnia y les ayudó a desarrollar una estrategia nueva: un logotipo moderno, una tienda en línea y café para oficinas. En 2015 lanzaron su primera franquicia.\nHoy la empresa tiene más de ochenta cafés en México y su sede sigue en Puebla. Los inversionistas quieren expandirse a Estados Unidos, pero Rosa es cuidadosa. «Crecer es bueno», dice, «pero primero va nuestro compromiso con la calidad».",
+      q: [
+        ["¿Cuál era su misión al principio?", ["Buen café a un precio justo", "Abrir cien cafés", "Vender en Estados Unidos"], 0],
+        ["¿Qué estudió el hijo de Rosa?", ["Contabilidad", "Mercadotecnia", "Ingeniería"], 1],
+        ["¿Qué dice Rosa sobre crecer?", ["Que no le interesa", "Que es lo más importante", "Que primero va la calidad"], 2]
+      ]
+    }
+  },
+  n4u26: {
+    v: [
+      ["el libre comercio", "free trade", "", ""],
+      ["la compraventa de acciones", "stock trading", "", ""],
+      ["los activos de la empresa", "the company's assets", "", ""],
+      ["las finanzas personales", "personal finance", "", ""],
+      ["el crecimiento económico", "economic growth", "", ""],
+      ["la oferta y la demanda", "supply and demand", "", ""],
+      ["las exportaciones y las importaciones", "exports and imports", "", ""],
+      ["Invirtió en la bolsa.", "He invested in the stock market.", "", ""],
+      ["La inflación subió.", "Inflation went up.", "", ""],
+      ["una recesión", "a recession", "", ""],
+      ["el producto interno bruto", "gross domestic product", "", ""],
+      ["un aumento de precios", "a price increase", "", ""],
+      ["Cuesta quinientos pesos más impuestos.", "It costs five hundred pesos plus tax.", "", ""],
+      ["un crecimiento de aproximadamente 3%", "roughly three percent growth", "", ""]
+    ],
+    r: {
+      t: "The peso and your wallet",
+      en: "When the peso is strong against the dollar, imports become cheaper. That's good news for consumers who buy electronics, cars and other imported products.\nBut a strong peso is bad news for exporters. Companies that sell their products in the United States receive dollars, and those dollars are worth fewer pesos. Their revenue and profits can go down.\nFamilies that receive money from relatives in the U.S. also notice it: the same hundred dollars buy less in Mexico. The economy is like a big chain: when one part moves, everything else moves too.",
+      es: "Cuando el peso está fuerte frente al dólar, las importaciones se abaratan. Es una buena noticia para los consumidores que compran aparatos electrónicos, carros y otros productos importados.\nPero un peso fuerte es una mala noticia para los exportadores. Las empresas que venden sus productos en Estados Unidos reciben dólares, y esos dólares valen menos pesos. Sus ingresos y ganancias pueden bajar.\nLas familias que reciben dinero de parientes en Estados Unidos también lo notan: los mismos cien dólares alcanzan para menos en México. La economía es como una cadena grande: cuando una parte se mueve, todo lo demás también.",
+      q: [
+        ["¿Qué pasa con las importaciones cuando el peso está fuerte?", ["Se abaratan", "Se encarecen", "Desaparecen"], 0],
+        ["¿A quién le afecta mal un peso fuerte?", ["A los consumidores", "A los exportadores", "A los turistas mexicanos"], 1],
+        ["¿Con qué compara el texto a la economía?", ["Con un río", "Con un juego", "Con una cadena"], 2]
+      ]
+    }
+  },
+  n4u27: {
+    v: [
+      ["Es extremadamente caro.", "It's extremely expensive.", "", ""],
+      ["Posiblemente, pero no estoy seguro.", "Possibly, but I'm not sure.", "", ""],
+      ["Ciertamente es difícil.", "It's certainly difficult.", "", ""],
+      ["Me gusta la comida mexicana, en particular los tacos.", "I like Mexican food, in particular tacos.", "", ""],
+      ["Es particularmente difícil.", "It's particularly difficult.", "", ""],
+      ["¿Puedes ser más específico?", "Can you be more specific?", "", ""],
+      ["Específicamente, necesito los datos de marzo.", "Specifically, I need the data from March.", "", ""],
+      ["Llámame de inmediato.", "Call me immediately.", "", ""],
+      ["Hazlo bien.", "Do it properly.", "", ""],
+      ["Es obvio.", "It's obvious.", "", ""],
+      ["como de costumbre", "as usual", "", ""],
+      ["Normalmente tarda dos semanas.", "Typically, it takes two weeks.", "", ""],
+      ["un cliente frecuente", "a regular customer", "", ""],
+      ["mi rutina diaria", "my daily routine", "", ""],
+      ["Lo reviso a diario.", "I check it on a daily basis.", "", ""],
+      ["Verdaderamente increíble.", "Truly amazing.", "", ""],
+      ["Al final, todo salió bien.", "Eventually, everything worked out.", "", "eventually = al final (no «eventualmente»)."]
+    ],
+    r: {
+      t: "Honestly, it's not that bad",
+      en: "My sister asked me what I think about her new boyfriend. Honestly, I don't know what to say. He's nice and he's obviously in love with her, though he's a bit boring.\nBasically, he only talks about soccer. Personally, I find it extremely boring, but my sister loves soccer too, so they have a lot in common. In fact, they met at a game.\nHopefully, I'll get to know him better. As my mom says, the important thing is that he treats her well. And he does. In general, I'm happy for her. Truly.",
+      es: "Mi hermana me preguntó qué pienso de su novio nuevo. La verdad, no sé qué decir. Es buena onda y obviamente está enamorado de ella, aunque es un poco aburrido.\nBásicamente solo habla de futbol. A mí, personalmente, me parece aburridísimo, pero a mi hermana también le encanta el futbol, así que tienen mucho en común. De hecho, se conocieron en un partido.\nOjalá lo conozca mejor. Como dice mi mamá, lo importante es que la trate bien. Y sí la trata bien. En general, estoy contento por ella. De verdad.",
+      q: [
+        ["¿Cómo es el novio, según su hermano?", ["Buena onda, pero un poco aburrido", "Grosero", "Muy divertido"], 0],
+        ["¿Dónde se conocieron?", ["En el trabajo", "En un partido de futbol", "En la escuela"], 1],
+        ["¿Qué es lo importante, según su mamá?", ["Que tenga dinero", "Que le guste el futbol", "Que la trate bien"], 2]
+      ]
+    }
+  },
+  n4u28: {
+    v: [
+      ["palabras de uso común", "commonly used words", "", ""],
+      ["Su salud mejoró mucho.", "His health greatly improved.", "", ""],
+      ["Los dos son igualmente importantes.", "Both are equally important.", "", ""],
+      ["Lo anunciaron públicamente.", "They announced it publicly.", "", ""],
+      ["Es increíblemente rápido.", "It's incredibly fast.", "", ""],
+      ["un cambio repentino", "a sudden change", "", ""],
+      ["clientes frecuentes", "frequent customers", "", ""],
+      ["Cambia constantemente.", "It changes constantly.", "", ""],
+      ["un ruido constante", "a constant noise", "", ""],
+      ["una respuesta inmediata", "an immediate response", "", ""],
+      ["Naturalmente, aceptó.", "Naturally, she accepted.", "", ""],
+      ["una casa recién pintada", "a newly painted house", "", ""],
+      ["Hace preguntas con frecuencia.", "He frequently asks questions.", "", ""],
+      ["Fue, efectivamente, un gran éxito.", "It was indeed a great success.", "", ""],
+      ["como se mencionó antes", "as previously mentioned", "", ""],
+      ["Seguro que él ya sabe.", "Surely he already knows.", "", ""],
+      ["una prioridad absoluta", "an absolute priority", "", ""]
+    ],
+    r: {
+      t: "A highly recommended restaurant",
+      en: "Last Friday we finally tried the new Italian restaurant downtown. It was fully booked for weeks, so we reserved a table a month ago. It was worth it.\nThe food was incredibly good, especially the pasta, and the service was fast and friendly. The waiter checked on us regularly, but he didn't bother us constantly, which I greatly appreciate.\nThe only problem was a sudden noise from the kitchen: someone dropped a pile of plates! The manager was deeply sorry and gave us a free dessert. I strongly recommend this place. Book early!",
+      es: "El viernes pasado por fin probamos el restaurante italiano nuevo del centro. Estuvo lleno durante semanas, así que reservamos una mesa hace un mes. Valió la pena.\nLa comida estuvo increíblemente buena, sobre todo la pasta, y el servicio fue rápido y amable. El mesero pasaba a vernos seguido, pero no nos molestaba todo el tiempo, cosa que agradezco mucho.\nEl único problema fue un ruido repentino de la cocina: ¡a alguien se le cayó una pila de platos! El gerente se disculpó muchísimo y nos regaló el postre. Recomiendo mucho este lugar. ¡Reserven con tiempo!",
+      q: [
+        ["¿Cuándo reservaron?", ["Hace un mes", "El mismo día", "Hace un año"], 0],
+        ["¿Qué les gustó más?", ["El postre", "La pasta", "El vino"], 1],
+        ["¿Qué pasó en la cocina?", ["Hubo un incendio", "Se fue la luz", "A alguien se le cayeron unos platos"], 2]
+      ]
+    }
+  },
+  n4u29: {
+    v: [
+      ["Rodearon el edificio.", "They surrounded the building.", "", ""],
+      ["¿En qué puedo ayudarle?", "How can I assist you?", "", "assist = ayudar (formal)."],
+      ["¡Ni se te ocurra!", "Don't you dare!", "", ""],
+      ["Me da vueltas la cabeza.", "My head is spinning.", "", ""],
+      ["Logró sus metas.", "She achieved her goals.", "", ""],
+      ["No asumas nada.", "Don't assume anything.", "", ""],
+      ["Suelo dormirme tarde.", "I tend to sleep late.", "", ""],
+      ["¿Puedes identificar el problema?", "Can you identify the problem?", "", ""],
+      ["Representa a la empresa.", "He represents the company.", "", ""],
+      ["Propongo cambiar la fecha.", "I propose changing the date.", "", ""],
+      ["Lo ascendieron a gerente.", "He was promoted to manager.", "", ""],
+      ["Quita la etiqueta.", "Remove the label.", "", ""],
+      ["Está luchando por salir adelante.", "She's struggling to get ahead.", "", ""],
+      ["El jefe aprobó el presupuesto.", "The boss approved the budget.", "", ""],
+      ["La regla aplica para todos.", "The rule applies to everyone.", "", ""],
+      ["Solicité una beca.", "I applied for a scholarship.", "", ""]
+    ],
+    r: {
+      t: "The first marathon",
+      en: "Last year my neighbor Laura decided to participate in her first marathon. She was forty-five and had never run more than five kilometers. Many people didn't think she could do it.\nShe found a coach, made a plan and dedicated every morning to training. Some days she wanted to abandon the idea, especially in the rain. But she remembered why she started: she wanted to inspire her kids.\nOn the day of the race, her family surrounded her at the finish line. She finished in five hours, and everyone praised her effort. \"You can achieve anything,\" she says, \"if you don't give up.\"",
+      es: "El año pasado mi vecina Laura decidió participar en su primer maratón. Tenía cuarenta y cinco años y nunca había corrido más de cinco kilómetros. Mucha gente no creía que pudiera hacerlo.\nBuscó un entrenador, hizo un plan y le dedicó todas las mañanas al entrenamiento. Algunos días quería abandonar la idea, sobre todo con lluvia. Pero se acordaba de por qué empezó: quería inspirar a sus hijos.\nEl día de la carrera, su familia la rodeó en la meta. Terminó en cinco horas y todos elogiaron su esfuerzo. «Puedes lograr lo que sea», dice, «si no te rindes».",
+      q: [
+        ["¿Cuántos años tenía Laura?", ["Cuarenta y cinco", "Veinte", "Sesenta"], 0],
+        ["¿Por qué empezó a correr?", ["Por su salud", "Para inspirar a sus hijos", "Por dinero"], 1],
+        ["¿En cuánto tiempo terminó?", ["En dos horas", "En diez horas", "En cinco horas"], 2]
+      ]
+    }
   }
 });
