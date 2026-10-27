@@ -203,7 +203,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["nube", "cloud", "cláud", ""],
       ["¿Va a llover?", "Is it going to rain?", "is it góuing tu réin", ""],
       ["Me encanta el sol.", "I love the sun.", "ai lav de san", ""],
-      ["Hace un día horrible.", "It's a terrible day.", "its a térribol déi", ""]
+      ["Hace un día horrible.", "It's a terrible day.", "its a térribol déi", ""],
+      ["las cuatro estaciones", "the four seasons", "de for síisons", ""],
+      ["¿Cuál es tu estación favorita?", "What's your favorite season?", "uáts iór féivorit síison", ""],
+      ["Hace calorcito.", "It's warm.", "its uórm", ""],
+      ["Hay mucho viento.", "There's a lot of wind.", "ders a lat ov uínd", ""],
+      ["¿Qué temperatura hace?", "What's the temperature?", "uáts de témperachur", ""],
+      ["Estamos a cinco grados bajo cero.", "It's five degrees below zero.", "its fáiv digríis bilóu zírou", ""],
+      ["Hay hielo en la calle.", "There's ice on the street.", "ders áis on de stríit", ""],
+      ["la luna y las estrellas", "the moon and the stars", "de mun and de stars", ""]
     ],
     r: {
       t: "The weather this week",
@@ -242,6 +250,35 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
         ["¿Qué hay que hacer primero?", ["Comer", "Bañarse", "Correr"], 1],
         ["¿Qué está prohibido?", ["Correr y comer en el agua", "Nadar", "Bañarse"], 0],
         ["¿Con quién deben nadar los niños?", ["Solos", "Con amigos", "Con un adulto"], 2]
+      ]
+    }
+  },
+  n0u11: {
+    v: [
+      ["¿En serio?", "Are you serious?", "ar iú síirios", ""],
+      ["¡Claro que sí!", "Definitely!", "défenetli", ""],
+      ["¡Qué suerte tienes!", "You're so lucky!", "iór sóu láki", ""],
+      ["Está súper fácil.", "It's super easy.", "its súper íisi", ""],
+      ["Sí, señor.", "Yes, sir.", "ies, ser", ""],
+      ["En fin...", "Anyway...", "éniuei", ""],
+      ["Lo que tú quieras.", "Whatever you want.", "uatéver iú uánt", ""],
+      ["¡Gracias a Dios!", "Thank God!", "zenk gad", ""],
+      ["¡Salud! (cuando alguien estornuda)", "Bless you!", "bles iú", ""],
+      ["¡Ay, no!", "Oh no!", "óu nóu", ""],
+      ["Está bien.", "Alright.", "olráit", ""],
+      ["¿Qué onda, amigo?", "What's up, buddy?", "uáts ap, bádi", ""],
+      ["Es muy divertido.", "It's a lot of fun.", "its a lat ov fan", ""],
+      ["¡Qué raro!", "That's weird.", "dats uírd", ""],
+      ["¡No manches! ¿En serio?", "No way! Really?", "nóu uéi! ríli", ""]
+    ],
+    r: {
+      t: "A fun Saturday",
+      en: "Today is Saturday. I'm at the park with my friends, Ana and Beto.\nAna says, \"I have a new job!\" \"Wow! That's awesome!\" I say.\nBeto has a test on Monday. \"Good luck, buddy!\" we say. \"Thanks! I guess I'm ready,\" he says.\nIt's a lot of fun. Bye, guys! See you!",
+      es: "Hoy es sábado. Estoy en el parque con mis amigos, Ana y Beto.\nAna dice: «¡Tengo trabajo nuevo!». «¡Guau! ¡Qué padre!», le digo.\nBeto tiene examen el lunes. «¡Suerte, amigo!», le decimos. «¡Gracias! Supongo que estoy listo», dice.\nEs muy divertido. ¡Adiós, chicos! ¡Nos vemos!",
+      q: [
+        ["¿Dónde están?", ["En el parque", "En el trabajo", "En la escuela"], 0],
+        ["¿Qué tiene Ana?", ["Un examen", "Un trabajo nuevo", "Un perro nuevo"], 1],
+        ["¿Qué le dicen a Beto?", ["¡Qué raro!", "¡Adiós!", "¡Suerte!"], 2]
       ]
     }
   }

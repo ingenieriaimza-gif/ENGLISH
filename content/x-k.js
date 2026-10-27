@@ -135,7 +135,16 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["🐜 hormiga", "ant", "ant", ""],
       ["🦒 jirafa", "giraffe", "yiráf", ""],
       ["mascota", "pet", "pet", ""],
-      ["El perro es grande.", "The dog is big.", "de dog is big", ""]
+      ["El perro es grande.", "The dog is big.", "de dog is big", ""],
+      ["lobo", "wolf", "uulf", ""],
+      ["zorro", "fox", "faks", ""],
+      ["toro", "bull", "bul", ""],
+      ["murciélago", "bat", "bat", "bat también es el bate de beisbol."],
+      ["cola", "tail", "téil", ""],
+      ["Me encantan los animales.", "I love animals.", "ai lav ánimals", ""],
+      ["animales de la granja", "farm animals", "farm ánimals", ""],
+      ["animales salvajes", "wild animals", "uáild ánimals", ""],
+      ["El perro tiene la cola larga.", "The dog has a long tail.", "de dog jas a long téil", ""]
     ],
     r: {
       t: "The farm",
@@ -164,7 +173,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["uña", "nail", "néil", ""],
       ["Me duele la espalda.", "My back hurts.", "mai bak jerts", ""],
       ["Lávate las manos.", "Wash your hands.", "uásh iór jands", ""],
-      ["Tengo los ojos cafés.", "I have brown eyes.", "ai jav bráun áis", ""]
+      ["Tengo los ojos cafés.", "I have brown eyes.", "ai jav bráun áis", ""],
+      ["cuerpo", "body", "bádi", ""],
+      ["cerebro", "brain", "bréin", ""],
+      ["pecho", "chest", "chest", ""],
+      ["hueso", "bone", "bóun", ""],
+      ["músculo", "muscle", "másol", ""],
+      ["sangre", "blood", "blad", ""],
+      ["Me duele el pecho.", "My chest hurts.", "mai chest jerts", ""],
+      ["Me duele todo el cuerpo.", "My whole body hurts.", "mai jóul bádi jerts", ""]
     ],
     r: {
       t: "Tom is sick",
@@ -193,7 +210,11 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["familia", "family", "fámili", ""],
       ["Él es mi hijo.", "He's my son.", "jis mai san", ""],
       ["Tengo una familia grande.", "I have a big family.", "ai jav a big fámili", ""],
-      ["Quiero a mi familia.", "I love my family.", "ai lav mai fámili", ""]
+      ["Quiero a mi familia.", "I love my family.", "ai lav mai fámili", ""],
+      ["padre", "father", "fáder", ""],
+      ["niño / niña", "boy / girl", "bói / guérl", ""],
+      ["Mi padre es doctor.", "My father is a doctor.", "mai fáder is a dáktor", ""],
+      ["Tengo un niño y una niña.", "I have a boy and a girl.", "ai jav a bói and a guérl", ""]
     ],
     r: {
       t: "My family",
@@ -222,7 +243,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["sal y azúcar", "salt and sugar", "solt and shúgar", ""],
       ["desayuno, comida, cena", "breakfast, lunch, dinner", "brékfast, lanch, díner", ""],
       ["Tengo sed.", "I'm thirsty.", "aim zérsti", ""],
-      ["Está rico.", "It's good.", "its gud", ""]
+      ["Está rico.", "It's good.", "its gud", ""],
+      ["chocolate", "chocolate", "chákolet", ""],
+      ["dulces", "candy", "cándi", ""],
+      ["miel", "honey", "jáni", ""],
+      ["mantequilla", "butter", "báter", ""],
+      ["helado", "ice cream", "áis crim", ""],
+      ["fruta", "fruit", "frut", ""],
+      ["Me gusta mucho la fruta.", "I love fruit.", "ai lav frut", ""],
+      ["pan con mantequilla", "bread and butter", "bred and báter", ""]
     ],
     r: {
       t: "Breakfast",
@@ -251,7 +280,12 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["⌚ reloj", "watch", "uách", ""],
       ["ponerse (ropa)", "put on", "put on", ""],
       ["quitarse (ropa)", "take off", "téik of", ""],
-      ["Ponte la chamarra.", "Put on your jacket.", "put on iór yáket", ""]
+      ["Ponte la chamarra.", "Put on your jacket.", "put on iór yáket", ""],
+      ["ropa", "clothes", "clóuz", ""],
+      ["abrigo", "coat", "cóut", ""],
+      ["uniforme", "uniform", "iúniform", ""],
+      ["Mi ropa está limpia.", "My clothes are clean.", "mai clóuz ar clíin", ""],
+      ["Ponte el abrigo.", "Put on your coat.", "put on iór cóut", ""]
     ],
     r: {
       t: "What are you wearing?",
@@ -280,7 +314,16 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["techo", "roof", "ruf", ""],
       ["llaves", "keys", "kiis", ""],
       ["El gato está debajo de la cama.", "The cat is under the bed.", "de kat is ánder de bed", ""],
-      ["Mi casa tiene tres recámaras.", "My house has three bedrooms.", "mai jáus jas zri bédrums", ""]
+      ["Mi casa tiene tres recámaras.", "My house has three bedrooms.", "mai jáus jas zri bédrums", ""],
+      ["pared", "wall", "uól", ""],
+      ["flor", "flower", "fláuer", ""],
+      ["reloj (de pared)", "clock", "clak", ""],
+      ["escritorio", "desk", "desk", ""],
+      ["muebles", "furniture", "férnicher", ""],
+      ["juguete", "toy", "tói", ""],
+      ["El reloj está en la pared.", "The clock is on the wall.", "de clak is on de uól", ""],
+      ["Hay flores en el jardín.", "There are flowers in the yard.", "der ar fláuers in de iard", ""],
+      ["Mis juguetes están en mi cuarto.", "My toys are in my room.", "mai tóis ar in mai rum", ""]
     ],
     r: {
       t: "My house",
@@ -309,7 +352,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["necesitar", "need", "niid", ""],
       ["ayudar", "help", "jelp", ""],
       ["Necesito ayuda.", "I need help.", "ai niid jelp", ""],
-      ["Quiero agua.", "I want water.", "ai uánt uáter", ""]
+      ["Quiero agua.", "I want water.", "ai uánt uáter", ""],
+      ["saltar", "jump", "yamp", ""],
+      ["sonreír", "smile", "smáil", ""],
+      ["llorar", "cry", "krái", ""],
+      ["esconderse", "hide", "jáid", ""],
+      ["aventar", "throw", "zróu", ""],
+      ["empujar", "push", "push", ""],
+      ["jalar", "pull", "pul", ""],
+      ["Dale un beso a tu abuela.", "Give your grandma a kiss.", "guiv iór grándma a kis", ""]
     ],
     r: {
       t: "My day",
@@ -367,7 +418,11 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["El carro es caro.", "The car is expensive.", "de car is ekspénsiv", ""],
       ["La caja es muy pesada.", "The box is very heavy.", "de baks is véri jévi", ""],
       ["Mi abuelo es viejo, pero fuerte.", "My grandpa is old, but strong.", "mai grándpa is óuld, bat strong", ""],
-      ["Llegué temprano.", "I'm early.", "aim érli", ""]
+      ["Llegué temprano.", "I'm early.", "aim érli", ""],
+      ["suave / duro", "soft / hard", "soft / jard", ""],
+      ["alto / bajo (altura)", "high / low", "jái / lóu", ""],
+      ["¿Cuál es el contrario de «big»?", "What's the opposite of \"big\"?", "uáts di ápozit ov big", ""],
+      ["La cama es muy suave.", "The bed is very soft.", "de bed is véri soft", ""]
     ],
     r: {
       t: "Two cars",
@@ -396,7 +451,12 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Cómo se dice ... en inglés?", "How do you say ... in English?", "jáu du iú séi ... in ínglish", ""],
       ["¿Qué significa?", "What does it mean?", "uát das it miin", ""],
       ["No entiendo.", "I don't understand.", "ai dóunt anderstánd", ""],
-      ["¿Puede hablar más despacio?", "Can you speak slowly?", "can iú spiik slóuli", ""]
+      ["¿Puede hablar más despacio?", "Can you speak slowly?", "can iú spiik slóuli", ""],
+      ["Hay veinte niños en mi clase.", "There are twenty kids in my class.", "der ar tuénti kids in mai clas", ""],
+      ["una hoja de papel", "a sheet of paper", "a shiit ov péiper", ""],
+      ["Haz un dibujo.", "Draw a picture.", "dro a píkcher", ""],
+      ["la respuesta correcta", "the right answer", "de ráit ánser", ""],
+      ["por ejemplo", "for example", "for egzámpol", ""]
     ],
     r: {
       t: "English class",

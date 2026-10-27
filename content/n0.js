@@ -5,7 +5,7 @@
    d: diálogo — ["A" o "B","English","Español"]   (en la práctica, tú eres B) */
 (window.COURSE = window.COURSE || []).push({
   id: "n0", name: "Primaria 1 · Primeras frases", short: "Primaria 1", cefr: "Pre-A1",
-  desc: "Tus primeras oraciones: saludar, presentarte, el verbo to be, pronombres, describir cosas, el clima e instrucciones.",
+  desc: "Tus primeras oraciones: saludar, presentarte, el verbo to be, pronombres, describir cosas, reaccionar en una plática, el clima e instrucciones.",
   units: [
     {
       id: "n0u1", t: "Saludos y presentarte",
@@ -284,6 +284,39 @@
         ["B", "Over there. On the left.", "Por allá. A la izquierda."],
         ["A", "Ah, thank you!", "¡Ah, gracias!"],
         ["B", "You're welcome.", "De nada."]
+      ]
+    },
+    {
+      id: "n0u11", t: "Reacciones: yeah, wow, ¡suerte!",
+      goal: "Reaccionar rápido a lo que te dicen, como en una plática de verdad.",
+      g: [
+        "En una plática real, casi todo son respuestas cortas. Con estas ya puedes reaccionar a lo que te cuentan.",
+        ["Yeah, sure. · Wow, that's awesome!", "Sí, claro. · ¡Guau, qué padre!"],
+        "yeah = sí, pero informal. Con amigos se dice mucho más que yes.",
+        "Para saludar a varias personas: Hi, guys! (sirve para hombres y mujeres). A un cliente o a alguien mayor: sir (señor) y ma'am (señora).",
+        "!I guess so = supongo que sí · Good luck! = ¡suerte! · Oh my God! = ¡Dios mío!"
+      ],
+      c: [
+        ["Sí, claro.", "Yeah, sure.", "iéa, shur", ""],
+        ["¡Guau!", "Wow!", "uáu", ""],
+        ["¡Oye!", "Hey!", "jéi", ""],
+        ["¡Hola, chicos!", "Hi, guys!", "jái, gáis", "guys sirve para hombres y mujeres."],
+        ["¡Perfecto!", "Perfect!", "pérfekt", ""],
+        ["¡Suerte!", "Good luck!", "gud lak", ""],
+        ["¡Suena divertido!", "That sounds fun!", "dat sáunds fan", ""],
+        ["Supongo que sí.", "I guess so.", "ai gues sóu", ""],
+        ["¡Dios mío!", "Oh my God!", "óu mai gad", ""],
+        ["¡Qué padre!", "That's so cool!", "dats sóu cul", ""],
+        ["¡Exacto!", "Exactly!", "egzáktli", ""],
+        ["Adiós, nos vemos.", "Bye, see you.", "bái, si iú", ""]
+      ],
+      d: [
+        ["A", "Hey! How's it going?", "¡Oye! ¿Cómo te va?"],
+        ["B", "Good! I have a new job.", "¡Bien! Tengo trabajo nuevo."],
+        ["A", "Wow! That's awesome!", "¡Guau! ¡Qué padre!"],
+        ["B", "Yeah, I'm very happy.", "Sí, estoy muy contento."],
+        ["A", "Good luck, buddy!", "¡Suerte, amigo!"],
+        ["B", "Thanks! Bye!", "¡Gracias! ¡Adiós!"]
       ]
     },
     {

@@ -1,7 +1,7 @@
 /* Nivel 1 · Básico (A1) */
 (window.COURSE = window.COURSE || []).push({
   id: "n1", name: "Primaria 2 · Lo básico", short: "Primaria 2", cefr: "A1",
-  desc: "Tu rutina, gustos, familia, trabajo, la hora, lugares, comida, describir personas y dar tus datos.",
+  desc: "Tu rutina, gustos, familia, trabajo, la escuela, la hora, lugares, tu casa, comida y recetas, describir personas, tus datos y otros países.",
   units: [
     {
       id: "n1u1", t: "Presente simple: tu rutina",
@@ -211,6 +211,39 @@
       ]
     },
     {
+      id: "n1u13", t: "La escuela y las materias",
+      goal: "Hablar de la escuela, las materias y las reglas del salón.",
+      g: [
+        "Las materias van sin «the» y en inglés se escriben con minúscula, menos los idiomas: I like math. · I study English.",
+        ["My favorite subject is science. · We have math today.", "Mi materia favorita es Ciencias. · Hoy tenemos Matemáticas."],
+        "Para las reglas: You can… (sí se puede) · You cannot / can't… (no se puede). cannot es igual que can't, pero más formal.",
+        "grade sirve para dos cosas: el grado escolar (I'm in sixth grade) y la calificación (good grades).",
+        "!En Estados Unidos: elementary school = primaria · middle school = secundaria · high school = prepa."
+      ],
+      c: [
+        ["Mi hijo va a la primaria.", "My son goes to elementary school.", "mai san góus tu eleméntari skul", ""],
+        ["Mi materia favorita es Matemáticas.", "My favorite subject is math.", "mai féivorit sábyekt is maz", ""],
+        ["Hoy tenemos clase de Ciencias.", "We have science class today.", "uí jav sáiens clas tudéi", ""],
+        ["Tengo buenas calificaciones.", "I have good grades.", "ai jav gud gréids", ""],
+        ["La maestra nos enseña inglés.", "The teacher teaches us English.", "de tícher tíchis as ínglish", ""],
+        ["La biblioteca abre a las ocho.", "The library opens at eight.", "de láibreri óupens at éit", ""],
+        ["Trabajen en grupos de tres.", "Work in groups of three.", "uérk in grups ov zri", ""],
+        ["No pueden usar el celular en clase.", "You cannot use your phone in class.", "iú cánat iús iór fóun in clas", "cannot = can't, pero más formal."],
+        ["¿Qué significa esta frase?", "What does this phrase mean?", "uát das dis fréis min", ""],
+        ["«Big» significa «grande».", "\"Big\" means \"grande.\"", "big míins grande", ""],
+        ["Haz una lista de palabras nuevas.", "Make a list of new words.", "méik a list ov niú uérds", ""],
+        ["La práctica hace al maestro.", "Practice makes perfect.", "práktis méiks pérfekt", ""]
+      ],
+      d: [
+        ["A", "What's your favorite subject?", "¿Cuál es tu materia favorita?"],
+        ["B", "I love science. And you?", "Me encanta Ciencias. ¿Y a ti?"],
+        ["A", "Math, but I have a test tomorrow and I'm nervous.", "Matemáticas, pero mañana tengo examen y estoy nervioso."],
+        ["B", "Let's study together in the library.", "Estudiemos juntos en la biblioteca."],
+        ["A", "Good idea! Can you help me with the problems?", "¡Buena idea! ¿Me ayudas con los problemas?"],
+        ["B", "Sure. Practice makes perfect!", "Claro. ¡La práctica hace al maestro!"]
+      ]
+    },
+    {
       id: "n1u5", t: "There is / there are: lugares",
       goal: "Decir qué hay en un lugar y dónde está algo.",
       g: [
@@ -242,6 +275,39 @@
         ["B", "No, it's two blocks from here.", "No, está a dos cuadras de aquí."],
         ["A", "Are there any restaurants near the bank?", "¿Hay restaurantes cerca del banco?"],
         ["B", "Yes, there are a lot of restaurants on that street.", "Sí, hay muchos restaurantes en esa calle."]
+      ]
+    },
+    {
+      id: "n1u14", t: "Mi casa: dónde están las cosas",
+      goal: "Decir dónde están las cosas de tu casa y pedir que las acomoden.",
+      g: [
+        "Para decir dónde está algo: in (dentro de), on (sobre), under (debajo de), next to (junto a), inside (adentro de), on top of (encima de).",
+        ["The keys are on the table. · The remote is under the couch.", "Las llaves están en la mesa. · El control está debajo del sillón."],
+        "above = arriba de (sin tocar) · below = abajo de · on the other side = del otro lado.",
+        "Para pedir algo de la casa se usa el verbo solo: Shut the door. · Take out the trash.",
+        "!stuff = cosas (informal) y nunca lleva s: my stuff (no «my stuffs»)."
+      ],
+      c: [
+        ["¿Dónde está el control?", "Where's the remote control?", "uérs de rimóut contróul", ""],
+        ["Está debajo del sillón.", "It's under the couch.", "its ánder de cáuch", ""],
+        ["Mis cosas están en mi cuarto.", "My stuff is in my room.", "mai staf is in mai rum", "stuff = cosas (informal)."],
+        ["Hay un hoyo en la pared.", "There's a hole in the wall.", "ders a jóul in de uól", ""],
+        ["El apagador está junto a la puerta.", "The light switch is next to the door.", "de láit suích is nekst tu de dor", ""],
+        ["Cierra la puerta, por favor.", "Shut the door, please.", "shat de dor, plís", "shut = close."],
+        ["Toca la puerta antes de entrar.", "Knock on the door before you come in.", "nak on de dor bifór iú cam in", ""],
+        ["Las herramientas están en la cochera.", "The tools are in the garage.", "de tuls ar in de garách", ""],
+        ["Pon los platos encima del refri.", "Put the plates on top of the fridge.", "put de pléits on tap ov de frich", ""],
+        ["Saca la basura, por favor.", "Take out the trash, please.", "téik áut de trash, plís", ""],
+        ["Cada cuarto tiene su propio baño.", "Each room has its own bathroom.", "iich rum jas its óun bázrum", "each = cada · own = propio."],
+        ["Hay polvo en todos los muebles.", "There's dust on all the furniture.", "ders dast on ol de férnicher", ""]
+      ],
+      d: [
+        ["A", "Mom, where's my charger?", "Mamá, ¿dónde está mi cargador?"],
+        ["B", "It's on your desk, next to the lamp.", "Está en tu escritorio, junto a la lámpara."],
+        ["A", "It isn't there.", "No está ahí."],
+        ["B", "Look inside the drawer, on the left side.", "Busca adentro del cajón, del lado izquierdo."],
+        ["A", "Here it is! Thanks.", "¡Aquí está! Gracias."],
+        ["B", "And please put your stuff in your room.", "Y por favor pon tus cosas en tu cuarto."]
       ]
     },
     {
@@ -311,6 +377,38 @@
         ["B", "Yes, there's a lot of milk, but there isn't any sugar.", "Sí, hay mucha leche, pero no hay azúcar."],
         ["A", "How much sugar do we need?", "¿Cuánta azúcar necesitamos?"],
         ["B", "Not much. I'll buy some.", "No mucha. Yo compro."]
+      ]
+    },
+    {
+      id: "n1u15", t: "En la cocina: recetas",
+      goal: "Seguir y dar instrucciones para cocinar, y decir cómo sabe y huele la comida.",
+      g: [
+        "Las recetas usan el verbo solo, sin «you»: Cut the onion. · Add salt. · Boil the water.",
+        ["Cut the chicken. · Fry it in a pan.", "Corta el pollo. · Fríelo en un sartén."],
+        "Para cantidades: a pound of (una libra, casi medio kilo), half a kilo of (medio kilo), a cup of (una taza de).",
+        "!Huele / sabe + adjetivo: It smells good. (Huele rico.) · It tastes sweet. (Sabe dulce.)"
+      ],
+      c: [
+        ["Corta la cebolla.", "Cut the onion.", "cat di ánion", ""],
+        ["Hierve el agua en una olla.", "Boil the water in a pot.", "bóil de uóter in a pat", ""],
+        ["Fríe el pollo en un sartén.", "Fry the chicken in a pan.", "frái de chíken in a pan", ""],
+        ["Agrega la salsa.", "Add the sauce.", "ad de sos", ""],
+        ["¡Huele delicioso!", "It smells delicious!", "it smels dilíshos", ""],
+        ["No quemes el arroz.", "Don't burn the rice.", "dóunt bern de ráis", ""],
+        ["La carne está cruda.", "The meat is raw.", "de miit is ro", ""],
+        ["Sirve la sopa en un tazón.", "Serve the soup in a bowl.", "serv de sup in a bóul", ""],
+        ["Necesito una libra de carne de res.", "I need a pound of beef.", "ai niid a páund ov biif", "a pound = una libra (casi medio kilo)."],
+        ["Las verduras están frescas.", "The vegetables are fresh.", "de véchtabols ar fresh", ""],
+        ["El pastel está muy dulce.", "The cake is very sweet.", "de kéik is véri suít", ""],
+        ["Los cuchillos están en el gabinete.", "The knives are in the cabinet.", "de náivs ar in de cábinet", "one knife, two knives."]
+      ],
+      d: [
+        ["A", "Mmm, it smells delicious! What is it?", "¡Mmm, huele delicioso! ¿Qué es?"],
+        ["B", "Chicken wings with a sweet sauce.", "Alitas de pollo con salsa dulce."],
+        ["A", "Can I help?", "¿Te ayudo?"],
+        ["B", "Yes, please. Cut the vegetables and put them in the pan.", "Sí, por favor. Corta las verduras y ponlas en el sartén."],
+        ["A", "Okay. Is the chicken ready?", "Va. ¿Ya está el pollo?"],
+        ["B", "Not yet. It's still raw inside.", "Todavía no. Sigue crudo por dentro."]
       ]
     },
     {
@@ -411,6 +509,39 @@
         ["B", "I was born on March fifth, 1990.", "Nací el 5 de marzo de 1990."],
         ["A", "And your email address?", "¿Y su correo?"],
         ["B", "It's {email|luis dot hdz} at gmail dot com.", "Es {email|luis punto hdz} arroba gmail punto com."]
+      ]
+    },
+    {
+      id: "n1u16", t: "Países, nacionalidades e idiomas",
+      goal: "Decir de dónde eres, qué idiomas hablas y hablar de gente de otros países.",
+      g: [
+        "En inglés, las nacionalidades y los idiomas siempre van con mayúscula: Mexican, Spanish, English, Japanese.",
+        ["I'm Mexican. · I speak Spanish and a little English.", "Soy mexicano. · Hablo español y un poco de inglés."],
+        "Muchas nacionalidades terminan en -an o -ese: Mexican, American, Italian, Chinese, Japanese.",
+        "also (también) va antes del verbo: I also speak English. · both (los dos): We are both Mexican.",
+        "!La nacionalidad no cambia por género ni número: She's Mexican. · They're Mexican."
+      ],
+      c: [
+        ["¿De qué país eres?", "What country are you from?", "uát cántri ar iú from", ""],
+        ["Soy de Estados Unidos.", "I'm from the United States.", "aim from de iunáited stéits", ""],
+        ["Ella es japonesa.", "She's Japanese.", "shis yapaníis", ""],
+        ["Hablo español. También hablo inglés.", "I speak Spanish. I also speak English.", "ai spiik spánish. ai ólsou spiik ínglish", "also va antes del verbo."],
+        ["Mi jefe es alemán.", "My boss is German.", "mai bos is yérman", ""],
+        ["La comida italiana es muy famosa.", "Italian food is very famous.", "itálian fud is véri féimos", ""],
+        ["Es una empresa internacional.", "It's an international company.", "its an internáshonal cámpani", ""],
+        ["Trabajo con gente de todo el mundo.", "I work with people from all over the world.", "ai uérk uíz pípol from ol óuver de uérld", ""],
+        ["¿Hablas algún idioma extranjero?", "Do you speak a foreign language?", "du iú spiik a fóren lánguech", ""],
+        ["Mi esposa y yo somos mexicanos.", "My wife and I are both Mexican.", "mai uáif and ai ar bóuz méksikan", "both = los dos."],
+        ["El inglés es su lengua materna.", "English is her native language.", "ínglish is jer néitiv lánguech", ""],
+        ["China está en Asia.", "China is in Asia.", "cháina is in éisha", ""]
+      ],
+      d: [
+        ["A", "Where are you from?", "¿De dónde eres?"],
+        ["B", "I'm from Canada, but my parents are Chinese.", "Soy de Canadá, pero mis papás son chinos."],
+        ["A", "Do you speak Chinese?", "¿Hablas chino?"],
+        ["B", "Yes. I speak English, French and Chinese.", "Sí. Hablo inglés, francés y chino."],
+        ["A", "Wow! I only speak Spanish and a little English.", "¡Guau! Yo solo hablo español y un poco de inglés."],
+        ["B", "Your English is very good!", "¡Tu inglés es muy bueno!"]
       ]
     }
   ]
