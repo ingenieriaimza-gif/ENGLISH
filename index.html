@@ -191,6 +191,11 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 /* Tu instructor: la clase (meta y 4 pasos), «Mi camino» y «Más» */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .instr h2{text-wrap:balance}
+.live{display:flex;align-items:flex-start;gap:10px;margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
+.live[hidden]{display:none}
+.live .dot{flex:none;width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--ok);animation:livepulse 2.4s ease-out infinite}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 55%,transparent)}70%,100%{box-shadow:0 0 0 9px transparent}}
+@media (prefers-reduced-motion:reduce){.live .dot{animation:none}}
 .where{display:flex;flex-direction:column;gap:6px}
 .where p{margin:0;font-size:15px;color:var(--muted)}
 .where b{color:var(--ink)}
@@ -2293,6 +2298,7 @@ function renderHoy() {
     const hd = H(), tally = hd.r ? `Hoy: ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
     body = `<h2>${c.won ? `¡Lo lograste${nm ? ", " + esc(nm) : ""}!` : nm ? `¡Clase terminada, ${esc(nm)}!` : "¡Clase terminada!"}</h2>
       ${c.won ? `<p class="won">${esc(c.won)}</p>` : ""}
+      ${liveHTML()}
       ${tally ? `<p>${tally}</p>` : ""}
       ${roadHTML(c)}
       <div class="goalbox"><div class="label">Siguiente clase</div><p class="gt">${esc(goalNow())}</p></div>
@@ -2302,6 +2308,7 @@ function renderHoy() {
     const title = c.place ? "Examen de ubicación" : c.d < dayNum() && started ? "Tu clase: sigues donde te quedaste" : c.k > 1 ? `Clase ${c.k} de hoy` : "Tu clase de hoy";
     body = `<h2>${esc(greet)}</h2>
       ${c.place ? "" : whereHTML()}
+      ${liveHTML()}
       ${!started && c.notes.length ? `<div class="coach-msg">${c.notes.map(m => `<p>${esc(m)}</p>`).join("")}</div>` : ""}
       <h3 class="ctitle">${esc(title)}</h3>
       ${goalHTML(c)}
@@ -3903,9 +3910,60 @@ function lessonMigrate() {
   UNITS.forEach(u => u.ls.forEach((l, i) => { if (l.c.length && l.c.every(c => seen(c.id))) S.lm[lkey(u, i)] = 1; }));
   S.lmv = 1; store();
 }
+/* ================= Quién más está practicando ahora =================
+   Cada dispositivo con la app abierta y a la vista se anota en un canal de Supabase Realtime (presence) con un número
+   al azar, sin nombre ni avance, y la app cuenta cuántos hay. Al esconder la app se sale; al volver, se anota otra vez. */
+const LIVE = { ws: null, keys: {}, retry: 0, rt: 0, tmp: "" };
+function devId() {
+  let d = "";
+  try { d = localStorage.getItem("ingles-prov-dev") || ""; if (!d) { d = newCode().replace(/-/g, "").slice(0, 12); localStorage.setItem("ingles-prov-dev", d); } } catch (e) {}
+  return d || (LIVE.tmp = LIVE.tmp || newCode().replace(/-/g, "").slice(0, 12));
+}
+function liveStart() {
+  if (LIVE.ws || !window.WebSocket || navigator.onLine === false || document.visibilityState === "hidden") return;
+  const topic = "realtime:practicando"; let ws, ref = 0, hb = 0;
+  try { ws = new WebSocket(SB_URL.replace(/^http/, "ws") + "/realtime/v1/websocket?apikey=" + encodeURIComponent(SB_KEY) + "&vsn=1.0.0"); } catch (e) { return; }
+  LIVE.ws = ws; LIVE.keys = {};
+  const send = o => { if (ws.readyState === 1) ws.send(JSON.stringify(o)); };
+  ws.onopen = () => {
+    send({ topic, event: "phx_join", payload: { config: { broadcast: { ack: false, self: false }, presence: { key: devId(), enabled: true }, postgres_changes: [], private: false } }, ref: String(++ref), join_ref: "1" });
+    hb = setInterval(() => send({ topic: "phoenix", event: "heartbeat", payload: {}, ref: String(++ref) }), 25000);
+  };
+  ws.onmessage = e => {
+    let m; try { m = JSON.parse(e.data); } catch (x) { return; }
+    if (m.topic !== topic || LIVE.ws !== ws) return;
+    const p = m.payload || {}, refs = v => ((v && v.metas) || []).map(x => x.phx_ref);
+    if (m.event === "phx_reply" && m.ref === "1" && p.status === "ok") { LIVE.retry = 0; send({ topic, event: "presence", payload: { type: "presence", event: "track", payload: { t: Date.now() } }, ref: String(++ref), join_ref: "1" }); }
+    else if (m.event === "presence_state") { LIVE.keys = {}; Object.entries(p).forEach(([k, v]) => { LIVE.keys[k] = refs(v); }); liveUpd(); }
+    else if (m.event === "presence_diff") {
+      Object.entries(p.joins || {}).forEach(([k, v]) => { LIVE.keys[k] = [...new Set([...(LIVE.keys[k] || []), ...refs(v)])]; });
+      Object.entries(p.leaves || {}).forEach(([k, v]) => { const gone = refs(v), left = (LIVE.keys[k] || []).filter(r => !gone.includes(r)); if (left.length) LIVE.keys[k] = left; else delete LIVE.keys[k]; });
+      liveUpd();
+    }
+  };
+  ws.onerror = () => { try { ws.close(); } catch (x) {} };
+  ws.onclose = () => {
+    clearInterval(hb); if (LIVE.ws !== ws) return;
+    LIVE.ws = null; LIVE.keys = {}; liveUpd();
+    clearTimeout(LIVE.rt); LIVE.rt = setTimeout(liveStart, Math.min(60000, 3000 * 2 ** LIVE.retry++)); // se cortó: lo vuelve a intentar, cada vez más espaciado
+  };
+}
+function liveStop() { const ws = LIVE.ws; LIVE.ws = null; LIVE.keys = {}; clearTimeout(LIVE.rt); if (ws) try { ws.close(); } catch (e) {} liveUpd(); }
+// Cuántas personas hay, contándote a ti (0 mientras no te has anotado)
+const liveN = () => LIVE.keys[devId()] ? Object.keys(LIVE.keys).length : 0;
+function liveText() {
+  const n = liveN(); if (!n) return "";
+  return n === 1 ? "Ahora mismo eres la única persona practicando. Cuando alguien más entre, aquí lo verás." : `Ahora mismo ${n === 2 ? "hay otra persona" : `hay ${n - 1} personas más`} practicando contigo.`;
+}
+const liveHTML = () => { const t = liveText(); return `<p class="live" id="live"${t ? "" : " hidden"}><span class="dot" aria-hidden="true"></span><span>${esc(t)}</span></p>`; };
+function liveUpd() { const el = $("#live"); if (!el) return; const t = liveText(); el.hidden = !t; el.lastElementChild.textContent = t; }
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") liveStart(); else liveStop(); });
+window.addEventListener("online", liveStart);
+window.addEventListener("offline", liveStop);
+
 // La primera pantalla, ya con todo listo (armar tu clase guarda tu avance, y guardar usa la sincronización)
 lessonMigrate(); applyNames(); renderMeta(); view("hoy");
-renderSync(); pull();
+renderSync(); pull(); liveStart();
 </script>
 
 <script>
