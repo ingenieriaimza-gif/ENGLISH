@@ -57,6 +57,12 @@ a{color:var(--accent)}
 .tblock .name{padding:14px 16px;border-right:2px solid var(--ink);min-width:0}
 .tblock h1{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1;margin:0;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
 .tblock .sub{color:var(--muted);font-size:14px;margin-top:6px}
+.tblock .online{display:flex;align-items:center;gap:9px;margin-top:9px;height:20px;font-size:14px;line-height:20px;color:var(--ink);white-space:nowrap}
+.tblock .online.off{visibility:hidden}
+.tblock .online b{font-variant-numeric:tabular-nums}
+.tblock .online span:last-child{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.tblock .online .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--ok);animation:livepulse 2.4s ease-out infinite}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 55%,transparent)}70%,100%{box-shadow:0 0 0 8px transparent}}
 .tblock .meta{display:grid;grid-template-rows:repeat(3,1fr);font-family:var(--f-mono);font-size:12px}
 .tblock .meta div{padding:6px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;align-items:center}
 .tblock .meta div:last-child{border-bottom:0}
@@ -191,11 +197,6 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 /* Tu instructor: la clase (meta y 4 pasos), «Mi camino» y «Más» */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .instr h2{text-wrap:balance}
-.live{display:flex;align-items:flex-start;gap:10px;margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
-.live[hidden]{display:none}
-.live .dot{flex:none;width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--ok);animation:livepulse 2.4s ease-out infinite}
-@keyframes livepulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 55%,transparent)}70%,100%{box-shadow:0 0 0 9px transparent}}
-@media (prefers-reduced-motion:reduce){.live .dot{animation:none}}
 .where{display:flex;flex-direction:column;gap:6px}
 .where p{margin:0;font-size:15px;color:var(--muted)}
 .where b{color:var(--ink)}
@@ -585,6 +586,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <div class="name">
       <h1>Inglés Práctico</h1>
       <div class="sub">De Kínder a Carrera · de cero a hablar con fluidez</div>
+      <div class="online off" id="online" title="Personas con la app abierta en este momento, contándote a ti"><span class="dot" aria-hidden="true"></span><span></span></div>
     </div>
     <div class="meta">
       <div><span>Etapa</span><b id="mLevel">Kínder</b></div>
@@ -2298,7 +2300,6 @@ function renderHoy() {
     const hd = H(), tally = hd.r ? `Hoy: ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
     body = `<h2>${c.won ? `¡Lo lograste${nm ? ", " + esc(nm) : ""}!` : nm ? `¡Clase terminada, ${esc(nm)}!` : "¡Clase terminada!"}</h2>
       ${c.won ? `<p class="won">${esc(c.won)}</p>` : ""}
-      ${liveHTML()}
       ${tally ? `<p>${tally}</p>` : ""}
       ${roadHTML(c)}
       <div class="goalbox"><div class="label">Siguiente clase</div><p class="gt">${esc(goalNow())}</p></div>
@@ -2308,7 +2309,6 @@ function renderHoy() {
     const title = c.place ? "Examen de ubicación" : c.d < dayNum() && started ? "Tu clase: sigues donde te quedaste" : c.k > 1 ? `Clase ${c.k} de hoy` : "Tu clase de hoy";
     body = `<h2>${esc(greet)}</h2>
       ${c.place ? "" : whereHTML()}
-      ${liveHTML()}
       ${!started && c.notes.length ? `<div class="coach-msg">${c.notes.map(m => `<p>${esc(m)}</p>`).join("")}</div>` : ""}
       <h3 class="ctitle">${esc(title)}</h3>
       ${goalHTML(c)}
@@ -3951,12 +3951,12 @@ function liveStart() {
 function liveStop() { const ws = LIVE.ws; LIVE.ws = null; LIVE.keys = {}; clearTimeout(LIVE.rt); if (ws) try { ws.close(); } catch (e) {} liveUpd(); }
 // Cuántas personas hay, contándote a ti (0 mientras no te has anotado)
 const liveN = () => LIVE.keys[devId()] ? Object.keys(LIVE.keys).length : 0;
-function liveText() {
-  const n = liveN(); if (!n) return "";
-  return n === 1 ? "Ahora mismo eres la única persona practicando. Cuando alguien más entre, aquí lo verás." : `Ahora mismo ${n === 2 ? "hay otra persona" : `hay ${n - 1} personas más`} practicando contigo.`;
+// Arriba, debajo del nombre de la app: «● 3 personas practicando ahora». Sin conexión no se ve, pero su lugar se queda para que nada brinque.
+function liveUpd() {
+  const el = $("#online"), n = liveN(); if (!el) return;
+  el.classList.toggle("off", !n);
+  el.lastElementChild.innerHTML = n ? `<b>${n.toLocaleString("es-MX")}</b> ${n === 1 ? "persona practicando ahora (tú)" : "personas practicando ahora"}` : "";
 }
-const liveHTML = () => { const t = liveText(); return `<p class="live" id="live"${t ? "" : " hidden"}><span class="dot" aria-hidden="true"></span><span>${esc(t)}</span></p>`; };
-function liveUpd() { const el = $("#live"); if (!el) return; const t = liveText(); el.hidden = !t; el.lastElementChild.textContent = t; }
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") liveStart(); else liveStop(); });
 window.addEventListener("online", liveStart);
 window.addEventListener("offline", liveStop);
