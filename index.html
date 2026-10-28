@@ -921,6 +921,8 @@ UNITS.forEach(u => {
 // Palabras y expresiones de varias palabras (get up = levantarse, how much = cuánto), todo en un mismo diccionario
 const WORDS = Object.assign({}, window.WORDS || {}, window.PHRASES || {});
 const PHRMAX = Math.max(1, ...Object.keys(window.PHRASES || {}).map(k => k.split(" ").length));
+// Una lista de letras sueltas (A, B, C · K, E, Q): no son palabras (ahí la A no es «un» ni la I es «yo»)
+const isLetters = t => /^[A-Z](?:, [A-Z])+$/.test(String(t).trim());
 const tokW = t => (String(t).replace(/[’`´]/g, "'").replace(/\b(?:[A-Za-z]-)+[A-Za-z]\b/g, " ").match(/[A-Za-zÀ-ÿ]+(?:'[A-Za-zÀ-ÿ]+)?/g) || []).map(w => w.toLowerCase());
 // Junta las palabras que forman una expresión (get + up → "get up"): la más larga que empiece en cada lugar
 function groupW(ws) {
@@ -1189,14 +1191,14 @@ const cueless = t => String(t).replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").t
 const cueWrap = h => h.replace(/\(([^)]*)\)/g, '<span class="cue">($1)</span>'), cueHTML = t => cueWrap(esc(t));
 // Frase en inglés con cada palabra marcable mientras se oye (y sin cortar palabras como G-E-R-A-R-D-O)
 function speakSpans(text, cues) {
-  const spoken = clean(cues ? cueless(text) : text); let at = 0, k = 0, inCue = false;
+  const spoken = clean(cues ? cueless(text) : text), lt = isLetters(text); let at = 0, k = 0, inCue = false;
   return text.split(/(\s+)/).map(w => {
     if (!w.trim()) return w;
     if (cues && w.startsWith("(")) inCue = true;
     if (inCue) { if (w.includes(")")) inCue = false; return `<span class="cue">${esc(w)}</span>`; }
     const cw = clean(w).trim(), i = cw ? spoken.indexOf(cw, at) : -1, c = i < 0 ? at : i;
     if (i >= 0) at = i + cw.length;
-    const ws = tokW(w); // .t: se puede tocar para ver qué significa; data-k: su lugar en la frase (para saber qué significa ahí)
+    const ws = lt ? [] : tokW(w); // .t: se puede tocar para ver qué significa; data-k: su lugar en la frase (para saber qué significa ahí)
     return `<span class="w${ws.some(x => WORDS[x]) ? " t" : ""}"${ws.length ? ` data-k="${k++}"` : ""} data-c="${c}">${esc(w)}</span>`;
   }).join("");
 }
@@ -1400,6 +1402,45 @@ function applyNames() {
     }
   });
   NAMES = null;
+}
+/* ---------- el abecedario, cada día revuelto ----------
+   La primera clase de «El alfabeto» enseña las letras en orden (A, B, C…). Ya que la terminaste, esas 9 frases salen en tus
+   repasos y exámenes con las letras revueltas, y cada día de otra forma (K, E, Q…): así te sabes cada letra y no solo la
+   secuencia. Las 26 letras se reparten en las 9 (de 3 en 3 y una de 2), así cada día salen todas. Cómo se revuelven depende
+   solo del día: en tu celular y en tu compu es igual. En «Mi camino» y en «Tus frases» se ven en orden (c.abc0). */
+const ABC = CARDS.filter(c => c.u.id === "k1" && isLetters(c.en));
+ABC.forEach(c => c.abc0 = { en: c.en, es: c.es, pron: c.pron, note: c.note });
+const ABC_TIP = { E: "la E se dice 'i'", I: "la I se dice 'ai'", G: "la G se dice 'yi'", J: "la J se dice 'yei'", W: "la W se dice 'dábol-iu' (doble u)" };
+const ABC_NO = new Set("SEX WTF FUK FCK FAG CUM DIK NIG STD GAY KYS FU UF".split(" ")); // combinaciones que no queremos que salgan
+let ABCDAY = null;
+function abcGroups(day) {
+  let s = (day * 2654435761) >>> 0; // mulberry32: el mismo día da lo mismo en cualquier dispositivo
+  const rnd = () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const sizes = ABC.map(c => c.abc0.en.split(", ").length);
+  // ni combinaciones feas ni letras seguidas como en el abecedario (D, E, F)
+  const fine = g => !ABC_NO.has(g.join("")) && !g.every((l, i) => !i || l.charCodeAt(0) === g[i - 1].charCodeAt(0) + 1);
+  for (let n = 0; ; n++) {
+    const a = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    let k = 0; const gs = sizes.map(z => a.slice(k, k += z));
+    if (gs.every(fine) || n >= 40) return gs;
+  }
+}
+function applyAbc() {
+  if (!ABC.length || ABC.reduce((n, c) => n + c.abc0.en.split(", ").length, 0) !== 26) return;
+  // revuelto ya que cumpliste la misión de la clase 1 (o aprobaste el tema y ya viste sus frases), pero nunca mientras esa clase
+  // es la que toca: su misión es decir el abecedario en orden («¿Qué sigue después de la L?»)
+  const u = ABC[0].u, L = curLesson(), inL1 = !!L && L.u === u && !L.end && L.i === 0;
+  const on = !inL1 && (!!(S.lm || {})[lkey(u, 0)] || (!!S.done[u.id] && u.ls[0].c.every(c => seen(c.id)))), d = on ? dayNum() : -1;
+  if (d === ABCDAY) return;
+  ABCDAY = d;
+  const gs = on && abcGroups(d);
+  ABC.forEach((c, i) => {
+    if (!gs) { Object.assign(c, c.abc0); return; }
+    const g = gs[i], en = g.join(", "), tips = g.filter(l => ABC_TIP[l]).map(l => ABC_TIP[l]);
+    const note = tips.length > 1 ? tips.slice(0, -1).join(", ") + " y " + tips[tips.length - 1] : tips[0] || "";
+    Object.assign(c, { en, es: en, pron: g.map(l => LPRON[l.toLowerCase()]).join(", "), note: note && note[0].toUpperCase() + note.slice(1) + "." });
+  });
 }
 function wordToks(w) { // una palabra → fichas comparables (mismo proceso para lo esperado y lo que oyó el reconocedor)
   const s = stripAcc(w).toLowerCase().replace(/[’`´]/g, "'")
@@ -1613,7 +1654,7 @@ function closeEnough(input, en) {
   const a = norm(String(input).replace(/[A-Za-z]+/g, w => APOS[w.toLowerCase()] ? (fixed = true, APOS[w.toLowerCase()]) : w)), b = norm(en);
   if (!a) return null;
   if (a === b) return { ok: true, exact: !fixed };
-  if (a.replace(/ /g, "") === b.replace(/ /g, "")) return { ok: true, exact: false };
+  if (a.replace(/ /g, "") === b.replace(/ /g, "")) return { ok: true, exact: /^[a-z]( [a-z])+$/.test(b) }; // letras (K, E, Q): con o sin comas da igual
   const A = a.split(" "), B = b.split(" ");
   if (A.length !== B.length) return { ok: false, exact: false };
   let typos = 0;
@@ -1630,7 +1671,7 @@ const canType = c => !c.en.includes("___");
 const canOrder = c => !c.en.includes("___") && words(c.en).length >= 3 && words(c.en).length <= 14;
 
 function distract(c, n, field) {
-  const pool = [...shuffle(c.u.cards), ...shuffle(c.u.lv.units.flatMap(u => u.cards)), ...shuffle(CARDS)];
+  const pool = [...(isLetters(c.en) ? shuffle(ABC) : []), ...shuffle(c.u.cards), ...shuffle(c.u.lv.units.flatMap(u => u.cards)), ...shuffle(CARDS)]; // letras: las otras letras de hoy
   const out = [], used = new Set([c.en.toLowerCase(), c.es.toLowerCase()]);
   for (const x of pool) {
     if (out.length >= n) break;
@@ -2288,6 +2329,7 @@ function estMin(c) {
   return Math.max(5, Math.round(sec / 300) * 5);
 }
 function renderHoy() {
+  applyAbc(); // si ya cambió el día, el abecedario de hoy
   if (!S.prof || editingProfile) { $("#homeNav").hidden = true; return renderOnboarding(); }
   $("#homeNav").hidden = false;
   const c = curClass(), nx = settle(c), nm = nameParts().name;
@@ -2387,14 +2429,15 @@ function dotsHTML(id) { const b = bx(id); return `<div class="dots" title="${see
 const LEGEND = `<p class="legend"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span>Los cuadritos verdes muestran qué tan firme tienes cada frase en la memoria. Sube uno cada vez que la contestas bien el día que le toca repaso; si la fallas, baja. Con 4 o más ya es difícil que se te olvide.</span></p>`;
 // pk: al elegir frases para practicar (Frases): en lugar de los cuadritos, un círculo para marcarla
 function itemHTML(c, showUnit, pk) {
-  const second = sameText(c) && c.pron ? `Se dice: ${c.pron}` : c.es, on = pk && PICK.has(c.id), off = pk && !open(c);
+  const v = c.abc0 || c; // el abecedario aquí se ve en orden (en la práctica sale revuelto)
+  const second = sameText(v) && v.pron ? `Se dice: ${v.pron}` : v.es, on = pk && PICK.has(c.id), off = pk && !open(c);
   const attrs = !pk ? `class="item"` : off ? `class="item pk off" title="Todavía no se abre esta etapa"` : `class="item pk${on ? " on" : ""}" data-pick="${esc(c.id)}" role="button" tabindex="0" aria-pressed="${on ? "true" : "false"}"`;
-  return `<div ${attrs}>${pk ? `<span class="pick" aria-hidden="true">✓</span>` : dotsHTML(c.id)}<span class="iemo${c.emC || ""}" aria-hidden="true">${/e[23]/.test(c.emC) ? c.em.match(EMO_ONE).map(x => `<i>${x}</i>`).join("") : c.em || ""}</span><div class="t"><div>${pk ? esc(c.en) : tapW(c.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(c.en)}</div>`;
+  return `<div ${attrs}>${pk ? `<span class="pick" aria-hidden="true">✓</span>` : dotsHTML(c.id)}<span class="iemo${c.emC || ""}" aria-hidden="true">${/e[23]/.test(c.emC) ? c.em.match(EMO_ONE).map(x => `<i>${x}</i>`).join("") : c.em || ""}</span><div class="t"><div>${pk ? esc(v.en) : tapW(v.en)}</div><div>${esc(second)}${showUnit ? ` · <span style="font-size:12px">${esc(c.u.lv.short)} · U${c.u.k}</span>` : ""}</div></div>${playBtn(v.en)}</div>`;
 }
 let showEs = false;
 let showRd = false;
 // Texto en inglés donde cada palabra se puede tocar para ver qué significa
-const tapW = t => { let k = 0; return `<span class="tw" data-tx="${esc(t)}">${String(t).split(/(\s+)/).map(p => { const ws = tokW(p); if (!ws.length) return esc(p); const i = k++; return ws.some(x => WORDS[x]) ? `<span class="w t" data-k="${i}">${esc(p)}</span>` : esc(p); }).join("")}</span>`; };
+const tapW = t => { if (isLetters(t)) return esc(t); let k = 0; return `<span class="tw" data-tx="${esc(t)}">${String(t).split(/(\s+)/).map(p => { const ws = tokW(p); if (!ws.length) return esc(p); const i = k++; return ws.some(x => WORDS[x]) ? `<span class="w t" data-k="${i}">${esc(p)}</span>` : esc(p); }).join("")}</span>`; };
 // Párrafos de una lectura (en inglés, con palabras que se pueden tocar)
 const paras = (t, en) => t.split(/\n+/).map(x => `<p>${en ? tapW(x) : esc(x)}</p>`).join("");
 // Un tema: solo para ver y escuchar (la explicación, sus frases, la conversación y la lectura). Practicarlo te toca en tu
@@ -2533,7 +2576,7 @@ function frasesList() {
   else if (f === "weak") list = list.filter(c => seen(c.id) && !dominated(c.id));
   else if (f === "due") list = list.filter(c => S.c[c.id] && S.c[c.id][1] <= t);
   else if (f !== "all") list = list.filter(c => c.u.lv.id === f);
-  if (q) list = list.filter(c => plain(c.en).includes(q) || plain(c.es).includes(q) || (qn && norm(c.en).includes(qn)));
+  if (q) list = list.filter(c => { const v = c.abc0 || c; return plain(v.en).includes(q) || plain(v.es).includes(q) || (qn && norm(v.en).includes(qn)); });
   return list;
 }
 function drawFrases() {
@@ -2593,6 +2636,7 @@ function practiceRound() {
 /* ================= sesiones ================= */
 let SES = null;
 function runSession(steps, opts) {
+  applyAbc();
   SES = Object.assign({ steps, i: 0, ok: 0, graded: 0, m: {}, recent: [], fixed: 0, boosts: 0, lastBoost: -99, recap: new Set(), base: steps.length, back: curView === "session" ? "hoy" : curView }, opts, SEGOPT || {});
   view("session"); sndUI(); audioAwake(Infinity); step();
 }
@@ -3038,6 +3082,7 @@ const isVerb = w => {
 };
 // [{k0, k1, t, g, ctx}]: k0–k1 = pedazos que abarca, t = texto, g = qué significa aquí, ctx = depende de la frase
 function ctxItems(text, es) {
+  if (isLetters(text)) return [];
   const ch = chunksOf(text), W = [], out = [];
   ch.forEach((raw, k) => tokW(raw).forEach(w => W.push({ w, k, cap: /^[¿¡"«(]*[A-Z]/.test(raw) })));
   const qAt = k => { for (let j = k; j < ch.length; j++) { const m = ch[j].match(/([.!?])["')»]*$/); if (m) return m[1] === "?"; } return /\?\s*["')»]*$/.test(text); };
@@ -3153,7 +3198,7 @@ function feedback(ok, c, extra, idk) {
   // Cada dato en su renglón y con su nombre: la respuesta, cómo se pronuncia, qué significa (si la pregunta fue en audio) y el consejo
   const k = (SES.steps[SES.i] || {}).k;
   const pr = c.pron && norm(c.pron) !== norm(c.en) ? `<div class="sub">Se pronuncia: <span class="pron">${esc(c.pron)}</span></div>` : "";
-  const mean = `<div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`;
+  const mean = sameText(c) ? "" : `<div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`; // letras (I, R, E): significa lo mismo
   const tip = !ok && c.note ? `<div class="sub tipline">${esc(c.note)}</div>` : "";
   const wbw = ok ? "" : wbwHTML(c);
   const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}" data-id="${esc(c.id)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${wbw}${pr}${tip}`;
@@ -3962,7 +4007,7 @@ window.addEventListener("online", liveStart);
 window.addEventListener("offline", liveStop);
 
 // La primera pantalla, ya con todo listo (armar tu clase guarda tu avance, y guardar usa la sincronización)
-lessonMigrate(); applyNames(); renderMeta(); view("hoy");
+lessonMigrate(); applyNames(); applyAbc(); renderMeta(); view("hoy");
 renderSync(); pull(); liveStart();
 </script>
 

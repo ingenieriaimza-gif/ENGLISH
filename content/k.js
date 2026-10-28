@@ -18,7 +18,8 @@
         ["O, P, Q, R, S, T, U", "ou, pi, kiu, ar, es, ti, iu"],
         ["V, W, X, Y, Z", "vi, dábol-iu, eks, uái, zi"],
         "!Las que más confunden a los hispanohablantes: la E se dice 'i', la I se dice 'ai', la G se dice 'yi' y la J se dice 'yei'.",
-        "Las letras sirven para deletrear (spell) tu nombre o tu correo, algo que vas a hacer mucho."
+        "Las letras sirven para deletrear (spell) tu nombre o tu correo, algo que vas a hacer mucho.",
+        "!Primero las aprendes en orden. Después, en tus repasos, salen revueltas y cada día en otro orden (por ejemplo K, E, Q): así te sabes cada letra y no solo la secuencia."
       ],
       c: [
         ["A, B, C", "A, B, C", "ei, bi, si", ""],
