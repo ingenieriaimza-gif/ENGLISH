@@ -1,0 +1,511 @@
+// Primaria 2: las clases de cada tema, con su meta y su misión
+
+# n1u1
+= Contar tu mañana, de la cama al trabajo | 2-4 6 12-16
+@ Un compañero nuevo te pregunta por tu rutina.
+A: What time do you get up? | ¿A qué hora te levantas?
+B: 2
+A: Do you have breakfast? | ¿Desayunas?
+B: 3
+A: How do you go to work? | ¿Cómo te vas al trabajo?
+B: 4
+A: What time do you get to work? | ¿A qué hora llegas al trabajo?
+B: 16
+
+= Contar tu tarde y tu noche | 5 8 17-22 25
+@ Le cuentas a un amigo cómo son tus tardes.
+A: What time do you have lunch? | ¿A qué hora comes?
+B: 17
+A: And what time do you get home? | ¿Y a qué hora llegas a tu casa?
+B: 18
+A: Do you watch TV at night? | ¿Ves la tele en la noche?
+B: 21
+A: And what time do you go to bed? | ¿Y a qué hora te acuestas?
+B: 19
+
+= Hablar de tu trabajo y de tu semana | 0 1 7 9-11 23 24 26
+@ Platicas con alguien en el camión.
+A: Where do you live? | ¿Dónde vives?
+B: 1
+A: And where do you work? | ¿Y dónde trabajas?
+B: 0
+A: I work from Monday to Friday. Do you work on weekends? | Yo trabajo de lunes a viernes. ¿Tú trabajas los fines de semana?
+B: 7
+A: And on Sundays too? | ¿Y los domingos también?
+B: 10
+
+# n1u2
+= Contar qué hace cada quien en tu familia | 2 3 12-16 19 24
+@ Le hablas de tu familia a una amiga.
+A: Tell me about your family. Does your brother work? | Cuéntame de tu familia. ¿Tu hermano trabaja?
+B: 2
+A: And your sister? Does she do sports? | ¿Y tu hermana? ¿Hace deporte?
+B: 16
+A: Who cooks in your house? | ¿Quién cocina en tu casa?
+B: 15
+A: Is your sister a vegetarian? | ¿Tu hermana es vegetariana?
+B: 19
+
+= Hablar de tus compañeros de trabajo | 0 1 5 9 11 17 20-22 25 26
+@ Le cuentas a un amigo de tus compañeros de trabajo.
+A: What does your friend Laura do? | ¿A qué se dedica tu amiga Laura?
+B: 0
+A: And Pedro? | ¿Y Pedro?
+B: 17
+A: Does Pedro speak Spanish? | ¿Pedro habla español?
+B: 5
+A: Is Laura on time for meetings? | ¿Laura llega a tiempo a las juntas?
+B: 26
+
+= Preguntar horarios y decir qué no funciona | 4 6-8 10 18 23
+@ Estás en la calle con una amiga que viene de visita.
+A: My friend Kate is from New York. | Mi amiga Kate es de Nueva York.
+B: 7
+A: Of course! Look, the store is open now. | ¡Claro! Mira, la tienda ya está abierta.
+B: 23
+A: At nine p.m. Do you know when the bus leaves? | A las nueve de la noche. ¿Sabes a qué hora sale el camión?
+B: 4
+A: Thanks! Oh no, this coffee machine... | ¡Gracias! Ay, no, esta máquina de café...
+B: 6
+
+# n1u8
+= Decir lo que te gusta y lo que te encanta | 0 1 4 5 10 12 15 20 24
+@ Platicas con alguien en una fiesta.
+A: What do you like doing? | ¿Qué te gusta hacer?
+B: 1
+A: Cool! Do you like music? | ¡Qué padre! ¿Te gusta la música?
+B: 0
+A: What's your favorite food? | ¿Cuál es tu comida favorita?
+B: 10
+A: Do you like Italian food? | ¿Te gusta la comida italiana?
+B: 24
+
+= Decir lo que no te gusta y lo que odias | 2 3 9 11 13 14 16 21 23 25
+@ Un amigo te invita a tomar algo.
+A: Do you want a coffee? | ¿Quieres un café?
+B: 3
+A: Really? What do you drink? | ¿En serio? ¿Qué tomas?
+B: 11
+A: The café is full. We have to wait twenty minutes. | El café está lleno. Hay que esperar veinte minutos.
+B: 2
+A: Let's go to my house, then. It's a little far. | Entonces vamos a mi casa. Está un poco lejos.
+B: 9
+
+= Hablar de los gustos de otras personas | 6-8 17-19 22 26
+@ Buscas regalos para tu familia con una amiga.
+A: What does your sister like? | ¿Qué le gusta a tu hermana?
+B: 6
+A: And your brother? | ¿Y a tu hermano?
+B: 18
+A: Let's buy your sister a trip to Canada! | ¡Regalémosle a tu hermana un viaje a Canadá!
+B: 19
+A: Hmm, okay. Does your dad like soccer too? | Mmm, bueno. ¿A tu papá también le gusta el futbol?
+B: 7
+
+# n1u3
+= Decir y preguntar la hora | 0-3 12-18
+@ Llegas temprano a la oficina y platicas con un compañero.
+B: 0
+A: It's eight o'clock. What time is your English class? | Son las ocho. ¿A qué hora es tu clase de inglés?
+B: 2
+A: In the morning? | ¿En la mañana?
+B: 17
+A: Okay. And the meeting? | Bueno. ¿Y la junta?
+B: 3
+
+= Hablar de los días de la semana | 4-7 10 11 23 24
+@ Te despides de tu compañera al terminar la semana.
+B: 10
+A: It's Friday! No work tomorrow. | ¡Es viernes! Mañana no se trabaja.
+A: Which days do you go to the gym? | ¿Qué días vas al gimnasio?
+B: 4
+A: When is the next meeting? | ¿Cuándo es la siguiente junta?
+B: 24
+A: Okay. Have a nice weekend! | Bueno. ¡Buen fin de semana!
+B: 7
+
+= Decir fechas y cumpleaños | 8 9 19-22 25 26
+@ Platicas con una amiga sobre cumpleaños y fechas.
+B: 26
+A: It's in October. And yours? | Es en octubre. ¿Y el tuyo?
+B: 8
+A: What's the date today? | ¿Qué fecha es hoy?
+B: 9
+A: And when is Independence Day in Mexico? | ¿Y cuándo es el Día de la Independencia en México?
+B: 25
+
+# n1u4
+= Hablar de tu familia y tu estado civil | 0-3 9-11 19 20 25
+@ Conoces a alguien en una boda.
+A: Are you married? | ¿Estás casado?
+B: 11
+A: Nice! Who's the woman next to you? | ¡Qué bien! ¿Quién es la señora que está a tu lado?
+B: 0
+A: Do you have brothers and sisters? | ¿Tienes hermanos?
+B: 3
+A: And where do your parents live? | ¿Y dónde viven tus papás?
+B: 2
+
+= Decir de quién es algo | 4-8 12 13 21 22
+@ Llegan a una fiesta familiar y tu amigo te pregunta.
+A: Which car is Ana's? | ¿Cuál es el carro de Ana?
+B: 8
+A: And the new car? | ¿Y el carro nuevo?
+B: 22
+A: Where is the party? | ¿Dónde es la fiesta?
+B: 21
+A: Who are the old people at the table? | ¿Quiénes son los señores mayores de la mesa?
+B: 12
+
+= Hablar de tus hermanos: el mayor y el menor | 14-18 23 24 26
+@ Le hablas de tus hermanos a tu pareja.
+A: Are you the youngest? | ¿Tú eres el menor?
+B: 18
+A: Do you and your sister look alike? | ¿Tú y tu hermana se parecen?
+B: 23
+A: Do you fight with her? | ¿Te peleas con ella?
+B: 24
+A: And your cousin Ana's family? | ¿Y la familia de tu prima Ana?
+B: 26
+
+# n1u9
+= Decir a qué te dedicas y cómo trabajas | 0 1 4 6-11 22-26
+@ Platicas con alguien en una reunión.
+A: Hi! What do you do? | ¡Hola! ¿A qué te dedicas?
+B: 1
+A: Where do you work? | ¿Dónde trabajas?
+B: 24
+A: Do you work full-time? | ¿Trabajas tiempo completo?
+B: 23
+A: Are you the boss? | ¿Eres el jefe?
+B: 25
+
+= Nombrar trabajos y profesiones | 2 3 5 12-21
+@ Le cuentas a un amigo a qué se dedica tu familia.
+A: What does your sister do? | ¿A qué se dedica tu hermana?
+B: 5
+A: And your uncle? He fixes cars, right? | ¿Y tu tío? Arregla carros, ¿verdad?
+B: 17
+A: And your cousin works with computers? | ¿Y tu primo trabaja con computadoras?
+B: 19
+A: And who's the woman in this photo? | ¿Y quién es la señora de esta foto?
+B: 2
+
+# n1u13
+= Hablar de la escuela y las materias | 0-4 12-15 20 28 29
+@ Un niño nuevo te pregunta por tu escuela.
+A: What grade are you in? | ¿En qué grado vas?
+B: 28
+A: What's your favorite subject? | ¿Cuál es tu materia favorita?
+B: 1
+A: Are you a good student? | ¿Eres buen alumno?
+B: 3
+A: What class do you have today? | ¿Qué clase tienes hoy?
+B: 2
+
+= Dar las instrucciones de la clase | 5-7 10 16-19 21 26 27
+@ Hoy tú das la clase de inglés.
+A: Good morning, teacher! What's the topic today? | ¡Buenos días, maestro! ¿Cuál es el tema de hoy?
+B: 16
+A: Can we work alone? | ¿Podemos trabajar solos?
+B: 6
+A: Can I use my phone? | ¿Puedo usar mi celular?
+B: 7
+A: We finished! What now? | ¡Ya terminamos! ¿Y ahora?
+B: 26
+
+= Inscribirte a un curso y pedir ayuda | 8 9 11 22-25
+@ Vas a una escuela de idiomas.
+A: Good evening. How can I help you? | Buenas noches. ¿En qué le ayudo?
+B: 22
+A: Sure. Do you speak English? | Claro. ¿Habla inglés?
+B: 24
+A: Morning or evening classes? | ¿Clases en la mañana o en la noche?
+B: 23
+A: Here's the form. It's in English. | Aquí está el formulario. Está en inglés.
+B: 25
+
+# n1u5
+= Describir tu colonia | 0-2 10 12-17 23 24 26
+@ Le describes tu colonia a alguien que se va a mudar ahí.
+A: Is your neighborhood nice? | ¿Tu colonia es bonita?
+B: 10
+A: Is there a bank? | ¿Hay banco?
+B: 0
+A: And are there stores? | ¿Y hay tiendas?
+B: 1
+A: Can I park my car easily? | ¿Puedo estacionar mi carro fácil?
+B: 2
+
+= Decir dónde está algo | 3-9 11 18-22 25
+@ Trabajas en la recepción de un hotel y un turista te pregunta.
+A: Hi! Is there a pharmacy around here? | ¡Hola! ¿Hay una farmacia por aquí?
+B: 5
+A: Great! And an ATM? | ¡Qué bien! ¿Y un cajero?
+B: 7
+A: And the bus stop? | ¿Y la parada del camión?
+B: 6
+A: Thank you! Where's the manager's office? | ¡Gracias! ¿Dónde está la oficina del gerente?
+B: 8
+
+# n1u14
+= Decir dónde están las cosas de tu casa | 0-4 7 10 12-14 22 23 25
+@ Un amigo se va a quedar unos días en tu casa.
+A: Where's the remote control? | ¿Dónde está el control?
+B: 1
+A: Where can I turn on the light? | ¿Dónde prendo la luz?
+B: 4
+A: Is there a bathroom in my room? | ¿Hay baño en mi cuarto?
+B: 10
+A: Can I use the hammer? | ¿Puedo usar el martillo?
+B: 7
+
+= Pedir ayuda con la casa | 5 6 8 9 11 15-21 24 26
+@ Le das instrucciones a tu hijo para limpiar la casa.
+A: Mom, what can I do? | Mamá, ¿qué hago?
+B: 9
+A: Done! What now? | ¡Listo! ¿Y ahora?
+B: 21
+A: Where do I put this box? | ¿Dónde pongo esta caja?
+B: 16
+A: Can I leave my shoes on the stairs? | ¿Puedo dejar mis zapatos en las escaleras?
+B: 26
+
+# n1u6
+= Pedir mesa en un restaurante | 0 1 11-14 21 22 25
+@ Llegas a un restaurante con tu familia.
+A: Good evening! How many people? | ¡Buenas noches! ¿Cuántas personas?
+B: 21
+A: Inside or outside? | ¿Adentro o afuera?
+B: 22
+A: Yes, follow me. Here you are. | Sí, síganme. Aquí tienen.
+B: 1
+A: Of course. Here you go. | Claro. Aquí tiene.
+A: Are you ready to order? | ¿Ya están listos para ordenar?
+B: 25
+
+= Ordenar la comida | 2-6 15-20
+@ El mesero viene a tomar tu orden.
+A: What would you like? | ¿Qué va a querer?
+B: 5
+A: The hamburgers are very good. | Las hamburguesas están muy buenas.
+B: 2
+A: With onions? | ¿Con cebolla?
+B: 4
+A: And to drink? | ¿Y de tomar?
+B: 3
+
+= Pagar la cuenta | 7-10 23 24 26
+@ Terminaste de comer y quieres pagar.
+A: How was everything? | ¿Qué tal todo?
+B: 7
+A: Thank you! Anything else? | ¡Gracias! ¿Algo más?
+B: 8
+A: Here you go. | Aquí tiene.
+B: 9
+A: Yes, we do. | Sí, sí aceptamos.
+B: 24
+
+# n1u10
+= Ver qué hay en la cocina | 0 1 3-5 9-11 26
+@ Vas a hacer hot cakes con tu hermano.
+A: Let's make pancakes! Is there any milk? | ¡Hagamos hot cakes! ¿Hay leche?
+B: 3
+A: And sugar? | ¿Y azúcar?
+B: 4
+A: What do we need from the store? | ¿Qué necesitamos de la tienda?
+B: 9
+A: Do you want more coffee with your pancakes? | ¿Quieres más café con tus hot cakes?
+B: 11
+
+= Comprar cantidades en la tienda | 2 12 14-19 23
+@ Haces las compras de la semana.
+A: Good morning! What can I get you? | ¡Buenos días! ¿Qué le doy?
+B: 14
+A: Here you go. Anything else? | Aquí tiene. ¿Algo más?
+B: 15
+A: We have fresh tomatoes today. | Hoy tenemos jitomate fresco.
+B: 23
+A: Twenty-five pesos. Anything for the kids? | Veinticinco pesos. ¿Algo para los niños?
+B: 19
+
+= Hablar de mucho y de poco | 6-8 13 20-22 24 25
+@ Organizas una fiesta con una amiga.
+A: Do you know many people here? | ¿Conoces a mucha gente aquí?
+B: 8
+A: How many people are coming to the party? | ¿Cuántas personas vienen a la fiesta?
+B: 13
+A: I have ten chairs. Is that okay? | Tengo diez sillas. ¿Está bien?
+B: 21
+A: Can you help me cook today? | ¿Me ayudas a cocinar hoy?
+B: 22
+
+# n1u15
+= Dar instrucciones para cocinar | 0-3 5 7 11 22 23 25
+@ Le enseñas a tu hijo a hacer una sopa.
+A: Where are the knives? | ¿Dónde están los cuchillos?
+B: 11
+A: Got it. What do I do first? | Ya. ¿Qué hago primero?
+B: 0
+A: Okay. And now? | Bueno. ¿Y ahora?
+B: 1
+A: The soup is ready! | ¡La sopa está lista!
+B: 7
+
+= Decir cómo sabe y cómo está la comida | 4 6 9 10 12 20 21 24
+@ Cenas en la casa de un amigo.
+A: Dinner is almost ready! | ¡La cena ya casi está!
+B: 4
+A: Try the steak. | Prueba el bistec.
+B: 6
+A: Oops, sorry! Try the salad, then. | ¡Uy, perdón! Entonces prueba la ensalada.
+B: 9
+A: And the dessert? | ¿Y el postre?
+B: 10
+
+= Comprar los ingredientes | 8 13-19 26
+@ Compras en la carnicería y en el mercado.
+A: Good morning! What can I get you? | ¡Buenos días! ¿Qué le doy?
+B: 8
+A: Anything else? We have chicken today. | ¿Algo más? Hoy tenemos pollo.
+B: 13
+A: And at the fruit stand? | ¿Y en el puesto de fruta?
+B: 26
+A: Anything to drink? | ¿Algo de tomar?
+B: 19
+
+# n1u7
+= Decir lo que sabes hacer | 0-2 11-15 25 26
+@ Te entrevistan para un trabajo de chofer.
+A: Tell me, what can you do? | A ver, dime, ¿qué sabes hacer?
+B: 0
+A: Can you swim? Sometimes the job is on a boat. | ¿Sabes nadar? A veces el trabajo es en un barco.
+B: 1
+A: Hmm. Can you cook? | Mmm. ¿Sabes cocinar?
+B: 12
+A: And can you dance? It's for parties. | ¿Y sabes bailar? Es para fiestas.
+B: 13
+
+= Pedir favores y permiso | 3-8 16 17 22
+@ Visitas a una amiga en su casa.
+B: 5
+A: Sure! Come in. | ¡Claro! Pasa.
+B: 6
+A: Of course. Here you go. | Por supuesto. Aquí tienes.
+A: Let's eat. Here's the soup. | A comer. Aquí está la sopa.
+B: 16
+A: Here. Can you help me with the dishes? | Toma. ¿Me ayudas con los platos?
+B: 7
+
+= Resolver problemas en una videollamada | 9 10 18-21 23 24
+@ Tienes una videollamada de trabajo.
+A: Hello? Can you hear me? | ¿Bueno? ¿Me oyes?
+B: 9
+A: Sorry! How about now? | ¡Perdón! ¿Y ahora?
+B: 19
+A: Is this better? | ¿Así está mejor?
+B: 10
+A: Yes, I can see you. Can we start? | Sí, sí te veo. ¿Empezamos?
+B: 18
+
+# n1u11
+= Describir el cuerpo y la edad de alguien | 0 1 6 12-15 20 21 26
+@ Tu amiga va a recoger a tu hermana al aeropuerto.
+A: I'm picking up your sister at the airport. Is she tall? | Voy a recoger a tu hermana al aeropuerto. ¿Es alta?
+B: 0
+A: How old is she? | ¿Cuántos años tiene?
+B: 26
+A: Is she thin? | ¿Es delgada?
+B: 12
+A: And her husband? Is he tall too? | ¿Y su esposo? ¿También es alto?
+B: 1
+
+= Describir la cara y el pelo | 2-5 16-19 25
+@ Le describes a la policía al hombre que te robó la bolsa.
+A: What does the man look like? | ¿Cómo es el hombre?
+B: 2
+A: Anything else? | ¿Algo más?
+B: 5
+A: Does he wear glasses? | ¿Usa lentes?
+B: 4
+A: And the woman with him? | ¿Y la mujer que iba con él?
+B: 18
+
+= Describir el carácter de alguien | 7-11 22-24
+@ Le cuentas a tu esposa de tus compañeros nuevos.
+A: What is your new boss like? | ¿Cómo es tu nuevo jefe?
+B: 8
+A: And Pedro? Does he work a lot? | ¿Y Pedro? ¿Trabaja mucho?
+B: 10
+A: What is Laura like? | ¿Cómo es Laura?
+B: 11
+A: And the new girl? She doesn't talk much. | ¿Y la nueva? No habla mucho.
+B: 9
+
+# n1u12
+= Dar tu dirección, tu correo y tu fecha de nacimiento | 2 4 6 11 12 15 17 19 26
+@ Abres una cuenta en el banco.
+A: What's your address? | ¿Cuál es tu dirección?
+B: 2
+A: Apartment or house? | ¿Departamento o casa?
+B: 26
+A: What's your email address? | ¿Cuál es tu correo?
+B: 4
+A: And your date of birth? | ¿Y tu fecha de nacimiento?
+B: 6
+
+= Pedir los datos de alguien | 0 1 3 5 7 8 23 25
+@ Trabajas en la recepción de una clínica y llega un paciente.
+A: Hi, I have an appointment. | Hola, tengo una cita.
+B: 0
+A: It's Schmidt. | Es Schmidt.
+B: 8
+A: S-C-H-M-I-D-T. | S-C-H-M-I-D-T.
+B: 5
+A: April tenth, 1985. | Diez de abril de 1985.
+B: 23
+
+= Llenar un formulario | 9 10 13 14 16 18 20-22 24
+@ Atiendes a un cliente en la oficina.
+A: Hello. I need a new card, please. | Hola. Necesito una tarjeta nueva, por favor.
+B: 10
+A: Okay. Can I write in small letters? | Bueno. ¿Puedo escribir con letra chiquita?
+B: 24
+A: Done. Anything else? | Listo. ¿Algo más?
+B: 9
+A: And this line, "In case of emergency"? | ¿Y esta línea, «En caso de emergencia»?
+B: 22
+
+# n1u16
+= Decir de dónde eres y qué idiomas hablas | 0 1 3 8-10 12 13 23
+@ Conoces a una turista de Texas en un viaje.
+A: Are you and your wife from here? | ¿Tú y tu esposa son de aquí?
+B: 9
+A: I'm from Texas. | Yo soy de Texas.
+B: 8
+A: Yes, I speak a little Spanish. And you? | Sí, hablo un poco de español. ¿Y tú?
+B: 3
+A: In Texas a lot of people speak Spanish too. | En Texas mucha gente también habla español.
+B: 23
+
+= Hablar de gente de otros países | 2 4 6 7 14-18
+@ Le cuentas a un amigo de tu trabajo nuevo.
+A: Where do you work now? | ¿Dónde trabajas ahora?
+B: 6
+A: Cool! Are your coworkers Mexican? | ¡Qué padre! ¿Tus compañeros son mexicanos?
+B: 7
+A: And your boss? | ¿Y tu jefe?
+B: 4
+A: And the new engineer, Yuki? | ¿Y la ingeniera nueva, Yuki?
+B: 2
+
+= Hablar de países y continentes | 5 11 19-22 24-26
+@ Juegas un concurso de geografía.
+A: Where is China? | ¿Dónde está China?
+B: 11
+A: Mexico, Brazil and Peru are in... | México, Brasil y Perú están en...
+B: 24
+A: What food is famous all over the world? | ¿Qué comida es famosa en todo el mundo?
+B: 5
+A: Where do many countries meet to talk? | ¿Dónde se reúnen muchos países para hablar?
+B: 26

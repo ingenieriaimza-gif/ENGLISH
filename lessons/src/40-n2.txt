@@ -1,0 +1,1089 @@
+// Secundaria: las clases de cada tema, con su meta y su misión
+
+# n2u1
+= Decir qué estás haciendo en este momento | 0 2 3 6 7 10 20 21 23
+@ Tu hermano te llama a la oficina.
+A: Hi! What are you doing? | ¡Hola! ¿Qué estás haciendo?
+B: 0
+A: Can we talk for five minutes? | ¿Podemos hablar cinco minutos?
+B: 23
+A: Oh, okay. Are you leaving the office soon? | Ah, bueno. ¿Ya vas a salir de la oficina?
+B: 21
+A: Mom is here. Dinner is ready! | Mamá está aquí. ¡La cena ya está lista!
+B: 10
+
+= Contar qué está pasando a tu alrededor | 1 4 5 11 14 18 19 22 26
+@ Hablas por teléfono con un amigo mientras esperas en la calle.
+A: Where are you? What's happening? | ¿Dónde estás? ¿Qué está pasando?
+B: 5
+A: Is your sister with you? | ¿Tu hermana está contigo?
+B: 1
+A: Is the weather okay there? | ¿Está bien el clima allá?
+B: 4
+A: Hurry! The party is starting. | ¡Apúrense! La fiesta ya va a empezar.
+B: 10
+
+= Contar qué haces estos días y tus planes | 8 9 12 13 15 17 24 25 16
+@ Te encuentras a una amiga en una fiesta.
+A: Hi! It's so nice to see you! | ¡Hola! ¡Qué gusto verte!
+B: 25
+A: Yes, a lot! So, what's new? | ¡Sí, mucho! ¿Y qué hay de nuevo?
+B: 15
+A: That's great! Are you busy this month? | ¡Qué bien! ¿Andas ocupado este mes?
+B: 8
+A: Any plans for the weekend? | ¿Algún plan para el fin de semana?
+B: 24
+
+# n2u2
+= Decir dónde estabas | 0 2 3 7 14 15 21 22 24
+@ Un amigo te buscó varias veces y no te encontró.
+A: You weren't at work yesterday. | Ayer no fuiste al trabajo.
+B: 0
+A: Oh no! And last week? You didn't answer my messages. | ¡Ay, no! ¿Y la semana pasada? No contestaste mis mensajes.
+B: 2
+A: Lucky you! I called you last night too. | ¡Qué suerte! También te llamé anoche.
+B: 15
+A: And on Sunday I went to your house, but nobody opened. | Y el domingo fui a tu casa, pero nadie abrió.
+B: 3
+
+= Contar cómo estuvo tu fin de semana | 5 6 9 10 13 17 18 19 25
+@ El lunes, una compañera te pregunta por tu fin de semana.
+A: Hi! How was your weekend? | ¡Hola! ¿Cómo estuvo tu fin de semana?
+B: 6
+A: Did you go to the movies? How was the movie? | ¿Fuiste al cine? ¿Qué tal la película?
+B: 13
+A: And the mall? Was it full? | ¿Y la plaza? ¿Estaba llena?
+B: 19
+A: I went to the beach with my family. | Yo fui a la playa con mi familia.
+B: 25
+
+= Hablar de tu pasado en una entrevista | 1 4 8 11 12 16 20 23 26
+@ En una entrevista de trabajo te preguntan por tu experiencia.
+A: Where were you two years ago? | ¿Dónde estabas hace dos años?
+B: 8
+A: How was your first interview there? | ¿Cómo te fue en tu primera entrevista ahí?
+B: 12
+A: Were you a shy person as a child? | ¿De niño eras tímido?
+B: 26
+A: Thank you for coming today. | Gracias por venir hoy.
+B: 11
+
+# n2u3
+= Contar qué hiciste en el trabajo | 0 1 3 4 5 6 7 8 22
+@ Tu jefa te pregunta qué hiciste ayer.
+A: What did you do yesterday afternoon? | ¿Qué hiciste ayer en la tarde?
+B: 1
+A: And the project? | ¿Y el proyecto?
+B: 3
+A: Great! Did you see my email about the meeting? | ¡Muy bien! ¿Viste mi correo sobre la junta?
+B: 6
+A: Did you call Pedro about the new date? | ¿Le llamaste a Pedro por la nueva fecha?
+B: 8
+
+= Contar lo que hiciste el fin de semana | 10 12 13 14 15 17 18 21 25
+@ El lunes le cuentas a un compañero tu fin de semana.
+A: What did you do on Saturday? | ¿Qué hiciste el sábado?
+B: 12
+A: All day? Did your wife help you? | ¿Todo el día? ¿Te ayudó tu esposa?
+B: 14
+A: And on Sunday? | ¿Y el domingo?
+B: 13
+A: Was it good? | ¿Estuvo buena?
+B: 10
+
+= Ponerte al día con un amigo | 2 9 11 16 19 20 23 24 26
+@ Te encuentras a un amigo que no veías hace años.
+A: Wow, your English is great now! | ¡Wow, ahora hablas muy bien inglés!
+B: 11
+A: How's your sister? Is she still in Texas? | ¿Cómo está tu hermana? ¿Sigue en Texas?
+B: 2
+A: And your parents? Are they in the same house? | ¿Y tus papás? ¿Siguen en la misma casa?
+B: 16
+A: I tried to call you last month, but... | Te traté de llamar el mes pasado, pero...
+B: 23
+
+# n2u4
+= Contar tu día de ayer | 0 1 2 8 10 12 13 17 21
+@ Una amiga te ve cansado y te pregunta por tu día.
+A: You look tired. What did you do yesterday? | Te ves cansado. ¿Qué hiciste ayer?
+B: 8
+A: Why? What happened? | ¿Por qué? ¿Qué pasó?
+B: 12
+A: Did you go to work by bus? | ¿Te fuiste al trabajo en camión?
+B: 17
+A: Nice phone! Is it new? | ¡Qué bonito celular! ¿Es nuevo?
+B: 2
+
+= Dar noticias y explicar un error | 3 4 5 6 11 14 18 25 26
+@ Un compañero de trabajo te escribe para ponerse al día.
+A: Did you get my message? | ¿Te llegó mi mensaje?
+B: 5
+A: Did you hear about Laura? Her boyfriend asked her to marry him! | ¿Supiste lo de Laura? ¡Su novio le pidió matrimonio!
+B: 25
+A: And what did she say? | ¿Y qué le contestó ella?
+B: 4
+A: Why weren't you at the meeting today? | ¿Por qué no estuviste en la junta hoy?
+B: 11
+
+= Contar por qué no fuiste y qué hiciste | 7 9 15 16 19 20 22 23 24
+@ Un amigo te pregunta por la fiesta del sábado.
+A: Did you go to Ana's party on Saturday? | ¿Fuiste a la fiesta de Ana el sábado?
+B: 9
+A: Why not? | ¿Por qué no?
+B: 20
+A: Oh no! Did your sister visit you? | ¡Ay, no! ¿Te visitó tu hermana?
+B: 16
+A: And what did you do on Sunday? | ¿Y qué hiciste el domingo?
+B: 15
+
+# n2u17
+= Contar dónde naciste y cómo creciste | 0 1 8 16 17 18 23 24 25 29
+@ Una compañera nueva quiere conocerte mejor.
+A: Where are you from? When were you born? | ¿De dónde eres? ¿Cuándo naciste?
+B: 0
+A: Did you grow up in a big city? | ¿Creciste en una ciudad grande?
+B: 1
+A: Do you still have family there? | ¿Todavía tienes familia allá?
+B: 23
+A: Did you play any sports as a kid? | ¿Hacías algún deporte de niño?
+B: 18
+
+= Dar noticias de tu familia | 2 3 4 7 9 10 15 19 20 28
+@ Te encuentras a una vecina y te pregunta por tu familia.
+A: How long have you been married? | ¿Cuánto tiempo llevas casado?
+B: 2
+A: Any news in the family? | ¿Alguna novedad en la familia?
+B: 3
+A: How wonderful! And your cousin? Is she still studying medicine? | ¡Qué maravilla! ¿Y tu prima? ¿Sigue estudiando medicina?
+B: 4
+A: Who's the boy in the photo with your brother? | ¿Quién es el niño de la foto con tu hermano?
+B: 9
+
+= Hablar de los abuelos y de una pérdida | 5 6 11 12 13 14 21 22 26 27
+@ Platicas con un compañero; murió el papá de un amigo de ustedes.
+A: Did you hear about Mario's dad? | ¿Supiste lo del papá de Mario?
+B: 12
+A: Yes, it's so sad. Do you know when the funeral is? | Sí, qué triste. ¿Sabes cuándo es el funeral?
+B: 26
+A: And your grandparents? Are they still working? | ¿Y tus abuelos? ¿Todavía trabajan?
+B: 6
+A: You have to enjoy every day. | Hay que disfrutar cada día.
+B: 11
+
+# n2u16
+= Decir qué estabas haciendo cuando te llamaron | 0 2 3 4 9 10 11 23 26
+@ Un amigo te llamó anoche y no contestaste.
+A: I called you last night. What were you doing? | Te llamé anoche. ¿Qué estabas haciendo?
+B: 4
+A: And at eleven? I called again. | ¿Y a las once? Te volví a llamar.
+B: 0
+A: Oh! Well, I need to talk to you. | ¡Ah! Bueno, necesito hablar contigo.
+B: 23
+A: Really? That's funny. I was waiting for your call. | ¿De veras? Qué chistoso. Yo estaba esperando tu llamada.
+B: 11
+
+= Contar qué pasaba cuando algo te interrumpió | 5 7 8 12 13 17 18 19 25
+@ Le cuentas a tu familia lo que pasó anoche.
+A: What happened last night? | ¿Qué pasó anoche?
+B: 25
+A: And how did you get home? Was the weather bad? | ¿Y cómo llegaste a casa? ¿Estaba feo el clima?
+B: 7
+A: Did Uncle Pepe go to your house? | ¿El tío Pepe fue a tu casa?
+B: 8
+A: How did you hurt your knee? | ¿Cómo te lastimaste la rodilla?
+B: 19
+
+= Describir lo que pasaba a tu alrededor | 1 6 14 15 16 20 21 22 24
+@ Tu jefa te habló y no la oíste.
+A: Hello? Did you hear what I said? | ¿Hola? ¿Oíste lo que te dije?
+B: 6
+A: What were you doing? | ¿Qué estabas haciendo?
+B: 24
+A: And the others? Where were they? | ¿Y los demás? ¿Dónde estaban?
+B: 1
+A: Why was the office so noisy? | ¿Por qué había tanto ruido en la oficina?
+B: 22
+
+# n2u5
+= Contar tus planes | 0 1 3 10 12 13 15 24 25
+@ Un amigo te pregunta por tus planes.
+A: So, any plans for tonight? | ¿Y qué planes tienes para hoy en la noche?
+B: 0
+A: And your big plans with your wife? | ¿Y los grandes planes con tu esposa?
+B: 1
+A: Wow! When? | ¡Wow! ¿Cuándo?
+B: 25
+A: And your dream trip? | ¿Y tu viaje soñado?
+B: 24
+
+= Ofrecer ayuda y hacer promesas | 4 6 7 9 17 18 19 21 22
+@ En la oficina, tu compañera necesita ayuda.
+A: I have so much work today! | ¡Tengo muchísimo trabajo hoy!
+B: 6
+A: Thanks! Can you send the report to the client? | ¡Gracias! ¿Puedes mandarle el reporte al cliente?
+B: 17
+A: And please don't tell the boss I was late. | Y por favor no le digas al jefe que llegué tarde.
+B: 7
+A: Remember the meeting at four! | ¡Acuérdate de la junta a las cuatro!
+B: 21
+
+= Predecir lo que va a pasar | 2 5 8 11 14 16 20 23 26
+@ Platicas con tu pareja antes de salir de casa.
+A: Look at those clouds! | ¡Mira esas nubes!
+B: 2
+A: Are you going to be home for dinner? | ¿Vas a llegar a cenar?
+B: 23
+A: Do you think your brother will win the race? | ¿Crees que tu hermano va a ganar la carrera?
+B: 8
+A: Okay, have a good day! | ¡Bueno, que te vaya bien!
+B: 26
+
+# n2u11
+= Invitar a alguien a salir | 0 1 2 7 12 13 19 20 23
+@ Quieres invitar a una amiga a salir.
+A: Hi! What's up? | ¡Hola! ¿Qué onda?
+B: 7
+A: Yes, I think so. Why? | Sí, creo que sí. ¿Por qué?
+B: 1
+A: Sure! But I don't have a car. | ¡Claro! Pero no tengo carro.
+B: 20
+A: Great! What time? | ¡Genial! ¿A qué hora?
+B: 19
+
+= Aceptar una invitación y quedar | 3 4 5 8 9 10 14 21 22
+@ Un compañero te invita a comer.
+A: Would you like to have lunch with us on Friday? | ¿Te gustaría comer con nosotros el viernes?
+B: 4
+A: Great! We're going to a new Italian place. | ¡Qué bien! Vamos a un lugar italiano nuevo.
+B: 8
+A: At two. | A las dos.
+B: 10
+A: At the restaurant, on Juárez Street. | En el restaurante, en la calle Juárez.
+B: 21
+
+= Decir que no con amabilidad | 6 11 15 16 17 18 24 25 26
+@ Te invitan a una fiesta, pero no puedes ir.
+A: We're having a party on Saturday. Do you want to come? | Vamos a hacer una fiesta el sábado. ¿Quieres venir?
+B: 6
+A: Oh no! Are you sure? | ¡Ay, no! ¿Seguro?
+B: 16
+A: That's too bad. Maybe next weekend? | Qué lástima. ¿Tal vez el próximo fin de semana?
+B: 25
+A: Okay, let me know. | Bueno, me avisas.
+B: 17
+
+# n2u31
+= Felicitar en Navidad y contar cómo la celebras | 0 1 2 3 8 19 21 23 26
+@ En diciembre, una amiga de Estados Unidos te escribe.
+A: Merry Christmas! | ¡Feliz Navidad!
+B: 0
+A: How do you celebrate in your house? | ¿Cómo celebran en tu casa?
+B: 1
+A: Did you buy any presents? | ¿Compraste regalos?
+B: 3
+A: And on December 31st, at midnight? | ¿Y el 31 de diciembre, a medianoche?
+B: 23
+
+= Explicar las tradiciones de tu país | 5 10 12 15 16 17 18 20 24
+@ Un amigo extranjero te pregunta por las fiestas de México.
+A: What's this altar with flowers and photos? | ¿Qué es este altar con flores y fotos?
+B: 10
+A: Is it a party? | ¿Es una fiesta?
+B: 5
+A: Do you work on Monday? | ¿Trabajas el lunes?
+B: 16
+A: What do kids wear on Halloween? | ¿Qué se ponen los niños en Halloween?
+B: 20
+
+= Celebrar un aniversario y hacer un brindis | 4 6 7 9 11 13 14 22 25
+@ Organizas la fiesta de tu aniversario de bodas.
+A: Wow, nice decorations! What's the occasion? | ¡Wow, qué bonita decoración! ¿Cuál es la ocasión?
+B: 7
+A: Congratulations! What kind of wedding was it? | ¡Felicidades! ¿Qué tipo de boda fue?
+B: 13
+A: Everyone has a glass of wine now. | Ya todos tienen una copa de vino.
+B: 25
+A: The next day: How was the party? | Al día siguiente: ¿Qué tal la fiesta?
+B: 9
+
+# n2u6
+= Comparar precios y escoger la mejor opción | 0 2 4 7 11 16 18 21 24
+@ Le ayudas a tu mamá a escoger un celular.
+A: Which phone should I buy? This one is five thousand pesos. | ¿Cuál celular compro? Este cuesta cinco mil pesos.
+B: 11
+A: And this one is three thousand. | Y este cuesta tres mil.
+B: 0
+A: But is it good? | ¿Pero es bueno?
+B: 7
+A: So, which one? | Entonces, ¿cuál?
+B: 4
+
+= Comparar ciudades y lugares | 1 3 6 8 9 15 22 23 26
+@ Un turista te pregunta por tu ciudad.
+A: Is Monterrey a big city? | ¿Monterrey es una ciudad grande?
+B: 1
+A: Is Fundidora Park nice? | ¿Está bonito el Parque Fundidora?
+B: 9
+A: How's the traffic today? | ¿Cómo está el tráfico hoy?
+B: 6
+A: Is your house near downtown? | ¿Tu casa está cerca del centro?
+B: 8
+
+= Comparar personas y cosas de tu vida | 5 10 12 13 14 17 19 20 25
+@ Platicas con una amiga de tu familia y de tu semana.
+A: How are you? You were sick yesterday. | ¿Cómo estás? Ayer estabas enfermo.
+B: 5
+A: Is your brother younger than you? | ¿Tu hermano es menor que tú?
+B: 25
+A: Is your new job better than the old one? | ¿Tu nuevo trabajo es mejor que el anterior?
+B: 20
+A: Let's take dance classes! Salsa or bachata? | ¡Tomemos clases de baile! ¿Salsa o bachata?
+B: 10
+
+# n2u18
+= Decir que un lugar te encanta | 0 1 2 6 7 9 16 17 24
+@ Estás de paseo con un amigo en un mirador.
+A: Look at that! | ¡Mira eso!
+B: 1
+A: Do you like this town? | ¿Te gusta este pueblo?
+B: 2
+A: Let's have dinner here tonight. | Cenemos aquí esta noche.
+B: 7
+A: How was your trip to Peru last year? | ¿Qué tal tu viaje a Perú el año pasado?
+B: 16
+
+= Hacer cumplidos a la gente | 3 4 5 8 10 11 15 20 26
+@ Visitas a tu prima, que acaba de tener una bebé.
+A: Hi! Come in! Meet Sofía. | ¡Hola! ¡Pásale! Te presento a Sofía.
+B: 3
+A: Thank you! And look at me, I'm ready for the party. | ¡Gracias! Y mírame, ya estoy lista para la fiesta.
+B: 11
+A: I want to have a party for the baby next month. | Quiero hacerle una fiesta a la bebé el próximo mes.
+B: 5
+A: My husband painted the baby's room himself. | Mi esposo pintó él solo el cuarto de la bebé.
+B: 26
+
+= Opinar de un regalo antes de comprarlo | 12 13 14 18 19 21 22 23 25
+@ Le ayudas a un amigo a escoger un regalo para su papá.
+A: What do you think of this watch for my dad? | ¿Qué opinas de este reloj para mi papá?
+B: 19
+A: Is it real gold? | ¿Es de oro de verdad?
+B: 25
+A: And this backpack? It has a lot of pockets. | ¿Y esta mochila? Tiene muchas bolsas.
+B: 22
+A: Look at this lamp. It looks like a cloud. | Mira esta lámpara. Parece una nube.
+B: 12
+
+# n2u19
+= Quejarte de un mal día | 0 1 2 8 11 16 22 23 24
+@ Una amiga te pregunta cómo te fue hoy.
+A: How was your day? | ¿Cómo estuvo tu día?
+B: 8
+A: Oh no! Didn't you go to that new restaurant? | ¡Ay, no! ¿No ibas a ir al restaurante nuevo?
+B: 1
+A: Forty dollars for a plain hamburger, right? | Cuarenta dólares por una hamburguesa sencilla, ¿no?
+B: 2
+A: My cousin found a hair in her soup there. | Mi prima encontró un pelo en su sopa ahí.
+B: 0
+
+= Contar algo raro que te pasó | 5 9 10 13 14 18 20 21 26
+@ Le cuentas a un compañero algo raro que te pasó.
+A: You look strange. Are you okay? | Te ves raro. ¿Estás bien?
+B: 10
+A: You called the boss "Mom" in the meeting? | ¿Le dijiste «mamá» al jefe en la junta?
+B: 13
+A: Maybe you need to see a doctor. | A lo mejor necesitas ver a un doctor.
+B: 9
+A: And is it true your dog only eats lettuce? | ¿Y es cierto que tu perro solo come lechuga?
+B: 26
+
+= Decir que algo es complicado o imposible | 3 4 6 7 12 15 17 19 25
+@ Tu jefe te pide algo difícil para hoy.
+A: Can you finish the report in one hour? | ¿Puedes terminar el reporte en una hora?
+B: 3
+A: Why? It's just a report. | ¿Por qué? Es solo un reporte.
+B: 4
+A: And we need a meeting at six. | Y necesitamos una junta a las seis.
+B: 7
+A: Yes. The client is coming. | Sí. Viene el cliente.
+B: 19
+
+# n2u20
+= Decir de qué tamaño es algo | 0 1 2 3 4 8 9 12 22
+@ Trabajas en una tienda de muebles y aparatos; un cliente te pregunta.
+A: How big is that sofa? | ¿Qué tan grande es ese sillón?
+B: 8
+A: And this TV? | ¿Y esta tele?
+B: 4
+A: Is it thin? | ¿Es delgada?
+B: 9
+A: And that speaker? | ¿Y esa bocina?
+B: 2
+
+= Describir calles, ríos y distancias | 5 6 7 13 15 16 20 21 23
+@ Un amigo viene a visitarte a tu pueblo.
+A: Can I drive downtown? | ¿Puedo ir en carro al centro?
+B: 6
+A: Can we swim in the river? | ¿Podemos nadar en el río?
+B: 7
+A: Is the beach far? | ¿Está lejos la playa?
+B: 23
+A: What's that big gray thing on the road? | ¿Qué es esa cosa gris y grande en la carretera?
+B: 15
+
+= Describir formas y figuras | 10 11 14 17 18 19 24 25 26
+@ Juegas a adivinar con tu sobrino: te pregunta qué hay en sus dibujos.
+A: What's this? | ¿Qué es esto?
+B: 24
+A: And these two shapes? | ¿Y estas dos figuras?
+B: 25
+A: What's in this glass? | ¿Qué hay en este vaso?
+B: 26
+A: Look at my drawing! What shape is it? | ¡Mira mi dibujo! ¿Qué forma tiene?
+B: 10
+
+# n2u12
+= Pedir que hagan las cosas con cuidado | 0 1 10 12 13 18 19 21 22
+@ Sales de paseo al museo con tu sobrino, que ya maneja.
+A: Okay, I'm ready! Let's go! | ¡Listo! ¡Vámonos!
+B: 1
+A: (In the museum) WOW, THIS IS SO COOL! | (En el museo) ¡GUAU, ESTO ESTÁ PADRÍSIMO!
+B: 21
+A: The guide is talking. What is she saying? | La guía está hablando. ¿Qué está diciendo?
+B: 10
+A: Did you understand the guide? | ¿Le entendiste a la guía?
+B: 22
+
+= Decir qué tan bien hace alguien las cosas | 2 3 4 5 11 14 20 23 24
+@ Platicas de tus compañeros de trabajo.
+A: Is the new girl good at her job? | ¿La chava nueva es buena en su trabajo?
+B: 2
+A: And Luis? | ¿Y Luis?
+B: 3
+A: How was the soccer game yesterday? | ¿Cómo estuvo el partido de futbol ayer?
+B: 23
+A: Let's do karaoke on Friday! | ¡Vamos al karaoke el viernes!
+B: 24
+
+= Contar cómo te fue: por suerte, de repente | 6 7 8 9 15 16 17 25 26
+@ Tu amiga llega tarde a tu casa y platican.
+A: Hi! Sorry I'm late! | ¡Hola! ¡Perdón por llegar tarde!
+B: 26
+A: How was your job interview this morning? | ¿Cómo te fue en tu entrevista de trabajo hoy en la mañana?
+B: 7
+A: Why are your clothes wet? | ¿Por qué tienes la ropa mojada?
+B: 25
+A: Can we go to the bank now? | ¿Podemos ir al banco ahorita?
+B: 8
+
+# n2u30
+= Decir que estás enojado y calmar una pelea | 0 3 4 5 8 11 13 20 24 25
+@ Tu hermana usó tu carro sin pedírtelo.
+A: Hi! Why are you looking at me like that? | ¡Hola! ¿Por qué me ves así?
+B: 0
+A: Is it about the car? I only used it for an hour! | ¿Es por el carro? ¡Solo lo usé una hora!
+B: 4
+A: Well, you left the keys on the table! | ¡Pues tú dejaste las llaves en la mesa!
+B: 8
+A: WHY ARE YOU SO ANGRY? | ¡¿POR QUÉ ESTÁS TAN ENOJADO?!
+B: 3
+
+= Contar qué te da miedo y qué te preocupa | 1 2 10 12 15 19 21 22 28
+@ Estás en la feria con un amigo.
+A: Let's go on the big wheel! It's one hundred meters high! | ¡Vamos a la rueda de la fortuna! ¡Mide cien metros!
+B: 1
+A: Okay, okay. Did you like the movie last night? | Bueno, bueno. ¿Te gustó la película de anoche?
+B: 10
+A: Did you hear they're closing the factory? | ¿Supiste que van a cerrar la fábrica?
+B: 19
+A: Don't worry. It was fake news. They're not closing it. | No te preocupes. Era una noticia falsa. No la van a cerrar.
+B: 2
+
+= Expresar alegría y cariño en una boda | 6 7 9 14 16 17 18 23 26 27
+@ En la boda de tu prima, platicas con un invitado.
+A: Look, the bride is crying! | ¡Mira, la novia está llorando!
+B: 18
+A: Listen to the singer! | ¡Escucha al cantante!
+B: 16
+A: You and your cousin are very close, right? | Tú y tu prima son muy unidos, ¿verdad?
+B: 26
+A: You look so happy today! | ¡Te ves muy contento hoy!
+B: 7
+
+# n2u7
+= Preguntar cómo llegar a un lugar | 0 4 5 6 7 8 9 24 25
+@ Estás en una ciudad que no conoces y le preguntas a una señora.
+A: Hi! Can I help you? | ¡Hola! ¿Le puedo ayudar?
+B: 9
+A: Where do you want to go? | ¿A dónde quiere ir?
+B: 0
+A: Take this street to the river. | Tome esta calle hasta el río.
+B: 6
+A: Not really. | No mucho.
+B: 7
+
+= Dar indicaciones en la calle | 1 2 3 19 20 21 22 23
+@ Un turista te pregunta por una farmacia.
+A: Excuse me, where's the pharmacy? | Disculpe, ¿dónde está la farmacia?
+B: 1
+A: Okay. And then? | Bien. ¿Y luego?
+B: 3
+A: Is the pharmacy on this side? | ¿La farmacia está de este lado?
+B: 20
+A: And where exactly is it? | ¿Y dónde está exactamente?
+B: 22
+
+= Moverte en camión, metro y taxi | 10 11 12 13 14 15 16 17 18 26
+@ Vas al aeropuerto en transporte público.
+A: (The bus driver) Hello! Where are you going? | (El chofer) ¡Hola! ¿A dónde va?
+B: 10
+A: No, sorry. Take the subway. | No, perdón. Tome el metro.
+B: 26
+A: At the station. One way? | En la estación. ¿Sencillo?
+B: 15
+A: (On the train) This is Central Station. | (En el tren) Esta es la Estación Central.
+B: 11
+
+# n2u21
+= Describir tu pueblo | 0 3 4 8 11 17 18 21 24 26
+@ Una compañera de la ciudad te pregunta por tu pueblo.
+A: Where do you live? | ¿Dónde vives?
+B: 0
+A: Is it noisy? | ¿Hay mucho ruido?
+B: 4
+A: What's in the center of the village? | ¿Qué hay en el centro del pueblo?
+B: 3
+A: Do you like living there? | ¿Te gusta vivir ahí?
+B: 11
+
+= Recomendar lugares de tu ciudad | 1 2 5 7 12 13 16 23 25
+@ Un amigo te visita y no sabe a dónde ir.
+A: What can I do in your city? | ¿Qué puedo hacer en tu ciudad?
+B: 2
+A: Sure! And is there a museum? | ¡Claro! ¿Y hay algún museo?
+B: 1
+A: What about this little restaurant? | ¿Qué tal este restaurancito?
+B: 7
+A: And for the kids? | ¿Y para los niños?
+B: 13
+
+= Contar las noticias del centro | 6 9 10 14 15 19 20 22 27
+@ Un vecino te pregunta por el centro de la ciudad.
+A: Did you go downtown yesterday? | ¿Fuiste al centro ayer?
+B: 6
+A: Why? What was there? | ¿Por qué? ¿Qué había?
+B: 15
+A: And how's the traffic? | ¿Y cómo está el tráfico?
+B: 10
+A: Where did you park? | ¿Dónde te estacionaste?
+B: 19
+
+# n2u22
+= Guiar al que maneja en carretera | 0 6 7 9 11 22 23 24 27
+@ Vas de copiloto en un viaje por carretera.
+A: I think we're on the wrong road. | Creo que vamos en la carretera equivocada.
+B: 23
+A: Okay. Now, which lane? | Bueno. ¿Ahora qué carril?
+B: 6
+A: Where do I get off the highway? | ¿Dónde me salgo de la autopista?
+B: 11
+A: Why is there so much traffic? | ¿Por qué hay tanto tráfico?
+B: 24
+
+= Hablar de tu carro y de cómo te mueves | 1 3 4 5 8 12 13 14 15 16
+@ Platicas con un amigo de carros y de cómo te vas al trabajo.
+A: Nice car! Does it use gas? | ¡Qué bonito carro! ¿Usa gasolina?
+B: 12
+A: Cool! Do you drive it to work? | ¡Qué padre! ¿Te vas al trabajo en él?
+B: 5
+A: Why? | ¿Por qué?
+B: 1
+A: Why were you late for the trip last weekend? | ¿Por qué llegaron tarde al viaje el fin de semana pasado?
+B: 13
+
+= Viajar en avión y hablar del transporte | 2 10 17 18 19 20 21 25 26
+@ Vas a tomar un avión con una amiga.
+A: Which terminal is our flight? | ¿De qué terminal sale nuestro vuelo?
+B: 2
+A: Is it an international flight? | ¿Es un vuelo internacional?
+B: 21
+A: Look at that small plane! What is it? | ¡Mira ese avión chiquito! ¿Qué es?
+B: 19
+A: (On the plane) Who are those people in uniform? | (En el avión) ¿Quiénes son esas personas de uniforme?
+B: 18
+
+# n2u8
+= Probarte ropa en una tienda | 0 1 2 3 4 15 16 17 25
+@ Entras a una tienda de ropa.
+A: Hi! Can I help you? | ¡Hola! ¿Le ayudo en algo?
+B: 0
+A: (Later) Did you find something? | (Más tarde) ¿Encontró algo?
+B: 1
+A: Yes, here you go. | Sí, aquí tiene.
+B: 2
+A: How is it? | ¿Qué tal le quedó?
+B: 17
+
+= Preguntar precios y pedir descuento | 5 6 10 11 12 13 14 18 19
+@ Ves una chamarra que te gusta.
+A: This jacket is very popular. | Esta chamarra es muy popular.
+B: 12
+A: A hundred dollars. | Cien dólares.
+B: 18
+A: No, sorry. | No, lo siento.
+B: 14
+A: This one is fifty dollars, and it's very nice. | Esta cuesta cincuenta dólares y está muy bonita.
+B: 5
+
+= Pagar en la caja y pedir tu recibo | 7 8 9 20 21 22 23 24 26
+@ Vas a pagar a la caja.
+A: Next, please! | ¡El que sigue, por favor!
+B: 7
+A: Sorry, the card machine isn't working today. | Perdón, la terminal no funciona hoy.
+B: 20
+A: That's forty-five dollars. | Son cuarenta y cinco dólares.
+B: 23
+A: Thank you! Here's your bag. Anything else? | ¡Gracias! Aquí está su bolsa. ¿Algo más?
+B: 8
+
+# n2u23
+= Escoger ropa para una boda | 0 5 6 7 8 12 24 25 26
+@ Vas de compras con una amiga.
+A: Why are we at the mall? | ¿Por qué estamos en la plaza?
+B: 7
+A: What about these pants? | ¿Qué tal estos pantalones?
+B: 5
+A: And this old jacket from your closet? | ¿Y esta chamarra vieja de tu clóset?
+B: 25
+A: Look at my new dress! | ¡Mira mi vestido nuevo!
+B: 24
+
+= Decir de qué está hecha cada cosa | 1 2 3 4 16 17 18 19 21 22
+@ Le enseñas tu casa nueva a un amigo.
+A: What a beautiful table! | ¡Qué mesa tan bonita!
+B: 4
+A: And what's this in the kitchen? | ¿Y qué es esto en la cocina?
+B: 21
+A: Your fridge is so shiny! | ¡Tu refri brilla mucho!
+B: 17
+A: And this nice jacket on the chair? | ¿Y esta chamarra tan bonita en la silla?
+B: 3
+
+= Hablar de joyas y de moda | 9 10 11 13 14 15 20 23 27
+@ Tu amiga te enseña los regalos de su compromiso.
+A: Look! My fiancé gave me this. | ¡Mira! Mi prometido me dio esto.
+B: 10
+A: And my grandma gave me this necklace. | Y mi abuela me dio este collar.
+B: 27
+A: Who made this dress? | ¿Quién hizo este vestido?
+B: 9
+A: Your sister looks so natural! | ¡Tu hermana se ve muy natural!
+B: 11
+
+# n2u9
+= Decir qué te duele y cómo te sientes | 0 1 2 3 4 5 12 13 14
+@ Llamas a tu trabajo para avisar que estás enfermo.
+A: Hi! Are you coming to work today? | ¡Hola! ¿Vas a venir a trabajar hoy?
+B: 0
+A: Oh no! What's wrong? | ¡Ay, no! ¿Qué tienes?
+B: 4
+A: Anything else? | ¿Algo más?
+B: 13
+A: Can you drive to the doctor? | ¿Puedes manejar al doctor?
+B: 14
+
+= Hacer una cita y hablar con el doctor | 6 7 8 9 15 20 21 22 25
+@ Llamas al consultorio y luego hablas con el doctor.
+A: Good morning, Doctor Ruiz's office. | Buenos días, consultorio del doctor Ruiz.
+B: 21
+A: Tomorrow at ten. (At the doctor) What's the problem? | Mañana a las diez. (Con el doctor) ¿Qué le pasa?
+B: 15
+A: How long have you felt like this? | ¿Desde cuándo se siente así?
+B: 8
+A: I'm going to give you an antibiotic. | Le voy a dar un antibiótico.
+B: 9
+
+= Contar que te lastimaste y cómo sigues | 10 11 16 17 18 19 23 24 26
+@ Un amigo te llama porque supo que estuviste en el hospital.
+A: I heard you were at the hospital! | ¡Supe que estuviste en el hospital!
+B: 17
+A: Oh no! Where did they take you? | ¡Ay, no! ¿A dónde te llevaron?
+B: 24
+A: What did the doctor give you? | ¿Qué te dio el doctor?
+B: 19
+A: How are you today? | ¿Cómo estás hoy?
+B: 26
+
+# n2u24
+= Hablar con la doctora de tu peso | 0 1 2 3 12 16 17 18 24
+@ Tu doctora te pregunta por tu peso y tu comida.
+A: How can I help you today? | ¿En qué te puedo ayudar hoy?
+B: 0
+A: Did you gain weight this year? | ¿Subiste de peso este año?
+B: 1
+A: What do you usually eat? | ¿Qué comes normalmente?
+B: 2
+A: Any other health problems? | ¿Algún otro problema de salud?
+B: 24
+
+= Contar tu rutina de ejercicio | 4 5 10 13 14 15 19 23 26
+@ Un amigo te pregunta cómo te mantienes en forma.
+A: You look great! Do you exercise? | ¡Te ves muy bien! ¿Haces ejercicio?
+B: 4
+A: What do you do at the gym? | ¿Qué haces en el gimnasio?
+B: 5
+A: Why do you do it? | ¿Por qué lo haces?
+B: 15
+A: I want to start running. Any tips? | Quiero empezar a correr. ¿Algún consejo?
+B: 26
+
+= Explicar una lesión y cómo te duele | 6 7 8 9 11 20 21 22 25
+@ Te lastimaste y le cuentas a una compañera.
+A: Why are you walking like that? | ¿Por qué caminas así?
+B: 6
+A: Oh no! Is it bad? | ¡Ay, no! ¿Está grave?
+B: 7
+A: Does it hurt a lot? | ¿Te duele mucho?
+B: 11
+A: And your brother? He had an accident too, right? | ¿Y tu hermano? También tuvo un accidente, ¿no?
+B: 21
+
+# n2u25
+= Pedir ayuda en una emergencia | 0 1 3 4 5 21 22 24 26
+@ Ves humo saliendo de la casa de tu vecino.
+A: What's happening? | ¿Qué está pasando?
+B: 0
+A: Oh my God! What do we do? | ¡Dios mío! ¿Qué hacemos?
+B: 1
+A: Look, there's a man on the floor! | ¡Mira, hay un señor en el piso!
+B: 4
+A: Can I go inside for my cat? | ¿Puedo entrar por mi gato?
+B: 26
+
+= Avisar de un peligro | 2 7 8 12 13 16 17 20 25
+@ Cuidas a tus sobrinos en un paseo.
+A: Look, a ball! I'm going to get it! | ¡Mira, una pelota! ¡Voy por ella!
+B: 2
+A: Can we go into that old house? | ¿Podemos entrar a esa casa vieja?
+B: 20
+A: What does that sign say? | ¿Qué dice ese letrero?
+B: 25
+A: (In the car) I don't want the seat belt! | (En el carro) ¡No quiero el cinturón!
+B: 7
+
+= Contar un accidente y pedir primeros auxilios | 6 9 10 11 14 15 18 19 23
+@ Hubo un accidente en el trabajo y llega tu jefe.
+A: What happened here? | ¿Qué pasó aquí?
+B: 9
+A: Are you okay? Do you need anything? | ¿Estás bien? ¿Necesitas algo?
+B: 11
+A: Here it is. Who helped you? | Aquí está. ¿Quién te ayudó?
+B: 15
+A: Did you hear about the fire on Hidalgo Street last night? | ¿Supiste del incendio de anoche en la calle Hidalgo?
+B: 10
+
+# n2u13
+= Contar qué haces en tu tiempo libre | 0 1 11 15 16 17 19 24 26
+@ Conoces a alguien en una fiesta.
+A: So, what do you do for fun? | ¿Y qué haces para divertirte?
+B: 1
+A: Cool! Anything else? | ¡Qué padre! ¿Algo más?
+B: 16
+A: What do you do at night? | ¿Qué haces en las noches?
+B: 19
+A: Do you want to join our book club? | ¿Quieres entrar a nuestro club de lectura?
+B: 26
+
+= Hablar de los deportes que haces | 4 6 7 8 9 12 13 20 21
+@ Un compañero del trabajo te pregunta por tus deportes.
+A: You look very fit! Do you go to the gym? | ¡Te ves en forma! ¿Vas al gimnasio?
+B: 20
+A: How often? | ¿Qué tan seguido?
+B: 9
+A: And on weekends? | ¿Y los fines de semana?
+B: 4
+A: Do you watch the games on TV too? | ¿También ves los partidos en la tele?
+B: 21
+
+= Decir en qué eres bueno y qué aprendes | 2 3 5 10 14 18 22 23 25
+@ Platicas con una amiga nueva de lo que sabes hacer.
+A: This food is delicious! Did you make it? | ¡Esta comida está deliciosa! ¿Tú la hiciste?
+B: 2
+A: Is that your guitar? | ¿Esa es tu guitarra?
+B: 5
+A: Do you want to go dancing on Friday? | ¿Quieres ir a bailar el viernes?
+B: 10
+A: Don't worry, it's easy! | ¡No te preocupes, es fácil!
+B: 23
+
+# n2u26
+= Ver un partido y comentar lo que pasa | 0 1 4 5 6 7 10 12 24
+@ Llegas tarde a ver el partido con tus amigos.
+A: Hey! You're late! | ¡Oye! ¡Llegaste tarde!
+B: 0
+A: Two to one. We're winning! Look at number ten! | Dos a uno. ¡Vamos ganando! ¡Mira al número diez!
+B: 4
+A: Look at the coach! He's shouting. | ¡Mira al entrenador! Está gritando.
+B: 5
+A: Oh no, he pushed our player! | ¡Ay, no, empujó a nuestro jugador!
+B: 10
+
+= Contar resultados y torneos | 2 3 8 11 18 19 20 21 25 28
+@ El lunes, un compañero te pregunta por tu equipo.
+A: How was your game on Saturday? | ¿Cómo les fue en su partido del sábado?
+B: 2
+A: Congratulations! What's next? | ¡Felicidades! ¿Qué sigue?
+B: 18
+A: And the national team? | ¿Y la selección nacional?
+B: 21
+A: Is the tournament easy? | ¿El torneo está fácil?
+B: 28
+
+= Platicar de los deportes que te gustan | 9 13 14 15 16 17 22 23 26 27
+@ Un amigo te pregunta por los deportes que te gustan.
+A: Do you like soccer? What else do you watch? | ¿Te gusta el futbol? ¿Qué más ves?
+B: 15
+A: Are you going to run on Sunday? | ¿Vas a correr el domingo?
+B: 17
+A: Your sister swims too, right? | Tu hermana también nada, ¿verdad?
+B: 22
+A: Wow! Is she good? | ¡Wow! ¿Es buena?
+B: 23
+
+# n2u27
+= Hablar de la música que te gusta | 0 1 5 6 9 14 15 16 24
+@ Vas en el carro con una amiga.
+A: The car is so quiet. | El carro está muy callado.
+B: 24
+A: What kind of music do you like? | ¿Qué tipo de música te gusta?
+B: 6
+A: Listen, this one is new. | Escucha, esta es nueva.
+B: 1
+A: You sing very well! | ¡Cantas muy bien!
+B: 9
+
+= Contar cómo estuvo un concierto | 3 7 8 12 13 17 20 25 26
+@ Un amigo te pregunta por tus planes y luego por el concierto.
+A: Any plans for Saturday? | ¿Planes para el sábado?
+B: 3
+A: (On Monday) How was it? | (El lunes) ¿Qué tal estuvo?
+B: 25
+A: What was the best part? | ¿Qué fue lo mejor?
+B: 13
+A: Are they playing in other cities? | ¿Van a tocar en otras ciudades?
+B: 26
+
+= Hablar de tus artistas favoritos | 2 4 10 11 18 19 21 22 23
+@ Platicas con un compañero de tu cantante favorita.
+A: I don't know this singer. Is she new? | No conozco a esta cantante. ¿Es nueva?
+B: 19
+A: Is she good live? | ¿Canta bien en vivo?
+B: 4
+A: Is she famous? | ¿Es famosa?
+B: 23
+A: Any news from your favorite band? | ¿Alguna novedad de tu grupo favorito?
+B: 2
+
+# n2u28
+= Escoger una película con alguien | 7 8 9 10 15 16 17 21 27
+@ Escoges una película con tu pareja.
+A: What do you want to watch tonight? | ¿Qué quieres ver hoy en la noche?
+B: 7
+A: What about this one? | ¿Qué tal esta?
+B: 9
+A: Hmm, I don't like love stories. | Mmm, no me gustan las historias de amor.
+B: 15
+A: And for the kids tomorrow? | ¿Y para los niños mañana?
+B: 21
+
+= Contar de qué se trata una película | 0 1 2 3 11 12 13 14 18 23
+@ Una amiga te pregunta por la película que viste.
+A: I heard you saw a new movie. What's it about? | Supe que viste una película nueva. ¿De qué se trata?
+B: 1
+A: Sounds sad. Who's in it? | Suena triste. ¿Quién sale?
+B: 11
+A: Was she good? | ¿Actuó bien?
+B: 23
+A: Is it easy to follow? | ¿Se entiende fácil?
+B: 14
+
+= Platicar de la serie que estás viendo | 4 5 6 19 20 22 24 25 26
+@ Un compañero te pregunta qué estás viendo en la tele.
+A: Are you watching anything good? | ¿Estás viendo algo bueno?
+B: 4
+A: Oh, I know it! Have you watched a lot? | ¡Ah, la conozco! ¿Ya viste mucho?
+B: 5
+A: Wait until the end. The main character... | Espera al final. El personaje principal...
+B: 6
+A: Who's the actor? He's in a lot of movies. | ¿Quién es el actor? Sale en muchas películas.
+B: 26
+
+# n2u10
+= Explicar por qué algo no te convence | 0 2 3 5 14 15 16 18 21
+@ Buscas departamento con tu pareja.
+A: What do you think of this apartment? | ¿Qué te parece este departamento?
+B: 0
+A: And the one on the first floor? It's cheaper. | ¿Y el de la planta baja? Es más barato.
+B: 2
+A: What about the one downtown? | ¿Y el del centro?
+B: 18
+A: This one is big, cheap, and it has a garden! | ¡Este es grande, barato y tiene jardín!
+B: 21
+
+= Decir en la mesa que algo es demasiado | 4 6 7 8 9 17 22 23 25
+@ Comes con tu familia y algo no está bien.
+A: Do you like the coffee? | ¿Te gusta el café?
+B: 6
+A: And the soup? | ¿Y la sopa?
+B: 23
+A: Do you want more tacos? | ¿Quieres más tacos?
+B: 17
+A: Your cousins are coming too! | ¡También van a venir tus primos!
+B: 4
+
+= Decir por qué no puedes hacer algo | 1 10 11 12 13 19 20 24 26
+@ Un amigo te invita a correr y luego a salir.
+A: Do you want to go running at noon? | ¿Quieres ir a correr al mediodía?
+B: 10
+A: Then let's go out tonight! | ¡Entonces salgamos en la noche!
+B: 1
+A: Why are you so tired? | ¿Por qué estás tan cansado?
+B: 20
+A: You should apply for the manager job. | Deberías pedir el puesto de gerente.
+B: 24
+
+# n2u15
+= Ofrecer algo y decir que no pasa nada | 0 1 3 4 12 13 15 21 24
+@ Un amigo llega a tu casa.
+A: Hi! Hey, what's that box? | ¡Hola! Oye, ¿qué es esa caja?
+B: 0
+A: Thank you! Can I have a drink? | ¡Gracias! ¿Me das algo de tomar?
+B: 15
+A: Oh. You look worried. Is something wrong? | Ah. Te ves preocupado. ¿Pasa algo?
+B: 24
+A: Are you sure? | ¿Seguro?
+B: 4
+
+= Preguntar por alguien y decir que nadie sabe | 2 5 6 7 8 14 16 17 25
+@ En la oficina, antes de la junta.
+A: Hi! Where's the boss? | ¡Hola! ¿Dónde está el jefe?
+B: 7
+A: Did you know the meeting is at three? | ¿Sabías que la junta es a las tres?
+B: 16
+A: Can you write down the time? | ¿Puedes apuntar la hora?
+B: 14
+A: Are we all here? Can we start? | ¿Ya estamos todos? ¿Empezamos?
+B: 8
+
+= Buscar algo por todas partes | 9 10 11 18 19 20 22 23 26
+@ No encuentras tu celular y tu pareja te ayuda.
+A: What are you looking for? Your phone? | ¿Qué buscas? ¿Tu celular?
+B: 10
+A: Did you look in the car? | ¿Buscaste en el carro?
+B: 23
+A: Here it is! Now let's go downtown. | ¡Aquí está! Ahora vámonos al centro.
+B: 11
+A: Okay. Do you want to stay home? | Bueno. ¿Quieres quedarte en casa?
+B: 19
+
+# n2u29
+= Decir que hiciste algo tú solo | 0 1 2 11 14 17 19 25 26
+@ Un amigo ve que pintaste tu casa.
+A: Wow! Who painted your house? | ¡Wow! ¿Quién pintó tu casa?
+B: 0
+A: Nobody helped you? Do you live with your parents? | ¿Nadie te ayudó? ¿Vives con tus papás?
+B: 1
+A: That's a lot of work! How do you feel? | ¡Es mucho trabajo! ¿Cómo te sientes?
+B: 26
+A: Can you paint my house too? | ¿Puedes pintar mi casa también?
+B: 25
+
+= Contar lo que se hicieron las personas | 3 4 5 6 12 13 15 18 24
+@ Le cuentas a tu mamá por teléfono cómo estuvo la fiesta.
+A: How was the party? | ¿Qué tal la fiesta?
+B: 4
+A: Why does your hand hurt? | ¿Por qué te duele la mano?
+B: 12
+A: Did you serve the food? | ¿Tú serviste la comida?
+B: 15
+A: I have to go now. Bye! | Ya me tengo que ir. ¡Adiós!
+B: 5
+
+= Recibir invitados en tu casa | 7 8 9 10 16 20 21 22 23
+@ Haces una reunión en tu casa.
+A: Hi! Thanks for having us. | ¡Hola! Gracias por recibirnos.
+B: 8
+A: Yes, please! Can I bring my cousins next time? | ¡Sí, por favor! ¿Puedo traer a mis primos la próxima vez?
+B: 23
+A: And when can we come again? | ¿Y cuándo podemos volver?
+B: 9
+A: Let's have a race to the park! | ¡Echemos una carrera al parque!
+B: 10
+
+# n2u14
+= Escribirle a un amigo que no ves hace tiempo | 0 1 2 6 10 15 17 18 19
+@ Una amiga de la escuela te escribe después de mucho tiempo.
+A: Hey! It's Sara from school! | ¡Hola! ¡Soy Sara, de la escuela!
+B: 18
+A: I wrote to you last month! | ¡Te escribí el mes pasado!
+B: 6
+A: No problem. So, what's up? | No hay problema. ¿Y qué onda?
+B: 2
+A: I'm great! My family is great too. | ¡Estoy muy bien! Mi familia también.
+B: 10
+
+= Quedar por mensaje con un amigo | 3 4 5 7 8 11 23 24 25 26
+@ Te escribes con un amigo para verse mañana.
+A: Hi! What's up? | ¡Hola! ¿Qué onda?
+B: 8
+A: Yes! Let's meet at six at the café. | ¡Sí! Nos vemos a las seis en el café.
+B: 5
+A: Do you have the photos from the trip? | ¿Tienes las fotos del viaje?
+B: 7
+A: (The next day) Where are you? | (Al día siguiente) ¿Dónde estás?
+B: 26
+
+= Felicitar y mandar buenos deseos | 9 12 13 14 16 20 21 22
+@ Contestas mensajes de tus amigos.
+A: Today is my birthday! | ¡Hoy es mi cumpleaños!
+B: 12
+A: I got the job! | ¡Me dieron el trabajo!
+B: 13
+A: I'm sick in bed. | Estoy enfermo en cama.
+B: 14
+A: I'm going to work now. Bye! | Ya me voy a trabajar. ¡Bye!
+B: 9
+
+# n2u32
+= Hablar de tus redes sociales | 0 5 6 10 12 14 16 19 23 27
+@ Una amiga te pregunta por tus redes sociales.
+A: Did you go to the beach? I saw something online. | ¿Fuiste a la playa? Vi algo en internet.
+B: 5
+A: Can I follow you? | ¿Te puedo seguir?
+B: 10
+A: Do a lot of people follow you? | ¿Te sigue mucha gente?
+B: 6
+A: What about your sister? She's always online. | ¿Y tu hermana? Siempre está en internet.
+B: 12
+
+= Ayudar a alguien con su celular | 2 3 7 9 17 18 20 21 25 26
+@ Le ayudas a tu papá con su celular nuevo.
+A: How do I use the bank on my phone? | ¿Cómo uso el banco en mi celular?
+B: 3
+A: Okay, it's open. Now what? | Bueno, ya la abrí. ¿Y ahora?
+B: 9
+A: It says "error". | Dice «error».
+B: 7
+A: How do I choose the language? | ¿Cómo escojo el idioma?
+B: 17
+
+= Hablar de compras y partidos en internet | 1 4 8 11 13 15 22 24
+@ Platicas con un compañero de compras y partidos en internet.
+A: Where do you buy your clothes? | ¿Dónde compras tu ropa?
+B: 1
+A: Is that store good? | ¿Está buena esa tienda?
+B: 8
+A: Where can I watch the soccer games? | ¿Dónde puedo ver los partidos de futbol?
+B: 11
+A: What's a VPN? I don't know. | ¿Qué es una VPN? No sé.
+B: 4

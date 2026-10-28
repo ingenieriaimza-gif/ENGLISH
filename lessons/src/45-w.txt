@@ -1,0 +1,171 @@
+// Inglés para el trabajo: las clases de cada tema, con su meta y su misión
+
+# w1
+= Presentarte en una llamada de trabajo | 0 3 4 7 8 9 10 21
+@ Le llamas a un proveedor por primera vez.
+A: Good morning, Atlas Supplies. | Buenos días, Atlas Supplies.
+B: 0
+A: Hello! This is the sales department. | ¡Hola! Habla al departamento de ventas.
+B: 8
+A: This is Mary. What's your customer number? | Habla Mary. ¿Cuál es su número de cliente?
+B: 4
+A: Thanks. When do you need the order? | Gracias. ¿Para cuándo necesita el pedido?
+B: 7
+
+= Entender una llamada y quedar en mandar un correo | 1 2 5 6 11 12 13
+@ Un cliente de Estados Unidos te llama y habla muy rápido.
+A: Hi, this is John Miller from Texas Steel, I'm calling about next week's order... | Hola, habla John Miller de Texas Steel, le llamo por el pedido de la próxima semana...
+B: 2
+A: Sure. My name is John Miller. | Claro. Me llamo John Miller.
+B: 12
+A: M-I-L-L-E-R. I need the new prices. | M-I-L-L-E-R. Necesito los precios nuevos.
+B: 6
+A: Great. And please send me the delivery date. | Muy bien. Y por favor mándeme la fecha de entrega.
+B: 13
+
+= Escribir correos de trabajo | 14 15 16 17 18 19 20 22
+@ Te escribes por correo con un proveedor.
+A: Hello. I'm still waiting for the drawings. | Hola. Sigo esperando los planos.
+B: 19
+A: No problem. Can you send them today? | No hay problema. ¿Me los puede mandar hoy?
+B: 15
+A: Got it, thanks! Who else needs this information? | ¡Recibido, gracias! ¿Quién más necesita esta información?
+B: 16
+A: Perfect. I'll review the drawings today. | Perfecto. Hoy reviso los planos.
+B: 14
+
+# w2
+= Pedir una cotización por teléfono | 0 1 2 3 4 15 16 17 19
+@ Le llamas a una proveedora para pedir precio de unas válvulas.
+A: Atlas Supplies, this is Mary. | Atlas Supplies, habla Mary.
+B: 0
+A: Sure! How many do you need? | ¡Claro! ¿Cuántas necesita?
+B: 17
+A: Okay. The model V-20 is in our catalog. | Bien. El modelo V-20 está en nuestro catálogo.
+B: 19
+A: Not right now. The lead time is four weeks. | Ahorita no. El tiempo de entrega es de cuatro semanas.
+B: 3
+
+= Explicar tus condiciones de pago | 8 9 10 11 12 13 14
+@ Eres el vendedor y un cliente nuevo te pregunta cómo trabajan.
+A: What do I need to pay first? | ¿Qué tengo que pagar primero?
+B: 13
+A: And when do I pay the rest? | ¿Y cuándo pago el resto?
+B: 11
+A: What about shipping? | ¿Y el envío?
+B: 14
+A: What do you send me after the delivery? | ¿Qué me manda después de la entrega?
+B: 12
+
+= Dar seguimiento a un pedido | 5 6 7 18 20 21 22
+@ Le das seguimiento a un pedido con el proveedor.
+A: Atlas Supplies, good afternoon. | Atlas Supplies, buenas tardes.
+B: 5
+A: Yes, it's ready. | Sí, ya está listo.
+B: 6
+A: Tomorrow morning. | Mañana en la mañana.
+B: 7
+A: Of course. And the second order, for the filters? | Claro. ¿Y el segundo pedido, el de los filtros?
+B: 21
+
+# w3
+= Pedir documentos técnicos a un proveedor | 0 1 2 3 4 5 11 13 14
+@ Hablas con un proveedor nuevo sobre una pieza.
+A: Our new part is ready. Do you want to see it? | Nuestra pieza nueva está lista. ¿Quiere verla?
+B: 0
+A: Yes, it does. | Sí, cumple.
+B: 1
+A: Sure. Anything else? | Claro. ¿Algo más?
+B: 3
+A: What do you need before the big order? | ¿Qué necesita antes del pedido grande?
+B: 14
+
+= Reportar un problema con una pieza | 6 7 8 12 15 18 19 22 24
+@ Llamas al proveedor porque llegó material malo.
+A: Hi! Did you receive the parts? | ¡Hola! ¿Ya recibieron las piezas?
+B: 6
+A: Oh no! What's the problem? | ¡Ay, no! ¿Cuál es el problema?
+B: 7
+A: Are you sure? | ¿Está seguro?
+B: 18
+A: Can you show me? | ¿Me puede enseñar?
+B: 22
+
+= Pedir una solución al proveedor | 9 10 16 17 20 21 23 25
+@ El proveedor te llama para resolver el problema de calidad.
+A: We're very sorry about the defect. | Lamentamos mucho el defecto.
+B: 9
+A: A machine was out of calibration. | Una máquina estaba descalibrada.
+B: 10
+A: We're checking all the machines. | Estamos revisando todas las máquinas.
+B: 21
+A: Next Monday. | El próximo lunes.
+B: 20
+
+# w4
+= Empezar una junta en línea | 1 2 7 11 12 13 14 15
+@ Empiezas una videollamada con tu equipo.
+A: Hi everyone! | ¡Hola a todos!
+B: 11
+A: I can hear you. But Pedro is talking and we can't hear him. | Yo sí te oigo. Pero Pedro está hablando y no lo oímos.
+B: 12
+A: Sorry! Is everyone here? | ¡Perdón! ¿Ya están todos?
+B: 14
+A: Okay, everyone is here now. | Bueno, ya estamos todos.
+B: 2
+
+= Dirigir los puntos de una junta | 0 3 10 16 17 18 19 20
+@ Diriges la junta semanal del proyecto.
+A: How is the project going? | ¿Cómo va el proyecto?
+B: 19
+A: Great. And the problem with the supplier? | Muy bien. ¿Y el problema con el proveedor?
+B: 17
+A: Okay. Someone needs to call the client. | Bueno. Alguien tiene que llamarle al cliente.
+B: 20
+A: I can do it. | Yo lo hago.
+B: 3
+
+= Cerrar una junta con acuerdos | 4 5 6 8 9 21
+@ Terminas la junta con tu equipo.
+A: I think that's all for today. | Creo que es todo por hoy.
+B: 4
+A: Can you send us the notes? | ¿Nos puede mandar las notas?
+B: 5
+A: When do we meet again? | ¿Cuándo nos volvemos a ver?
+B: 21
+A: Okay. Bye, everyone! | Bueno. ¡Adiós a todos!
+B: 6
+
+# w5
+= Usar las palabras clave de un proyecto | 0 2 3 4 11 12 17 18 19
+@ Tu jefe te pregunta por el proyecto nuevo.
+A: What's the most important date? | ¿Cuál es la fecha más importante?
+B: 0
+A: What do we have to send the client? | ¿Qué le tenemos que mandar al cliente?
+B: 3
+A: And what's our goal with the money? | ¿Y cuál es nuestra meta con el dinero?
+B: 19
+A: And with the dates? | ¿Y con las fechas?
+B: 18
+
+= Explicar cambios en un proyecto | 1 5 10 13 14 15 16 20 21
+@ En una junta, explicas qué cambió en el proyecto.
+A: Why do we need more time? | ¿Por qué necesitamos más tiempo?
+B: 21
+A: Can we start the new part today? | ¿Podemos empezar la parte nueva hoy?
+B: 20
+A: Who's going to call the supplier? | ¿Quién le va a llamar al proveedor?
+B: 10
+A: What do we need from the supplier next? | ¿Qué necesitamos ahora del proveedor?
+B: 5
+
+= Negociar precio y tiempo de entrega | 6 7 8 9 22 23 24 25
+@ Negocias con un proveedor.
+A: Here's our quote. The unit price is twelve dollars. | Aquí está nuestra cotización. El precio unitario es de doce dólares.
+B: 7
+A: For more than a thousand pieces, it's eleven dollars. | Para más de mil piezas, son once dólares.
+B: 24
+A: Okay. And the delivery is in six weeks. | Bien. Y la entrega es en seis semanas.
+B: 8
+A: We can deliver in four weeks. That's our best offer. | Podemos entregar en cuatro semanas. Es nuestra mejor oferta.
+B: 25

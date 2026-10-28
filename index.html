@@ -188,7 +188,7 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 details.rtext{border:1px solid var(--line);padding:8px 12px}
 details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 
-/* Tu instructor: la clase de 3 pasos, «Mi camino» y «Más» */
+/* Tu instructor: la clase (meta y 4 pasos), «Mi camino» y «Más» */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .instr h2{text-wrap:balance}
 .where{display:flex;flex-direction:column;gap:6px}
@@ -208,6 +208,29 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .rsd{font-size:14px;color:var(--muted)}
 .rsi{margin-top:6px;font-size:15px;color:var(--ink);border-left:3px solid var(--accent);padding-left:10px}
 .instr .go{margin-top:2px}
+/* la meta de la clase (y la siguiente), lo que lograste */
+.goalbox{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;display:flex;flex-direction:column;gap:2px;text-align:left;align-self:stretch}
+.goalbox .label{color:var(--accent)}
+.goalbox .gt{margin:0;font-family:var(--f-display);font-size:clamp(22px,5.4vw,28px);font-weight:700;line-height:1.1;text-transform:uppercase;letter-spacing:.01em;color:var(--ink);text-wrap:balance}
+.goalbox .gsub{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.won{margin:0;font-size:18px;font-weight:600;color:var(--ok);text-wrap:balance}
+.task .won{text-align:center}
+/* misión: la escena y lo que te dijeron */
+.mscene{margin:0;align-self:center;max-width:46ch;text-align:center;font-size:17px;background:var(--chip);padding:10px 14px;text-wrap:balance}
+.mctx{display:grid;grid-template-columns:36px minmax(0,1fr);gap:10px;align-items:center;text-align:left;border:1.5px solid var(--line);background:var(--panel);padding:10px 12px}
+.mctx .ml{display:block;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.mctx b{display:block;font-size:18px;line-height:1.3}
+.mctx small{display:block;font-size:14px;color:var(--muted)}
+.cue{color:var(--muted);font-style:italic;font-size:.82em;font-weight:500}
+/* las clases de un tema (en el tema) */
+.lsn{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.lsn li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:center;font-size:15px}
+.lsn .lnum{width:30px;height:30px;border:2px solid var(--line);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:16px}
+.lsn li.done{color:var(--muted)}
+.lsn li.done .lnum{background:var(--ok);border-color:var(--ok);color:var(--panel)}
+.lsn li.cur .lnum{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.lsn li.cur{font-weight:600}
+.lsn small{display:block;color:var(--muted);font-size:13px;font-weight:400}
 .hint{font-size:13px;text-align:center;margin:0}
 .homenav,.morelist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .morelist{grid-template-columns:minmax(0,1fr)}
@@ -559,9 +582,9 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <div class="sub">De Kínder a Carrera · de cero a hablar con fluidez</div>
     </div>
     <div class="meta">
-      <div><span>Racha</span><b id="mStreak">0 días</b></div>
-      <div><span>Puntos</span><b id="mXp">0</b></div>
       <div><span>Etapa</span><b id="mLevel">Kínder</b></div>
+      <div><span>Clases</span><b id="mCls">0 de 0</b></div>
+      <div><span>Avance</span><b id="mPct">0%</b></div>
     </div>
   </header>
 
@@ -673,26 +696,28 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 
     <div class="card">
       <h3>Tu instructor y tu clase</h3>
-      <p>La app la guía tu instructor. Al abrirla ves tu clase y un solo botón: tú no tienes que elegir nada. Cada clase tiene siempre los mismos 3 pasos, en el mismo orden:</p>
+      <p>La app la guía tu instructor. Al abrirla ves tu clase y un solo botón: tú no tienes que elegir nada. Cada tema se divide en clases de unos 30 minutos, y cada clase tiene una <strong>meta</strong>: algo que vas a poder hacer en inglés al terminarla, por ejemplo «Pedir comida en un restaurante». Siempre son 4 pasos, en el mismo orden:</p>
       <ol>
         <li><strong>Repasa:</strong> lo que ya aprendiste, ahora sin ayuda. Las frases que estás por olvidar y las del tema que todavía no dominas: las dices, las escribes o las armas tú.</li>
-        <li><strong>Aprende:</strong> lo nuevo del tema. La explicación (la primera vez), las palabras y las frases nuevas: las escuchas, ves qué significan y eliges cuál es la que oyes.</li>
-        <li><strong>Úsalo:</strong> una actividad para usar el inglés del tema: una conversación, una lectura, un video o «Haz lo que oyes». Cuando ya dominas todo el tema, aquí va su examen.</li>
+        <li><strong>Aprende:</strong> la explicación del tema (la primera vez), y las palabras y las frases de la meta: las escuchas, ves qué significan y eliges cuál es la que oyes.</li>
+        <li><strong>Practica:</strong> esas mismas frases, ahora tú: las armas o las escribes, y las dices. De Kínder a Primaria 2, también «Haz lo que oyes».</li>
+        <li><strong>Misión:</strong> una conversación donde usas lo de hoy: te hablan en inglés y tú contestas. Si te sale, ¡lo lograste!: ya puedes hacer eso en inglés y la siguiente clase es la siguiente meta. Si no, la vuelves a intentar.</li>
       </ol>
+      <p>Cuando terminas las clases de un tema, sigue su <strong>clase de cierre</strong>: repasas, practicas lo que todavía no te sale solo, usas el inglés del tema (su lectura, su conversación y su video) y haces su examen. Con 85% pasas al siguiente tema. En <strong>Mi camino</strong>, cada tema muestra sus clases con su meta.</p>
       <p><strong>Antes de empezar</strong> ves los verbos, las palabras nuevas y las frases de tu clase: las tocas para oírlas y ves qué significan. Si quieres, las unes en un juego (inglés con español; no cuenta como calificación). Cuando estés listo, tocas «Estoy listo, quiero empezar». En la clase salen justo esas.</p>
-      <p>Durante la clase siempre ves en qué paso vas, y al terminar cada uno te digo qué sigue. Si un paso hoy no hace falta (por ejemplo, todavía no hay nada que repasar), te digo por qué. <strong>No hay tiempo límite:</strong> si no terminas tu clase, la próxima vez sigues donde te quedaste. Al terminarla puedes tomar otra si quieres; si no, mañana te espera la siguiente.</p>
+      <p>Durante la clase siempre ves en qué paso vas, y al terminar cada uno te digo qué sigue. Si un paso hoy no hace falta (por ejemplo, todavía no hay nada que repasar), te digo por qué. <strong>No hay tiempo límite:</strong> si no terminas tu clase, la próxima vez sigues donde te quedaste. Al terminarla, un botón te lleva a la siguiente clase: puedes seguir ahora o mañana.</p>
       <p>Para decidir qué va en cada paso, reviso:</p>
       <ul>
-        <li><strong>Tus repasos pendientes:</strong> van en «Repasa». Si se te juntan muchos, no agrego frases nuevas hasta que te pongas al día.</li>
-        <li><strong>Tus aciertos de los últimos días:</strong> si fallas mucho, baja el número de frases nuevas; si vas arriba del 90%, lo sube.</li>
+        <li><strong>Tus repasos pendientes:</strong> van en «Repasa», hasta 25 por clase (30 si se te juntan muchos), empezando por los que llevan más tiempo esperando.</li>
+        <li><strong>Tus aciertos de los últimos días:</strong> si fallas mucho, practicamos más cada frase antes de la misión.</li>
         <li><strong>Los días que faltaste:</strong> al regresar, primero recupera lo que se te estaba olvidando.</li>
         <li><strong>Tu habilidad más débil</strong> (vocabulario, escuchar, hablar o escribir): te pongo más ejercicios de esa habilidad.</li>
-        <li><strong>Un tema a la vez:</strong> no pasas al siguiente tema hasta que apruebas el examen del actual. Y dentro del tema, no te enseña frases nuevas hasta que dominas las que ya viste: primero te las pone a prueba sin ayuda (decirlas, escribirlas o armarlas a partir del español). Si fallas alguna, la vuelve a practicar contigo antes de seguir. Por ejemplo, en los números no pasas del 20 al 100 hasta que del 1 al 20 te salen bien.</li>
+        <li><strong>Un tema a la vez y una meta a la vez:</strong> no pasas al siguiente tema hasta que apruebas el examen del actual, y dentro del tema no pasas a la siguiente meta hasta que cumples la misión de la clase. Para el examen tienes que dominar todas las frases del tema: decirlas, escribirlas o armarlas tú, sin ayuda, en dos prácticas distintas. Si fallas alguna, la vuelve a practicar contigo antes de seguir.</li>
         <li><strong>Si después se te olvida algo que ya aprobaste:</strong> si fallas varias frases de una unidad aprobada (más de 4 de cada 10), la app pausa lo nuevo, te vuelve a explicar esa unidad, la practican y te pone una prueba corta (7 de 8). Todo eso va en «Repasa». Cuando la pasas, sigues con lo nuevo; si no, te la explica otra vez en tu siguiente clase.</li>
         <li><strong>Tu objetivo:</strong> lo eliges al empezar y lo puedes cambiar en «Ajustar mi plan».</li>
         <li><strong>Primero las palabras:</strong> antes de las frases nuevas te enseña las palabras que traen (cómo suenan y qué significan, de 3 en 3) y te las pregunta. Las que ya salieron en frases que aprendiste solo te las pregunta, para asegurarse de que las recuerdas. Si fallas una, te la vuelve a preguntar en un momento y la próxima vez te la enseña otra vez. Cuando ya sabes las palabras, siguen las frases. En cualquier frase puedes tocar una palabra para oírla y ver qué significa, y cuando fallas una frase te muestra qué significa cada palabra.</li>
         <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con su significado, audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando corriges lo que fallaste. Cuando escribes, armas o dices una frase, o cuando te equivocas, escuchas la respuesta: el botón para seguir se activa cuando termina de sonar. Si ya la oíste en la pregunta y acertaste, no se repite y sigues de inmediato.</li>
-        <li><strong>El video:</strong> es una de las actividades de «Úsalo». Cada unidad tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés. Cuando ya viste los de tu etapa, vuelve uno día sí y otro no, y cada vez otro distinto.</li>
+        <li><strong>El video:</strong> va en la clase de cierre de cada tema. Cada tema tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
       <p class="muted">Por eso no hay dos personas con la misma clase: cada quien avanza a su propio ritmo. En <strong>Mi camino</strong> ves en qué tema vas y qué sigue. En <strong>Más</strong> está lo opcional: tus frases (búscalas y practícalas: cada una pasa por 3 ejercicios, entenderla, armarla o escribirla, y decirla), las lecturas y conversaciones, y la práctica libre.</p>
     </div>
@@ -702,7 +727,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <p>Dos métodos muy estudiados, adaptados a la app:</p>
       <ul>
         <li><strong>Enfoque natural (Stephen Krashen):</strong> un idioma se adquiere sobre todo <strong>entendiendo</strong> mensajes un poquito arriba de tu nivel, sin presión; el habla sale después. Por eso cada frase nueva primero se entiende —la oyes con su dibujo, luego «¿Es lo que oyes?» (sí o no) y «Escucha y toca» (sin español)— y hasta después la dices, la escribes y la armas: en «Repasa» de tu siguiente clase (recordarla un rato después te ayuda más que repetirla enseguida). En «Más» → <strong>Lecturas y conversaciones</strong> están las de tus temas para escucharlas todas las veces que quieras.</li>
-        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, en «Úsalo» sale <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (las nuevas primero las ves y las haces junto con el audio; luego solo las oyes) y el juego <strong>«Simón dice»</strong>. Cuando ya las entiendes todas, sale un día sí y otro no. En «Más» → «Práctica libre» están «Haz lo que oyes» y «Escucha y toca» (tocar en la pantalla lo que oyes, como «Touch forty-eight»).</li>
+        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, en «Practica» sale <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (las nuevas primero las ves y las haces junto con el audio; luego solo las oyes) y el juego <strong>«Simón dice»</strong>. Cuando ya las entiendes todas, sale un día sí y otro no. En «Más» → «Práctica libre» están «Haz lo que oyes» y «Escucha y toca» (tocar en la pantalla lo que oyes, como «Touch forty-eight»).</li>
       </ul>
       <p class="muted">Lo demás —repaso espaciado, recuerdo activo y dominar antes de seguir— hace que lo que entiendes también se te quede y te salga.</p>
     </div>
@@ -737,7 +762,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <div class="card">
       <h3>Tu rutina diaria</h3>
       <ol>
-        <li><strong>Tu clase en la app.</strong> Repasa, Aprende y Úsalo, en ese orden y sin prisa. Hazla todos los días: el repaso es lo que hace que se te quede para siempre. Si no la terminas, mañana sigues donde te quedaste.</li>
+        <li><strong>Tu clase en la app (unos 30 minutos).</strong> Cada clase tiene una meta: Repasa, Aprende, Practica y la Misión, en ese orden y sin prisa. Hazla todos los días: el repaso es lo que hace que se te quede para siempre. Si no la terminas, mañana sigues donde te quedaste.</li>
         <li><strong>Inglés real (10–20 min).</strong> Escucha o mira algo en inglés que entiendas casi todo. Este paso es el que te da oído y fluidez; ninguna app lo sustituye.</li>
         <li><strong>Hablar (1 vez por semana o más).</strong> Practica con una persona: un compañero, un tutor en línea o un grupo de conversación. Al principio será incómodo; así se rompe el miedo.</li>
       </ol>
@@ -824,6 +849,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 <script src="content/emoji.js"></script>
 <script src="content/words.js"></script>
 <script src="content/tpr.js"></script>
+<script src="content/lessons.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -859,6 +885,26 @@ COURSE.forEach((lv, li) => {
     });
     UNITS.push(u);
   });
+});
+/* ================= las clases de cada tema =================
+   Cada tema se divide en clases de unas 9 frases, cada una con su meta y su misión (content/lessons.js:
+   LESSONS[tema] = [{ g: "Pedir comida en un restaurante", c: [índices de sus frases], s: "la escena de la misión",
+   m: [["A", "lo que te dicen", "en español"], ["B", índice de la frase que contestas], …] }]).
+   Las frases que no quedaron en ninguna clase van en la última. Si un tema todavía no tiene sus clases escritas, se arman
+   solas: sus frases en partes de unas 9, con la meta del tema y como misión decir tú las frases. u.ls = [{ i, g, s, c, m }] */
+const LSRC = window.LESSONS || {};
+UNITS.forEach(u => {
+  const src = LSRC[u.id];
+  if (src && src.length) {
+    u.ls = src.map((l, i) => ({ i, g: l.g, s: l.s || "", c: l.c.map(k => u.cards[k]).filter(Boolean),
+      m: (l.m || []).map(x => x[0] === "B" ? ["B", u.cards[x[1]]] : x).filter(x => x[1]) }));
+    const inL = new Set(u.ls.flatMap(l => l.c)), rest = u.cards.filter(c => !inL.has(c));
+    if (rest.length) u.ls[u.ls.length - 1].c.push(...rest);
+  } else {
+    const n = Math.max(1, Math.round(u.cards.length / 9)), size = Math.ceil(u.cards.length / n);
+    u.ls = [];
+    for (let i = 0; i * size < u.cards.length; i++) u.ls.push({ i, g: "", s: "", c: u.cards.slice(i * size, (i + 1) * size), m: null });
+  }
 });
 
 /* ================= palabras =================
@@ -944,12 +990,13 @@ function migrate(o) {
   o.kw = o.kw || {}; // palabras: 1 = la contestaste bien a la primera, 0 = la fallaste (se vuelve a enseñar)
   o.dm = o.dm || {}; // frases: qué tanto las dominas (ver «dominar» más abajo)
   o.tp = o.tp || {}; // «Haz lo que oyes»: 1 = la entendiste a la primera, 0 = no (se vuelve a mostrar)
+  o.lm = o.lm || {}; // clases de cada tema: «tema.número» = 1 cuando cumpliste su misión
   if (o.prof === undefined) o.prof = null;
   if (o.cls === undefined) o.cls = null; // tu clase (ver «La clase»)
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, lm: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -1053,11 +1100,22 @@ function prevLocked(lv) {
 const WEEKS = { k: "3 a 6 semanas", n0: "1 a 2 meses", n1: "3 a 5 meses", n2: "8 a 12 meses", w: "3 a 5 semanas", n3: "1 a 1.5 años", n4: "1 a 1.5 años", n5: "11 a 15 meses", n6: "1 a 1.5 años" };
 const unitSeen = u => u.cards.filter(c => seen(c.id)).length;
 
+// Arriba: en qué etapa vas, cuántas clases llevas de cuántas tiene y qué porcentaje es
 function renderMeta() {
-  $("#mStreak").textContent = S.streak + (S.streak === 1 ? " día" : " días");
-  $("#mXp").textContent = S.xp;
-  $("#mLevel").textContent = curLevel().short;
+  const lv = curLevel(), p = stageProg(lv);
+  $("#mLevel").textContent = lv.short;
+  $("#mCls").textContent = `${p.done} de ${p.tot}`;
+  $("#mPct").textContent = p.pct + "%";
 }
+// Tu avance en la etapa, contado en clases: cada clase de cada tema (cuando lograste su misión), el cierre de cada tema
+// (cuando aprobaste su examen) y el examen final de la etapa (la pista de trabajo no tiene)
+function stageProg(lv) {
+  let done = 0, tot = 0;
+  lv.units.forEach(u => { const n = u.ls.length + 1; tot += n; done += S.done[u.id] ? n : u.ls.filter((l, i) => lessonDone(u, i)).length; });
+  if (lv.id !== "w") { tot++; if (S.fin[lv.id]) done = tot; }
+  return { done, tot, pct: tot ? Math.floor(done * 100 / tot) : 0 };
+}
+const progLine = () => { const lv = curLevel(), p = stageProg(lv); return `${lv.short}: ${p.done} de ${p.tot} clases (${p.pct}%)`; };
 
 /* ================= voz ================= */
 let voices = [];
@@ -1119,11 +1177,16 @@ function ttsWord(text, ci) {
     if (cur) cur.classList.add("cur");
   });
 }
+// Acotaciones de la misión: «(On the train)» se ve en la pantalla, pero no se dice en voz alta
+const cueless = t => String(t).replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+const cueWrap = h => h.replace(/\(([^)]*)\)/g, '<span class="cue">($1)</span>'), cueHTML = t => cueWrap(esc(t));
 // Frase en inglés con cada palabra marcable mientras se oye (y sin cortar palabras como G-E-R-A-R-D-O)
-function speakSpans(text) {
-  const spoken = clean(text); let at = 0, k = 0;
+function speakSpans(text, cues) {
+  const spoken = clean(cues ? cueless(text) : text); let at = 0, k = 0, inCue = false;
   return text.split(/(\s+)/).map(w => {
     if (!w.trim()) return w;
+    if (cues && w.startsWith("(")) inCue = true;
+    if (inCue) { if (w.includes(")")) inCue = false; return `<span class="cue">${esc(w)}</span>`; }
     const cw = clean(w).trim(), i = cw ? spoken.indexOf(cw, at) : -1, c = i < 0 ? at : i;
     if (i >= 0) at = i + cw.length;
     const ws = tokW(w); // .t: se puede tocar para ver qué significa; data-k: su lugar en la frase (para saber qué significa ahí)
@@ -1661,123 +1724,142 @@ function activeUnits() { const u = nextUnit(); return u && !u.final ? [u] : []; 
 const catchUnit = () => UNITS.find(u => S.done[u.id] && !prevLocked(u.lv) && (u.lv.id !== "w" || useW()) && u.cards.some(c => !seen(c.id)));
 const VIDEOS = window.VIDEOS || {};
 const videoNeed = dur => dur ? Math.max(30, Math.min(Math.round(dur * 0.7), 600)) : 120; // 70% del video, máximo 10 minutos
-// Elige el video: el de la unidad actual; si ya lo viste, uno de unidades anteriores de la etapa que no hayas visto.
-// Si ya los viste todos, uno día sí y otro no, y cada vez otro (así no es el mismo video todos los días)
-function pickVideo() {
-  const nu = nextUnit(); if (!nu) return null;
-  const cur = nu.final ? null : nu, pool = (cur ? [cur] : []).concat(nu.lv.units.filter(u => S.done[u.id]).reverse());
-  for (const u of pool) { const v = VIDEOS[u.id]; if (v && !S.vw[v.id]) return { v, u }; }
-  const seenV = pool.filter(u => VIDEOS[u.id]), d = dayNum();
-  if (!seenV.length || d % 2) return null;
-  const u = seenV[(d / 2) % seenV.length];
-  return { v: VIDEOS[u.id], u, again: true };
-}
 
-/* ================= LA CLASE =================
-   Cada clase tiene siempre los mismos 3 pasos, en el mismo orden:
-   1. Repasa: lo que ya aprendiste, ahora sin ayuda. Lo que estás por olvidar (repaso espaciado) y las frases del tema
-      que todavía no dominas (decirlas, escribirlas o armarlas tú), en una sola práctica. Si no hay nada de eso, un
-      refuerzo de tu punto débil. Si se te está olvidando un tema que ya aprobaste: su explicación otra vez, práctica y
-      una prueba corta (hasta que la pases no hay nada nuevo).
-   2. Aprende: lo nuevo del tema. La explicación (la primera vez), las palabras y las frases nuevas: escucharlas y
-      entenderlas. Espera si todavía no dominas las que ya viste (un tema a la vez) o si tienes muchos repasos pendientes.
-   3. Úsalo: una sola actividad para usar el inglés. El examen del tema cuando ya toca; si no, la que más sirve y no
-      hiciste hoy: la conversación, la lectura, «Haz lo que oyes» (Kínder a Primaria 2), el video del tema o escuchar
-      frases que ya sabes.
+/* ================= LA CLASE: una meta y una misión =================
+   Cada tema se divide en clases (u.ls). Cada clase tiene una meta («Pedir comida en un restaurante») y dura unos 30
+   minutos, en 4 pasos, siempre en el mismo orden:
+   1. Repasa: lo que estás por olvidar (repaso espaciado) y las frases del tema que todavía no dominas, sin ayuda. Si no
+      hay nada de eso, un refuerzo de tu punto débil.
+   2. Aprende: la explicación del tema (la primera vez), y las palabras y las frases de la meta: escucharlas y entenderlas.
+   3. Practica: esas mismas frases, ahora tú: armarlas o escribirlas, y decirlas (de Kínder a Primaria 2, también «Haz lo
+      que oyes»).
+   4. Misión: una conversación donde usas lo de hoy. Si te sale, ¡lo lograste!: ya puedes hacer eso en inglés y la
+      siguiente clase es la siguiente meta. Si no, la vuelves a intentar.
+   Cuando terminas las clases de un tema, sigue su clase de cierre: Repasa, Practica (lo que no dominas), Úsalo (la lectura,
+   la conversación del tema y su video) y el Examen. Al terminar los temas de una etapa, su examen final. Si se te está
+   olvidando un tema que ya aprobaste, la clase es para recuperarlo (explicación, práctica y prueba corta).
    Un paso que hoy no hace falta se muestra con su motivo. La clase se guarda (S.cls): no hay tiempo límite y, si no la
-   terminas, la sigues otro día donde te quedaste. Al terminarla puedes tomar otra si quieres (opcional).
+   terminas, la sigues donde te quedaste. Al terminarla, un botón te lleva a la siguiente clase.
    Antes de empezar (y al seguirla otro día) ves lo que vas a ver: verbos, palabras nuevas y frases (pvPlan(), «Antes de empezar»).
    S.cls = { id, n: número de clase, k: número de clase del día, d: día en que se armó, place: es el examen de ubicación,
-             names: nombre de cada paso, why: por qué un paso no tiene nada, notes: avisos del instructor,
-             parts: [{ key, step, kind, uid?, lvid?, n?, ids?, skill?, recap?, place?, gate?, pick?: frases elegidas al verla antes }],
+             goal: la meta, uid / li: el tema y su número de clase (fin: la de cierre), names: nombre de cada paso,
+             why: por qué un paso no tiene nada, notes: avisos del instructor,
+             parts: [{ key, step, kind, uid?, lvid?, n?, ids?, ex?, skill?, recap?, place?, li?, dom?, slow?, pick?: frases elegidas al verla antes }],
              done: [claves hechas], skip: { clave: por qué se saltó }, end: día en que se terminó (0 = sin terminar),
-             pv: día en que viste «Antes de empezar» y empezaste } */
-const STEP_NAMES = ["Repasa", "Aprende", "Úsalo"];
+             pv: día en que viste «Antes de empezar» y empezaste, won: lo que lograste (ya puedes…) } */
 const KIDS = ["k", "n0", "n1"];
+const lkey = (u, i) => u.id + "." + i;
+// Una clase del tema está lista cuando ya conoces sus frases y cumpliste su misión
+const lessonDone = (u, i) => !!S.lm[lkey(u, i)] && u.ls[i].c.every(c => seen(c.id));
+// La clase que sigue: la primera sin terminar del tema que toca (antes, las frases que se agregaron a un tema aprobado)
+function curLesson() {
+  const cat = catchUnit();
+  if (cat) { const i = cat.ls.findIndex(l => l.c.some(c => !seen(c.id))); if (i >= 0) return { u: cat, i, l: cat.ls[i], cat: true }; }
+  const nu = nextUnit(); if (!nu || nu.final) return null;
+  const i = nu.ls.findIndex((l, j) => !lessonDone(nu, j));
+  return i >= 0 ? { u: nu, i, l: nu.ls[i] } : { u: nu, end: true };
+}
+const noDot = t => String(t || "").trim().replace(/\.$/, "");
+const lowFirst = t => t ? t[0].toLowerCase() + t.slice(1) : t;
+// La meta de una clase del tema (las que todavía no tienen la suya usan la del tema, por partes) y lo que lograste al cumplirla
+const lessonGoal = (u, l) => l.g || `${noDot(u.goal)} (parte ${l.i + 1} de ${u.ls.length})`;
+const lessonWin = (u, l) => l.g ? `Ya puedes ${lowFirst(noDot(l.g))}.` : `Terminaste la parte ${l.i + 1} de ${u.ls.length} de «${u.t}».`;
+// La meta de la clase que toca ahora (para el botón «Siguiente clase»)
+function goalNow() {
+  if (S.prof && S.prof.placing) return "Encontrar tu nivel";
+  const f = refreshUnit(); if (f) return `Recuperar «${f.t}»`;
+  const L = curLesson(), nu = nextUnit();
+  if (!L) return nu && nu.final ? `Aprobar el examen final de ${nu.lv.short}` : "Repasar para no olvidar";
+  return L.end ? `Aprobar el examen de «${L.u.t}»` : lessonGoal(L.u, L.l);
+}
 function buildClass() {
-  const P = S.prof, notes = [], st = STEP_NAMES.map(name => ({ name, why: "", parts: [] }));
-  const [R, A, U] = st.map(s => s.parts);
+  const P = S.prof, notes = [], mk = names => names.map(name => ({ name, why: "", parts: [] }));
   // Examen de ubicación: una clase de un solo paso (si pasas una etapa, sigue la siguiente)
   if (P.placing) {
     const lv = COURSE.find(l => l.id !== "w" && !S.fin[l.id]);
     if (lv) {
       notes.push(lv.id === "k" ? "Primero vamos a encontrar tu nivel. Empezamos con lo más básico; si lo dominas, subimos de etapa." : `Vas muy bien. Ahora veamos si también dominas ${lv.short}.`);
       notes.push("Si no sabes una respuesta, no adivines: toca «No sé». Así tu clase empieza justo donde la necesitas.");
-      return { steps: [{ name: "Ubicación", why: "", parts: [{ kind: "final", place: true, lvid: lv.id }] }], notes, place: true };
+      return { steps: [{ name: "Ubicación", why: "", parts: [{ kind: "final", place: true, lvid: lv.id }] }], notes, place: true, goal: "Encontrar tu nivel" };
     }
     P.placing = false;
   }
-  const due = dueCards(), acc = recentAcc(), away = daysAway(), weak = weakSkill();
+  const due = dueCards(), acc = recentAcc(), away = daysAway(), weak = weakSkill(), slow = acc !== null && acc < 0.7;
   if (away !== null && away >= 3) notes.push(`Llevas ${away} días sin practicar. No pasa nada: empezamos recuperando lo que se te estaba olvidando.`);
+  let sk = weak || GOAL_FOCUS[P.goal] || "vocab"; if (sk === "speak" && !srOK) sk = "write";
   // Se te está olvidando un tema que ya aprobaste: primero se recupera
   const fixU = refreshUnit();
   if (fixU) {
-    notes.push(`Se te está olvidando «${fixU.t}», que ya habías aprobado. En Repasa te lo vuelvo a explicar, lo practicamos y hay una prueba corta. Cuando la pases, seguimos con lo nuevo.`);
+    const st = mk(["Repasa", "Recupera", "Prueba"]);
+    notes.push(`Se te está olvidando «${fixU.t}», que ya habías aprobado. Te lo vuelvo a explicar, lo practicamos y hay una prueba corta. Cuando la pases, seguimos con lo nuevo.`);
     const other = due.filter(c => c.u !== fixU).length; // las del tema que se olvida van en su práctica, no aquí
-    if (other) R.push({ kind: "review", n: Math.min(other, 8), exU: fixU.id });
-    R.push({ kind: "gram", recap: true, uid: fixU.id }, { kind: "fix", uid: fixU.id }, { kind: "check", uid: fixU.id });
-    st[1].why = st[2].why = `Hoy no: primero recuperamos «${fixU.t}».`;
-    return { steps: st, notes };
+    if (other) st[0].parts.push({ kind: "review", n: Math.min(other, 20), exU: fixU.id }); else st[0].why = "Hoy no hay otros repasos.";
+    st[1].parts.push({ kind: "gram", recap: true, uid: fixU.id }, { kind: "fix", uid: fixU.id });
+    st[2].parts.push({ kind: "check", uid: fixU.id });
+    return { steps: st, notes, goal: `Recuperar «${fixU.t}»`, uid: fixU.id };
   }
-  const nu = nextUnit(), cu = nu && !nu.final ? nu : null, und = cu ? undom(cu) : [], domIds = cu ? domPick(cu).map(c => c.id) : [];
-  const dueN = due.filter(c => !domIds.includes(c.id)).length;
-  let newN = 6;
-  if (acc !== null && acc < 0.7) { newN = 3; notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Vamos más despacio: ${newN} frases nuevas por clase.`); }
-  else if (acc !== null && acc > 0.9) newN = 8;
-  if (dueN > 24) { newN = 0; notes.push(`Tienes ${dueN} frases por repasar. Hoy no hay nada nuevo: primero te pones al día, o se te van a olvidar.`); }
-  else if (dueN > 12) newN = Math.ceil(newN / 2);
-  // 1 · Repasa
-  const revN = Math.min(dueN, newN ? Math.max(6, 15 - domIds.length) : 20);
-  let sk = weak || GOAL_FOCUS[P.goal] || "vocab"; if (sk === "speak" && !srOK) sk = "write";
-  if (revN || domIds.length) R.push({ kind: "repasa", n: revN, uid: cu ? cu.id : null, ids: domIds });
-  else if (Object.keys(S.c).length >= 4) R.push({ kind: "drill", skill: sk });
-  else st[0].why = "Todavía no hay nada que repasar.";
-  // 2 · Aprende
-  if (nu && nu.final) st[1].why = `Ya terminaste los temas de ${nu.lv.short}.`;
-  else if (!cu) st[1].why = "¡Terminaste el curso completo!";
-  else {
-    const left = cu.cards.length - unitSeen(cu), cat = catchUnit(), lu = cat || (left ? cu : null);
-    const canOpen = !und.length || (und.length <= domIds.length && und.every(c => (dmV(c.id) & 3) >= 1));
-    if (!lu) st[1].why = `Ya conoces todas las frases de «${cu.t}».`;
-    else if (!newN) st[1].why = "Hoy no hay frases nuevas: primero te pones al día con tus repasos.";
-    else if (lu === cu && !canOpen) st[1].why = `Las frases nuevas esperan a que domines las de «${cu.t}» que ya viste.`;
-    else {
-      if (!S.gs[lu.id]) A.push({ kind: "gram", uid: lu.id });
-      A.push({ kind: "learn", uid: lu.id, n: Math.min(newN, lu.cards.length - unitSeen(lu)), gate: lu === cu && und.length > 0 });
-      if (cat) notes.push(`Agregué frases nuevas a «${cat.t}», un tema que ya aprobaste. Las vemos antes de seguir con «${cu.t}».`);
+  const L = curLesson(), nu = nextUnit(), cu = L ? L.u : null;
+  const revN = Math.min(due.length, due.length > 40 ? 30 : 25);
+  if (due.length > 30) notes.push(`Tienes ${due.length} frases por repasar: hoy repasamos ${revN} y luego seguimos con tu meta.`);
+  if (slow) notes.push(`En los últimos días acertaste ${Math.round(acc * 100)}%. Hoy practicamos un poco más cada frase.`);
+  // 1 · Repasa: lo que estás por olvidar y las del tema que todavía no dominas (las de la clase de hoy van en Practica)
+  const repasa = (st, ex) => {
+    const skip = ex !== undefined && cu ? cu.ls[ex].c : null, r = repasaPick(cu, revN, [], skip);
+    if (r.due.length || r.dom.length) st.parts.push(Object.assign({ kind: "repasa", n: revN, uid: cu ? cu.id : null, ids: r.dom.map(c => c.id) }, ex !== undefined ? { ex } : {}));
+    else if (CARDS.filter(c => seen(c.id) && open(c) && !(skip && skip.includes(c))).length >= 4) st.parts.push(Object.assign({ kind: "drill", skill: sk, uid: cu ? cu.id : null }, ex !== undefined ? { ex } : {}));
+    else st.why = "Todavía no hay nada que repasar.";
+  };
+  if (!L) {
+    if (nu && nu.final) { // terminaste los temas de la etapa: su examen final
+      const st = mk(["Repasa", "Examen final"]);
+      repasa(st[0]);
+      if (prevLocked(nu.lv)) st[1].why = `Se abre al terminar ${prevLocked(nu.lv).short}.`; else st[1].parts.push({ kind: "final", lvid: nu.lv.id });
+      return { steps: st, notes, goal: `Aprobar el examen final de ${nu.lv.short}` };
     }
+    const st = mk(["Repasa", "Úsalo"]); // terminaste el curso: repasar para no olvidar
+    repasa(st[0]);
+    if (Object.keys(S.c).length >= 4) st[1].parts.push({ kind: "listen", uid: null }); else st[1].why = "Hoy no hace falta.";
+    return { steps: st, notes, goal: "Repasar para no olvidar" };
   }
-  // 3 · Úsalo
-  const use = useActivity(nu, cu);
-  if (use) U.push(use); else st[2].why = "Hoy no hace falta.";
-  return { steps: st, notes };
-}
-// Úsalo: una sola actividad. El examen cuando ya toca; si no, la que más sirve ahora y no hiciste hoy
-function useActivity(nu, cu) {
-  if (nu && nu.final) return prevLocked(nu.lv) ? null : { kind: "final", lvid: nu.lv.id };
-  if (cu && unitReq(cu).ok && !prevLocked(cu.lv)) return { kind: "exam", uid: cu.id };
-  const dn = H().dn, kids = !!(nu && KIDS.includes(nu.lv.id) && TPRS.length), c = [];
-  if (cu && !S.dl[cu.id] && unitSeen(cu) >= Math.ceil(cu.cards.length / 2) && !dn.includes("dlg-" + cu.id)) c.push({ kind: "dialog", uid: cu.id });
-  if (cu && cu.r && !S.rd[cu.id] && unitSeen(cu) >= Math.ceil(cu.cards.length * 0.6) && !dn.includes("read-" + cu.id)) c.push({ kind: "reading", uid: cu.id });
-  if (kids && TPRS.some(t => S.tp[t.id] !== 1) && !dn.includes("tpr")) c.push({ kind: "tpr" });
-  const pv = !dn.includes("video") && pickVideo(); if (pv) c.push({ kind: "video", uid: pv.u.id, again: !!pv.again });
-  if (kids && !dn.includes("tpr") && dayNum() % 2 === 0) c.push({ kind: "tpr" });
-  if (c.length) return c[0];
-  return Object.keys(S.c).length >= 4 ? { kind: "listen", uid: cu ? cu.id : null } : null;
+  const u = L.u;
+  if (L.end) { // la clase de cierre del tema
+    const st = mk(["Repasa", "Practica", "Úsalo", "Examen"]);
+    repasa(st[0]);
+    if (undom(u).length) st[1].parts.push({ kind: "prac", uid: u.id, dom: true, slow }); else st[1].why = "Ya dominas todas las frases del tema.";
+    if (u.r && !S.rd[u.id]) st[2].parts.push({ kind: "reading", uid: u.id });
+    if (!S.dl[u.id]) st[2].parts.push({ kind: "dialog", uid: u.id });
+    const v = VIDEOS[u.id]; if (v && !S.vw[v.id]) st[2].parts.push({ kind: "video", uid: u.id });
+    if (!st[2].parts.length) st[2].why = "Ya hiciste la lectura y la conversación del tema.";
+    if (prevLocked(u.lv)) st[3].why = `Se abre al terminar ${prevLocked(u.lv).short}.`; else st[3].parts.push({ kind: "exam", uid: u.id });
+    notes.push(`Terminaste las clases de «${u.t}». Hoy demuestras lo que aprendiste: con el examen pasas al siguiente tema.`);
+    return { steps: st, notes, goal: `Aprobar el examen de «${u.t}»`, uid: u.id, fin: true };
+  }
+  // Una clase del tema: su meta, sus frases y su misión
+  const l = L.l, st = mk(["Repasa", "Aprende", "Practica", "Misión"]), fresh = l.c.filter(c => !seen(c.id));
+  if (L.cat) notes.push(`Agregué frases nuevas a «${u.t}», un tema que ya aprobaste. Las vemos antes de seguir.`);
+  repasa(st[0], L.i);
+  if (!S.gs[u.id]) st[1].parts.push({ kind: "gram", uid: u.id });
+  if (fresh.length) st[1].parts.push({ kind: "learn", uid: u.id, n: fresh.length, pick: fresh.map(c => c.id) });
+  else if (!st[1].parts.length) st[1].why = "Ya conoces las frases de esta clase: ahora a practicarlas.";
+  st[2].parts.push({ kind: "prac", uid: u.id, li: L.i, slow });
+  if (KIDS.includes(u.lv.id) && TPRS.length && (TPRS.some(t => S.tp[t.id] !== 1) || dayNum() % 2 === 0) && !H().dn.includes("tpr")) st[2].parts.push({ kind: "tpr" });
+  st[3].parts.push({ kind: "mission", uid: u.id, li: L.i });
+  return { steps: st, notes, goal: lessonGoal(u, l), uid: u.id, li: L.i };
 }
 function newClass() {
   const b = buildClass(), prev = S.cls, t = dayNum(), parts = [];
   b.steps.forEach((s, i) => s.parts.forEach((p, j) => parts.push(Object.assign({ key: `${i}.${j}.${p.kind}`, step: i }, p))));
   S.cls = { id: Date.now().toString(36), n: ((prev && prev.n) || 0) + 1, k: prev && prev.d === t && !prev.place ? (prev.k || 1) + 1 : 1, d: t, place: !!b.place,
+    goal: b.goal || "", uid: b.uid || null, li: b.li === undefined ? null : b.li, fin: !!b.fin,
     names: b.steps.map(s => s.name), why: b.steps.map(s => s.why), notes: b.notes, parts, done: [], skip: {}, end: 0 };
   save();
   return S.cls;
 }
 // La clase de ahora: la que no has terminado (aunque sea de otro día), la de hoy ya terminada, o una nueva
 function curClass() {
-  const c = S.cls;
-  // una clase de otro día que ni empezaste se vuelve a armar (con los repasos de hoy)
-  if (c && c.parts && !c.end && c.d < dayNum() && !c.done.length && !Object.keys(c.skip || {}).length) return newClass();
+  const c = S.cls, fresh = c && c.parts && !c.done.length && !Object.keys(c.skip || {}).length;
+  // una clase de otro día que ni empezaste se vuelve a armar (con los repasos de hoy); también las de antes de las metas
+  if (c && c.parts && !c.end && fresh && (c.d < dayNum() || (!c.goal && !c.place))) return newClass();
   if (c && c.parts && !c.end) return c;
   if (c && c.parts && c.end === dayNum() && !c.place) return c;
   return newClass();
@@ -1809,6 +1891,8 @@ function partLabel(p) {
     case "exam": return `El examen ${t}`;
     case "final": return p.place ? `Ubicación: ${p.lv.short}` : `Examen final de ${p.lv.short}`;
     case "listen": return "Escucha y entiende frases que ya sabes";
+    case "prac": { const n = pracCards(p).length || (p.dom ? 0 : (p.u.ls[p.li] || { c: [] }).c.length); return p.dom ? (n ? `${fr(n)} ${t} que todavía no dominas` : `Las frases ${t} que todavía no dominas`) : `Ármalas, escríbelas y dilas tú: ${fr(n)}`; }
+    case "mission": { const l = p.u && p.u.ls[p.li]; return l ? `Misión: ${lowFirst(noDot(lessonGoal(p.u, l)))}` : "Misión"; }
   }
   return "";
 }
@@ -1816,12 +1900,16 @@ function partLabel(p) {
 function stepIntro(c, i) {
   const ps = c.parts.filter(p => p.step === i && !isDone(c, p)); if (!ps.length) return "";
   if (c.place) return "Preguntas de cada etapa, de lo más fácil a lo más difícil. Si no sabes una, toca «No sé»: así tu clase empieza justo donde la necesitas.";
-  const k = ps[0].kind;
-  if (i === 0) return ps.some(p => p.kind === "check") ? "Te explico otra vez el tema que se te estaba olvidando, lo practicamos y al final hay una prueba corta."
-    : k === "drill" || k === "review" ? "Preguntas de lo que ya sabes, para que no se te olvide."
-    : "Lo que ya aprendiste, ahora sin ayuda: lo dices, lo escribes o lo armas tú. Así se te queda.";
-  if (i === 1) return ps.some(p => p.kind === "gram") ? "Te explico el tema nuevo y luego conoces sus frases: las escuchas y ves qué significan. Todavía no tienes que decirlas."
-    : "Conoces frases nuevas: las escuchas, ves qué significan y eliges cuál es la que oyes. Todavía no tienes que decirlas.";
+  const k = ps[0].kind, ks = ps.map(p => p.kind);
+  if (ks.includes("fix") || (ks.includes("gram") && ps[0].recap)) return "Te explico otra vez el tema que se te estaba olvidando y lo practicamos.";
+  if (k === "check") return "Una prueba corta de 8 preguntas: con 7 bien, seguimos con lo nuevo.";
+  if (k === "repasa") return "Lo que ya aprendiste, ahora sin ayuda: lo dices, lo escribes o lo armas tú. Así se te queda.";
+  if (k === "drill" || k === "review") return "Preguntas de lo que ya sabes, para que no se te olvide.";
+  if (k === "gram" || k === "learn") return ks.includes("gram") ? "Te explico el tema y luego conoces las palabras y las frases de hoy: las escuchas y ves qué significan. Todavía no tienes que decirlas."
+    : "Conoces las palabras y las frases de hoy: las escuchas, ves qué significan y eliges cuál es la que oyes. Todavía no tienes que decirlas.";
+  if (k === "prac") return (ps[0].dom ? "Las frases del tema que todavía no te salen solas" : "Ahora tú: las frases de hoy") + ", sin ayuda: las armas o las escribes, y las dices. Si te equivocas, vuelven en un rato hasta que te salgan." + (ks.includes("tpr") ? " Al final, «Haz lo que oyes»." : "");
+  if (k === "mission") return "Una conversación para usar lo de hoy: te hablan en inglés y tú contestas con las frases que aprendiste. Si te sale, ¡lo lograste!";
+  if (ks.length > 1 && ks.every(x => ["reading", "dialog", "video"].includes(x))) return "Usas el inglés del tema: " + ks.map(x => ({ reading: "una lectura", dialog: "una conversación", video: "un video" })[x]).join(", ").replace(/, ([^,]*)$/, " y $1") + ".";
   return ({ tpr: "Escuchas órdenes en inglés y las haces con el cuerpo, como «Stand up». Al final juegas «Simón dice».",
     dialog: "Una conversación del tema: te hablan en inglés y tú contestas.", reading: "Lees y escuchas un texto corto del tema y contestas 3 preguntas.",
     video: "Un video corto de inglés real. Al final escribes lo que entendiste.", exam: "Preguntas sin ayuda de todo el tema. Con 85% pasas al siguiente.",
@@ -1853,9 +1941,11 @@ function blockedWhy(c, p) {
     const fixU = refreshUnit(); if (fixU) return `Espera a que pases la prueba corta de «${fixU.t}».`;
     const gated = p.kind === "learn" ? p.gate : c.parts.some(x => x.kind === "learn" && x.uid === p.uid && x.gate);
     if (gated && undom(p.u).length) return "Lo nuevo espera: primero domina las frases que ya viste. En tu siguiente clase empiezas por ahí.";
+    if (p.kind === "learn" && p.pick && p.pick.length && !p.pick.some(id => !seen(id))) return "Ya conoces las frases de esta clase.";
     if (p.kind === "learn" && !p.u.cards.some(x => !seen(x.id))) return `Ya conoces todas las frases de «${p.u.t}».`;
   }
-  if (p.kind === "exam" && (S.done[p.u.id] || !unitReq(p.u).ok)) return S.done[p.u.id] ? `Ya aprobaste «${p.u.t}».` : "El examen se abre cuando cumplas todo lo del tema.";
+  if (p.kind === "prac" && p.dom && !undom(p.u).length) return "Ya dominas todas las frases del tema.";
+  if (p.kind === "exam" && (S.done[p.u.id] || !unitReq(p.u).ok)) return S.done[p.u.id] ? `Ya aprobaste «${p.u.t}».` : "El examen se abre cuando domines todas las frases del tema y hagas su lectura y su conversación. En tu siguiente clase seguimos.";
   if (p.kind === "final" && !p.place && (S.fin[p.lv.id] || prevLocked(p.lv))) return `Ya aprobaste ${p.lv.short}.`;
   return "";
 }
@@ -1867,7 +1957,7 @@ function settle(c) {
   if (ch) save();
   return p;
 }
-const dayKey = p => ({ tpr: "tpr", video: "video", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid })[p.kind] || p.kind + "-" + (p.uid || "");
+const dayKey = p => ({ tpr: "tpr", video: "video", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid, mission: "mis-" + p.uid + "." + p.li })[p.kind] || p.kind + "-" + (p.uid || "");
 function markPart(c, p) {
   if (!c.done.includes(p.key)) c.done.push(p.key);
   const h = H(), k = dayKey(p); if (!h.dn.includes(k)) h.dn.push(k);
@@ -1877,9 +1967,9 @@ function markPart(c, p) {
 function startPart(p) {
   const u = p.u;
   switch (p.kind) {
-    case "repasa": return repasaPractice(u, p.n, p.ids);
+    case "repasa": return repasaPractice(u, p.n, p.ids, exCards(p));
     case "review": { const due = reviewPick(p); if (!due.length) return false; runSession(shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), { mode: "review", title: "Repaso" }); return true; }
-    case "drill": drill(p.skill, p.pick); return true;
+    case "drill": return drill(p.skill, p.pick, exCards(p));
     case "gram": runSession([{ k: "gram", u, recap: !!p.recap }], { mode: "gram", unit: u, title: p.title }); return true;
     case "fix": fixPractice(u, p.pick); return true;
     case "check": refreshCheck(u); return true;
@@ -1891,9 +1981,15 @@ function startPart(p) {
     case "exam": unitExam(u); return true;
     case "final": finalExam(p.lv, p.place ? 15 : 30); return true;
     case "listen": return listenPractice(u, p.pick);
+    case "prac": return pracPractice(u, pracCards(p), p.slow);
+    case "mission": return missionPractice(u, p.li);
   }
   return false;
 }
+// Las frases de la clase de hoy no van en Repasa: van en Practica
+const exCards = p => p.ex !== undefined && p.ex !== null && p.u && p.u.ls[p.ex] ? p.u.ls[p.ex].c : null;
+// Practica: las frases de la clase (o, en la clase de cierre, las del tema que todavía no dominas)
+const pracCards = p => !p.u ? [] : p.dom ? undom(p.u).slice(0, 15) : (p.u.ls[p.li] || { c: [] }).c.filter(c => seen(c.id));
 // Las frases que estás por olvidar (en la clase para recuperar un tema, sin las de ese tema)
 const reviewPick = p => dueCards().filter(c => c.u.id !== p.exU).sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, p.n);
 // Las que se eligieron al ver la clase antes de empezar (p.pick), si todavía sirven
@@ -1910,19 +2006,22 @@ function runClass() {
   SEGOPT = null;
   if (!ok) { markPart(c, p); runClass(); }
 }
-// Refuerzo: frases que no practicaste hoy (las de hace un rato ya las viste: aquí van otras para no repetir)
-function drillPick() {
-  const base = CARDS.filter(c => seen(c.id) && open(c)), other = base.filter(c => !pracToday(c.id));
+// Refuerzo: frases que no practicaste hoy (las de hace un rato ya las viste: aquí van otras para no repetir).
+// skip: las que no van aquí (las de la clase de hoy, que van en Practica)
+function drillPick(skip) {
+  const base = CARDS.filter(c => seen(c.id) && open(c) && !(skip && skip.includes(c))), other = base.filter(c => !pracToday(c.id));
   let pool = other.filter(c => bx(c.id) >= 1);
   if (pool.length < 4) pool = other.length >= 4 ? other : base.filter(c => bx(c.id) >= 1);
   if (pool.length < 4) pool = base;
   return pool.map(c => ({ c, k: Math.random() * (7 - bx(c.id)) ** 2 })).sort((a, b) => b.k - a.k).slice(0, 6).map(x => x.c);
 }
-function drill(sk, ids) {
+function drill(sk, ids, skip) {
   const kinds = SKILL_KINDS[sk] || ["choice"];
   let pick = pickedCards(ids, c => seen(c.id) && open(c));
-  if (pick.length < 4) pick = drillPick();
+  if (pick.length < 4) pick = drillPick(skip);
+  if (!pick.length) return false;
   runSession(pick.map(c => ({ k: fitKind(c, rnd(kinds)), c })), { mode: "free", title: "Refuerzo: " + SKILL_NAME[sk] });
+  return true;
 }
 // Úsalo cuando no hay otra cosa: escuchar frases que ya sabes (primero del tema actual, de las que no practicaste hoy ni vas a practicar antes en la clase)
 function listenPick(u, skip) {
@@ -1945,23 +2044,24 @@ function listenPractice(u, ids) {
    no cuenta como calificación). Cuando estés listo, empiezas. Las frases nuevas y las que se eligen al azar (refuerzo,
    escuchar, la práctica de un tema que se olvidaba) se eligen aquí y se guardan en la clase (p.pick): así en la clase
    salen justo las que viste. c.pv = el día en que la viste y empezaste (ese día ya no se vuelve a mostrar). */
-const PV_SECS = [["verb", "Verbos"], ["word", "Palabras nuevas"], ["new", "Frases nuevas"], ["rev", "Frases para repasar"], ["tpr", "Órdenes nuevas"], ["dlg", "La conversación"], ["exam", "Para el examen"]];
+const PV_SECS = [["verb", "Verbos"], ["word", "Palabras nuevas"], ["new", "Frases nuevas"], ["rev", "Frases para repasar"], ["prac", "Frases para practicar"], ["tpr", "Órdenes nuevas"], ["mis", "La misión"], ["dlg", "La conversación"], ["exam", "Para el examen"]];
 function pvPlan(c, keep) {
   const sec = {}, note = {}, got = new Set(), used = new Set(), cds = [], wNew = [];
   let ch = false;
   const kEn = t => String(t).toLowerCase().replace(/[^a-z0-9']+/g, " ").trim();
-  const put = (k, x) => { const e = kEn(x.en); if (!e || got.has(e)) return; got.add(e); (sec[k] = sec[k] || []).push(x); };
+  // all: se muestra aunque ya esté arriba (la conversación de la misión completa), pero no se repite en el juego
+  const put = (k, x, all) => { const e = kEn(x.en); if (!e) return; if (got.has(e)) { if (!all) return; x.nogame = true; } else got.add(e); (sec[k] = sec[k] || []).push(x); };
   const addC = (k, list) => list.forEach(cd => { used.add(cd.id); cds.push(cd); put(k, { en: cd.en, es: cd.es, em: cd.em, say: cd.en }); });
   // se guardan en la parte de la clase para que salgan las mismas
   const hold = (p, list) => { const ids = list.map(x => x.id); if (keep && ids.join() !== (p.pick || []).join()) { p.pick = ids; ch = true; } return list; };
   const kept = (p, ok, min, pickFn) => { const l = pickedCards(p.pick, ok); return hold(p, l.length >= min ? l : pickFn()); };
   for (const p of c.parts) {
     if (isDone(c, p)) continue;
-    const u = unitById(p.uid);
+    const u = unitById(p.uid), hp = Object.assign({}, p, { u });
     switch (p.kind) {
-      case "repasa": { const r = repasaPick(u, p.n, p.ids); wNew.push(...[...new Set(r.dom.flatMap(x => x.ws).filter(w => S.kw[w] === 0))].slice(0, 3)); addC("rev", [...r.due, ...r.dom]); break; }
+      case "repasa": { const r = repasaPick(u, p.n, p.ids, exCards(hp)); wNew.push(...[...new Set(r.dom.flatMap(x => x.ws).filter(w => S.kw[w] === 0))].slice(0, 3)); addC("rev", [...r.due, ...r.dom]); break; }
       case "review": addC("rev", reviewPick(p)); break;
-      case "drill": addC("rev", kept(p, x => seen(x.id) && open(x), 4, drillPick)); break;
+      case "drill": addC("rev", kept(p, x => seen(x.id) && open(x), 4, () => drillPick(exCards(hp)))); break;
       case "fix": addC("rev", kept(p, x => x.u === u && seen(x.id), 1, () => fixPick(u))); break;
       case "listen": addC("rev", kept(p, x => seen(x.id) && open(x), 4, () => listenPick(u, used))); break;
       case "learn": {
@@ -1970,6 +2070,9 @@ function pvPlan(c, keep) {
         if (p.gate && lp.fresh.length) note.new = "Las vemos si en Repasa ya dices bien las del tema.";
         break;
       }
+      case "prac": addC("prac", pracCards(hp)); break;
+      case "mission": { const l = u && u.ls[p.li]; if (l && l.m) l.m.forEach(x => put("mis", x[0] === "A" ? { en: x[1], es: x[2], who: "A", say: cueless(x[1]) } : { en: x[1].en, es: x[1].es, em: x[1].em, who: "B", say: x[1].en }, true));
+        if (l && l.s) note.mis = l.s; break; }
       case "tpr": tprShow().forEach(t => put("tpr", { en: t.en, es: t.es, em: t.em, say: t.en })); note.tpr = "Haz lo que oyes: las haces con el cuerpo."; break;
       case "dialog": (u.d || []).forEach(l => put("dlg", { en: l[1], es: l[2], who: l[0], say: l[1] })); break;
       case "exam": { const n0 = (sec.exam || []).length; addC("exam", u.cards); const sh = (sec.exam || []).length - n0, q = Math.min(15, u.cards.length);
@@ -1990,7 +2093,7 @@ function startClass() {
   if (c.place || c.pv === dayNum() || !settle(c)) return runClass();
   const secs = pvPlan(c, true);
   if (!secs.length) return runClass();
-  runSession([{ k: "pv", secs, cid: c.id, go: started ? "Estoy listo, quiero seguir" : "Estoy listo, quiero empezar", again: started }], { mode: "pv", title: "" });
+  runSession([{ k: "pv", secs, cid: c.id, goal: c.goal, go: started ? "Estoy listo, quiero seguir" : "Estoy listo, quiero empezar", again: started }], { mode: "pv", title: "" });
 }
 function pvGo(s) {
   const c = S.cls;
@@ -1998,13 +2101,14 @@ function pvGo(s) {
   runClass();
 }
 const pvChip = x => `<button class="chip wm" type="button" data-say="${esc(x.say)}"><b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${esc(x.en)}</b><small>${esc(x.es)}</small></button>`;
-const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="who">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${esc(x.en)}</b><small>${escN(x.es)}</small></span></button>`;
+const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="who">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
 function pvStep(s) {
   const st = $("#stage"), n = matchRounds(s.secs.flatMap(x => x.items)).reduce((a, r) => a + r.length, 0);
   s.view = "list";
   $("#barFill").style.width = "0"; $("#count").textContent = "";
   st.className = "task pv";
   st.innerHTML = `<span class="tag">Antes de empezar</span><h2 class="ttl">${s.again ? "Esto es lo que te falta de tu clase" : "Esto es lo que vas a ver hoy"}</h2>
+    ${s.goal ? `<div class="goalbox"><div class="label">Meta de hoy</div><p class="gt">${esc(s.goal)}</p></div>` : ""}
     <p class="lead">Toca cada una para oírla. Si quieres, únelas en un juego. Cuando estés listo, empieza.</p>
     ${s.secs.map(x => `<section class="pvsec" data-k="${x.k}"><h3>${esc(x.t)} <span class="n">${x.items.length}</span></h3>${x.note ? `<p class="pvn">${esc(x.note)}</p>` : ""}${x.k === "verb" || x.k === "word" ? `<div class="pvw">${x.items.map(pvChip).join("")}</div>` : `<div class="pvlist">${x.items.map(pvRow).join("")}</div>`}</section>`).join("")}`;
   foot(n >= 2 ? `<button class="btn alt purp" type="button" id="pvMatch"><span class="ic">${ICO.link}</span>Unirlas</button>` : "", `<button class="btn go" id="pvGo">${esc(s.go)}</button>`);
@@ -2017,7 +2121,7 @@ function pvStep(s) {
 function matchRounds(items) {
   const nk = t => String(t).toLowerCase().replace(/[^a-z0-9áéíóúüñ']+/g, " ").trim();
   const wt = x => { const L = Math.max(x.en.length, x.es.length); return L <= 12 ? 1 : L <= 22 ? 1.2 : 1.5; }; // cortas: 6 por ronda; largas: 4
-  const left = items.filter(x => nk(x.en) !== nk(x.es)), out = []; // si se escribe igual (A, B, C), no hay nada que unir
+  const left = items.filter(x => !x.nogame && nk(x.en) !== nk(x.es)), out = []; // si se escribe igual (A, B, C), no hay nada que unir
   while (left.length) {
     const r = [], es = new Set(), en = new Set(); let w = 0;
     for (let i = 0; i < left.length && r.length < 6;) {
@@ -2099,7 +2203,7 @@ function renderOnboarding() {
   $("#coach").innerHTML = `<div class="card strong">
     <div class="label">${first ? "Bienvenido · vamos a empezar" : "Ajustar mi plan"}</div>
     <h2>${first ? "Tu instructor de inglés" : "Tu plan"}</h2>
-    ${first ? `<p>Yo te guío paso a paso. Cada clase tiene siempre 3 pasos: <strong>Repasa</strong> lo que ya sabes, <strong>Aprende</strong> algo nuevo y <strong>Úsalo</strong>. Voy a tu ritmo: si algo te cuesta, vamos más despacio; si vas bien, aceleramos.</p>
+    ${first ? `<p>Yo te guío paso a paso. Cada clase tiene una <strong>meta</strong>, algo que vas a poder hacer en inglés, y 4 pasos: <strong>Repasa</strong> lo que ya sabes, <strong>Aprende</strong> lo de la meta, <strong>Practica</strong> y cumple tu <strong>Misión</strong>. Voy a tu ritmo: si algo te cuesta, practicamos más.</p>
     <div class="obsync"><p><strong>¿Ya usabas la app?</strong> Escribe tu código de sincronización y recupero tu avance.</p>
       <form id="obSync"><input class="type" id="obCode" placeholder="Tu código (20 letras y números)" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Código de sincronización"><button class="btn" type="submit">Recuperar mi avance</button></form>
       <p class="pron" id="obSyncMsg" aria-live="polite"></p></div>` : ""}
@@ -2115,7 +2219,7 @@ function renderOnboarding() {
     g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === bt ? "true" : "false"));
   }));
   $("#obSave").onclick = () => {
-    if (first) { S.prof = { goal: pick.goal, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; S.cls = null; }
+    if (first) { S.prof = { goal: pick.goal, start: pick.start, since: dayNum(), placing: pick.start !== "cero" }; S.cls = null; S.lmv = 1; }
     else { S.prof.goal = pick.goal; }
     setName($("#obName").value, $("#obLast").value);
     editingProfile = false; save(); renderMeta(); view("hoy");
@@ -2139,16 +2243,42 @@ function renderOnboarding() {
 function whereHTML() {
   const nu = nextUnit();
   if (!nu) return `<p class="where">Terminaste todo el curso. Ahora tus clases te ayudan a no olvidar.</p>`;
-  const lv = nu.lv, dn = lv.units.filter(u => S.done[u.id]).length, tot = lv.units.length;
+  const lv = nu.lv, tot = lv.units.length, p = stageProg(lv);
   const t = nu.final ? `${esc(lv.short)} · terminaste sus temas: falta el examen final` : `${esc(lv.short)} · tema ${nu.k} de ${tot}: <b>${esc(nu.t)}</b>`;
-  return `<div class="where"><p>Vas en ${t}</p><div class="mini" aria-hidden="true"><i style="width:${Math.round(dn / tot * 100)}%"></i></div></div>`;
+  return `<div class="where"><p>Vas en ${t}</p><div class="mini" aria-hidden="true"><i style="width:${p.pct}%"></i></div></div>`;
 }
-// Lo que sigue después de terminar la clase
-function nextHint() {
-  const nu = nextUnit(), r = refreshUnit();
-  if (r) return `Mañana seguimos con «${r.t}» hasta que pases su prueba corta.`;
-  if (!nu) return "Mañana te espera tu repaso.";
-  return nu.final ? `Mañana sigue el examen final de ${nu.lv.short}.` : `Mañana sigues con «${nu.t}».`;
+// La meta de la clase, de qué tema es y cuánto dura más o menos
+function goalHTML(c) {
+  if (!c.goal) return "";
+  const u = unitById(c.uid), mins = c.place ? 0 : estMin(c);
+  const sub = c.fin && u ? `Cierre del tema «${u.t}»` : u && c.li !== null && c.li !== undefined && u.ls[c.li] ? `Clase ${c.li + 1} de ${u.ls.length} del tema «${u.t}»` : "";
+  return `<div class="goalbox"><div class="label">${c.place ? "Hoy" : "Meta de hoy"}</div><p class="gt">${esc(c.goal)}</p>${sub || mins ? `<p class="gsub">${esc([sub, mins ? `unos ${mins} minutos` : ""].filter(Boolean).join(" · "))}</p>` : ""}</div>`;
+}
+// Cuánto dura lo que falta de la clase, más o menos (en múltiplos de 5 minutos)
+function estMin(c) {
+  let sec = 0;
+  c.parts.filter(p => !isDone(c, p)).forEach(p => {
+    const h = hydrate(p), u = h.u;
+    switch (p.kind) {
+      case "repasa": { const r = repasaPick(u, p.n, p.ids, exCards(h)); sec += r.due.length * 14 + r.dom.length * 25; break; }
+      case "review": sec += p.n * 14; break;
+      case "drill": sec += 6 * 18; break;
+      case "gram": sec += 90; break;
+      case "fix": sec += 8 * 30; break;
+      case "check": sec += 8 * 16; break;
+      case "learn": { const lp = learnPlan(u, p.n, p.pick); sec += (lp.teach.length + lp.check.length) * 10 + lp.fresh.length * 36; break; }
+      case "prac": sec += (pracCards(h).length || (u && u.ls[p.li] ? u.ls[p.li].c.length : 0)) * (p.slow ? 4 : 3) * 18; break;
+      case "mission": { const l = u && u.ls[p.li]; sec += 60 + (l && l.m && l.m.length ? l.m.length * 18 : 4 * 20); break; }
+      case "tpr": sec += 120; break;
+      case "dialog": sec += 90; break;
+      case "reading": sec += 240; break;
+      case "video": sec += h.v ? videoNeed(h.v.dur) + 60 : 240; break;
+      case "exam": sec += 15 * 18 + 60; break;
+      case "final": sec += 30 * 18; break;
+      case "listen": sec += 6 * 14; break;
+    }
+  });
+  return Math.max(5, Math.round(sec / 300) * 5);
 }
 function renderHoy() {
   if (!S.prof || editingProfile) { $("#homeNav").hidden = true; return renderOnboarding(); }
@@ -2161,17 +2291,20 @@ function renderHoy() {
   let body;
   if (!nx) {
     const hd = H(), tally = hd.r ? `Hoy: ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
-    body = `<h2>${nm ? `¡Clase terminada, ${esc(nm)}!` : "¡Clase terminada!"}</h2>
+    body = `<h2>${c.won ? `¡Lo lograste${nm ? ", " + esc(nm) : ""}!` : nm ? `¡Clase terminada, ${esc(nm)}!` : "¡Clase terminada!"}</h2>
+      ${c.won ? `<p class="won">${esc(c.won)}</p>` : ""}
       ${tally ? `<p>${tally}</p>` : ""}
       ${roadHTML(c)}
-      <p class="muted">${esc(nextHint())} Lo mejor es venir un poco cada día.</p>
-      <button class="btn ghost" id="goMore">Tomar otra clase (opcional)</button>`;
+      <div class="goalbox"><div class="label">Siguiente clase</div><p class="gt">${esc(goalNow())}</p></div>
+      <button class="go" id="goNext">Siguiente clase</button>
+      <p class="muted hint">Puedes seguir ahora o mañana. Lo mejor es venir un poco cada día.</p>`;
   } else {
     const title = c.place ? "Examen de ubicación" : c.d < dayNum() && started ? "Tu clase: sigues donde te quedaste" : c.k > 1 ? `Clase ${c.k} de hoy` : "Tu clase de hoy";
     body = `<h2>${esc(greet)}</h2>
       ${c.place ? "" : whereHTML()}
       ${!started && c.notes.length ? `<div class="coach-msg">${c.notes.map(m => `<p>${esc(m)}</p>`).join("")}</div>` : ""}
       <h3 class="ctitle">${esc(title)}</h3>
+      ${goalHTML(c)}
       ${roadHTML(c, { intro: true })}
       <button class="go" id="goToday">${started ? `Seguir con el paso ${nx.step + 1}: ${esc(c.names[nx.step])}` : c.place ? "Empezar el examen" : "Empezar la clase"}</button>
       <p class="muted hint">Yo te llevo paso a paso. No hay tiempo límite: si no terminas, la próxima vez sigues donde te quedaste.</p>`;
@@ -2187,18 +2320,18 @@ function renderHoy() {
     $("#nmLater").onclick = () => { S.prof.noName = 1; save(); renderHoy(); };
   }
   if ($("#goToday")) $("#goToday").onclick = startClass;
-  if ($("#goMore")) $("#goMore").onclick = () => { newClass(); renderHoy(); window.scrollTo(0, 0); };
+  if ($("#goNext")) $("#goNext").onclick = () => { newClass(); startClass(); };
 }
 
 /* ---------- MI CAMINO: en qué tema vas (solo para ver; las clases las lleva tu instructor) ---------- */
 function renderCurso() {
   const nu = nextUnit(), curLv = nu ? nu.lv : null;
   $("#levels").innerHTML = COURSE.map(lv => {
-    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length, fin = S.fin[lv.id] || (lv.id === "w" && all), lock = prevLocked(lv), isCur = lv === curLv;
+    const dn = lv.units.filter(u => S.done[u.id]).length, all = dn === lv.units.length, fin = S.fin[lv.id] || (lv.id === "w" && all), lock = prevLocked(lv), isCur = lv === curLv, p = stageProg(lv);
     return `<details class="level${isCur ? " cur" : ""}" id="lv-${lv.id}"${isCur ? " open" : ""}>
       <summary class="lhead"><div class="top"><h3>${esc(lv.name)}</h3><span class="cefr">${esc(lv.cefr)}</span></div>
-        <span class="ustat multi${fin ? " ok" : isCur ? " here" : ""}">${isCur ? `Estás aquí · ${dn} de ${lv.units.length} temas aprobados` : fin ? "✓ Aprobada" : lock ? `🔒 Se abre al terminar ${esc(lock.short)}` : `${dn} de ${lv.units.length} temas aprobados`}</span>
-        ${isCur ? `<p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p><div class="mini"><i style="width:${dn / lv.units.length * 100}%"></i></div>` : ""}</summary>
+        <span class="ustat multi${fin ? " ok" : isCur ? " here" : ""}">${isCur ? `Estás aquí · ${p.pct}% · ${p.done} de ${p.tot} clases` : fin ? "✓ Aprobada" : lock ? `🔒 Se abre al terminar ${esc(lock.short)}` : `${dn} de ${lv.units.length} temas aprobados`}</span>
+        ${isCur ? `<p class="muted" style="margin:0;font-size:15px">${esc(lv.desc)}</p><div class="mini"><i style="width:${p.pct}%"></i></div>` : ""}</summary>
       ${lv.units.map(u => {
         const sn = unitSeen(u), tot = u.cards.length, d = S.done[u.id], here = nu === u;
         const sub = d ? "Aprobado" : here ? `Estás aquí · ${sn} de ${tot} frases aprendidas` : "Viene después";
@@ -2277,6 +2410,7 @@ function renderUnit(u) {
       <p class="muted" style="margin:0">${esc(u.goal)}</p>
     </div>
     ${state}
+    ${lessonsHTML(u)}
     <details class="sec"><summary class="sh"><h3>Explicación</h3></summary><div class="sb gram">${gramHTML(u.g)}</div></details>
     <details class="sec"><summary class="sh"><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} aprendidas</span></summary>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div>
       ${uw.length ? `<details class="uwords"><summary>Palabras nuevas de este tema (${uw.length})${uwk ? ` · ya sabes ${uwk}` : ""}</summary><div class="wgrid">${uw.map(w => `<button class="chip wm${knownW(w) ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}${knownW(w) ? ' <span class="ck" aria-label="ya la sabes">✓</span>' : ""}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></details>` : ""}</details>
@@ -2296,6 +2430,15 @@ function renderUnit(u) {
   if (u.r) $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
+}
+// Las clases del tema: su meta, cuántas frases tiene y si ya cumpliste su misión (y al final, el cierre con el examen)
+function lessonsHTML(u) {
+  const L = curLesson(), here = L && L.u === u, ok = i => lessonDone(u, i) || (!!S.done[u.id] && u.ls[i].c.every(c => seen(c.id)));
+  const nd = u.ls.filter((l, i) => ok(i)).length;
+  return `<details class="sec" open><summary class="sh"><h3>Clases del tema</h3><span class="ustat${nd === u.ls.length ? " ok" : ""}" style="margin-left:auto">${nd} de ${u.ls.length}</span></summary><div class="sb">
+    <ol class="lsn">${u.ls.map((l, i) => `<li class="${ok(i) ? "done" : here && !L.end && L.i === i ? "cur" : ""}"><span class="lnum" aria-hidden="true">${ok(i) ? "✓" : i + 1}</span><span>${esc(lessonGoal(u, l))}<small>${l.c.length} frases · misión: ${l.m && l.m.length ? "una conversación" : "decirlas tú"}</small></span></li>`).join("")}
+      <li class="${S.done[u.id] ? "done" : here && L.end ? "cur" : ""}"><span class="lnum" aria-hidden="true">${S.done[u.id] ? "✓" : "★"}</span><span>Cierre del tema<small>Lectura, conversación${VIDEOS[u.id] ? ", video" : ""} y examen</small></span></li></ol>
+  </div></details>`;
 }
 function playDialog(lines, group, sel) {
   stopAudio();
@@ -2488,7 +2631,8 @@ function learnPlan(u, n, ids) {
     fresh.push(c); if (c.sw) has.add(c.sw);
     ws.forEach(w => { has.add(w); (teachW(w) ? teach : check).push(w); });
   }
-  return { fresh, teach, check: check.slice(0, W_CHK) };
+  // en una clase del tema (frases ya elegidas) se enseñan hasta 12 palabras: las demás se ven en sus frases (y se pueden tocar)
+  return { fresh, teach: fixed.length ? teach.slice(0, 12) : teach, check: check.slice(0, W_CHK) };
 }
 // Cuántas sesiones faltan para conocer todas las frases de la unidad (con el mismo cupo de palabras nuevas)
 function sessionsFor(u) {
@@ -2521,10 +2665,11 @@ function domPick(u, n) {
   return undom(u).sort((a, b) => w(a) - w(b)).slice(0, n || DOM_MAX);
 }
 const prodKind = (c, k) => { const f = fitKind(c, k); return PROD[f] ? f : fitKind(c, "speak"); };
-// Las frases del tema que todavía no dominas (las de la clase primero; hasta 10)
-function masterCards(u, ids) {
-  const cards = (ids || []).map(id => CARD[id]).filter(c => c && seen(c.id) && !dominated(c.id));
-  domPick(u).forEach(c => { if (cards.length < DOM_MAX && !cards.includes(c)) cards.push(c); });
+// Las frases del tema que todavía no dominas (las de la clase primero; hasta 10). skip: las que no van aquí (las de la clase de hoy)
+function masterCards(u, ids, skip) {
+  const no = c => !!(skip && skip.includes(c));
+  const cards = (ids || []).map(id => CARD[id]).filter(c => c && seen(c.id) && !dominated(c.id) && !no(c));
+  domPick(u, 99).forEach(c => { if (cards.length < DOM_MAX && !cards.includes(c) && !no(c)) cards.push(c); });
   return cards;
 }
 // Cada una una vez, en un ejercicio donde la produces tú (el tipo va cambiando); antes, las palabras que fallaste
@@ -2542,12 +2687,12 @@ function masterPractice(u, ids) {
 }
 // Repasa (el primer paso de la clase): lo que estás por olvidar (repaso espaciado) y luego las frases del tema que todavía
 // no dominas, ahora dichas, escritas o armadas por ti sin ayuda. Todo en una sola práctica.
-function repasaPick(u, n, ids) {
-  const dom = u ? masterCards(u, ids) : [];
-  return { dom, due: dueCards().filter(c => !dom.includes(c)).sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, n || 0) };
+function repasaPick(u, n, ids, skip) {
+  const dom = u ? masterCards(u, ids, skip) : [];
+  return { dom, due: dueCards().filter(c => !dom.includes(c) && !(skip && skip.includes(c))).sort((a, b) => S.c[a.id][1] - S.c[b.id][1]).slice(0, n || 0) };
 }
-function repasaPractice(u, n, ids) {
-  const { dom, due } = repasaPick(u, n, ids);
+function repasaPractice(u, n, ids, skip) {
+  const { dom, due } = repasaPick(u, n, ids, skip);
   if (!due.length && !dom.length) return false;
   const ms = dom.length ? masterSteps(dom) : []; // primero las palabras que fallaste, luego el repaso y al final las del tema
   const steps = [...ms.filter(x => !x.c), ...shuffle(due).map(c => ({ k: pickKind(c, "review"), c })), ...ms.filter(x => x.c)];
@@ -2610,6 +2755,48 @@ function learnUnit(u, n, ids) {
   }
   shuffle(old).forEach(c => steps.push({ k: pickKind(c, "learn"), c }));
   runSession(steps, { mode: "learn", unit: u, title: u.t });
+}
+/* ---------- Practica: las frases de la clase, ahora tú ----------
+   Antes, las palabras que fallaste. Luego cada frase en 3 vueltas (4 si vas despacio): (entenderla,) armarla (o escribir
+   lo que oyes, si es una sola palabra), escribirla a partir del español y decirla. Si fallas una, vuelve en un rato más
+   fácil y luego como al principio (como en todas las prácticas). */
+function pracSteps(cards, slow) {
+  const steps = wordSteps([...new Set(cards.flatMap(c => c.ws).filter(w => S.kw[w] === 0))].slice(0, 3), []);
+  const round = f => { const r = shuffle(cards).map(c => ({ k: fitKind(c, f(c)), c })), last = steps[steps.length - 1]; if (last && last.c === r[0].c && r.length > 1) r.push(r.shift()); steps.push(...r); };
+  if (slow) round(c => c.emS ? rnd(["tap", "pic"]) : rnd(["hear", "choice"]));
+  round(c => canOrder(c) ? "order" : "dict");
+  round(() => "type");
+  round(() => "speak");
+  return steps;
+}
+function pracPractice(u, cards, slow) {
+  if (!cards.length) return false;
+  runSession(pracSteps(cards, slow), { mode: "prac", unit: u, title: "Practica" });
+  return true;
+}
+/* ---------- Misión: usar lo de hoy en una conversación ----------
+   Te hablan en inglés (A) y tú contestas con las frases de la clase (B): las dices (o las escribes). Cuenta la primera vez,
+   como en un examen, y con 60% bien la lograste. Una clase sin misión escrita: decir tú, sin ayuda, 4 de sus frases. */
+function missionSteps(u, l) {
+  const steps = [{ k: "mstart", u, l }];
+  let prev = null;
+  if (l.m && l.m.length) l.m.forEach(x => {
+    if (x[0] === "A") { steps.push({ k: "dlg", line: ["A", x[1], x[2]], ms: true }); prev = x; }
+    else { steps.push({ k: fitKind(x[1], "speak"), c: x[1], mis: true, ctx: prev ? { en: prev[1], es: prev[2] } : null }); prev = null; }
+  });
+  else shuffle(l.c.filter(c => seen(c.id))).slice(0, 4).forEach(c => steps.push({ k: fitKind(c, "speak"), c, mis: true }));
+  return steps;
+}
+function missionPractice(u, li) {
+  const l = u.ls[li]; if (!l) return false;
+  runSession(missionSteps(u, l), { mode: "mission", unit: u, lesson: l, title: "Misión" });
+  return true;
+}
+// Toda la conversación de la misión, una línea tras otra (para escucharla primero)
+function playLines(lines) {
+  stopAudio(); const g = AGEN; let i = 0;
+  const nx = () => { if (g !== AGEN || i >= lines.length) return; const l = lines[i++]; say(cueless(l[1]), { who: l[0] === "B" ? 1 : 0, keep: true, onend: () => setTimeout(nx, 350) }); };
+  nx();
 }
 const rqSteps = u => u.r ? u.r.q.map((q, i) => ({ k: "rq", u, q, qi: i })) : [];
 // Volver a enseñar una unidad que se estaba olvidando: primero las que fallaste, con la frase otra vez antes de preguntarla
@@ -2683,7 +2870,7 @@ function nextStep() { SES.i++; step(); }
    y la regla). Si fallas varias seguidas, hacemos una pausa: repasamos la explicación y algo de temas anteriores que ya sabes,
    y dejamos las frases nuevas para después. La calificación del repaso espaciado solo usa el primer intento. */
 const RANK = { intro: 0, yesno: 0, pic: 1, choice: 1, tap: 1, hear: 2, listen: 2, order: 3, dict: 4, type: 4, speak: 5 };
-const isExam = () => SES.mode === "exam" || SES.mode === "final" || SES.mode === "check";
+const isExam = () => SES.mode === "exam" || SES.mode === "final" || SES.mode === "check" || SES.mode === "mission";
 function easierKind(c, k) {
   if (k === "tap" || k === "yesno") return c.emS ? "tap" : "hear"; // escuchar y tocar: no hay nada más fácil, se repite igual
   if (sameText(c)) return "hear";
@@ -3021,11 +3208,26 @@ function step() {
   if (s.k === "pv") return pvStep(s); // antes de empezar la clase: lo que vas a ver
   // Si en esta sesión elegiste escribir porque no puedes hablar, ya no te pide hablar (se convierte en escribir)
   if (SES.write && s.k === "speak" && c) { s.k = fitKind(c, "type"); s.wr = true; const m = SES.m[c.id]; if (m && m.target === "speak") m.target = s.k; }
-  const tagTxt = s.fix === "easy" ? "Paso a paso" : s.fix === "final" ? "Ahora sin ayuda" : s.boost ? "De un tema anterior" : s.wr ? "Escribiendo en lugar de hablar" : "";
-  const head = k => `${tagTxt ? `<span class="tag">${tagTxt}</span>` : ""}<h2 class="ttl">${LBL[k]}</h2>`;
+  const tagTxt = s.mis ? "Misión · tu turno" : s.fix === "easy" ? "Paso a paso" : s.fix === "final" ? "Ahora sin ayuda" : s.boost ? "De un tema anterior" : s.wr ? "Escribiendo en lugar de hablar" : "";
+  // en la misión: lo que te dijeron, y el título dice que contestes
+  const ctx = s.ctx ? `<div class="mctx" data-text="${esc(cueless(s.ctx.en))}"><button class="play" type="button" data-say="${esc(cueless(s.ctx.en))}" aria-label="Escuchar otra vez">${SPK}</button><div><span class="ml">Te dijeron</span><b>${cueHTML(s.ctx.en)}</b><small>${cueHTML(s.ctx.es)}</small></div></div>` : "";
+  const head = k => `${tagTxt ? `<span class="tag">${tagTxt}</span>` : ""}${ctx}<h2 class="ttl">${s.mis ? (k === "speak" || k === "listen" ? "Contesta en inglés: di esto" : k === "order" ? "Contesta en inglés: arma esto" : "Contesta en inglés: escribe esto") : LBL[k]}</h2>`;
   const helpOK = !isExam();
   const goBtn = (id, t, dis) => `<button class="btn go" id="${id}"${dis ? " disabled" : ""}>${t}</button>`;
   const help = (id, t, kind, ic) => `<button class="btn alt ${kind}" type="button" id="${id}"><span class="ic">${ic}</span>${t}</button>`;
+  // La misión: qué vas a lograr, la escena y (si quieres) escuchar primero toda la conversación
+  if (s.k === "mstart") {
+    const u = s.u, l = s.l, lines = (l.m || []).map(x => x[0] === "A" ? x : ["B", x[1].en]);
+    st.innerHTML = `<span class="tag">Misión</span><h2 class="center">${esc(lessonGoal(u, l))}</h2>
+      ${l.s ? `<p class="mscene">${esc(l.s)}</p>` : ""}
+      <p class="lead">${lines.length ? "Te van a hablar en inglés y tú contestas con lo que aprendiste hoy. Arriba de cada respuesta ves lo que te dijeron." : "Ahora tú solo: di en inglés las frases de hoy, sin ayuda."} Si te sale, ¡lo lograste!</p>
+      ${lines.length ? `<div class="row c"><button class="btn ghost speak" type="button" id="msHear">${SPK}<span class="lb">Escucharla primero</span></button></div>` : ""}`;
+    foot("", goBtn("msGo", "Empezar la misión"));
+    if ($("#msHear")) $("#msHear").onclick = () => playLines(lines);
+    $("#msGo").onclick = () => { stopAudio(); nextStep(); };
+    $("#msGo").focus({ preventScroll: true });
+    return;
+  }
 
   // Primero las palabras: cómo suena cada una y qué significa (de 3 en 3)
   if (s.k === "wlist") {
@@ -3382,9 +3584,10 @@ function step() {
   if (s.k === "dlg") {
     const [who, en, es] = s.line;
     if (who === "A") {
-      st.innerHTML = `<h2 class="ttl">Conversación: te dicen</h2><div class="plate" data-text="${esc(en)}"><div class="pen md">${speakSpans(en)}</div><div class="pes">${esc(es)}</div><div class="row">${playPair(en)}</div></div>`;
+      const said = cueless(en);
+      st.innerHTML = `${s.ms ? `<span class="tag">Misión</span>` : ""}<h2 class="ttl">${s.ms ? "Te dicen" : "Conversación: te dicen"}</h2><div class="plate" data-text="${esc(said)}"><div class="pen md">${speakSpans(en, true)}</div><div class="pes">${cueHTML(es)}</div><div class="row">${playPair(said)}</div></div>`;
       foot("", goBtn("dNext", "Continuar"));
-      say(en, { who: 0 }); $("#dNext").onclick = nextStep; holdGo(["dNext"]);
+      say(said, { who: 0 }); $("#dNext").onclick = nextStep; holdGo(["dNext"]);
       return;
     }
     const prevA = SES.steps[SES.i - 1] && SES.steps[SES.i - 1].line;
@@ -3473,6 +3676,14 @@ function finish() {
     msg = pass ? `Sacaste ${ok} de ${n}. Ya podemos seguir con lo nuevo.` : `Sacaste ${ok} de ${n} y necesitas ${Math.ceil(n * 0.85)}. No pasa nada: en tu siguiente clase te la vuelvo a explicar con calma y la practicamos otra vez.`;
     extra = `<span class="badge ${pass ? "ok" : "bad"}">${pass ? "Aprobada" : "Aún no"}</span>`;
     btns = `<button class="btn primary" id="fHoy">Ir a Hoy</button>`;
+  } else if (m === "mission") { // con 60% bien la lograste
+    const u = SES.unit, l = SES.lesson, pass = !n || ok >= Math.ceil(n * 0.6);
+    title = pass ? "¡Misión cumplida!" : "Casi lo logras";
+    if (pass && l) { S.lm[lkey(u, l.i)] = 1; save(); renderMeta(); }
+    msg = pass ? lessonWin(u, l) : `Te salieron ${ok} de ${n} y necesitas ${Math.ceil(n * 0.6)}. Ya conoces las frases: inténtalo otra vez, con calma.`;
+    extra = `<span class="badge ${pass ? "ok" : "bad"}">${pass ? "Lo lograste" : "Aún no"}</span>`;
+    btns = pass ? "" : `<button class="btn primary" id="fMis">Intentar otra vez</button>`;
+    if (pass) sfx("win");
   } else if (m === "video") {
     title = SES.title;
     msg = n && ok ? "¡Video completado! Escuchar inglés real todos los días es lo que te da oído y fluidez." : "Video visto. La próxima vez intenta el resumen: es lo que más te ayuda a hablar.";
@@ -3530,25 +3741,42 @@ function finish() {
   }
   if (m !== "exam" && m !== "final" && m !== "check" ? n || m === "video" || m === "dialog" : extra.includes("badge ok")) sfx("win"); // fanfarria al terminar
   const summary = t => `<h2 class="ttl">${esc(t)}</h2><div class="big">${big}</div>${extra}<p class="lead" style="max-width:46ch;color:var(--ink)">${msg}</p>
-    <p class="pron" style="margin:0">${S.xp} puntos · racha de ${S.streak} ${S.streak === 1 ? "día" : "días"}</p>${recall}`;
+    <p class="pron" style="margin:0">${esc(progLine())}</p>${recall}`;
   const goify = h => h.replace(/btn primary/g, "btn go");
   if (inClass) {
-    const c = S.cls, p = SES.seg, si = p.step, tot = c.names.length;
+    const c = S.cls, p = SES.seg, si = p.step, tot = c.names.length, passed = extra.includes("badge ok");
+    if (m === "mission" && !passed) { // la misión no salió: la vuelves a intentar (la clase se queda en este paso)
+      $("#sstep").hidden = true;
+      st.innerHTML = `<span class="tag">Misión</span><h2 class="ttl">${esc(title)}</h2><div class="big sm">${big}</div><p class="lead">${msg}</p>`;
+      foot(`<button class="btn alt" id="fLater"><span class="ic">${ICO.home}</span>Después</button>`, `<button class="btn go" id="fPlan">Intentar otra vez</button>`);
+      $("#fPlan").onclick = runClass; $("#fLater").onclick = () => view("hoy");
+      $("#fPlan").focus({ preventScroll: true });
+      return;
+    }
+    // lo que lograste en la clase: la meta de la misión, el tema del examen, la etapa o el tema que recuperaste
+    if (passed && !c.place) { const w = m === "mission" ? msg : m === "exam" ? `Ya puedes ${lowFirst(noDot(SES.unit.goal))}.` : m === "final" ? `Aprobaste ${SES.level.short}.` : m === "check" ? `Recuperaste «${SES.unit.t}».` : ""; if (w) c.won = w; }
     markPart(c, p);
     const nx = settle(c);
     $("#sstep").hidden = true;
     const res = `${n ? `<div class="big sm">${big}</div>` : ""}${extra}${msg ? `<p class="lead">${msg}</p>` : ""}`;
     const pause = "";
-    if (!nx) { // terminaste la clase: aquí se acaba (otra clase es opcional)
-      const nm = nameParts().name, last = `<p class="lead"><b>${esc(c.names[si])} ✓</b>${n ? ` · ${ok} de ${n} bien` : ""}</p>${extra}${msg ? `<p class="lead">${msg}</p>` : ""}`;
+    if (!nx) { // terminaste la clase: lo que lograste y un botón para la siguiente
+      const nm = nameParts().name, won = c.won;
       setQuit(false);
-      st.innerHTML = c.place ? `<span class="tag">Ubicación terminada</span><h2 class="ttl">${esc(title)}</h2>${res}`
-        : `<span class="tag">Clase terminada</span><h2 class="ttl">¡Terminaste tu clase${nm ? ", " + esc(nm) : ""}!</h2>
-          <div class="nextbox">${roadHTML(c)}</div>${last}<p class="lead">${esc(nextHint())} Si todavía quieres practicar, puedes tomar otra clase.</p>`;
-      foot(c.place ? "" : `<button class="btn alt" id="fPlanEnd"><span class="ic">${ICO.plus}</span>Otra clase</button>`, `<button class="btn go" id="fDayDone">${c.place ? "Ir a mi clase" : "Listo por hoy"}</button>`);
+      if (c.place) {
+        st.innerHTML = `<span class="tag">Ubicación terminada</span><h2 class="ttl">${esc(title)}</h2>${res}`;
+        foot("", `<button class="btn go" id="fDayDone">Ir a mi clase</button>`);
+        $("#fDayDone").onclick = () => view("hoy"); $("#fDayDone").focus({ preventScroll: true });
+        return;
+      }
+      const last = m === "mission" ? "" : `<p class="lead"><b>${esc(c.names[si])} ✓</b>${n ? ` · ${ok} de ${n} bien` : ""}</p>${extra}${msg ? `<p class="lead">${msg}</p>` : ""}`;
+      st.innerHTML = `<span class="tag">Clase terminada</span><h2 class="ttl">${won ? "¡Lo lograste" : "¡Terminaste tu clase"}${nm ? ", " + esc(nm) : ""}!</h2>
+        ${won ? `<p class="won">${esc(won)}</p>` : ""}<div class="nextbox">${roadHTML(c)}</div>${last}
+        <div class="nextbox"><div class="label">Siguiente clase</div><p>${esc(goalNow())}</p></div>`;
+      foot(`<button class="btn alt" id="fDayDone"><span class="ic">${ICO.home}</span>Listo por hoy</button>`, `<button class="btn go" id="fNextCls">Siguiente clase</button>`);
       $("#fDayDone").onclick = () => view("hoy");
-      if ($("#fPlanEnd")) $("#fPlanEnd").onclick = () => { newClass(); view("hoy"); };
-      $("#fDayDone").focus({ preventScroll: true });
+      $("#fNextCls").onclick = () => { newClass(); startClass(); };
+      $("#fNextCls").focus({ preventScroll: true });
       return;
     }
     if (nx.step === si) { // sigue otra parte del mismo paso
@@ -3578,6 +3806,7 @@ function finish() {
   on("fUnit", () => openUnit(unit));
   on("fRev", startReview);
   on("fHoy", () => view("hoy"));
+  const ml = SES.lesson; on("fMis", () => missionPractice(unit, ml.i));
   on("fFree", () => freePractice(kind));
   on("fBack", () => { if (unit && back === "unit") openUnit(unit); else view(back === "session" ? "hoy" : back); });
   const first = $("#sfoot .btn.go") || $("#fBack"); first.focus({ preventScroll: true });
@@ -3623,7 +3852,7 @@ function merge(a, b) {
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
   const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
-  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), lm: mx(a.lm, b.lm), lmv: Math.max(a.lmv || 0, b.lmv || 0), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
@@ -3636,7 +3865,7 @@ async function pull() {
   try {
     const remote = await rpc("get_progress", { p_code: SYNC });
     if (remote) S = merge(S, remote);
-    applyNames(); store(); refreshView();
+    lessonMigrate(); applyNames(); store(); refreshView();
     await rpc("save_progress", { p_code: SYNC, p_data: S });
     status("Sincronizado ✓ " + hhmm());
   } catch (e) { status(OFF); }
@@ -3668,8 +3897,14 @@ function selectCode() { const r = document.createRange(); r.selectNodeContents($
 $("#syncStop").onclick = () => { setCode(null); status("Sincronización desactivada en este dispositivo. Tu avance en línea sigue guardado."); };
 window.addEventListener("online", pull);
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") pull(); });
+// Lo que ya aprendiste antes de que hubiera clases con meta y misión cuenta como hecho (una sola vez)
+function lessonMigrate() {
+  if (S.lmv || !S.prof) return; // (quien empieza desde cero no tiene nada que pasar)
+  UNITS.forEach(u => u.ls.forEach((l, i) => { if (l.c.length && l.c.every(c => seen(c.id))) S.lm[lkey(u, i)] = 1; }));
+  S.lmv = 1; store();
+}
 // La primera pantalla, ya con todo listo (armar tu clase guarda tu avance, y guardar usa la sincronización)
-applyNames(); renderMeta(); view("hoy");
+lessonMigrate(); applyNames(); renderMeta(); view("hoy");
 renderSync(); pull();
 </script>
 

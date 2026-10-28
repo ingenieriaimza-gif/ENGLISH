@@ -1,0 +1,579 @@
+// Universidad 2: las clases de cada tema, con su meta y su misión
+
+# n5u1
+= Contar algo que salió mal | 1 2 4 13 14 18 21 24 25 26
+@ Tu pareja te pregunta por el viaje que salió mal.
+A: Why are you home? Weren't you going to Cancún? | ¿Por qué estás en la casa? ¿No ibas a Cancún?
+B: 1
+A: Why did you leave so late? | ¿Por qué salieron tan tarde?
+B: 21
+A: Did you lose the money? | ¿Perdieron el dinero?
+B: 4
+A: So, what now? | ¿Y ahora qué?
+B: 24
+
+= Reclamar y explicar lo que pasó | 0 3 6 9 10 12 15 16 22
+@ Un amigo y tú se reclaman cosas.
+A: The party was yesterday, not today! | ¡La fiesta fue ayer, no hoy!
+B: 9
+A: And you missed the meeting at work too. | Y también faltaste a la junta del trabajo.
+B: 6
+A: Why didn't you tell me about the new boss? | ¿Por qué no me dijiste lo del nuevo jefe?
+B: 0
+A: I told my boss he's lazy. | Le dije a mi jefe que es flojo.
+B: 3
+
+= Adivinar qué pasó y hablar de arrepentimientos | 5 7 8 11 17 19 20 23
+@ Platicas con un compañero sobre otro que no llegó.
+A: Where's Mario? The meeting started an hour ago. | ¿Dónde está Mario? La junta empezó hace una hora.
+B: 17
+A: He didn't send the report either. | Tampoco mandó el reporte.
+B: 7
+A: Someone took my lunch from the fridge. Was it Mario? | Alguien se llevó mi comida del refri. ¿Fue Mario?
+B: 8
+A: Do you regret leaving your old job? | ¿Te arrepientes de haber dejado tu trabajo anterior?
+B: 23
+
+# n5u7
+= Imaginar tu vida con otras decisiones | 0 1 2 7 10 12 14 25 26
+@ En una reunión de exalumnos, platicas de la vida.
+A: Do you ever think about other paths in life? | ¿Alguna vez piensas en otros caminos que pudiste tomar?
+B: 0
+A: Didn't they offer you a job in Toronto once? | ¿No te ofrecieron una vez un trabajo en Toronto?
+B: 1
+A: Do you still work in sales? | ¿Sigues en ventas?
+B: 25
+A: And me? I'm still an engineer. | ¿Y yo? Sigo siendo ingeniero.
+B: 26
+
+= Explicar un problema de hoy por algo del pasado | 3 9 15 18 19 21 22 23
+@ En un concierto, tu amigo se queja.
+A: I'm so tired. | Estoy muy cansado.
+B: 3
+A: And we're so far from the stage! | ¡Y estamos muy lejos del escenario!
+B: 19
+A: Why is your face so red? | ¿Por qué tienes la cara tan roja?
+B: 18
+A: I knew about the double shift tomorrow, but I forgot to tell you. | Yo sabía del doble turno de mañana, pero se me olvidó decirte.
+B: 9
+
+= Explicar por qué no hiciste algo | 4 5 6 8 11 13 16 17 20 24
+@ Tu amiga te pregunta por qué no hiciste algunas cosas.
+A: Why didn't you come to Spain with us? | ¿Por qué no fuiste a España con nosotros?
+B: 6
+A: Why didn't you take me to the airport? | ¿Por qué no me llevaste al aeropuerto?
+B: 16
+A: Did you talk to the girl from the party? | ¿Hablaste con la chava de la fiesta?
+B: 17
+A: Why didn't you get the job in Paris? | ¿Por qué no te dieron el trabajo en París?
+B: 5
+
+# n5u2
+= Opinar con tacto sobre una propuesta | 0 3 5 7 8 14 15 16 21
+@ Tu jefe te pide opinión sobre su propuesta.
+A: What do you think of my proposal? | ¿Qué opinas de mi propuesta?
+B: 5
+A: Why not? The price is good. | ¿Por qué no? El precio es bueno.
+B: 0
+A: We'll open three stores at the same time. | Vamos a abrir tres tiendas al mismo tiempo.
+B: 16
+A: So what do you suggest? | ¿Entonces qué sugieres?
+B: 3
+
+= Señalar un error sin ofender | 1 9 12 13 18 22 23 24 25
+@ Hablas con un proveedor importante.
+A: Did you check our invoice? | ¿Revisó nuestra factura?
+B: 1
+A: Oh, really? | ¿Ah, sí?
+B: 12
+A: Of course. And our new product? Did you like it? | Claro. ¿Y nuestro producto nuevo? ¿Le gustó?
+B: 22
+A: What can we do? | ¿Qué podemos hacer?
+B: 25
+
+= Decir que no con cortesía | 2 4 6 10 11 17 19 20 26
+@ Un cliente te pide cosas difíciles.
+A: Can you deliver everything tomorrow? | ¿Pueden entregar todo mañana?
+B: 2
+A: Is the meeting today? | ¿La junta es hoy?
+B: 11
+A: Will the shipment arrive on Friday? | ¿El envío llega el viernes?
+B: 6
+A: Can you tell me your competitor's price? | ¿Me puede decir el precio de su competencia?
+B: 26
+
+# n5u3
+= Usar expresiones comunes en el trabajo | 1 2 3 4 8 9 10 11 13
+@ Platicas con una compañera en la oficina.
+A: How's your week going? | ¿Cómo va tu semana?
+B: 10
+A: Me too! I have three reports. | ¡Yo también! Tengo tres reportes.
+B: 3
+A: Do you want to talk about the project now? | ¿Quieres hablar del proyecto ahorita?
+B: 9
+A: Okay. I'll talk to the client today. | Bueno. Hoy hablo con el cliente.
+B: 8
+
+= Platicar con expresiones del día a día | 0 5 6 7 12 15 19 23 24
+@ Platicas con un amigo en la calle.
+A: Was the English test hard? | ¿Estuvo difícil el examen de inglés?
+B: 0
+A: Do you want to walk to the park? | ¿Quieres caminar al parque?
+B: 15
+A: You don't look good. | No te ves bien.
+B: 7
+A: Did you buy the new phone? | ¿Compraste el celular nuevo?
+B: 6
+
+= Animar a un amigo con expresiones | 14 16 17 18 20 21 22 25 26
+@ Tu amigo está pasando por un mal momento.
+A: I lost my job, but now I can start my own business. | Perdí mi trabajo, pero ahora puedo empezar mi propio negocio.
+B: 17
+A: And then my car broke down this morning! | ¡Y luego hoy en la mañana se descompuso mi carro!
+B: 22
+A: I can visit my mom and buy groceries on the same trip. | Puedo visitar a mi mamá y hacer el súper en la misma vuelta.
+B: 14
+A: I don't know anyone at the new job. | No conozco a nadie en el trabajo nuevo.
+B: 26
+
+# n5u4
+= Defender una propuesta con datos | 0 1 2 7 9 10 11 12 26
+@ Presentas tu idea de automatizar una línea.
+A: Why should we automate the line? | ¿Por qué deberíamos automatizar la línea?
+B: 0
+A: But is it worth it? | ¿Pero vale la pena?
+B: 7
+A: Show me. | Demuéstramelo.
+B: 9
+A: Okay. So, what's your recommendation? | Bien. Entonces, ¿cuál es tu recomendación?
+B: 11
+
+= Hablar sin que te interrumpan en una junta | 4 5 6 15 17 18 19 20 21
+@ En una junta, un compañero no te deja hablar.
+A: No, no, that's wrong, because... | No, no, eso está mal, porque...
+B: 4
+A: Okay, go ahead. | Bueno, adelante.
+B: 19
+A: (Later, the director) ...and we'll close the plant in May. | (Más tarde, el director) ...y vamos a cerrar la planta en mayo.
+B: 5
+A: We need to be more efficient. | Necesitamos ser más eficientes.
+B: 6
+
+= Responder a los argumentos de otros | 3 8 13 14 16 22 23 24 25
+@ Debates con un compañero sobre el trabajo desde casa.
+A: People who work from home are lazy. | La gente que trabaja desde casa es floja.
+B: 14
+A: Everybody knows they work less. | Todo el mundo sabe que trabajan menos.
+B: 13
+A: Well, the office helps the team talk more. | Bueno, la oficina ayuda a que el equipo platique más.
+B: 23
+A: I still think the office is better. | Yo sigo pensando que la oficina es mejor.
+B: 25
+
+# n5u13
+= Analizar datos y encontrar patrones | 1 2 3 10 20 23 24 25 26
+@ Analizas con tu jefe por qué bajaron las ventas.
+A: Our sales went down again in July. | Las ventas volvieron a bajar en julio.
+B: 1
+A: What's the reason? | ¿Cuál es la razón?
+B: 3
+A: What do we need first? | ¿Qué necesitamos primero?
+B: 23
+A: And then? | ¿Y luego?
+B: 25
+
+= Presentar un producto nuevo en una junta | 0 9 11 12 13 14 15 16 17 18
+@ En una junta de mercadotecnia hablan del producto nuevo.
+A: Is our product like the others? | ¿Nuestro producto es como los demás?
+B: 12
+A: What will we show in the ad? | ¿Qué vamos a mostrar en el anuncio?
+B: 13
+A: How did you make it so fast? | ¿Cómo lo hicieron tan rápido?
+B: 14
+A: What should we ask the candidates in the interviews? | ¿Qué les preguntamos a los candidatos en las entrevistas?
+B: 0
+
+= Hablar de ideas y valores | 4 5 6 7 8 19 21 22 27
+@ Platicas con un amigo de temas profundos.
+A: What's that white bird on the poster? | ¿Qué es ese pájaro blanco del póster?
+B: 4
+A: Why did you tell my boss about my mistake? | ¿Por qué le dijiste a mi jefe de mi error?
+B: 7
+A: Is it okay to lie to win a contract? | ¿Está bien mentir para ganar un contrato?
+B: 5
+A: What's the biggest problem in our country? | ¿Cuál es el problema más grande de nuestro país?
+B: 6
+
+# n5u5
+= Abrir una junta y presentar datos | 0 1 2 12 13 14 16 23 24
+@ Diriges la junta del lunes.
+A: Okay, everyone is here. | Bueno, ya estamos todos.
+B: 0
+A: What's the meeting about? | ¿De qué es la junta?
+B: 1
+A: Can we see the numbers? | ¿Podemos ver los números?
+B: 24
+A: Great, I can see it. | Perfecto, ya lo veo.
+B: 2
+
+= Contestar preguntas y cuidar el tiempo | 3 4 5 6 7 8 20 21 22
+@ Durante tu presentación, te hacen preguntas.
+A: Will the new machine arrive in March? | ¿La máquina nueva llega en marzo?
+B: 5
+A: So, will it? | ¿Entonces sí?
+B: 6
+A: And what about the parking lot? The cars... | ¿Y el estacionamiento? Los carros...
+B: 21
+A: I have five more questions! | ¡Tengo cinco preguntas más!
+B: 7
+
+= Cerrar una junta | 9 10 11 15 17 18 19 25 26
+@ Terminas la junta con tu equipo.
+A: I think that's everything. | Creo que es todo.
+B: 10
+A: Can you send us the presentation? | ¿Nos puedes pasar la presentación?
+B: 25
+A: Is it twelve already? | ¿Ya son las doce?
+B: 26
+A: Bye, everyone! | ¡Adiós a todos!
+B: 11
+
+# n5u6
+= Pedir un mejor precio | 0 1 2 3 9 12 14 18 19
+@ Un proveedor te presenta su precio.
+A: The price for the full order is fifty thousand dollars. | El precio del pedido completo es de cincuenta mil dólares.
+B: 1
+A: It's a very good price. | Es muy buen precio.
+B: 9
+A: Okay, we can do forty-seven thousand. | Bueno, podemos dejarlo en cuarenta y siete mil.
+B: 3
+A: Maybe forty-four, but that's very low for us. | Tal vez cuarenta y cuatro, pero es muy poco para nosotros.
+B: 2
+
+= Defender tu precio y poner condiciones | 4 5 6 10 13 15 16 17 20 22
+@ Eres el vendedor y el cliente quiere más descuento.
+A: Can you do forty thousand? | ¿Lo pueden dejar en cuarenta mil?
+B: 22
+A: We need the parts in one week. | Necesitamos las piezas en una semana.
+B: 13
+A: Is this really your final price? | ¿De verdad es su último precio?
+B: 17
+A: Okay. Can we pay in ninety days? | Bueno. ¿Podemos pagar a noventa días?
+B: 20
+
+= Cerrar un trato y firmarlo | 7 8 11 21 23 24 25 26
+@ Cierras el trato con un cliente.
+A: Okay, forty-five thousand, payment in thirty days. | Bueno, cuarenta y cinco mil, pago a treinta días.
+B: 11
+A: Great! I'll call you tomorrow to confirm. | ¡Perfecto! Le llamo mañana para confirmar.
+B: 8
+A: (Next week) Here's the contract. The price is forty-eight thousand. | (La semana siguiente) Aquí está el contrato. El precio es de cuarenta y ocho mil.
+B: 7
+A: Sorry, my mistake. It's forty-five. | Perdón, fue mi error. Son cuarenta y cinco.
+B: 25
+
+# n5u8
+= Explicar un problema en el trabajo con énfasis | 0 1 2 7 9 16 20 22 23
+@ Tu jefe te pregunta por el proyecto atrasado.
+A: Why is the project so late? | ¿Por qué el proyecto está tan atrasado?
+B: 16
+A: Okay. What do you need? | Bueno. ¿Qué necesitas?
+B: 0
+A: Why didn't you hire more people? | ¿Por qué no contrataron más gente?
+B: 7
+A: And what about the supplier problem? | ¿Y el problema del proveedor?
+B: 2
+
+= Decir quién hizo algo y cuándo | 3 4 10 11 12 14 15 24 26
+@ Platicas con una compañera de la empresa.
+A: Who found the error in the report? | ¿Quién encontró el error del reporte?
+B: 3
+A: When did the company start? | ¿Cuándo empezó la empresa?
+B: 4
+A: Do you like working here? | ¿Te gusta trabajar aquí?
+B: 11
+A: Did you know about Pedro's new job? | ¿Sabías lo del nuevo trabajo de Pedro?
+B: 15
+
+= Defenderte cuando no te creen | 5 6 8 13 17 18 19 21 25
+@ Tu amiga está molesta porque cree que no la llamaste.
+A: You didn't call me yesterday! | ¡Ayer no me llamaste!
+B: 5
+A: You never listen to my problems. | Nunca escuchas mis problemas.
+B: 6
+A: You don't care about me. | No te importo.
+B: 17
+A: So why did you call me today? | ¿Y entonces por qué me llamaste hoy?
+B: 10
+
+# n5u9
+= Dar un discurso sobre los resultados del año | 0 1 2 9 11 13 20 21 24
+@ Das un discurso en la cena anual de la empresa.
+A: How did the company do this year? | ¿Cómo le fue a la empresa este año?
+B: 1
+A: Is that unusual? | ¿Eso es poco común?
+B: 0
+A: What happened after that? | ¿Qué pasó después?
+B: 9
+A: Did you expect it? | ¿Lo esperaban?
+B: 11
+
+= Explicar reglas con lenguaje formal | 3 6 8 12 16 18 22 25 26
+@ Un cliente pregunta por las reglas de tu tienda en línea.
+A: Can I return the product after a month? | ¿Puedo devolver el producto después de un mes?
+B: 22
+A: Who can I call if there's a problem? | ¿A quién llamo si hay un problema?
+B: 6
+A: Can I give my password to my assistant? | ¿Le puedo dar mi contraseña a mi asistente?
+B: 26
+A: Why do I have to pay a fee? | ¿Por qué tengo que pagar una comisión?
+B: 25
+
+= Contar algo con estilo formal | 4 5 7 10 14 15 17 19 23
+@ En una junta, cuentas cómo resolviste un problema.
+A: When did you understand the problem? | ¿Cuándo entendiste el problema?
+B: 14
+A: When was the project approved? | ¿Cuándo se aprobó el proyecto?
+B: 10
+A: Would you do it the same way again? | ¿Lo harías igual otra vez?
+B: 7
+A: And the new software? Is it good? | ¿Y el software nuevo? ¿Es bueno?
+B: 15
+
+# n5u14
+= Contestar a un cliente con tono formal | 0 1 2 3 7 9 11 12 13
+@ Te escribes con un cliente molesto en nombre de tu empresa.
+A: Who are you? I wrote to the manager. | ¿Quién es usted? Le escribí al gerente.
+B: 2
+A: Why didn't you process my refund? | ¿Por qué no procesaron mi reembolso?
+B: 1
+A: Why not? | ¿Por qué no?
+B: 7
+A: What information? | ¿Qué información?
+B: 13
+
+= Presentar un reporte formal | 6 10 14 15 16 17 19 20 24
+@ Presentas el reporte anual a unos inversionistas.
+A: What happened this year? | ¿Qué pasó este año?
+B: 15
+A: And the impact on the community? | ¿Y el impacto en la comunidad?
+B: 20
+A: How did sales go? | ¿Cómo estuvieron las ventas?
+B: 16
+A: What's the plan now? | ¿Cuál es el plan ahora?
+B: 6
+
+= Revisar un incidente con tono formal | 4 5 8 18 21 22 23 25 26
+@ En una junta de seguridad, revisas un incidente.
+A: When was the accident? | ¿Cuándo fue el accidente?
+B: 5
+A: Who was the man on the forklift? | ¿Quién era el señor del montacargas?
+B: 18
+A: What's the risk in that area? | ¿Cuál es el riesgo en esa área?
+B: 21
+A: (The supervisor) I shouted at them, but they were wrong. | (El supervisor) Les grité, pero ellos estaban mal.
+B: 8
+
+# n5u15
+= Dar un reporte de resultados | 0 3 6 12 14 19 20 24 25 28
+@ Presentas los resultados del trimestre.
+A: How did the first quarter go? | ¿Cómo les fue en el primer trimestre?
+B: 25
+A: And sales? | ¿Y las ventas?
+B: 0
+A: Why such a good result? | ¿Por qué un resultado tan bueno?
+B: 12
+A: And the problem in the south? | ¿Y el problema en el sur?
+B: 3
+
+= Comparar opciones con tono formal | 2 5 7 8 13 15 17 18 23
+@ Comparas dos opciones con tu jefa.
+A: Is the new system hard to learn? | ¿Es difícil aprender el sistema nuevo?
+B: 2
+A: And the price compared to the old one? | ¿Y el precio comparado con el anterior?
+B: 13
+A: Is it different from the other brand? | ¿Es diferente de la otra marca?
+B: 18
+A: Do you and your assistant like the same drinks? | ¿A ti y a tu asistente les gustan las mismas bebidas?
+B: 5
+
+= Explicar causas y responsabilidades | 1 4 9 10 11 16 21 22 26 27
+@ Preparas con tu jefe un correo para el equipo.
+A: Should the team read the report? | ¿El equipo debe leer el reporte?
+B: 1
+A: Why was the game canceled? | ¿Por qué se canceló el partido?
+B: 10
+A: Who's responsible for the delay? | ¿Quién es responsable del retraso?
+B: 9
+A: Should we choose supplier A or B? | ¿Elegimos al proveedor A o al B?
+B: 4
+
+# n5u10
+= Explicar cómo hiciste un estudio | 1 3 7 12 13 14 15 16 24
+@ Presentas tu investigación a un comité.
+A: How did you do the research? | ¿Cómo hicieron la investigación?
+B: 1
+A: How did you choose the people? | ¿Cómo eligieron a las personas?
+B: 14
+A: What did you find? | ¿Qué encontraron?
+B: 7
+A: Did you study the effect on nature? | ¿Estudiaron el efecto en la naturaleza?
+B: 3
+
+= Presentar los resultados de un estudio | 0 2 4 5 6 10 17 25 26
+@ Te preguntan por los resultados del estudio.
+A: What do the results show? | ¿Qué muestran los resultados?
+B: 5
+A: Does the new training work? | ¿Funciona la nueva capacitación?
+B: 6
+A: So everyone agrees the training is useless... | Entonces todos están de acuerdo en que la capacitación no sirve...
+B: 25
+A: Is the study finished? | ¿Ya terminó el estudio?
+B: 26
+
+= Contar cómo terminó un proyecto | 8 9 11 18 19 20 21 22 23
+@ Tu jefa te pregunta cómo terminó el proyecto.
+A: How did the project end? | ¿Cómo terminó el proyecto?
+B: 8
+A: Was it cheap? | ¿Salió barato?
+B: 9
+A: What did you do after the tests? | ¿Qué hicieron después de las pruebas?
+B: 11
+A: Do you think changing the design was right? | ¿Crees que cambiar el diseño fue lo correcto?
+B: 10
+
+# n5u16
+= Recomendar a una persona con precisión | 7 10 13 18 21 24 25 27 28
+@ Recomiendas a una candidata para un puesto.
+A: Tell me about Laura. | Cuénteme de Laura.
+B: 7
+A: Does she know the industry? | ¿Conoce la industria?
+B: 13
+A: Does she have her own company? | ¿Tiene su propia empresa?
+B: 10
+A: Can she work in the United States? | ¿Puede trabajar en Estados Unidos?
+B: 25
+
+= Opinar de un proyecto con palabras formales | 0 3 4 9 11 17 19 20 23 29
+@ El comité te pregunta por el proyecto nuevo.
+A: Can we decide today? | ¿Podemos decidir hoy?
+B: 0
+A: Is it a big change for the company? | ¿Es un gran cambio para la empresa?
+B: 3
+A: Did you read the consultants' report? | ¿Leyó el reporte de los consultores?
+B: 17
+A: So, should we consider it? | Entonces, ¿lo consideramos?
+B: 23
+
+= Atender a un turista con palabras precisas | 1 2 5 6 8 12 14 15 16 22 26
+@ Atiendes a un turista en la tienda de un hotel.
+A: Is this diamond real? | ¿Este diamante es real?
+B: 2
+A: Is the hotel good for my kids? | ¿El hotel es bueno para mis hijos?
+B: 6
+A: I'm a hotel guest. Is there a discount? | Soy huésped del hotel. ¿Hay descuento?
+B: 5
+A: Can I see the lighthouse from my room? | ¿Puedo ver el faro desde mi cuarto?
+B: 16
+
+# n5u17
+= Presentar un estudio en un congreso | 0 7 18 19 20 21 22 23
+@ Presentas un estudio en un congreso.
+A: How did you collect the data? | ¿Cómo recolectaron los datos?
+B: 7
+A: How many men and women? | ¿Cuántos hombres y mujeres?
+B: 0
+A: What did you start with? | ¿Con qué empezaron?
+B: 21
+A: And at the end? | ¿Y al final?
+B: 20
+
+= Explicar cambios a tu equipo | 1 3 4 5 9 11 15 17
+@ Explicas los cambios de la empresa a tu equipo.
+A: Is the store open on Mondays now? | ¿La tienda abre los lunes ahora?
+B: 1
+A: How did the year go? | ¿Cómo nos fue en el año?
+B: 4
+A: Will the new system start tomorrow? | ¿El sistema nuevo empieza mañana?
+B: 5
+A: Can I install the machine in any order? | ¿Puedo instalar la máquina en cualquier orden?
+B: 3
+
+= Hablar de los logros de tu hija | 2 6 8 10 12 13 14 16
+@ Una amiga te pregunta por tu hija, que estudia en la universidad.
+A: I heard your daughter won the math contest! | ¡Supe que tu hija ganó el concurso de matemáticas!
+B: 2
+A: Did she study alone? | ¿Estudió sola?
+B: 6
+A: What is she studying now? | ¿Qué está estudiando ahora?
+B: 12
+A: And what's her project about? | ¿Y de qué es su proyecto?
+B: 14
+
+# n5u11
+= Empezar un ensayo y presentar el tema | 0 1 7 12 13 14 15 16 21
+@ Tu amigo te pide ayuda para empezar su ensayo.
+A: How do I start my essay about pollution? | ¿Cómo empiezo mi ensayo sobre la contaminación?
+B: 0
+A: And how do I talk about the world today? | ¿Y cómo hablo del mundo de hoy?
+B: 12
+A: What's the first point? | ¿Cuál es el primer punto?
+B: 1
+A: How do I add another topic? | ¿Cómo agrego otro tema?
+B: 16
+
+= Dar argumentos y ejemplos en un reporte | 2 3 4 5 6 17 18 19 20
+@ Revisas con una compañera su reporte sobre paneles solares.
+A: What's another advantage of solar panels? | ¿Cuál es otra ventaja de los paneles solares?
+B: 2
+A: Are there any problems? | ¿Hay algún problema?
+B: 3
+A: How do I show a real case? | ¿Cómo muestro un caso real?
+B: 19
+A: Do all experts agree? | ¿Todos los expertos están de acuerdo?
+B: 4
+
+= Terminar un ensayo con una conclusión | 8 9 10 11 22 23 24 25 26
+@ Tu maestro te pregunta cómo vas a terminar tu ensayo.
+A: How do you start your conclusion? | ¿Cómo empiezas tu conclusión?
+B: 23
+A: What's your opinion? | ¿Cuál es tu opinión?
+B: 8
+A: Is the proposal possible? | ¿La propuesta es posible?
+B: 9
+A: Which option do you recommend? | ¿Qué opción recomiendas?
+B: 11
+
+# n5u12
+= Hacer planes con amigos como nativo | 0 1 2 3 9 12 14 19 22
+@ Tu amigo te escribe un viernes en la tarde.
+A: Hey! | ¡Hola!
+B: 12
+A: Wanna go to a karaoke party tonight? | ¿Quieres ir a una fiesta de karaoke hoy en la noche?
+B: 14
+A: Okay. Wanna grab some tacos instead? | Bueno. ¿Mejor vamos por unos tacos?
+B: 3
+A: Cool! Are you coming now? | ¡Va! ¿Ya vienes?
+B: 22
+
+= Reaccionar con humor en el trabajo | 4 5 6 7 8 10 13 17 20
+@ Platicas con un compañero de trabajo.
+A: I'm getting married! | ¡Me voy a casar!
+B: 8
+A: Oops, I spilled coffee on your desk. | Uy, tiré café en tu escritorio.
+B: 7
+A: The boss says we have a meeting at six. | El jefe dice que tenemos junta a las seis.
+B: 10
+A: How was my presentation? | ¿Qué tal mi presentación?
+B: 17
+
+= Desahogarte con un amigo | 11 15 16 18 21 23 24 25 26
+@ Tu amigo te pregunta cómo estás.
+A: Hey, what's going on? You look terrible. | Oye, ¿qué pasa? Te ves fatal.
+B: 11
+A: Work again? | ¿Otra vez el trabajo?
+B: 15
+A: Why is the boss so angry? | ¿Por qué está tan enojado el jefe?
+B: 16
+A: I lost the client's files. | Perdí los archivos del cliente.
+B: 24

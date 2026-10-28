@@ -1,0 +1,351 @@
+// Primaria 1: las clases de cada tema, con su meta y su misión
+
+# n0u1
+= Saludar y decir cómo estás | 0-4 12-16
+@ Llegas a la oficina en la mañana y luego a una fiesta en la noche.
+A: Good morning! How are you? | ¡Buenos días! ¿Cómo estás?
+B: 1
+A: Very well, thanks. | Muy bien, gracias.
+A: Hey! What's up? | ¡Oye! ¿Qué onda?
+B: 12
+A: Good! And you? You look tired. | ¡Bien! ¿Y tú? Te ves cansado.
+B: 15
+A: Good evening! Welcome to the party. | ¡Buenas noches! Bienvenido a la fiesta.
+B: 4
+
+= Presentarte y decir de dónde eres | 5-9 17 26
+@ Conoces a alguien en tu primer día de un curso.
+A: Hi! I'm Carlos. What's your name? | ¡Hola! Soy Carlos. ¿Cómo te llamas?
+B: 5
+A: Nice to meet you. | Mucho gusto.
+B: 17
+A: Where are you from? | ¿De dónde eres?
+B: 6
+A: Cool! Where do you live? | ¡Qué padre! ¿Dónde vives?
+B: 26
+
+= Presentar a otra persona y despedirte | 10 11 18-25
+@ Vas con tu amigo Luis y se encuentran a una compañera.
+A: Hi! Who's he? | ¡Hola! ¿Quién es él?
+B: 19
+A: Nice to meet you, Luis. Well, I have to go. | Mucho gusto, Luis. Bueno, me tengo que ir.
+B: 11
+A: See you! Have a nice day. | ¡Nos vemos! Que tengas buen día.
+B: 25
+A: Thanks! Good night! | ¡Gracias! ¡Buenas noches!
+B: 24
+
+# n0u2
+= Contar hasta 20 y decir tu edad | 0-9 30-32
+@ Juegas a las escondidas con un niño en el parque.
+A: Let's count together: one, two, three... | Contemos juntos: uno, dos, tres...
+B: 1
+A: Great! And then? | ¡Muy bien! ¿Y luego?
+B: 2
+A: How much is ten plus ten? | ¿Cuánto es diez más diez?
+B: 7
+A: I'm nine years old. And you? | Yo tengo nueve años. ¿Y tú?
+B: 32
+A: Cool! Now count to twenty and find me! | ¡Qué padre! ¡Ahora cuenta hasta veinte y búscame!
+
+= Contar hasta 100 | 10-20 33
+@ Juegas a hacer cuentas con un amigo.
+A: Ten plus twenty? | ¿Diez más veinte?
+B: 10
+A: Forty plus eight? | ¿Cuarenta más ocho?
+B: 13
+A: Fifty plus fifty? | ¿Cincuenta más cincuenta?
+B: 20
+A: You're fast! How old are you, really? | ¡Eres rápido! ¿Cuántos años tienes, de verdad?
+B: 33
+
+= Dar tu teléfono, tu dirección y deletrear | 27-29 34 35 39-41
+@ Te inscribes en un gimnasio.
+A: What's your phone number? | ¿Cuál es tu número de teléfono?
+B: 35
+A: And your address? | ¿Y tu dirección?
+B: 39
+A: Can you spell your name? | ¿Puedes deletrear tu nombre?
+B: 41
+A: Thank you. My name is Ross. I'm your trainer. | Gracias. Me llamo Ross. Soy tu entrenador.
+B: 40
+A: R-O-S-S. You're the third person today! | R-O-S-S. ¡Eres la tercera persona de hoy!
+
+= Decir precios y años | 21-26 36-38
+@ Vendes cosas en un mercado de pulgas.
+A: How much is this cap? | ¿Cuánto cuesta esta gorra?
+B: 36
+A: And the jacket? | ¿Y la chamarra?
+B: 37
+A: It's very old! What year is it from? | ¡Está muy vieja! ¿De qué año es?
+B: 38
+A: And how much is the old car over there? In pesos. | ¿Y cuánto cuesta el carro viejo de allá? En pesos.
+B: 25
+
+# n0u3
+= Decir quién eres y quiénes son los demás | 0 2 4 5 15-17 22 23
+@ Le presentas tu equipo de trabajo a un cliente nuevo.
+A: Hello! What do you do? | ¡Hola! ¿A qué te dedicas?
+B: 0
+A: And who is the woman in the blue suit? | ¿Y quién es la señora del traje azul?
+B: 2
+A: Where are your coworkers from? | ¿De dónde son tus compañeros?
+B: 5
+A: You work very well together. | Trabajan muy bien juntos.
+B: 4
+
+= Decir cómo estás y dónde estás | 1 3 6 12-14 18 19 24
+@ Un amigo te llama por teléfono un viernes.
+A: Hi! Where are you? | ¡Hola! ¿Dónde estás?
+B: 19
+A: Are you okay? You sound strange. | ¿Estás bien? Te oyes raro.
+B: 1
+A: Is your boss there? | ¿Tu jefe está ahí?
+B: 3
+A: Let's go to the movies! Are you ready? | ¡Vamos al cine! ¿Estás listo?
+B: 6
+
+= Preguntar y contestar con sí o no | 7-11 20 21 25 26
+@ Vas de compras con una amiga en la noche.
+A: I want to go to the pharmacy. | Quiero ir a la farmacia.
+B: 9
+A: Yes, it is. Look at this bag! | Sí, sí está. ¡Mira esta bolsa!
+B: 7
+A: Great! Hmm, it's ten p.m. | ¡Qué bien! Mmm, son las diez de la noche.
+B: 20
+A: Let's go home, then. | Entonces vámonos a casa.
+B: 11
+
+# n0u6
+= Hablar de la gente que conoces | 2 3 5 7-9 20 21 25
+@ Una amiga te pregunta por tus vecinos.
+A: Do you know the man in the blue house? | ¿Conoces al señor de la casa azul?
+B: 2
+A: Who are the people next door? | ¿Quiénes son los de al lado?
+B: 8
+A: And the woman with the dog? | ¿Y la señora del perro?
+B: 7
+A: Do you see her a lot? | ¿La ves seguido?
+B: 3
+
+= Pedir cosas e invitar a otros | 1 4 11-17
+@ Organizas una salida al cine con tus amigos.
+A: Hi! Do you have plans tonight? | ¡Hola! ¿Tienes planes hoy en la noche?
+B: 14
+A: Okay! What about Pedro? | ¡Va! ¿Y Pedro?
+B: 15
+A: And Ana? Does she want to come? | ¿Y Ana? ¿Quiere venir?
+B: 16
+A: Okay. Talk to you later! | Bueno. ¡Hablamos luego!
+B: 1
+
+= Hablar de cosas: me gusta, lo necesito, es para ti | 0 6 10 18 19 22-24 26
+@ Le das un regalo a tu mamá.
+A: What's this? | ¿Qué es esto?
+B: 18
+A: Oh, a new phone! Do you like it too? | ¡Ay, un teléfono nuevo! ¿A ti también te gusta?
+B: 6
+A: Thank you, my love! | ¡Gracias, mi amor!
+B: 0
+A: Do you have the charger? | ¿Tienes el cargador?
+B: 24
+
+# n0u4
+= Nombrar objetos con a y an | 0-3 10-15
+@ Le enseñas tu escritorio a un amigo.
+A: What's this, on your desk? | ¿Qué es esto, en tu escritorio?
+B: 11
+A: And what's in your lunch box? | ¿Y qué hay en tu lonchera?
+B: 1
+A: What do you work with? | ¿Con qué trabajas?
+B: 0
+A: It's raining! What do you need? | ¡Está lloviendo! ¿Qué necesitas?
+B: 12
+
+= Señalar cosas: this, that, these, those | 4-7 16-19 26
+@ Ordenas las cosas de tu familia en la sala.
+A: Whose phone is this? | ¿De quién es este teléfono?
+B: 4
+A: And the books on the table? | ¿Y los libros de la mesa?
+B: 6
+A: What are those, over there? | ¿Qué son esas de allá?
+B: 7
+A: And that bag, by the door? | ¿Y esa bolsa, junto a la puerta?
+B: 5
+
+= Decir de quién es algo y usar plurales | 8 9 20-25
+@ Encuentras cosas olvidadas en la oficina.
+A: Look at this phone on the table. | Mira este teléfono en la mesa.
+B: 23
+A: It's not mine. Is it yours? | No es mío. ¿Es tuyo?
+B: 24
+A: Here you go. How many people are coming to the meeting? | Aquí tienes. ¿Cuántas personas vienen a la junta?
+B: 8
+A: Is this umbrella mine? | ¿Este paraguas es mío?
+B: 25
+
+# n0u7
+= Decir cómo es algo: precio y tamaño | 1-3 8 11 15-17 23
+@ Vas a comprar un sillón a una mueblería.
+A: Do you like this couch? | ¿Te gusta este sillón?
+B: 3
+A: And this one? | ¿Y este?
+B: 2
+A: This small one is only five hundred pesos. | Este chiquito cuesta solo quinientos pesos.
+B: 1
+A: And it's new and very comfortable. | Y es nuevo y muy cómodo.
+B: 11
+
+= Opinar sobre lugares | 0 9 10 18-20 22 25
+@ Paseas por el centro de la ciudad con un amigo.
+A: What do you think of the city? | ¿Qué te parece la ciudad?
+B: 0
+A: Is it quiet? | ¿Es tranquila?
+B: 25
+A: Let's eat at that restaurant! | ¡Comamos en ese restaurante!
+B: 10
+A: Oh no. And the tacos here? | Ay, no. ¿Y los tacos de aquí?
+B: 20
+
+= Opinar sobre tu trabajo y tus ideas | 4-7 12-14 21 24 26
+@ Platicas con un compañero en el trabajo.
+A: Do you like your job? | ¿Te gusta tu trabajo?
+B: 4
+A: Why do you study English? | ¿Por qué estudias inglés?
+B: 24
+A: Let's go to the movies tonight! | ¡Vamos al cine en la noche!
+B: 6
+A: Guess what? I have a new job in New York! | ¿Sabes qué? ¡Tengo un trabajo nuevo en Nueva York!
+B: 26
+
+# n0u5
+= Decir que no entiendes y pedir que te repitan | 0-4 18 19 26
+@ Un turista te habla en inglés muy rápido.
+A: Hi! Excuse me, where's the nearest subway station from here? | ¡Hola! Disculpa, ¿dónde está la estación de metro más cercana?
+B: 0
+A: Sorry! Where is the subway station? | ¡Perdón! ¿Dónde está la estación del metro?
+B: 4
+A: Do you speak English? | ¿Hablas inglés?
+B: 3
+A: I need this address: Reforma two two two. | Necesito esta dirección: Reforma dos dos dos.
+B: 19
+
+= Pedir ayuda en la calle | 5 9 12 13 17 20-24
+@ Estás perdido en una ciudad que no conoces.
+B: 9
+A: Yes? Are you okay? | ¿Sí? ¿Estás bien?
+B: 20
+A: Oh no! Where do you want to go? | ¡Ay, no! ¿A dónde quieres ir?
+B: 13
+A: It's two blocks from here, on the left. | Está a dos cuadras de aquí, a la izquierda.
+B: 24
+
+= Hacer preguntas básicas | 6-8 10 11 14-16 25
+@ Es tu primer día en un trabajo nuevo.
+A: Welcome! The meeting is today. | ¡Bienvenido! Hoy es la junta.
+B: 8
+A: At ten o'clock. | A las diez.
+B: 14
+A: It's nine thirty. Look, that's Mr. Lee. | Son las nueve y media. Mira, él es el señor Lee.
+B: 7
+A: He's the boss. Sorry, I have to go now. | Es el jefe. Perdón, ya me tengo que ir.
+B: 25
+
+# n0u11
+= Reaccionar a buenas noticias | 1 4-6 9 12-14 19 26
+@ Tu amigo te cuenta noticias.
+A: I have a new job! | ¡Tengo trabajo nuevo!
+B: 1
+A: And I start on Monday. | Y empiezo el lunes.
+B: 5
+A: And I won a trip to Cancún! | ¡Y me gané un viaje a Cancún!
+B: 26
+A: Yes! Do you want to come with me? | ¡Sí! ¿Quieres venir conmigo?
+B: 13
+
+= Reaccionar a malas noticias y cosas raras | 7 8 10 17 18 20-22 25
+@ Platicas con tu hermana en la casa.
+A: Achoo! | ¡Achú!
+B: 20
+A: Thanks. My phone is broken. | Gracias. Se me rompió el teléfono.
+B: 21
+A: And the TV turns on alone at night. | Y la tele se prende sola en la noche.
+B: 25
+A: Let's order pizza or tacos? | ¿Pedimos pizza o tacos?
+B: 18
+
+= Saludar y despedirte de tus amigos | 0 2 3 11 15 16 23 24
+@ Llegas a la cancha donde tus amigos juegan futbol.
+A: Hey, look who's here! | ¡Miren quién llegó!
+B: 3
+A: Do you want to play with us? | ¿Quieres jugar con nosotros?
+B: 0
+A: Do you like soccer? | ¿Te gusta el futbol?
+B: 24
+A: Okay, guys, time to go home! | ¡Bueno, chicos, hora de irse a casa!
+B: 11
+
+# n0u9
+= Decir cómo está el clima hoy | 0-7 11 13 24 26
+@ Tu hijo va a salir y te pregunta por el clima.
+A: Mom, what's the weather like? | Mamá, ¿cómo está el clima?
+B: 4
+A: Is it cold? | ¿Hace frío?
+B: 13
+A: Is it going to rain? | ¿Va a llover?
+B: 11
+A: Okay! Bye, Mom. | ¡Bueno! Adiós, mamá.
+
+= Hablar de la temperatura y de las tormentas | 12 14-19 29-33
+@ Vives en Canadá y tu mamá te llama desde México.
+A: Hi! How's the weather in Canada? | ¡Hola! ¿Cómo está el clima en Canadá?
+B: 14
+A: Really? What's the temperature? | ¿En serio? ¿Qué temperatura hace?
+B: 32
+A: Is it dangerous to drive? | ¿Es peligroso manejar?
+B: 33
+A: Here it's thirty degrees! Be careful. | ¡Aquí estamos a treinta grados! Ten cuidado.
+
+= Hablar de las estaciones del año | 8-10 20-23 25 27 28 34
+@ Platicas con una amiga sobre las estaciones del año.
+B: 28
+A: Winter. I love the snow. And you? | El invierno. Me encanta la nieve. ¿Y tú?
+B: 8
+A: Why? | ¿Por qué?
+B: 25
+A: And what do you like at night, in summer? | ¿Y qué te gusta de las noches de verano?
+B: 34
+
+# n0u10
+= Recibir visitas en tu casa | 2 3 7 11 14-16 19 20 25
+@ Llega una visita a tu casa.
+A: Knock, knock! Hello! | ¡Toc, toc! ¡Hola!
+B: 2
+A: Thank you. Your house is very nice. | Gracias. Tu casa está muy bonita.
+B: 3
+A: Mmm, the food smells great! | ¡Mmm, la comida huele muy rico!
+B: 7
+A: Thank you! It looks delicious. | ¡Gracias! Se ve deliciosa.
+B: 25
+
+= Dar instrucciones y avisos | 0 4 8 9 12 13 17 18 21 26
+@ Cuidas a tu sobrino en la calle.
+A: Look! A big dog! | ¡Mira! ¡Un perro grande!
+B: 4
+A: Can I run to the park? | ¿Puedo correr al parque?
+B: 17
+A: Where's the park? | ¿Dónde está el parque?
+B: 21
+A: There are a lot of cars here! | ¡Aquí hay muchos carros!
+B: 8
+
+= Proponer planes y calmar a alguien | 1 5 6 10 22-24
+@ Tu amigo está nervioso antes de un examen.
+A: I'm so nervous! | ¡Estoy muy nervioso!
+B: 24
+A: But the test is very difficult! | ¡Pero el examen está muy difícil!
+B: 5
+A: Can we study together now? | ¿Podemos estudiar juntos ahorita?
+B: 23
+A: Okay, I'm ready. What do we study first? | Bueno, ya estoy listo. ¿Qué estudiamos primero?
+B: 22

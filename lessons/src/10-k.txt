@@ -1,0 +1,456 @@
+// Kínder: las clases de cada tema, con su meta y su misión
+
+# k1
+= Decir el alfabeto en inglés | 0-8 13 14
+@ Tu maestra te pide que digas el alfabeto en inglés.
+A: Let's say the alphabet. I start: A, B, C. | Vamos a decir el alfabeto. Yo empiezo: A, B, C.
+B: 1
+A: Very good! What comes after L? | ¡Muy bien! ¿Qué sigue después de la L?
+B: 4
+A: And the last three letters? | ¿Y las últimas tres letras?
+B: 8
+A: Look at my name: big letters. What are they? | Mira mi nombre: letras grandes. ¿Qué son?
+B: 13
+
+= Deletrear tu nombre | 9 10 12 19 20 23-26
+@ Estás en la recepción de un hotel y te piden tu nombre.
+A: Good evening! Spell your name, please. | ¡Buenas noches! Deletrea tu nombre, por favor.
+B: 10
+A: Thank you. I'm the manager. My name is Brenda. | Gracias. Soy la gerente. Me llamo Brenda.
+B: 12
+A: B-R-E-N-D-A. | B-R-E-N-D-A.
+B: 25
+A: Sure. B-R-E-N-D-A. | Claro. B-R-E-N-D-A.
+B: 20
+A: With a B. B as in boy. | Con B. B de «boy».
+
+= Dictar tu correo electrónico | 11 15-18 21 22
+@ Un compañero de trabajo anota tu correo y te pregunta por los signos.
+A: How do you say the email sign, before gmail? | ¿Cómo se dice el signo de los correos, antes de gmail?
+B: 11
+A: And the little point between gmail and com? | ¿Y el puntito entre gmail y com?
+B: 15
+A: And the line at the bottom, between two words? | ¿Y la rayita de abajo, entre dos palabras?
+B: 16
+A: And the short line in the middle? | ¿Y la rayita corta en medio?
+B: 17
+A: Is "Lluvia" with one L or with a double L? | ¿«Lluvia» va con una L o con doble L?
+B: 18
+
+# k2
+= Pronunciar la TH: three, thank you | 0-3 12-15
+@ Juegas a adivinar con tu maestra. Pon la lengua entre los dientes para la TH.
+A: Say the number after two. | Di el número que va después del dos.
+B: 1
+A: What day comes after Wednesday? | ¿Qué día va después del miércoles?
+B: 14
+A: Here's a present for you! | ¡Aquí tienes un regalo!
+B: 0
+A: What's the name of this finger, the short one? | ¿Cómo se llama este dedo, el gordito?
+B: 15
+
+= Distinguir SH y CH: ship, chair | 4 5 8 9 16-19
+@ Estás en una tienda de juguetes con tu sobrino.
+A: Where do you buy toys? | ¿Dónde compras juguetes?
+B: 16
+A: This animal gives us wool. What is it? | Este animal nos da lana. ¿Qué es?
+B: 9
+A: And this one is a big boat. | Y este es un barco grande.
+B: 8
+A: Where do you sit at the table? | ¿En qué te sientas en la mesa?
+B: 18
+
+= Pronunciar la V, la H y las vocales cortas | 6 7 10 11 20-26
+@ Platicas con un amigo y él te hace preguntas fáciles.
+A: How many fingers do you have on one hand? | ¿Cuántos dedos tienes en una mano?
+B: 7
+A: What do you sleep in? | ¿En qué duermes?
+B: 24
+A: The pizza is cold and old. Is it good? | La pizza está fría y vieja. ¿Está buena?
+B: 25
+A: What do you wear on your head in the sun? | ¿Qué te pones en la cabeza cuando hay sol?
+B: 10
+A: What months are in the summer? | ¿Qué meses son de verano?
+B: 26
+
+# k3
+= Nombrar los colores | 0-11
+@ Están pintando un dibujo con tu hija.
+A: Look at the apple. What color is it? | Mira la manzana. ¿De qué color es?
+B: 0
+A: And the sun? | ¿Y el sol?
+B: 2
+A: And the grass? | ¿Y el pasto?
+B: 3
+A: Daddy, I have a new pencil! | ¡Papá, tengo un lápiz nuevo!
+B: 11
+A: It's purple! | ¡Es morado!
+
+= Decir de qué color son las cosas | 12 13 19-23 26
+@ Juegas a «veo, veo» con un amigo en el parque.
+A: What color is the sky today? | ¿De qué color está el cielo hoy?
+B: 19
+A: And the grass in the park? | ¿Y el pasto del parque?
+B: 20
+A: What do you want for your birthday? | ¿Qué quieres para tu cumpleaños?
+B: 22
+A: Look at that soccer ball! | ¡Mira ese balón!
+B: 26
+
+= Hablar de tu color favorito | 14-18 24 25
+@ Una amiga nueva te pregunta qué colores te gustan.
+A: What's your favorite color? | ¿Cuál es tu color favorito?
+B: 24
+A: My sister loves pink. | A mi hermana le encanta el rosa.
+B: 25
+A: Yes, I do! Look at my ring. What color is it? | ¡Sí! Mira mi anillo. ¿De qué color es?
+B: 15
+A: And my watch? | ¿Y mi reloj?
+B: 16
+
+# k4
+= Contar del 0 al 10 | 0-11 22
+@ Juegas a contar con un niño en la cocina.
+A: Let's count: one, two... | Vamos a contar: uno, dos...
+B: 2
+A: What comes after nine? | ¿Qué sigue después del nueve?
+B: 9
+A: Look at the apples on the table. | Mira las manzanas en la mesa.
+B: 11
+A: Two apples! How many fingers on one hand? | ¡Dos manzanas! ¿Cuántos dedos hay en una mano?
+B: 4
+
+= Contar hasta 20 y decir cuántas cosas hay | 12-21 23-26
+@ Llega un niño nuevo a tu clase y juegan con números.
+A: Hi! I'm Tom. I'm new here. | ¡Hola! Soy Tom. Soy nuevo.
+B: 26
+A: I'm twelve. Let's play a number game! What comes after ten? | Tengo doce. ¡Juguemos con números! ¿Qué sigue después del diez?
+B: 12
+A: How many days are there in two weeks? | ¿Cuántos días hay en dos semanas?
+B: 15
+A: How much is ten plus ten? | ¿Cuánto es diez más diez?
+B: 21
+A: Do you have brothers? | ¿Tienes hermanos?
+B: 24
+
+# k5
+= Hablar de las mascotas | 0-3 8 11 12 20 25 26 31 35
+@ Tu amiga te enseña a su mascota.
+A: Look! This is my pet. What is it? | ¡Mira! Esta es mi mascota. ¿Qué es?
+B: 11
+A: Yes! Is he big or small? | ¡Sí! ¿Es grande o chiquito?
+B: 26
+A: And look at his tail! | ¡Y mira su cola!
+B: 35
+A: Do you have a pet? | ¿Tú tienes mascota?
+B: 1
+
+= Nombrar animales de la granja y del jardín | 4-7 13-15 21-23 29 33
+@ Visitas una granja con tu familia.
+A: This animal gives us milk. | Este animal nos da leche.
+B: 5
+A: And this one gives us eggs. | Y este nos da huevos.
+B: 7
+A: This one says "oink". | Este hace «oink».
+B: 6
+A: And this little one makes honey. | Y este chiquito hace miel.
+B: 22
+
+= Nombrar animales salvajes | 9 10 16-19 24 27 28 30 32 34
+@ Vas al zoológico con tus hijos.
+A: This animal is very big and gray. | Este animal es muy grande y gris.
+B: 9
+A: He's the king of the animals. | Es el rey de los animales.
+B: 10
+A: This one has a very long neck. | Este tiene el cuello muy largo.
+B: 24
+A: Do you like the zoo? | ¿Te gusta el zoológico?
+B: 32
+
+# k6
+= Nombrar las partes de la cara | 0-5 12 13 21 22 26
+@ Juegas a «¿con qué…?» con un niño.
+A: What do you see with? | ¿Con qué ves?
+B: 1
+A: What do you hear with? | ¿Con qué oyes?
+B: 2
+A: What do you smell with? | ¿Con qué hueles?
+B: 3
+A: What color are your eyes? | ¿De qué color son tus ojos?
+B: 26
+
+= Nombrar las partes del cuerpo | 6-9 14-18 23 25 27
+@ Ayudas a tu hijo antes de comer.
+A: You write with your... | Escribes con tu...
+B: 6
+A: You walk with your two... | Caminas con tus dos...
+B: 9
+A: You wear a ring on your... | Usas un anillo en tu...
+B: 17
+A: Mom, I want to eat now! | ¡Mamá, ya quiero comer!
+B: 25
+
+= Decir qué te duele | 10 11 19 20 24 28-34
+@ Estás en el consultorio del doctor.
+A: Hello! Why are you here today? | ¡Hola! ¿Por qué viniste hoy?
+B: 11
+A: I see. Does your back hurt too? | Ya veo. ¿También te duele la espalda?
+B: 24
+A: Anything else? | ¿Algo más?
+B: 33
+A: Do you have a fever? | ¿Tienes fiebre?
+B: 34
+A: Okay. Let me check your heart. | Bien. Déjame revisarte el corazón.
+
+# k7
+= Presentar a tu familia | 0-7 11 23 25-27
+@ Le enseñas a una amiga una foto de tu familia.
+A: Who is she? | ¿Quién es ella?
+B: 11
+A: And who's the old man? | ¿Y quién es el señor mayor?
+B: 6
+A: Is your family big? | ¿Tu familia es grande?
+B: 25
+A: How nice! | ¡Qué bonito!
+B: 26
+
+= Nombrar a tus parientes | 8-10 16-19 22 29
+@ Le cuentas a un amigo quién fue a la fiesta.
+A: Who's the man with your aunt? | ¿Quién es el señor que está con tu tía?
+B: 8
+A: And the little girl? She's your sister's daughter, right? | ¿Y la niña? Es hija de tu hermana, ¿verdad?
+B: 17
+A: What does your dad do? | ¿A qué se dedica tu papá?
+B: 29
+A: And who's the young man with you? | ¿Y quién es el muchacho que está contigo?
+B: 22
+
+= Hablar de tu pareja y tus hijos | 12-15 20 21 24 28 30
+@ Conoces a alguien en una fiesta infantil.
+A: Who's that little boy? | ¿Quién es ese niño?
+B: 24
+A: Do you have more kids? | ¿Tienes más hijos?
+B: 30
+A: And the woman with them? | ¿Y la señora que está con ellos?
+B: 15
+
+# k8
+= Nombrar las frutas | 0-2 10 12-16 32 33
+@ Vas al mercado con tu mamá.
+A: What fruit do you want? | ¿Qué fruta quieres?
+B: 10
+A: This one is big and green, and red inside. | Esta es grande y verde, y roja por dentro.
+B: 14
+A: And this yellow one? Monkeys love it. | ¿Y esta amarilla? A los monos les encanta.
+B: 1
+A: Do you like fruit? | ¿Te gusta la fruta?
+B: 33
+
+= Decir qué quieres comer | 3-5 8 9 11 17-20
+@ Llegas a tu casa a la hora de la comida.
+A: Hi! How are you? | ¡Hola! ¿Cómo estás?
+B: 11
+A: Do you want rice or bread? | ¿Quieres arroz o pan?
+B: 8
+A: With chicken or with meat? | ¿Con pollo o con carne?
+B: 9
+A: And for breakfast tomorrow? | ¿Y para desayunar mañana?
+B: 4
+
+= Pedir algo de tomar y un postre | 6 7 21-31 34
+@ Estás en una cafetería con un amigo.
+A: Are you okay? | ¿Estás bien?
+B: 25
+A: Do you want water or juice? | ¿Quieres agua o jugo?
+B: 22
+A: And for dessert? | ¿Y de postre?
+B: 31
+A: How is it? | ¿Qué tal está?
+B: 26
+
+# k9
+= Decir qué ropa traes puesta | 0-7 11 27 30
+@ Le describes tu ropa a una amiga por teléfono.
+A: What are you wearing today? | ¿Qué traes puesto hoy?
+B: 11
+A: And on your feet? | ¿Y en los pies?
+B: 5
+A: Are your clothes clean? | ¿Tu ropa está limpia?
+B: 30
+A: Great! Let's go to the party. | ¡Muy bien! Vámonos a la fiesta.
+
+= Vestirte para el frío y para el trabajo | 8 9 12-15 18-20 28 29
+@ Hace mucho frío y vas a salir. Tu hijo te ayuda.
+A: What do you wear on your hands? | ¿Qué te pones en las manos?
+B: 20
+A: And on your neck? | ¿Y en el cuello?
+B: 19
+A: And on your feet, for the snow? | ¿Y en los pies, para la nieve?
+B: 18
+A: What does Dad wear to the office? | ¿Qué se pone papá para ir a la oficina?
+B: 13
+
+= Ponerte y quitarte la ropa | 10 16 17 21-26 31
+@ Ayudas a tu hijo a vestirse para salir.
+A: Mom, it's cold outside. | Mamá, hace frío afuera.
+B: 26
+A: Okay. Brr, it's very, very cold! | Bueno. ¡Brr, hace muchísimo frío!
+B: 31
+A: I can't see well. | No veo bien.
+B: 10
+A: Tomorrow we go to the beach! | ¡Mañana vamos a la playa!
+B: 17
+
+# k10
+= Nombrar los cuartos de tu casa | 0-4 10 11 19-21 26
+@ Una amiga te llama por teléfono.
+A: Hi! Where are you? | ¡Hola! ¿Dónde estás?
+B: 11
+A: In what room? | ¿En qué cuarto?
+B: 10
+A: Is your house big? | ¿Tu casa es grande?
+B: 26
+A: And where's your car? | ¿Y dónde está tu carro?
+B: 21
+
+= Nombrar los muebles y las cosas de la casa | 5-9 12-18 31
+@ Le enseñas tu casa a un amigo que te visita.
+A: Where do you sleep? | ¿Dónde duermes?
+B: 9
+A: Where's the milk? | ¿Dónde está la leche?
+B: 13
+A: Where do you watch TV? | ¿Dónde ves la tele?
+B: 12
+A: And where do you cook? | ¿Y dónde cocinas?
+B: 14
+
+= Decir dónde están las cosas | 22-25 27-30 32-35
+@ Buscas cosas en la casa con tu hijo.
+A: Where's the cat? | ¿Dónde está el gato?
+B: 25
+A: Where are your toys? | ¿Dónde están tus juguetes?
+B: 35
+A: What time is it? Where's the clock? | ¿Qué hora es? ¿Dónde está el reloj?
+B: 33
+A: And what's in the yard? | ¿Y qué hay en el jardín?
+B: 34
+
+# k11
+= Decir lo que haces todos los días | 0-9 15
+@ Juegas a adivinar acciones con mímica.
+A: What do you do with a book? | ¿Qué haces con un libro?
+B: 5
+A: What do you do with a pen? | ¿Qué haces con una pluma?
+B: 6
+A: What do you do at night, in bed? | ¿Qué haces en la noche, en la cama?
+B: 2
+A: What do you do with music? | ¿Qué haces con la música?
+B: 8
+
+= Pedir lo que quieres y lo que necesitas | 12 13 17-26
+@ Estás en la calle y te sientes mal. Una señora se acerca.
+A: Are you okay? | ¿Estás bien?
+B: 25
+A: Sure. What do you need? | Claro. ¿Qué necesitas?
+B: 26
+A: There's a store over there. What do you do at the store? | Ahí hay una tienda. ¿Qué haces en la tienda?
+B: 17
+A: And at the cash register? | ¿Y en la caja?
+B: 18
+
+= Jugar y moverte | 10 11 14 16 27-34
+@ Juegas con un niño en el parque.
+A: Can you swim? | ¿Sabes nadar?
+B: 11
+A: Let's play! What do you do with a ball? | ¡A jugar! ¿Qué haces con una pelota?
+B: 31
+A: What do you do when you're happy? | ¿Qué haces cuando estás feliz?
+B: 28
+A: Look, Grandma is here! | ¡Mira, llegó la abuela!
+B: 34
+
+# k12
+= Decir cómo te sientes | 0-10 21 22
+@ Un compañero te saluda en la mañana.
+A: Good morning! How are you? | ¡Buenos días! ¿Cómo estás?
+B: 21
+A: You look tired. | Te ves cansado.
+B: 22
+A: Do you want my jacket? | ¿Quieres mi chamarra?
+B: 8
+A: It's Friday! Are you happy? | ¡Es viernes! ¿Estás feliz?
+B: 10
+
+= Preguntar cómo está alguien y por qué | 11-20 23-26
+@ Tu amiga se ve triste.
+A: Hi... | Hola...
+B: 11
+A: Not really. | No mucho.
+B: 24
+A: My exam is tomorrow and I can't sleep. | Mi examen es mañana y no puedo dormir.
+B: 14
+A: Yes, very. Are you angry with me? | Sí, mucho. ¿Estás enojada conmigo?
+B: 23
+A: Good. Thank you for asking. | Qué bueno. Gracias por preguntar.
+
+# k13
+= Describir cosas: grande, chico, nuevo, viejo | 0-11 29
+@ Juegas a los contrarios con tu maestra.
+A: Let's play opposites! | ¡Juguemos a los contrarios!
+B: 29
+A: Small! Now tell me about your house. | ¡Pequeño! Ahora cuéntame de tu casa.
+B: 10
+A: Careful with your cup! | ¡Cuidado con tu taza!
+B: 11
+
+= Hablar de precios, pesos y distancias | 12 14-17 21 23 24 26
+@ Vas de compras con un amigo.
+A: Do you want this car? | ¿Quieres este carro?
+B: 23
+A: Can you carry this box? | ¿Puedes cargar esta caja?
+B: 24
+A: Sorry I'm late! Are you here already? | ¡Perdón por llegar tarde! ¿Ya estás aquí?
+B: 26
+
+= Describir personas y lugares | 13 18-20 22 25 27 28 30
+@ Le hablas a un amigo de tu abuelo.
+A: How's your grandpa? | ¿Cómo está tu abuelo?
+B: 25
+A: Do you sleep well at his house? | ¿Duermes bien en su casa?
+B: 30
+A: And how's your house? | ¿Y cómo es tu casa?
+B: 10
+
+# k14
+= Entender las instrucciones del maestro | 0-4 12-16 29
+@ Hoy tú eres el maestro y le das instrucciones a la clase.
+A: Good morning, teacher! We're ready. | ¡Buenos días, maestro! Estamos listos.
+B: 0
+A: Okay! What now? | ¡Listo! ¿Y ahora?
+B: 2
+A: Can I answer? | ¿Puedo contestar?
+B: 4
+A: We finished the reading. | Ya terminamos la lectura.
+B: 1
+
+= Pedir ayuda en clase | 5-9 23-26 30 31
+@ Estás en clase de inglés y no entiendes algo.
+A: Open your books, please. | Abran sus libros, por favor.
+B: 6
+A: Page ten. A sheep is a farm animal. | Página diez. Un «sheep» es un animal de granja.
+B: 24
+A: It means oveja. Do you understand? | Significa oveja. ¿Entiendes?
+B: 26
+A: Sure. Sheep: o-ve-ja. Now write the answer. | Claro. Sheep: o-ve-ja. Ahora escribe la respuesta.
+B: 8
+
+= Nombrar las cosas del salón | 10 11 17-22 27 28
+@ Le enseñas tu salón a tu mamá.
+A: Who's that? | ¿Quién es ella?
+B: 19
+A: How many kids are in your class? | ¿Cuántos niños hay en tu clase?
+B: 27
+A: What do you have for tomorrow? | ¿Qué tienes para mañana?
+B: 17
+A: Where are your books? | ¿Dónde están tus libros?
+B: 22
