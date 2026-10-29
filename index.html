@@ -465,7 +465,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .pvt{display:flex;flex-direction:column;min-width:0}
 .pvt b{font-size:17px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
 .pvt small{font-size:15px;line-height:1.3;color:var(--accent);font-weight:600}
-.pvt .who{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.pvt .pvwho{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px} /* no usa .who: esa es la cajita cuadrada de A y B de las conversaciones */
 .pe{margin-right:6px}
 .mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .mcol{display:flex;flex-direction:column;gap:8px}
@@ -2209,7 +2209,7 @@ function pvGo(s) {
   runClass();
 }
 const pvChip = x => `<button class="chip wm" type="button" data-say="${esc(x.say)}"><b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${esc(x.en)}</b><small>${esc(x.es)}</small></button>`;
-const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="who">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
+const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="pvwho">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
 function pvStep(s) {
   const st = $("#stage"), n = matchRounds(s.secs.flatMap(x => x.items)).reduce((a, r) => a + r.length, 0);
   s.view = "list";
