@@ -194,7 +194,7 @@ details.extra>summary{cursor:pointer;font-family:var(--f-display);font-size:20px
 details.rtext{border:1px solid var(--line);padding:8px 12px}
 details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 
-/* Tu instructor: la clase (meta y 5 pasos), «Mi camino» y «Más» */
+/* Tu instructor: la clase (meta y 5 pasos), «Mi camino» y «Ajustes» */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .instr h2{text-wrap:balance}
 .where{display:flex;flex-direction:column;gap:6px}
@@ -239,6 +239,9 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .lsn small{display:block;color:var(--muted);font-size:13px;font-weight:400}
 .hint{font-size:13px;text-align:center;margin:0}
 .homenav,.morelist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.homenav{grid-template-columns:minmax(0,1fr)}
+.setlink{justify-self:center;background:none;border:0;padding:10px 12px;min-height:44px;font:inherit;font-size:14px;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.setlink:hover{color:var(--ink)}
 .morelist{grid-template-columns:minmax(0,1fr)}
 .navbtn{background:var(--panel);border:2px solid var(--ink);padding:14px 44px 14px 16px;text-align:left;display:flex;flex-direction:column;gap:2px;min-width:0;position:relative}
 .navbtn::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:30px;line-height:1;color:var(--muted)}
@@ -246,7 +249,6 @@ details.rtext summary{cursor:pointer;color:var(--muted);font-size:14px}
 .navbtn:hover{background:var(--bg)}
 .navbtn b{font-family:var(--f-display);font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
 .navbtn small{color:var(--muted);font-size:14px}
-@media (max-width:420px){.homenav{grid-template-columns:minmax(0,1fr)}}
 .back{font-size:16px;font-weight:600;color:var(--ink);padding:6px 0}
 .sstep{padding:8px 16px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600;color:var(--accent);text-align:center}
 .nextbox{align-self:stretch;width:100%;max-width:520px;margin:0 auto;text-align:left;border:2px solid var(--ink);padding:12px 16px;background:var(--panel);display:flex;flex-direction:column;gap:4px}
@@ -606,7 +608,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 
     <div class="homenav" id="homeNav">
       <button class="navbtn" type="button" data-go="curso"><b>Mi camino</b><small>En qué tema vas y qué sigue</small></button>
-      <button class="navbtn" type="button" data-go="mas"><b>Más</b><small>Tus frases, práctica libre y ajustes</small></button>
+      <button class="setlink" type="button" data-go="mas">Ajustes y sincronizar</button>
     </div>
   </section>
 
@@ -628,31 +630,17 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 
   </section>
 
-  <!-- MÁS: lo opcional -->
+  <!-- AJUSTES (antes «Más»: la persona pidió quitar lo opcional, porque nadie practica ahí; solo quedan los ajustes) -->
   <section class="view" id="vMas" hidden>
     <button class="back" type="button" data-back="hoy">← Volver a mi clase</button>
     <div class="card strong">
-      <h2>Más</h2>
-      <p class="muted">Todo esto es opcional. Lo más importante es tu clase: ahí te llevo paso a paso.</p>
+      <h2>Ajustes</h2>
+      <p class="muted">Tu nombre, tu objetivo, qué tan exigente soy al oírte y la sincronización. Para practicar, tu clase de cada día.</p>
     </div>
     <div class="morelist">
-      <button class="navbtn" type="button" data-go="frases"><b>Mis frases</b><small>Busca, escucha y practica las que ya aprendiste</small></button>
+      <button class="navbtn" type="button" data-go="plan"><b>Ajustar mi plan</b><small>Tu nombre, tu objetivo, qué tan exigente soy al oírte o un examen de ubicación</small></button>
       <button class="navbtn" type="button" data-go="metodo"><b>Cómo funciona</b><small>Cómo te enseño y por qué</small></button>
-      <button class="navbtn" type="button" data-go="plan"><b>Ajustar mi plan</b><small>Tu nombre, tu objetivo o un examen de ubicación</small></button>
     </div>
-    <details class="extra">
-    <summary>Práctica libre (opcional)</summary>
-    <div class="modes" style="margin-top:12px">
-      <button class="mode" data-mode="speak"><strong>Habla</strong><small>Di la frase en inglés con el micrófono</small></button>
-      <button class="mode" data-mode="dict"><strong>Dictado</strong><small>Escucha y escribe lo que oyes</small></button>
-      <button class="mode" data-mode="type"><strong>Escríbela</strong><small>Traduce del español al inglés</small></button>
-      <button class="mode" data-mode="order"><strong>Arma la frase</strong><small>Ordena las palabras</small></button>
-      <button class="mode" data-mode="hear"><strong>Comprensión</strong><small>Oye en inglés y elige qué significa</small></button>
-      <button class="mode" data-mode="listen"><strong>Escucha y repite</strong><small>Dila en voz alta y califícate</small></button>
-      <button class="mode" data-mode="tap"><strong>Escucha y toca</strong><small>Oye la palabra y toca su dibujo, sin español</small></button>
-      <button class="mode" data-mode="tpr"><strong>Haz lo que oyes</strong><small>Órdenes con el cuerpo y «Simón dice»</small></button>
-    </div>
-    </details>
 
     <section class="sync" id="sync">
       <div class="label">Sincronizar teléfono y PC</div>
@@ -679,7 +667,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 
   <!-- FRASES -->
   <section class="view" id="vFrases" hidden>
-    <button class="back" type="button" data-back="mas">← Más</button>
+    <button class="back" type="button" data-back="mas">← Ajustes</button>
     <div class="filters">
       <input class="type" id="fq" type="search" placeholder="Buscar en inglés o español…" aria-label="Buscar frase">
       <select class="type" id="fl" aria-label="Filtrar"></select>
@@ -698,7 +686,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 
   <!-- MÉTODO -->
   <section class="view prose" id="vMetodo" hidden>
-    <button class="back" type="button" data-back="mas">← Más</button>
+    <button class="back" type="button" data-back="mas">← Ajustes</button>
     <div class="card strong">
       <h2>Cómo vas a aprender</h2>
       <p>Esta app combina las técnicas con más respaldo para que un adulto aprenda un idioma: <strong>primero las palabras y luego las frases completas</strong> que las usan, <strong>entender antes de hablar</strong> (Krashen), <strong>responder con el cuerpo</strong> (TPR), <strong>recuerdo activo</strong> (sacar la respuesta de tu cabeza antes de verla), <strong>repetición espaciada</strong> (repasar justo antes de olvidar), <strong>hablar en voz alta</strong> desde el primer día y mucha <strong>exposición a inglés real</strong>.</p>
@@ -730,7 +718,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con su significado, audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando corriges lo que fallaste. Cuando escribes, armas o dices una frase, o cuando te equivocas, escuchas la respuesta: el botón para seguir se activa cuando termina de sonar. Si ya la oíste en la pregunta y acertaste, no se repite y sigues de inmediato.</li>
         <li><strong>El video:</strong> va en la clase de cierre de cada tema. Cada tema tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
-      <p class="muted">Por eso no hay dos personas con la misma clase: cada quien avanza a su propio ritmo. En <strong>Mi camino</strong> ves en qué tema vas y qué sigue. En <strong>Más</strong> está lo opcional: tus frases (búscalas y practícalas: cada una pasa por 3 ejercicios, entenderla, armarla o escribirla, y decirla) y la práctica libre. Las lecturas y conversaciones de cada tema también se pueden oír cuando quieras en <strong>Mi camino</strong>, al abrir el tema.</p>
+      <p class="muted">Por eso no hay dos personas con la misma clase: cada quien avanza a su propio ritmo. En <strong>Mi camino</strong> ves en qué tema vas y qué sigue. Abajo, en <strong>Ajustes</strong>, cambias tu nombre, tu objetivo, qué tan exigente soy al oírte y la sincronización. Las frases, lecturas y conversaciones de cada tema se pueden ver y oír cuando quieras en <strong>Mi camino</strong>, al abrir el tema.</p>
     </div>
 
     <div class="card">
@@ -738,7 +726,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <p>Dos métodos muy estudiados, adaptados a la app:</p>
       <ul>
         <li><strong>Enfoque natural (Stephen Krashen):</strong> un idioma se adquiere sobre todo <strong>entendiendo</strong> mensajes un poquito arriba de tu nivel, sin presión; el habla sale después. Por eso cada frase nueva primero se entiende —la oyes con su dibujo, luego «¿Es lo que oyes?» (sí o no) y «Escucha y toca» (sin español)— y hasta después la dices, la escribes y la armas: en «Repasa» de tu siguiente clase (recordarla un rato después te ayuda más que repetirla enseguida). Y cada día, en «Conversa», vuelves a practicar la conversación de uno de tus temas: cada vez entiendes más y te sale más fácil.</li>
-        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, en «Practica» sale <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (las nuevas primero las ves y las haces junto con el audio; luego solo las oyes) y el juego <strong>«Simón dice»</strong>. Cuando ya las entiendes todas, sale un día sí y otro no. En «Más» → «Práctica libre» están «Haz lo que oyes» y «Escucha y toca» (tocar en la pantalla lo que oyes, como «Touch forty-eight»).</li>
+        <li><strong>Respuesta Física Total, TPR (James Asher):</strong> entiendes órdenes en inglés y respondes <strong>con el cuerpo</strong>. Moverte ayuda a que se te quede y no te obliga a hablar al principio. De Kínder a Primaria 2, en «Practica» sale <strong>«Haz lo que oyes»</strong>: órdenes como «Stand up» o «Touch your nose» (las nuevas primero las ves y las haces junto con el audio; luego solo las oyes) y el juego <strong>«Simón dice»</strong>. Cuando ya las entiendes todas, sale un día sí y otro no.</li>
       </ul>
       <p class="muted">Lo demás —repaso espaciado, recuerdo activo y dominar antes de seguir— hace que lo que entiendes también se te quede y te salga.</p>
     </div>
@@ -752,7 +740,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li>practicaste la conversación completa,</li>
         <li>y leíste la lectura y contestaste bien sus preguntas.</li>
       </ul>
-      <p>El examen de unidad pregunta 15 de sus frases y termina con <strong>su conversación</strong>: te dicen algo en inglés y tú contestas con tu voz (o escribiendo, si no tienes micrófono). Pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas y una conversación, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, en «Más» → «Ajustar mi plan» puedes hacer un examen de ubicación y saltarla.</p>
+      <p>El examen de unidad pregunta 15 de sus frases y termina con <strong>su conversación</strong>: te dicen algo en inglés y tú contestas con tu voz (o escribiendo, si no tienes micrófono). Pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas y una conversación, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, en «Ajustes» → «Ajustar mi plan» puedes hacer un examen de ubicación y saltarla.</p>
       <p class="muted">Por eso cada tema toma lo que tú necesites: si vas bien, lo terminas en uno o dos días; si te cuesta, la app se queda en ese tema hasta que lo domines. Lo que ya aprobaste sigue saliendo en tus repasos para que no se te olvide.</p>
     </div>
 
@@ -1754,7 +1742,7 @@ function renderCurrent() {
   if (curView === "leer") renderLeer();
   if (curView === "mas") renderMas();
 }
-// Sin pestañas: todo empieza en tu clase. Desde Inicio vas a «Mi camino» o a «Más», y siempre hay un botón para volver
+// Sin pestañas: todo empieza en tu clase. Desde Inicio vas a «Mi camino» (y, abajo, a «Ajustes»), y siempre hay un botón para volver
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-back],[data-go]"); if (!b) return;
   const to = b.dataset.back || b.dataset.go;
@@ -2588,7 +2576,7 @@ function renderLeer() {
   if (LEER) return readerView(box);
   const cu = activeUnits()[0], list = UNITS.filter(u => !prevLocked(u.lv) && (u === cu || S.done[u.id] || unitSeen(u) > 0)).reverse();
   if (cu) list.sort((a, b) => (b === cu) - (a === cu));
-  box.innerHTML = `<button class="back" type="button" data-back="mas">← Más</button><div class="card strong"><h2>Escuchar y leer</h2>
+  box.innerHTML = `<button class="back" type="button" data-back="mas">← Ajustes</button><div class="card strong"><h2>Escuchar y leer</h2>
       <p>Aquí están las lecturas y conversaciones de tus temas. Escúchalas y léelas todas las veces que quieras: se aprende sobre todo <strong>entendiendo</strong> mucho inglés, un poquito arriba de tu nivel (Krashen). No tienes que entender cada palabra; si una te detiene, tócala para ver qué significa.</p></div>`
     + (list.length ? `<div class="lgrid">${list.map(u => `<div class="lcard${u === cu ? " cur" : ""}"><div class="lhd">${u.icon ? `<span class="lic" aria-hidden="true">${u.icon}</span>` : ""}<div><div class="label">${u === cu ? "Tu tema de ahora · " : ""}${esc(u.lv.short)} · Unidad ${u.k}</div><div class="lt">${esc(u.t)}</div></div></div>
         <div class="row">${u.r ? `<button class="btn" type="button" data-lopen="${u.id}:r">📖 Lectura: ${esc(u.r.t)}</button>` : ""}<button class="btn" type="button" data-lopen="${u.id}:d">💬 Conversación</button></div></div>`).join("")}</div>`
@@ -2829,7 +2817,9 @@ function repasaPractice(u, n, ids, skip) {
    hasta 2 nuevas (o 1 nueva y 1 que fallaste), que primero se ven con su dibujo y se hacen junto con el audio; luego, solo
    con el audio, esas y 2 que ya conoces (4 si no hay nuevas): las haces y eliges qué hiciste. Al final, 3 de «Simón dice»,
    de preferencia con otras órdenes que ya conoces (así repasas más sin repetir las mismas).
-   Tocar en la pantalla lo que oyes («Touch the dog», «Touch forty-eight») está en «Más» → «Práctica libre» → «Escucha y toca».
+   «Escucha y toca» (tocar el dibujo de lo que oyes) sale en las frases nuevas y los repasos. La versión con órdenes («Touch the
+   dog», «Touch forty-eight») era de la «Práctica libre» de «Más», que ya no tiene botones (la persona pidió quitar «Más»;
+   freePractice() sigue en el código).
    S.tp[orden] = 1 la entendiste, 0 no (se vuelve a mostrar). */
 const TPRS = window.TPR || [];
 // Qué temas tienen palabras para tocar en la pantalla: n = números, c = colores, t = cosas («Touch the dog»)
