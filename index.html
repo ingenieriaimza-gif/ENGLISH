@@ -582,6 +582,50 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .sync form input.type{flex:1 1 220px;min-width:0;font-size:16px;text-transform:uppercase}
 .code{font-family:var(--f-mono);font-size:clamp(17px,4.5vw,22px);letter-spacing:.06em;padding:10px 14px;background:var(--bg);border:1px dashed var(--ink);word-break:break-all;user-select:all}
 .foot{font-size:13px;color:var(--muted);margin:0}
+
+/* Los tiempos del inglés: la tarjeta de cada uno. La fórmula va en fichas de color (sujeto azul, auxiliar naranja,
+   verbo verde, resto gris) y en los ejemplos se marcan igual el auxiliar y el verbo */
+.tzwrap{display:flex;flex-direction:column;gap:12px;text-align:left}
+.tzcard{border:2px solid var(--ink);background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:10px;text-align:left}
+.tzh{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+.tzh b{font-family:var(--f-display);font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.1}
+.tzh span{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.tzuse{margin:0;font-size:15px}
+.tzrow{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid var(--line)}
+.tzl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ok)}
+.tzl.neg{color:var(--bad)}
+.tzl.q{color:var(--info)}
+.fml{display:flex;flex-wrap:wrap;align-items:center;gap:6px 4px}
+.fp{display:inline-block;padding:2px 8px;font-size:15px;font-weight:600;line-height:1.45;color:var(--ink);background:var(--chip);border-bottom:3px solid var(--line)}
+.fp.s{background:var(--info-soft);border-color:var(--info)}
+.fp.a{background:var(--accent-soft);border-color:var(--accent)}
+.fp.v{background:var(--ok-soft);border-color:var(--ok)}
+.fp.r{background:transparent;border-color:var(--line);color:var(--muted);font-weight:500}
+.fpl{color:var(--muted);font-weight:600;font-size:14px}
+.tzleg{display:flex;flex-wrap:wrap;gap:6px}
+.tzleg .fp{font-size:13px;padding:1px 8px}
+.tzex{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:center;background:var(--bg);padding:8px 12px}
+.tzex .en2{font-weight:600;font-size:16px}
+.tzex .es2{color:var(--muted);font-size:14px}
+.tza{background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent);padding:0 1px}
+.tzv{background:var(--ok-soft);box-shadow:inset 0 -2px 0 var(--ok);padding:0 1px}
+.tzmore{margin:0;font-size:14px;color:var(--muted)}
+.tzmore b{color:var(--ink);font-weight:600}
+.tzcard .tip{font-size:14px}
+.band .tzf b{color:var(--ink);font-weight:600}
+/* en «Mi camino»: todos los tiempos, por grupos; cada uno se abre para ver su tarjeta */
+.tzgrp{display:flex;flex-direction:column}
+.tzgrp>.label{margin:12px 0 2px}
+details.tzi{border-top:1px solid var(--line)}
+details.tzi>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 0;min-height:48px}
+details.tzi>summary::-webkit-details-marker{display:none}
+details.tzi>summary::after{content:"+";font-family:var(--f-mono);font-size:18px;color:var(--muted)}
+details.tzi[open]>summary::after{content:"−"}
+.tzn{display:flex;flex-direction:column;min-width:0;flex:1}
+.tzn b{font-weight:600}
+.tzn small{color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+details.tzi>.tzcard{margin-bottom:12px}
+details.tzi .ustat{white-space:normal;text-align:right;max-width:45%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -607,7 +651,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
     <div id="coach"></div>
 
     <div class="homenav" id="homeNav">
-      <button class="navbtn" type="button" data-go="curso"><b>Mi camino</b><small>En qué tema vas y qué sigue</small></button>
+      <button class="navbtn" type="button" data-go="curso"><b>Mi camino</b><small>En qué tema vas, qué sigue y los tiempos del inglés</small></button>
       <button class="setlink" type="button" data-go="mas">Ajustes y sincronizar</button>
     </div>
   </section>
@@ -619,6 +663,10 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <h2>Mi camino</h2>
       <p>Como en la escuela: de Kínder a Carrera, tema por tema. Aquí solo ves cómo vas; no tienes que elegir nada: tu instructor te lleva en orden en tu clase.</p>
     </div>
+    <details class="sec" id="tzMap"><summary class="sh"><h3>Los tiempos del inglés</h3><span class="ustat" id="tzN"></span></summary><div class="sb">
+      <p class="muted" style="margin:0;font-size:14px">Cómo se arma cada tiempo (afirmativa, negativa y pregunta), para qué se usa y ejemplos para oír. Cada uno lo practicas en tu clase cuando llegas a su tema; después sale revuelto con los demás en «¿Qué tiempo va?», para que siempre hables en el tiempo correcto.</p>
+      <div id="tzMapList"></div>
+    </div></details>
     <div id="levels" style="display:flex;flex-direction:column;gap:16px"></div>
     <div class="card" id="progressCard">
       <div class="label">Tu avance</div>
@@ -696,10 +744,10 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
       <h3>Tu instructor y tu clase</h3>
       <p>La app la guía tu instructor. Al abrirla ves tu clase y un solo botón: tú no tienes que elegir nada. Cada tema se divide en clases de unos 30 minutos, y cada clase tiene una <strong>meta</strong>: algo que vas a poder hacer en inglés al terminarla, por ejemplo «Pedir comida en un restaurante». Siempre son 5 pasos, en el mismo orden:</p>
       <ol>
-        <li><strong>Repasa:</strong> lo que ya aprendiste, ahora sin ayuda. Las frases que estás por olvidar y las del tema que todavía no dominas: las dices, las escribes o las armas tú.</li>
+        <li><strong>Repasa:</strong> lo que ya aprendiste, ahora sin ayuda. Las frases que estás por olvidar y las del tema que todavía no dominas: las dices, las escribes o las armas tú. Una vez al día, al final, <strong>«¿Qué tiempo va?»</strong>: frases de los tiempos que ya viste, revueltas.</li>
         <li><strong>Conversa:</strong> una vez al día, la conversación de un tema que ya aprobaste, de tu etapa: te dicen una frase en inglés y tú contestas con tu voz, una por una. Van rotando, de lo más nuevo a lo más viejo, y ninguna se repite antes de 4 días. Entender y usar mucho inglés es lo que más te hace avanzar.</li>
-        <li><strong>Aprende:</strong> la explicación del tema (la primera vez), y las palabras y las frases de la meta: las escuchas, ves qué significan y eliges cuál es la que oyes.</li>
-        <li><strong>Practica:</strong> esas mismas frases, ahora tú: las armas o las escribes, y las dices. De Kínder a Primaria 2, también «Haz lo que oyes».</li>
+        <li><strong>Aprende:</strong> la explicación del tema (la primera vez; si el tema es de un tiempo, con su estructura), y las palabras y las frases de la meta: las escuchas, ves qué significan y eliges cuál es la que oyes.</li>
+        <li><strong>Practica:</strong> si el tema es de un tiempo, primero su <strong>estructura</strong>; luego esas mismas frases, ahora tú: las armas o las escribes, y las dices. De Kínder a Primaria 2, también «Haz lo que oyes».</li>
         <li><strong>Misión:</strong> una conversación donde usas lo de hoy: te hablan en inglés y tú contestas. Si te sale, ¡lo lograste!: ya puedes hacer eso en inglés y la siguiente clase es la siguiente meta. Si no, la vuelves a intentar.</li>
       </ol>
       <p>Cuando terminas las clases de un tema, sigue su <strong>clase de cierre</strong>: repasas, practicas lo que todavía no te sale solo, usas el inglés del tema (su lectura, su conversación y su video; si ya las hiciste, la conversación del día) y haces su examen, que termina con su conversación: contestas con tu voz. Con 85% pasas al siguiente tema. En <strong>Mi camino</strong>, cada tema muestra sus clases con su meta.</p>
@@ -718,7 +766,19 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li><strong>Cuando te equivocas:</strong> no te repite lo mismo una y otra vez. La frase que fallas vuelve unos pasos después en un ejercicio más fácil y, cuando la aciertas, regresa como al principio. Si la fallas dos veces, te la enseña con calma: palabra por palabra, con su significado, audio y la regla de la lección. Si fallas varias seguidas, hace una pausa: repasa la explicación y algo de temas anteriores que ya sabes, y deja las frases nuevas para la siguiente sesión. La sesión termina cuando corriges lo que fallaste. Cuando escribes, armas o dices una frase, o cuando te equivocas, escuchas la respuesta: el botón para seguir se activa cuando termina de sonar. Si ya la oíste en la pregunta y acertaste, no se repite y sigues de inmediato.</li>
         <li><strong>El video:</strong> va en la clase de cierre de cada tema. Cada tema tiene un video de YouTube elegido y verificado para su tema y nivel. Se ve dentro de la app, solo cuenta el tiempo que de verdad se reproduce (70% del video, máximo 10 minutos) y al final pide un resumen en inglés.</li>
       </ul>
-      <p class="muted">Por eso no hay dos personas con la misma clase: cada quien avanza a su propio ritmo. En <strong>Mi camino</strong> ves en qué tema vas y qué sigue. Abajo, en <strong>Ajustes</strong>, cambias tu nombre, tu objetivo, qué tan exigente soy al oírte y la sincronización. Las frases, lecturas y conversaciones de cada tema se pueden ver y oír cuando quieras en <strong>Mi camino</strong>, al abrir el tema.</p>
+      <p class="muted">Por eso no hay dos personas con la misma clase: cada quien avanza a su propio ritmo. En <strong>Mi camino</strong> ves en qué tema vas, qué sigue y los tiempos del inglés. Abajo, en <strong>Ajustes</strong>, cambias tu nombre, tu objetivo, qué tan exigente soy al oírte y la sincronización. Las frases, lecturas y conversaciones de cada tema se pueden ver y oír cuando quieras en <strong>Mi camino</strong>, al abrir el tema.</p>
+    </div>
+
+    <div class="card">
+      <h3>Los tiempos del inglés</h3>
+      <p>Para hablar en el tiempo correcto hay que saber cómo se arma cada uno. Son 18, del presente de to be a los condicionales, y cada uno se enseña en su tema:</p>
+      <ul>
+        <li><strong>Su tarjeta:</strong> para qué se usa, cómo se arma en afirmativa, negativa y pregunta (en fichas de color: <strong>sujeto</strong>, <strong>auxiliar</strong>, <strong>verbo</strong> y resto), ejemplos para oír, las palabras que lo delatan (yesterday, now, since…) y el error típico. Sale en la explicación del tema y todas están en <strong>Mi camino → Los tiempos del inglés</strong>.</li>
+        <li><strong>«Estructura», en cada clase de ese tema:</strong> eliges la frase bien dicha (las otras son los errores que más cometemos al hablar español, como «I didn't went»), la armas con fichas (una sobra: la forma equivocada) y la dices.</li>
+        <li><strong>«¿Qué tiempo va?», en Repasa:</strong> una vez al día, frases de los tiempos que ya viste, revueltas y sin decir de cuál son: así aprendes a elegir el tiempo, no solo a armarlo. Primero salen los que fallaste hace poco.</li>
+        <li><strong>En los exámenes:</strong> el del tema trae 3 preguntas de su estructura y el final de etapa, 4 de sus tiempos.</li>
+        <li><strong>Cuando te equivocas</strong> al escribir, armar o decir cualquier frase, te digo qué pasó con el tiempo: «Con didn't el verbo va en su forma normal: go, no went», «Te faltó am antes de working», «Después de if no va will». Al decirla con tu voz, mientras todavía no ves la respuesta, la pista no te la dice.</li>
+      </ul>
     </div>
 
     <div class="card">
@@ -740,7 +800,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
         <li>practicaste la conversación completa,</li>
         <li>y leíste la lectura y contestaste bien sus preguntas.</li>
       </ul>
-      <p>El examen de unidad pregunta 15 de sus frases y termina con <strong>su conversación</strong>: te dicen algo en inglés y tú contestas con tu voz (o escribiendo, si no tienes micrófono). Pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas y una conversación, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, en «Ajustes» → «Ajustar mi plan» puedes hacer un examen de ubicación y saltarla.</p>
+      <p>El examen de unidad pregunta 15 de sus frases (si el tema es de un tiempo, también 3 de su estructura) y termina con <strong>su conversación</strong>: te dicen algo en inglés y tú contestas con tu voz (o escribiendo, si no tienes micrófono). Pide <strong>85%</strong>. Al terminar todas las unidades de una etapa viene el <strong>examen final de etapa</strong> (30 preguntas, 4 de sus tiempos y una conversación, 85%), y solo al aprobarlo se abre la siguiente etapa. Antes de eso sus lecciones se pueden leer, pero no practicar: así nadie se frustra con frases que usan cosas que todavía no aprendió. Si ya sabes una etapa, en «Ajustes» → «Ajustar mi plan» puedes hacer un examen de ubicación y saltarla.</p>
       <p class="muted">Por eso cada tema toma lo que tú necesites: si vas bien, lo terminas en uno o dos días; si te cuesta, la app se queda en ese tema hasta que lo domines. Lo que ya aprobaste sigue saliendo en tus repasos para que no se te olvide.</p>
     </div>
 
@@ -849,6 +909,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 <script src="content/words.js"></script>
 <script src="content/tpr.js"></script>
 <script src="content/lessons.js"></script>
+<script src="content/tenses.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -905,6 +966,12 @@ UNITS.forEach(u => {
     for (let i = 0; i * size < u.cards.length; i++) u.ls.push({ i, g: "", s: "", c: u.cards.slice(i * size, (i + 1) * size), m: null });
   }
 });
+/* ================= los tiempos del inglés =================
+   content/tenses.js: 18 tiempos (de to be a los condicionales mixtos), cada uno con su estructura y sus ejercicios. Cada
+   tiempo es de uno o dos temas: u.tz = los tiempos que enseña el tema. Ver «LOS TIEMPOS DEL INGLÉS» más abajo. */
+const TZ = (window.TENSES || []).map(t => Object.assign(t, { us: t.u.map(id => UNITS.find(u => u.id === id)).filter(Boolean) })).filter(t => t.us.length);
+const TZID = Object.fromEntries(TZ.map(t => [t.id, t]));
+UNITS.forEach(u => { u.tz = TZ.filter(t => t.us.includes(u)); });
 
 /* ================= palabras =================
    Antes de las frases nuevas se enseñan las palabras que traen (qué significan y cómo suenan) y se preguntan.
@@ -993,12 +1060,13 @@ function migrate(o) {
   o.tp = o.tp || {}; // «Haz lo que oyes»: 1 = la entendiste a la primera, 0 = no (se vuelve a mostrar)
   o.lm = o.lm || {}; // clases de cada tema: «tema.número» = 1 cuando cumpliste su misión
   o.ear = o.ear || {}; // «Conversa»: el día en que volviste a practicar la conversación de cada tema («d:tema»)
+  o.tzi = o.tzi || {}; o.tzx = o.tzx || {}; // los tiempos: el día en que salió cada pregunta («tiempo.q3») y en que fallaste cada tiempo
   if (o.prof === undefined) o.prof = null;
   if (o.cls === undefined) o.cls = null; // tu clase (ver «La clase»)
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, lm: {}, ear: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, lm: {}, ear: {}, tzi: {}, tzx: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -1025,7 +1093,7 @@ function H() {
 const pracToday = id => (H().t || []).includes(id);
 function markPrac(id) { const h = H(); h.t = h.t || []; if (!h.t.includes(id)) h.t.push(id); }
 // Habilidades: promedio móvil de aciertos por tipo de ejercicio
-const SKILL = { pic: "vocab", choice: "vocab", hear: "listen", tap: "listen", yesno: "listen", tpr: "listen", dict: "listen", type: "write", order: "write", speak: "speak", listen: "speak", dlg: "speak", rq: "read" };
+const SKILL = { pic: "vocab", choice: "vocab", hear: "listen", tap: "listen", yesno: "listen", tpr: "listen", dict: "listen", type: "write", order: "write", speak: "speak", listen: "speak", dlg: "speak", rq: "read", tzp: "read", tzb: "write", tzs: "speak" };
 const SKILL_NAME = { vocab: "Vocabulario", listen: "Escuchar", speak: "Hablar", write: "Escribir", read: "Leer" };
 const SKILL_KINDS = { vocab: ["choice", "pic"], listen: ["dict", "hear", "tap"], speak: ["speak"], write: ["type", "order"], read: ["hear"] };
 function skill(kind, ok) { const k = SKILL[kind]; if (!k) return; const v = S.sk[k] === undefined ? 0.8 : S.sk[k]; S.sk[k] = Math.round((v * 0.93 + (ok ? 0.07 : 0)) * 1000) / 1000; }
@@ -1858,7 +1926,7 @@ function earPick() {
   return ok[0];
 }
 const earKey = p => (p.what === "reading" ? "r:" : "d:") + p.uid;
-const CLS_V = 2; // formato de la clase (2: con «Conversa»). Una clase de antes que ni empezaste se vuelve a armar
+const CLS_V = 3; // formato de la clase (2: con «Conversa»; 3: con «Estructura» y «¿Qué tiempo va?»). Una clase de antes que ni empezaste se vuelve a armar
 function buildClass() {
   const P = S.prof, notes = [], mk = names => names.map(name => ({ name, why: "", parts: [] }));
   // Conversa: la conversación del día (si hoy toca)
@@ -1869,6 +1937,10 @@ function buildClass() {
       : UNITS.some(u => S.done[u.id]) ? "Hoy no toca: ya practicaste hace poco las conversaciones de tus temas."
       : "Cuando apruebes tu primer tema, aquí vas a practicar su conversación.";
   };
+  // ¿Qué tiempo va?: una vez al día, cuando ya viste 2 tiempos o más (va al final de Repasa)
+  const mix = st => { if (tzLearned().length >= 2 && !H().dn.includes("tzmix")) st.parts.push({ kind: "tzmix" }); };
+  // Estructura: la de los tiempos del tema (antes de sus frases). card: si en esta clase no está la explicación, un recordatorio
+  const tzp = (st, u, x) => { if (u.tz.length) st.parts.push(Object.assign({ kind: "tz", uid: u.id, tids: u.tz.map(t => t.id), card: !!S.gs[u.id] }, x || {})); };
   // Examen de ubicación: una clase de un solo paso (si pasas una etapa, sigue la siguiente)
   if (P.placing) {
     const lv = COURSE.find(l => l.id !== "w" && !S.fin[l.id]);
@@ -1907,12 +1979,12 @@ function buildClass() {
   if (!L) {
     if (nu && nu.final) { // terminaste los temas de la etapa: su examen final
       const st = mk(["Repasa", "Examen final"]);
-      repasa(st[0]);
+      repasa(st[0]); mix(st[0]);
       if (prevLocked(nu.lv)) st[1].why = `Se abre al terminar ${prevLocked(nu.lv).short}.`; else st[1].parts.push({ kind: "final", lvid: nu.lv.id });
       return { steps: st, notes, goal: `Aprobar el examen final de ${nu.lv.short}` };
     }
     const st = mk(["Repasa", "Úsalo"]); // terminaste el curso: repasar para no olvidar
-    repasa(st[0]);
+    repasa(st[0]); mix(st[0]);
     ear(st[1]);
     if (Object.keys(S.c).length >= 4) st[1].parts.push({ kind: "listen", uid: null }); else if (!st[1].parts.length) st[1].why = "Hoy no hace falta.";
     return { steps: st, notes, goal: "Repasar para no olvidar" };
@@ -1920,7 +1992,8 @@ function buildClass() {
   const u = L.u;
   if (L.end) { // la clase de cierre del tema
     const st = mk(["Repasa", "Practica", "Úsalo", "Examen"]);
-    repasa(st[0]);
+    repasa(st[0]); mix(st[0]);
+    tzp(st[1], u, { card: true }); // antes del examen, la estructura otra vez
     if (undom(u).length) st[1].parts.push({ kind: "prac", uid: u.id, dom: true, slow }); else st[1].why = "Ya dominas todas las frases del tema.";
     if (u.r && !S.rd[u.id]) st[2].parts.push({ kind: "reading", uid: u.id });
     if (!S.dl[u.id]) st[2].parts.push({ kind: "dialog", uid: u.id });
@@ -1933,11 +2006,12 @@ function buildClass() {
   // Una clase del tema: su meta, sus frases y su misión
   const l = L.l, st = mk(["Repasa", "Conversa", "Aprende", "Practica", "Misión"]), fresh = l.c.filter(c => !seen(c.id));
   if (L.cat) notes.push(`Agregué frases nuevas a «${u.t}», un tema que ya aprobaste. Las vemos antes de seguir.`);
-  repasa(st[0], L.i);
+  repasa(st[0], L.i); mix(st[0]);
   ear(st[1]);
   if (!S.gs[u.id]) st[2].parts.push({ kind: "gram", uid: u.id });
   if (fresh.length) st[2].parts.push({ kind: "learn", uid: u.id, n: fresh.length, pick: fresh.map(c => c.id) });
   else if (!st[2].parts.length) st[2].why = "Ya conoces las frases de esta clase: ahora a practicarlas.";
+  tzp(st[3], u, { li: L.i });
   st[3].parts.push({ kind: "prac", uid: u.id, li: L.i, slow });
   if (KIDS.includes(u.lv.id) && TPRS.length && (TPRS.some(t => S.tp[t.id] !== 1) || dayNum() % 2 === 0) && !H().dn.includes("tpr")) st[3].parts.push({ kind: "tpr" });
   st[4].parts.push({ kind: "mission", uid: u.id, li: L.i });
@@ -1994,6 +2068,8 @@ function partLabel(p) {
     case "listen": return "Escucha y entiende frases que ya sabes";
     case "prac": { const n = pracCards(p).length || (p.dom ? 0 : (p.u.ls[p.li] || { c: [] }).c.length); return p.dom ? (n ? `${fr(n)} ${t} que todavía no dominas` : `Las frases ${t} que todavía no dominas`) : `Ármalas, escríbelas y dilas tú: ${fr(n)}`; }
     case "mission": { const l = p.u && p.u.ls[p.li]; return l ? `Misión: ${lowFirst(noDot(lessonGoal(p.u, l)))}` : "Misión"; }
+    case "tz": return "Estructura " + (p.tids || []).map(id => TZID[id]).filter(Boolean).map(tzDe).join(" y ");
+    case "tzmix": return "¿Qué tiempo va?: tus tiempos, revueltos";
   }
   return "";
 }
@@ -2002,10 +2078,15 @@ function stepIntro(c, i) {
   const ps = c.parts.filter(p => p.step === i && !isDone(c, p)); if (!ps.length) return "";
   if (c.place) return "Preguntas de cada etapa, de lo más fácil a lo más difícil. Si no sabes una, toca «No sé»: así tu clase empieza justo donde la necesitas.";
   const k = ps[0].kind, ks = ps.map(p => p.kind);
+  // los tiempos: «¿Qué tiempo va?» al final de Repasa y «Estructura» antes de las frases de Practica
+  const mixS = ks.includes("tzmix") ? " Al final, «¿Qué tiempo va?»: frases de los tiempos que ya viste, revueltas." : "";
+  const tzP = ps.find(p => p.kind === "tz"), tzS = tzP ? `${ks.length > 1 ? "Primero, la" : "La"} estructura ${(tzP.tids || []).map(id => TZID[id]).filter(Boolean).map(tzDe).join(" y ")}: eliges la frase bien dicha, la armas y la dices. ` : "";
+  if (k === "tzmix") return "«¿Qué tiempo va?»: frases de los tiempos que ya viste, revueltas. Eliges la bien dicha, la armas y la dices: así hablas en el tiempo correcto.";
+  if (k === "tz") { const pr = ps.find(p => p.kind === "prac"); return tzS + (pr ? `Luego, ${pr.dom ? "las frases del tema que todavía no te salen solas" : "las frases de hoy"}, sin ayuda: las armas o las escribes, y las dices.` : "") + (ks.includes("tpr") ? " Al final, «Haz lo que oyes»." : ""); }
   if (ks.includes("fix") || (ks.includes("gram") && ps[0].recap)) return "Te explico otra vez el tema que se te estaba olvidando y lo practicamos.";
   if (k === "check") return "Una prueba corta de 8 preguntas: con 7 bien, seguimos con lo nuevo.";
-  if (k === "repasa") return "Lo que ya aprendiste, ahora sin ayuda: lo dices, lo escribes o lo armas tú. Así se te queda.";
-  if (k === "drill" || k === "review") return "Preguntas de lo que ya sabes, para que no se te olvide.";
+  if (k === "repasa") return "Lo que ya aprendiste, ahora sin ayuda: lo dices, lo escribes o lo armas tú. Así se te queda." + mixS;
+  if (k === "drill" || k === "review") return "Preguntas de lo que ya sabes, para que no se te olvide." + mixS;
   if (k === "gram" || k === "learn") return ks.includes("gram") ? "Te explico el tema y luego conoces las palabras y las frases de hoy: las escuchas y ves qué significan. Todavía no tienes que decirlas."
     : "Conoces las palabras y las frases de hoy: las escuchas, ves qué significan y eliges cuál es la que oyes. Todavía no tienes que decirlas.";
   if (k === "prac") return (ps[0].dom ? "Las frases del tema que todavía no te salen solas" : "Ahora tú: las frases de hoy") + ", sin ayuda: las armas o las escribes, y las dices. Si te equivocas, vuelven en un rato hasta que te salgan." + (ks.includes("tpr") ? " Al final, «Haz lo que oyes»." : "");
@@ -2015,8 +2096,9 @@ function stepIntro(c, i) {
   if (ks.length > 1 && ks.every(x => ["reading", "dialog", "video"].includes(x))) return "Usas el inglés del tema: " + ks.map(x => ({ reading: "una lectura", dialog: "una conversación", video: "un video" })[x]).join(", ").replace(/, ([^,]*)$/, " y $1") + ".";
   return ({ tpr: "Escuchas órdenes en inglés y las haces con el cuerpo, como «Stand up». Al final juegas «Simón dice».",
     dialog: "Una conversación del tema: te hablan en inglés y tú contestas.", reading: "Lees y escuchas un texto corto del tema y contestas 3 preguntas.",
-    video: "Un video corto de inglés real. Al final escribes lo que entendiste.", exam: "Preguntas sin ayuda de todo el tema y, al final, su conversación: te hablan y contestas con tu voz. Con 85% pasas al siguiente.",
-    final: "30 preguntas de toda la etapa y, al final, una conversación: contestas con tu voz. Con 85% se abre la siguiente.", listen: "Escuchas frases que ya sabes y eliges o escribes lo que entendiste." })[k] || "";
+    video: "Un video corto de inglés real. Al final escribes lo que entendiste.",
+    exam: `Preguntas sin ayuda de todo el tema${(unitById(ps[0].uid) || { tz: [] }).tz.length ? ", 3 de su estructura" : ""} y, al final, su conversación: te hablan y contestas con tu voz. Con 85% pasas al siguiente.`,
+    final: `30 preguntas de toda la etapa${TZ.some(t => t.us.some(u => u.lv.id === ps[0].lvid)) ? ", 4 de sus tiempos" : ""} y, al final, una conversación: contestas con tu voz. Con 85% se abre la siguiente.`, listen: "Escuchas frases que ya sabes y eliges o escribes lo que entendiste." })[k] || "";
 }
 // Cómo va cada paso: hecho, sin nada que hacer hoy (con su motivo) o pendiente (con sus partes)
 function stepState(c, i) {
@@ -2060,7 +2142,7 @@ function settle(c) {
   if (ch) save();
   return p;
 }
-const dayKey = p => ({ tpr: "tpr", video: "video", ear: "ear", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid, mission: "mis-" + p.uid + "." + p.li })[p.kind] || p.kind + "-" + (p.uid || "");
+const dayKey = p => ({ tpr: "tpr", video: "video", ear: "ear", tzmix: "tzmix", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid, mission: "mis-" + p.uid + "." + p.li })[p.kind] || p.kind + "-" + (p.uid || "");
 function markPart(c, p) {
   if (!c.done.includes(p.key)) c.done.push(p.key);
   const h = H(), k = dayKey(p); if (!h.dn.includes(k)) h.dn.push(k);
@@ -2088,6 +2170,8 @@ function startPart(p) {
     case "listen": return listenPractice(u, p.pick);
     case "prac": return pracPractice(u, pracCards(p), p.slow);
     case "mission": return missionPractice(u, p.li);
+    case "tz": return tzPractice(p);
+    case "tzmix": return tzMixPractice();
   }
   return false;
 }
@@ -2149,9 +2233,9 @@ function listenPractice(u, ids) {
    no cuenta como calificación). Cuando estés listo, empiezas. Las frases nuevas y las que se eligen al azar (refuerzo,
    escuchar, la práctica de un tema que se olvidaba) se eligen aquí y se guardan en la clase (p.pick): así en la clase
    salen justo las que viste. c.pv = el día en que la viste y empezaste (ese día ya no se vuelve a mostrar). */
-const PV_SECS = [["verb", "Verbos"], ["word", "Palabras nuevas"], ["new", "Frases nuevas"], ["rev", "Frases para repasar"], ["prac", "Frases para practicar"], ["tpr", "Órdenes nuevas"], ["mis", "La misión"], ["dlg", "La conversación"], ["exam", "Para el examen"]];
+const PV_SECS = [["verb", "Verbos"], ["word", "Palabras nuevas"], ["new", "Frases nuevas"], ["rev", "Frases para repasar"], ["tz", "La estructura"], ["prac", "Frases para practicar"], ["tpr", "Órdenes nuevas"], ["mis", "La misión"], ["dlg", "La conversación"], ["exam", "Para el examen"]];
 function pvPlan(c, keep) {
-  const sec = {}, note = {}, got = new Set(), used = new Set(), cds = [], wNew = [];
+  const sec = {}, note = {}, html = {}, got = new Set(), used = new Set(), cds = [], wNew = [];
   let ch = false;
   const kEn = t => String(t).toLowerCase().replace(/[^a-z0-9']+/g, " ").trim();
   // all: se muestra aunque ya esté arriba (la conversación de la misión completa), pero no se repite en el juego
@@ -2176,6 +2260,12 @@ function pvPlan(c, keep) {
         break;
       }
       case "prac": addC("prac", pracCards(hp)); break;
+      case "tz": { // la estructura de los tiempos del tema: su fórmula (con un ejemplo de cada renglón, que también entran al juego)
+        const ts = (p.tids || []).map(id => TZID[id]).filter(Boolean);
+        ts.forEach(t => t.f.forEach(r => { const e = tzPlain(r[2].split(" · ")[0]); put("tz", { en: e, es: r[3].split(" · ")[0], lab: tzLabel(r), say: e }, true); }));
+        if (ts.length) html.tz = `<div class="tzwrap">${TZLEG}${ts.map(t => tzCard(t, { brief: true })).join("")}</div>`;
+        break;
+      }
       case "mission": { const l = u && u.ls[p.li]; if (l && l.m) l.m.forEach(x => put("mis", x[0] === "A" ? { en: x[1], es: x[2], who: "A", say: cueless(x[1]) } : { en: x[1].en, es: x[1].es, em: x[1].em, who: "B", say: x[1].en }, true));
         if (l && l.s) note.mis = l.s; break; }
       case "tpr": tprShow().forEach(t => put("tpr", { en: t.en, es: t.es, em: t.em, say: t.en })); note.tpr = "Haz lo que oyes: las haces con el cuerpo."; break;
@@ -2183,6 +2273,7 @@ function pvPlan(c, keep) {
       case "exam": { const n0 = (sec.exam || []).length; addC("exam", u.cards); const sh = (sec.exam || []).length - n0, q = Math.min(15, u.cards.length);
         if (sh) note.exam = sh < u.cards.length ? `El examen te pregunta ${q} de las ${u.cards.length} frases del tema: estas y las de arriba.` : `El examen te pregunta ${q} de estas ${u.cards.length} frases.`;
         // y al final, su conversación (si en esta clase no la practicas antes, aquí la ves)
+        if (u.tz.length) note.exam = (note.exam ? note.exam + " " : "") + `También 3 preguntas de la estructura ${u.tz.map(tzDe).join(" y ")}.`;
         if (convSteps(u).length && !(sec.dlg || []).length) { u.d.forEach(l => put("dlg", { en: l[1], es: l[2], who: l[0], say: cueless(l[1]) }, true)); note.dlg = "Al final del examen: te dicen lo de «Te dicen» y tú contestas lo de «Tú dices», con tu voz."; }
         break; }
     }
@@ -2193,7 +2284,7 @@ function pvPlan(c, keep) {
   ws.filter(isVerb).forEach(w => put("verb", wIt(w)));
   ws.filter(w => !isVerb(w)).forEach(w => put("word", wIt(w)));
   if (ch) save();
-  return PV_SECS.filter(([k]) => sec[k]).map(([k, t]) => ({ k, t, items: sec[k], note: note[k] || "" }));
+  return PV_SECS.filter(([k]) => sec[k]).map(([k, t]) => ({ k, t, items: sec[k], note: note[k] || "", html: html[k] || "" }));
 }
 // «Empezar la clase»: primero lo que vas a ver (una vez al día por clase; la ubicación no, porque es un examen)
 function startClass() {
@@ -2209,7 +2300,7 @@ function pvGo(s) {
   runClass();
 }
 const pvChip = x => `<button class="chip wm" type="button" data-say="${esc(x.say)}"><b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${esc(x.en)}</b><small>${esc(x.es)}</small></button>`;
-const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="pvwho">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
+const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="pvwho">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : x.lab ? `<span class="pvwho">${esc(x.lab)}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
 function pvStep(s) {
   const st = $("#stage"), n = matchRounds(s.secs.flatMap(x => x.items)).reduce((a, r) => a + r.length, 0);
   s.view = "list";
@@ -2218,7 +2309,7 @@ function pvStep(s) {
   st.innerHTML = `<span class="tag">Antes de empezar</span><h2 class="ttl">${s.again ? "Esto es lo que te falta de tu clase" : "Esto es lo que vas a ver hoy"}</h2>
     ${s.goal ? `<div class="goalbox"><div class="label">Meta de hoy</div><p class="gt">${esc(s.goal)}</p></div>` : ""}
     <p class="lead">Toca cada una para oírla. Si quieres, únelas en un juego. Cuando estés listo, empieza.</p>
-    ${s.secs.map(x => `<section class="pvsec" data-k="${x.k}"><h3>${esc(x.t)} <span class="n">${x.items.length}</span></h3>${x.note ? `<p class="pvn">${esc(x.note)}</p>` : ""}${x.k === "verb" || x.k === "word" ? `<div class="pvw">${x.items.map(pvChip).join("")}</div>` : `<div class="pvlist">${x.items.map(pvRow).join("")}</div>`}</section>`).join("")}`;
+    ${s.secs.map(x => `<section class="pvsec" data-k="${x.k}"><h3>${esc(x.t)}${x.html ? "" : ` <span class="n">${x.items.length}</span>`}</h3>${x.note ? `<p class="pvn">${esc(x.note)}</p>` : ""}${x.html ? x.html : x.k === "verb" || x.k === "word" ? `<div class="pvw">${x.items.map(pvChip).join("")}</div>` : `<div class="pvlist">${x.items.map(pvRow).join("")}</div>`}</section>`).join("")}`;
   foot(n >= 2 ? `<button class="btn alt purp" type="button" id="pvMatch"><span class="ic">${ICO.link}</span>Unirlas</button>` : "", `<button class="btn go" id="pvGo">${esc(s.go)}</button>`);
   if ($("#pvMatch")) $("#pvMatch").onclick = () => matchPlay(s);
   $("#pvGo").onclick = () => pvGo(s);
@@ -2383,8 +2474,10 @@ function estMin(c) {
       case "reading": sec += 240; break;
       case "ear": sec += p.what === "reading" ? 240 : 120; break;
       case "video": sec += h.v ? videoNeed(h.v.dur) + 60 : 240; break;
-      case "exam": sec += 15 * 18 + 60 + (u ? (u.d || []).length * 20 : 0); break;
-      case "final": sec += 30 * 18 + 120; break;
+      case "exam": sec += 15 * 18 + 60 + (u ? (u.d || []).length * 20 + (u.tz.length ? 3 * 20 : 0) : 0); break;
+      case "final": sec += 34 * 18 + 120; break;
+      case "tz": sec += (p.card ? 30 : 0) + ((p.tids || []).length > 1 ? 5 : 4) * 25; break;
+      case "tzmix": sec += 4 * 25; break;
       case "listen": sec += 6 * 14; break;
     }
   });
@@ -2454,6 +2547,11 @@ function renderCurso() {
     </details>`;
   }).join("");
   document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => openUnit(UNITS.find(u => u.id === b.dataset.unit)));
+  // Los tiempos del inglés (se queda abierto el que tenías abierto)
+  const op = [...document.querySelectorAll("#tzMapList details[open]")].map(d => d.dataset.tz);
+  $("#tzMapList").innerHTML = tzMapHTML();
+  op.forEach(id => { const d = document.querySelector(`#tzMapList details[data-tz="${id}"]`); if (d) d.open = true; });
+  $("#tzN").textContent = `${tzLearned().length} de ${TZ.length} vistos`;
   // Tu avance
   const learned = Object.keys(S.c).filter(id => CARD[id]).length, mast = CARDS.filter(c => dominated(c.id)).length, doneU = UNITS.filter(u => S.done[u.id]).length;
   $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>temas aprobados</span></div>`;
@@ -2523,7 +2621,7 @@ function renderUnit(u) {
     </div>
     ${state}
     ${lessonsHTML(u)}
-    <details class="sec"><summary class="sh"><h3>Explicación</h3></summary><div class="sb gram">${gramHTML(u.g)}</div></details>
+    <details class="sec"><summary class="sh"><h3>${u.tz.length ? "Explicación y estructura" : "Explicación"}</h3></summary><div class="sb gram">${tzBlock(u.tz)}${gramHTML(u.g)}</div></details>
     <details class="sec"><summary class="sh"><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} aprendidas</span></summary>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div>
       ${uw.length ? `<details class="uwords"><summary>Palabras nuevas de este tema (${uw.length})${uwk ? ` · ya sabes ${uwk}` : ""}</summary><div class="wgrid">${uw.map(w => `<button class="chip wm${knownW(w) ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}${knownW(w) ? ' <span class="ck" aria-label="ya la sabes">✓</span>' : ""}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></details>` : ""}</details>
     <details class="sec"><summary class="sh"><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</summary><div class="sb">
@@ -2938,7 +3036,7 @@ function refreshCheck(u) {
 const convSteps = u => (u.d || []).some(l => l[0] === "B") ? [{ k: "cstart", u }, ...u.d.map(l => ({ k: "dlg", line: l, x: true }))] : [];
 function unitExam(u) {
   const cards = shuffle(u.cards).slice(0, 15);
-  const steps = cards.map(c => ({ k: pickKind(c, "exam"), c })).concat(convSteps(u)); // al final, la conversación del tema
+  const steps = cards.map(c => ({ k: pickKind(c, "exam"), c })).concat(u.tz.length ? tzExamSteps(u.tz, 3) : [], convSteps(u)); // su estructura y, al final, su conversación
   runSession(steps, { mode: "exam", unit: u, title: "Examen: " + u.t });
 }
 // Examen final de etapa: 30 frases de todas sus unidades (2 por unidad mínimo cuando alcanza) + la conversación de una de ellas
@@ -2948,7 +3046,10 @@ function finalExam(lv, total) {
   const pool = shuffle(per).slice(0, total - 4);
   const rest = shuffle(lv.units.flatMap(u => u.cards).filter(c => !pool.includes(c))).slice(0, total - pool.length);
   const steps = shuffle([...pool, ...rest]).map(c => ({ k: pickKind(c, "exam"), c }));
-  if (total >= 30) { const cu = shuffle(lv.units.filter(u => convSteps(u).length))[0]; if (cu) steps.push(...convSteps(cu)); } // y al final, una conversación de la etapa
+  if (total >= 30) { // 4 preguntas de sus tiempos y, al final, una conversación de la etapa
+    const ts = shuffle(TZ.filter(t => t.us.some(u => u.lv === lv))); if (ts.length) steps.push(...tzExamSteps(ts, 4));
+    const cu = shuffle(lv.units.filter(u => convSteps(u).length))[0]; if (cu) steps.push(...convSteps(cu));
+  }
   runSession(steps, { mode: "final", level: lv, title: (total < 30 ? "Ubicación: " : "Examen final: ") + lv.short });
 }
 /* ---------- videos de YouTube con minutos reales vistos ---------- */
@@ -3193,6 +3294,353 @@ function wbwHTML(c) {
   const used = new Set(), its = ctxItems(c.en, c.es).filter(x => { const k = x.t.toLowerCase(); if (used.has(k)) return false; used.add(k); return true; });
   return its.length < 2 ? "" : `<div class="wbw"><span class="wl">Palabra por palabra:</span>${its.map(x => `<span class="wp"><b>${esc(x.t)}</b> ${esc(x.g)}</span>`).join("")}</div>`;
 }
+
+/* ================= LOS TIEMPOS DEL INGLÉS: su estructura y que hables en el tiempo correcto =================
+   La persona pidió: «la app nunca enseña estructuras de los diferentes tiempos que existen asegurando que la persona esté
+   hablando en el tiempo correcto y sepa la correcta estructura». Por eso (content/tenses.js, 18 tiempos):
+   - La tarjeta de cada tiempo: para qué se usa, su fórmula en afirmativa, negativa y pregunta (en fichas de color: sujeto,
+     auxiliar, verbo y resto), ejemplos con audio (con el auxiliar y el verbo marcados), las palabras que lo delatan, las
+     respuestas cortas y el error típico. Sale en la explicación del tema (Aprende), en la página del tema y en «Mi camino»
+     → «Los tiempos del inglés» (todos, por grupos).
+   - «Estructura», en Practica de cada clase de esos temas (antes de las frases): «¿Cuál está bien dicha?» (las malas son
+     los errores típicos de quien habla español), «Ármala» (con una ficha que sobra: la forma equivocada) y «Dilo en
+     inglés» (con tu voz, o escrita). Si en esa clase no viste la explicación, antes un recordatorio de la fórmula.
+   - «¿Qué tiempo va?», en Repasa una vez al día cuando ya viste 2 o más: 4 frases de tiempos distintos, revueltos, sin
+     decir de qué tiempo son (primero los que fallaste hace poco y los que hace más que no practicas).
+   - El examen del tema trae 3 preguntas de su estructura y el examen final de etapa, 4 de sus tiempos.
+   - Si fallas una, vuelve en un rato (menos en el examen). Al contestar ves la fórmula que aplica y, si te equivocaste,
+     qué pasó con el tiempo (tenseTip): «Con did / didn't el verbo va en su forma normal: go, no went».
+   - Y en todas las prácticas, cuando escribes, armas o dices mal una frase, tenseTip te dice si el error fue del tiempo.
+   S.tzi = { "tiempo.q3": día en que salió } (salen primero las que hace más que no salen) · S.tzx = { tiempo: día en que fallaste } */
+const TZ_ROLE = { s: "Sujeto", a: "Auxiliar", v: "Verbo", r: "Resto" };
+const TZ_LAB = { "+": "Afirmativa", "-": "Negativa", "?": "Pregunta" };
+const TZ_GROUPS = [["Presente", ["tb", "ps", "pc", "pp", "ppc"]], ["Pasado", ["wb", "pas", "pac", "ut", "pap"]], ["Futuro", ["fgt", "fw", "fc", "fp"]], ["Con if: los condicionales", ["c1", "c2", "c3", "cm"]]];
+const tzPlain = x => String(x).replace(/[[\]{}]/g, "");
+const tzMark = x => esc(x).replace(/\[([^\]]*)\]/g, '<span class="tza">$1</span>').replace(/\{([^}]*)\}/g, '<span class="tzv">$1</span>');
+const fmlParts = f => f.split(" + ").map(p => ({ r: p[0], x: p.slice(2) }));
+const fmlHTML = f => `<div class="fml">${fmlParts(f).map(p => `<span class="fp ${p.r}" title="${TZ_ROLE[p.r] || ""}">${esc(p.x)}</span>`).join('<span class="fpl" aria-hidden="true">+</span>')}</div>`;
+const fmlText = f => fmlParts(f).map(p => p.x).join(" + ");
+const TZLEG = `<div class="tzleg">${Object.entries(TZ_ROLE).map(([k, t]) => `<span class="fp ${k}">${t}</span>`).join("")}</div>`;
+const tzDe = t => t.id === "ut" ? "de used to" : t.id === "cm" ? "de los condicionales mixtos" : "del " + lowFirst(t.n);
+const tzLabel = r => TZ_LAB[r[0]] || r[0];
+// La tarjeta de un tiempo. brief: la fórmula con un ejemplo de cada renglón y el error típico (para recordarla)
+function tzCard(t, o) {
+  o = o || {};
+  const exs = r => { const E = r[2].split(" · "), Es = r[3].split(" · "); return (o.brief ? E.slice(0, 1) : E).map((x, i) => { const p = tzPlain(x); return `<div class="tzex">${playBtn(p)}<div><div class="en2">${tzMark(x)}</div>${Es[i] ? `<div class="es2">${esc(Es[i])}</div>` : ""}</div></div>`; }).join(""); };
+  return `<div class="tzcard"><div class="tzh"><b>${esc(t.n)}</b><span>${esc(t.en)}</span></div>${o.brief ? "" : `<p class="tzuse">${esc(t.use)}</p>`}
+    ${t.f.map(r => `<div class="tzrow"><div class="tzl${r[0] === "-" ? " neg" : r[0] === "?" ? " q" : ""}">${esc(tzLabel(r))}</div>${fmlHTML(r[1])}${exs(r)}</div>`).join("")}
+    ${!o.brief && t.ans ? `<p class="tzmore"><b>Respuestas cortas:</b> ${esc(t.ans)}</p>` : ""}${!o.brief && t.cues.length ? `<p class="tzmore"><b>Palabras que lo delatan:</b> ${t.cues.map(esc).join(" · ")}</p>` : ""}
+    <div class="tip">${esc(t.tip)}</div></div>`;
+}
+// Las tarjetas de los tiempos de un tema (en su explicación, en su página y antes de empezar la clase)
+const tzBlock = (ts, o) => ts && ts.length ? `<div class="tzwrap"><div class="label">${ts.length > 1 ? "Cómo se arman" : "Cómo se arma"}</div>${TZLEG}${ts.map(t => tzCard(t, o)).join("")}</div>` : "";
+// Ya lo viste: viste la explicación de su tema o ya lo aprobaste (también si pasaste su etapa en el examen de ubicación)
+const tzSeen = t => t.us.some(u => S.gs[u.id] || S.done[u.id]);
+const tzLearned = () => TZ.filter(tzSeen);
+// «Mi camino» → «Los tiempos del inglés»: todos, por grupos; cada uno se abre para ver su tarjeta
+function tzMapHTML() {
+  const nu = nextUnit();
+  return TZLEG + TZ_GROUPS.map(([g, ids]) => {
+    const ts = ids.map(id => TZID[id]).filter(Boolean); if (!ts.length) return "";
+    return `<div class="tzgrp"><div class="label">${esc(g)}</div>${ts.map(t => {
+      const u = t.us[0], st = tzSeen(t) ? `<span class="ustat ok">✓ Ya lo viste</span>` : t.us.includes(nu) ? `<span class="ustat here">● Lo estás viendo</span>` : `<span class="ustat">${esc(u.lv.short)} · tema ${u.k}</span>`;
+      return `<details class="tzi" data-tz="${t.id}"><summary><span class="tzn"><b>${esc(t.n)}</b><small>${esc(tzPlain(t.f[0][2].split(" · ")[0]))}</small></span>${st}</summary>${tzCard(t)}</details>`;
+    }).join("")}</div>`;
+  }).join("");
+}
+/* ---------- las preguntas de cada tiempo ----------
+   tzp = ¿Cuál está bien dicha? (t.q) · tzb = Ármala, con una ficha que sobra (t.b) · tzs = Dilo en inglés (las buenas de
+   t.q y t.b). Sale primero la que hace más que no sale y en una sesión no se repite la misma frase. */
+const TZ_KK = { tzp: "q", tzb: "b", tzs: "s" };
+const tzKey = (t, kk, i) => `${t.id}.${kk}${i}`;
+const tzSay = t => t.q.map(x => [x[0], x[1], null, x[3]]).concat(t.b.map(x => [x[0], x[1]]));
+const tzList = (t, kk) => kk === "q" ? t.q : kk === "b" ? t.b : tzSay(t);
+const tzItem = s => tzList(s.t, TZ_KK[s.k])[s.i];
+function tzStep(t, k, used, x) {
+  const kk = { p: "q", b: "b", s: "s" }[k], list = tzList(t, kk), D = S.tzi || {};
+  const pool = shuffle(list.map((v, i) => i)).filter(i => !used.has(list[i][1])).sort((a, b) => (D[tzKey(t, kk, a)] || 0) - (D[tzKey(t, kk, b)] || 0));
+  const i = pool.length ? pool[0] : Math.floor(Math.random() * list.length);
+  used.add(list[i][1]);
+  return Object.assign({ k: "tz" + k, t, i }, x || {});
+}
+// «Estructura» en Practica. Un tiempo: elegir, armar, elegir y decir. Dos: elegir y armar de cada uno, y decir uno
+function tzPracSteps(ts, card) {
+  const u = new Set(), out = card ? [{ k: "tzcard", ts }] : [];
+  if (ts.length === 1) { const t = ts[0]; out.push(tzStep(t, "p", u), tzStep(t, "b", u), tzStep(t, "p", u), tzStep(t, "s", u)); }
+  else { const [a, b] = ts; out.push(tzStep(a, "p", u), tzStep(b, "p", u), tzStep(a, "b", u), tzStep(b, "b", u), tzStep(rnd(ts), "s", u)); }
+  return out;
+}
+// «¿Qué tiempo va?»: de los que ya viste, primero los que fallaste en las últimas 2 semanas y luego los que hace más que no practicas
+function tzMixPick() {
+  const L = tzLearned(); if (L.length < 2) return [];
+  const t0 = dayNum(), X = S.tzx || {}, D = S.tzi || {};
+  const last = t => Math.max(0, ...Object.keys(D).filter(k => k.startsWith(t.id + ".")).map(k => D[k]));
+  const err = t => (X[t.id] || 0) > t0 - 14 ? 1 : 0;
+  return shuffle(L).sort((a, b) => err(b) - err(a) || last(a) - last(b)).slice(0, 4);
+}
+const tzMixSteps = ts => { const u = new Set(); return ["p", "b", "s", "p"].map((k, i) => tzStep(ts[i % ts.length], k, u, { mix: true })); };
+// En el examen del tema (3) y en el final de etapa (4): elegir y armar, sin ayuda
+const tzExamSteps = (ts, n) => { const u = new Set(); return Array.from({ length: n }, (x, i) => tzStep(ts[i % ts.length], i % 2 ? "b" : "p", u)); };
+function tzPractice(p) {
+  const ts = (p.tids || []).map(id => TZID[id]).filter(Boolean); if (!ts.length) return false;
+  runSession(tzPracSteps(ts, p.card), { mode: "tense", unit: p.u, title: "Estructura" });
+  return true;
+}
+function tzMixPractice() {
+  const ts = tzMixPick(); if (ts.length < 2) return false;
+  runSession(tzMixSteps(ts), { mode: "tense", mix: true, title: "¿Qué tiempo va?" });
+  return true;
+}
+// El renglón de la fórmula que le toca a una frase: pregunta, negativa o afirmativa, y el que más auxiliares le atina
+function tzRow(t, en) {
+  const s = " " + tzToks(en).join(" ") + " ", q = /\?\s*$/.test(en), neg = / not /.test(s);
+  let best = t.f[0], bs = -1e9;
+  t.f.forEach(r => {
+    const isQ = r[0] === "?" || /pregunta/i.test(r[0]), isN = r[0] === "-" || /negativa/i.test(r[0]);
+    let sc = (isQ === q ? 3 : 0) + (isN === neg ? 2 : 0);
+    fmlParts(r[1]).filter(p => (p.r === "a" || p.r === "v") && !/verbo|participio|presente|pasado|sujeto/i.test(p.x)).forEach(p => {
+      const alts = p.x.replace(/\([^)]*\)/g, " ").replace(/[…?]/g, " ").split(" / ").map(x => tzToks(x).join(" ")).filter(Boolean);
+      sc += alts.some(a => s.includes(" " + a + " ")) ? 1 : -2;
+    });
+    if (sc > bs) { bs = sc; best = r; }
+  });
+  return best;
+}
+// Solo cuenta la primera vez. Si fallas (o la armas con pista), vuelve en un rato, menos en el examen y al decirla (ahí ya tuviste 3 intentos)
+function tzAnswered(s, ok) {
+  SES.combo = ok ? (SES.combo || 0) + 1 : 0;
+  if (s.again) { save(); return; }
+  const t = s.t, h = H();
+  S.tzi[tzKey(t, TZ_KK[s.k], s.i)] = dayNum(); if (!ok) S.tzx[t.id] = dayNum();
+  SES.graded++; if (ok) { SES.ok++; S.xp += 5; }
+  h.r++; if (ok) h.ok++;
+  skill(s.k, ok);
+  if (!ok && !isExam() && s.k !== "tzs") addLater(Object.assign({}, s, { again: true }), 2);
+  bumpStreak(); save(); renderMeta();
+}
+const tipLine = t => t ? `<div class="sub tipline">${esc(t)}</div>` : "";
+// El resultado: la frase bien dicha (con audio), qué significa, la fórmula que aplica y, si te equivocaste, qué pasó con el tiempo
+function tzFeedback(s, ok, idk, given, pre) {
+  const t = s.t, it = tzItem(s), es = it[0], en = it[1], tt = TZID[it[3]] || t, row = tzRow(tt, en), why = !ok && !idk && given ? tenseTip(en, given) : "";
+  const body = (pre || "") + `${ok || idk ? "" : `<div class="sub">La correcta es:</div>`}<div class="ans" data-text="${esc(en)}">${speakSpans(en)}</div><div class="sub">Significa: <strong class="smean">${escN(es)}</strong></div>`
+    + tipLine(why)
+    + `<div class="sub tzf"><b>${esc(tt.n)} · ${esc(lowFirst(tzLabel(row)))}:</b> ${esc(fmlText(row[1]))}</div>`
+    + (ok || (why && tt === t) ? "" : tipLine(t.tip))
+    + (!ok && !s.again && !isExam() && s.k !== "tzs" ? `<div class="sub">Te la vuelvo a preguntar en un momento.</div>` : "");
+  band(ok, idk, ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto", body, en, undefined, true);
+  react(ok, idk);
+  const at = SES.i; setTimeout(() => { if (SES && SES.i === at) say(en); }, 450);
+}
+// Al armarla también valen otros órdenes: los que trae la pregunta y, si tiene if, con las dos partes al revés
+function tzAlts(en, ex) {
+  const lc = x => words(x).map(y => y.toLowerCase()).join(" "), out = (ex || []).map(lc);
+  let m = en.match(/^If (.+?), (.+?)[.?!]?$/i); if (m) out.push(lc(`${m[2]} if ${m[1]}`));
+  m = /^if /i.test(en) ? null : en.match(/^(.+?),? if (.+?)[.?!]?$/i); if (m) out.push(lc(`if ${m[2]} ${m[1]}`));
+  return out;
+}
+
+/* ---------- ¿Qué pasó con el tiempo? ----------
+   Cuando escribes, armas o dices mal una frase, compara palabra por palabra con la correcta y, si el error es del tiempo o
+   de su estructura, te lo explica (máximo dos cosas); si es de otra cosa, no dice nada. Reconoce: el verbo después de
+   did / does / will / can / to (va en su forma normal), el participio con have / has / had, el -ing con am / is / are,
+   la -s de he / she / it, el pasado y el presente (y los irregulares: goed → went), el auxiliar equivocado (do / does /
+   did, am / is / are, was / were, have / has / had, will / would, to be en lugar de do y al revés), el que te faltó o te
+   sobró, el sujeto que en español no se dice, will o would después de if / when / as soon as, «to» después de will,
+   «no» en lugar de not, never con not, las mismas palabras en otro orden (al preguntar, always antes del verbo) y «should of».
+   hint: sin decir la respuesta (al decirla con tu voz, mientras todavía no la ves). */
+const TZ_BASE = new Set("do does did will would can could should must might may shall to".split(" "));
+const TZ_HAVE = new Set(["have", "has", "had"]), TZ_BE = new Set("am is are was were be been being".split(" "));
+const TZ_FAM = { do: "do", does: "do", did: "do", am: "be", is: "be", are: "be", was: "be", were: "be", have: "have", has: "have", had: "have", will: "will", would: "will" };
+const TZ_AUXW = new Set(Object.keys(TZ_FAM).concat("can could should must might may be been being".split(" ")));
+const TZ_SKIP = new Set("not never ever already just always also still really even probably usually often sometimes i you he she it we they this that there".split(" "));
+const TZ_SUBJ = new Set("i you he she it we they".split(" "));
+const TZ_PAST = new Set("was were did had went said made got knew thought took saw came gave found told felt became meant kept began ran wrote sat stood lost paid met brought bought heard sent spent built understood spoke ate drank slept drove flew won chose broke forgot sold taught caught fell wore sang swam held led grew drew threw woke rode hid fought stole shook rose hung blew froze dealt forgave dug lent bent left".split(" "));
+const TZ_IRR = Object.assign({ left: "leave", shown: "show", tore: "tear", torn: "tear" }, VIRR);
+const tzVerbs = () => tzVerbs.s || (tzVerbs.s = new Set(Object.values(TZ_IRR)));
+const tzVerb0 = x => tzVerbs().has(x) || (!!WORDS[x] && gparts(WORDS[x]).some(p => { const f = p.split(" ")[0]; return /^[a-záéíóúñ]+(ar|er|ir|ír)(se)?$/.test(f) && !NOVERB.has(f); }));
+// Las formas base posibles de una palabra: went → go, studies → study, making → make, stopped → stop
+function tzLem(w) {
+  const o = new Set([w]); if (TZ_IRR[w]) o.add(TZ_IRR[w]);
+  if (w.length >= 4) {
+    if (/ie[sd]$/.test(w)) o.add(w.slice(0, -3) + "y");
+    if (/(?:ch|sh|ss|x|o)es$/.test(w)) o.add(w.slice(0, -2));
+    if (/[^s]s$/.test(w)) o.add(w.slice(0, -1));
+    if (/ed$/.test(w)) { o.add(w.slice(0, -2)); o.add(w.slice(0, -1)); if (/([^aeiou])\1ed$/.test(w)) o.add(w.slice(0, -3)); }
+    if (/ing$/.test(w) && w.length >= 5) { const b = w.slice(0, -3); o.add(b); o.add(b + "e"); if (/([^aeiou])\1$/.test(b)) o.add(b.slice(0, -1)); }
+  }
+  return o;
+}
+const tzSameV = (a, b) => { if (a === b) return false; const A = tzLem(a); for (const x of tzLem(b)) if (A.has(x)) return true; return false; };
+const tzIsV = w => [...tzLem(w)].some(tzVerb0);
+const tzPastF = w => TZ_PAST.has(w) || (/ed$/.test(w) && w.length >= 4 && [w.slice(0, -2), w.slice(0, -1), w.slice(0, -3), w.slice(0, -3) + "y"].some(x => x.length >= 2 && tzVerb0(x)));
+// Palabras, con las contracciones abiertas (didn't = did not, I'm = I am…). 's y 'd pueden ser dos cosas (she's left = she
+// has left, she's tired = she is tired; I'd gone = I had gone, I'd go = I would go): en la frase correcta se decide por lo que
+// sigue (tzGuess) y en lo que dijiste o escribiste, por lo que mejor le queda a la frase correcta (ref).
+const TZ_ADVS = /^(already|just|never|ever|not|always|recently|really|still|also)$/;
+function tzRaw(s) {
+  s = " " + String(s).toLowerCase().replace(/[’`´]/g, "'").replace(/\b(\d+)\s*([ap])\.?\s?m\b\.?/g, "$1 x$2m").replace(/[^a-z0-9' ]+/g, " ") + " "; // 9 a.m. no es «am»
+  s = s.replace(/\bgonna\b/g, "going to").replace(/\bwanna\b/g, "want to").replace(/\bwon't\b/g, "will not").replace(/\bcan't\b|\bcannot\b/g, "can not").replace(/n't\b/g, " not");
+  s = s.replace(/\bi'm\b/g, "i am").replace(/'re\b/g, " are").replace(/'ve\b/g, " have").replace(/'ll\b/g, " will").replace(/\blet's\b/g, "let us");
+  return s.replace(/'s\b/g, " \u0001s").replace(/'d\b/g, " \u0001d").replace(/'/g, "").split(/\s+/).filter(Boolean);
+}
+function tzGuess(T) {
+  return T.map((t, i) => {
+    if (t !== "\u0001s" && t !== "\u0001d") return t;
+    let j = i + 1; while (j < T.length && TZ_ADVS.test(T[j])) j++;
+    const w = T[j] || "", adv = j > i + 1;
+    if (t === "\u0001s") return w === "been" || IRR_PP.has(w) || (adv && isPP(w)) ? "has" : "is";
+    // 'd: el primer verbo que sigue (I'd more study → would; I'd already finished → had)
+    for (let k = j; k < T.length && k <= j + 2; k++) {
+      const x = T[k];
+      if (x === "been" || x === "better" || (IRR_PP.has(x) && x !== "have" && !tzVerbs().has(x)) || (/ed$/.test(x) && tzPastF(x))) return "had";
+      if (x === "be" || x === "have" || x === "rather" || tzVerb0(x)) return "would";
+    }
+    return "would";
+  });
+}
+function tzToks(s, ref) {
+  const T = tzRaw(s).map(t => ref && (t === "am" || t === "pm") && ref.includes("x" + t) ? "x" + t : t); // la hora (9 a.m.), si en la frase la hay
+  const at = T.map((t, i) => t[0] === "\u0001" ? i : -1).filter(i => i >= 0), base = tzGuess(T);
+  if (!ref || !at.length || at.length > 4) return base;
+  const R2 = { "\u0001s": ["is", "has"], "\u0001d": ["would", "had"] };
+  let best = base, bc = tzAlign(ref, base).cost;
+  for (let m = 0; m < (1 << at.length); m++) {
+    const X = T.slice(); at.forEach((i, k) => { X[i] = R2[T[i]][(m >> k) & 1]; });
+    const c = tzAlign(ref, X).cost; if (c < bc - 1e-9) { bc = c; best = X; }
+  }
+  return best;
+}
+// Junta las dos frases palabra por palabra: eq igual, sub cambiada, del te faltó, ins te sobró
+const tzRel = (e, g) => (TZ_FAM[e] && TZ_FAM[e] === TZ_FAM[g]) || tzSameV(e, g) ? 0.9 : TZ_AUXW.has(e) && TZ_AUXW.has(g) ? 1.2 : 1.6;
+function tzAlign(E, G) {
+  const n = E.length, m = G.length, D = [], P = [];
+  for (let i = 0; i <= n; i++) { D.push(new Array(m + 1).fill(0)); P.push(new Array(m + 1).fill("")); }
+  for (let i = 1; i <= n; i++) { D[i][0] = i; P[i][0] = "del"; }
+  for (let j = 1; j <= m; j++) { D[0][j] = j; P[0][j] = "ins"; }
+  for (let i = 1; i <= n; i++) for (let j = 1; j <= m; j++) {
+    const e = E[i - 1], g = G[j - 1], c = [[D[i - 1][j - 1] + (e === g ? 0 : tzRel(e, g)), e === g ? "eq" : "sub"], [D[i - 1][j] + 1, "del"], [D[i][j - 1] + 1, "ins"]];
+    let b = c[0]; for (const x of c) if (x[0] < b[0] - 1e-9) b = x;
+    D[i][j] = b[0]; P[i][j] = b[1];
+  }
+  const ops = [];
+  for (let i = n, j = m; i > 0 || j > 0;) {
+    const op = P[i][j];
+    if (op === "eq" || op === "sub") { ops.push({ op, e: E[i - 1], g: G[j - 1], ei: i - 1, gi: j - 1 }); i--; j--; }
+    else if (op === "del") { ops.push({ op, e: E[i - 1], ei: i - 1, gi: j }); i--; }
+    else { ops.push({ op: "ins", g: G[j - 1], ei: i, gi: j - 1 }); j--; }
+  }
+  ops.reverse(); ops.cost = D[n][m];
+  return ops;
+}
+const TZ_CONJ = /(?:^| )(if|when|unless|until|before|after|as soon as|by the time)(?: [a-z]+){0,2}$/;
+function tenseTip(expected, given, hint) {
+  const E = tzToks(expected), G = tzToks(given, E);
+  if (!E.length || !G.length || E.join(" ") === G.join(" ")) return "";
+  const out = [], nm = w => w === "i" ? "I" : w, q = w => `«${nm(w)}»`;
+  const add = (full, short) => { const t = hint && short !== undefined ? short : full; if (t && !out.includes(t) && out.length < 2) out.push(t); };
+  // las mismas palabras en otro orden (alguna se movió): al preguntar o con always, eso; si no, solo si will quedó después de if
+  // (lo que se movió no «te faltó»: está en otro lugar; al armar con fichas siempre son las mismas palabras)
+  const ops = tzAlign(E, G), perm = E.slice().sort().join(" ") === G.slice().sort().join(" ");
+  if (perm && ops.some(o => o.op === "del" || o.op === "ins")) {
+    const gs = " " + G.join(" ") + " ", has2 = (a, b) => gs.includes(` ${a} ${b} `);
+    // al preguntar, el sujeto va justo después del auxiliar (are you, did she…): si ya no van juntos, eso fue
+    if (/\?\s*$/.test(expected) && E.some((w, i) => TZ_AUXW.has(w) && TZ_SUBJ.has(E[i + 1]) && !has2(w, E[i + 1]))) return "Al preguntar, primero va el auxiliar (do, does, did, am, is, are, was, will…) y luego el sujeto.";
+    // always, never, already… en otro lugar (ya no está junto a lo que tenía antes ni después)
+    const adv = E.find((w, i) => /^(always|usually|sometimes|never|often|already|just|ever|still)$/.test(w) && !(i > 0 && has2(E[i - 1], w)) && !(i + 1 < E.length && has2(w, E[i + 1])));
+    if (adv) return `${adv} va antes del verbo principal (y después de am, is, are, have o will).`;
+  }
+  if (E.includes("not") && G.includes("no") && !G.includes("not")) add("Para decir que no, en inglés va not (don't, doesn't, didn't, isn't, won't…), no «no».");
+  // el auxiliar que manda sobre la palabra i (saltando not, never, already… y el sujeto en las preguntas)
+  const govAt = i => { for (let j = i - 1, k = 0; j >= 0 && k < 4; j--, k++) { const w = E[j]; if (TZ_BASE.has(w) || TZ_HAVE.has(w) || TZ_BE.has(w)) return j; if (!TZ_SKIP.has(w)) return -1; } return -1; };
+  const gov = i => { const j = govAt(i); return j < 0 ? "" : E[j]; }, lost = new Set(); // lost: los auxiliares que te faltaron (lo que sigue ya no se explica aparte)
+  const subj = i => TZ_SUBJ.has(E[i - 1]) ? E[i - 1] : TZ_SUBJ.has(E[i + 1]) ? E[i + 1] : "";
+  const nextV = i => { for (let j = i + 1; j < E.length && j <= i + 3; j++) if (!TZ_SKIP.has(E[j])) return E[j]; return ""; };
+  const imag = i => E.includes("would") && E.slice(0, i).includes("if"); // lo imaginario: después de if va en pasado
+  const pastMsg = (i, e, g) => `${imag(i) ? "En algo imaginario, después de if va en pasado" : "Es pasado"}: ${e}, no ${g}.`;
+  for (const o of ops) {
+    if (out.length >= 2) break;
+    if (o.op === "eq") continue;
+    if (o.op === "sub") {
+      const e = o.e, g = o.g, a = gov(o.ei), fe = TZ_FAM[e], fg = TZ_FAM[g], sj = nm(subj(o.ei));
+      if (lost.has(govAt(o.ei))) continue; // te faltó su auxiliar: eso ya se dijo
+      if (perm && (E[o.ei - 1] === g || E[o.ei + 1] === g)) continue; // dos palabras juntas al revés: es el orden, no el tiempo
+      if (e === "have" && g === "of") { add("Se dice have (al hablar suena «should've»), no «of».", "Revisa «of»."); continue; }
+      if (fe && fg && !a) { // el auxiliar
+        const who = x => sj || x;
+        if (fe === fg) {
+          if (fe === "do") {
+            if (e === "did") add(`Es pasado: did, no ${g}.`, `Es pasado: revisa ${q(g)}.`);
+            else if (g === "did") add(`Es presente: ${e}, no did.`, `Es presente: revisa ${q(g)}.`);
+            else add(`Con ${who(e === "does" ? "he, she o it" : "I, you, we o they")} va ${e}, no ${g}.`, `Con ${who(e === "does" ? "he, she o it" : "I, you, we o they")} no va ${q(g)}.`);
+          } else if (fe === "be") {
+            const pe = e === "was" || e === "were", pg = g === "was" || g === "were";
+            if (pe && !pg) add(pastMsg(o.ei, e, g), `Es pasado: revisa ${q(g)}.`);
+            else if (!pe && pg) add(`Es presente: ${e}, no ${g}.`, `Es presente: revisa ${q(g)}.`);
+            else if (sj) add(`Con ${sj} va ${e}, no ${g}.`, `Con ${sj} no va ${q(g)}.`);
+            else add(pe ? "I, he, she, it → was · you, we, they → were." : "I → am · he, she, it → is · you, we, they → are.");
+          } else if (fe === "have") {
+            if (e === "had") add(pastMsg(o.ei, e, g), `Revisa ${q(g)}: aquí va en pasado.`);
+            else if (g === "had") add(`Aquí va ${e} (presente perfecto), no had.`, "Aquí no va «had».");
+            else add(`Con ${who(e === "has" ? "he, she o it" : "I, you, we o they")} va ${e}, no ${g}.`, `Con ${who(e === "has" ? "he, she o it" : "I, you, we o they")} no va ${q(g)}.`);
+          } else add(e === "would" ? "Aquí va would (es algo imaginario: harías, sería), no will." : "Aquí va will (es algo que sí puede pasar), no would.", e === "would" ? "Es algo imaginario: revisa «will»." : "Es algo que sí puede pasar: revisa «would».");
+        } else if (fe === "be" && fg === "do") {
+          const nv = nextV(o.ei);
+          if (/ing$/.test(nv)) add(`Con el verbo con -ing (${nv}) va ${e}, no ${g}.`, `Con el verbo con -ing no va ${q(g)}.`);
+          else add(`Aquí no hay otro verbo: va ${e} (de to be), no ${g}.`, `Aquí no hay otro verbo: no va ${q(g)}.`);
+        } else if (fe === "do" && fg === "be") {
+          const nv = nextV(o.ei);
+          add(nv ? `Con un verbo como «${nv}» va ${e}, no ${g}.` : `Aquí va ${e}, no ${g}.`, nv ? `Con un verbo como «${nv}» no va ${q(g)}.` : `Aquí no va ${q(g)}.`);
+        } else if (fe === "have" && isPP(nextV(o.ei))) add(`Con el participio (${nextV(o.ei)}) va ${e}, no ${g}.`, `Con el participio no va ${q(g)}.`);
+        else add(`Aquí va ${e}, no ${g}.`, `Aquí no va ${q(g)}.`);
+        continue;
+      }
+      const same = tzSameV(e, g);
+      if (!same && !(a && tzIsV(g))) continue;
+      const s3 = ["he", "she", "it"].includes(subj(o.ei)), sp = ["i", "you", "we", "they"].includes(subj(o.ei)), ing = /ing$/.test(g);
+      if (a === "did" && (same || tzPastF(g) || ing)) add(`Con did / didn't el verbo va en su forma normal: ${e}, no ${g} (did ya dice que es pasado).`, `Con did / didn't el verbo va en su forma normal (dijiste ${q(g)}).`);
+      else if (a === "does" && /s$/.test(g) && same) add(`Con does / doesn't el verbo va sin -s: ${e}, no ${g}.`, `Con does / doesn't el verbo va sin -s (dijiste ${q(g)}).`);
+      else if (TZ_BASE.has(a) && (same || tzPastF(g) || ing)) add(`Después de ${a} el verbo va en su forma normal: ${e}, no ${g}.`, `Después de ${a} el verbo va en su forma normal (dijiste ${q(g)}).`);
+      else if ((TZ_HAVE.has(a) || (TZ_BE.has(a) && !/ing$/.test(e) && isPP(e))) && (same || !isPP(g) || ing)) add(`Con ${a} va el participio: ${e}, no ${g}.`, `Con ${a} va el participio (dijiste ${q(g)}).`);
+      else if (TZ_BE.has(a) && /ing$/.test(e) && !ing) add(`Con ${a} el verbo lleva -ing: ${e}, no ${g}.`, `Con ${a} el verbo lleva -ing (dijiste ${q(g)}).`);
+      else if (!same || !(tzIsV(e) || tzIsV(g))) continue; // friends / friend no es del tiempo
+      else if (a) add(`Revisa el verbo: aquí va ${e}, no ${g}.`, `Revisa el verbo ${q(g)}.`);
+      else {
+        const pe = tzPastF(e), pg = tzPastF(g);
+        if (TZ_PAST.has(e) && /ed$/.test(g) && tzLem(g).has(TZ_IRR[e])) add(`${TZ_IRR[e]} es irregular: su pasado es ${e}, no ${g}.`, `${TZ_IRR[e]} es irregular: su pasado no lleva -ed.`);
+        else if (pe && !pg) add(pastMsg(o.ei, e, g), `Es pasado: el verbo va en pasado (dijiste ${q(g)}).`);
+        else if (!pe && pg) add(`Es presente: ${e}, no ${g}.`, `Es presente (dijiste ${q(g)}).`);
+        else if (ing && !/ing$/.test(e)) add(`Aquí el verbo va sin -ing: ${e}, no ${g}.`, `Aquí el verbo va sin -ing (dijiste ${q(g)}).`);
+        else if (/s$/.test(e) && s3) add(`Con ${sj} el verbo lleva -s: ${e}, no ${g}.`, `Con ${sj} el verbo lleva -s (dijiste ${q(g)}).`);
+        else if (/s$/.test(g) && sp) add(`Con ${sj} el verbo va sin -s: ${e}, no ${g}.`, `Con ${sj} el verbo va sin -s (dijiste ${q(g)}).`);
+        else add(`Revisa el verbo: aquí va ${e}, no ${g}.`, `Revisa el verbo ${q(g)}.`);
+      }
+    } else if (o.op === "del") { // te faltó
+      if (perm) continue;
+      const e = o.e, nv = nextV(o.ei), pv = E[o.ei - 1] || "";
+      if (TZ_AUXW.has(e)) lost.add(o.ei);
+      if (TZ_BE.has(e) && e !== "be" && /ing$/.test(nv)) add(`Te faltó ${e} antes de ${nv}.`, `Te faltó el auxiliar (am / is / are o was / were) antes de ${q(nv)}.`);
+      else if (TZ_FAM[e] === "do") add(E[o.ei + 1] === "not" ? `Para decir que no te faltó ${e} (${e}n't).` : `Para preguntar te faltó ${e}.`, E[o.ei + 1] === "not" ? "Para decir que no te faltó el auxiliar (don't, doesn't o didn't)." : "Para preguntar te faltó el auxiliar (do, does o did).");
+      else if (TZ_HAVE.has(e) && isPP(nv)) add(`Te faltó ${e} antes de ${nv}.`, `Te faltó el auxiliar antes de ${q(nv)}.`);
+      else if (e === "will" || e === "would") add(`Te faltó ${e}.`, e === "will" ? "Te faltó el auxiliar del futuro." : "Te faltó el auxiliar de lo imaginario.");
+      else if (e === "be") add("Te faltó be.");
+      else if (TZ_BE.has(e) && TZ_SUBJ.has(pv)) add(`Te faltó el verbo to be: ${nm(pv)} ${e}.`, "Te faltó el verbo to be (am, is, are, was, were).");
+      else if (TZ_BE.has(e) && e !== "being") add(`Te faltó ${e}.`, "Te faltó el verbo to be.");
+      else if (TZ_SUBJ.has(e) && !G.includes(e)) add(`En inglés siempre se dice el sujeto: te faltó ${nm(e)}.`, "En inglés siempre se dice el sujeto (I, you, he, she, it…).");
+      else if (e === "to" && /^(going|used|use)$/.test(pv)) add(`Te faltó to: ${pv} to.`);
+      else if (e === "not" && !G.includes("no")) add("Te faltó not.");
+    } else { // te sobró
+      const g = o.g, before = G.slice(Math.max(0, o.gi - 4), o.gi).join(" "), pv = G.slice(0, o.gi).reverse().find(w => w !== "not" && w !== "never") || "";
+      const cj = (g === "will" || g === "would") && before.match(TZ_CONJ);
+      if (cj) add(`Después de ${cj[1]} no va ${g}.`, `Después de ${cj[1]} no va ${q(g)}.`);
+      else if (perm || E.includes(g)) continue;
+      else if (g === "to" && TZ_BASE.has(pv)) add(`Después de ${pv} no va to.`);
+      else if (g === "not" && E.includes("never")) add("Con never ya no va not.");
+      else if (TZ_FAM[g] === "do" && tzPastF(G[o.gi + 1] || "")) add(`Aquí no va ${g}: el verbo en pasado ya lo dice.`, `Aquí no va ${q(g)}.`);
+      else if (TZ_FAM[g] || g === "be" || g === "been") add(`Aquí no va ${g}.`, `Aquí no va ${q(g)}.`);
+    }
+  }
+  return out.join(" ");
+}
 // Opciones para "¿qué significa?": otras palabras de la sesión, de la unidad o de la etapa, sin significados que se parezcan
 function wDistract(w, n) {
   const taken = new Set(gparts(WORDS[w])), out = [], used = new Set([w]), u = FIRSTU[w];
@@ -3259,7 +3707,7 @@ function wordTip(el) {
   say(it ? it.t : ws.join(" "));
 }
 window.addEventListener("scroll", hideTip, { passive: true }); window.addEventListener("resize", hideTip);
-function feedback(ok, c, extra, idk) {
+function feedback(ok, c, extra, idk, given) {
   const title = (ok ? rnd(OKW) + comboTag() : idk ? "Esta es la respuesta" : "Incorrecto");
   // Cada dato en su renglón y con su nombre: la respuesta, cómo se pronuncia, qué significa (si la pregunta fue en audio) y el consejo
   const k = (SES.steps[SES.i] || {}).k;
@@ -3267,7 +3715,8 @@ function feedback(ok, c, extra, idk) {
   const mean = sameText(c) ? "" : `<div class="sub">Significa: <strong class="smean">${escN(c.es)}</strong></div>`; // letras (I, R, E): significa lo mismo
   const tip = !ok && c.note ? `<div class="sub tipline">${esc(c.note)}</div>` : "";
   const wbw = ok ? "" : wbwHTML(c);
-  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}" data-id="${esc(c.id)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${wbw}${pr}${tip}`;
+  const tz = tipLine(!ok && !idk && given ? tenseTip(c.en, given) : ""); // qué pasó con el tiempo (did + go, no went…)
+  const body = (extra || "") + `${ok || idk ? "" : `<div class="sub">La respuesta correcta es:</div>`}<div class="ans" data-text="${esc(c.en)}" data-id="${esc(c.id)}">${c.em ? `<span class="aemo" aria-hidden="true">${c.em}</span>` : ""}${speakSpans(c.en)}</div>${mean}${tz}${wbw}${pr}${tip}`;
   const again = needAgain(ok, k);
   band(ok, idk, title, body, c.en, undefined, again); // «Continuar» se activa cuando termina de decir la respuesta
   react(ok, idk);
@@ -3549,7 +3998,7 @@ function step() {
       e.preventDefault();
       const r = closeEnough(inp.value, c.en); if (!r) { inp.focus(); return; }
       lock(); answered(c, r.ok, helped);
-      feedback(r.ok, c, r.ok ? (r.exact ? "" : `<div class="sub">Casi perfecto. Revisa cómo se escribe:</div>`) : `<div class="sub">Escribiste: ${esc(inp.value)}</div>`);
+      feedback(r.ok, c, r.ok ? (r.exact ? "" : `<div class="sub">Casi perfecto. Revisa cómo se escribe:</div>`) : `<div class="sub">Escribiste: ${esc(inp.value)}</div>`, false, inp.value);
     };
     return;
   }
@@ -3586,23 +4035,26 @@ function step() {
     $("#chk").onclick = () => {
       const ok = picked.map(j => lc(pool[j].t)).join(" ") === w.map(lc).join(" ");
       lockAll(); answered(c, ok, helped);
-      feedback(ok, c, ok && helped ? `<div class="sub">Con pista: va a volver en un rato para que la armes tú solo.</div>` : "");
+      feedback(ok, c, ok && helped ? `<div class="sub">Con pista: va a volver en un rato para que la armes tú solo.</div>` : "", false, picked.map(j => pool[j].t).join(" "));
     };
     return;
   }
   if (s.k === "speak") {
-    let tries = 0;
+    let tries = 0, last = "";
     st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
     foot(help("sReveal", "Ver respuesta", "warn", ICO.eye) + help("sType", "Mejor escribirla", "info", ICO.keys), "");
-    const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c); };
+    const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c, "", false, last); };
     // Cambiar a escribir: la meta de esta frase pasa a ser escribirla bien, y en el resto de la sesión no pide hablar
     const toWriting = () => { const k2 = fitKind(c, "type"), m = SES.m[c.id]; if (m) m.target = k2; SES.write = true; SES.steps[SES.i] = { k: k2, c, wr: true, fix: s.fix }; step(); };
     micUI($("#micBox"), c.en, (ok, heard) => {
       if (ok === null) { toWriting(); return; }
-      tries++;
+      tries++; last = heard || last;
       if (ok) { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
       if (tries >= 3) giveUp();
-      else addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
+      else {
+        addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
+        const h = !isExam() && heard ? tenseTip(c.en, heard, true) : ""; if (h) addNote($("#micBox"), h); // pista del tiempo, sin decir la respuesta
+      }
     }, true);
     $("#sReveal").onclick = giveUp;
     $("#sType").onclick = toWriting;
@@ -3671,11 +4123,100 @@ function step() {
   if (s.k === "gram") {
     const u = s.u;
     st.innerHTML = `<span class="tag">${s.recap ? "Repasemos la explicación" : "Nueva lección"} · ${esc(u.lv.short)} · Unidad ${u.k}</span>${u.icon ? `<span class="hic" aria-hidden="true">${u.icon}</span>` : ""}<h2 class="center">${esc(u.t)}</h2><p class="lead">${esc(u.goal)}</p>
-      <div class="gram" style="display:flex;flex-direction:column;gap:12px">${gramHTML(u.g)}</div>
+      <div class="gram" style="display:flex;flex-direction:column;gap:12px">${tzBlock(u.tz)}${gramHTML(u.g)}</div>
       <p class="lead" style="font-size:14px">${s.recap ? "Léela con calma y escucha los ejemplos. Muchas veces el error viene de aquí: cuando entiendes la regla, las frases salen solas." : "Escucha los ejemplos y repítelos en voz alta. No tienes que memorizar la regla: la vas a aprender usando las frases."}</p>`;
     foot("", goBtn("gramOk", s.recap ? "Entendido, sigamos" : "Entendido, a practicar"));
     $("#gramOk").onclick = () => { S.gs[u.id] = 1; save(); nextStep(); };
     $("#gramOk").focus({ preventScroll: true });
+    return;
+  }
+  // LOS TIEMPOS: recordatorio de la estructura, «¿Cuál está bien dicha?», «Ármala» (una ficha sobra) y «Dilo en inglés»
+  if (s.k === "tzcard") {
+    st.innerHTML = `<span class="tag">Estructura</span><h2 class="ttl">${s.ts.length > 1 ? "Recuerda cómo se arman" : "Recuerda cómo se arma"}</h2>${TZLEG}${s.ts.map(t => tzCard(t, { brief: true })).join("")}
+      <p class="lead" style="font-size:14px">Escucha los ejemplos. Ahora tú: eliges la frase bien dicha, la armas y la dices.</p>`;
+    foot("", goBtn("zGo", "A practicar"));
+    $("#zGo").onclick = nextStep; $("#zGo").focus({ preventScroll: true });
+    return;
+  }
+  if (s.k === "tzp" || s.k === "tzb" || s.k === "tzs") {
+    const it = tzItem(s), es = it[0], en = it[1];
+    const tag = `<span class="tag">${s.again ? "Otra vez · " : ""}${s.mix ? "¿Qué tiempo va?" : "Estructura · " + esc(s.t.n)}</span>`;
+    if (s.k === "tzp") { // la buena y las malas (los errores típicos), revueltas
+      const opts = shuffle([en, ...it[2]].map((x, i) => ({ x, i })));
+      st.innerHTML = `${tag}<h2 class="ttl">¿Cuál está bien dicha?</h2><div class="prompt sm">${escN(es)}</div>
+        <div class="opts">${opts.map((o, j) => `<button class="opt" data-i="${o.i}"><span class="k" aria-hidden="true">${j + 1}</span>${esc(o.x)}</button>`).join("")}</div>`;
+      foot(help("zIdk", "No sé", "warn", ICO.help), "");
+      const pickZ = b => {
+        const ok = !!b && b.dataset.i === "0";
+        sesEl(".opt,#zIdk").forEach(x => { x.disabled = true; if (x.dataset.i === "0") x.classList.add("ok"); });
+        if (b && !ok) b.classList.add("bad");
+        tzAnswered(s, ok); tzFeedback(s, ok, !b, b && !ok ? opts.find(o => String(o.i) === b.dataset.i).x : "");
+      };
+      st.querySelectorAll(".opt").forEach(b => b.onclick = () => pickZ(b));
+      $("#zIdk").onclick = () => pickZ(null);
+      return;
+    }
+    if (s.k === "tzb") { // armarla con las fichas: una sobra (la forma equivocada)
+      const w = words(en), trap = it[2], pool = shuffle([...w, trap].map((x, k) => ({ x, k }))), lc = x => x.toLowerCase();
+      const want = w.map(lc).join(" "), alts = tzAlts(en, it[3]);
+      let picked = [], helped = false;
+      st.innerHTML = `${tag}<h2 class="ttl">Ármala en inglés: una ficha sobra</h2><div class="prompt sm">${escN(es)}</div>
+        <div class="slot" id="slot" aria-label="Tu frase"></div>
+        <div class="pool" id="pool">${pool.map((p, j) => `<button class="chip" data-j="${j}">${esc(p.x)}</button>`).join("")}</div>
+        <p class="omsg" id="oMsg"></p>`;
+      foot(help("clr", "Borrar", "", ICO.undo) + (isExam() ? "" : help("oHint", "Pista", "purp", ICO.bulb)) + help("oIdk", "No sé", "warn", ICO.help), goBtn("chk", "Revisar", true));
+      const draw = () => {
+        $("#slot").innerHTML = picked.map((j, k) => `<button class="chip" data-k="${k}">${esc(pool[j].x)}</button>`).join("");
+        st.querySelectorAll("#pool .chip").forEach(b => b.classList.toggle("used", picked.includes(+b.dataset.j)));
+        $("#slot").querySelectorAll(".chip").forEach(b => b.onclick = () => { picked.splice(+b.dataset.k, 1); draw(); });
+        $("#chk").disabled = picked.length !== w.length;
+        $("#oMsg").textContent = picked.length > w.length ? "Te sobran fichas: toca una de arriba para quitarla." : $("#oMsg").textContent;
+        if (!$("#chk").disabled) $("#chk").focus({ preventScroll: true });
+      };
+      st.querySelectorAll("#pool .chip").forEach(b => b.onclick = () => { const j = +b.dataset.j; if (!picked.includes(j)) { picked.push(j); draw(); } });
+      $("#clr").onclick = () => { picked = []; $("#oMsg").textContent = ""; draw(); };
+      // Pista: deja lo que va bien del inicio y pone la siguiente ficha correcta
+      if ($("#oHint")) $("#oHint").onclick = () => {
+        let p = 0; while (p < picked.length && lc(pool[picked[p]].x) === lc(w[p])) p++;
+        picked = picked.slice(0, p);
+        if (p < w.length) { const j = pool.findIndex((x, jj) => !picked.includes(jj) && x.k < w.length && lc(x.x) === lc(w[p])); if (j >= 0) picked.push(j); }
+        helped = true; $("#oMsg").textContent = p === 0 ? "La frase empieza así. Sigue tú." : "Hasta aquí va bien. Sigue tú."; draw();
+        say(picked.map(j => pool[j].x).join(" "));
+      };
+      const lockAll = () => sesEl("#stage .chip,#sfoot button").forEach(x => x.disabled = true);
+      $("#oIdk").onclick = () => { lockAll(); tzAnswered(s, false); tzFeedback(s, false, true); };
+      $("#chk").onclick = () => {
+        const got = picked.map(j => lc(pool[j].x)).join(" "), ok = got === want || alts.includes(got), trapped = picked.some(j => pool[j].k === w.length);
+        lockAll(); tzAnswered(s, ok && !helped);
+        tzFeedback(s, ok, false, ok ? "" : picked.map(j => pool[j].x).join(" "),
+          (trapped ? `<div class="sub tipline">La ficha «${esc(trap)}» sobraba: esa forma no va en esta frase.</div>` : "") + (ok && helped ? `<div class="sub">Con pista: vuelve en un rato para que la armes tú solo.</div>` : ""));
+      };
+      return;
+    }
+    // tzs: dilo en inglés con tu voz (sin micrófono o si prefieres, escrita). 3 intentos; con pistas del tiempo (menos en el examen)
+    let tries = 0, last = "", over = false;
+    const end = (ok, idk, given) => { if (over) return; over = true; sesEl("#stage button,#stage input,#sfoot button").forEach(b => b.disabled = true); tzAnswered(s, ok); tzFeedback(s, ok, idk, given); };
+    const typeIt = () => {
+      st.innerHTML = `${tag}<h2 class="ttl">Escríbela en inglés</h2><div class="prompt sm">${escN(es)}</div>
+        <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>`;
+      foot(help("zIdk", "No sé", "warn", ICO.help), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
+      $("#tin").focus();
+      $("#zIdk").onclick = () => end(false, true);
+      $("#tf").onsubmit = ev => { ev.preventDefault(); const v = $("#tin").value, r = closeEnough(v, en); if (!r) { $("#tin").focus(); return; } end(r.ok, false, r.ok ? "" : v); };
+    };
+    if (!srOK || SES.write) { typeIt(); return; }
+    st.innerHTML = `${tag}<h2 class="ttl">Dilo en inglés</h2><div class="prompt sm">${escN(es)}</div><div id="micBox"></div>`;
+    foot(help("zIdk", "No sé", "warn", ICO.help) + help("zType", "Mejor escribirla", "info", ICO.keys), "");
+    $("#zIdk").onclick = () => end(false, true);
+    $("#zType").onclick = typeIt;
+    micUI($("#micBox"), en, (ok, heard) => {
+      if (ok === null) { typeIt(); return; }
+      tries++; last = heard || last;
+      if (ok) { end(true); return; }
+      if (tries >= 3) { end(false, false, last); return; }
+      addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
+      const h = !isExam() && heard ? tenseTip(en, heard, true) : ""; if (h) addNote($("#micBox"), h);
+    }, true);
     return;
   }
   if (s.k === "read") {
@@ -3718,7 +4259,7 @@ function step() {
     const prevA = SES.steps[SES.i - 1] && SES.steps[SES.i - 1].line;
     if (s.x) { // en el examen: lo dices tú (o lo escribes) y cuenta como una pregunta; aquí no hay «¿te salió?»
       const want = cueless(en), ctxA = prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(cueless(prevA[1]))}"</p>` : "";
-      let tries = 0, over = false;
+      let tries = 0, over = false, last = "";
       const end = (ok, idk, extra) => {
         if (over) return; over = true;
         sesEl("#stage button,#stage input,#sfoot button").forEach(b => b.disabled = true);
@@ -3732,18 +4273,18 @@ function step() {
         foot(help("xIdk", "No sé", "warn", ICO.help), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
         $("#tin").focus();
         $("#xIdk").onclick = () => end(false, true);
-        $("#tf").onsubmit = ev => { ev.preventDefault(); const v = $("#tin").value, r = closeEnough(v, want); if (!r) { $("#tin").focus(); return; } end(r.ok, false, r.ok ? "" : `<div class="sub">Escribiste: ${esc(v)}</div>`); };
+        $("#tf").onsubmit = ev => { ev.preventDefault(); const v = $("#tin").value, r = closeEnough(v, want); if (!r) { $("#tin").focus(); return; } end(r.ok, false, r.ok ? "" : `<div class="sub">Escribiste: ${esc(v)}</div>` + tipLine(tenseTip(want, v))); };
       };
       if (!srOK) { typeIt(); return; }
       st.innerHTML = `<span class="tag">Conversación</span><h2 class="ttl">Tu turno</h2>${ctxA}<div class="prompt">${esc(es)}</div><p class="lead">Contéstale en inglés, con tu voz.</p><div id="micBox"></div>`;
       foot(help("xIdk", "No sé", "warn", ICO.help) + help("xType", "Mejor escribirla", "info", ICO.keys), "");
       $("#xIdk").onclick = () => end(false, true);
       $("#xType").onclick = typeIt;
-      micUI($("#micBox"), want, ok => {
+      micUI($("#micBox"), want, (ok, heard) => {
         if (ok === null) { typeIt(); return; }
-        tries++;
+        tries++; last = heard || last;
         if (ok) end(true);
-        else if (tries >= 3) end(false);
+        else if (tries >= 3) end(false, false, last ? `<div class="sub">Dijiste: ${esc(last)}</div>` + tipLine(tenseTip(want, last)) : "");
         else addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
       }, true);
       return;
@@ -3858,6 +4399,9 @@ function finish() {
     S.dl[SES.unit.id] = 1; save();
     msg = ok === n ? "¡Excelente! Repite el diálogo hasta que te salga sin pensar." : "Repítela un par de veces más: la meta es responder sin pensar.";
     btns = `<button class="btn primary" id="fAgain">Repetir conversación</button>`;
+  } else if (m === "tense") {
+    title = SES.mix ? "¿Qué tiempo va?" : "Estructura";
+    msg = !n ? "¡Buen trabajo!" : ok === n ? "¡Excelente! Todas bien a la primera." : `Te salieron ${ok} de ${n} a la primera. ${n - ok === 1 ? "La que fallaste vuelve" : "Las que fallaste vuelven"} en tus siguientes clases.`;
   } else if (m === "tpr") {
     title = "Haz lo que oyes";
     const nw = SES.steps.filter(s => s.k === "tprshow").length;
@@ -4009,7 +4553,7 @@ function merge(a, b) {
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
   const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
-  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), lm: mx(a.lm, b.lm), ear: mx(a.ear, b.ear), lmv: Math.max(a.lmv || 0, b.lmv || 0), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), lm: mx(a.lm, b.lm), ear: mx(a.ear, b.ear), tzi: mx(a.tzi, b.tzi), tzx: mx(a.tzx, b.tzx), lmv: Math.max(a.lmv || 0, b.lmv || 0), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
