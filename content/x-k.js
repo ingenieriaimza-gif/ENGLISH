@@ -254,13 +254,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["pan con mantequilla", "bread and butter", "bred and báter", ""]
     ],
     r: {
-      t: "Breakfast",
-      en: "I eat breakfast at seven.\nI eat eggs, bread and fruit. I like bananas and strawberries.\nI drink coffee with milk. I don't drink juice.",
-      es: "Desayuno a las siete.\nComo huevos, pan y fruta. Me gustan los plátanos y las fresas.\nTomo café con leche. No tomo jugo.",
+      t: "A Sunday with food",
+      en: "It's Sunday. I'm hungry! For breakfast I eat bread and butter, and I drink milk.\nThen we go to the supermarket. We buy grapes, apples and a big watermelon. I love fruit!\nFor lunch, my grandma cooks chicken with rice. It's good.\nIn the afternoon I'm thirsty. I drink water and juice. Then we eat chocolate ice cream. Yum!",
+      es: "Es domingo. ¡Tengo hambre! De desayuno como pan con mantequilla y tomo leche.\nDespués vamos al supermercado. Compramos uvas, manzanas y una sandía grande. ¡Me gusta mucho la fruta!\nDe comida, mi abuela cocina pollo con arroz. Está rico.\nEn la tarde tengo sed. Tomo agua y jugo. Después comemos helado de chocolate. ¡Mmm!",
       q: [
-        ["¿A qué hora desayuna?", ["A las seis", "A las siete", "A las ocho"], 1],
-        ["¿Qué fruta le gusta?", ["Plátanos y fresas", "Uvas y piña", "Sandía"], 0],
-        ["¿Qué NO toma?", ["Café", "Leche", "Jugo"], 2]
+        ["¿Qué desayuna?", ["Pan con mantequilla y leche", "Huevos y café", "Fruta y jugo"], 0],
+        ["¿Qué compran en el supermercado?", ["Pan y leche", "Uvas, manzanas y una sandía", "Pollo y arroz"], 1],
+        ["¿Quién cocina la comida?", ["Su mamá", "Su papá", "Su abuela"], 2],
+        ["¿Qué comen en la tarde?", ["Helado de chocolate", "Dulces", "Pastel"], 0]
       ]
     }
   },

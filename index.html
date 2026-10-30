@@ -147,6 +147,9 @@ h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-tra
 .who{font-family:var(--f-mono);font-size:13px;width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--ink)}
 .ln.b .who{background:var(--ink);color:var(--panel)}
 .ln .es2{color:var(--muted);font-size:14px}
+.dlg .lsc{font-size:14px;color:var(--muted);border-left:3px solid var(--accent);padding:2px 0 2px 10px;margin:10px 0 2px}
+.dlg .lsc:first-child{margin-top:0}
+.pvsc{margin:8px 0 0;font-size:14px;color:var(--muted);border-left:3px solid var(--accent);padding:2px 0 2px 8px}
 .pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .reading{font-size:17px;line-height:1.65;display:flex;flex-direction:column;gap:10px}
 .reading p{margin:0}
@@ -1414,7 +1417,7 @@ let NAMES = null;
 function names() { // nombres propios del curso (nunca aparecen en minúscula): se aceptan con otra ortografía (Sofía/Sophia)
   if (NAMES) return NAMES;
   const cap = new Set(), low = new Set();
-  CARDS.map(c => c.en).concat(UNITS.flatMap(u => u.d.map(l => l[1]))).forEach(t => t.split(/\s+/).forEach((w, i, ws) => {
+  CARDS.map(c => c.en).concat(UNITS.flatMap(u => u.d.filter(l => l[0] !== "@").map(l => l[1]))).forEach(t => t.split(/\s+/).forEach((w, i, ws) => {
     const b = stripAcc(w).replace(/'s\b/i, "").replace(/[^A-Za-z]/g, ""); if (b.length < 2) return;
     if (ws[i + 1] === "dot" || ws[i - 1] === "dot") return; // correos (ana dot lopez): ahí los nombres van en minúscula
     if (/^[A-Z][a-z]/.test(b)) cap.add(b.toLowerCase()); else if (/^[a-z]/.test(b)) low.add(b); // las siglas y el deletreo (A-N-A) no cuentan
@@ -1454,7 +1457,7 @@ function fillNames(t, f) {
 function applyNames() {
   CARDS.forEach(c => { if (c.T) { c.en = fillNames(c.T.en, "en"); c.es = fillNames(c.T.es, "es"); c.pron = fillNames(c.T.pron, "pron"); c.note = fillNames(c.T.note, "es"); } });
   UNITS.forEach(u => {
-    if (u.dT) u.d = u.dT.map(l => [l[0], fillNames(l[1], "en"), fillNames(l[2], "es")]);
+    if (u.dT) u.d = u.dT.map(l => l[0] === "@" ? [l[0], fillNames(l[1], "es")] : [l[0], fillNames(l[1], "en"), fillNames(l[2], "es")]);
     if (u.gT) u.g = u.gT.map(x => Array.isArray(x) ? [fillNames(x[0], "en"), fillNames(x[1], "es")] : fillNames(x, "es"));
     if (u.rT) {
       const q = u.rT.q.map(x => [fillNames(x[0], "en"), x[1].map(o => fillNames(o, "en")), x[2]]);
@@ -2095,9 +2098,9 @@ function stepIntro(c, i) {
     : "La conversación de un tema que ya aprobaste: te dicen una frase en inglés y tú contestas con tu voz, una por una. Cada vez te sale más fácil.";
   if (ks.length > 1 && ks.every(x => ["reading", "dialog", "video"].includes(x))) return "Usas el inglés del tema: " + ks.map(x => ({ reading: "una lectura", dialog: "una conversación", video: "un video" })[x]).join(", ").replace(/, ([^,]*)$/, " y $1") + ".";
   return ({ tpr: "Escuchas órdenes en inglés y las haces con el cuerpo, como «Stand up». Al final juegas «Simón dice».",
-    dialog: "Una conversación del tema: te hablan en inglés y tú contestas.", reading: "Lees y escuchas un texto corto del tema y contestas 3 preguntas.",
+    dialog: "Una conversación del tema: te hablan en inglés y tú contestas.", reading: `Lees y escuchas la lectura del tema y contestas ${(((unitById(ps[0].uid) || {}).r || {}).q || [1, 2, 3]).length} preguntas.`,
     video: "Un video corto de inglés real. Al final escribes lo que entendiste.",
-    exam: `Preguntas sin ayuda de todo el tema${(unitById(ps[0].uid) || { tz: [] }).tz.length ? ", 3 de su estructura" : ""} y, al final, su conversación: te hablan y contestas con tu voz. Con 85% pasas al siguiente.`,
+    exam: `Preguntas sin ayuda de todo el tema${(unitById(ps[0].uid) || { tz: [] }).tz.length ? ", 3 de su estructura" : ""} y, al final, ${((unitById(ps[0].uid) || {}).d || []).some(l => l[0] === "@") ? "una parte de su conversación" : "su conversación"}: te hablan y contestas con tu voz. Con 85% pasas al siguiente.`,
     final: `30 preguntas de toda la etapa${TZ.some(t => t.us.some(u => u.lv.id === ps[0].lvid)) ? ", 4 de sus tiempos" : ""} y, al final, una conversación: contestas con tu voz. Con 85% se abre la siguiente.`, listen: "Escuchas frases que ya sabes y eliges o escribes lo que entendiste." })[k] || "";
 }
 // Cómo va cada paso: hecho, sin nada que hacer hoy (con su motivo) o pendiente (con sus partes)
@@ -2269,12 +2272,12 @@ function pvPlan(c, keep) {
       case "mission": { const l = u && u.ls[p.li]; if (l && l.m) l.m.forEach(x => put("mis", x[0] === "A" ? { en: x[1], es: x[2], who: "A", say: cueless(x[1]) } : { en: x[1].en, es: x[1].es, em: x[1].em, who: "B", say: x[1].en }, true));
         if (l && l.s) note.mis = l.s; break; }
       case "tpr": tprShow().forEach(t => put("tpr", { en: t.en, es: t.es, em: t.em, say: t.en })); note.tpr = "Haz lo que oyes: las haces con el cuerpo."; break;
-      case "dialog": (u.d || []).forEach(l => put("dlg", { en: l[1], es: l[2], who: l[0], say: l[1] })); break;
-      case "exam": { const n0 = (sec.exam || []).length; addC("exam", u.cards); const sh = (sec.exam || []).length - n0, q = Math.min(15, u.cards.length);
+      case "dialog": (u.d || []).forEach(l => l[0] === "@" ? (sec.dlg = sec.dlg || []).push({ scene: l[1], en: "", es: "", nogame: true }) : put("dlg", { en: l[1], es: l[2], who: l[0], say: l[1] })); break;
+      case "exam": { const n0 = (sec.exam || []).length; addC("exam", u.cards); const sh = (sec.exam || []).length - n0, q = examN(u);
         if (sh) note.exam = sh < u.cards.length ? `El examen te pregunta ${q} de las ${u.cards.length} frases del tema: estas y las de arriba.` : `El examen te pregunta ${q} de estas ${u.cards.length} frases.`;
         // y al final, su conversación (si en esta clase no la practicas antes, aquí la ves)
         if (u.tz.length) note.exam = (note.exam ? note.exam + " " : "") + `También 3 preguntas de la estructura ${u.tz.map(tzDe).join(" y ")}.`;
-        if (convSteps(u).length && !(sec.dlg || []).length) { u.d.forEach(l => put("dlg", { en: l[1], es: l[2], who: l[0], say: cueless(l[1]) }, true)); note.dlg = "Al final del examen: te dicen lo de «Te dicen» y tú contestas lo de «Tú dices», con tu voz."; }
+        if (convSteps(u).length && !(sec.dlg || []).length) { u.d.forEach(l => l[0] === "@" ? (sec.dlg = sec.dlg || []).push({ scene: l[1], en: "", es: "", nogame: true }) : put("dlg", { en: l[1], es: l[2], who: l[0], say: cueless(l[1]) }, true)); note.dlg = (u.d.some(l => l[0] === "@") ? "Al final del examen va una parte de esta conversación" : "Al final del examen") + ": te dicen lo de «Te dicen» y tú contestas lo de «Tú dices», con tu voz."; }
         break; }
     }
   }
@@ -2300,7 +2303,7 @@ function pvGo(s) {
   runClass();
 }
 const pvChip = x => `<button class="chip wm" type="button" data-say="${esc(x.say)}"><b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${esc(x.en)}</b><small>${esc(x.es)}</small></button>`;
-const pvRow = x => `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="pvwho">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : x.lab ? `<span class="pvwho">${esc(x.lab)}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
+const pvRow = x => x.scene ? `<p class="pvsc">${esc(x.scene)}</p>` : `<button class="pvrow" type="button" data-say="${esc(x.say)}"><span class="wi">${SPK}</span><span class="pvt">${x.who ? `<span class="pvwho">${x.who === "A" ? "Te dicen" : "Tú dices"}</span>` : x.lab ? `<span class="pvwho">${esc(x.lab)}</span>` : ""}<b>${x.em ? `<span class="pe" aria-hidden="true">${x.em}</span>` : ""}${x.who === "A" ? cueHTML(x.en) : esc(x.en)}</b><small>${x.who === "A" ? cueWrap(escN(x.es)) : escN(x.es)}</small></span></button>`;
 function pvStep(s) {
   const st = $("#stage"), n = matchRounds(s.secs.flatMap(x => x.items)).reduce((a, r) => a + r.length, 0);
   s.view = "list";
@@ -2309,7 +2312,7 @@ function pvStep(s) {
   st.innerHTML = `<span class="tag">Antes de empezar</span><h2 class="ttl">${s.again ? "Esto es lo que te falta de tu clase" : "Esto es lo que vas a ver hoy"}</h2>
     ${s.goal ? `<div class="goalbox"><div class="label">Meta de hoy</div><p class="gt">${esc(s.goal)}</p></div>` : ""}
     <p class="lead">Toca cada una para oírla. Si quieres, únelas en un juego. Cuando estés listo, empieza.</p>
-    ${s.secs.map(x => `<section class="pvsec" data-k="${x.k}"><h3>${esc(x.t)}${x.html ? "" : ` <span class="n">${x.items.length}</span>`}</h3>${x.note ? `<p class="pvn">${esc(x.note)}</p>` : ""}${x.html ? x.html : x.k === "verb" || x.k === "word" ? `<div class="pvw">${x.items.map(pvChip).join("")}</div>` : `<div class="pvlist">${x.items.map(pvRow).join("")}</div>`}</section>`).join("")}`;
+    ${s.secs.map(x => `<section class="pvsec" data-k="${x.k}"><h3>${esc(x.t)}${x.html ? "" : ` <span class="n">${x.items.filter(i => !i.scene).length}</span>`}</h3>${x.note ? `<p class="pvn">${esc(x.note)}</p>` : ""}${x.html ? x.html : x.k === "verb" || x.k === "word" ? `<div class="pvw">${x.items.map(pvChip).join("")}</div>` : `<div class="pvlist">${x.items.map(pvRow).join("")}</div>`}</section>`).join("")}`;
   foot(n >= 2 ? `<button class="btn alt purp" type="button" id="pvMatch"><span class="ic">${ICO.link}</span>Unirlas</button>` : "", `<button class="btn go" id="pvGo">${esc(s.go)}</button>`);
   if ($("#pvMatch")) $("#pvMatch").onclick = () => matchPlay(s);
   $("#pvGo").onclick = () => pvGo(s);
@@ -2470,11 +2473,11 @@ function estMin(c) {
       case "prac": sec += (pracCards(h).length || (u && u.ls[p.li] ? u.ls[p.li].c.length : 0)) * (p.slow ? 4 : 3) * 18; break;
       case "mission": { const l = u && u.ls[p.li]; sec += 60 + (l && l.m && l.m.length ? l.m.length * 18 : 4 * 20); break; }
       case "tpr": sec += 120; break;
-      case "dialog": sec += 90; break;
+      case "dialog": sec += 30 + (u ? dlgLines(u).length * 12 : 60); break;
       case "reading": sec += 240; break;
-      case "ear": sec += p.what === "reading" ? 240 : 120; break;
+      case "ear": sec += p.what === "reading" ? 240 : 30 + (u ? dlgLines(u).length * 12 : 90); break;
       case "video": sec += h.v ? videoNeed(h.v.dur) + 60 : 240; break;
-      case "exam": sec += 15 * 18 + 60 + (u ? (u.d || []).length * 20 + (u.tz.length ? 3 * 20 : 0) : 0); break;
+      case "exam": sec += 60 + (u ? examN(u) * 18 + Math.round(dlgLines(u).length * ((u.d || []).some(l => l[0] === "@") ? .6 : 1)) * 20 + (u.tz.length ? 3 * 20 : 0) : 15 * 18); break;
       case "final": sec += 34 * 18 + 120; break;
       case "tz": sec += (p.card ? 30 : 0) + ((p.tids || []).length > 1 ? 5 : 4) * 25; break;
       case "tzmix": sec += 4 * 25; break;
@@ -2625,7 +2628,7 @@ function renderUnit(u) {
     <details class="sec"><summary class="sh"><h3>Frases y vocabulario</h3><span class="ustat" style="margin-left:auto">${sn} de ${tot} aprendidas</span></summary>${LEGEND}<div class="items">${u.cards.map(c => itemHTML(c)).join("")}</div>
       ${uw.length ? `<details class="uwords"><summary>Palabras nuevas de este tema (${uw.length})${uwk ? ` · ya sabes ${uwk}` : ""}</summary><div class="wgrid">${uw.map(w => `<button class="chip wm${knownW(w) ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(wDisp(w))}${knownW(w) ? ' <span class="ck" aria-label="ya la sabes">✓</span>' : ""}</b><small>${esc(WORDS[w])}</small></button>`).join("")}</div></details>` : ""}</details>
     <details class="sec"><summary class="sh"><h3>Conversación</h3>${S.dl[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Practicada</span>` : ""}</summary><div class="sb">
-      <div class="dlg" id="dlg">${u.d.map(l => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
+      <div class="dlg" id="dlg">${u.d.map(l => l[0] === "@" ? `<div class="lsc">${esc(l[1])}</div>` : `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" ${showEs ? "" : "hidden"}>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
       <div class="row"><button class="btn speak" id="dPlay" data-saygroup="dlg:${u.id}">${SPK}<span class="lb">Escuchar conversación</span></button><button class="btn ghost" id="dEs">${showEs ? "Ocultar" : "Ver"} traducción</button></div>
     </div></details>
     ${u.r ? `<details class="sec"><summary class="sh"><h3>Lectura</h3>${S.rd[u.id] ? `<span class="ustat ok" style="margin-left:auto">✓ Completada</span>` : ""}</summary><div class="sb">
@@ -2636,7 +2639,7 @@ function renderUnit(u) {
     </div></details>` : ""}
     <div class="pager">${prev ? `<button class="btn ghost" id="uPrev">← ${esc(prev.t)}</button>` : "<span></span>"}${next ? `<button class="btn ghost" id="uNext">${esc(next.t)} →</button>` : ""}</div>`;
   $("#dEs").onclick = () => { showEs = !showEs; document.querySelectorAll("#dlg .es2").forEach(e => e.hidden = !showEs); $("#dEs").textContent = (showEs ? "Ocultar" : "Ver") + " traducción"; };
-  $("#dPlay").onclick = () => playDialog(u.d, "dlg:" + u.id);
+  $("#dPlay").onclick = () => playDialog(dlgLines(u), "dlg:" + u.id);
   if (u.r) $("#rEs").onclick = () => { showRd = !showRd; $("#rdEs").hidden = !showRd; $("#rEs").textContent = (showRd ? "Ocultar" : "Ver") + " traducción"; };
   if (prev) $("#uPrev").onclick = () => openUnit(prev);
   if (next) $("#uNext").onclick = () => openUnit(next);
@@ -2698,12 +2701,12 @@ function readerView(box) {
   } else {
     box.innerHTML = top + `<div class="sec"><div class="sh"><span class="n">Conversación</span><h3>${esc(u.t)}</h3></div><div class="sb">
       <p class="muted" style="margin:0;font-size:14px">${esc(u.lv.short)} · Unidad ${u.k}. Tú eres B cuando practiques.</p>
-      <div class="dlg" id="ldlg">${u.d.map(l => `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" hidden>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
+      <div class="dlg" id="ldlg">${u.d.map(l => l[0] === "@" ? `<div class="lsc">${esc(l[1])}</div>` : `<div class="ln ${l[0] === "B" ? "b" : ""}"><span class="who">${l[0]}</span><div><div>${tapW(l[1])}</div><div class="es2" hidden>${esc(l[2])}</div></div>${playBtn(l[1])}</div>`).join("")}</div>
       <div class="row"><button class="btn speak" id="lPlay" data-saygroup="ldlg:${u.id}">${SPK}<span class="lb">Escuchar conversación</span></button><button class="btn ghost" id="lEs">Ver traducción</button></div>
       ${tip.replace("léela tú en voz alta", "di tú las frases de B")}
       <div class="row"><button class="btn primary" id="lGo"${prevLocked(u.lv) ? " disabled" : ""}>Practicar: tú eres B</button></div>
     </div></div>`;
-    $("#lPlay").onclick = () => playDialog(u.d, "ldlg:" + u.id, "#ldlg .ln");
+    $("#lPlay").onclick = () => playDialog(dlgLines(u), "ldlg:" + u.id, "#ldlg .ln");
     $("#lGo").onclick = () => dialogPractice(u);
     $("#lEs").onclick = () => { const es = box.querySelectorAll("#ldlg .es2"), show = es[0] && es[0].hidden; es.forEach(e => e.hidden = !show); $("#lEs").textContent = (show ? "Ocultar" : "Ver") + " traducción"; };
   }
@@ -3033,10 +3036,40 @@ function refreshCheck(u) {
 }
 // La conversación de un tema en el examen: te dicen las líneas de A y tú contestas las de B, con tu voz (o escribiéndolas).
 // Cada respuesta cuenta como una pregunta. (Antes iban preguntas de la lectura con «Ver el texto»; la persona prefirió esto.)
-const convSteps = u => (u.d || []).some(l => l[0] === "B") ? [{ k: "cstart", u }, ...u.d.map(l => ({ k: "dlg", line: l, x: true }))] : [];
+/* La conversación del tema es una experiencia completa (pedido: «vas a un restaurante y vives la experiencia completa…
+   para poner todo lo que aprendes en práctica»): de la llegada a la despedida, en escenas. Una línea ["@", "Llegas al
+   restaurante…"] dice en español la situación de lo que sigue; se ve arriba de la primera línea de esa escena. */
+const dlgLines = u => (u.d || []).filter(l => l[0] !== "@");
+const nBof = lines => lines.filter(l => l[0] === "B").length;
+function dlgStepsOf(lines, x) {
+  let sc = ""; const out = [];
+  lines.forEach(l => { if (l[0] === "@") { sc = l[1]; return; } out.push(Object.assign({ k: "dlg", line: l }, x || {}, sc ? { scene: sc } : {})); sc = ""; });
+  return out;
+}
+const dlgSteps = (u, x) => dlgStepsOf(u.d || [], x);
+const convSteps = u => dlgLines(u).some(l => l[0] === "B") ? [{ k: "cstart", u }, ...dlgSteps(u, { x: true })] : [];
+// En el examen, de una conversación por escenas va una parte: escenas seguidas con al menos la mitad de lo que tú dices
+// (completa ya la practicaste en «Úsalo» y en «Conversa»). Sin escenas, toda.
+function examLines(u) {
+  const d = u.d || [], at = d.map((l, i) => l[0] === "@" ? i : -1).filter(i => i >= 0);
+  if (at.length < 2) return d;
+  const parts = at.map((s, k) => d.slice(s, at[k + 1] === undefined ? d.length : at[k + 1])), half = Math.ceil(nBof(d) / 2), wins = [];
+  for (let i = 0; i < parts.length; i++) { let w = [], j = i; while (j < parts.length && nBof(w) < half) w = w.concat(parts[j++]); if (nBof(w) >= half) wins.push(w); }
+  return wins.length ? rnd(wins) : d;
+}
+const examConv = (u, lines) => nBof(lines) ? [{ k: "cstart", u, part: lines.length < (u.d || []).length }, ...dlgStepsOf(lines, { x: true })] : [];
+// La conversación ya pregunta las frases que dices en ella: las demás preguntas son de las otras (mínimo 6)
+const saidIn = (u, lines) => { const B = lines.filter(l => l[0] === "B").map(l => " " + norm(cueless(l[1])) + " "); return u.cards.filter(c => { const n = norm(c.en); return !!n && B.some(b => b.includes(" " + n + " ")); }); };
+const convSaid = u => saidIn(u, dlgLines(u));
+const examNfor = (u, nB) => Math.min(u.cards.length, Math.max(6, 15 - Math.max(0, nB - 3)));
+const examN = u => examNfor(u, (u.d || []).some(l => l[0] === "@") ? Math.ceil(nBof(u.d) / 2) : nBof(u.d || [])); // más o menos (la parte se elige al empezar)
+function examCards(u, lines) {
+  const said = new Set(saidIn(u, lines)), n = examNfor(u, nBof(lines)), rest = shuffle(u.cards.filter(c => !said.has(c)));
+  return rest.length >= n ? rest.slice(0, n) : rest.concat(shuffle([...said])).slice(0, n);
+}
 function unitExam(u) {
-  const cards = shuffle(u.cards).slice(0, 15);
-  const steps = cards.map(c => ({ k: pickKind(c, "exam"), c })).concat(u.tz.length ? tzExamSteps(u.tz, 3) : [], convSteps(u)); // su estructura y, al final, su conversación
+  const lines = examLines(u), cards = examCards(u, lines);
+  const steps = cards.map(c => ({ k: pickKind(c, "exam"), c })).concat(u.tz.length ? tzExamSteps(u.tz, 3) : [], examConv(u, lines)); // su estructura y, al final, su conversación
   runSession(steps, { mode: "exam", unit: u, title: "Examen: " + u.t });
 }
 // Examen final de etapa: 30 frases de todas sus unidades (2 por unidad mínimo cuando alcanza) + la conversación de una de ellas
@@ -3048,7 +3081,7 @@ function finalExam(lv, total) {
   const steps = shuffle([...pool, ...rest]).map(c => ({ k: pickKind(c, "exam"), c }));
   if (total >= 30) { // 4 preguntas de sus tiempos y, al final, una conversación de la etapa
     const ts = shuffle(TZ.filter(t => t.us.some(u => u.lv === lv))); if (ts.length) steps.push(...tzExamSteps(ts, 4));
-    const cu = shuffle(lv.units.filter(u => convSteps(u).length))[0]; if (cu) steps.push(...convSteps(cu));
+    const cu = shuffle(lv.units.filter(u => convSteps(u).length))[0]; if (cu) steps.push(...examConv(cu, examLines(cu)));
   }
   runSession(steps, { mode: "final", level: lv, title: (total < 30 ? "Ubicación: " : "Examen final: ") + lv.short });
 }
@@ -3073,7 +3106,7 @@ function readingPractice(u) {
   runSession([{ k: "read", u }].concat(rqSteps(u)), { mode: "reading", unit: u, title: "Lectura: " + u.r.t });
 }
 function dialogPractice(u) {
-  runSession(u.d.map(l => ({ k: "dlg", line: l })), { mode: "dialog", unit: u, title: "Conversación" });
+  runSession(dlgSteps(u), { mode: "dialog", unit: u, title: "Conversación" });
 }
 
 function setProg() {
@@ -3785,7 +3818,7 @@ function step() {
   // La misión: qué vas a lograr, la escena y (si quieres) escuchar primero toda la conversación
   if (s.k === "cstart") { // el examen termina con la conversación del tema
     st.innerHTML = `<span class="tag">Conversación</span><h2 class="center">La conversación de «${esc(s.u.t)}»</h2>
-      <p class="lead">Última parte del examen: te dicen algo en inglés y tú contestas${srOK ? " con tu voz" : ""}, una frase a la vez. Arriba ves lo que te dijeron y, en español, lo que tienes que decir. Cada respuesta cuenta.</p>`;
+      <p class="lead">Última parte del examen${s.part ? ": una parte de la conversación del tema" : ""}. Te dicen algo en inglés y tú contestas${srOK ? " con tu voz" : ""}, una frase a la vez. Arriba ves lo que te dijeron y, en español, lo que tienes que decir. Cada respuesta cuenta.</p>`;
     foot("", goBtn("csGo", "Empezar la conversación"));
     $("#csGo").onclick = nextStep; $("#csGo").focus({ preventScroll: true });
     return;
@@ -4248,10 +4281,10 @@ function step() {
     return;
   }
   if (s.k === "dlg") {
-    const [who, en, es] = s.line;
+    const [who, en, es] = s.line, scn = s.scene ? `<p class="mscene">${esc(s.scene)}</p>` : "";
     if (who === "A") {
       const said = cueless(en);
-      st.innerHTML = `${s.ms ? `<span class="tag">Misión</span>` : s.x ? `<span class="tag">Conversación</span>` : ""}<h2 class="ttl">${s.ms || s.x ? "Te dicen" : "Conversación: te dicen"}</h2><div class="plate" data-text="${esc(said)}"><div class="pen md">${speakSpans(en, true)}</div><div class="pes">${cueHTML(es)}</div><div class="row">${playPair(said)}</div></div>`;
+      st.innerHTML = `${s.ms ? `<span class="tag">Misión</span>` : s.x ? `<span class="tag">Conversación</span>` : ""}${scn}<h2 class="ttl">${s.ms || s.x ? "Te dicen" : "Conversación: te dicen"}</h2><div class="plate" data-text="${esc(said)}"><div class="pen md">${speakSpans(en, true)}</div><div class="pes">${cueHTML(es)}</div><div class="row">${playPair(said)}</div></div>`;
       foot("", goBtn("dNext", "Continuar"));
       say(said, { who: 0 }); $("#dNext").onclick = nextStep; holdGo(["dNext"]);
       return;
@@ -4268,7 +4301,7 @@ function step() {
         react(ok, idk);
       };
       const typeIt = () => { // sin micrófono, o si prefieres escribirla
-        st.innerHTML = `<span class="tag">Conversación</span><h2 class="ttl">Tu turno</h2>${ctxA}<div class="prompt">${esc(es)}</div>
+        st.innerHTML = `<span class="tag">Conversación</span>${scn}<h2 class="ttl">Tu turno</h2>${ctxA}<div class="prompt">${esc(es)}</div>
           <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escríbelo en inglés…" aria-label="Tu respuesta en inglés"></form>`;
         foot(help("xIdk", "No sé", "warn", ICO.help), `<button class="btn go" type="submit" form="tf">Revisar</button>`);
         $("#tin").focus();
@@ -4276,7 +4309,7 @@ function step() {
         $("#tf").onsubmit = ev => { ev.preventDefault(); const v = $("#tin").value, r = closeEnough(v, want); if (!r) { $("#tin").focus(); return; } end(r.ok, false, r.ok ? "" : `<div class="sub">Escribiste: ${esc(v)}</div>` + tipLine(tenseTip(want, v))); };
       };
       if (!srOK) { typeIt(); return; }
-      st.innerHTML = `<span class="tag">Conversación</span><h2 class="ttl">Tu turno</h2>${ctxA}<div class="prompt">${esc(es)}</div><p class="lead">Contéstale en inglés, con tu voz.</p><div id="micBox"></div>`;
+      st.innerHTML = `<span class="tag">Conversación</span>${scn}<h2 class="ttl">Tu turno</h2>${ctxA}<div class="prompt">${esc(es)}</div><p class="lead">Contéstale en inglés, con tu voz.</p><div id="micBox"></div>`;
       foot(help("xIdk", "No sé", "warn", ICO.help) + help("xType", "Mejor escribirla", "info", ICO.keys), "");
       $("#xIdk").onclick = () => end(false, true);
       $("#xType").onclick = typeIt;
@@ -4289,7 +4322,7 @@ function step() {
       }, true);
       return;
     }
-    st.innerHTML = `<h2 class="ttl">Conversación: tu turno</h2>
+    st.innerHTML = `${scn}<h2 class="ttl">Conversación: tu turno</h2>
       ${prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(prevA[1])}"</p>` : ""}
       <div class="prompt">${esc(es)}</div><p class="lead">Dilo en inglés.</p><div id="micBox"></div>`;
     foot(srOK ? `<button class="btn alt warn" type="button" id="dReveal"><span class="ic">${ICO.eye}</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));

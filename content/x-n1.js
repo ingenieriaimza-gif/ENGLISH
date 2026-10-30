@@ -222,13 +222,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Me lo puede poner para llevar?", "Can I get this to go?", "can ai guet dis tu góu", ""]
     ],
     r: {
-      t: "Dinner at Rosa's",
-      en: "Last night I was at Rosa's Restaurant with my friends. It's a small Mexican restaurant downtown.\nThe waiter was very friendly. For the appetizer we had guacamole. For the main course I had chicken with rice, and my friend had steak, well done.\nThe food was delicious, but a little spicy. For dessert we shared a chocolate cake. The check was not expensive.",
-      es: "Anoche estuve en el restaurante de Rosa con mis amigos. Es un restaurante mexicano pequeño en el centro.\nEl mesero fue muy amable. De entrada comimos guacamole. De plato fuerte yo comí pollo con arroz y mi amigo un filete bien cocido.\nLa comida estuvo deliciosa, pero un poco picante. De postre compartimos un pastel de chocolate. La cuenta no fue cara.",
+      t: "Friday night at Rosa's",
+      en: "It's Friday night and my family is hungry. We go to Rosa's, a small Mexican restaurant downtown. There are four of us: my mom, my dad, my sister and me.\nWe have a table outside. Our waiter is Tom. He is very friendly. My dad has a beer, my sister has a soda and I have a glass of water.\nFor the appetizer we have guacamole. Tom recommends the chicken with mole, but it's spicy. My mom loves spicy food, so she orders it. I have a hamburger, well done, with no onions. I'm allergic to peanuts, but the hamburger has no peanuts.\nEverything is delicious. For dessert, we get a chocolate cake to go.\nAt the end, my dad asks for the check. They take cards, but the tip is not included. It's a great night!",
+      es: "Es viernes en la noche y mi familia tiene hambre. Vamos a Rosa's, un restaurante mexicano pequeño en el centro. Somos cuatro: mi mamá, mi papá, mi hermana y yo.\nTenemos una mesa afuera. Nuestro mesero es Tom. Es muy amable. Mi papá pide una cerveza, mi hermana un refresco y yo un vaso de agua.\nDe entrada comemos guacamole. Tom recomienda el pollo con mole, pero está picante. A mi mamá le encanta la comida picante, así que ella lo pide. Yo pido una hamburguesa bien cocida y sin cebolla. Soy alérgico al cacahuate, pero la hamburguesa no tiene cacahuate.\nTodo está delicioso. De postre pedimos un pastel de chocolate para llevar.\nAl final, mi papá pide la cuenta. Aceptan tarjeta, pero la propina no está incluida. ¡Es una gran noche!",
       q: [
-        ["¿Qué comieron de entrada?", ["Pastel", "Guacamole", "Pollo"], 1],
-        ["¿Cómo estuvo la comida?", ["Deliciosa pero un poco picante", "Fría", "Cara"], 0],
-        ["¿Qué comieron de postre?", ["Helado", "Fruta", "Pastel de chocolate"], 2]
+        ["¿Cuántas personas van al restaurante?", ["Dos", "Tres", "Cuatro"], 2],
+        ["¿Dónde se sientan?", ["Adentro", "Afuera", "En la barra"], 1],
+        ["¿Quién pide el pollo con mole?", ["El papá", "La mamá", "La hermana"], 1],
+        ["¿Cómo pide su hamburguesa el que cuenta la historia?", ["Término medio, con cebolla", "Bien cocida y sin cebolla", "Con cacahuate"], 1],
+        ["¿Qué piden para llevar?", ["El pastel de chocolate", "La hamburguesa", "El guacamole"], 0]
       ]
     }
   },
