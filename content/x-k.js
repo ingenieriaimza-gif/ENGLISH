@@ -22,13 +22,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Es correcto.", "That's correct.", "dats corréct", ""]
     ],
     r: {
-      t: "My name",
-      en: "Hello! My name is {name|Ana}. {nameS|A-N-A}.\nMy last name is {last|Ruiz}. {lastS|R-U-I-Z}.\nMy email is {email|ana dot ruiz} at gmail dot com.",
-      es: "¡Hola! Me llamo {name|Ana}. {nameS|A-N-A}.\nMi apellido es {last|Ruiz}. {lastS|R-U-I-Z}.\nMi correo es {email|ana punto ruiz} arroba gmail punto com.",
+      t: "At the swim school",
+      en: "Rosa and her son Leo go to a swim school. The woman at the desk says, \"Spell your name, please.\" Rosa spells it: R-O-S-A.\nHer email is rosa underscore lopez at gmail dot com. It's all lowercase letters.\nThe teacher's name is Bruno. Rosa asks, \"With a B or a V?\" He says, \"With a B. B as in boy.\"\nLeo sings the alphabet, from A to Z. He knows all the letters!",
+      es: "Rosa y su hijo Leo van a una escuela de natación. La muchacha de la recepción le dice: «Deletree su nombre, por favor». Rosa lo deletrea: R-O-S-A.\nSu correo es rosa guion bajo lopez arroba gmail punto com. Todo va con minúsculas.\nEl maestro se llama Bruno. Rosa pregunta: «¿Con B o con V?». Él dice: «Con B. B de boy».\nLeo canta el abecedario, de la A a la Z. ¡Se sabe todas las letras!",
       q: [
-        ["¿Cuál es su nombre?", ["{name|Ana}", "{last|Ruiz}", "Gmail"], 0],
-        ["¿Cuál es su apellido?", ["{name|Ana}", "{last|Ruiz}", "Lopez"], 1],
-        ["En un correo, 'dot' significa…", ["arroba", "guion", "punto"], 2]
+        ["¿Adónde van Rosa y Leo?", ["A una escuela de natación", "Al doctor", "A una escuela de inglés"], 0],
+        ["¿Cómo se escribe el correo de Rosa?", ["Con mayúsculas", "Con minúsculas", "Sin arroba"], 1],
+        ["¿Cómo se escribe el nombre del maestro?", ["Con B", "Con V", "Con doble L"], 0],
+        ["¿Qué canta Leo?", ["Una canción de natación", "El abecedario", "Los números"], 1]
       ]
     }
   },
@@ -51,13 +52,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["junio, julio", "June, July", "yun, yulái", "J suena 'y' fuerte."]
     ],
     r: {
-      t: "Three things",
-      en: "This is my shop. I sell fish and cheese.\nI think my shop is very nice.\nThank you for visiting!",
-      es: "Esta es mi tienda. Vendo pescado y queso.\nCreo que mi tienda es muy bonita.\n¡Gracias por visitarla!",
+      t: "A day on the ship",
+      en: "It's Thursday. Pablo, his mother and his son go on a ship.\nIt's very sunny, so Pablo has a big hat.\nOn the ship, they see fish in the water and a white sheep on an island.\nFor lunch, Pablo eats cheese and his mother eats fish.\nAt night, his son is in bed. He says, \"Thank you! I love the ship!\"",
+      es: "Es jueves. Pablo, su mamá y su hijo van en un barco.\nHace mucho sol, así que Pablo trae un sombrero grande.\nEn el barco ven peces en el agua y una oveja blanca en una isla.\nDe comida, Pablo come queso y su mamá come pescado.\nEn la noche, su hijo está en la cama. Dice: «¡Gracias! ¡Me encanta el barco!».",
       q: [
-        ["¿Qué vende la tienda?", ["Zapatos y ropa", "Pescado y queso", "Pan y leche"], 1],
-        ["'I think' significa…", ["Yo pienso / creo", "Yo tengo", "Yo vendo"], 0],
-        ["¿Qué sonido tiene 'shop'?", ["SH (shhh)", "CH", "TH"], 0]
+        ["¿Qué día van en el barco?", ["El lunes", "El jueves", "El domingo"], 1],
+        ["¿Qué ven en la isla?", ["Un pez", "Un barco", "Una oveja blanca"], 2],
+        ["¿Qué come la mamá de Pablo?", ["Queso", "Pescado", "Pollo"], 1],
+        ["¿Dónde está el hijo en la noche?", ["En el barco", "En la cama", "En la camioneta"], 1]
       ]
     }
   },
@@ -80,13 +82,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Es rojo y negro.", "It's red and black.", "its red and blak", ""]
     ],
     r: {
-      t: "My favorite colors",
-      en: "My name is Leo. My favorite color is green.\nMy car is red. My house is white.\nMy dog is black and brown.",
-      es: "Me llamo Leo. Mi color favorito es el verde.\nMi carro es rojo. Mi casa es blanca.\nMi perro es negro con café.",
+      t: "Max's birthday",
+      en: "Today is Max's birthday. He's seven.\nHis aunt buys him a present: a red and black car. The gift paper is navy blue.\nThe party is very colorful. The balloons are pink, orange and purple, and the cake is light blue.\nMax's favorite colors are red and black. His sister's favorite color is green.",
+      es: "Hoy es el cumpleaños de Max. Cumple siete años.\nSu tía le compra un regalo: un carro rojo con negro. El papel de regalo es azul marino.\nLa fiesta es muy colorida. Los globos son rosas, naranjas y morados, y el pastel es azul claro.\nLos colores favoritos de Max son el rojo y el negro. El color favorito de su hermana es el verde.",
       q: [
-        ["¿Cuál es el color favorito de Leo?", ["Rojo", "Verde", "Blanco"], 1],
-        ["¿De qué color es su carro?", ["Rojo", "Negro", "Café"], 0],
-        ["¿De qué color es su perro?", ["Blanco", "Verde", "Negro con café"], 2]
+        ["¿Qué le regala su tía a Max?", ["Un pastel", "Un carro rojo con negro", "Unos globos"], 1],
+        ["¿De qué color es el papel de regalo?", ["Dorado", "Rojo", "Azul marino"], 2],
+        ["¿De qué color es el pastel?", ["Rosa", "Azul claro", "Verde"], 1],
+        ["¿Cuál es el color favorito de la hermana de Max?", ["El rosa", "El verde", "El negro"], 1]
       ]
     }
   },
@@ -109,13 +112,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Cuántos años tienes?", "How old are you?", "jáu óuld ar iú", ""]
     ],
     r: {
-      t: "My classroom",
-      en: "In my classroom there are twenty chairs and one table.\nThere are ten books and five pens.\nThere are twelve students.",
-      es: "En mi salón hay veinte sillas y una mesa.\nHay diez libros y cinco plumas.\nHay doce alumnos.",
+      t: "At the fair",
+      en: "Today Luis goes to the fair with his three nephews. They're five, nine and twelve years old.\nThe tickets are sixteen dollars.\nOn the carousel there are fifteen horses. The little girl counts them: one, two, three... fifteen!\nLuis plays a ball game, but he has zero points.\nThen they buy two apples. They're very good!",
+      es: "Hoy Luis va a la feria con sus tres sobrinos. Tienen cinco, nueve y doce años.\nLos boletos cuestan dieciséis dólares.\nEn el carrusel hay quince caballitos. La niña los cuenta: uno, dos, tres... ¡quince!\nLuis juega un juego de pelotas, pero tiene cero puntos.\nDespués compran dos manzanas. ¡Están muy ricas!",
       q: [
-        ["¿Cuántas sillas hay?", ["Doce", "Veinte", "Diez"], 1],
-        ["¿Cuántos libros hay?", ["Diez", "Cinco", "Uno"], 0],
-        ["¿Cuántos alumnos hay?", ["Veinte", "Cinco", "Doce"], 2]
+        ["¿Cuántos sobrinos van con Luis?", ["Dos", "Tres", "Cinco"], 1],
+        ["¿Cuánto cuestan los boletos?", ["Doce dólares", "Dieciséis dólares", "Veinte dólares"], 1],
+        ["¿Cuántos caballitos hay en el carrusel?", ["Doce", "Quince", "Veinte"], 1],
+        ["¿Cuántos puntos tiene Luis en el juego?", ["Cero", "Diez", "Quince"], 0]
       ]
     }
   },
@@ -147,13 +151,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["El perro tiene la cola larga.", "The dog has a long tail.", "de dog jas a long téil", ""]
     ],
     r: {
-      t: "The farm",
-      en: "This is a farm. There are many animals.\nThere is a horse, a cow and three pigs.\nThere are ten chickens and two ducks. The dog is happy.",
-      es: "Esta es una granja. Hay muchos animales.\nHay un caballo, una vaca y tres cerdos.\nHay diez gallinas y dos patos. El perro está feliz.",
+      t: "Toby",
+      en: "Lucía loves animals. On Saturday, she goes to an animal shelter with her son, Leo.\nThere are many dogs and cats. Rocky is a big dog. Toby is a small dog with a long tail.\nLucía and Leo take Toby home. Now Toby is their pet.\nLeo wants a turtle too. At night, they watch a TV show about wild animals: tigers, lions and elephants.",
+      es: "A Lucía le encantan los animales. El sábado va a un refugio de animales con su hijo, Leo.\nHay muchos perros y gatos. Rocky es un perro grande. Toby es un perro chiquito con la cola larga.\nLucía y Leo se llevan a Toby a su casa. Ahora Toby es su mascota.\nLeo también quiere una tortuga. En la noche ven en la tele un programa de animales salvajes: tigres, leones y elefantes.",
       q: [
-        ["¿Cuántos cerdos hay?", ["Uno", "Tres", "Diez"], 1],
-        ["¿Qué animal hay diez veces?", ["Patos", "Vacas", "Gallinas"], 2],
-        ["¿Cómo está el perro?", ["Feliz", "Triste", "Cansado"], 0]
+        ["¿Adónde va Lucía el sábado?", ["Al zoológico", "A un refugio de animales", "A una granja"], 1],
+        ["¿Cómo es Toby?", ["Grande y negro", "Chiquito, con la cola larga", "Grande, con la cola corta"], 1],
+        ["¿Qué animal quiere Leo también?", ["Un conejo", "Un gato", "Una tortuga"], 2],
+        ["¿Qué animales ven en la tele?", ["Animales de la granja", "Animales salvajes", "Peces"], 1]
       ]
     }
   },
@@ -184,13 +189,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Me duele todo el cuerpo.", "My whole body hurts.", "mai jóul bádi jerts", ""]
     ],
     r: {
-      t: "Tom is sick",
-      en: "Tom is sick today. His head hurts.\nHis throat hurts too. He is very tired.\nHe drinks water and he sleeps.",
-      es: "Tom está enfermo hoy. Le duele la cabeza.\nTambién le duele la garganta. Está muy cansado.\nToma agua y duerme.",
+      t: "A bad Saturday",
+      en: "On Saturday, Pedro plays soccer with his friends. He falls, and his knee hurts. There's a little blood.\nHis friend takes him to the doctor. His hand and his shoulder hurt too, but his bones are fine.\nAt night his whole body hurts. His son draws a picture of him. \"You have blue eyes!\" he says. But Pedro has brown eyes.",
+      es: "El sábado, Pedro juega futbol con sus amigos. Se cae y le duele la rodilla. Hay un poco de sangre.\nSu amigo lo lleva al doctor. También le duelen la mano y el hombro, pero sus huesos están bien.\nEn la noche le duele todo el cuerpo. Su hijo le hace un dibujo. «¡Tienes los ojos azules!», le dice. Pero Pedro tiene los ojos cafés.",
       q: [
-        ["¿Qué le duele a Tom?", ["Los pies", "La cabeza y la garganta", "La espalda"], 1],
-        ["¿Cómo está Tom?", ["Muy cansado", "Feliz", "Enojado"], 0],
-        ["¿Qué hace Tom?", ["Corre", "Come pizza", "Toma agua y duerme"], 2]
+        ["¿Qué le duele a Pedro cuando se cae?", ["La cabeza", "La rodilla", "El estómago"], 1],
+        ["¿Cómo están sus huesos?", ["Bien", "Mal", "No sabe"], 0],
+        ["¿Qué le duele en la noche?", ["La espalda", "Todo el cuerpo", "Los ojos"], 1],
+        ["¿De qué color son los ojos de Pedro?", ["Azules", "Verdes", "Cafés"], 2]
       ]
     }
   },
@@ -217,13 +223,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Tengo un niño y una niña.", "I have a boy and a girl.", "ai jav a bói and a guérl", ""]
     ],
     r: {
-      t: "My family",
-      en: "This is my family. My dad is Juan and my mom is Rosa.\nI have one brother and two sisters.\nMy grandma lives with us. We have a cat.",
-      es: "Esta es mi familia. Mi papá es Juan y mi mamá es Rosa.\nTengo un hermano y dos hermanas.\nMi abuela vive con nosotros. Tenemos un gato.",
+      t: "Laura's wedding",
+      en: "Today is Laura's wedding. Laura is Sofia's cousin.\nSofia goes with her family: her mom, her dad, her son and her daughter. Her grandpa and her aunts are there too. It's a big family!\nIn the family photo, the grandpa is in the middle and the kids are in the front.\nSofia's dad is a doctor. He dances with the bride. Everybody is very happy.",
+      es: "Hoy es la boda de Laura. Laura es prima de Sofía.\nSofía va con su familia: su mamá, su papá, su hijo y su hija. Su abuelo y sus tías también están ahí. ¡Es una familia grande!\nEn la foto familiar, el abuelo está en medio y los niños están adelante.\nEl papá de Sofía es doctor. Baila con la novia. Todos están muy contentos.",
       q: [
-        ["¿Cómo se llama la mamá?", ["Rosa", "Juan", "Ana"], 0],
-        ["¿Cuántas hermanas tiene?", ["Una", "Dos", "Tres"], 1],
-        ["¿Quién vive con ellos?", ["El abuelo", "El tío", "La abuela"], 2]
+        ["¿Qué es Laura de Sofía?", ["Su hermana", "Su prima", "Su tía"], 1],
+        ["¿Quién está en medio en la foto?", ["La novia", "El abuelo", "Los niños"], 1],
+        ["¿A qué se dedica el papá de Sofía?", ["Es maestro", "Es doctor", "Es fotógrafo"], 1],
+        ["¿Con quién baila el papá de Sofía?", ["Con su esposa", "Con la novia", "Con Sofía"], 1]
       ]
     }
   },
@@ -289,13 +296,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ponte el abrigo.", "Put on your coat.", "put on iór cóut", ""]
     ],
     r: {
-      t: "What are you wearing?",
-      en: "It's cold today. I'm wearing a black sweater and blue jeans.\nI'm wearing boots and a scarf.\nMy sister is wearing a red jacket and white sneakers.",
-      es: "Hoy hace frío. Traigo un suéter negro y jeans azules.\nTraigo botas y bufanda.\nMi hermana trae una chamarra roja y tenis blancos.",
+      t: "The interview",
+      en: "Carlos has a job interview. On Monday he buys new clothes: a black suit, a blue shirt, a gray tie and black shoes. The pants are big, so he tries a smaller size.\nOn Tuesday it's cold. His son puts on his jacket and goes to school.\nAfter the interview, Carlos meets a friend at a café. At night, good news: he has the job!",
+      es: "Carlos tiene una entrevista de trabajo. El lunes compra ropa nueva: un traje negro, una camisa azul, una corbata gris y zapatos negros. El pantalón le queda grande, así que se prueba una talla más chica.\nEl martes hace frío. Su hijo se pone la chamarra y se va a la escuela.\nDespués de la entrevista, Carlos ve a un amigo en un café. En la noche, buenas noticias: ¡le dan el trabajo!",
       q: [
-        ["¿De qué color es su suéter?", ["Negro", "Rojo", "Azul"], 0],
-        ["¿Qué trae en los pies?", ["Tenis", "Botas", "Zapatos"], 1],
-        ["¿Qué trae su hermana?", ["Una bufanda", "Un suéter negro", "Una chamarra roja"], 2]
+        ["¿De qué color es la camisa de Carlos?", ["Blanca", "Azul", "Gris"], 1],
+        ["¿Qué problema tiene con el pantalón?", ["Está sucio", "Le queda grande", "Es muy caro"], 1],
+        ["¿Qué se pone su hijo para ir a la escuela?", ["Un abrigo", "La chamarra", "Una gorra"], 1],
+        ["¿Qué pasa en la noche?", ["Le dan el trabajo", "Compra un traje", "Va al café"], 0]
       ]
     }
   },
@@ -327,13 +335,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Mis juguetes están en mi cuarto.", "My toys are in my room.", "mai tóis ar in mai rum", ""]
     ],
     r: {
-      t: "My house",
-      en: "My house is small. It has two bedrooms, a kitchen, a living room and one bathroom.\nThe kitchen is new. There is a big table in the living room.\nMy cat sleeps on the couch.",
-      es: "Mi casa es pequeña. Tiene dos recámaras, una cocina, una sala y un baño.\nLa cocina es nueva. Hay una mesa grande en la sala.\nMi gato duerme en el sillón.",
+      t: "A new house",
+      en: "Elena and her son have a new house. It has three bedrooms, two bathrooms, a big kitchen and a living room with two windows.\nThere's a garage, and there are flowers in the yard.\nOn moving day, the couch goes in the living room and the table goes in the kitchen.\nAt night, the cat isn't in the house. Where is he? He's on the roof!",
+      es: "Elena y su hijo tienen una casa nueva. Tiene tres recámaras, dos baños, una cocina grande y una sala con dos ventanas.\nHay una cochera y hay flores en el jardín.\nEl día de la mudanza, el sillón va en la sala y la mesa va en la cocina.\nEn la noche, el gato no está en la casa. ¿Dónde está? ¡Está en el techo!",
       q: [
-        ["¿Cuántas recámaras tiene la casa?", ["Una", "Dos", "Tres"], 1],
-        ["¿Qué es nuevo?", ["La cocina", "El baño", "El sillón"], 0],
-        ["¿Dónde duerme el gato?", ["En la cama", "En la mesa", "En el sillón"], 2]
+        ["¿Cuántas recámaras tiene la casa?", ["Dos", "Tres", "Cuatro"], 1],
+        ["¿Qué hay en el jardín?", ["Un carro", "Flores", "Juguetes"], 1],
+        ["¿Dónde va el sillón?", ["En la cocina", "En la recámara", "En la sala"], 2],
+        ["¿Dónde está el gato en la noche?", ["Debajo de la cama", "En el techo", "En la cochera"], 1]
       ]
     }
   },
@@ -364,13 +373,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Dale un beso a tu abuela.", "Give your grandma a kiss.", "guiv iór grándma a kis", ""]
     ],
     r: {
-      t: "My day",
-      en: "I wake up at six. I eat breakfast and I go to work.\nI work in an office. I read and write emails.\nAt night I cook dinner, I watch TV and I sleep.",
-      es: "Me despierto a las seis. Desayuno y me voy al trabajo.\nTrabajo en una oficina. Leo y escribo correos.\nEn la noche hago la cena, veo la tele y duermo.",
+      t: "At the water park",
+      en: "On Saturday, Marta goes to a water park with her son, Leo.\nMarta can swim, so she goes to the big pool. Leo plays and jumps in the small pool.\nFor lunch they eat chicken and rice, and they drink water.\nAfter lunch, Leo hides behind a tree. A woman helps Marta.\nIn the afternoon, Grandma comes in her car, and Leo gives her a kiss.",
+      es: "El sábado, Marta va a un parque acuático con su hijo, Leo.\nMarta sabe nadar, así que va a la alberca grande. Leo juega y salta en la alberca chica.\nDe comida comen pollo con arroz y toman agua.\nDespués de comer, Leo se esconde detrás de un árbol. Una señora ayuda a Marta.\nEn la tarde, la abuela llega en su carro y Leo le da un beso.",
       q: [
-        ["¿A qué hora se despierta?", ["A las seis", "A las ocho", "A las siete"], 0],
-        ["¿Dónde trabaja?", ["En una tienda", "En una oficina", "En su casa"], 1],
-        ["¿Qué hace en la noche?", ["Corre", "Va al trabajo", "Cocina, ve la tele y duerme"], 2]
+        ["¿Dónde juega Leo?", ["En la alberca grande", "En la alberca chica", "En el restaurante"], 1],
+        ["¿Qué comen?", ["Pollo con arroz", "Pescado", "Helado"], 0],
+        ["¿Dónde se esconde Leo?", ["Debajo de la mesa", "Detrás de un árbol", "En el carro"], 1],
+        ["¿Quién llega en la tarde?", ["El papá", "La abuela", "Una señora"], 1]
       ]
     }
   },
@@ -393,13 +403,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Estoy feliz porque es viernes.", "I'm happy because it's Friday.", "aim jápi bicós its fráidei", ""]
     ],
     r: {
-      t: "How do you feel?",
-      en: "Today is Friday. I'm very happy!\nMy friend Sara is sad because her cat is sick.\nMy brother is nervous because he has an exam.",
-      es: "Hoy es viernes. ¡Estoy muy feliz!\nMi amiga Sara está triste porque su gato está enfermo.\nMi hermano está nervioso porque tiene un examen.",
+      t: "A trip to see Mom",
+      en: "Jorge lives far from his family. Today he goes on a plane to see his mom. It's his first time, so he's nervous and a little scared.\nOn the plane he's cold, so he asks for a blanket.\nThe woman next to him isn't sad. She's happy because she's visiting her son.\nAt his mom's house, Jorge is a little tired, but he's very happy.",
+      es: "Jorge vive lejos de su familia. Hoy va en avión a ver a su mamá. Es su primera vez, así que está nervioso y tiene un poco de miedo.\nEn el avión tiene frío, así que pide una cobija.\nLa señora de junto no está triste. Está feliz porque va a ver a su hijo.\nEn la casa de su mamá, Jorge está un poco cansado, pero está muy feliz.",
       q: [
-        ["¿Qué día es hoy?", ["Lunes", "Viernes", "Domingo"], 1],
-        ["¿Por qué está triste Sara?", ["Su gato está enfermo", "Tiene un examen", "Es lunes"], 0],
-        ["¿Cómo está el hermano?", ["Feliz", "Enojado", "Nervioso"], 2]
+        ["¿Cómo se siente Jorge en el aeropuerto?", ["Aburrido", "Nervioso", "Enojado"], 1],
+        ["¿Qué pide en el avión?", ["Agua", "Una cobija", "Comida"], 1],
+        ["¿Por qué está feliz la señora?", ["Porque es viernes", "Porque va a ver a su hijo", "Porque tiene calor"], 1],
+        ["¿Cómo está Jorge en la casa de su mamá?", ["Triste", "Enfermo", "Un poco cansado, pero muy feliz"], 2]
       ]
     }
   },
@@ -426,13 +437,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["La cama es muy suave.", "The bed is very soft.", "de bed is véri soft", ""]
     ],
     r: {
-      t: "Two cars",
-      en: "I have two cars. The red car is new and fast, but it's expensive.\nThe white car is old and slow, but it's cheap.\nI like the white car. It's small and easy to park.",
-      es: "Tengo dos carros. El rojo es nuevo y rápido, pero es caro.\nEl blanco es viejo y lento, pero es barato.\nMe gusta el blanco. Es pequeño y fácil de estacionar.",
+      t: "A new bed",
+      en: "Sara needs a new bed. She goes to the store very early.\nThe new bed is very soft, but it's very expensive. The old bed is cheap. Sara's house is small, so she buys a small bed.\nHer grandpa helps her with the boxes. The boxes are very heavy, but her grandpa is strong.\nAt night, Sara is tired, but happy.",
+      es: "Sara necesita una cama nueva. Va a la tienda muy temprano.\nLa cama nueva es muy suave, pero es muy cara. La cama vieja es barata. La casa de Sara es pequeña, así que compra una cama chica.\nSu abuelo le ayuda con las cajas. Las cajas pesan mucho, pero su abuelo es fuerte.\nEn la noche, Sara está cansada, pero contenta.",
       q: [
-        ["¿Cómo es el carro rojo?", ["Viejo y lento", "Nuevo y rápido", "Pequeño y barato"], 1],
-        ["¿Cómo es el carro blanco?", ["Viejo y barato", "Nuevo y caro", "Grande y rápido"], 0],
-        ["¿Cuál le gusta?", ["El rojo", "Ninguno", "El blanco"], 2]
+        ["¿Cuándo va Sara a la tienda?", ["Muy tarde", "Muy temprano", "En la noche"], 1],
+        ["¿Cómo es la cama nueva?", ["Barata y dura", "Muy suave, pero muy cara", "Vieja y fea"], 1],
+        ["¿Por qué compra una cama chica?", ["Porque es suave", "Porque su casa es pequeña", "Porque es nueva"], 1],
+        ["¿Cómo es su abuelo?", ["Débil", "Joven", "Fuerte"], 2]
       ]
     }
   },
@@ -461,12 +473,13 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "English class",
-      en: "My English class is on Monday and Wednesday.\nMy teacher's name is Mr. Brown. He is very nice.\nWe read, we write and we speak. The homework is easy.",
-      es: "Mi clase de inglés es lunes y miércoles.\nMi maestro se llama Mr. Brown. Es muy amable.\nLeemos, escribimos y hablamos. La tarea es fácil.",
+      en: "Carmen goes to English class on Tuesday and Thursday. There are twenty students in her class.\nThe teacher speaks fast, so Carmen says, \"Can you speak slowly, please?\"\nToday they work in pairs. Carmen's partner is Raúl. They look at the board and write ten words.\nAt the end there's a test. Carmen is done first. All her answers are right!",
+      es: "Carmen va a clase de inglés los martes y los jueves. Hay veinte alumnos en su clase.\nLa maestra habla rápido, así que Carmen dice: «¿Puede hablar más despacio, por favor?».\nHoy trabajan en parejas. El compañero de Carmen es Raúl. Miran el pizarrón y escriben diez palabras.\nAl final hay un examen. Carmen termina primero. ¡Todas sus respuestas están bien!",
       q: [
-        ["¿Qué días es la clase?", ["Lunes y miércoles", "Martes y jueves", "Viernes"], 0],
-        ["¿Cómo es el maestro?", ["Enojado", "Muy amable", "Serio"], 1],
-        ["¿Cómo es la tarea?", ["Difícil", "Larga", "Fácil"], 2]
+        ["¿Cuántos alumnos hay en la clase?", ["Diez", "Doce", "Veinte"], 2],
+        ["¿Qué le pide Carmen a la maestra?", ["Que repita", "Que hable más despacio", "Ir al baño"], 1],
+        ["¿Con quién trabaja Carmen?", ["Con la maestra", "Con Raúl", "Sola"], 1],
+        ["¿Cómo le va a Carmen en el examen?", ["Mal", "Todas sus respuestas están bien", "No termina"], 1]
       ]
     }
   }
