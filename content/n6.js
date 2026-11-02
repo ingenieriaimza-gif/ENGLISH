@@ -28,12 +28,32 @@
         ["Mis expectativas salariales son negociables.", "My salary expectations are negotiable.", "", ""]
       ],
       d: [
-        ["A", "Tell me about a time you faced a major setback.", "Cuéntame de una vez que enfrentaste un gran revés."],
-        ["B", "Last year our main supplier went bankrupt, and I was responsible for finding a replacement within two weeks.", "El año pasado nuestro proveedor principal quebró y me tocó encontrar un reemplazo en dos semanas."],
-        ["A", "What did you do?", "¿Qué hiciste?"],
-        ["B", "I took the initiative, qualified three new suppliers and split the order between them.", "Tomé la iniciativa, califiqué a tres proveedores nuevos y dividí el pedido entre ellos."],
-        ["A", "And the result?", "¿Y el resultado?"],
-        ["B", "As a result, we delivered on time and reduced costs by eight percent.", "Como resultado, entregamos a tiempo y redujimos los costos un ocho por ciento."]
+        ["@", "Solicitaste un puesto de gerente de operaciones en una empresa estadounidense con planta en Monterrey. Primero te llama la reclutadora."],
+        ["A", "Thanks for your time. Can you tell me a little about yourself?", "Gracias por su tiempo. ¿Me puede platicar un poco de usted?"],
+        ["B", "Sure. I studied industrial engineering, and I've managed a production team for six years.", "Claro. Estudié ingeniería industrial y llevo seis años dirigiendo un equipo de producción."],
+        ["A", "Why are you interested in this position?", "¿Por qué le interesa este puesto?"],
+        ["B", "I'm looking for a role where I can have more impact. My background is a strong fit for this role.", "Busco un puesto donde pueda tener más impacto. Mi experiencia encaja muy bien con este puesto."],
+        ["A", "Great. And what are your salary expectations?", "Muy bien. ¿Y cuáles son sus expectativas salariales?"],
+        ["B", "Around sixty thousand pesos a month, but my salary expectations are negotiable.", "Alrededor de sesenta mil pesos al mes, pero mis expectativas salariales son negociables."],
+        ["A", "Perfect. The next step is an interview with the plant director.", "Perfecto. El siguiente paso es una entrevista con el director de planta."],
+        ["@", "Una semana después, tienes la entrevista con el director de planta, el señor Miller."],
+        ["A", "Tell me about a time you resolved a conflict.", "Cuénteme de una vez que resolvió un conflicto."],
+        ["B", "Last year, two of my supervisors didn't work well together, and production went down.", "El año pasado, dos de mis supervisores no trabajaban bien juntos, y la producción bajó."],
+        ["A", "What did you do?", "¿Qué hizo?"],
+        ["B", "I took the initiative and restructured the team. Each one got a different shift.", "Tomé la iniciativa y reorganicé el equipo. Cada uno quedó en un turno diferente."],
+        ["A", "And what was the result?", "¿Y cuál fue el resultado?"],
+        ["B", "As a result, production went up fifteen percent in three months.", "Como resultado, la producción subió quince por ciento en tres meses."],
+        ["A", "Impressive. What did you learn?", "Impresionante. ¿Qué aprendió?"],
+        ["B", "What I learned from that experience was to act early, before a problem grows.", "Lo que aprendí de esa experiencia fue a actuar pronto, antes de que un problema crezca."],
+        ["@", "Al final de la entrevista, el señor Miller te pregunta si tienes dudas."],
+        ["A", "Do you have any questions for me?", "¿Tiene alguna pregunta para mí?"],
+        ["B", "Yes. How do you measure success in this role?", "Sí. ¿Cómo miden el éxito en este puesto?"],
+        ["A", "Mainly by production, quality and safety.", "Principalmente por producción, calidad y seguridad."],
+        ["B", "And what are the biggest challenges of this role?", "¿Y cuáles son los mayores retos del puesto?"],
+        ["A", "We're opening a new line next year, so it's a lot of work.", "Vamos a abrir una línea nueva el próximo año, así que es mucho trabajo."],
+        ["B", "That sounds exciting. What are the next steps in the process?", "Suena emocionante. ¿Cuáles son los siguientes pasos del proceso?"],
+        ["A", "We'll contact you by Friday.", "Lo contactaremos antes del viernes."],
+        ["B", "Thank you for your time. I look forward to hearing from you.", "Gracias por su tiempo. Quedo en espera de sus comentarios."]
       ]
     },
     {
@@ -60,12 +80,30 @@
         ["Gracias por su atención.", "Thank you for your attention.", "", ""]
       ],
       d: [
-        ["A", "We have ten minutes for your presentation.", "Tienes diez minutos para tu presentación."],
-        ["B", "Thank you. Let me start with some background. Our goal was to reduce waiting times at the plant.", "Gracias. Permítanme empezar con contexto. Nuestro objetivo era reducir los tiempos de espera en la planta."],
-        ["A", "What did you find?", "¿Qué encontraron?"],
-        ["B", "Our findings suggest that a new layout could cut waiting times by forty percent.", "Nuestros hallazgos sugieren que una nueva distribución podría reducir los tiempos de espera un cuarenta por ciento."],
-        ["A", "Any limitations?", "¿Alguna limitación?"],
-        ["B", "It's worth noting that we only tested one shift. To wrap up, I recommend a three-month pilot.", "Cabe señalar que solo probamos un turno. Para cerrar, recomiendo un piloto de tres meses."]
+        ["@", "Mañana presentas tu proyecto en un congreso de hospitales en Houston: cómo redujeron los tiempos de espera en urgencias. En la noche, ensayas con tu colega Laura en el hotel."],
+        ["A", "Okay, I'm the audience. Start.", "Bueno, yo soy el público. Empieza."],
+        ["B", "Good morning, everyone. Let me start with some background.", "Buenos días a todos. Permítanme empezar con un poco de contexto."],
+        ["A", "Good. What's the background?", "Bien. ¿Cuál es el contexto?"],
+        ["B", "In our hospital, patients waited four hours in the emergency room. Our goal was to reduce waiting times.", "En nuestro hospital, los pacientes esperaban cuatro horas en urgencias. Nuestro objetivo era reducir los tiempos de espera."],
+        ["A", "And how did you do it?", "¿Y cómo lo hicieron?"],
+        ["B", "We collected data over six months, and we changed the order of the patients.", "Recolectamos datos durante seis meses y cambiamos el orden de los pacientes."],
+        ["A", "Nice and clear. Don't forget to breathe!", "Muy claro. ¡No se te olvide respirar!"],
+        ["@", "Al día siguiente terminas tu presentación y empieza la sesión de preguntas. Una doctora levanta la mano."],
+        ["A", "How much did waiting times go down?", "¿Cuánto bajaron los tiempos de espera?"],
+        ["B", "As this graph illustrates, they went down from four hours to ninety minutes.", "Como muestra esta gráfica, bajaron de cuatro horas a noventa minutos."],
+        ["A", "That's impressive. Did you expect that?", "Es impresionante. ¿Lo esperaban?"],
+        ["B", "No. Contrary to our expectations, the biggest change came from a simple idea.", "No. Contrario a lo que esperábamos, el cambio más grande vino de una idea sencilla."],
+        ["A", "What idea?", "¿Qué idea?"],
+        ["B", "A nurse at the entrance who decides the order of the patients.", "Una enfermera en la entrada que decide el orden de los pacientes."],
+        ["A", "But your hospital is small. Does it work in a big hospital?", "Pero su hospital es pequeño. ¿Funciona en un hospital grande?"],
+        ["B", "That's a good question. It's worth noting that our sample was small, so this should be interpreted with caution.", "Buena pregunta. Cabe señalar que nuestra muestra fue pequeña, así que hay que interpretarlo con cautela."],
+        ["@", "Después de la sesión, Laura te felicita."],
+        ["A", "You were amazing! People loved it.", "¡Estuviste increíble! A la gente le encantó."],
+        ["B", "Thanks! I'd like to thank the team. Without them, nothing would have been possible.", "¡Gracias! Me gustaría agradecer al equipo. Sin ellos, nada habría sido posible."],
+        ["A", "Three hospitals want to try our system!", "¡Tres hospitales quieren probar nuestro sistema!"],
+        ["B", "Really? This has important implications for the health sector.", "¿En serio? Esto tiene implicaciones importantes para el sector salud."],
+        ["A", "Let's celebrate. Dinner?", "Hay que celebrar. ¿Cenamos?"],
+        ["B", "Absolutely. The key takeaway is this: simple ideas work!", "¡Claro que sí! El punto clave es este: ¡las ideas sencillas funcionan!"]
       ]
     },
     {
@@ -92,12 +130,27 @@
         ["Mi puerta siempre está abierta.", "My door is always open.", "", ""]
       ],
       d: [
-        ["A", "You wanted to see me?", "¿Querías verme?"],
-        ["B", "Yes. Could you take the lead on the new client project?", "Sí. ¿Podrías encabezar el proyecto del nuevo cliente?"],
-        ["A", "I'd love to. What's the timeline?", "Me encantaría. ¿Cuál es el calendario?"],
-        ["B", "Kick-off is next week. Do you have the bandwidth for it?", "El arranque es la próxima semana. ¿Tienes capacidad?"],
-        ["A", "I'll need to hand off the training plan to someone.", "Tendría que pasarle el plan de capacitación a alguien."],
-        ["B", "No problem. I trust your judgment. Let me know if I can remove any roadblocks.", "No hay problema. Confío en tu criterio. Avísame si te puedo quitar algún obstáculo."]
+        ["@", "Este año te toca entrenar al equipo de futbol infantil de tu hijo. Antes del primer entrenamiento, hablas con don Raúl, un papá que se ofreció a ayudar."],
+        ["A", "Thanks for letting me help. I was a goalkeeper for ten years, you know.", "Gracias por dejarme ayudar. Fui portero diez años, ¿eh?"],
+        ["B", "Then could you take the lead on the goalkeepers?", "Entonces, ¿podrías encabezar el entrenamiento de los porteros?"],
+        ["A", "Of course! I'd love to.", "¡Claro! Me encantaría."],
+        ["B", "Great. I'm going to give you full autonomy on this. I trust your judgment.", "Perfecto. Te voy a dar autonomía total en esto. Confío en tu criterio."],
+        ["A", "And the parents? Some of them are very intense.", "¿Y los papás? Algunos son muy intensos."],
+        ["B", "I'll deal with the parents. Let's make sure we're on the same page: the kids come first.", "Yo me encargo de los papás. Asegurémonos de estar alineados: primero los niños."],
+        ["@", "Meses después, llegan a la final. Antes del partido, Sofi, la capitana del equipo, está nerviosa."],
+        ["A", "Coach, what if we lose?", "Profe, ¿y si perdemos?"],
+        ["B", "Then we lose together. What's the top priority today?", "Entonces perdemos juntos. ¿Cuál es la prioridad hoy?"],
+        ["A", "To win?", "¿Ganar?"],
+        ["B", "To have fun and play as a team. I want to hear everyone's input: what's our plan?", "Divertirnos y jugar en equipo. Quiero escuchar todas las opiniones: ¿cuál es nuestro plan?"],
+        ["A", "Pass the ball and help each other!", "¡Pasar el balón y ayudarnos!"],
+        ["B", "Exactly. I'm confident you'll pull it off.", "Exacto. Confío en que lo van a lograr."],
+        ["@", "Pierden la final 2 a 1. Los niños están tristes en el vestidor."],
+        ["A", "We lost, Coach. It was my fault. I missed the penalty.", "Perdimos, profe. Fue mi culpa. Fallé el penal."],
+        ["B", "No, Sofi. The buck stops with me. I'm the coach.", "No, Sofi. Yo asumo la responsabilidad. Yo soy quien entrena."],
+        ["A", "But everyone is sad.", "Pero todos están tristes."],
+        ["B", "I want to recognize the effort you all put in. I'm proud of this team.", "Quiero reconocer el esfuerzo que todos pusieron. Este equipo me llena de orgullo."],
+        ["A", "Really?", "¿De verdad?"],
+        ["B", "Really. Let's learn from this, and next year we'll win the final.", "De verdad. Aprendamos de esto, y el próximo año ganamos la final."]
       ]
     },
     {
@@ -124,12 +177,27 @@
         ["Necesitamos un marco de trabajo claro.", "We need a clear framework.", "", ""]
       ],
       d: [
-        ["A", "How's the integration project going?", "¿Cómo va el proyecto de integración?"],
-        ["B", "Well, but the timing is tight. The new system has to be ready by March.", "Bien, pero el tiempo está justo. El sistema nuevo tiene que estar listo para marzo."],
-        ["A", "Do you have enough support from the other teams?", "¿Tienes suficiente apoyo de los otros equipos?"],
-        ["B", "Yes, the collaboration has been great. IT and production are working together.", "Sí, la colaboración ha sido excelente. Sistemas y producción están trabajando juntos."],
-        ["A", "And the client?", "¿Y el cliente?"],
-        ["B", "So far, they're satisfied. Now we just need to execute.", "Hasta ahora está satisfecho. Ahora solo falta ejecutar."]
+        ["@", "Tu empresa organiza una carrera de 5 kilómetros para juntar fondos para un hospital infantil, en colaboración con la universidad. Te toca coordinarla con el profesor Ibarra."],
+        ["A", "So, how do we start? It's a big project.", "¿Y cómo empezamos? Es un proyecto grande."],
+        ["B", "We need a clear framework. Let's use a step-by-step approach.", "Necesitamos un marco de trabajo claro. Usemos un enfoque paso a paso."],
+        ["A", "Okay. Our students can help with the registration.", "Bueno. Nuestros estudiantes pueden ayudar con las inscripciones."],
+        ["B", "Perfect. We have to integrate your system with ours.", "Perfecto. Hay que integrar su sistema con el nuestro."],
+        ["A", "And the kids' race? Parents have to sign something, right?", "¿Y la carrera infantil? Los papás tienen que firmar algo, ¿verdad?"],
+        ["B", "Yes. We need their written consent. We respect data privacy, too.", "Sí. Necesitamos su consentimiento por escrito. También respetamos la privacidad de los datos."],
+        ["A", "I'll put all the dates on the shared calendar.", "Voy a poner todas las fechas en el calendario compartido."],
+        ["@", "Una semana antes de la carrera, el proveedor de las playeras dice que no van a llegar a tiempo. El profesor Ibarra te llama preocupado."],
+        ["A", "The T-shirts won't arrive! What do we do?", "¡No van a llegar las playeras! ¿Qué hacemos?"],
+        ["B", "Don't worry. I talked to the supplier this morning, and we settled the dispute.", "No se preocupe. Hablé con el proveedor en la mañana y resolvimos la disputa."],
+        ["A", "Really? How?", "¿En serio? ¿Cómo?"],
+        ["B", "They'll send half on Friday and half on Saturday morning. We're in the final phase.", "Van a mandar la mitad el viernes y la mitad el sábado en la mañana. Estamos en la fase final."],
+        ["A", "Phew! Thank you.", "¡Uf! Gracias."],
+        ["@", "La carrera fue un éxito. El lunes, tu director te pregunta cómo salió todo."],
+        ["A", "Congratulations! How did it go?", "¡Felicidades! ¿Cómo salió?"],
+        ["B", "Very well. Two thousand people ran, and we collected half a million pesos.", "Muy bien. Corrieron dos mil personas y juntamos medio millón de pesos."],
+        ["A", "Amazing. And the university?", "Increíble. ¿Y la universidad?"],
+        ["B", "We did it in collaboration with them, and the execution was flawless.", "Lo hicimos en colaboración con ellos, y la ejecución fue impecable."],
+        ["A", "Let's do it again next year.", "Hay que repetirlo el próximo año."],
+        ["B", "Absolutely. The timing was perfect, just before the holidays.", "Claro que sí. El momento fue perfecto, justo antes de las vacaciones."]
       ]
     },
     {
@@ -157,12 +225,25 @@
         ["¿Qué necesitas de mí para que esto funcione?", "What do you need from me to make this work?", "", ""]
       ],
       d: [
-        ["A", "You wanted to talk?", "¿Querías hablar?"],
-        ["B", "Yes. I noticed the last few reports were late, and I'm concerned about the impact on the client.", "Sí. Noté que los últimos reportes llegaron tarde y me preocupa el impacto en el cliente."],
-        ["A", "I know. I've had too many projects at the same time.", "Ya sé. He tenido demasiados proyectos al mismo tiempo."],
-        ["B", "I hear you. I can see why that's frustrating. How do you see it?", "Te escucho. Entiendo que es frustrante. ¿Tú cómo lo ves?"],
-        ["A", "If I could hand off one project, I could focus on the reports.", "Si pudiera pasarle un proyecto a alguien, me podría enfocar en los reportes."],
-        ["B", "Let's find a solution together. What do you need from me to make this work?", "Busquemos una solución juntos. ¿Qué necesitas de mí para que esto funcione?"]
+        ["@", "Tu mamá ya está grande y vive sola. Tu hermana Diana, que vive cerca de ella, la cuida casi siempre. Hoy te llama molesta."],
+        ["A", "I'm tired. I do everything for Mom, and you only call on Sundays.", "Estoy cansada. Yo hago todo por mamá y tú solo llamas los domingos."],
+        ["B", "I can see why you're frustrated. I hear you.", "Entiendo por qué estás frustrada. Te escucho."],
+        ["A", "Last week she fell in the kitchen, and I had to leave work.", "La semana pasada se cayó en la cocina y tuve que salirme del trabajo."],
+        ["B", "I didn't know that. What exactly are you concerned about?", "No lo sabía. ¿Qué te preocupa exactamente?"],
+        ["A", "She can't live alone anymore. And I can't do it alone anymore.", "Ya no puede vivir sola. Y yo ya no puedo hacerlo sola."],
+        ["B", "You're right. Let's find a solution together.", "Tienes razón. Busquemos una solución en equipo."],
+        ["@", "El domingo comen en casa de tu mamá para hablar del tema. Diana propone contratar a una enfermera."],
+        ["A", "A nurse during the day is the best option.", "Una enfermera durante el día es la mejor opción."],
+        ["B", "I respect your view, but I see it differently. Mom could live with me.", "Respeto tu opinión, pero veo las cosas distinto. Mamá podría vivir conmigo."],
+        ["A", "With you? You work twelve hours a day!", "¿Contigo? ¡Trabajas doce horas al día!"],
+        ["B", "That's true. Okay, let's find a middle ground.", "Es cierto. Bueno, busquemos un punto medio."],
+        ["A", "What do you propose?", "¿Qué propones?"],
+        ["B", "A nurse during the week, and I'll take care of her every weekend. I'll pay for the nurse.", "Una enfermera entre semana, y yo la cuido todos los fines de semana. Yo pago la enfermera."],
+        ["@", "Después de la comida, platicas a solas con Diana en el patio."],
+        ["A", "Thank you. I'm sorry I yelled at you on the phone.", "Gracias. Perdón por gritarte por teléfono."],
+        ["B", "No, I owe you an apology. I didn't see how hard it was for you.", "No, yo te debo una disculpa. No vi lo difícil que era para ti."],
+        ["A", "I appreciate you saying that.", "Agradezco que lo digas."],
+        ["B", "Let's put this behind us. From now on, we're a team.", "Dejemos esto atrás. De ahora en adelante, somos un equipo."]
       ]
     },
     {
@@ -190,12 +271,27 @@
         ["Quedamos a su disposición para comentarlo.", "We would be glad to discuss this further.", "", ""]
       ],
       d: [
-        ["A", "Can you review my proposal before I send it?", "¿Puedes revisar mi propuesta antes de mandarla?"],
-        ["B", "Sure. First, put your recommendation at the top: 'We recommend option B.'", "Claro. Primero, pon tu recomendación al inicio: 'Recomendamos la opción B.'"],
-        ["A", "Not at the end?", "¿No al final?"],
-        ["B", "No. Executives read the first paragraph and decide. Then list the expected benefits.", "No. Los directivos leen el primer párrafo y deciden. Luego enumera los beneficios esperados."],
-        ["A", "Should I mention the risks?", "¿Menciono los riesgos?"],
-        ["B", "Yes, and how you'll mitigate them. Finish with clear next steps.", "Sí, y cómo los vas a mitigar. Termina con siguientes pasos claros."]
+        ["@", "La panadería de tu familia necesita un horno nuevo. Con tu papá, escriben una propuesta para un programa de apoyo a pequeños negocios."],
+        ["A", "We need a new oven, but I don't know how to start the proposal. You're better at writing.", "Necesitamos un horno nuevo, pero no sé cómo empezar la propuesta. Tú escribes mejor."],
+        ["B", "Let's start with the executive summary. The purpose of this proposal is to buy a new oven.", "Empecemos con el resumen ejecutivo. El propósito de esta propuesta es comprar un horno nuevo."],
+        ["A", "And what do we say about money?", "¿Y qué decimos del dinero?"],
+        ["B", "The initial investment would pay for itself in eighteen months.", "La inversión inicial se recuperaría en dieciocho meses."],
+        ["A", "Are you sure?", "¿Seguro?"],
+        ["B", "Yes. The new one uses less gas. Savings of fifteen percent are expected.", "Sí. El nuevo usa menos gas. Se espera un ahorro del quince por ciento."],
+        ["A", "Great. And all the prices?", "Muy bien. ¿Y todos los precios?"],
+        ["B", "A detailed cost breakdown is attached.", "Se adjunta un desglose detallado de costos."],
+        ["@", "Dos semanas después, una analista del programa los entrevista en la panadería."],
+        ["A", "I read your proposal. It's very clear. What are the main risks?", "Leí su propuesta. Es muy clara. ¿Cuáles son los principales riesgos?"],
+        ["B", "The main risks include lower sales and higher gas prices.", "Los principales riesgos incluyen ventas más bajas y precios más altos del gas."],
+        ["A", "And how will you reduce those risks?", "¿Y cómo van a reducir esos riesgos?"],
+        ["B", "To mitigate this risk, we suggest offering our bread to restaurants too.", "Para mitigar este riesgo, sugerimos ofrecer nuestro pan también a restaurantes."],
+        ["A", "Interesting. How long will the project take?", "Interesante. ¿Cuánto tiempo va a tomar el proyecto?"],
+        ["B", "The project is divided into three phases: buying, installing and training.", "El proyecto se divide en tres fases: compra, instalación y capacitación."],
+        ["@", "Un mes después, suena el teléfono de la panadería. Contesta tu papá y te pasa la llamada."],
+        ["A", "Good morning. I'm calling about your proposal.", "Buenos días. Le llamo por su propuesta."],
+        ["B", "Good morning. Thank you for calling. We appreciate your consideration.", "Buenos días. Gracias por llamar. Agradecemos su consideración."],
+        ["A", "I'm happy to tell you that it was approved.", "Me da gusto decirle que fue aprobada."],
+        ["B", "That's wonderful news! What are the next steps?", "¡Qué maravillosa noticia! ¿Cuáles son los siguientes pasos?"]
       ]
     },
     {
@@ -223,12 +319,26 @@
         ["¿Qué necesitaría ver para dar el siguiente paso?", "What would you need to see to move forward?", "", ""]
       ],
       d: [
-        ["A", "I'm not sure we need a new system. Ours works fine.", "No estoy seguro de que necesitemos un sistema nuevo. El nuestro funciona bien."],
-        ["B", "That's a valid concern. What's your biggest challenge right now?", "Es una preocupación válida. ¿Cuál es su mayor reto en este momento?"],
-        ["A", "Downtime. We lose about ten hours a week.", "Los paros. Perdemos unas diez horas a la semana."],
-        ["B", "Imagine cutting that in half. Many clients felt the same way until they tried it.", "Imagine reducir eso a la mitad. Muchos clientes pensaban igual hasta que lo probaron."],
-        ["A", "What would it cost?", "¿Cuánto costaría?"],
-        ["B", "The return on investment is six months. Shall we schedule a demo for next week?", "El retorno de inversión es de seis meses. ¿Agendamos una demostración la próxima semana?"]
+        ["@", "Quieres adoptar un perro, pero tu pareja no está muy convencida. En la cena, le sacas el tema."],
+        ["A", "A dog? We work all day. Who's going to take care of it?", "¿Un perro? Trabajamos todo el día. ¿Quién lo va a cuidar?"],
+        ["B", "That's a valid concern. But imagine coming home and having someone happy to see you.", "Es una preocupación válida. Pero imagina llegar a casa y tener a alguien feliz de verte."],
+        ["A", "Hmm. And the furniture? Dogs destroy everything.", "Mmm. ¿Y los muebles? Los perros destruyen todo."],
+        ["B", "I understand your concern. Let me give you a concrete example: my sister's dog never destroys anything.", "Entiendo tu preocupación. Déjame darte un ejemplo concreto: el perro de mi hermana nunca destruye nada."],
+        ["A", "Your sister has a big house.", "Tu hermana tiene una casa grande."],
+        ["B", "How about we start with a pilot? We can take a dog home for one weekend.", "¿Qué te parece si empezamos con un piloto? Podemos llevarnos un perro a la casa un fin de semana."],
+        ["A", "Just one weekend?", "¿Solo un fin de semana?"],
+        ["B", "Yes. No strings attached. You don't have to decide today.", "Sí. Sin compromiso. No tienes que decidir hoy."],
+        ["@", "El sábado van a un centro de adopción. Una voluntaria les presenta a Canelo, un perro café de tres años."],
+        ["A", "This is Canelo. He's calm, and he's already trained.", "Él es Canelo. Es tranquilo y ya está entrenado."],
+        ["B", "He's perfect! What would we need to take him home this weekend?", "¡Es perfecto! ¿Qué necesitaríamos para llevárnoslo a casa este fin de semana?"],
+        ["A", "Just your ID and this form.", "Solo su identificación y este formato."],
+        ["B", "And if it doesn't work, can we bring him back on Monday?", "¿Y si no funciona, lo podemos traer de regreso el lunes?"],
+        ["A", "Of course. But many families felt the same way until they tried it.", "Claro. Pero muchas familias pensaban lo mismo hasta que lo probaron."],
+        ["@", "El domingo en la noche, Canelo duerme en el sillón, junto a tu pareja."],
+        ["A", "Okay, okay... He's wonderful.", "Bueno, bueno... Es maravilloso."],
+        ["B", "So? What would be the next step?", "¿Y? ¿Cuál sería el siguiente paso?"],
+        ["A", "We keep him, of course!", "¡Nos lo quedamos, claro!"],
+        ["B", "The numbers speak for themselves: one weekend, zero problems!", "Los números hablan por sí solos: ¡un fin de semana, cero problemas!"]
       ]
     },
     {
@@ -256,12 +366,26 @@
         ["Su contribución fue invaluable.", "Her contribution was invaluable.", "", "invaluable = muy valioso (no 'sin valor')."]
       ],
       d: [
-        ["A", "How did the product launch go?", "¿Cómo salió el lanzamiento del producto?"],
-        ["B", "It was a resounding success. There was a substantial increase in pre-orders.", "Fue un éxito rotundo. Hubo un aumento considerable en preventas."],
-        ["A", "The competitor claims their product is better.", "La competencia afirma que su producto es mejor."],
-        ["B", "They can claim whatever they want. The data shows a negligible difference in price and a huge difference in quality.", "Pueden afirmar lo que quieran. Los datos muestran una diferencia mínima en precio y una enorme en calidad."],
-        ["A", "Who led the campaign?", "¿Quién dirigió la campaña?"],
-        ["B", "Laura. Her contribution was invaluable.", "Laura. Su contribución fue invaluable."]
+        ["@", "Este año formas parte del jurado de un festival de cortometrajes en Guadalajara. Después de la primera función, platicas con otra integrante del jurado, la directora Elena Paz."],
+        ["A", "So, what did you think of the first film?", "¿Y? ¿Qué te pareció la primera película?"],
+        ["B", "Honestly, the story was ambiguous, and the ending was questionable.", "La verdad, la historia era ambigua y el final era cuestionable."],
+        ["A", "Really? I found it subtle.", "¿En serio? A mí me pareció sutil."],
+        ["B", "Maybe, but the difference between subtle and confusing is not trivial.", "Tal vez, pero la diferencia entre sutil y confuso no es insignificante."],
+        ["A", "Ha, ha! Fair enough.", "¡Ja, ja! Tienes razón."],
+        ["@", "Luego ven la segunda película: la historia de una abuela que aprende a leer a los ochenta años."],
+        ["A", "That was beautiful. What did you think?", "Eso fue precioso. ¿Qué te pareció?"],
+        ["B", "It was remarkable. The emotion at the end was overwhelming.", "Fue notable. La emoción al final fue abrumadora."],
+        ["A", "The director is only twenty-two years old.", "La directora tiene solo veintidós años."],
+        ["B", "Her contribution to Mexican film could be invaluable.", "Su contribución al cine mexicano podría ser invaluable."],
+        ["A", "So, is it our winner?", "Entonces, ¿es nuestra ganadora?"],
+        ["B", "I think so. Her film is the most compelling.", "Creo que sí. Su película es la más contundente."],
+        ["@", "En la ceremonia de premios, una periodista te pregunta por la decisión del jurado."],
+        ["A", "Why did the jury choose this film?", "¿Por qué el jurado escogió esta película?"],
+        ["B", "It was a pivotal decision. The film is ambitious but simple, and the emotion is real.", "Fue una decisión crucial. La película es ambiciosa pero sencilla, y la emoción es real."],
+        ["A", "Was the decision easy?", "¿La decisión fue fácil?"],
+        ["B", "Not really. We had a thorough discussion, but in the end five of us voted for her film.", "No mucho. Tuvimos una discusión exhaustiva, pero al final cinco de nosotros votamos por su película."],
+        ["A", "And what's next for her?", "¿Y qué sigue para ella?"],
+        ["B", "The prize will boost her career. We're bound to hear about her again.", "El premio va a impulsar su carrera. Seguro que vamos a volver a oír de ella."]
       ]
     },
     {
@@ -288,12 +412,27 @@
         ["Lo platicamos fuera de la junta.", "Let's take this offline.", "", "= lo hablamos fuera de la junta."]
       ],
       d: [
-        ["A", "Okay, let's get the ball rolling. What's the bottom line on the new plant?", "Bien, arranquemos. ¿Cuál es lo esencial de la nueva planta?"],
-        ["B", "We don't have final numbers yet, but the ballpark figure is twelve million.", "Aún no tenemos cifras finales, pero lo aproximado son doce millones."],
-        ["A", "That's more than expected. Any low-hanging fruit to cut costs?", "Es más de lo esperado. ¿Algo fácil para recortar costos?"],
-        ["B", "Yes, we can reuse the old equipment. No need to reinvent the wheel.", "Sí, podemos reutilizar el equipo viejo. No hay que reinventar la rueda."],
-        ["A", "Great. Let's circle back on this next week.", "Perfecto. Lo retomamos la próxima semana."],
-        ["B", "Sounds good. I'll keep you posted.", "Va. Te mantengo al tanto."]
+        ["@", "Te toca organizar la posada de fin de año de la empresa con un comité. Hoy es la primera junta, con tu compañera Marcela."],
+        ["A", "So, where do we start?", "¿Y por dónde empezamos?"],
+        ["B", "Let's get the ball rolling. First, the budget. Can you give me a ballpark figure?", "Arranquemos. Primero, el presupuesto. ¿Me das una cifra aproximada?"],
+        ["A", "Around eighty thousand pesos for two hundred people.", "Alrededor de ochenta mil pesos para doscientas personas."],
+        ["B", "Okay. Let's not reinvent the wheel: same place as last year.", "Bueno. No reinventemos la rueda: el mismo lugar del año pasado."],
+        ["A", "But people said it was boring last year.", "Pero la gente dijo que el año pasado estuvo aburrido."],
+        ["B", "True. We need to think outside the box with the activities.", "Es cierto. Necesitamos pensar fuera de la caja con las actividades."],
+        ["A", "What about a karaoke contest between departments?", "¿Qué tal un concurso de karaoke entre áreas?"],
+        ["B", "That could be a game changer!", "¡Eso podría ser un cambio radical!"],
+        ["@", "Una semana antes de la posada, el salón cancela la reservación. Marcela te llama preocupada."],
+        ["A", "The place canceled! What do we do now?", "¡El salón canceló! ¿Qué hacemos ahora?"],
+        ["B", "Okay, let's go back to the drawing board. Do you know another place?", "Bueno, volvamos al punto de partida. ¿Conoces otro lugar?"],
+        ["A", "My cousin has a garden, but we need chairs and lights.", "Mi primo tiene un jardín, pero necesitamos sillas y luces."],
+        ["B", "Let's roll up our sleeves. I'll get the chairs and the lights.", "Pongámonos manos a la obra. Yo consigo las sillas y las luces."],
+        ["A", "And I'll talk to my cousin.", "Y yo hablo con mi primo."],
+        ["B", "Perfect. Let's keep each other posted.", "Perfecto. Mantengámonos en contacto sobre los avances."],
+        ["@", "La noche de la posada, todo sale perfecto. El director general se acerca a felicitarte."],
+        ["A", "What a party! Everybody loved the karaoke.", "¡Qué fiesta! A todos les encantó el karaoke."],
+        ["B", "Thank you. The committee went the extra mile this year.", "Gracias. El comité fue más allá este año."],
+        ["A", "I heard the place canceled a week ago.", "Supe que el salón canceló hace una semana."],
+        ["B", "Yes, but Marcela's cousin saved us. She deserves the credit.", "Sí, pero el primo de Marcela nos salvó. Ella merece el crédito."]
       ]
     },
     {
@@ -321,12 +460,25 @@
         ["Búsquenme con confianza después de la sesión.", "Feel free to find me after the session.", "", ""]
       ],
       d: [
-        ["A", "Thank you for the talk. How did you calculate the savings?", "Gracias por la plática. ¿Cómo calcularon los ahorros?"],
-        ["B", "That's a great question. Let me make sure I understand: you're asking about the method?", "Muy buena pregunta. Déjeme asegurarme de que entiendo: ¿pregunta por el método?"],
-        ["A", "Yes, and whether it includes maintenance.", "Sí, y si incluye el mantenimiento."],
-        ["B", "It includes maintenance for the first three years. I don't have the exact figure with me, but I'll follow up after the session.", "Incluye el mantenimiento de los primeros tres años. No tengo la cifra exacta aquí, pero se la envío después."],
-        ["A", "Thank you.", "Gracias."],
-        ["B", "We have time for one more question.", "Tenemos tiempo para una pregunta más."]
+        ["@", "Tu antigua prepa te invitó a dar una plática a los alumnos de último año: cómo el inglés cambió tu carrera. Antes de empezar, un alumno, Mateo, te ayuda con el micrófono."],
+        ["A", "Hi! I'm Mateo. I'll help you with the microphone. Are you nervous?", "¡Hola! Soy Mateo. Te voy a ayudar con el micrófono. ¿Tienes nervios?"],
+        ["B", "A little. It's an honor to be here. I studied at this school twenty years ago.", "Un poco. Es un honor estar aquí. Estudié en esta escuela hace veinte años."],
+        ["A", "Really? What are you going to talk about?", "¿En serio? ¿De qué vas a hablar?"],
+        ["B", "Today I'm going to cover three things: how I failed, how I learned and what changed.", "Hoy voy a hablar de tres cosas: cómo fallé, cómo aprendí y qué cambió."],
+        ["A", "Failed? You?", "¿Fallaste? ¿Tú?"],
+        ["B", "Yes! I'd like to share a quick story at the beginning. You'll see.", "¡Sí! Les quiero contar una historia al principio. Ya verás."],
+        ["@", "Terminas la plática y empiezan las preguntas. Una alumna, Fernanda, levanta la mano."],
+        ["A", "How long did it take you to speak English well?", "¿Cuánto tiempo te tomó hablar bien inglés?"],
+        ["B", "That's a great question. About three years, practicing every day.", "Muy buena pregunta. Como tres años, practicando todos los días."],
+        ["A", "And how much do you earn now?", "¿Y cuánto ganas ahora?"],
+        ["B", "Ha, ha! That's a bit beyond the scope of today's talk.", "¡Ja, ja! Eso va un poco más allá del tema de hoy."],
+        ["A", "Ha, ha! Sorry. Which apps did you use?", "¡Ja, ja! Perdón. ¿Qué aplicaciones usaste?"],
+        ["B", "Several. My contact details are on the last slide. Feel free to write to me.", "Varias. Mis datos de contacto están en la última diapositiva. Escríbanme con confianza."],
+        ["@", "La directora de la escuela te avisa que ya casi es hora de terminar."],
+        ["A", "We're almost out of time.", "Ya casi se nos acaba el tiempo."],
+        ["B", "Okay. To close: if you take away just one thing today, let it be this: mistakes are part of learning.", "Bueno. Para cerrar: si se llevan una sola idea de hoy, que sea esta: los errores son parte de aprender."],
+        ["A", "Beautiful. Thank you for coming.", "Muy bonito. Gracias por venir."],
+        ["B", "Thank you so much for your attention. And good luck on your exams!", "Muchas gracias por su atención. ¡Y suerte en sus exámenes!"]
       ]
     },
     {
@@ -354,12 +506,26 @@
         ["Me encantaría aprender más de su cultura.", "I'd love to learn more about your culture.", "", ""]
       ],
       d: [
-        ["A", "The proposal is interesting. We'll think about it.", "La propuesta es interesante. Lo vamos a pensar."],
-        ["B", "Thank you. Just to clarify, are there any concerns I should address?", "Gracias. Solo para aclarar, ¿hay alguna preocupación que deba atender?"],
-        ["A", "Well, the timeline seems a bit ambitious.", "Bueno, el calendario parece un poco ambicioso."],
-        ["B", "I appreciate your directness. In my culture we tend to be more indirect, so I want to make sure I'm not missing anything.", "Agradezco tu franqueza. En mi cultura solemos ser más indirectos, así que quiero asegurarme de no perderme nada."],
-        ["A", "That's all. Otherwise, it looks good.", "Es todo. Fuera de eso, se ve bien."],
-        ["B", "Great. I'll send a revised timeline before five p.m. New York time and confirm by email.", "Perfecto. Mando un calendario revisado antes de las cinco de la tarde, hora de Nueva York, y lo confirmo por correo."]
+        ["@", "Tu empresa te mandó un año a trabajar a su oficina de Toronto. En tu primer día, te recibe tu nueva jefa, la señora Walker."],
+        ["A", "Welcome to Toronto! How was your trip?", "¡Te damos la bienvenida a Toronto! ¿Qué tal tu viaje?"],
+        ["B", "Very good, thank you, Ms. Walker. Is it okay if I call you by your first name?", "Muy bien, gracias, señora Walker. ¿Le parece bien si le llamo por su nombre?"],
+        ["A", "Of course! Everyone calls me Karen here.", "¡Claro! Aquí todos me dicen Karen."],
+        ["B", "Great. Is there anything I should know about how things work here?", "Perfecto. ¿Hay algo que debería saber sobre cómo trabajan aquí?"],
+        ["A", "Well, people are very punctual. A meeting at nine starts at nine.", "Pues, la gente es muy puntual. Una junta a las nueve empieza a las nueve."],
+        ["B", "Good to know! In Mexico, it's customary to arrive a few minutes late.", "¡Qué bueno saberlo! En México es costumbre llegar unos minutos tarde."],
+        ["A", "Ha, ha! Not here.", "¡Ja, ja! Aquí no."],
+        ["@", "Un mes después, en una junta, tu compañero Tom te dice algo que te confunde."],
+        ["A", "Your report is interesting. Maybe you could look at it again.", "Tu reporte es interesante. Tal vez podrías revisarlo otra vez."],
+        ["B", "Just to clarify, what do you mean by that? Is there a problem?", "Solo para aclarar, ¿qué quieres decir con eso? ¿Hay algún problema?"],
+        ["A", "Well... yes. The numbers in the second part are wrong.", "Pues... sí. Los números de la segunda parte están mal."],
+        ["B", "I appreciate your directness. I prefer clear comments.", "Agradezco tu franqueza. Prefiero los comentarios claros."],
+        ["A", "Sorry if I wasn't clear. In Canada, we tend to be more indirect.", "Perdón si no fui claro. En Canadá solemos ser más indirectos."],
+        ["B", "Really? I thought Mexicans were the indirect ones! Every culture has its own style.", "¿En serio? ¡Yo pensaba que los mexicanos éramos los indirectos! Cada cultura tiene su estilo."],
+        ["@", "Un año después, es tu último día en Toronto. El equipo te hace una comida de despedida."],
+        ["A", "We're going to miss you! What will you remember about Canada?", "¡Te vamos a extrañar! ¿Qué vas a recordar de Canadá?"],
+        ["B", "The snow, the coffee and all of you. I've learned a lot from working with you.", "La nieve, el café y a todos ustedes. Aprendí mucho de trabajar con ustedes."],
+        ["A", "And we learned a lot from you. Especially about tacos!", "Y nosotros aprendimos mucho de ti. ¡Sobre todo de tacos!"],
+        ["B", "Ha, ha! Let's keep in touch. And if you visit Mexico, I'll be waiting for you.", "¡Ja, ja! Sigamos en contacto. Y si visitan México, los voy a estar esperando."]
       ]
     }
   ]

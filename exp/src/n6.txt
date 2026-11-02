@@ -1,0 +1,407 @@
+// Nivel 6: cada tema como una experiencia completa (conversación por escenas + lectura)
+
+# n6u1
+@ Solicitaste un puesto de gerente de operaciones en una empresa estadounidense con planta en Monterrey. Primero te llama la reclutadora.
+A: Thanks for your time. Can you tell me a little about yourself? | Gracias por su tiempo. ¿Me puede platicar un poco de usted?
+B: Sure. I studied industrial engineering, and I've managed a production team for six years. | Claro. Estudié ingeniería industrial y llevo seis años dirigiendo un equipo de producción.
+A: Why are you interested in this position? | ¿Por qué le interesa este puesto?
+B: I'm looking for a role where I can have more impact. My background is a strong fit for this role. | Busco un puesto donde pueda tener más impacto. Mi experiencia encaja muy bien con este puesto.
+A: Great. And what are your salary expectations? | Muy bien. ¿Y cuáles son sus expectativas salariales?
+B: Around sixty thousand pesos a month, but my salary expectations are negotiable. | Alrededor de sesenta mil pesos al mes, pero mis expectativas salariales son negociables.
+A: Perfect. The next step is an interview with the plant director. | Perfecto. El siguiente paso es una entrevista con el director de planta.
+@ Una semana después, tienes la entrevista con el director de planta, el señor Miller.
+A: Tell me about a time you resolved a conflict. | Cuénteme de una vez que resolvió un conflicto.
+B: Last year, two of my supervisors didn't work well together, and production went down. | El año pasado, dos de mis supervisores no trabajaban bien juntos, y la producción bajó.
+A: What did you do? | ¿Qué hizo?
+B: I took the initiative and restructured the team. Each one got a different shift. | Tomé la iniciativa y reorganicé el equipo. Cada uno quedó en un turno diferente.
+A: And what was the result? | ¿Y cuál fue el resultado?
+B: As a result, production went up fifteen percent in three months. | Como resultado, la producción subió quince por ciento en tres meses.
+A: Impressive. What did you learn? | Impresionante. ¿Qué aprendió?
+B: What I learned from that experience was to act early, before a problem grows. | Lo que aprendí de esa experiencia fue a actuar pronto, antes de que un problema crezca.
+@ Al final de la entrevista, el señor Miller te pregunta si tienes dudas.
+A: Do you have any questions for me? | ¿Tiene alguna pregunta para mí?
+B: Yes. How do you measure success in this role? | Sí. ¿Cómo miden el éxito en este puesto?
+A: Mainly by production, quality and safety. | Principalmente por producción, calidad y seguridad.
+B: And what are the biggest challenges of this role? | ¿Y cuáles son los mayores retos del puesto?
+A: We're opening a new line next year, so it's a lot of work. | Vamos a abrir una línea nueva el próximo año, así que es mucho trabajo.
+B: That sounds exciting. What are the next steps in the process? | Suena emocionante. ¿Cuáles son los siguientes pasos del proceso?
+A: We'll contact you by Friday. | Lo contactaremos antes del viernes.
+B: Thank you for your time. I look forward to hearing from you. | Gracias por su tiempo. Quedo en espera de sus comentarios.
+== What recruiters really want to hear
+en: Andrea Ríos has been a recruiter in Monterrey for fifteen years. She has interviewed more than three thousand candidates, and she says the biggest mistake is simple: people talk about their qualities, but they don't give examples.
+es: Andrea Ríos lleva quince años como reclutadora en Monterrey. Ha entrevistado a más de tres mil candidatos, y dice que el error más grande es simple: la gente habla de sus cualidades, pero no da ejemplos.
+en: "Everybody says, 'I'm a leader' or 'I adapt quickly to change,'" she explains. "But that means nothing without a story." That's why she recommends the STAR method: describe the Situation, the Task you were responsible for, the Action you took and the Result.
+es: «Todo el mundo dice: "Soy líder" o "Me adapto rápido al cambio"», explica. «Pero eso no significa nada sin una historia». Por eso recomienda el método STAR: describe la Situación, la Tarea de la que eras responsable, la Acción que tomaste y el Resultado.
+en: The best answers include numbers. "We exceeded the target by 20%" is much stronger than "We did a good job." Andrea also likes candidates who talk about their mistakes and what they learned.
+es: Las mejores respuestas incluyen números. «Superamos la meta en un 20%» es mucho más fuerte que «Hicimos un buen trabajo». A Andrea también le gustan los candidatos que hablan de sus errores y de lo que aprendieron.
+en: Finally, she says, always prepare questions for the end of the interview. "A candidate with no questions is a candidate with no interest."
+es: Por último, dice, siempre prepara preguntas para el final de la entrevista. «Un candidato sin preguntas es un candidato sin interés».
+? ¿Cuántos años lleva Andrea como reclutadora? | Cinco | *Quince | Treinta
+? ¿Cuál es el error más grande, según Andrea? | Llegar tarde | *Hablar de sus cualidades sin dar ejemplos | Pedir mucho dinero
+? ¿Qué significa la «T» del método STAR? | El tiempo | *La tarea de la que eras responsable | El trabajo en equipo
+? ¿Qué hace más fuertes a las respuestas? | Hablar rápido | *Incluir números | Ser muy breve
+? ¿Qué piensa Andrea de un candidato sin preguntas? | Que es tímido | *Que no tiene interés | Que es muy seguro
+
+# n6u2
+@ Mañana presentas tu proyecto en un congreso de hospitales en Houston: cómo redujeron los tiempos de espera en urgencias. En la noche, ensayas con tu colega Laura en el hotel.
+A: Okay, I'm the audience. Start. | Bueno, yo soy el público. Empieza.
+B: Good morning, everyone. Let me start with some background. | Buenos días a todos. Permítanme empezar con un poco de contexto.
+A: Good. What's the background? | Bien. ¿Cuál es el contexto?
+B: In our hospital, patients waited four hours in the emergency room. Our goal was to reduce waiting times. | En nuestro hospital, los pacientes esperaban cuatro horas en urgencias. Nuestro objetivo era reducir los tiempos de espera.
+A: And how did you do it? | ¿Y cómo lo hicieron?
+B: We collected data over six months, and we changed the order of the patients. | Recolectamos datos durante seis meses y cambiamos el orden de los pacientes.
+A: Nice and clear. Don't forget to breathe! | Muy claro. ¡No se te olvide respirar!
+@ Al día siguiente terminas tu presentación y empieza la sesión de preguntas. Una doctora levanta la mano.
+A: How much did waiting times go down? | ¿Cuánto bajaron los tiempos de espera?
+B: As this graph illustrates, they went down from four hours to ninety minutes. | Como muestra esta gráfica, bajaron de cuatro horas a noventa minutos.
+A: That's impressive. Did you expect that? | Es impresionante. ¿Lo esperaban?
+B: No. Contrary to our expectations, the biggest change came from a simple idea. | No. Contrario a lo que esperábamos, el cambio más grande vino de una idea sencilla.
+A: What idea? | ¿Qué idea?
+B: A nurse at the entrance who decides the order of the patients. | Una enfermera en la entrada que decide el orden de los pacientes.
+A: But your hospital is small. Does it work in a big hospital? | Pero su hospital es pequeño. ¿Funciona en un hospital grande?
+B: That's a good question. It's worth noting that our sample was small, so this should be interpreted with caution. | Buena pregunta. Cabe señalar que nuestra muestra fue pequeña, así que hay que interpretarlo con cautela.
+@ Después de la sesión, Laura te felicita.
+A: You were amazing! People loved it. | ¡Estuviste increíble! A la gente le encantó.
+B: Thanks! I'd like to thank the team. Without them, nothing would have been possible. | ¡Gracias! Me gustaría agradecer al equipo. Sin ellos, nada habría sido posible.
+A: Three hospitals want to try our system! | ¡Tres hospitales quieren probar nuestro sistema!
+B: Really? This has important implications for the health sector. | ¿En serio? Esto tiene implicaciones importantes para el sector salud.
+A: Let's celebrate. Dinner? | Hay que celebrar. ¿Cenamos?
+B: Absolutely. The key takeaway is this: simple ideas work! | ¡Claro que sí! El punto clave es este: ¡las ideas sencillas funcionan!
+== One nurse at the door
+en: For years, patients at a public hospital in Saltillo waited an average of four hours in the emergency room. Some left without seeing a doctor.
+es: Durante años, los pacientes de un hospital público de Saltillo esperaban un promedio de cuatro horas en urgencias. Algunos se iban sin ver a un doctor.
+en: In 2025, a team of doctors and nurses decided to study the problem. They collected data over six months and discovered something surprising: the main problem wasn't the number of doctors, but the order of the patients. People with small problems waited in the same line as people with serious emergencies.
+es: En 2025, un equipo de doctores y enfermeras decidió estudiar el problema. Recolectaron datos durante seis meses y descubrieron algo sorprendente: el problema principal no era el número de doctores, sino el orden de los pacientes. La gente con problemas pequeños esperaba en la misma fila que la gente con emergencias graves.
+en: Their solution was simple. A nurse at the entrance now decides the order: serious cases go first, and small cases go to a different area with a general doctor.
+es: Su solución fue sencilla. Ahora una enfermera en la entrada decide el orden: los casos graves pasan primero, y los casos pequeños van a otra área con un médico general.
+en: The results were striking. The average wait went down from four hours to ninety minutes. Contrary to the team's expectations, the hospital didn't need more money or more doctors. Last month, they presented the project at a congress in Houston, and three hospitals want to try it.
+es: Los resultados fueron sorprendentes. La espera promedio bajó de cuatro horas a noventa minutos. Contrario a lo que esperaba el equipo, el hospital no necesitó más dinero ni más doctores. El mes pasado presentaron el proyecto en un congreso en Houston, y tres hospitales quieren probarlo.
+? ¿Cuánto esperaban antes los pacientes en urgencias? | Una hora | *Cuatro horas | Ocho horas
+? ¿Cuál era el problema principal? | Faltaban doctores | *El orden de los pacientes | El hospital era muy pequeño
+? ¿Quién decide ahora el orden? | Un doctor | *Una enfermera en la entrada | Los pacientes
+? ¿Cuánto esperan ahora en promedio? | Dos horas | *Noventa minutos | Treinta minutos
+? ¿Qué no necesitó el hospital? | Datos | *Más dinero ni más doctores | Una enfermera
+
+# n6u3
+@ Este año te toca entrenar al equipo de futbol infantil de tu hijo. Antes del primer entrenamiento, hablas con don Raúl, un papá que se ofreció a ayudar.
+A: Thanks for letting me help. I was a goalkeeper for ten years, you know. | Gracias por dejarme ayudar. Fui portero diez años, ¿eh?
+B: Then could you take the lead on the goalkeepers? | Entonces, ¿podrías encabezar el entrenamiento de los porteros?
+A: Of course! I'd love to. | ¡Claro! Me encantaría.
+B: Great. I'm going to give you full autonomy on this. I trust your judgment. | Perfecto. Te voy a dar autonomía total en esto. Confío en tu criterio.
+A: And the parents? Some of them are very intense. | ¿Y los papás? Algunos son muy intensos.
+B: I'll deal with the parents. Let's make sure we're on the same page: the kids come first. | Yo me encargo de los papás. Asegurémonos de estar alineados: primero los niños.
+@ Meses después, llegan a la final. Antes del partido, Sofi, la capitana del equipo, está nerviosa.
+A: Coach, what if we lose? | Profe, ¿y si perdemos?
+B: Then we lose together. What's the top priority today? | Entonces perdemos juntos. ¿Cuál es la prioridad hoy?
+A: To win? | ¿Ganar?
+B: To have fun and play as a team. I want to hear everyone's input: what's our plan? | Divertirnos y jugar en equipo. Quiero escuchar todas las opiniones: ¿cuál es nuestro plan?
+A: Pass the ball and help each other! | ¡Pasar el balón y ayudarnos!
+B: Exactly. I'm confident you'll pull it off. | Exacto. Confío en que lo van a lograr.
+@ Pierden la final 2 a 1. Los niños están tristes en el vestidor.
+A: We lost, Coach. It was my fault. I missed the penalty. | Perdimos, profe. Fue mi culpa. Fallé el penal.
+B: No, Sofi. The buck stops with me. I'm the coach. | No, Sofi. Yo asumo la responsabilidad. Yo soy quien entrena.
+A: But everyone is sad. | Pero todos están tristes.
+B: I want to recognize the effort you all put in. I'm proud of this team. | Quiero reconocer el esfuerzo que todos pusieron. Este equipo me llena de orgullo.
+A: Really? | ¿De verdad?
+B: Really. Let's learn from this, and next year we'll win the final. | De verdad. Aprendamos de esto, y el próximo año ganamos la final.
+== The manager who did everything
+en: When Javier was promoted to manager, he wanted everything to be perfect. So he did everything himself: he wrote the reports, answered every email and checked every number. He worked until midnight, and his team had nothing to do.
+es: Cuando ascendieron a Javier a gerente, quería que todo fuera perfecto. Así que lo hacía todo él mismo: escribía los reportes, contestaba cada correo y revisaba cada número. Trabajaba hasta la medianoche, y su equipo no tenía nada que hacer.
+en: After three months, he was exhausted, and two of his best employees asked to move to another area. "They didn't feel trusted," his director told him. "Delegating isn't the same as abdicating. Your job is not to do everything. Your job is to make sure everything gets done."
+es: Después de tres meses, estaba agotado, y dos de sus mejores empleados pidieron cambiarse de área. «No sentían tu confianza», le dijo su directora. «Delegar no es abandonar. Tu trabajo no es hacerlo todo. Tu trabajo es asegurarte de que todo se haga».
+en: Javier changed his style. Now each person owns a part of the project, and the team checks in on progress every Monday. When something goes wrong, he says, "The buck stops with me." When something goes well, he gives credit where credit is due.
+es: Javier cambió su estilo. Ahora cada persona se hace cargo de una parte del proyecto, y el equipo revisa el avance cada lunes. Cuando algo sale mal, dice: «Yo asumo la responsabilidad». Cuando algo sale bien, le da el crédito a quien lo merece.
+en: Last year, his team had the best results in the company. And Javier goes home at six.
+es: El año pasado, su equipo tuvo los mejores resultados de la empresa. Y Javier se va a su casa a las seis.
+? ¿Qué hacía Javier al principio? | Delegaba todo | *Lo hacía todo él mismo | Llegaba tarde
+? ¿Qué pidieron dos de sus mejores empleados? | Un aumento | *Cambiarse de área | Vacaciones
+? Según la directora, ¿cuál es el trabajo de un gerente? | Hacerlo todo | *Asegurarse de que todo se haga | Revisar cada número
+? ¿Cuándo revisa el equipo el avance? | Cada viernes | *Cada lunes | Cada mes
+? ¿A qué hora se va Javier a su casa ahora? | A medianoche | *A las seis | A las ocho
+
+# n6u11
+@ Tu empresa organiza una carrera de 5 kilómetros para juntar fondos para un hospital infantil, en colaboración con la universidad. Te toca coordinarla con el profesor Ibarra.
+A: So, how do we start? It's a big project. | ¿Y cómo empezamos? Es un proyecto grande.
+B: We need a clear framework. Let's use a step-by-step approach. | Necesitamos un marco de trabajo claro. Usemos un enfoque paso a paso.
+A: Okay. Our students can help with the registration. | Bueno. Nuestros estudiantes pueden ayudar con las inscripciones.
+B: Perfect. We have to integrate your system with ours. | Perfecto. Hay que integrar su sistema con el nuestro.
+A: And the kids' race? Parents have to sign something, right? | ¿Y la carrera infantil? Los papás tienen que firmar algo, ¿verdad?
+B: Yes. We need their written consent. We respect data privacy, too. | Sí. Necesitamos su consentimiento por escrito. También respetamos la privacidad de los datos.
+A: I'll put all the dates on the shared calendar. | Voy a poner todas las fechas en el calendario compartido.
+@ Una semana antes de la carrera, el proveedor de las playeras dice que no van a llegar a tiempo. El profesor Ibarra te llama preocupado.
+A: The T-shirts won't arrive! What do we do? | ¡No van a llegar las playeras! ¿Qué hacemos?
+B: Don't worry. I talked to the supplier this morning, and we settled the dispute. | No se preocupe. Hablé con el proveedor en la mañana y resolvimos la disputa.
+A: Really? How? | ¿En serio? ¿Cómo?
+B: They'll send half on Friday and half on Saturday morning. We're in the final phase. | Van a mandar la mitad el viernes y la mitad el sábado en la mañana. Estamos en la fase final.
+A: Phew! Thank you. | ¡Uf! Gracias.
+@ La carrera fue un éxito. El lunes, tu director te pregunta cómo salió todo.
+A: Congratulations! How did it go? | ¡Felicidades! ¿Cómo salió?
+B: Very well. Two thousand people ran, and we collected half a million pesos. | Muy bien. Corrieron dos mil personas y juntamos medio millón de pesos.
+A: Amazing. And the university? | Increíble. ¿Y la universidad?
+B: We did it in collaboration with them, and the execution was flawless. | Lo hicimos en colaboración con ellos, y la ejecución fue impecable.
+A: Let's do it again next year. | Hay que repetirlo el próximo año.
+B: Absolutely. The timing was perfect, just before the holidays. | Claro que sí. El momento fue perfecto, justo antes de las vacaciones.
+== Running for the children
+en: Last Sunday, more than two thousand people ran in the first charity race organized by a local company in collaboration with the state university. The goal was to collect money for the children's hospital, which needs a new cancer unit.
+es: El domingo pasado, más de dos mil personas corrieron en la primera carrera con causa organizada por una empresa local en colaboración con la universidad del estado. El objetivo era juntar dinero para el hospital infantil, que necesita una nueva unidad de cáncer.
+en: Organizing the event wasn't easy. The team had to integrate the registration systems of the company and the university, and they needed the written consent of the parents of the three hundred children who ran the kids' race. A week before the event, a dispute with a supplier almost left the runners without T-shirts.
+es: Organizar el evento no fue fácil. El equipo tuvo que integrar los sistemas de inscripción de la empresa y de la universidad, y necesitó el consentimiento por escrito de los papás de los trescientos niños que corrieron en la carrera infantil. Una semana antes del evento, una disputa con un proveedor casi deja a los corredores sin playeras.
+en: In the end, the execution was flawless. The race collected half a million pesos, and the hospital director thanked everyone for their cooperation. "This is what happens when a company, a university and a community work together," she said.
+es: Al final, la ejecución fue impecable. La carrera juntó medio millón de pesos, y la directora del hospital les agradeció a todos su cooperación. «Esto es lo que pasa cuando una empresa, una universidad y una comunidad trabajan juntas», dijo.
+en: The organizers are already planning next year's race.
+es: Los organizadores ya están planeando la carrera del próximo año.
+? ¿Para qué era el dinero de la carrera? | Para la universidad | *Para una nueva unidad de cáncer del hospital infantil | Para la empresa
+? ¿Cuántas personas corrieron? | Quinientas | *Más de dos mil | Diez mil
+? ¿Qué necesitaron de los papás? | Dinero | *Su consentimiento por escrito | Que corrieran con sus hijos
+? ¿Qué casi pasó una semana antes? | Se canceló la carrera | *Los corredores casi se quedan sin playeras | Llovió mucho
+? ¿Cuánto dinero juntó la carrera? | Cien mil pesos | *Medio millón de pesos | Un millón de pesos
+
+# n6u4
+@ Tu mamá ya está grande y vive sola. Tu hermana Diana, que vive cerca de ella, la cuida casi siempre. Hoy te llama molesta.
+A: I'm tired. I do everything for Mom, and you only call on Sundays. | Estoy cansada. Yo hago todo por mamá y tú solo llamas los domingos.
+B: I can see why you're frustrated. I hear you. | Entiendo por qué estás frustrada. Te escucho.
+A: Last week she fell in the kitchen, and I had to leave work. | La semana pasada se cayó en la cocina y tuve que salirme del trabajo.
+B: I didn't know that. What exactly are you concerned about? | No lo sabía. ¿Qué te preocupa exactamente?
+A: She can't live alone anymore. And I can't do it alone anymore. | Ya no puede vivir sola. Y yo ya no puedo hacerlo sola.
+B: You're right. Let's find a solution together. | Tienes razón. Busquemos una solución en equipo.
+@ El domingo comen en casa de tu mamá para hablar del tema. Diana propone contratar a una enfermera.
+A: A nurse during the day is the best option. | Una enfermera durante el día es la mejor opción.
+B: I respect your view, but I see it differently. Mom could live with me. | Respeto tu opinión, pero veo las cosas distinto. Mamá podría vivir conmigo.
+A: With you? You work twelve hours a day! | ¿Contigo? ¡Trabajas doce horas al día!
+B: That's true. Okay, let's find a middle ground. | Es cierto. Bueno, busquemos un punto medio.
+A: What do you propose? | ¿Qué propones?
+B: A nurse during the week, and I'll take care of her every weekend. I'll pay for the nurse. | Una enfermera entre semana, y yo la cuido todos los fines de semana. Yo pago la enfermera.
+@ Después de la comida, platicas a solas con Diana en el patio.
+A: Thank you. I'm sorry I yelled at you on the phone. | Gracias. Perdón por gritarte por teléfono.
+B: No, I owe you an apology. I didn't see how hard it was for you. | No, yo te debo una disculpa. No vi lo difícil que era para ti.
+A: I appreciate you saying that. | Agradezco que lo digas.
+B: Let's put this behind us. From now on, we're a team. | Dejemos esto atrás. De ahora en adelante, somos un equipo.
+== How to have a difficult conversation
+en: Nobody likes difficult conversations. Telling a coworker that his work is late, or telling a client that a project is delayed, makes most people nervous. That's why many of us avoid these conversations until the problem is too big.
+es: A nadie le gustan las conversaciones difíciles. Decirle a un compañero que su trabajo va tarde, o decirle a un cliente que un proyecto está retrasado, pone nerviosa a la mayoría de la gente. Por eso muchos evitamos estas conversaciones hasta que el problema es demasiado grande.
+en: Experts recommend a few simple steps. First, talk about facts, not about the person: "I noticed the last three reports were late" is better than "You're always late." Second, listen. Ask, "How do you see it?" and really pay attention to the answer. Many conflicts are simply misunderstandings.
+es: Los expertos recomiendan algunos pasos sencillos. Primero, habla de hechos, no de la persona: «Noté que los últimos tres reportes llegaron tarde» es mejor que «Siempre llegas tarde». Segundo, escucha. Pregunta: «¿Tú cómo lo ves?», y pon atención de verdad a la respuesta. Muchos conflictos son simplemente malentendidos.
+en: Third, look for a solution together, and agree on what will change. Finally, if you made a mistake, say it clearly: "I take full responsibility." People respect leaders who admit their mistakes.
+es: Tercero, busquen juntos una solución y acuerden qué va a cambiar. Por último, si cometiste un error, dilo claramente: «Asumo la responsabilidad». La gente respeta a los líderes que admiten sus errores.
+en: A difficult conversation is uncomfortable for ten minutes. Avoiding it can be uncomfortable for months.
+es: Una conversación difícil es incómoda durante diez minutos. Evitarla puede ser incómodo durante meses.
+? ¿Qué hace mucha gente con las conversaciones difíciles? | Las tiene de inmediato | *Las evita hasta que el problema es demasiado grande | Las tiene por correo
+? ¿De qué hay que hablar, según el primer paso? | De la persona | *De hechos | De sentimientos
+? ¿Qué son muchos conflictos, según el texto? | Problemas de dinero | *Simplemente malentendidos | Culpa del jefe
+? ¿A quién respeta la gente? | A los jefes estrictos | *A los líderes que admiten sus errores | A los que nunca se equivocan
+? ¿Cuánto dura lo incómodo de una conversación difícil? | Meses | *Diez minutos | Un día
+
+# n6u5
+@ La panadería de tu familia necesita un horno nuevo. Con tu papá, escriben una propuesta para un programa de apoyo a pequeños negocios.
+A: We need a new oven, but I don't know how to start the proposal. You're better at writing. | Necesitamos un horno nuevo, pero no sé cómo empezar la propuesta. Tú escribes mejor.
+B: Let's start with the executive summary. The purpose of this proposal is to buy a new oven. | Empecemos con el resumen ejecutivo. El propósito de esta propuesta es comprar un horno nuevo.
+A: And what do we say about money? | ¿Y qué decimos del dinero?
+B: The initial investment would pay for itself in eighteen months. | La inversión inicial se recuperaría en dieciocho meses.
+A: Are you sure? | ¿Seguro?
+B: Yes. The new one uses less gas. Savings of fifteen percent are expected. | Sí. El nuevo usa menos gas. Se espera un ahorro del quince por ciento.
+A: Great. And all the prices? | Muy bien. ¿Y todos los precios?
+B: A detailed cost breakdown is attached. | Se adjunta un desglose detallado de costos.
+@ Dos semanas después, una analista del programa los entrevista en la panadería.
+A: I read your proposal. It's very clear. What are the main risks? | Leí su propuesta. Es muy clara. ¿Cuáles son los principales riesgos?
+B: The main risks include lower sales and higher gas prices. | Los principales riesgos incluyen ventas más bajas y precios más altos del gas.
+A: And how will you reduce those risks? | ¿Y cómo van a reducir esos riesgos?
+B: To mitigate this risk, we suggest offering our bread to restaurants too. | Para mitigar este riesgo, sugerimos ofrecer nuestro pan también a restaurantes.
+A: Interesting. How long will the project take? | Interesante. ¿Cuánto tiempo va a tomar el proyecto?
+B: The project is divided into three phases: buying, installing and training. | El proyecto se divide en tres fases: compra, instalación y capacitación.
+@ Un mes después, suena el teléfono de la panadería. Contesta tu papá y te pasa la llamada.
+A: Good morning. I'm calling about your proposal. | Buenos días. Le llamo por su propuesta.
+B: Good morning. Thank you for calling. We appreciate your consideration. | Buenos días. Gracias por llamar. Agradecemos su consideración.
+A: I'm happy to tell you that it was approved. | Me da gusto decirle que fue aprobada.
+B: That's wonderful news! What are the next steps? | ¡Qué maravillosa noticia! ¿Cuáles son los siguientes pasos?
+== Executive summary: a new oven for La Espiga
+en: La Espiga is a family bakery in Puebla that has served the community since 1985. Today it sells around two thousand pieces of bread a day to families and small stores.
+es: La Espiga es una panadería familiar de Puebla que ha servido a la comunidad desde 1985. Hoy vende alrededor de dos mil piezas de pan al día a familias y tienditas.
+en: The purpose of this proposal is to request support to replace our oven, which is thirty years old. The current oven uses too much gas, breaks down frequently and limits our production.
+es: El propósito de esta propuesta es solicitar apoyo para reemplazar nuestro horno, que tiene treinta años. El horno actual usa demasiado gas, se descompone con frecuencia y limita nuestra producción.
+en: We propose buying an energy-efficient oven. The initial investment would pay for itself in eighteen months. Savings of fifteen percent in gas are expected, and production could increase by forty percent, which would allow us to sell to restaurants and hotels.
+es: Proponemos comprar un horno de bajo consumo de energía. La inversión inicial se recuperaría en dieciocho meses. Se espera un ahorro del quince por ciento en gas, y la producción podría aumentar un cuarenta por ciento, lo que nos permitiría venderles a restaurantes y hoteles.
+en: The main risks include lower sales during the summer. To mitigate this risk, we suggest signing contracts with three hotels before the end of the year. A detailed cost breakdown is attached. We request your approval by March 15.
+es: Los principales riesgos incluyen ventas más bajas durante el verano. Para mitigar este riesgo, sugerimos firmar contratos con tres hoteles antes de fin de año. Se adjunta un desglose detallado de costos. Solicitamos su aprobación antes del 15 de marzo.
+? ¿Desde cuándo existe La Espiga? | Desde 1965 | *Desde 1985 | Desde 2005
+? ¿Cuántos años tiene el horno actual? | Diez | *Treinta | Cincuenta
+? ¿En cuánto tiempo se recuperaría la inversión? | Seis meses | *Dieciocho meses | Tres años
+? ¿Cuánto podría aumentar la producción? | Quince por ciento | *Cuarenta por ciento | El doble
+? ¿Cómo quieren mitigar el riesgo de ventas bajas en verano? | Bajando los precios | *Firmando contratos con tres hoteles | Cerrando en verano
+
+# n6u6
+@ Quieres adoptar un perro, pero tu pareja no está muy convencida. En la cena, le sacas el tema.
+A: A dog? We work all day. Who's going to take care of it? | ¿Un perro? Trabajamos todo el día. ¿Quién lo va a cuidar?
+B: That's a valid concern. But imagine coming home and having someone happy to see you. | Es una preocupación válida. Pero imagina llegar a casa y tener a alguien feliz de verte.
+A: Hmm. And the furniture? Dogs destroy everything. | Mmm. ¿Y los muebles? Los perros destruyen todo.
+B: I understand your concern. Let me give you a concrete example: my sister's dog never destroys anything. | Entiendo tu preocupación. Déjame darte un ejemplo concreto: el perro de mi hermana nunca destruye nada.
+A: Your sister has a big house. | Tu hermana tiene una casa grande.
+B: How about we start with a pilot? We can take a dog home for one weekend. | ¿Qué te parece si empezamos con un piloto? Podemos llevarnos un perro a la casa un fin de semana.
+A: Just one weekend? | ¿Solo un fin de semana?
+B: Yes. No strings attached. You don't have to decide today. | Sí. Sin compromiso. No tienes que decidir hoy.
+@ El sábado van a un centro de adopción. Una voluntaria les presenta a Canelo, un perro café de tres años.
+A: This is Canelo. He's calm, and he's already trained. | Él es Canelo. Es tranquilo y ya está entrenado.
+B: He's perfect! What would we need to take him home this weekend? | ¡Es perfecto! ¿Qué necesitaríamos para llevárnoslo a casa este fin de semana?
+A: Just your ID and this form. | Solo su identificación y este formato.
+B: And if it doesn't work, can we bring him back on Monday? | ¿Y si no funciona, lo podemos traer de regreso el lunes?
+A: Of course. But many families felt the same way until they tried it. | Claro. Pero muchas familias pensaban lo mismo hasta que lo probaron.
+@ El domingo en la noche, Canelo duerme en el sillón, junto a tu pareja.
+A: Okay, okay... He's wonderful. | Bueno, bueno... Es maravilloso.
+B: So? What would be the next step? | ¿Y? ¿Cuál sería el siguiente paso?
+A: We keep him, of course! | ¡Nos lo quedamos, claro!
+B: The numbers speak for themselves: one weekend, zero problems! | Los números hablan por sí solos: ¡un fin de semana, cero problemas!
+== The cost of doing nothing
+en: Héctor sells solar panels in Hermosillo, one of the hottest cities in Mexico. Last year, he visited the owner of a seafood restaurant who paid almost forty thousand pesos a month for electricity.
+es: Héctor vende paneles solares en Hermosillo, una de las ciudades más calurosas de México. El año pasado visitó al dueño de un restaurante de mariscos que pagaba casi cuarenta mil pesos al mes de luz.
+en: The owner wasn't interested. "It's too expensive," he said. Instead of arguing, Héctor asked a question: "What keeps you up at night?" The owner thought for a moment. "The electricity bill in summer," he admitted.
+es: Al dueño no le interesaba. «Es demasiado caro», dijo. En lugar de discutir, Héctor le hizo una pregunta: «¿Qué le quita el sueño?». El dueño lo pensó un momento. «El recibo de la luz en verano», admitió.
+en: Héctor showed him real results from a restaurant across the street. "They felt the same way until they tried it," he said. "Now they save sixty percent. It's an investment, not an expense. The cost of doing nothing is higher."
+es: Héctor le enseñó resultados reales de un restaurante de enfrente. «Pensaban lo mismo hasta que lo probaron», le dijo. «Ahora ahorran sesenta por ciento. Es una inversión, no un gasto. El costo de no hacer nada es mayor».
+en: Finally, he made it easy: "You don't have to decide today. How about we start with a small system on the kitchen roof?" Two weeks later, the owner signed the contract. Today, his restaurant runs almost completely on solar energy.
+es: Por último, se lo hizo fácil: «No tiene que decidir hoy. ¿Qué le parece si empezamos con un sistema pequeño en el techo de la cocina?». Dos semanas después, el dueño firmó el contrato. Hoy, su restaurante funciona casi por completo con energía solar.
+? ¿Dónde vende paneles Héctor? | En Monterrey | *En Hermosillo | En Mérida
+? ¿Cuánto pagaba de luz el restaurante? | Diez mil pesos al mes | *Casi cuarenta mil pesos al mes | Cien mil pesos al mes
+? ¿Qué le preguntó Héctor al dueño? | Cuánto dinero tenía | *Qué le quitaba el sueño | Si quería un descuento
+? ¿Cuánto ahorra el restaurante de enfrente? | Veinte por ciento | *Sesenta por ciento | La mitad
+? ¿Qué le propuso Héctor para empezar? | Un descuento | *Un sistema pequeño en el techo de la cocina | Pagar en dos años
+
+# n6u7
+@ Este año formas parte del jurado de un festival de cortometrajes en Guadalajara. Después de la primera función, platicas con otra integrante del jurado, la directora Elena Paz.
+A: So, what did you think of the first film? | ¿Y? ¿Qué te pareció la primera película?
+B: Honestly, the story was ambiguous, and the ending was questionable. | La verdad, la historia era ambigua y el final era cuestionable.
+A: Really? I found it subtle. | ¿En serio? A mí me pareció sutil.
+B: Maybe, but the difference between subtle and confusing is not trivial. | Tal vez, pero la diferencia entre sutil y confuso no es insignificante.
+A: Ha, ha! Fair enough. | ¡Ja, ja! Tienes razón.
+@ Luego ven la segunda película: la historia de una abuela que aprende a leer a los ochenta años.
+A: That was beautiful. What did you think? | Eso fue precioso. ¿Qué te pareció?
+B: It was remarkable. The emotion at the end was overwhelming. | Fue notable. La emoción al final fue abrumadora.
+A: The director is only twenty-two years old. | La directora tiene solo veintidós años.
+B: Her contribution to Mexican film could be invaluable. | Su contribución al cine mexicano podría ser invaluable.
+A: So, is it our winner? | Entonces, ¿es nuestra ganadora?
+B: I think so. Her film is the most compelling. | Creo que sí. Su película es la más contundente.
+@ En la ceremonia de premios, una periodista te pregunta por la decisión del jurado.
+A: Why did the jury choose this film? | ¿Por qué el jurado escogió esta película?
+B: It was a pivotal decision. The film is ambitious but simple, and the emotion is real. | Fue una decisión crucial. La película es ambiciosa pero sencilla, y la emoción es real.
+A: Was the decision easy? | ¿La decisión fue fácil?
+B: Not really. We had a thorough discussion, but in the end five of us voted for her film. | No mucho. Tuvimos una discusión exhaustiva, pero al final cinco de nosotros votamos por su película.
+A: And what's next for her? | ¿Y qué sigue para ella?
+B: The prize will boost her career. We're bound to hear about her again. | El premio va a impulsar su carrera. Seguro que vamos a volver a oír de ella.
+== Good is not good enough
+en: Imagine two reports about the same project. The first one says, "The project was good, and sales went up a lot." The second one says, "The launch was a resounding success: sales rose by 32%, a substantial increase compared to last year." Which one is more convincing?
+es: Imagina dos reportes sobre el mismo proyecto. El primero dice: «El proyecto estuvo bien, y las ventas subieron mucho». El segundo dice: «El lanzamiento fue un éxito rotundo: las ventas subieron un 32%, un aumento considerable comparado con el año pasado». ¿Cuál es más convincente?
+en: Advanced speakers choose the exact word. Instead of "very big," they say "overwhelming" or "substantial." Instead of "small," they say "negligible" or "trivial." And instead of "say," they use verbs that show the speaker's attitude: someone can claim, argue, admit or emphasize something.
+es: Los hablantes avanzados escogen la palabra exacta. En lugar de «muy grande», dicen «abrumador» o «considerable». En lugar de «pequeño», dicen «mínimo» o «insignificante». Y en lugar de «decir», usan verbos que muestran la actitud de quien habla: alguien puede afirmar, argumentar, admitir o enfatizar algo.
+en: These differences are subtle but crucial. "He claims it's safe" suggests that you're not sure it's true, while "He admitted he was wrong" shows that the person accepted a mistake.
+es: Estas diferencias son sutiles pero cruciales. «Él afirma que es seguro» sugiere que no estás seguro de que sea verdad, mientras que «Admitió que se equivocó» muestra que la persona aceptó un error.
+en: The good news is that you don't need thousands of new words. Learning twenty precise words can make a remarkable difference in how people see you at work.
+es: La buena noticia es que no necesitas miles de palabras nuevas. Aprender veinte palabras precisas puede hacer una diferencia notable en cómo te ve la gente en el trabajo.
+? ¿Cuánto subieron las ventas en el segundo reporte? | Un 23% | *Un 32% | Un 50%
+? ¿Qué hacen los hablantes avanzados? | Hablan más rápido | *Escogen la palabra exacta | Usan palabras largas
+? ¿Qué sugiere «He claims it's safe»? | Que es seguro | *Que no estás seguro de que sea verdad | Que él se equivocó
+? ¿Qué muestra «He admitted he was wrong»? | Que mintió | *Que la persona aceptó un error | Que tenía razón
+? Según el texto, ¿cuántas palabras precisas pueden hacer una diferencia notable? | Mil | *Veinte | Cien
+
+# n6u8
+@ Te toca organizar la posada de fin de año de la empresa con un comité. Hoy es la primera junta, con tu compañera Marcela.
+A: So, where do we start? | ¿Y por dónde empezamos?
+B: Let's get the ball rolling. First, the budget. Can you give me a ballpark figure? | Arranquemos. Primero, el presupuesto. ¿Me das una cifra aproximada?
+A: Around eighty thousand pesos for two hundred people. | Alrededor de ochenta mil pesos para doscientas personas.
+B: Okay. Let's not reinvent the wheel: same place as last year. | Bueno. No reinventemos la rueda: el mismo lugar del año pasado.
+A: But people said it was boring last year. | Pero la gente dijo que el año pasado estuvo aburrido.
+B: True. We need to think outside the box with the activities. | Es cierto. Necesitamos pensar fuera de la caja con las actividades.
+A: What about a karaoke contest between departments? | ¿Qué tal un concurso de karaoke entre áreas?
+B: That could be a game changer! | ¡Eso podría ser un cambio radical!
+@ Una semana antes de la posada, el salón cancela la reservación. Marcela te llama preocupada.
+A: The place canceled! What do we do now? | ¡El salón canceló! ¿Qué hacemos ahora?
+B: Okay, let's go back to the drawing board. Do you know another place? | Bueno, volvamos al punto de partida. ¿Conoces otro lugar?
+A: My cousin has a garden, but we need chairs and lights. | Mi primo tiene un jardín, pero necesitamos sillas y luces.
+B: Let's roll up our sleeves. I'll get the chairs and the lights. | Pongámonos manos a la obra. Yo consigo las sillas y las luces.
+A: And I'll talk to my cousin. | Y yo hablo con mi primo.
+B: Perfect. Let's keep each other posted. | Perfecto. Mantengámonos en contacto sobre los avances.
+@ La noche de la posada, todo sale perfecto. El director general se acerca a felicitarte.
+A: What a party! Everybody loved the karaoke. | ¡Qué fiesta! A todos les encantó el karaoke.
+B: Thank you. The committee went the extra mile this year. | Gracias. El comité fue más allá este año.
+A: I heard the place canceled a week ago. | Supe que el salón canceló hace una semana.
+B: Yes, but Marcela's cousin saved us. She deserves the credit. | Sí, pero el primo de Marcela nos salvó. Ella merece el crédito.
+== Learning the ropes
+en: When Fernanda started her internship at an American consulting firm in Mexico City, her first meeting felt like a different language. "Let's get the ball rolling," said her manager. "What's the bottom line?" asked a director. "Let's take this offline," said someone else.
+es: Cuando Fernanda empezó sus prácticas en una consultora estadounidense en la Ciudad de México, su primera junta le pareció otro idioma. «Let's get the ball rolling», dijo su gerente. «What's the bottom line?», preguntó un director. «Let's take this offline», dijo alguien más.
+en: After the meeting, a senior consultant named Pablo took her for a coffee. "Don't worry," he said. "Everybody needs time to learn the ropes." He explained that "the bottom line" is the final result, and "take this offline" means to discuss something after the meeting.
+es: Después de la junta, un consultor con experiencia llamado Pablo la invitó a un café. «No te preocupes», le dijo. «Todos necesitamos tiempo para aprender lo básico». Le explicó que «the bottom line» es el resultado final, y que «take this offline» significa platicar algo después de la junta.
+en: Pablo also gave her advice: "Use these expressions, but don't use too many. Some people think that jargon makes you sound smart, but in the long run, clear language is always a safe bet."
+es: Pablo también le dio un consejo: «Usa estas expresiones, pero no demasiadas. Algunas personas creen que la jerga te hace sonar inteligente, pero a largo plazo, el lenguaje claro siempre es algo seguro».
+en: Six months later, Fernanda got a full-time job. Her manager said she always went the extra mile.
+es: Seis meses después, Fernanda consiguió un trabajo de tiempo completo. Su gerente dijo que siempre iba más allá.
+? ¿Dónde hizo sus prácticas Fernanda? | En un banco | *En una consultora estadounidense | En una escuela
+? ¿Cómo se sintió en su primera junta? | Aburrida | *Como si fuera otro idioma | Muy segura
+? ¿Qué significa «take this offline»? | Apagar la computadora | *Platicar algo después de la junta | Cancelar la junta
+? ¿Qué consejo le dio Pablo? | Usar muchas expresiones | *Usarlas, pero no demasiadas | No usarlas nunca
+? ¿Qué pasó seis meses después? | Renunció | *Consiguió un trabajo de tiempo completo | Se cambió de ciudad
+
+# n6u9
+@ Tu antigua prepa te invitó a dar una plática a los alumnos de último año: cómo el inglés cambió tu carrera. Antes de empezar, un alumno, Mateo, te ayuda con el micrófono.
+A: Hi! I'm Mateo. I'll help you with the microphone. Are you nervous? | ¡Hola! Soy Mateo. Te voy a ayudar con el micrófono. ¿Tienes nervios?
+B: A little. It's an honor to be here. I studied at this school twenty years ago. | Un poco. Es un honor estar aquí. Estudié en esta escuela hace veinte años.
+A: Really? What are you going to talk about? | ¿En serio? ¿De qué vas a hablar?
+B: Today I'm going to cover three things: how I failed, how I learned and what changed. | Hoy voy a hablar de tres cosas: cómo fallé, cómo aprendí y qué cambió.
+A: Failed? You? | ¿Fallaste? ¿Tú?
+B: Yes! I'd like to share a quick story at the beginning. You'll see. | ¡Sí! Les quiero contar una historia al principio. Ya verás.
+@ Terminas la plática y empiezan las preguntas. Una alumna, Fernanda, levanta la mano.
+A: How long did it take you to speak English well? | ¿Cuánto tiempo te tomó hablar bien inglés?
+B: That's a great question. About three years, practicing every day. | Muy buena pregunta. Como tres años, practicando todos los días.
+A: And how much do you earn now? | ¿Y cuánto ganas ahora?
+B: Ha, ha! That's a bit beyond the scope of today's talk. | ¡Ja, ja! Eso va un poco más allá del tema de hoy.
+A: Ha, ha! Sorry. Which apps did you use? | ¡Ja, ja! Perdón. ¿Qué aplicaciones usaste?
+B: Several. My contact details are on the last slide. Feel free to write to me. | Varias. Mis datos de contacto están en la última diapositiva. Escríbanme con confianza.
+@ La directora de la escuela te avisa que ya casi es hora de terminar.
+A: We're almost out of time. | Ya casi se nos acaba el tiempo.
+B: Okay. To close: if you take away just one thing today, let it be this: mistakes are part of learning. | Bueno. Para cerrar: si se llevan una sola idea de hoy, que sea esta: los errores son parte de aprender.
+A: Beautiful. Thank you for coming. | Muy bonito. Gracias por venir.
+B: Thank you so much for your attention. And good luck on your exams! | Muchas gracias por su atención. ¡Y suerte en sus exámenes!
+== The day I froze
+en: Twenty years ago, I had my first job interview in English. I had studied grammar for years, and I knew thousands of words. But when the interviewer said, "Tell me about yourself," I froze. My mind went blank. After thirty seconds of silence, I said, "I'm sorry. My English is not good." I didn't get the job.
+es: Hace veinte años tuve mi primera entrevista de trabajo en inglés. Había estudiado gramática durante años y sabía miles de palabras. Pero cuando el entrevistador me dijo «Tell me about yourself», me quedé helado. Me quedé en blanco. Después de treinta segundos de silencio, dije: «Lo siento. Mi inglés no es bueno». No me dieron el trabajo.
+en: That night, I understood my problem: I knew English, but I didn't practice speaking it. So I changed my method. Every day, I practiced real conversations out loud, even alone in my car. I recorded myself, listened and tried again.
+es: Esa noche entendí mi problema: sabía inglés, pero no practicaba hablarlo. Así que cambié mi método. Todos los días practicaba conversaciones reales en voz alta, incluso solo en mi carro. Me grababa, me escuchaba y lo intentaba otra vez.
+en: A year later, I had another interview, this time with a company in Canada. When the interviewer said, "Tell me about yourself," I smiled. I had practiced that answer a hundred times.
+es: Un año después tuve otra entrevista, esta vez con una empresa de Canadá. Cuando la entrevistadora me dijo «Tell me about yourself», sonreí. Había practicado esa respuesta cien veces.
+en: I got the job. If you take away just one thing from my story, let it be this: mistakes are part of learning.
+es: Me dieron el trabajo. Si se llevan una sola idea de mi historia, que sea esta: los errores son parte de aprender.
+? ¿Qué le pasó en su primera entrevista en inglés? | Llegó tarde | *Se quedó helado y no pudo hablar | Le ofrecieron el trabajo
+? ¿Cuál era su problema? | No sabía gramática | *Sabía inglés, pero no practicaba hablarlo | No tenía experiencia
+? ¿Dónde practicaba a veces? | En la escuela | *Solo, en su carro | En el gimnasio
+? ¿Con qué empresa fue la segunda entrevista? | Con una empresa de Estados Unidos | *Con una empresa de Canadá | Con la misma empresa
+? ¿Qué quiere que recuerde la gente? | Que el inglés es difícil | *Que los errores son parte de aprender | Que hay que estudiar gramática
+
+# n6u10
+@ Tu empresa te mandó un año a trabajar a su oficina de Toronto. En tu primer día, te recibe tu nueva jefa, la señora Walker.
+A: Welcome to Toronto! How was your trip? | ¡Te damos la bienvenida a Toronto! ¿Qué tal tu viaje?
+B: Very good, thank you, Ms. Walker. Is it okay if I call you by your first name? | Muy bien, gracias, señora Walker. ¿Le parece bien si le llamo por su nombre?
+A: Of course! Everyone calls me Karen here. | ¡Claro! Aquí todos me dicen Karen.
+B: Great. Is there anything I should know about how things work here? | Perfecto. ¿Hay algo que debería saber sobre cómo trabajan aquí?
+A: Well, people are very punctual. A meeting at nine starts at nine. | Pues, la gente es muy puntual. Una junta a las nueve empieza a las nueve.
+B: Good to know! In Mexico, it's customary to arrive a few minutes late. | ¡Qué bueno saberlo! En México es costumbre llegar unos minutos tarde.
+A: Ha, ha! Not here. | ¡Ja, ja! Aquí no.
+@ Un mes después, en una junta, tu compañero Tom te dice algo que te confunde.
+A: Your report is interesting. Maybe you could look at it again. | Tu reporte es interesante. Tal vez podrías revisarlo otra vez.
+B: Just to clarify, what do you mean by that? Is there a problem? | Solo para aclarar, ¿qué quieres decir con eso? ¿Hay algún problema?
+A: Well... yes. The numbers in the second part are wrong. | Pues... sí. Los números de la segunda parte están mal.
+B: I appreciate your directness. I prefer clear comments. | Agradezco tu franqueza. Prefiero los comentarios claros.
+A: Sorry if I wasn't clear. In Canada, we tend to be more indirect. | Perdón si no fui claro. En Canadá solemos ser más indirectos.
+B: Really? I thought Mexicans were the indirect ones! Every culture has its own style. | ¿En serio? ¡Yo pensaba que los mexicanos éramos los indirectos! Cada cultura tiene su estilo.
+@ Un año después, es tu último día en Toronto. El equipo te hace una comida de despedida.
+A: We're going to miss you! What will you remember about Canada? | ¡Te vamos a extrañar! ¿Qué vas a recordar de Canadá?
+B: The snow, the coffee and all of you. I've learned a lot from working with you. | La nieve, el café y a todos ustedes. Aprendí mucho de trabajar con ustedes.
+A: And we learned a lot from you. Especially about tacos! | Y nosotros aprendimos mucho de ti. ¡Sobre todo de tacos!
+B: Ha, ha! Let's keep in touch. And if you visit Mexico, I'll be waiting for you. | ¡Ja, ja! Sigamos en contacto. Y si visitan México, los voy a estar esperando.
+== When yes means maybe
+en: In some cultures, people say exactly what they think. In others, the real message is often between the lines. Experts call these direct and indirect cultures, and many problems at work happen when the two meet.
+es: En algunas culturas, la gente dice exactamente lo que piensa. En otras, el mensaje real muchas veces está entre líneas. Los expertos las llaman culturas directas e indirectas, y muchos problemas en el trabajo pasan cuando las dos se encuentran.
+en: Take the word "yes." For many German or Dutch managers, "yes" usually means "yes, I will do it." But in Mexico, "yes" can sometimes mean "maybe" or even "I don't want to say no." A Mexican engineer might say, "Yes, I'll send it ahorita," and send it the next day. For the Mexican, it was polite. For the German, it was a broken promise.
+es: Tomemos la palabra «sí». Para muchos gerentes alemanes u holandeses, «sí» normalmente significa «sí, lo voy a hacer». Pero en México, «sí» a veces puede significar «tal vez» o incluso «no quiero decir que no». Un ingeniero mexicano podría decir «Sí, ahorita lo mando», y mandarlo al día siguiente. Para el mexicano, era cortesía. Para el alemán, era una promesa rota.
+en: The solution is not to change your culture, but to be aware of it. Ask questions like "What's the norm here?" and confirm the agreements in writing. And when you're not sure, ask: "Just to clarify, when exactly will you send it?"
+es: La solución no es cambiar tu cultura, sino estar consciente de ella. Haz preguntas como «¿Cómo se acostumbra aquí?» y confirma los acuerdos por escrito. Y cuando no estés seguro, pregunta: «Solo para aclarar, ¿cuándo exactamente lo vas a mandar?».
+? ¿Dónde está muchas veces el mensaje real en las culturas indirectas? | En los correos | *Entre líneas | En los números
+? ¿Qué significa normalmente «sí» para muchos gerentes alemanes? | Tal vez | *Sí, lo voy a hacer | No
+? ¿Qué puede significar a veces «sí» en México? | Nunca | *Tal vez | Mañana
+? ¿Qué fue para el alemán el «ahorita» que no se cumplió? | Una broma | *Una promesa rota | Cortesía
+? ¿Qué recomienda el texto? | Cambiar tu cultura | *Estar consciente de tu cultura y confirmar los acuerdos por escrito | No usar nunca la palabra «ahorita»
