@@ -19,13 +19,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Aprendí la lección.", "I learned my lesson.", "", ""]
     ],
     r: {
-      t: "A lesson learned",
-      en: "Five years ago, I had the chance to work in Germany for a year. My company offered to pay for everything, but I said no. I was afraid of the language, the cold and being far from my family.\nThe colleague who accepted the position is now the director of our European division. If I had gone, I would probably have that job today. At least, I would have learned a lot.\nFor a long time, I thought, \"I should have said yes.\" But regret doesn't change anything. What's done is done.\nSo I learned my lesson. When my company recently offered me a project in Canada, I didn't hesitate. If I hadn't missed the first opportunity, I might not have been so brave with the second one.",
-      es: "Hace cinco años tuve la oportunidad de trabajar en Alemania durante un año. Mi empresa ofreció pagar todo, pero dije que no. Tenía miedo del idioma, del frío y de estar lejos de mi familia.\nLa colega que aceptó el puesto ahora es directora de nuestra división europea. Si yo hubiera ido, probablemente hoy tendría ese puesto. Por lo menos, habría aprendido mucho.\nDurante mucho tiempo pensé: \"Debí haber dicho que sí\". Pero arrepentirse no cambia nada. Lo hecho, hecho está.\nAsí que aprendí la lección. Cuando hace poco mi empresa me ofreció un proyecto en Canadá, no lo dudé. Si no hubiera perdido la primera oportunidad, tal vez no habría sido tan valiente con la segunda.",
+      t: "The flight I missed",
+      en: "Eight years ago, I missed a flight to Madrid. I had left home late, and there was a terrible accident on the highway. When I finally arrived at the airport, the plane had already left. I was furious. \"If I had left earlier, I wouldn't have missed it,\" I kept saying.\nThe airline put me on the next flight, six hours later. While I was waiting, a man sat next to me. He had missed the same flight because of the same accident. We started talking, and we didn't stop for six hours.\nToday, that man is my husband. We have two children and a dog. Sometimes I think about that day. If I hadn't been late, I would never have met him.\nDo I regret missing that flight? Not at all. I have no regrets. Sometimes the worst day of your life can become the best one.",
+      es: "Hace ocho años perdí un vuelo a Madrid. Había salido tarde de mi casa, y hubo un accidente terrible en la carretera. Cuando por fin llegué al aeropuerto, el avión ya se había ido. Estaba furiosa. «Si hubiera salido antes, no lo habría perdido», repetía.\nLa aerolínea me puso en el siguiente vuelo, seis horas después. Mientras esperaba, un señor se sentó junto a mí. Había perdido el mismo vuelo por el mismo accidente. Empezamos a platicar, y no paramos en seis horas.\nHoy, ese señor es mi esposo. Tenemos dos hijos y un perro. A veces pienso en ese día. Si no hubiera llegado tarde, nunca lo habría conocido.\n¿Me arrepiento de haber perdido ese vuelo? Para nada. No me arrepiento de nada. A veces, el peor día de tu vida se puede convertir en el mejor.",
       q: [
-        ["Why did he say no to Germany?", ["The salary was low", "He was afraid of the language, the cold and being far from family", "His boss didn't let him"], 1],
-        ["What happened to the colleague who went?", ["She is now the director of the European division", "She came back after a month", "She left the company"], 0],
-        ["What did he do when he got the offer in Canada?", ["He said no again", "He asked for more money", "He accepted without hesitating"], 2]
+        ["¿A dónde iba el vuelo que perdió?", ["A Cancún", "A Madrid", "A Nueva York"], 1],
+        ["¿Por qué lo perdió?", ["Se le olvidó el pasaporte", "Salió tarde y hubo un accidente en la carretera", "Se quedó dormida"], 1],
+        ["¿Cuánto tiempo esperó el siguiente vuelo?", ["Dos horas", "Seis horas", "Un día"], 1],
+        ["¿Quién se sentó junto a ella?", ["Una amiga", "Un señor que había perdido el mismo vuelo", "Un piloto"], 1],
+        ["¿Se arrepiente de haber perdido el vuelo?", ["Sí, mucho", "No, para nada", "A veces"], 1]
       ]
     }
   },
@@ -48,13 +50,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Qué estarías haciendo si no fueras ingeniero?", "What would you be doing if you weren't an engineer?", "", ""]
     ],
     r: {
-      t: "Different paths",
-      en: "My twin brother and I made very different decisions at eighteen. He went to university to study law, and I started working at our uncle's restaurant.\nIf I had gone to university, I would probably be working in an office now. Instead, I own two restaurants. If my uncle hadn't taught me the business, I wouldn't be where I am today.\nMy brother sometimes says, \"If I weren't so careful, I would have quit law years ago and opened a bakery.\" He loves baking.\nWe both have good lives. But we often wonder where we would be now if we had chosen each other's path.",
-      es: "Mi hermano gemelo y yo tomamos decisiones muy diferentes a los dieciocho años. Él fue a la universidad a estudiar derecho y yo empecé a trabajar en el restaurante de nuestro tío.\nSi yo hubiera ido a la universidad, probablemente ahora estaría trabajando en una oficina. En cambio, soy dueño de dos restaurantes. Si mi tío no me hubiera enseñado el negocio, no estaría donde estoy hoy.\nMi hermano a veces dice: \"Si no fuera tan precavido, habría dejado el derecho hace años y habría abierto una panadería\". Le encanta hornear.\nLos dos tenemos buenas vidas. Pero seguido nos preguntamos dónde estaríamos ahora si hubiéramos elegido el camino del otro.",
+      t: "Two sisters, two decisions",
+      en: "Twenty years ago, Paula and Inés finished high school in Veracruz. Both received a scholarship to study in Mexico City, but only Paula accepted it. Inés was in love with her boyfriend, so she stayed.\nToday, Paula is an architect in Mexico City. She earns a good salary, but she lives alone and works sixty hours a week. \"If I had stayed in Veracruz, I would have more time for my family,\" she says.\nInés married her boyfriend, and they have three children and a small restaurant by the sea. Sometimes she thinks about the scholarship. \"If I had gone to the city, maybe I would be a famous chef now,\" she says, laughing.\nWhich sister made the right decision? Maybe both. Every December, Paula visits Inés, and they talk about it for hours.",
+      es: "Hace veinte años, Paula e Inés terminaron la prepa en Veracruz. Las dos recibieron una beca para estudiar en la Ciudad de México, pero solo Paula la aceptó. Inés estaba enamorada de su novio, así que se quedó.\nHoy, Paula es arquitecta en la Ciudad de México. Gana un buen sueldo, pero vive sola y trabaja sesenta horas a la semana. «Si me hubiera quedado en Veracruz, tendría más tiempo para mi familia», dice.\nInés se casó con su novio, y tienen tres hijos y un pequeño restaurante junto al mar. A veces piensa en la beca. «Si me hubiera ido a la ciudad, tal vez ahora sería una chef famosa», dice riéndose.\n¿Qué hermana tomó la decisión correcta? Tal vez las dos. Cada diciembre, Paula visita a Inés, y platican de eso durante horas.",
       q: [
-        ["What did the writer do at eighteen?", ["He studied law", "He started working at his uncle's restaurant", "He opened a bakery"], 1],
-        ["What does the writer own now?", ["Two restaurants", "A law firm", "A bakery"], 0],
-        ["What would the brother have done if he weren't so careful?", ["Moved abroad", "Studied medicine", "Opened a bakery"], 2]
+        ["¿Qué recibieron las dos hermanas?", ["Un trabajo", "Una beca para estudiar en la Ciudad de México", "Un restaurante"], 1],
+        ["¿Por qué se quedó Inés?", ["Porque no le gustaba la ciudad", "Porque estaba enamorada de su novio", "Porque su mamá estaba enferma"], 1],
+        ["¿A qué se dedica Paula?", ["Es chef", "Es arquitecta", "Es maestra"], 1],
+        ["¿Qué dice Paula?", ["Que habría ganado más dinero", "Que tendría más tiempo para su familia si se hubiera quedado", "Que se arrepiente de haber estudiado"], 1],
+        ["¿Qué tiene Inés?", ["Una empresa de arquitectura", "Tres hijos y un restaurante junto al mar", "Una beca"], 1]
       ]
     }
   },
@@ -77,13 +81,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Lamento no poder ayudar más.", "I'm sorry I can't be of more help.", "", ""]
     ],
     r: {
-      t: "Why your English might sound rude",
-      en: "Many Spanish speakers sound rude in English without knowing it. The problem is not grammar; it's directness.\nIn Spanish, it's normal to say \"Dame el reporte\" to a coworker. Translated directly, \"Give me the report\" sounds like an order. A native speaker would say, \"Could you send me the report when you have a moment?\"\nThe same happens with disagreement. \"That's wrong\" sounds aggressive. \"I'm not sure that's quite right\" or \"I see it a bit differently\" sounds professional.\nThis doesn't mean English speakers are fake. It's simply a different way of showing respect. The good news is that a few softening words, like \"could,\" \"might,\" \"a bit\" and \"I was wondering,\" make an enormous difference.",
-      es: "Muchos hispanohablantes suenan groseros en inglés sin saberlo. El problema no es la gramática, sino lo directo.\nEn español es normal decirle a un compañero \"Dame el reporte\". Traducido directo, \"Give me the report\" suena a orden. Un nativo diría: \"¿Me podrías mandar el reporte cuando tengas un momento?\".\nLo mismo pasa al estar en desacuerdo. \"That's wrong\" suena agresivo. \"No estoy seguro de que eso sea del todo correcto\" o \"Yo lo veo un poco distinto\" suena profesional.\nEsto no significa que los angloparlantes sean falsos. Es simplemente otra forma de mostrar respeto. La buena noticia es que unas cuantas palabras para suavizar, como \"could\", \"might\", \"a bit\" e \"I was wondering\", hacen una diferencia enorme.",
+      t: "Too direct",
+      en: "When Tomás started working with clients in the United States, he wrote his emails like this: \"Your order has a mistake. Send it again.\" \"That's not possible.\" \"I need the documents today.\"\nAfter a few weeks, one of his clients complained to his boss. \"Tomás is very rude,\" she said. Tomás was surprised. In Spanish, his emails sounded normal to him.\nHis boss explained that in English, people tend to soften what they say. Instead of \"Your order has a mistake,\" it's better to write, \"It seems there's a small mistake in the order.\" Instead of \"That's not possible,\" you can say, \"I'm afraid that's not possible.\" And instead of \"I need the documents today,\" try \"I was wondering if you could send the documents today.\"\nTomás changed his style, and a month later the same client sent him a message: \"Thank you for your help. It's always a pleasure to work with you.\"",
+      es: "Cuando Tomás empezó a trabajar con clientes de Estados Unidos, escribía sus correos así: «Su pedido tiene un error. Envíelo otra vez». «Eso no es posible». «Necesito los documentos hoy».\nDespués de unas semanas, una de sus clientas se quejó con su jefe. «Tomás es muy grosero», le dijo. Tomás se sorprendió. En español, sus correos le sonaban normales.\nSu jefe le explicó que en inglés la gente suele suavizar lo que dice. En lugar de «Su pedido tiene un error», es mejor escribir: «Parece que hay un pequeño error en el pedido». En lugar de «Eso no es posible», puedes decir: «Me temo que eso no es posible». Y en lugar de «Necesito los documentos hoy», intenta: «Me pregunto si podría enviar los documentos hoy».\nTomás cambió su estilo, y un mes después la misma clienta le mandó un mensaje: «Gracias por su ayuda. Siempre es un placer trabajar con usted».",
       q: [
-        ["According to the text, what is the main problem?", ["Grammar", "Directness", "Pronunciation"], 1],
-        ["How would a native speaker ask for a report?", ["Could you send me the report when you have a moment?", "Give me the report.", "I want the report now."], 0],
-        ["What does the text say about English speakers?", ["They are fake", "They are rude", "They show respect in a different way"], 2]
+        ["¿Con quién trabajaba Tomás?", ["Con clientes de España", "Con clientes de Estados Unidos", "Con proveedores de China"], 1],
+        ["¿Qué dijo la clienta de Tomás?", ["Que era muy lento", "Que era muy grosero", "Que era muy amable"], 1],
+        ["¿Qué suele hacer la gente en inglés, según su jefe?", ["Hablar más rápido", "Suavizar lo que dice", "Escribir correos más largos"], 1],
+        ["¿Qué es mejor decir en lugar de «That's not possible»?", ["That's impossible", "I'm afraid that's not possible", "Maybe tomorrow"], 1],
+        ["¿Qué pasó un mes después?", ["La clienta canceló el pedido", "La clienta le agradeció su ayuda", "Tomás cambió de trabajo"], 1]
       ]
     }
   },
@@ -106,13 +112,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Romper el hielo.", "Break the ice.", "", ""]
     ],
     r: {
-      t: "Idioms at the office",
-      en: "My first month at an American company was confusing. In my first meeting, my manager said, \"Let's not beat around the bush. The budget is tight.\" I had no idea what bushes had to do with money.\nLater, a coworker told me that the new software was \"a piece of cake.\" It wasn't. It took me a week to learn it.\nWhen I made a mistake in a presentation, my boss said, \"Don't worry, it's not the end of the world.\" That one I understood.\nNow I keep a list of idioms on my phone. Every time I hear a new one, I write it down and look it up. Little by little, they're starting to make sense.",
-      es: "Mi primer mes en una empresa estadounidense fue confuso. En mi primera junta, mi gerente dijo: \"No le demos vueltas al asunto. El presupuesto está apretado\". No tenía idea de qué tenían que ver los arbustos con el dinero.\nDespués, un compañero me dijo que el nuevo software era \"pan comido\". No lo era. Me tomó una semana aprenderlo.\nCuando cometí un error en una presentación, mi jefe dijo: \"No te preocupes, no es el fin del mundo\". Esa sí la entendí.\nAhora tengo una lista de expresiones en mi celular. Cada vez que oigo una nueva, la anoto y la busco. Poco a poco empiezan a tener sentido.",
+      t: "Lost in idioms",
+      en: "On her first day at an office in Houston, Mariela thought her English was perfect. Then her boss said, \"Let's touch base later,\" and she had no idea what he meant.\nIt was only the beginning. At lunch, a coworker said he was \"swamped.\" Another one said the new project was \"a piece of cake.\" And when Mariela asked about the price of a house in the city, someone told her it \"costs an arm and a leg.\" She was very confused.\nThat night, she made a list of every idiom she heard and looked for the meaning online. She discovered that many of them have a Spanish version: \"It costs an arm and a leg\" is \"Cuesta un ojo de la cara.\"\nSix months later, Mariela uses idioms every day. Last week, she told her boss, \"Don't worry, it's a piece of cake.\" He laughed. \"You hit the nail on the head,\" he said.",
+      es: "En su primer día en una oficina de Houston, Mariela pensaba que su inglés era perfecto. Luego su jefe le dijo «Let's touch base later», y no tenía idea de qué quería decir.\nEra solo el principio. En la comida, un compañero dijo que estaba «swamped». Otra dijo que el proyecto nuevo era «a piece of cake». Y cuando Mariela preguntó por el precio de una casa en la ciudad, alguien le dijo que «costs an arm and a leg». Estaba muy confundida.\nEsa noche, hizo una lista de todas las expresiones que oyó y buscó su significado en internet. Descubrió que muchas tienen una versión en español: «It costs an arm and a leg» es «Cuesta un ojo de la cara».\nSeis meses después, Mariela usa expresiones todos los días. La semana pasada le dijo a su jefe: «No se preocupe, it's a piece of cake». Él se rio. «You hit the nail on the head», le dijo.",
       q: [
-        ["What did 'beat around the bush' confuse him about?", ["Plants", "What bushes had to do with money", "The software"], 1],
-        ["How long did it take him to learn the software?", ["A week", "One day", "A month"], 0],
-        ["What does he do now with new idioms?", ["He ignores them", "He asks his boss", "He writes them down and looks them up"], 2]
+        ["¿Dónde empezó a trabajar Mariela?", ["En Dallas", "En Houston", "En Chicago"], 1],
+        ["¿Qué no entendió el primer día?", ["El nombre de su jefe", "Lo que quiso decir su jefe con «touch base»", "Las instrucciones del proyecto"], 1],
+        ["¿Qué hizo esa noche?", ["Llamó a su mamá", "Hizo una lista de las expresiones y buscó su significado", "Estudió gramática"], 1],
+        ["¿Cómo se dice en español «It costs an arm and a leg»?", ["Está facilísimo", "Cuesta un ojo de la cara", "Más vale tarde que nunca"], 1],
+        ["¿Qué le dijo Mariela a su jefe la semana pasada?", ["Que estaba muy ocupada", "Que era facilísimo", "Que iba a renunciar"], 1]
       ]
     }
   },
@@ -135,13 +143,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["En resumidas cuentas,...", "At the end of the day,...", "", ""]
     ],
     r: {
-      t: "Debate: Should the workweek be four days?",
-      en: "In last night's debate, two economists discussed the four-day workweek.\nDr. Patel argued that it increases productivity. \"Trials in several countries show that employees produce the same in four days as in five. They're healthier and they quit less often.\"\nMr. Clarke disagreed. \"That's a valid point for office jobs, but it's a generalization. Hospitals, factories and restaurants can't simply close one day a week.\"\nDr. Patel conceded that point, but suggested flexible schedules for those sectors. \"Even so, the evidence is clear: people are more productive when they rest.\"\nAt the end of the day, both agreed that the model works for some industries, but not all.",
-      es: "En el debate de anoche, dos economistas discutieron la semana laboral de cuatro días.\nLa Dra. Patel argumentó que aumenta la productividad. \"Las pruebas en varios países muestran que los empleados producen lo mismo en cuatro días que en cinco. Están más sanos y renuncian menos\".\nEl Sr. Clarke no estuvo de acuerdo. \"Es un punto válido para trabajos de oficina, pero es una generalización. Los hospitales, las fábricas y los restaurantes no pueden simplemente cerrar un día a la semana\".\nLa Dra. Patel concedió ese punto, pero sugirió horarios flexibles para esos sectores. \"Aun así, la evidencia es clara: la gente es más productiva cuando descansa\".\nEn resumidas cuentas, ambos coincidieron en que el modelo funciona para algunas industrias, pero no para todas.",
+      t: "Should schools ban phones?",
+      en: "In many countries, schools are banning phones in class. Supporters of the ban say that the main problem is attention: students who have their phones on their desks check them every few minutes. According to some studies, students without phones get better grades, and they talk more with their classmates during breaks.\nHowever, not everyone agrees. Many parents want their children to have phones for emergencies. Others say that phones can be useful for learning: students can look up information, use dictionaries or record the class.\nSome experts say that both sides have valid points. While it's true that phones can distract students, a total ban is not necessarily the answer. They recommend a middle option: phones stay in the backpack, and teachers decide when students can use them.",
+      es: "En muchos países, las escuelas están prohibiendo los celulares en clase. Quienes apoyan la prohibición dicen que el problema principal es la atención: los estudiantes que tienen el celular en el escritorio lo revisan cada pocos minutos. Según algunos estudios, los estudiantes sin celular sacan mejores calificaciones y platican más con sus compañeros en el recreo.\nSin embargo, no todos están de acuerdo. Muchos papás quieren que sus hijos tengan celular para emergencias. Otros dicen que los celulares pueden ser útiles para aprender: los estudiantes pueden buscar información, usar diccionarios o grabar la clase.\nAlgunos expertos dicen que los dos lados tienen puntos válidos. Si bien es cierto que los celulares pueden distraer a los estudiantes, una prohibición total no es necesariamente la respuesta. Recomiendan una opción intermedia: los celulares se quedan en la mochila, y los maestros deciden cuándo los pueden usar los estudiantes.",
       q: [
-        ["What did Dr. Patel say trials show?", ["Employees produce less", "Employees produce the same in four days as in five", "Companies lose money"], 1],
-        ["What was Mr. Clarke's main objection?", ["Some sectors can't close one day a week", "Employees will be lazy", "It's too expensive"], 0],
-        ["What did both agree on in the end?", ["It's a bad idea", "It should be mandatory", "It works for some industries, but not all"], 2]
+        ["¿Qué dicen quienes apoyan la prohibición?", ["Que los celulares son caros", "Que el problema principal es la atención", "Que los maestros usan mucho el celular"], 1],
+        ["Según algunos estudios, ¿qué pasa con los estudiantes sin celular?", ["Se aburren más", "Sacan mejores calificaciones", "Faltan más a clases"], 1],
+        ["¿Por qué muchos papás quieren que sus hijos tengan celular?", ["Para jugar", "Para emergencias", "Para hacer la tarea"], 1],
+        ["¿Para qué pueden ser útiles los celulares, según otros?", ["Para escuchar música", "Para buscar información, usar diccionarios o grabar la clase", "Para hablar con sus papás"], 1],
+        ["¿Qué recomiendan los expertos?", ["Prohibirlos totalmente", "Una opción intermedia: en la mochila, y los maestros deciden", "Permitirlos siempre"], 1]
       ]
     }
   },
@@ -164,13 +174,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Terminamos cinco minutos antes.", "We're finishing five minutes early.", "", ""]
     ],
     r: {
-      t: "Tips for running effective meetings",
-      en: "Most people agree that there are too many meetings and that many of them are a waste of time. Here's how to make yours better.\nFirst, send the agenda in advance. If people know what will be discussed, they can prepare and the meeting will be shorter.\nSecond, start and finish on time. If the meeting gets off track, say \"Let's park that for now\" and continue with the agenda.\nThird, make sure every decision has an owner and a deadline. A decision without an owner is just an idea.\nFinally, send a short summary with the action items the same day. If you don't need a decision or a discussion, maybe you don't need a meeting at all. An email might be enough.",
-      es: "La mayoría coincide en que hay demasiadas juntas y que muchas son una pérdida de tiempo. Así puedes hacer que las tuyas sean mejores.\nPrimero, manda la agenda con anticipación. Si la gente sabe qué se va a discutir, puede prepararse y la junta será más corta.\nSegundo, empieza y termina a tiempo. Si la junta se desvía, di \"Dejemos eso para después\" y sigue con la agenda.\nTercero, asegúrate de que cada decisión tenga un responsable y una fecha límite. Una decisión sin responsable es solo una idea.\nPor último, manda un resumen corto con los acuerdos el mismo día. Si no necesitas una decisión ni una discusión, tal vez no necesitas una junta. Un correo podría ser suficiente.",
+      t: "Shorter meetings, better results",
+      en: "Two years ago, the employees of a software company in Guadalajara spent an average of fifteen hours a week in meetings. Many of those meetings had no agenda, started late and ended without decisions.\nThe new director decided to change that. She introduced three simple rules. First, every meeting must have a clear goal and an agenda. Second, someone has to take the minutes and send them to everyone afterward. Third, no meeting can last more than thirty minutes.\nAt first, people complained. \"We're running out of time!\" they said in every meeting. But after a few weeks, they learned to get to the point. When someone got off track, the leader said, \"Let's park that for now.\"\nToday, employees spend only six hours a week in meetings, and the company finishes its projects faster than before.",
+      es: "Hace dos años, los empleados de una empresa de software en Guadalajara pasaban un promedio de quince horas a la semana en juntas. Muchas de esas juntas no tenían agenda, empezaban tarde y terminaban sin decisiones.\nLa nueva directora decidió cambiar eso. Introdujo tres reglas sencillas. Primero, cada junta debe tener un objetivo claro y una agenda. Segundo, alguien tiene que tomar la minuta y mandársela a todos después. Tercero, ninguna junta puede durar más de treinta minutos.\nAl principio, la gente se quejaba. «¡Se nos está acabando el tiempo!», decían en cada junta. Pero después de unas semanas, aprendieron a ir al grano. Cuando alguien se desviaba del tema, el líder decía: «Dejemos eso para después».\nHoy, los empleados pasan solo seis horas a la semana en juntas, y la empresa termina sus proyectos más rápido que antes.",
       q: [
-        ["Why should you send the agenda in advance?", ["To impress your boss", "So people can prepare and the meeting is shorter", "Because it's the law"], 1],
-        ["What should every decision have?", ["An owner and a deadline", "A presentation", "A vote"], 0],
-        ["When might you not need a meeting?", ["When the boss is away", "On Fridays", "When you don't need a decision or a discussion"], 2]
+        ["¿Cuántas horas a la semana pasaban en juntas hace dos años?", ["Seis", "Quince", "Treinta"], 1],
+        ["¿Qué debe tener cada junta, según la primera regla?", ["Café y galletas", "Un objetivo claro y una agenda", "Un jefe presente"], 1],
+        ["¿Cuánto puede durar una junta como máximo?", ["Quince minutos", "Treinta minutos", "Una hora"], 1],
+        ["¿Qué decía el líder cuando alguien se desviaba del tema?", ["Que se callara", "Que lo dejaran para después", "Que lo mandara por correo"], 1],
+        ["¿Cuántas horas pasan ahora en juntas?", ["Dos", "Seis", "Diez"], 1]
       ]
     }
   },
@@ -193,13 +205,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Fue un placer hacer negocios con ustedes.", "It's been a pleasure doing business with you.", "", ""]
     ],
     r: {
-      t: "The art of negotiation",
-      en: "Good negotiators rarely start with their best offer. They know that the other side expects some back-and-forth.\nBefore negotiating, decide three things: your ideal result, the minimum you can accept, and what you'll do if there's no deal. Experts call the last one your BATNA: your best alternative to a negotiated agreement. If your alternative is strong, you can negotiate with more confidence.\nDuring the negotiation, listen carefully. Often the other side cares about something you can give easily, like faster delivery or longer payment terms.\nFinally, never accept a deal just to avoid conflict. Sometimes the best decision is to say, \"Let's take a few days to think it over.\"",
-      es: "Los buenos negociadores casi nunca empiezan con su mejor oferta. Saben que la otra parte espera un poco de tira y afloja.\nAntes de negociar, decide tres cosas: tu resultado ideal, lo mínimo que puedes aceptar y qué harás si no hay acuerdo. Los expertos llaman a lo último tu BATNA: tu mejor alternativa a un acuerdo negociado. Si tu alternativa es fuerte, puedes negociar con más confianza.\nDurante la negociación, escucha con atención. Muchas veces a la otra parte le importa algo que tú puedes dar fácilmente, como una entrega más rápida o plazos de pago más largos.\nPor último, nunca aceptes un trato solo para evitar el conflicto. A veces la mejor decisión es decir: \"Démonos unos días para pensarlo\".",
+      t: "How Paola got a better salary",
+      en: "Last year, Paola received a job offer from a big bank in Monterrey. The salary was forty thousand pesos a month. She was happy, but she knew that other analysts earned more.\nInstead of accepting immediately, she said, \"Thank you for the offer. I need a few days to think it over.\" Then she did some research. She discovered that the average salary for her position was forty-eight thousand.\nWhen she called the bank again, she was polite but clear. \"I'm very interested in the position, but I was hoping for fifty thousand,\" she said. The manager said that was beyond their budget. \"How about we meet halfway?\" Paola answered. \"Forty-five thousand, and I can start next week.\"\nThe manager accepted. In only ten minutes, Paola got sixty thousand pesos more per year. Her advice: \"Always ask. The worst answer is no.\"",
+      es: "El año pasado, Paola recibió una oferta de trabajo de un banco grande en Monterrey. El sueldo era de cuarenta mil pesos al mes. Estaba contenta, pero sabía que otros analistas ganaban más.\nEn lugar de aceptar de inmediato, dijo: «Gracias por la oferta. Necesito unos días para pensarlo». Luego investigó un poco. Descubrió que el sueldo promedio para su puesto era de cuarenta y ocho mil.\nCuando volvió a llamar al banco, fue amable pero clara. «Me interesa mucho el puesto, pero esperaba cincuenta mil», dijo. El gerente dijo que eso estaba fuera de su presupuesto. «¿Qué tal si quedamos a la mitad?», contestó Paola. «Cuarenta y cinco mil, y puedo empezar la próxima semana».\nEl gerente aceptó. En solo diez minutos, Paola consiguió sesenta mil pesos más al año. Su consejo: «Siempre pregunta. La peor respuesta es no».",
       q: [
-        ["Why don't good negotiators start with their best offer?", ["They want to lie", "The other side expects some back-and-forth", "It's illegal"], 1],
-        ["What is a BATNA?", ["Your best alternative if there's no deal", "Your ideal price", "A type of contract"], 0],
-        ["What should you never do?", ["Listen to the other side", "Take time to think", "Accept a deal just to avoid conflict"], 2]
+        ["¿Cuánto le ofrecieron a Paola al principio?", ["Cincuenta mil pesos al mes", "Cuarenta mil pesos al mes", "Cuarenta y cinco mil pesos al mes"], 1],
+        ["¿Qué hizo en lugar de aceptar de inmediato?", ["Rechazó la oferta", "Pidió unos días para pensarlo e investigó", "Buscó otro trabajo"], 1],
+        ["¿Cuál era el sueldo promedio para su puesto?", ["Cuarenta mil", "Cuarenta y ocho mil", "Cincuenta mil"], 1],
+        ["¿Cuánto aceptó pagarle el banco?", ["Cuarenta mil", "Cuarenta y cinco mil", "Cincuenta mil"], 1],
+        ["¿Cuál es el consejo de Paola?", ["Nunca aceptes la primera oferta", "Siempre pregunta; la peor respuesta es no", "Investiga antes de la entrevista"], 1]
       ]
     }
   },
@@ -222,13 +236,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Lo que me sorprendió fue su reacción.", "What surprised me was his reaction.", "", ""]
     ],
     r: {
-      t: "What really makes a good leader",
-      en: "Most people think great leaders are those who give inspiring speeches. What research actually shows is something different.\nWhat employees value most is not charisma, but trust. It's the manager who listens, keeps promises and admits mistakes that people want to follow.\nIn one famous study at Google, it wasn't the most talented teams that performed best. It was the teams where people felt safe to share ideas and make mistakes.\nThe thing is, trust is built slowly, through small actions every day. What destroys it, however, can happen in a single moment: one lie, one broken promise. So the question isn't whether you can inspire people. It's whether they can rely on you.",
-      es: "La mayoría piensa que los grandes líderes son los que dan discursos inspiradores. Lo que realmente muestra la investigación es algo diferente.\nLo que más valoran los empleados no es el carisma, sino la confianza. Es al gerente que escucha, cumple sus promesas y admite sus errores a quien la gente quiere seguir.\nEn un famoso estudio de Google, no fueron los equipos más talentosos los que tuvieron mejor desempeño. Fueron los equipos donde la gente se sentía segura de compartir ideas y equivocarse.\nEl caso es que la confianza se construye despacio, con pequeñas acciones diarias. Lo que la destruye, en cambio, puede pasar en un solo momento: una mentira, una promesa rota. Así que la pregunta no es si puedes inspirar a la gente. Es si pueden contar contigo.",
+      t: "What my grandmother taught me",
+      en: "My grandmother had a small store in Zacatecas for fifty years. She never went to university, but she was the wisest person I have ever known.\nWhat I remember most about her is her patience. When a customer was angry, she never argued. \"The thing is, people don't want to be right,\" she told me once. \"What they want is to be heard.\"\nIt was in her store that I learned to work. Every summer, I helped her with the sales and the accounts. What surprised me was that she knew every customer's name, and the names of their children too.\nToday I manage a team of thirty people. It wasn't until I became a manager that I understood her lessons. What really matters is not the product. It's the people.",
+      es: "Mi abuela tuvo una tiendita en Zacatecas durante cincuenta años. Nunca fue a la universidad, pero era la persona más sabia que he conocido.\nLo que más recuerdo de ella es su paciencia. Cuando un cliente estaba enojado, nunca discutía. «El asunto es que la gente no quiere tener la razón», me dijo una vez. «Lo que quiere es que la escuchen».\nFue en su tienda donde aprendí a trabajar. Cada verano, la ayudaba con las ventas y las cuentas. Lo que me sorprendía era que sabía el nombre de cada cliente, y también los nombres de sus hijos.\nHoy dirijo un equipo de treinta personas. No fue sino hasta que me hice gerente que entendí sus lecciones. Lo que realmente importa no es el producto. Es la gente.",
       q: [
-        ["What do employees value most, according to the text?", ["Charisma", "Trust", "High salaries"], 1],
-        ["Which teams performed best in the Google study?", ["Teams where people felt safe to share ideas and make mistakes", "The most talented teams", "The largest teams"], 0],
-        ["How can trust be destroyed?", ["Slowly over years", "By giving speeches", "In a single moment, with one lie or broken promise"], 2]
+        ["¿Dónde tenía su tienda la abuela?", ["En Durango", "En Zacatecas", "En Aguascalientes"], 1],
+        ["¿Qué es lo que más recuerda de su abuela?", ["Su comida", "Su paciencia", "Su dinero"], 1],
+        ["Según la abuela, ¿qué quiere la gente?", ["Tener la razón", "Que la escuchen", "Precios bajos"], 1],
+        ["¿Qué le sorprendía de su abuela?", ["Que nunca descansaba", "Que sabía el nombre de cada cliente y de sus hijos", "Que hablaba inglés"], 1],
+        ["¿Cuándo entendió sus lecciones?", ["Cuando era niño", "Cuando se hizo gerente", "Cuando su abuela cerró la tienda"], 1]
       ]
     }
   },
@@ -251,13 +267,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Bajo ninguna circunstancia comparta su contraseña.", "Under no circumstances should you share your password.", "", ""]
     ],
     r: {
-      t: "Speech at an award ceremony",
-      en: "Good evening, everyone. Never have I felt so honored as I do tonight.\nWhen we started this company ten years ago, we had three employees and one small office. Little did we know that one day we would export to twelve countries.\nNot only did we survive two economic crises, but we also grew every single year. Rarely does a company of our size achieve that.\nNone of this would have been possible without our team. Only by working together did we overcome every challenge.\nSo tonight, this award belongs to all of you. Thank you.",
-      es: "Buenas noches a todos. Nunca me había sentido tan honrado como esta noche.\nCuando empezamos esta empresa hace diez años, teníamos tres empleados y una oficina pequeña. Poco sabíamos que algún día exportaríamos a doce países.\nNo solo sobrevivimos a dos crisis económicas, sino que crecimos cada año. Rara vez una empresa de nuestro tamaño logra eso.\nNada de esto habría sido posible sin nuestro equipo. Solo trabajando juntos superamos cada reto.\nAsí que esta noche, este premio les pertenece a todos ustedes. Gracias.",
+      t: "A speech to remember",
+      en: "Last month, the director of a children's hospital in Puebla gave a speech at the opening of the new building. This is part of what she said:\n\"Ten years ago, our hospital had only twenty beds. Little did we know how much it would grow. Not only did we reach our goal of one hundred beds, but we also opened a center for children with cancer.\nNever have I worked with such a generous community. Hundreds of families, companies and volunteers donated their time and money. Only with their help did we achieve this dream.\nRarely do we have the chance to say thank you to everyone at once. So today, on behalf of every child who will be treated here, I want to say: thank you.\"\nAfter the speech, the audience stood up and applauded for five minutes.",
+      es: "El mes pasado, la directora de un hospital infantil en Puebla dio un discurso en la inauguración del edificio nuevo. Esta es una parte de lo que dijo:\n«Hace diez años, nuestro hospital tenía solo veinte camas. Poco sabíamos cuánto iba a crecer. No solo alcanzamos nuestra meta de cien camas, sino que también abrimos un centro para niños con cáncer.\nNunca he trabajado con una comunidad tan generosa. Cientos de familias, empresas y voluntarios donaron su tiempo y su dinero. Solo con su ayuda logramos este sueño.\nRara vez tenemos la oportunidad de darles las gracias a todos al mismo tiempo. Así que hoy, en nombre de cada niño que será atendido aquí, quiero decir: gracias».\nDespués del discurso, el público se puso de pie y aplaudió durante cinco minutos.",
       q: [
-        ["How many employees did the company have at the start?", ["Twelve", "Three", "Ten"], 1],
-        ["What did the company survive?", ["Two economic crises", "A fire", "A lawsuit"], 0],
-        ["Who does the speaker say the award belongs to?", ["To him", "To the investors", "To the whole team"], 2]
+        ["¿Dónde está el hospital?", ["En Tlaxcala", "En Puebla", "En Veracruz"], 1],
+        ["¿Cuántas camas tenía hace diez años?", ["Diez", "Veinte", "Cien"], 1],
+        ["¿Qué más abrieron, además de llegar a cien camas?", ["Una escuela", "Un centro para niños con cáncer", "Una farmacia"], 1],
+        ["¿Quiénes donaron tiempo y dinero?", ["Solo el gobierno", "Cientos de familias, empresas y voluntarios", "Los doctores"], 1],
+        ["¿Qué hizo el público después del discurso?", ["Se fue en silencio", "Se puso de pie y aplaudió cinco minutos", "Hizo preguntas"], 1]
       ]
     }
   },
@@ -280,13 +298,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Se requiere más investigación.", "Further research is required.", "", ""]
     ],
     r: {
-      t: "Abstract: Sleep and productivity",
-      en: "This study examines the relationship between sleep and productivity among factory workers. Data were collected from 450 employees in three manufacturing plants over a period of six months.\nThe findings indicate a significant correlation between hours of sleep and error rates. Workers who slept fewer than six hours made 35% more errors than those who slept seven hours or more. In contrast, no significant difference was found between seven and nine hours of sleep.\nThese results imply that companies could reduce errors by adjusting shift schedules. Nonetheless, the sample was limited to one industry, and further research is required to confirm these findings in other sectors.",
-      es: "Este estudio analiza la relación entre el sueño y la productividad en trabajadores de fábrica. Se recolectaron datos de 450 empleados en tres plantas de manufactura durante seis meses.\nLos hallazgos indican una correlación significativa entre las horas de sueño y la tasa de errores. Los trabajadores que dormían menos de seis horas cometieron 35% más errores que quienes dormían siete horas o más. En contraste, no se encontró una diferencia significativa entre siete y nueve horas de sueño.\nEstos resultados implican que las empresas podrían reducir errores ajustando los horarios de los turnos. No obstante, la muestra se limitó a una sola industria y se requiere más investigación para confirmar estos hallazgos en otros sectores.",
+      t: "Abstract: phones and sleep",
+      en: "This study examines the relationship between phone use at night and sleep in teenagers. We conducted a survey with a representative sample of 1,200 students between twelve and seventeen years old in three Mexican cities.\nOur hypothesis was that students who use their phones in bed sleep less. The results indicate a clear relationship: on average, these students sleep fifty minutes less per night. Furthermore, they reported feeling tired in class more often.\nHowever, the data also suggests that the type of use matters. Students who watched videos slept less than students who only listened to music.\nWe identified three main factors: the light of the screen, the content and the time of use. Further research is required to understand the long-term impact on health.",
+      es: "Este estudio analiza la relación entre el uso del celular en la noche y el sueño de los adolescentes. Llevamos a cabo una encuesta con una muestra representativa de 1,200 estudiantes de entre doce y diecisiete años en tres ciudades de México.\nNuestra hipótesis era que los estudiantes que usan el celular en la cama duermen menos. Los resultados indican una relación clara: en promedio, estos estudiantes duermen cincuenta minutos menos por noche. Además, dijeron sentirse cansados en clase con más frecuencia.\nSin embargo, los datos también sugieren que el tipo de uso importa. Los estudiantes que veían videos dormían menos que los que solo escuchaban música.\nIdentificamos tres factores principales: la luz de la pantalla, el contenido y el tiempo de uso. Se requiere más investigación para entender el impacto a largo plazo en la salud.",
       q: [
-        ["How many employees participated in the study?", ["35", "450", "3"], 1],
-        ["What did workers who slept fewer than six hours do?", ["They made 35% more errors", "They were more productive", "They quit more often"], 0],
-        ["What is a limitation of the study?", ["It lasted too long", "The plants were too big", "The sample was limited to one industry"], 2]
+        ["¿Cuántos estudiantes participaron en la encuesta?", ["120", "1,200", "12,000"], 1],
+        ["¿Cuánto menos duermen en promedio los que usan el celular en la cama?", ["Una hora", "Cincuenta minutos", "Media hora"], 1],
+        ["¿Quiénes durmieron menos?", ["Los que escuchaban música", "Los que veían videos", "Los que leían"], 1],
+        ["¿Cuáles fueron los tres factores principales?", ["La edad, la escuela y la ciudad", "La luz de la pantalla, el contenido y el tiempo de uso", "El precio, la marca y el tamaño del celular"], 1],
+        ["¿Qué se requiere, según el estudio?", ["Prohibir los celulares", "Más investigación", "Celulares nuevos"], 1]
       ]
     }
   },
@@ -309,13 +329,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Queda claro que...", "It is clear that...", "", ""]
     ],
     r: {
-      t: "Essay: Should universities be free?",
-      en: "Nowadays, the cost of higher education is a major concern for many families. This essay examines whether universities should be free.\nOn the one hand, free education gives everyone the same opportunities, regardless of their income. Furthermore, a more educated population benefits the whole economy. Countries such as Germany and Finland offer free university education and have strong economies.\nOn the other hand, free education must be paid for with taxes. Some people argue that it is unfair for those who do not go to university to pay for those who do. In addition, free universities can become overcrowded, which may reduce quality.\nIn conclusion, while free education has clear benefits, it requires careful planning and investment. In my view, a system of scholarships based on need may be a fairer solution.",
-      es: "Hoy en día, el costo de la educación superior es una gran preocupación para muchas familias. Este ensayo analiza si las universidades deberían ser gratuitas.\nPor un lado, la educación gratuita da a todos las mismas oportunidades, sin importar sus ingresos. Además, una población más educada beneficia a toda la economía. Países como Alemania y Finlandia ofrecen educación universitaria gratuita y tienen economías fuertes.\nPor otro lado, la educación gratuita debe pagarse con impuestos. Hay quienes argumentan que es injusto que quienes no van a la universidad paguen por quienes sí van. Además, las universidades gratuitas pueden saturarse, lo que podría reducir la calidad.\nEn conclusión, si bien la educación gratuita tiene beneficios claros, requiere una planeación e inversión cuidadosas. En mi opinión, un sistema de becas según la necesidad podría ser una solución más justa.",
+      t: "Should public transportation be free?",
+      en: "Nowadays, traffic is one of the biggest problems in Mexican cities. This essay examines whether public transportation should be free.\nOn the one hand, free transportation has clear benefits. Firstly, more people would leave their cars at home, which would reduce traffic and pollution. Furthermore, it would help low-income families, who spend a large part of their salary on buses. A clear example of this is the city of Tallinn, in Estonia, where public transportation has been free for residents since 2013.\nOn the other hand, someone has to pay for the system. Some people argue that taxes would go up. It should be noted that free buses are not useful if they are old, slow and dangerous.\nTo conclude, free public transportation is feasible in big cities, but only if it is also safe and efficient. From my point of view, quality is as important as price.",
+      es: "Hoy en día, el tráfico es uno de los mayores problemas de las ciudades mexicanas. Este ensayo analiza si el transporte público debería ser gratis.\nPor un lado, el transporte gratis tiene beneficios claros. En primer lugar, más gente dejaría su carro en casa, lo que reduciría el tráfico y la contaminación. Además, ayudaría a las familias de bajos ingresos, que gastan una gran parte de su sueldo en camiones. Un ejemplo claro de esto es la ciudad de Tallin, en Estonia, donde el transporte público es gratis para sus habitantes desde 2013.\nPor otro lado, alguien tiene que pagar el sistema. Hay quienes argumentan que los impuestos subirían. Cabe destacar que los camiones gratis no sirven de nada si son viejos, lentos y peligrosos.\nPara concluir, el transporte público gratis es viable en las grandes ciudades, pero solo si también es seguro y eficiente. Desde mi punto de vista, la calidad es tan importante como el precio.",
       q: [
-        ["Which countries are mentioned as examples of free university?", ["The US and Canada", "Germany and Finland", "Mexico and Spain"], 1],
-        ["What is one argument against free universities?", ["They can become overcrowded", "Students learn less", "Teachers earn less"], 0],
-        ["What does the writer propose?", ["Making all universities free", "Closing public universities", "Scholarships based on need"], 2]
+        ["¿Qué analiza el ensayo?", ["Si los carros deberían ser más baratos", "Si el transporte público debería ser gratis", "Si hay que construir más calles"], 1],
+        ["¿A quién ayudaría el transporte gratis, según el ensayo?", ["A las empresas", "A las familias de bajos ingresos", "A los turistas"], 1],
+        ["¿Qué ciudad es un ejemplo de transporte gratis?", ["Madrid", "Tallin, en Estonia", "Toronto"], 1],
+        ["¿Qué argumentan algunas personas?", ["Que habría más tráfico", "Que los impuestos subirían", "Que nadie lo usaría"], 1],
+        ["¿Cuál es la conclusión del autor?", ["Que es imposible", "Que es viable en ciudades grandes si también es seguro y eficiente", "Que solo los estudiantes deberían viajar gratis"], 1]
       ]
     }
   },
@@ -338,13 +360,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Me cayó el veinte.", "It finally clicked.", "", ""]
     ],
     r: {
-      t: "Text messages between friends",
-      en: "Jake: hey what's up? wanna grab dinner tonight?\nMaría: I'm down! but I gotta finish this report first, my boss is freaking out lol\nJake: no worries. 8 at the taco place?\nMaría: sounds good. btw did u hear about Mike?\nJake: no?? what happened\nMaría: he quit his job and he's moving to Hawaii\nJake: no way!! for real?\nMaría: for real. he said he was fed up with the cold lol\nJake: haha can't blame him. ok see u at 8\nMaría: cool, ttyl",
-      es: "Jake: hey, ¿qué onda? ¿vamos a cenar hoy?\nMaría: ¡me apunto! pero tengo que terminar este reporte primero, mi jefe está histérico jaja\nJake: no te preocupes. ¿a las 8 en los tacos?\nMaría: va. por cierto, ¿supiste lo de Mike?\nJake: ¿no? ¿qué pasó?\nMaría: renunció a su trabajo y se va a vivir a Hawái\nJake: ¡no manches! ¿neta?\nMaría: neta. dijo que estaba harto del frío jaja\nJake: jaja no lo culpo. va, nos vemos a las 8\nMaría: sale, hablamos luego",
+      t: "Oh great, another meeting",
+      en: "When Rodrigo started working at a company in Chicago, he understood almost everything his coworkers said. Almost.\nOne Monday, his boss sent an email: there was going to be a meeting at five o'clock. \"Oh great, another meeting,\" said his coworker Kevin. Rodrigo smiled. \"Yes, it's great! I love meetings,\" he answered. Kevin looked at him strangely. It turns out Kevin was being sarcastic: he hated meetings.\nAfter that, Rodrigo paid attention to the tone of people's voices, not only to their words. He also learned the expressions his coworkers used every day: \"I'm down\" when they accepted an invitation, \"my bad\" when they made a mistake and \"beats me\" when they had no idea.\nToday, Rodrigo is the funniest person in the office. And when there's a meeting at five, he's the first to say, \"Oh great, another meeting.\"",
+      es: "Cuando Rodrigo empezó a trabajar en una empresa de Chicago, entendía casi todo lo que decían sus compañeros. Casi.\nUn lunes, su jefe mandó un correo: iba a haber una junta a las cinco. «Oh great, another meeting», dijo su compañero Kevin. Rodrigo sonrió. «¡Sí, qué bien! Me encantan las juntas», contestó. Kevin lo miró raro. Resulta que Kevin estaba siendo sarcástico: odiaba las juntas.\nDespués de eso, Rodrigo ponía atención al tono de voz de la gente, no solo a sus palabras. También aprendió las expresiones que sus compañeros usaban a diario: «I'm down» cuando aceptaban una invitación, «my bad» cuando cometían un error y «beats me» cuando no tenían idea.\nHoy, Rodrigo es la persona más chistosa de la oficina. Y cuando hay una junta a las cinco, es el primero en decir: «Oh great, another meeting».",
       q: [
-        ["Why can't María go right now?", ["She's sick", "She has to finish a report", "She's with Mike"], 1],
-        ["Where are they meeting?", ["At the taco place", "At Mike's house", "At the office"], 0],
-        ["Why is Mike moving to Hawaii?", ["For a new job", "His family lives there", "He was fed up with the cold"], 2]
+        ["¿Dónde empezó a trabajar Rodrigo?", ["En Nueva York", "En Chicago", "En Houston"], 1],
+        ["¿Qué dijo Kevin cuando supo de la junta?", ["Que no iba a ir", "«Oh great, another meeting»", "Que estaba cansado"], 1],
+        ["¿Qué sentía Kevin realmente por las juntas?", ["Le encantaban", "Las odiaba", "No le importaban"], 1],
+        ["¿Cuándo dicen «my bad»?", ["Cuando aceptan una invitación", "Cuando cometen un error", "Cuando no tienen idea"], 1],
+        ["¿Cómo es Rodrigo ahora en la oficina?", ["El más serio", "El más chistoso", "El más callado"], 1]
       ]
     }
   },
@@ -368,13 +392,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["un punto de vista distinto", "a different point of view", "", ""]
     ],
     r: {
-      t: "What is success?",
-      en: "In a recent study, researchers asked a thousand people a simple question: how do you define success? The answers showed a clear pattern.\nYoung people mostly defined success as money and a good career. People over fifty, in contrast, talked about health, family and peace of mind. For many of them, success was a combination of small things.\nThe researchers say the gap between the two groups is not a moral problem. It's a question of context: our idea of success changes as we live. Perhaps the core of success is knowing what really matters to you.",
-      es: "En un estudio reciente, unos investigadores le hicieron a mil personas una pregunta sencilla: ¿cómo defines el éxito? Las respuestas mostraron un patrón claro.\nLos jóvenes definieron el éxito sobre todo como dinero y una buena carrera. Las personas de más de cincuenta, en cambio, hablaron de salud, familia y tranquilidad. Para muchas de ellas, el éxito era una combinación de cosas pequeñas.\nLos investigadores dicen que la brecha entre los dos grupos no es un problema moral. Es una cuestión de contexto: nuestra idea del éxito cambia conforme vivimos. Tal vez el núcleo del éxito es saber qué es lo que de verdad te importa.",
+      t: "What does a color mean?",
+      en: "Colors are not only colors. In every culture, they are also symbols, and their meaning can change a lot from one country to another.\nTake white, for example. In Mexico and the United States, it's the color of weddings, and the white dove is a symbol of peace. However, in some Asian countries, white is the traditional color of funerals.\nRed is another good example. In China, it's a symbol of luck and happiness, so people wear red at weddings and give money in red envelopes. In many Western countries, on the other hand, red often means danger or love.\nCompanies study these patterns very carefully. Before they launch a product in another country, they do a detailed analysis of what each color means there. A small mistake with a color can be the difference between success and failure.",
+      es: "Los colores no son solo colores. En todas las culturas también son símbolos, y su significado puede cambiar mucho de un país a otro.\nTomemos el blanco, por ejemplo. En México y en Estados Unidos es el color de las bodas, y la paloma blanca es un símbolo de paz. Sin embargo, en algunos países de Asia, el blanco es el color tradicional de los funerales.\nEl rojo es otro buen ejemplo. En China es un símbolo de suerte y felicidad, así que la gente se viste de rojo en las bodas y regala dinero en sobres rojos. En muchos países occidentales, en cambio, el rojo muchas veces significa peligro o amor.\nLas empresas estudian estos patrones con mucho cuidado. Antes de lanzar un producto en otro país, hacen un análisis detallado de lo que significa cada color ahí. Un pequeño error con un color puede ser la diferencia entre el éxito y el fracaso.",
       q: [
-        ["¿Cómo definieron el éxito los jóvenes?", ["Como dinero y una buena carrera", "Como salud", "Como tranquilidad"], 0],
-        ["¿De qué hablaron las personas de más de cincuenta?", ["De viajes", "De salud, familia y tranquilidad", "De su trabajo"], 1],
-        ["Según los investigadores, ¿qué explica la diferencia?", ["La educación", "El dinero", "El contexto: la idea del éxito cambia con la vida"], 2]
+        ["¿Qué son los colores en todas las culturas, según el texto?", ["Solo decoración", "Símbolos", "Modas"], 1],
+        ["¿De qué es el blanco el color tradicional en algunos países de Asia?", ["De las bodas", "De los funerales", "De la paz"], 1],
+        ["¿Qué simboliza el rojo en China?", ["Peligro", "Suerte y felicidad", "Tristeza"], 1],
+        ["¿Qué regalan en China en sobres rojos?", ["Cartas", "Dinero", "Dulces"], 1],
+        ["¿Qué hacen las empresas antes de lanzar un producto en otro país?", ["Bajan los precios", "Un análisis detallado de lo que significa cada color", "Cambian el nombre del producto"], 1]
       ]
     }
   },
@@ -397,13 +423,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["un esquema de fraude", "a fraud scheme", "", ""]
     ],
     r: {
-      t: "A formal complaint",
-      en: "Dear Sir or Madam, I am writing on behalf of my family regarding our stay at your hotel from June 3 to 6. Unfortunately, several problems occurred during our visit.\nFirst, we were unable to check in until five o'clock, although our reservation clearly said two. Second, the information on your website was not accurate: the pool was closed, and the restaurant was not open for dinner. We also received numerous calls to our room by mistake.\nWe believe a partial refund is appropriate. Please ensure that this matter is reviewed as soon as possible. I look forward to your response. Sincerely, Ana Ruiz.",
-      es: "Estimados señores: les escribo en nombre de mi familia en relación con nuestra estancia en su hotel del 3 al 6 de junio. Desafortunadamente, ocurrieron varios problemas durante nuestra visita.\nPrimero, no pudimos registrarnos sino hasta las cinco, aunque nuestra reservación decía claramente las dos. Segundo, la información de su página no era exacta: la alberca estaba cerrada y el restaurante no abría para la cena. También recibimos numerosas llamadas a nuestro cuarto por error.\nCreemos que es adecuado un reembolso parcial. Les pido que se aseguren de revisar este asunto lo antes posible. Quedo en espera de su respuesta. Atentamente, Ana Ruiz.",
+      t: "Notice to all residents",
+      en: "Dear residents,\nWe are writing on behalf of the building administration to inform you that the water service will be interrupted on Saturday, March 14, from 8 a.m. to 6 p.m. This interruption is essential to repair the main pipe, which has caused numerous complaints in recent months.\nPlease ensure that you store enough water for the day. We also ask you to keep your taps closed, in order to avoid accidents when the service returns.\nWe regret that we are unable to offer another source of water during the repair. Residents with children or elderly family members may obtain bottles of water at the administration office on Friday afternoon.\nFor any relevant information, please contact the administration. Thank you for your understanding.",
+      es: "Estimados residentes:\nLes escribimos en nombre de la administración del edificio para informarles que el servicio de agua se suspenderá el sábado 14 de marzo, de las 8 a. m. a las 6 p. m. Esta suspensión es esencial para reparar la tubería principal, que ha causado numerosas quejas en los últimos meses.\nLes pedimos que se aseguren de guardar suficiente agua para el día. También les pedimos que mantengan las llaves cerradas, para evitar accidentes cuando regrese el servicio.\nLamentamos no poder ofrecer otra fuente de agua durante la reparación. Los residentes con niños o familiares mayores pueden obtener botellas de agua en la oficina de administración el viernes en la tarde.\nPara cualquier información relevante, comuníquense con la administración. Gracias por su comprensión.",
       q: [
-        ["¿A qué hora pudieron registrarse?", ["A las cinco", "A las dos", "A las doce"], 0],
-        ["¿Qué estaba cerrado?", ["El gimnasio", "La alberca", "La recepción"], 1],
-        ["¿Qué pide Ana?", ["Otra noche gratis", "Una disculpa pública", "Un reembolso parcial"], 2]
+        ["¿Qué día se va a suspender el agua?", ["El viernes 13 de marzo", "El sábado 14 de marzo", "El domingo 15 de marzo"], 1],
+        ["¿Por qué se va a suspender el servicio?", ["Por falta de pago", "Para reparar la tubería principal", "Por un accidente"], 1],
+        ["¿Qué les piden a los residentes?", ["Que salgan del edificio", "Que guarden suficiente agua para el día", "Que paguen la reparación"], 1],
+        ["¿Quiénes pueden obtener botellas de agua?", ["Todos los residentes", "Los residentes con niños o familiares mayores", "Solo los dueños"], 1],
+        ["¿Cuándo pueden recoger las botellas?", ["El sábado en la mañana", "El viernes en la tarde", "El domingo"], 1]
       ]
     }
   },
@@ -428,13 +456,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Por consiguiente, ...", "Consequently, ...", "", ""]
     ],
     r: {
-      t: "Quarterly report",
-      en: "During the third quarter, total sales rose significantly, mainly due to the launch of two new products. Revenue increased by twelve percent compared to the previous quarter.\nResults were not the same in every region, however. The north grew by eighteen percent, whereas the south grew only four percent, largely because of the hurricane season. Hence, the company will invest in better distribution centers in the south.\nPrior to the next meeting, managers should review their budgets. Ultimately, our objective remains the same: steady growth, regardless of short-term problems.",
-      es: "Durante el tercer trimestre, las ventas totales subieron de manera importante, principalmente por el lanzamiento de dos productos nuevos. Los ingresos aumentaron un doce por ciento comparados con el trimestre anterior.\nSin embargo, los resultados no fueron iguales en todas las regiones. El norte creció un dieciocho por ciento, mientras que el sur creció solo un cuatro por ciento, en gran parte por la temporada de huracanes. Por lo tanto, la empresa va a invertir en mejores centros de distribución en el sur.\nAntes de la próxima junta, los gerentes deben revisar sus presupuestos. En última instancia, nuestro objetivo sigue siendo el mismo: un crecimiento estable, sin importar los problemas a corto plazo.",
+      t: "Report: two plants, two results",
+      en: "This report compares the performance of our two plants in 2026: the plant in Saltillo and the plant in Querétaro.\nSales from the Saltillo plant rose significantly, by eighteen percent, whereas sales from Querétaro remained stable. This success is largely due to a new client in the automotive sector. Furthermore, the Saltillo team reduced its costs by five percent and trained twenty new employees, who are now working alongside experts from Germany.\nIn Querétaro, the main problem was technical. In March, a machine failed, and production stopped for two weeks. Consequently, several orders were delivered late. Nevertheless, the plant recovered in the subsequent months.\nOverall, the results are positive. We recommend investing in new machines for Querétaro. Ultimately, the decision belongs to the board, which will meet in January.",
+      es: "Este reporte compara el desempeño de nuestras dos plantas en 2026: la planta de Saltillo y la planta de Querétaro.\nLas ventas de la planta de Saltillo subieron de manera importante, un dieciocho por ciento, mientras que las ventas de Querétaro se mantuvieron estables. Este éxito se debe en gran parte a un cliente nuevo del sector automotriz. Además, el equipo de Saltillo redujo sus costos un cinco por ciento y capacitó a veinte empleados nuevos, que ahora trabajan junto a expertos de Alemania.\nEn Querétaro, el problema principal fue técnico. En marzo falló una máquina, y la producción se detuvo dos semanas. Por consiguiente, varios pedidos se entregaron tarde. Sin embargo, la planta se recuperó en los meses siguientes.\nEn general, los resultados son positivos. Recomendamos invertir en máquinas nuevas para Querétaro. En última instancia, la decisión le corresponde al consejo, que se reunirá en enero.",
       q: [
-        ["¿Por qué subieron las ventas?", ["Por el lanzamiento de dos productos", "Por bajar los precios", "Por abrir tiendas"], 0],
-        ["¿Cuánto creció el sur?", ["Dieciocho por ciento", "Cuatro por ciento", "Doce por ciento"], 1],
-        ["¿Qué va a hacer la empresa?", ["Cerrar el sur", "Despedir gerentes", "Invertir en centros de distribución en el sur"], 2]
+        ["¿Cuánto subieron las ventas de Saltillo?", ["Cinco por ciento", "Dieciocho por ciento", "Ocho por ciento"], 1],
+        ["¿A qué se debe en gran parte el éxito de Saltillo?", ["A precios más bajos", "A un cliente nuevo del sector automotriz", "A más empleados"], 1],
+        ["¿Qué pasó en Querétaro en marzo?", ["Abrieron una línea nueva", "Falló una máquina y la producción se detuvo dos semanas", "Se fue un cliente"], 1],
+        ["¿Qué recomienda el reporte?", ["Cerrar la planta de Querétaro", "Invertir en máquinas nuevas para Querétaro", "Contratar más gente en Saltillo"], 1],
+        ["¿Quién va a tomar la decisión final?", ["El gerente de planta", "El consejo", "Los clientes"], 1]
       ]
     }
   },
@@ -460,13 +490,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["una decisión estratégica", "a strategic decision", "", ""]
     ],
     r: {
-      t: "A dual citizen",
-      en: "Mariana was born in Texas to Mexican parents, so she has dual citizenship. She grew up between two cultures, and she speaks both languages with ease.\nFor her, this is not merely a detail on her passport. It's a fundamental part of her identity. She says it's a genuine advantage at work: she has extensive experience with clients on both sides of the border.\nBeing dual is not always easy, though. Sometimes she feels that she's \"too American\" in Mexico and \"too Mexican\" in the United States. But over time she learned that she doesn't need to choose. Both are vital parts of who she is.",
-      es: "Mariana nació en Texas, de papás mexicanos, así que tiene doble nacionalidad. Creció entre dos culturas y habla los dos idiomas con facilidad.\nPara ella, esto no es solo un detalle en su pasaporte. Es una parte fundamental de su identidad. Dice que es una ventaja auténtica en el trabajo: tiene amplia experiencia con clientes de los dos lados de la frontera.\nPero ser de dos países no siempre es fácil. A veces siente que es «demasiado americana» en México y «demasiado mexicana» en Estados Unidos. Con el tiempo aprendió que no tiene que escoger. Las dos son partes vitales de quien es.",
+      t: "Genuine vanilla",
+      en: "Vanilla is one of the most popular flavors in the world, but few people know that it comes from Mexico. For centuries, the Totonac people of Papantla, in Veracruz, were the sole producers of vanilla.\nProducing genuine vanilla is intellectual and physical work. Each flower opens for only one day, so farmers must pollinate it by hand at the right moment. After that, the beans need several months of drying. It's apparent why genuine vanilla is so expensive.\nToday, most of the vanilla in the world comes from Madagascar, and most products use an artificial version that costs much less. However, Mexican vanilla is still considered of superior quality.\nFor the families of Papantla, vanilla is vital. It's not only their main source of income. It's also part of their identity.",
+      es: "La vainilla es uno de los sabores más populares del mundo, pero poca gente sabe que viene de México. Durante siglos, el pueblo totonaco de Papantla, en Veracruz, fue el único productor de vainilla.\nProducir vainilla auténtica es un trabajo intelectual y físico. Cada flor abre solo un día, así que los productores tienen que polinizarla a mano en el momento exacto. Después, las vainas necesitan varios meses de secado. Es evidente por qué la vainilla auténtica es tan cara.\nHoy, la mayor parte de la vainilla del mundo viene de Madagascar, y la mayoría de los productos usan una versión artificial que cuesta mucho menos. Sin embargo, la vainilla mexicana se sigue considerando de calidad superior.\nPara las familias de Papantla, la vainilla es vital. No solo es su principal fuente de ingresos. También es parte de su identidad.",
       q: [
-        ["¿Por qué tiene doble nacionalidad?", ["Nació en Texas de papás mexicanos", "Se casó con un estadounidense", "Vivió en Canadá"], 0],
-        ["¿Qué ventaja tiene en el trabajo?", ["Gana más", "Tiene experiencia con clientes de los dos lados de la frontera", "Viaja gratis"], 1],
-        ["¿Qué aprendió con el tiempo?", ["Que debe escoger un país", "Que es mejor ser mexicana", "Que no tiene que escoger"], 2]
+        ["¿De dónde viene originalmente la vainilla?", ["De Madagascar", "De México", "De Francia"], 1],
+        ["¿Quiénes fueron los únicos productores durante siglos?", ["Los mayas", "El pueblo totonaco de Papantla", "Los aztecas"], 1],
+        ["¿Por qué hay que polinizar la flor en el momento exacto?", ["Porque es muy grande", "Porque cada flor abre solo un día", "Porque es de noche"], 1],
+        ["¿De dónde viene hoy la mayor parte de la vainilla del mundo?", ["De Veracruz", "De Madagascar", "De Estados Unidos"], 1],
+        ["¿Qué es la vainilla para las familias de Papantla?", ["Solo un pasatiempo", "Su principal fuente de ingresos y parte de su identidad", "Un negocio nuevo"], 1]
       ]
     }
   },
@@ -486,13 +518,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["una variable", "a variable", "", ""]
     ],
     r: {
-      t: "Does music help you study?",
-      en: "A group of researchers wanted to know if music helps students study. They divided three hundred participants into three groups: one studied in silence, one with classical music, and one with pop songs.\nUnder the guidance of a professor, each participant read a text and answered the same questions in sequence. The results showed an interesting pattern: the silent group and the classical music group got similar scores, whereas the pop music group did worse.\nThe researchers reached a simple conclusion: music with lyrics makes it harder to concentrate. With the exception of a few students, most people learn with more ease in silence.",
-      es: "Un grupo de investigadores quería saber si la música ayuda a estudiar. Dividieron a trescientos participantes en tres grupos: uno estudió en silencio, otro con música clásica y otro con canciones de pop.\nBajo la guía de una profesora, cada participante leyó un texto y contestó las mismas preguntas en orden. Los resultados mostraron un patrón interesante: el grupo en silencio y el de música clásica sacaron calificaciones parecidas, mientras que el grupo de pop salió peor.\nLos investigadores llegaron a una conclusión sencilla: la música con letra hace más difícil concentrarse. Con excepción de unos cuantos estudiantes, la mayoría aprende con más facilidad en silencio.",
+      t: "The power of a mentor",
+      en: "A university in Monterrey conducted a study with four hundred first-year students. The participants were divided into two groups. Students in the first group worked under the guidance of a mentor: an older student who met with them every week. Students in the second group didn't have a mentor.\nThe study's findings were clear. In the first group, there was a forty percent reduction in students who left the university. Their grades were also higher, with the exception of mathematics, where the results were similar.\nAccording to the researchers, the first year is a transition period, and many students feel lost. A mentor helps them understand the rules, organize their time and ask for help with ease.\nBased on these results, the university now has a ratio of one mentor for every ten new students.",
+      es: "Una universidad de Monterrey llevó a cabo un estudio con cuatrocientos estudiantes de primer año. Los participantes se dividieron en dos grupos. Los estudiantes del primer grupo trabajaron bajo la guía de un mentor: un estudiante mayor que se reunía con ellos cada semana. Los del segundo grupo no tuvieron mentor.\nLos hallazgos del estudio fueron claros. En el primer grupo hubo una reducción del cuarenta por ciento en los estudiantes que dejaron la universidad. Sus calificaciones también fueron más altas, con excepción de matemáticas, donde los resultados fueron parecidos.\nSegún los investigadores, el primer año es un periodo de transición, y muchos estudiantes se sienten perdidos. Un mentor les ayuda a entender las reglas, organizar su tiempo y pedir ayuda con facilidad.\nCon base en estos resultados, la universidad ahora tiene una proporción de un mentor por cada diez estudiantes nuevos.",
       q: [
-        ["¿Cuántos grupos había?", ["Tres", "Dos", "Cinco"], 0],
-        ["¿Qué grupo salió peor?", ["El de silencio", "El de música pop", "El de música clásica"], 1],
-        ["¿Cuál fue la conclusión?", ["La música siempre ayuda", "Hay que estudiar de noche", "La música con letra hace más difícil concentrarse"], 2]
+        ["¿Cuántos estudiantes participaron en el estudio?", ["Cuarenta", "Cuatrocientos", "Cuatro mil"], 1],
+        ["¿Qué tenía el primer grupo?", ["Más clases", "Un mentor", "Becas"], 1],
+        ["¿En qué materia los resultados fueron parecidos?", ["En historia", "En matemáticas", "En inglés"], 1],
+        ["¿Cómo describen los investigadores el primer año?", ["Como el más fácil", "Como un periodo de transición", "Como el más caro"], 1],
+        ["¿Cuál es la proporción de mentores ahora?", ["Uno por cada cinco estudiantes", "Uno por cada diez estudiantes nuevos", "Uno por grupo"], 1]
       ]
     }
   }
