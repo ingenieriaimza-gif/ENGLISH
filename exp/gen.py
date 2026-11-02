@@ -10,13 +10,14 @@
 #   en: párrafo          sus párrafos en inglés y en español (uno y uno, en el mismo orden)
 #   es: párrafo
 #   ? pregunta | opción | *la correcta | opción
-# Revisa todo y escribe solo si no hay errores. Uso: python3 exp/gen.py [k n0 …] (sin nada: todas las etapas)
+# Revisa todo y escribe solo si no hay errores. Uso: python3 exp/gen.py [k n0 …] (sin nada: todas las etapas) [--check: solo revisar]
 import sys, os, re, json, glob, subprocess
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.dirname(HERE)
 P = json.loads(subprocess.check_output(["node", os.path.join(HERE, "phr.js"), REPO]))
 ORDER = list(P.keys())
-only = sys.argv[1:]
-GLUE = set("yes no please and or the a an my oh ha hi hello okay ok wow too gmail com".split())
+only = [a for a in sys.argv[1:] if not a.startswith("--")]
+CHECK = "--check" in sys.argv  # solo revisar, sin escribir
+GLUE = set("yes no please and or the a an my oh ha hmm hi hello okay ok wow too gmail com".split())
 def toks(s):
     s = re.sub(r"\{(?:name|last|nameS|lastS|email)\|[^}]*\}", " ", s).lower().replace("’", "'")
     return [w.strip("'") for w in re.findall(r"[a-z']+", re.sub(r"\([^)]*\)", " ", s)) if w.strip("'")]
@@ -79,6 +80,7 @@ for uid, t in T.items():
     for k, l in enumerate(lines):
         if l[0] != "B": continue
         prev = set(toks(lines[k - 1][1])) if k and lines[k - 1][0] == "A" else set()
+        prev |= set(toks(l[2]))  # nombres que van igual en español (Manhattan, Marta)
         new = [w for w in toks(l[1]) if not knows(w, prev)]
         if new: warns.append(f"{uid}: «{l[1]}» tiene palabras que aún no conoces: {', '.join(new)}")
     said = [m for m in mine if any(m in norm(l[1]) for l in B)]
@@ -88,6 +90,12 @@ for uid, t in T.items():
     if len(t["q"]) < 3: errs.append(f"{uid}: la lectura necesita 3+ preguntas")
 for w in warns: print("aviso:", w)
 if errs: print("\n".join("ERROR: " + e for e in errs)); sys.exit(1)
+if CHECK:
+    for uid, t in T.items():
+        if not only or P[uid]["lv"] in only or uid in only:
+            nb = sum(1 for l in t["d"] if l[0] == "B"); ns = sum(1 for l in t["d"] if l[0] == "@")
+            print(f"  {uid}: {ns} escenas, {nb} tuyas, {t['cov']} · lectura {len(' '.join(t['en']).split())} palabras, {len(t['q'])} preguntas")
+    print("revisado (sin escribir)"); sys.exit(0)
 # escribir: la conversación en content/<etapa>.js y la lectura en content/x-<etapa>.js
 def jd(x): return json.dumps(x, ensure_ascii=False)
 done = 0

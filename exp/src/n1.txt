@@ -1,0 +1,712 @@
+// Nivel 1: la conversación (una experiencia completa, por escenas) y la lectura de cada tema. Formato y uso: exp/gen.py
+
+# n1u1
+@ Vas con una nutrióloga por primera vez. Te pregunta cómo es un día normal para ti.
+A: Good morning! Let's talk about your day. What time do you get up? | ¡Buenos días! Vamos a hablar de tu día. ¿A qué hora te levantas?
+B: 2
+A: At six! And then? | ¡A las seis! ¿Y luego?
+B: I take a shower and I get dressed. | Me baño y me visto.
+A: Do you eat something in the morning? | ¿Comes algo en la mañana?
+B: 3
+A: Good. And coffee? | Bien. ¿Y café?
+B: 5
+A: Very good! Where do you work? | ¡Muy bien! ¿Dónde trabajas?
+B: 0
+A: Do you walk to work? | ¿Caminas al trabajo?
+B: No, I go to work by car. | No, voy al trabajo en carro.
+@ Ahora la nutrióloga te pregunta por tus comidas.
+A: What time do you have lunch? | ¿A qué hora comes?
+B: 17
+A: Do you eat meat? Chicken? | ¿Comes carne? ¿Pollo?
+B: 8
+A: Interesting! And who cooks at home? | ¡Interesante! ¿Y quién cocina en tu casa?
+B: 20
+@ Al final, te pregunta por tus noches y tus fines de semana.
+A: What time do you go to bed? | ¿A qué hora te acuestas?
+B: 19
+A: Do you watch TV before bed? | ¿Ves la tele antes de dormir?
+B: No, I rarely watch TV. | No, casi nunca veo la tele.
+A: Do you work on weekends? | ¿Trabajas los fines de semana?
+B: 7
+A: Okay. And what do you do in your free time? | Muy bien. ¿Y qué haces en tu tiempo libre?
+B: I walk every day. | Camino todos los días.
+A: Excellent! Me too. I come here by bike every day. | ¡Excelente! Yo también. Vengo aquí en bici todos los días.
+B: 26
+A: Yes, five minutes from here. See you next month! | Sí, a cinco minutos de aquí. ¡Nos vemos el próximo mes!
+== A healthy routine
+en: Teresa lives in Guadalajara. She works in a factory, and her routine is very healthy.
+es: Teresa vive en Guadalajara. Trabaja en una fábrica y su rutina es muy sana.
+en: She gets up at six every day. She takes a shower, gets dressed and has breakfast at home. She doesn't drink coffee; she drinks orange juice.
+es: Se levanta a las seis todos los días. Se baña, se viste y desayuna en casa. No toma café; toma jugo de naranja.
+en: She leaves home at seven and gets to work at eight. She always arrives early.
+es: Sale de casa a las siete y llega al trabajo a las ocho. Siempre llega temprano.
+en: She has lunch at two. She never eats meat, but she loves fish and vegetables.
+es: Come a las dos. Nunca come carne, pero le encantan el pescado y las verduras.
+en: She gets home at six and usually cooks at night. She rarely watches TV, and she goes to bed at eleven. On weekends she walks in the park with her dog.
+es: Regresa a casa a las seis y normalmente cocina en la noche. Casi nunca ve la tele y se acuesta a las once. Los fines de semana camina en el parque con su perro.
+? ¿Dónde trabaja Teresa? | En una oficina | *En una fábrica | En un hospital
+? ¿Qué toma en el desayuno? | Café | *Jugo de naranja | Leche
+? ¿A qué hora llega al trabajo? | A las siete | *A las ocho | A las nueve
+? ¿Qué nunca come? | Pescado | Verduras | *Carne
+? ¿Qué hace los fines de semana? | Ve la tele | *Camina en el parque con su perro | Trabaja
+
+# n1u2
+@ Quieres presentarle a tu amiga Clara un compañero de tu trabajo. Toman un café y ella te pregunta por él.
+A: So, tell me about your friend. What's his name? | A ver, cuéntame de tu amigo. ¿Cómo se llama?
+B: His name is Tom. He likes his job. | Se llama Tom. Le gusta su trabajo.
+A: What does he do? | ¿A qué se dedica?
+B: 17
+A: Where does he live? | ¿Dónde vive?
+B: 1
+A: Does he speak Spanish? | ¿Habla español?
+B: No, he doesn't. He's from Texas. | No. Es de Texas.
+A: Hmm. Does he have a car? | Mmm. ¿Tiene carro?
+B: 20
+A: Ha, ha! But he drives a truck! | ¡Ja, ja! ¡Pero maneja un camión!
+@ Al día siguiente, en el trabajo, Tom te pregunta por Clara.
+A: So... tell me about your friend. What does she do? | Bueno... cuéntame de tu amiga. ¿A qué se dedica?
+B: 0
+A: Does she have kids? | ¿Tiene hijos?
+B: Yes, she does. She has two kids. | Sí, sí tiene. Tiene dos hijos.
+A: Cool. Does she like sports? | Qué bien. ¿Le gustan los deportes?
+B: Yes, she goes to the gym. | Sí, va al gimnasio.
+A: Great! Let's have dinner at a Mexican restaurant. Tacos for everybody! | ¡Súper! Vamos a cenar a un restaurante mexicano. ¡Tacos para todos!
+B: 19
+@ El sábado es la cena. Tom ya está en el restaurante, pero Clara no llega.
+A: It's eight fifteen. Where is she? | Son las ocho y cuarto. ¿Dónde está?
+B: 26
+A: Is she coming by bus? | ¿Viene en camión?
+B: Yes. The bus leaves at eight. | Sí. El camión sale a las ocho.
+@ El lunes, en el trabajo, Tom está muy contento.
+A: Clara is great! Do you think she likes me? | ¡Clara está súper! ¿Crees que le caigo bien?
+B: Yes, she does! | ¡Sí, sí le caes bien!
+== A blind date
+en: Andrea wants to introduce her friend Clara to Tom, a man from her work.
+es: Andrea quiere presentarle a su amiga Clara a Tom, un señor de su trabajo.
+en: Tom is from Texas. He drives a truck and he likes his job. He lives near the office, but he doesn't have a car. He doesn't speak Spanish, so Andrea translates for him.
+es: Tom es de Texas. Maneja un camión y le gusta su trabajo. Vive cerca de la oficina, pero no tiene carro. No habla español, así que Andrea le traduce.
+en: Clara works in sales. She has two kids and she goes to the gym every morning. She doesn't eat meat, and she's always late.
+es: Clara trabaja en ventas. Tiene dos hijos y va al gimnasio todas las mañanas. No come carne y siempre llega tarde.
+en: On Saturday, Tom waits at a Mexican restaurant. The bus leaves at eight, so Clara arrives at eight thirty. Tom doesn't mind. They talk a lot, and on Monday Tom is very happy.
+es: El sábado, Tom espera en un restaurante mexicano. El camión sale a las ocho, así que Clara llega a las ocho y media. A Tom no le importa. Platican mucho y el lunes Tom está muy contento.
+? ¿A qué se dedica Tom? | Trabaja en ventas | *Maneja un camión | Es maestro
+? ¿Qué idioma no habla Tom? | Inglés | *Español | Francés
+? ¿Cuántos hijos tiene Clara? | Uno | *Dos | Tres
+? ¿A qué hora llega Clara al restaurante? | A las ocho | *A las ocho y media | A las nueve
+? ¿Cómo está Tom el lunes? | Enojado | Triste | *Muy contento
+
+# n1u8
+@ Buscas a alguien para compartir tu departamento. Llega Sam, un muchacho que quiere rentar el cuarto.
+A: Hi! I'm Sam. Nice apartment! Is that your dog? | ¡Hola! Soy Sam. ¡Qué bonito departamento! ¿Ese es tu perro?
+B: Yes, his name is Max. Do you like dogs? | Sí, se llama Max. ¿Te gustan los perros?
+A: I love dogs! My family has three. | ¡Me encantan los perros! Mi familia tiene tres.
+@ Le enseñas la cocina a Sam.
+A: Nice kitchen! Do you like cooking? | ¡Qué bonita cocina! ¿Te gusta cocinar?
+B: 5
+A: Me too! My favorite food is pasta. And yours? | ¡A mí también! Mi comida favorita es la pasta. ¿Y la tuya?
+B: 10
+A: Do you want a coffee? | ¿Quieres un café?
+B: No, thanks. I don't like coffee. | No, gracias. No me gusta el café.
+A: Tea, then? | ¿Té, entonces?
+B: Yes, please. I like tea more than coffee. | Sí, por favor. Me gusta más el té que el café.
+@ Se sientan en la sala y platican de sus costumbres.
+A: I work at night, so I get up at ten. Is that a problem? | Trabajo de noche, así que me levanto a las diez. ¿Es un problema?
+B: No, I don't mind. | No, no me molesta.
+A: Good. I play the guitar a lot. What kind of music do you like? | Qué bien. Toco mucho la guitarra. ¿Qué tipo de música te gusta?
+B: I like rock, and I love dancing. | Me gusta el rock y me encanta bailar.
+A: Cool! But my guitar is very loud... | ¡Qué padre! Pero mi guitarra suena muy fuerte...
+B: Hmm... I can't stand noise. | Mmm... No soporto el ruido.
+A: Don't worry. I can play with headphones. | No te preocupes. Puedo tocar con audífonos.
+@ Sam se va. Tu hermana te llama para saber cómo te fue.
+A: So? Do you like him? | ¿Y? ¿Te cae bien?
+B: Yes, I like him. He loves dogs! | Sí, me cae bien. ¡Le encantan los perros!
+A: Perfect! And what does he think of the apartment? | ¡Perfecto! ¿Y qué le parece el departamento?
+B: He really likes it. | Le gusta mucho.
+== A new roommate
+en: Diana has a big apartment and a dog named Max. She needs a roommate, and today Sam comes to see the room.
+es: Diana tiene un departamento grande y un perro que se llama Max. Necesita un roomie y hoy Sam viene a ver el cuarto.
+en: Sam loves dogs, so he likes Max right away. Diana and Sam both love cooking. Sam's favorite food is pasta, and Diana's is pizza.
+es: A Sam le encantan los perros, así que Max le cae bien de inmediato. A Diana y a Sam les encanta cocinar. La comida favorita de Sam es la pasta y la de Diana es la pizza.
+en: Diana doesn't like coffee; she prefers tea. Sam works at night and gets up at ten. Diana doesn't mind.
+es: A Diana no le gusta el café; prefiere el té. Sam trabaja de noche y se levanta a las diez. A Diana no le molesta.
+en: But there's one problem: Sam plays the guitar, and Diana can't stand noise. Sam has an idea: he can play with headphones. Diana really likes him. Next week Sam moves in!
+es: Pero hay un problema: Sam toca la guitarra y Diana no soporta el ruido. Sam tiene una idea: puede tocar con audífonos. Sam le cae muy bien a Diana. ¡La próxima semana Sam se muda!
+? ¿Cómo se llama el perro de Diana? | Sam | *Max | Toby
+? ¿Cuál es la comida favorita de Sam? | La pizza | *La pasta | Los tacos
+? ¿Qué prefiere tomar Diana? | Café | *Té | Jugo
+? ¿Qué problema hay? | Sam no quiere al perro | *Diana no soporta el ruido de la guitarra | Sam se levanta muy temprano
+? ¿Cuándo se muda Sam? | Hoy | Mañana | *La próxima semana
+
+# n1u3
+@ Es lunes en la mañana. Tu compañera Ana y tú quieren hacerle una fiesta sorpresa a Lucy, otra compañera.
+A: Good morning! When is Lucy's birthday? | ¡Buenos días! ¿Cuándo es el cumpleaños de Lucy?
+B: Her birthday is next week. | Su cumpleaños es la próxima semana.
+A: Next week? What day is it today? | ¿La próxima semana? ¿Qué día es hoy?
+B: 9
+A: So her birthday is on March tenth? | ¿Entonces su cumpleaños es el diez de marzo?
+B: No, March fifteenth. On Saturday. | No, el quince de marzo. El sábado.
+A: Perfect! A party on Saturday night! | ¡Perfecto! ¡Una fiesta el sábado en la noche!
+@ Llamas por teléfono a un restaurante para reservar una mesa.
+A: Good afternoon, La Terraza restaurant. | Buenas tardes, restaurante La Terraza.
+B: Hi! A table for ten on Saturday, please. | ¡Hola! Una mesa para diez el sábado, por favor.
+A: This Saturday, March eighth? | ¿Este sábado, ocho de marzo?
+B: No, next Saturday. March fifteenth. | No, el próximo sábado. El quince de marzo.
+A: Okay. What time? | Muy bien. ¿A qué hora?
+B: At eight fifteen. | A las ocho y cuarto.
+A: Perfect. See you on Saturday! | Perfecto. ¡Los esperamos el sábado!
+@ Es el sábado de la fiesta. Ana te llama porque todavía no llegas.
+A: Where are you? Lucy is almost here! | ¿Dónde estás? ¡Lucy ya casi llega!
+B: 0
+A: It's eight forty-five! | ¡Son quince para las nueve!
+B: Oh no! I'm late! | ¡Ay, no! ¡Voy tarde!
+@ En la fiesta, Lucy platica contigo.
+A: Thank you for the party! I'm so happy. When is your birthday? | ¡Gracias por la fiesta! Estoy muy contenta. ¿Cuándo es tu cumpleaños?
+B: 8
+A: In May? That's soon! Let's have another party! | ¿En mayo? ¡Ya casi! ¡Hagamos otra fiesta!
+@ La fiesta termina. Ana se despide.
+A: What a great party! What time is it? | ¡Qué buena fiesta! ¿Qué hora es?
+B: 15
+A: Wow! Okay, have a nice Sunday! | ¡Uf! Bueno, ¡que pases buen domingo!
+B: Thanks! See you on Monday. | ¡Gracias! Nos vemos el lunes.
+== A surprise party
+en: Lucy's birthday is on March fifteenth. On Monday, March third, her friends Ana and Mario start to plan a surprise party.
+es: El cumpleaños de Lucy es el quince de marzo. El lunes tres de marzo, sus amigos Ana y Mario empiezan a planear una fiesta sorpresa.
+en: Mario calls La Terraza, a restaurant near the office. He reserves a table for ten people on Saturday at eight fifteen at night.
+es: Mario llama a La Terraza, un restaurante cerca de la oficina. Reserva una mesa para diez personas el sábado a las ocho y cuarto de la noche.
+en: On Saturday, everybody arrives early, but Mario is late. He arrives at eight forty-five, five minutes before Lucy!
+es: El sábado todos llegan temprano, pero Mario llega tarde. ¡Llega a las nueve menos cuarto, cinco minutos antes que Lucy!
+en: Lucy is very surprised and very happy. They eat, dance and talk a lot. Mario's birthday is in May, so Lucy wants to plan a party for him too.
+es: Lucy está muy sorprendida y muy contenta. Comen, bailan y platican mucho. El cumpleaños de Mario es en mayo, así que Lucy también quiere planearle una fiesta.
+en: The party ends at midnight. "See you on Monday!" they say.
+es: La fiesta termina a medianoche. «¡Nos vemos el lunes!», dicen.
+? ¿Cuándo es el cumpleaños de Lucy? | El tres de marzo | *El quince de marzo | En mayo
+? ¿Para cuántas personas es la mesa? | Para cuatro | Para ocho | *Para diez
+? ¿A qué hora llega Mario? | A las ocho y cuarto | *A las nueve menos cuarto | A medianoche
+? ¿Cuándo es el cumpleaños de Mario? | En marzo | *En mayo | En septiembre
+? ¿A qué hora termina la fiesta? | A las diez | A las once | *A medianoche
+
+# n1u4
+@ Vas en camión a Puebla para visitar a tu familia. La señora de al lado platica contigo.
+A: Are you going to Puebla too? | ¿Usted también va a Puebla?
+B: Yes. My parents live in Puebla. | Sí. Mis papás viven en Puebla.
+A: How nice! Are you married? | ¡Qué bonito! ¿Es casado?
+B: 11
+A: Do you have kids? | ¿Tiene hijos?
+B: Yes, twins! A boy and a girl. | ¡Sí, gemelos! Un niño y una niña.
+A: Twins! And how many brothers and sisters do you have? | ¡Gemelos! ¿Y cuántos hermanos tiene?
+B: 3
+A: Are you the youngest? | ¿Usted es el menor?
+B: No, I'm the oldest of three. | No, soy el mayor de tres.
+@ En la casa de tus papás hay mucha gente. Tu prima Sara vive en Canadá y no conoce a todos.
+A: Wow, a lot of people! Who's the man with the beard? | ¡Uf, cuánta gente! ¿Quién es el señor de barba?
+B: He is my sister's husband. | Es el esposo de mi hermana.
+A: And the tall boy is their son? | ¿Y el niño alto es su hijo?
+B: Yes. Her son is ten years old. | Sí. El hijo de ella tiene diez años.
+A: Whose car is that? The red one? | ¿De quién es ese carro? ¿El rojo?
+B: That's Ana's car. | Es el carro de Ana.
+A: And the black car? | ¿Y el carro negro?
+B: That's my brother's car. | Es el carro de mi hermano.
+@ En la comida, tu abuela se sienta junto a ti.
+A: How's your sister? Do you talk a lot? | ¿Cómo está tu hermana? ¿Platican mucho?
+B: Yes, I get along with my sister. | Sí, me llevo bien con mi hermana.
+A: And you two look the same! | ¡Y ustedes dos se ven iguales!
+B: Yes, we look very similar. | Sí, nos parecemos mucho.
+@ El domingo regresas en camión. La misma señora va otra vez a tu lado.
+A: Hello again! How was your family? | ¡Hola otra vez! ¿Cómo estuvo su familia?
+B: Very good. My family is very close. | Muy bien. Mi familia es muy unida.
+== The Ruiz family
+en: Pablo is married and he has twins, a boy and a girl. He's the oldest of three: he has a brother, Luis, and a sister, Ana.
+es: Pablo está casado y tiene gemelos, un niño y una niña. Es el mayor de tres: tiene un hermano, Luis, y una hermana, Ana.
+en: His parents live in Puebla. Every December the whole family meets at his parents' house. His grandparents are there too.
+es: Sus papás viven en Puebla. Cada diciembre, toda la familia se junta en la casa de sus papás. Sus abuelos también están ahí.
+en: Ana is married. Her husband has a beard, and their son is ten years old. Ana's car is red and Luis's car is black.
+es: Ana está casada. Su esposo tiene barba y su hijo tiene diez años. El carro de Ana es rojo y el carro de Luis es negro.
+en: Pablo gets along with his sister. People say they look very similar. Pablo's family is very close. They call each other every week.
+es: Pablo se lleva bien con su hermana. La gente dice que se parecen mucho. La familia de Pablo es muy unida. Se llaman todas las semanas.
+? ¿Cuántos hijos tiene Pablo? | Uno | *Dos, gemelos | Tres
+? ¿Dónde viven sus papás? | En Monterrey | *En Puebla | En Canadá
+? ¿Cuántos años tiene el hijo de Ana? | Seis | *Diez | Doce
+? ¿De qué color es el carro de Luis? | Rojo | Blanco | *Negro
+? ¿Con quién se lleva bien Pablo? | *Con su hermana | Con su abuelo | Con su vecino
+
+# n1u9
+@ Estás buscando trabajo y vas a una feria del empleo. En el primer módulo te atiende una reclutadora.
+A: Hi! Welcome to the job fair. How can I help you? | ¡Hola! Bienvenido a la feria del empleo. ¿En qué le puedo ayudar?
+B: 9
+A: Great! What do you do? | ¡Qué bien! ¿A qué se dedica?
+B: 4
+A: And where do you work now? | ¿Y dónde trabaja ahorita?
+B: I work at a bank, but I don't like my job. | Trabajo en un banco, pero no me gusta mi trabajo.
+A: I see. Do you work full-time? | Ya veo. ¿Trabaja tiempo completo?
+B: No, I work part-time. | No, trabajo medio tiempo.
+A: We have a full-time job for an accountant. Here's our information. | Tenemos un trabajo de tiempo completo para contador. Aquí está nuestra información.
+@ En la fila del siguiente módulo platicas con un muchacho.
+A: Hi! Are you looking for a job too? | ¡Hola! ¿Tú también buscas trabajo?
+B: Yes. What do you do? | Sí. ¿A qué te dedicas?
+A: I'm a programmer. I work from home. | Soy programador. Trabajo desde casa.
+B: 11
+A: Yes, but I'm alone all day. I want an office! | Sí, pero estoy solo todo el día. ¡Quiero una oficina!
+@ En el módulo de un hospital te atiende el gerente.
+A: Hello. We need receptionists, nurses and drivers. | Hola. Necesitamos recepcionistas, enfermeras y choferes.
+B: My sister is a nurse! She's looking for a job. | ¡Mi hermana es enfermera! Está buscando trabajo.
+A: Great! She can call me tomorrow. And you? What do you do? | ¡Muy bien! Que me llame mañana. ¿Y usted? ¿A qué se dedica?
+B: I'm in charge of a team at a bank. | Estoy a cargo de un equipo en un banco.
+A: Perfect! We need a manager for our accounting team. | ¡Perfecto! Necesitamos un gerente para nuestro equipo de contabilidad.
+@ En la noche, le llamas a tu hermana.
+A: Hi! How was the job fair? | ¡Hola! ¿Cómo te fue en la feria del empleo?
+B: Very good! A hospital needs nurses. | ¡Muy bien! Un hospital necesita enfermeras.
+A: Really? Who can I call? | ¿En serio? ¿A quién le llamo?
+B: Call the manager tomorrow. | Llámale al gerente mañana.
+== The job fair
+en: Rafael is an accountant. He works part-time at a bank, but he doesn't like his job. He's looking for a full-time job.
+es: Rafael es contador. Trabaja medio tiempo en un banco, pero no le gusta su trabajo. Está buscando un trabajo de tiempo completo.
+en: On Saturday he goes to a job fair. There are a lot of companies: banks, hotels, stores and a hospital.
+es: El sábado va a una feria del empleo. Hay muchas empresas: bancos, hoteles, tiendas y un hospital.
+en: In the line, he meets Iván. Iván is a programmer and he works from home. He likes his job, but he wants an office.
+es: En la fila conoce a Iván. Iván es programador y trabaja desde casa. Le gusta su trabajo, pero quiere una oficina.
+en: At the hospital, the manager needs receptionists, nurses and drivers. Rafael's sister is a nurse, and she's looking for a job too. The hospital also needs a manager for the accounting team. That's perfect for Rafael!
+es: En el hospital, el gerente necesita recepcionistas, enfermeras y choferes. La hermana de Rafael es enfermera y también está buscando trabajo. El hospital también necesita un gerente para el equipo de contabilidad. ¡Eso es perfecto para Rafael!
+? ¿A qué se dedica Rafael? | Es programador | *Es contador | Es enfermero
+? ¿Qué tipo de trabajo busca? | De medio tiempo | *De tiempo completo | Desde casa
+? ¿Dónde trabaja Iván? | En un banco | *Desde casa | En un hospital
+? ¿Qué es la hermana de Rafael? | Recepcionista | Chofer | *Enfermera
+? ¿Qué necesita el hospital que es perfecto para Rafael? | Un chofer | *Un gerente para el equipo de contabilidad | Un programador
+
+# n1u13
+@ Vas a la junta de padres en la escuela de tu hijo Diego. La maestra te recibe en el salón.
+A: Good afternoon! Are you here for Diego? | ¡Buenas tardes! ¿Viene por Diego?
+B: Yes. He's in sixth grade. | Sí. Está en sexto grado.
+A: Diego is a very good student. He has good grades. | Diego es muy buen alumno. Tiene buenas calificaciones.
+B: What's his favorite subject? | ¿Cuál es su materia favorita?
+A: Math! But he doesn't like literature. And there's one problem: he uses his phone in class. | ¡Matemáticas! Pero no le gusta Literatura. Y hay un problema: usa el celular en clase.
+B: Oh no! I'm sorry. | ¡Ay, no! Lo siento.
+@ Después hablas con la directora de la escuela.
+A: Hello! I'm the school principal. Do you have any questions? | ¡Hola! Soy la directora de la escuela. ¿Tiene alguna pregunta?
+B: Yes. What time does the library open? | Sí. ¿A qué hora abre la biblioteca?
+A: The library opens at eight. Diego can study there. | La biblioteca abre a las ocho. Diego puede estudiar ahí.
+B: And is the school free? | ¿Y la escuela es gratuita?
+A: Yes. Primary and secondary education is free. | Sí. La educación primaria y secundaria es gratuita.
+@ En la casa hablas con Diego.
+A: What does my teacher say? | ¿Qué dice mi maestra?
+B: You have good grades, but you cannot use your phone in class. | Tienes buenas calificaciones, pero no puedes usar el celular en clase.
+A: Okay, okay... Can you help me with my homework? | Ya, ya... ¿Me ayudas con mi tarea?
+B: Yes. What's today's topic? | Sí. ¿Cuál es el tema de hoy?
+A: The weather. I need to write five sentences in English. It's hard! | El clima. Tengo que escribir cinco oraciones en inglés. ¡Está difícil!
+B: 11
+@ En la noche vas a una escuela de idiomas para adultos.
+A: Good evening! How can I help you? | ¡Buenas noches! ¿En qué le puedo ayudar?
+B: 22
+A: Great! What's your level of English? | ¡Qué bien! ¿Qué nivel de inglés tiene?
+B: 24
+A: Okay. We have classes in the morning and at night. | Muy bien. Tenemos clases en la mañana y en la noche.
+B: At night, please. I work in the morning. | En la noche, por favor. Trabajo en la mañana.
+== Back to school
+en: Diego is in sixth grade. His favorite subject is math, but he doesn't like literature. He has good grades.
+es: Diego está en sexto grado. Su materia favorita es Matemáticas, pero no le gusta Literatura. Tiene buenas calificaciones.
+en: Today there's a parents' meeting at his school. His teacher says Diego is a very good student, but there's a problem: he uses his phone in class. At Diego's school, you cannot use your phone in class.
+es: Hoy hay junta de padres en su escuela. Su maestra dice que Diego es muy buen alumno, pero hay un problema: usa el celular en clase. En la escuela de Diego no se puede usar el celular en clase.
+en: The school principal says the library opens at eight. Diego can study there before class.
+es: La directora dice que la biblioteca abre a las ocho. Diego puede estudiar ahí antes de clase.
+en: Diego's mom wants to learn too. At night she goes to a language school. She has basic knowledge of English, so she registers for a basic course. She attends classes on Tuesdays and Thursdays at night.
+es: La mamá de Diego también quiere aprender. En la noche va a una escuela de idiomas. Tiene conocimientos básicos de inglés, así que se inscribe a un curso básico. Va a clases los martes y jueves en la noche.
+? ¿En qué grado está Diego? | En cuarto | *En sexto | En segundo de secundaria
+? ¿Qué materia no le gusta? | Matemáticas | Ciencias | *Literatura
+? ¿Cuál es el problema de Diego? | Tiene malas calificaciones | *Usa el celular en clase | Llega tarde
+? ¿A qué hora abre la biblioteca? | A las siete | *A las ocho | A las nueve
+? ¿Cuándo va a clases la mamá de Diego? | Los sábados | *Los martes y jueves en la noche | Todas las mañanas
+
+# n1u5
+@ Vas de viaje en carro con tu familia. Paran a cargar gasolina en un pueblo.
+A: Hi! Fill it up? | ¡Hola! ¿Se lo lleno?
+B: Yes, please. Is there a pharmacy around here? | Sí, por favor. ¿Hay una farmacia por aquí?
+A: Yes. There's a pharmacy next to the church. | Sí. Hay una farmacia junto a la iglesia.
+B: And is there an ATM? | ¿Y hay un cajero automático?
+A: Yes, in the supermarket, across from the park. | Sí, en el supermercado, enfrente del parque.
+B: 4
+A: Sure, behind the store. | Claro, detrás de la tienda.
+@ Llegan al hotel. El recepcionista les da la bienvenida.
+A: Welcome! Your room is on the second floor. | ¡Bienvenidos! Su cuarto está en el segundo piso.
+B: 9
+A: Yes, the password is on your key. | Sí, la contraseña está en su llave.
+B: Is there parking? | ¿Hay estacionamiento?
+A: Sorry, there isn't any parking at the hotel. But you can park next to the bank. | Lo siento, no hay estacionamiento en el hotel. Pero se puede estacionar junto al banco.
+@ En la noche, tu hijo tiene fiebre. Bajas a la recepción.
+A: Good evening. Can I help you? | Buenas noches. ¿Le puedo ayudar?
+B: There's a problem. My son is sick. | Hay un problema. Mi hijo está enfermo.
+A: Oh no! Do you need a doctor? | ¡Ay, no! ¿Necesita un doctor?
+B: Yes. Is there a hospital near here? | Sí. ¿Hay un hospital cerca de aquí?
+A: There's no hospital in town, but there's a clinic between the bank and the school. | No hay hospital en el pueblo, pero hay una clínica entre el banco y la escuela.
+B: Thank you very much. | Muchas gracias.
+@ Al otro día, un amigo te llama. Quiere saber cómo es el pueblo.
+A: Hi! How's the town? Is it nice? | ¡Hola! ¿Qué tal el pueblo? ¿Está bonito?
+B: Yes! It's very quiet. There are a lot of trees. | ¡Sí! Es muy tranquilo. Hay muchos árboles.
+A: Are there stores and restaurants? | ¿Hay tiendas y restaurantes?
+B: Yes, there are a lot of stores. | Sí, hay muchas tiendas.
+== A small town
+en: The Torres family is on a road trip. They stop in a small town to buy gas.
+es: La familia Torres está de viaje en carro. Se paran en un pueblo chiquito a cargar gasolina.
+en: The town is very quiet and there are a lot of trees. There's a big church in the center, and there's a pharmacy next to it. The supermarket is across from the park, and there's an ATM inside.
+es: El pueblo es muy tranquilo y hay muchos árboles. Hay una iglesia grande en el centro y hay una farmacia junto a ella. El supermercado está enfrente del parque y adentro hay un cajero automático.
+en: Their hotel is small, but there's wifi. There isn't any parking at the hotel, so they park next to the bank.
+es: Su hotel es chiquito, pero hay wifi. No hay estacionamiento en el hotel, así que se estacionan junto al banco.
+en: At night their son is sick. There's no hospital in town, but there's a clinic between the bank and the school. The doctor is very nice, and the next day the boy is fine.
+es: En la noche su hijo está enfermo. No hay hospital en el pueblo, pero hay una clínica entre el banco y la escuela. El doctor es muy amable y al día siguiente el niño está bien.
+? ¿Dónde está la farmacia? | Junto al hotel | *Junto a la iglesia | Detrás de la escuela
+? ¿Dónde está el cajero automático? | En el banco | *Adentro del supermercado | En el hotel
+? ¿Dónde se estacionan? | En el hotel | *Junto al banco | Enfrente del parque
+? ¿Qué no hay en el pueblo? | Farmacia | Wifi | *Hospital
+? ¿Dónde está la clínica? | Junto a la iglesia | *Entre el banco y la escuela | Enfrente del parque
+
+# n1u14
+@ Rentas tu casa de vacaciones. Llegan unos huéspedes de Estados Unidos y tú los recibes.
+A: Hi! We're the Johnsons. Nice to meet you! | ¡Hola! Somos los Johnson. ¡Mucho gusto!
+B: Welcome! Come in, please. | ¡Bienvenidos! Pasen, por favor.
+A: What a beautiful house! How many bedrooms are there? | ¡Qué casa tan bonita! ¿Cuántas recámaras hay?
+B: There are three bedrooms. Each room has its own bathroom. | Hay tres recámaras. Cada cuarto tiene su propio baño.
+A: Wonderful! And the pool? | ¡Maravilloso! ¿Y la alberca?
+B: 14
+A: It's a little dark in here. | Está un poco oscuro aquí.
+B: 4
+@ En la cocina les explicas cómo funcionan las cosas.
+A: How do we open the gate? | ¿Cómo abrimos el portón?
+B: 17
+A: And the trash? | ¿Y la basura?
+B: Take out the trash on Monday, please. | Saquen la basura el lunes, por favor.
+A: Okay. Where are the plates? | Muy bien. ¿Dónde están los platos?
+B: The plates are on top of the fridge. | Los platos están encima del refri.
+@ El segundo día, la señora Johnson te llama por teléfono.
+A: Hi! Sorry, there's a problem. There's a crack in the deck. | ¡Hola! Perdón, hay un problema. Hay una grieta en la terraza.
+B: Oh, I'm sorry! Don't walk there, please. | ¡Ay, lo siento! No caminen ahí, por favor.
+A: Okay. Also, the kids want to put a poster on the wall. | Bueno. Además, los niños quieren pegar un póster en la pared.
+B: No problem. Stick it with tape. | No hay problema. Péguenlo con cinta.
+@ El domingo, los Johnson se van. Revisas la casa con ellos.
+A: Thank you for everything! The house is clean. | ¡Gracias por todo! La casa está limpia.
+B: Thank you! Where are the keys? | ¡Gracias! ¿Dónde están las llaves?
+A: The keys are inside, on the kitchen table. | Las llaves están adentro, en la mesa de la cocina.
+B: Perfect! Have a nice day! | ¡Perfecto! ¡Que tengan buen día!
+== Guests from Texas
+en: Martha rents her vacation house to tourists. This week the Johnsons are there. They're from Texas.
+es: Martha renta su casa de vacaciones a turistas. Esta semana están los Johnson. Son de Texas.
+en: The house has three bedrooms, and each room has its own bathroom. The pool is on the other side of the house, and there are a lot of trees outside.
+es: La casa tiene tres recámaras y cada cuarto tiene su propio baño. La alberca está del otro lado de la casa y afuera hay muchos árboles.
+en: Martha shows them everything: the light switch is next to the door, the plates are on top of the fridge, and the trash goes out on Monday. To open the gate, you press the button.
+es: Martha les enseña todo: el apagador está junto a la puerta, los platos están encima del refri y la basura se saca el lunes. Para abrir el portón, se aprieta el botón.
+en: On the second day there's a problem: there's a crack in the deck. Martha calls a man to fix it. When the Johnsons leave, the house is very clean. They want to come back next year.
+es: El segundo día hay un problema: hay una grieta en la terraza. Martha llama a un señor para que la arregle. Cuando los Johnson se van, la casa está muy limpia. Quieren regresar el próximo año.
+? ¿De dónde son los Johnson? | De Canadá | *De Texas | De Puebla
+? ¿Dónde está la alberca? | Enfrente de la casa | *Del otro lado de la casa | Junto a la cocina
+? ¿Dónde están los platos? | En la mesa | *Encima del refri | En el gabinete
+? ¿Qué problema hay el segundo día? | Un hoyo en la pared | *Una grieta en la terraza | No hay luz
+? ¿Cómo está la casa cuando se van? | Sucia | *Muy limpia | Con polvo
+
+# n1u6
+@ Es viernes en la noche y llegas con tu familia al restaurante de Rosa. La hostess los recibe en la puerta.
+A: Good evening! Welcome to Rosa's. How many people? | ¡Buenas noches! Bienvenidos a Rosa's. ¿Cuántas personas?
+B: There are four of us. | Somos cuatro.
+A: Great. Inside or outside? | Muy bien. ¿Adentro o afuera?
+B: Do you have a table outside? | ¿Tienen mesa afuera?
+A: Yes, we do. Follow me, please. | Sí, tenemos. Síganme, por favor.
+B: Can I have the menu, please? | ¿Me da el menú, por favor?
+A: Of course. Here you go. | Claro. Aquí tiene.
+@ El mesero llega a su mesa.
+A: Hi, I'm Tom. Something to drink? We have soda, beer and juice. | Hola, soy Tom. ¿Algo de tomar? Tenemos refresco, cerveza y jugo.
+B: I'll have a glass of water. | Para mí, un vaso de agua.
+A: Okay. Are you ready to order? | Muy bien. ¿Ya están listos para ordenar?
+B: Yes, we're ready to order. | Sí, ya estamos listos para ordenar.
+A: What would you like? | ¿Qué van a querer?
+B: What do you recommend? | ¿Qué me recomienda?
+A: For the main course, the chicken with mole is very good. | De plato fuerte, el pollo con mole está muy bueno.
+B: Is it spicy? | ¿Está picante?
+A: Yes, a little. The hamburgers are very good too. | Sí, un poco. Las hamburguesas también están muy buenas.
+B: I'd like a hamburger. | Quisiera una hamburguesa.
+A: Medium or well done? | ¿Término medio o bien cocida?
+B: Well done. | Bien cocida.
+A: It comes with onions and tomato. | Viene con cebolla y jitomate.
+B: No onions, please. | Sin cebolla, por favor.
+A: No problem. Any allergies? | No hay problema. ¿Alguna alergia?
+B: I'm allergic to peanuts. | Soy alérgico al cacahuate.
+A: Don't worry. Our hamburgers have no peanuts. | No se preocupe. Nuestras hamburguesas no tienen cacahuate.
+@ Llega la comida. Ya están comiendo.
+A: Here's your hamburger. Enjoy! | Aquí está su hamburguesa. ¡Buen provecho!
+B: Can I have more water, please? | ¿Me trae más agua, por favor?
+A: Sure. How is everything? | Claro. ¿Qué tal todo?
+B: It's delicious. | Está delicioso.
+A: Would you like dessert? We have chocolate cake. | ¿Quieren postre? Tenemos pastel de chocolate.
+B: To go, please. | Para llevar, por favor.
+@ Ya terminaron de comer. Quieres pagar.
+A: Here's your cake. Anything else? | Aquí está su pastel. ¿Algo más?
+B: Can I get the check, please? | ¿Me trae la cuenta, por favor?
+A: Here you go. | Aquí tiene.
+B: Do you take cards? | ¿Aceptan tarjeta?
+A: Yes, we do. | Sí, sí aceptamos.
+B: Is the tip included? | ¿La propina está incluida?
+A: No, it isn't. Thank you for coming! Have a nice night. | No. ¡Gracias por venir! Que pasen buena noche.
+== Friday night at Rosa's
+en: It's Friday night and my family is hungry. We go to Rosa's, a small Mexican restaurant downtown. There are four of us: my mom, my dad, my sister and me.
+es: Es viernes en la noche y mi familia tiene hambre. Vamos a Rosa's, un restaurante mexicano pequeño en el centro. Somos cuatro: mi mamá, mi papá, mi hermana y yo.
+en: We have a table outside. Our waiter is Tom. He is very friendly. My dad has a beer, my sister has a soda and I have a glass of water.
+es: Tenemos una mesa afuera. Nuestro mesero es Tom. Es muy amable. Mi papá pide una cerveza, mi hermana un refresco y yo un vaso de agua.
+en: For the appetizer we have guacamole. Tom recommends the chicken with mole, but it's spicy. My mom loves spicy food, so she orders it. I have a hamburger, well done, with no onions. I'm allergic to peanuts, but the hamburger has no peanuts.
+es: De entrada comemos guacamole. Tom recomienda el pollo con mole, pero está picante. A mi mamá le encanta la comida picante, así que ella lo pide. Yo pido una hamburguesa bien cocida y sin cebolla. Soy alérgico al cacahuate, pero la hamburguesa no tiene cacahuate.
+en: Everything is delicious. For dessert, we get a chocolate cake to go.
+es: Todo está delicioso. De postre pedimos un pastel de chocolate para llevar.
+en: At the end, my dad asks for the check. They take cards, but the tip is not included. It's a great night!
+es: Al final, mi papá pide la cuenta. Aceptan tarjeta, pero la propina no está incluida. ¡Es una gran noche!
+? ¿Cuántas personas van al restaurante? | Dos | Tres | *Cuatro
+? ¿Dónde se sientan? | Adentro | *Afuera | En la barra
+? ¿Quién pide el pollo con mole? | El papá | *La mamá | La hermana
+? ¿Cómo pide su hamburguesa el que cuenta la historia? | Término medio, con cebolla | *Bien cocida y sin cebolla | Con cacahuate
+? ¿Qué piden para llevar? | *El pastel de chocolate | La hamburguesa | El guacamole
+
+
+# n1u10
+@ El domingo vas de día de campo con unos amigos. En la mañana revisas tu cocina con tu amiga Pau.
+A: Okay, what do we have? Is there any bread? | A ver, ¿qué tenemos? ¿Hay pan?
+B: Yes, there's some bread, and there's some milk. | Sí, hay un poco de pan y un poco de leche.
+A: Great. And sugar for the coffee? | Muy bien. ¿Y azúcar para el café?
+B: 4
+A: And water? How much water is there? | ¿Y agua? ¿Cuánta agua hay?
+B: Only a bottle of water. | Solo una botella de agua.
+A: We need more things. Let's go to the store. | Necesitamos más cosas. Vamos a la tienda.
+@ Van a la tienda de la esquina.
+A: Good morning! What do you need? | ¡Buenos días! ¿Qué necesitan?
+B: 9
+A: How many apples? | ¿Cuántas manzanas?
+B: Six, please. And a kilo of tortillas. | Seis, por favor. Y un kilo de tortillas.
+A: Here you go. Anything else? | Aquí tienen. ¿Algo más?
+B: Yes, a pack of cookies and four cans of soda. | Sí, un paquete de galletas y cuatro latas de refresco.
+A: That's two hundred pesos. | Son doscientos pesos.
+@ En el camino, Pau se preocupa por el dinero.
+A: How much money do you have? I have only fifty pesos. | ¿Cuánto dinero traes? Yo solo traigo cincuenta pesos.
+B: I have a little money too. | Yo también traigo un poco de dinero.
+A: Okay, so no cake. But I have a cake at home! | Bueno, entonces no compramos pastel. ¡Pero tengo uno en mi casa!
+@ Llegan al parque. Ya hay mucha gente.
+A: Wow! Look at all the people! | ¡Uf! ¡Mira cuánta gente!
+B: Are there enough chairs? | ¿Hay suficientes sillas?
+A: No. We have three chairs, and there are five of us. | No. Tenemos tres sillas y somos cinco.
+B: No problem. I can sit on the grass. | No hay problema. Me puedo sentar en el pasto.
+@ En la tarde, Pau sirve el postre.
+A: Do you want a piece of cake? | ¿Quieres un pedazo de pastel?
+B: Yes! A small piece, please. | ¡Sí! Un pedazo chiquito, por favor.
+A: And do you want some more coffee? | ¿Y quieres más café?
+B: 11
+== A picnic in the park
+en: On Sunday, Paula and her friends go on a picnic. In the morning, they look in the kitchen. There's some bread and some milk, but there isn't any sugar and there's only one bottle of water.
+es: El domingo, Paula y sus amigos van de día de campo. En la mañana revisan la cocina. Hay un poco de pan y un poco de leche, pero no hay azúcar y solo hay una botella de agua.
+en: At the store they buy six apples, a kilo of tortillas, a pack of cookies and four cans of soda. It's two hundred pesos. They don't buy a cake because Paula has one at home.
+es: En la tienda compran seis manzanas, un kilo de tortillas, un paquete de galletas y cuatro latas de refresco. Son doscientos pesos. No compran pastel porque Paula tiene uno en su casa.
+en: The park is full: there are a lot of people. They have only three chairs, but there are five friends, so two of them sit on the grass.
+es: El parque está lleno: hay mucha gente. Solo tienen tres sillas, pero son cinco amigos, así que dos se sientan en el pasto.
+en: In the afternoon they eat cake and drink coffee. It's a perfect day.
+es: En la tarde comen pastel y toman café. Es un día perfecto.
+? ¿Qué no hay en la cocina? | Pan | Leche | *Azúcar
+? ¿Cuánto cuesta todo en la tienda? | Cincuenta pesos | *Doscientos pesos | Quinientos pesos
+? ¿Por qué no compran pastel? | Porque no hay | *Porque Paula tiene uno en su casa | Porque no les gusta
+? ¿Cuántas sillas tienen? | Dos | *Tres | Cinco
+? ¿Dónde se sientan dos amigos? | En el carro | *En el pasto | En una mesa
+
+# n1u15
+@ Es Navidad. Vas a cocinar la cena con tu cuñado Mark, que es de Estados Unidos. Primero van al mercado.
+A: What do we need for the dinner? | ¿Qué necesitamos para la cena?
+B: A turkey and a pound of beef. | Un pavo y una libra de carne de res.
+A: And for the salad? | ¿Y para la ensalada?
+B: Half a kilo of fruit and some nuts. | Medio kilo de fruta y unas nueces.
+A: Look at these vegetables! | ¡Mira estas verduras!
+B: Yes, the vegetables are fresh. | Sí, las verduras están frescas.
+@ En la cocina, Mark te ayuda.
+A: Okay, chef! Where are the knives? | ¡Bueno, chef! ¿Dónde están los cuchillos?
+B: 11
+A: Got it. What do I do first? | Listo. ¿Qué hago primero?
+B: 0
+A: Done! Now what? | ¡Ya! ¿Y ahora?
+B: 1
+A: And the chicken for the kids? | ¿Y el pollo para los niños?
+B: 2
+A: Mmm! It smells delicious! What now? | ¡Mmm! ¡Huele delicioso! ¿Y ahora qué?
+B: 3
+@ Mark quiere servir el pavo.
+A: Is the turkey ready? | ¿Ya está el pavo?
+B: No! The meat is raw. | ¡No! La carne está cruda.
+A: Oops! Okay. And the rice? | ¡Uy! Bueno. ¿Y el arroz?
+B: 5
+@ Ya es la cena. Tu suegra prueba todo.
+A: Everything is delicious! Is the cake sweet? | ¡Todo está delicioso! ¿El pastel está dulce?
+B: Yes, the cake is very sweet. | Sí, el pastel está muy dulce.
+A: Then just a small portion for me, please. | Entonces para mí nada más una porción pequeña, por favor.
+== Christmas dinner
+en: This year, Lety cooks Christmas dinner with her brother-in-law Mark. Mark is from the United States, and he loves Mexican food.
+es: Este año, Lety cocina la cena de Navidad con su cuñado Mark. Mark es de Estados Unidos y le encanta la comida mexicana.
+en: In the morning they go to the market. They buy a turkey, a pound of beef, half a kilo of fruit and some nuts. The vegetables are very fresh.
+es: En la mañana van al mercado. Compran un pavo, una libra de carne de res, medio kilo de fruta y unas nueces. Las verduras están muy frescas.
+en: In the kitchen, Mark cuts the onion and boils the water. Then he fries the chicken for the kids. It smells delicious!
+es: En la cocina, Mark corta la cebolla y hierve el agua. Luego fríe el pollo para los niños. ¡Huele delicioso!
+en: Mark wants to serve the turkey early, but the meat is still raw. At nine o'clock everything is ready. The cake is very sweet, so Lety's mother-in-law eats only a small portion.
+es: Mark quiere servir el pavo temprano, pero la carne todavía está cruda. A las nueve todo está listo. El pastel está muy dulce, así que la suegra de Lety solo come una porción pequeña.
+? ¿De dónde es Mark? | De México | *De Estados Unidos | De Canadá
+? ¿Qué compran en el mercado? | Pollo y arroz | *Un pavo, carne, fruta y nueces | Solo verduras
+? ¿Qué hace Mark primero en la cocina? | Fríe el pollo | *Corta la cebolla | Sirve el pavo
+? ¿Por qué no pueden servir el pavo temprano? | Porque está quemado | *Porque la carne está cruda | Porque no hay platos
+? ¿Cuánto pastel come la suegra? | Mucho | *Una porción pequeña | Nada
+
+# n1u7
+@ Llegas de vacaciones a Cancún con tu amiga Lili. En el aeropuerto rentan un carro.
+A: Hello! Can I see your driver's license? | ¡Hola! ¿Me permite su licencia de manejo?
+B: Sure. Here you go. | Claro. Aquí tiene.
+A: Thank you. Does anybody else drive? | Gracias. ¿Alguien más va a manejar?
+B: Yes, my friend. She can drive too. | Sí, mi amiga. Ella también sabe manejar.
+A: Okay. It's three thousand pesos for the week. | Muy bien. Son tres mil pesos por la semana.
+B: 21
+A: Of course. Please sign here. | Claro. Firme aquí, por favor.
+B: 17
+A: Sure. Oh, and you can't smoke in the car. | Claro. Ah, y no se puede fumar en el carro.
+B: No problem. I don't smoke. | No hay problema. No fumo.
+@ Llegan al hotel muy temprano. La recepcionista les dice que su cuarto no está listo.
+A: Good morning! Sorry, your room isn't ready. Check-in is at three. | ¡Buenos días! Lo siento, su cuarto no está listo. La entrada es a las tres.
+B: Oh. Could you help me with this? | Ah. ¿Me podría ayudar con esto?
+A: Of course! We can keep your bags here. | ¡Claro! Podemos guardar sus maletas aquí.
+@ En la tarde van a un tour de snorkel. El guía da las instrucciones.
+A: Hi, everybody! Can you all swim? | ¡Hola a todos! ¿Todos saben nadar?
+B: Sorry, I can't swim. | Lo siento, no sé nadar.
+A: No problem. You can use a life jacket. | No hay problema. Puede usar un chaleco salvavidas.
+B: 18
+A: Sure! | ¡Claro!
+B: Can I use my phone in the water? | ¿Puedo usar mi celular en el agua?
+A: Yes, but only in a waterproof case! | Sí, ¡pero nada más con una funda contra agua!
+@ En la noche cenan en la playa. Hay música y todos bailan.
+A: Come on! Let's dance! | ¡Ándale! ¡Vamos a bailar!
+B: Sorry, I can't dance! | ¡Lo siento, no sé bailar!
+A: Ha, ha! Everybody can dance! Okay... can you pass the salt, please? | ¡Ja, ja! ¡Todos saben bailar! Bueno... ¿me pasas la sal, por favor?
+B: Of course. Here you go. | Por supuesto. Aquí tienes.
+== Vacation in Cancún
+en: Héctor and his friend Lili go to Cancún for a week. At the airport they rent a car. Héctor can drive, and Lili can drive too. They pay in cash. You can't smoke in the car, but that's okay because they don't smoke.
+es: Héctor y su amiga Lili van a Cancún por una semana. En el aeropuerto rentan un carro. Héctor sabe manejar y Lili también. Pagan en efectivo. En el carro no se puede fumar, pero no hay problema porque ellos no fuman.
+en: Their hotel room isn't ready, so the receptionist keeps their bags.
+es: Su cuarto de hotel no está listo, así que la recepcionista les guarda las maletas.
+en: In the afternoon they go snorkeling. Lili can swim very well, but Héctor can't swim, so he uses a life jacket. He takes a lot of photos with his phone.
+es: En la tarde van a hacer snorkel. Lili nada muy bien, pero Héctor no sabe nadar, así que usa un chaleco salvavidas. Toma muchas fotos con su celular.
+en: At night there's music on the beach. Lili loves dancing, but Héctor can't dance. He just eats and watches.
+es: En la noche hay música en la playa. A Lili le encanta bailar, pero Héctor no sabe bailar. Solo come y mira.
+? ¿Cómo pagan el carro? | Con tarjeta | *En efectivo | No pagan
+? ¿Qué no se puede hacer en el carro? | Comer | *Fumar | Poner música
+? ¿Qué hace la recepcionista? | Les da el cuarto | *Les guarda las maletas | Les renta un carro
+? ¿Por qué Héctor usa un chaleco salvavidas? | Porque hace frío | *Porque no sabe nadar | Porque es obligatorio
+? ¿Qué hace Héctor en la noche? | Baila mucho | *Solo come y mira | Nada en el mar
+
+# n1u11
+@ Estás en un centro comercial con tu sobrino Pepe. De repente no lo ves. Corres con un guardia de seguridad.
+A: Calm down, please. What's the boy's name? | Cálmese, por favor. ¿Cómo se llama el niño?
+B: His name is Pepe. He's eight. | Se llama Pepe. Tiene ocho años.
+A: What does he look like? | ¿Cómo es?
+B: He's short, and he has short black hair. | Es bajito y tiene el pelo negro y corto.
+A: Anything else? | ¿Algo más?
+B: Yes. He wears glasses. | Sí. Usa lentes.
+A: Okay. Wait here... Good news! A woman is at the information desk with a boy with glasses. | Muy bien. Espere aquí... ¡Buenas noticias! Una señora está en el módulo de información con un niño de lentes.
+B: Thank God! | ¡Gracias a Dios!
+@ En el módulo de información, una señora está con Pepe.
+A: Hi! Is this your nephew? | ¡Hola! ¿Es su sobrino?
+B: Yes! Thank you very much! | ¡Sí! ¡Muchas gracias!
+A: No problem. He's a very smart boy. He knows your phone number! | No hay problema. Es un niño muy inteligente. ¡Se sabe su número de teléfono!
+B: Yes, he's very smart. | Sí, es muy inteligente.
+@ En la noche, tu hermana —la mamá de Pepe— te llama.
+A: Is Pepe okay? And who's the woman? | ¿Pepe está bien? ¿Y quién es la señora?
+B: He's fine. The woman is very nice. | Está bien. La señora es muy amable.
+A: What does she look like? | ¿Cómo es?
+B: She's tall. She's about thirty. | Es alta. Tiene como treinta años.
+A: And what is she like? | ¿Y cómo es de carácter?
+B: She's very friendly and funny. | Es muy amable y chistosa.
+== Lost at the mall
+en: On Saturday, Toño takes his nephew Pepe to the mall. Pepe is eight. He's short, he has short black hair and he wears glasses.
+es: El sábado, Toño lleva a su sobrino Pepe al centro comercial. Pepe tiene ocho años. Es bajito, tiene el pelo negro y corto y usa lentes.
+en: In a big store, Toño can't see Pepe. He's very scared! A security guard helps him. Toño describes Pepe, and the guard calls on the radio.
+es: En una tienda grande, Toño no ve a Pepe. ¡Está muy asustado! Un guardia de seguridad lo ayuda. Toño describe a Pepe y el guardia llama por radio.
+en: Five minutes later there's good news: a woman is at the information desk with Pepe. She's tall and she's about thirty. She's very friendly and funny. Pepe is smart: he knows his uncle's phone number!
+es: Cinco minutos después hay buenas noticias: una señora está en el módulo de información con Pepe. Es alta y tiene como treinta años. Es muy amable y chistosa. Pepe es inteligente: ¡se sabe el número de teléfono de su tío!
+en: At night, Pepe's mom calls Toño. Everybody is fine.
+es: En la noche, la mamá de Pepe llama a Toño. Todos están bien.
+? ¿Cómo es Pepe? | Alto y güero | *Bajito, con pelo negro y lentes | Pelirrojo
+? ¿Quién ayuda a Toño primero? | Una señora | *Un guardia de seguridad | Un policía
+? ¿Cuántos años tiene la señora? | Como veinte | *Como treinta | Como cincuenta
+? ¿Qué se sabe Pepe? | La dirección de su casa | *El número de teléfono de su tío | El nombre de la señora
+
+# n1u12
+@ Es tu primer día en un trabajo nuevo. En Recursos Humanos, una señora llena tu expediente en la computadora.
+A: Welcome! Let's start. What's your full name? | ¡Bienvenido! Empecemos. ¿Cuál es su nombre completo?
+B: My name is {name|Ana} {last|López}. | Me llamo {name|Ana} {last|López}.
+A: Can you spell your last name, please? | ¿Me deletrea su apellido, por favor?
+B: It's {lastS|L-O-P-E-Z}. | Se escribe {lastS|L-Ó-P-E-Z}.
+A: Thank you. What's your date of birth? | Gracias. ¿Cuál es su fecha de nacimiento?
+B: 6
+A: And where were you born? | ¿Y dónde nació?
+B: I was born in Puebla. | Nací en Puebla.
+A: Marital status? | ¿Estado civil?
+B: I'm married. | Estoy casado.
+@ Ahora te pide tus datos de contacto.
+A: What's your address? | ¿Cuál es su dirección?
+B: I live at 25 Juárez Street, apartment 3B. | Vivo en la calle Juárez 25, departamento 3B.
+A: And your zip code? | ¿Y su código postal?
+B: It's 72000. | Es el 72000.
+A: What's your email address? | ¿Cuál es su correo?
+B: It's {email|ana dot lopez} at gmail dot com. | Es {email|ana punto lopez} arroba gmail punto com.
+A: We also need an emergency contact. | También necesitamos un contacto de emergencia.
+B: My sister. Her name is Laura. | Mi hermana. Se llama Laura.
+@ Al final, la señora te da unos papeles.
+A: Please fill out this form and sign here. | Por favor, llene este formulario y firme aquí.
+B: Can I borrow your pen? | ¿Me presta su pluma?
+A: Sure. And can I see your ID, please? | Claro. ¿Y me permite su identificación?
+B: Yes. Here's my passport. | Sí. Aquí está mi pasaporte.
+A: Perfect. Welcome to the company! | Perfecto. ¡Bienvenido a la empresa!
+== The first day
+en: Today is Gabriel's first day at a new company. First he goes to Human Resources. A woman asks for his information: his full name, his date of birth and his address.
+es: Hoy es el primer día de Gabriel en una empresa nueva. Primero va a Recursos Humanos. Una señora le pide sus datos: su nombre completo, su fecha de nacimiento y su dirección.
+en: Gabriel was born on May tenth, 1992, in Puebla. He lives at 48 Hidalgo Street, apartment 2A. His zip code is 72000.
+es: Gabriel nació el 10 de mayo de 1992 en Puebla. Vive en la calle Hidalgo 48, departamento 2A. Su código postal es 72000.
+en: His emergency contact is his wife, Laura.
+es: Su contacto de emergencia es su esposa, Laura.
+en: Then the woman gives him a form. Gabriel fills it out and signs it. She also needs his ID, so he shows her his passport. Now Gabriel is part of the team!
+es: Luego la señora le da un formulario. Gabriel lo llena y lo firma. También necesita su identificación, así que él le enseña su pasaporte. ¡Ahora Gabriel es parte del equipo!
+? ¿Adónde va Gabriel primero? | A su oficina | *A Recursos Humanos | Al banco
+? ¿Dónde nació Gabriel? | En Monterrey | *En Puebla | En Guadalajara
+? ¿Quién es su contacto de emergencia? | Su mamá | *Su esposa | Su hermano
+? ¿Qué identificación enseña? | Su licencia de manejo | *Su pasaporte | Su credencial de la empresa
+
+# n1u16
+@ Haces un curso de inglés de un mes en Toronto. En la primera clase, la maestra pide que se presenten.
+A: Welcome, everybody! Let's start. What country are you from? | ¡Bienvenidos todos! Empecemos. ¿De qué país eres?
+B: I'm from Mexico. I'm Mexican. | Soy de México. Soy mexicano.
+A: Great! What languages do you speak? | ¡Muy bien! ¿Qué idiomas hablas?
+B: 3
+A: Ha, ha! Very good. Who's your partner today? | ¡Ja, ja! Muy bien. ¿Quién es tu compañera de hoy?
+B: Her name is Yuki. She's Japanese. | Se llama Yuki. Es japonesa.
+A: And the boy next to her? | ¿Y el muchacho de junto?
+B: He's Korean. | Es coreano.
+@ En el descanso, Yuki platica contigo.
+A: Do you work in Mexico? | ¿Trabajas en México?
+B: Yes. I work at an international company. | Sí. Trabajo en una empresa internacional.
+A: Cool! Do you speak English at work? | ¡Qué padre! ¿Hablas inglés en el trabajo?
+B: Yes. I work with people from all over the world. | Sí. Trabajo con gente de todo el mundo.
+A: Where's your boss from? | ¿De dónde es tu jefe?
+B: 4
+@ El viernes, la maestra hace un concurso de geografía.
+A: First question: where is China? | Primera pregunta: ¿dónde está China?
+B: 11
+A: Correct! What do Mexicans sing before a soccer game? | ¡Correcto! ¿Qué cantan los mexicanos antes de un partido de futbol?
+B: The national anthem! | ¡El himno nacional!
+A: Very good! Last question: what are the colors of the flag of Mexico? | ¡Muy bien! Última pregunta: ¿cuáles son los colores de la bandera de México?
+B: Green, white and red. | Verde, blanco y rojo.
+@ En la noche, todos cenan en un restaurante italiano.
+A: I love this place! Do you like Italian food? | ¡Me encanta este lugar! ¿Te gusta la comida italiana?
+B: Yes! Italian food is very famous in Mexico. | ¡Sí! La comida italiana es muy famosa en México.
+== An international class
+en: Carmen is Mexican. She works at an international company in Monterrey, and she works with people from all over the world. Her boss is German.
+es: Carmen es mexicana. Trabaja en una empresa internacional en Monterrey y trabaja con gente de todo el mundo. Su jefe es alemán.
+en: This summer she's in Toronto for a one-month English course. In her class there are students from many countries. Her partner, Yuki, is Japanese. There's a Korean boy, a Turkish woman and two Brazilian girls. English isn't their native language, but they all speak it.
+es: Este verano está en Toronto en un curso de inglés de un mes. En su clase hay alumnos de muchos países. Su compañera, Yuki, es japonesa. Hay un muchacho coreano, una señora turca y dos muchachas brasileñas. El inglés no es su lengua materna, pero todos lo hablan.
+en: On Friday the teacher has a geography game. Carmen knows the colors of the flag of Mexico, and she can sing the national anthem!
+es: El viernes, la maestra hace un juego de geografía. ¡Carmen se sabe los colores de la bandera de México y puede cantar el himno nacional!
+en: At night they eat at an Italian restaurant.
+es: En la noche cenan en un restaurante italiano.
+? ¿De dónde es el jefe de Carmen? | De Estados Unidos | *De Alemania | De Japón
+? ¿Cuánto tiempo dura el curso? | Una semana | *Un mes | Un año
+? ¿De dónde es Yuki? | De Corea | *De Japón | De China
+? ¿Qué puede cantar Carmen? | Una canción italiana | *El himno nacional | Una canción en inglés
+? ¿Dónde cenan en la noche? | En un restaurante mexicano | *En un restaurante italiano | En el hotel

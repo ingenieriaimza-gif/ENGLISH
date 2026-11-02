@@ -19,26 +19,28 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Vivo en Monterrey.", "I live in Monterrey.", "ai liv in monterréi", ""]
     ],
     r: {
-      t: "New neighbors",
-      en: "Hi! My name is Daniel. I'm from Puebla, but I live in Monterrey now.\nThis is my wife. Her name is Laura. She's from Mexico City.\nWe are your new neighbors. Nice to meet you!",
-      es: "¡Hola! Me llamo Daniel. Soy de Puebla, pero ahora vivo en Monterrey.\nElla es mi esposa. Se llama Laura. Es de la Ciudad de México.\nSomos sus nuevos vecinos. ¡Mucho gusto!",
+      t: "A new friend in Vancouver",
+      en: "Paty is from Mexico. She lives in Monterrey, but this week she's on vacation in Vancouver with her friend Luis.\nAt breakfast she meets Emma. Emma is from Toronto. \"Nice to meet you!\" says Paty.\nPaty shows Emma a photo of her daughter. Her name is Sofía.\nIn the afternoon they go on a city tour. The driver's name is Tom.\nAt night Emma says, \"Good night! See you tomorrow!\"",
+      es: "Paty es de México. Vive en Monterrey, pero esta semana está de vacaciones en Vancouver con su amigo Luis.\nEn el desayuno conoce a Emma. Emma es de Toronto. «¡Mucho gusto!», dice Paty.\nPaty le enseña a Emma una foto de su hija. Se llama Sofía.\nEn la tarde van a un tour por la ciudad. El chofer se llama Tom.\nEn la noche, Emma dice: «¡Buenas noches! ¡Hasta mañana!».",
       q: [
-        ["¿De dónde es Daniel?", ["De Monterrey", "De Puebla", "De la Ciudad de México"], 1],
-        ["¿Dónde vive Daniel ahora?", ["En Monterrey", "En Puebla", "En Cancún"], 0],
-        ["¿Quién es Laura?", ["Su hermana", "Su vecina", "Su esposa"], 2]
+        ["¿Dónde vive Paty?", ["En Vancouver", "En Monterrey", "En Toronto"], 1],
+        ["¿De dónde es Emma?", ["De México", "De Vancouver", "De Toronto"], 2],
+        ["¿Cómo se llama la hija de Paty?", ["Emma", "Sofía", "Luis"], 1],
+        ["¿Quién es Tom?", ["El amigo de Paty", "El chofer del tour", "El hijo de Emma"], 1]
       ]
     }
   },
   n0u2: {
     v: [], // las frases de esta unidad llevan su id fijo y están todas en n0.js, en el orden en que se enseñan
     r: {
-      t: "Contact information",
-      en: "Name: Sofía Gómez. Age: thirty-two.\nPhone number: five five, eight three four, one two six nine.\nEmail: sofia dot gomez at mail dot com.\nAddress: forty-five Hidalgo Street.",
-      es: "Nombre: Sofía Gómez. Edad: treinta y dos.\nTeléfono: 55 834 1269.\nCorreo: sofia punto gomez arroba mail punto com.\nDirección: calle Hidalgo 45.",
+      t: "At the dentist",
+      en: "Today Marco goes to the dentist for the first time. The woman at the desk asks his name, his age and his phone number. Marco is twenty-five years old.\nThe dentist is on the third floor. In the waiting room there's a boy. He's seven and he's scared. Marco says, \"Count from one to twenty.\" The boy counts and feels better.\nThe visit is five hundred pesos, and the medicine is two hundred fifty pesos.",
+      es: "Hoy Marco va al dentista por primera vez. La muchacha de la recepción le pregunta su nombre, su edad y su número de teléfono. Marco tiene veinticinco años.\nEl dentista está en el tercer piso. En la sala de espera hay un niño. Tiene siete años y tiene miedo. Marco le dice: «Cuenta del uno al veinte». El niño cuenta y se siente mejor.\nLa consulta cuesta quinientos pesos y la medicina cuesta doscientos cincuenta pesos.",
       q: [
-        ["¿Cuántos años tiene Sofía?", ["Veintitrés", "Treinta y dos", "Cuarenta y cinco"], 1],
-        ["¿En qué número de la calle vive?", ["45", "32", "54"], 0],
-        ["¿Cómo se dice 32 en inglés?", ["thirteen-two", "twenty-three", "thirty-two"], 2]
+        ["¿Cuántos años tiene Marco?", ["Veinte", "Veinticinco", "Cuarenta"], 1],
+        ["¿En qué piso está el dentista?", ["En el primero", "En el segundo", "En el tercero"], 2],
+        ["¿Qué le dice Marco al niño?", ["Que se vaya", "Que cuente del uno al veinte", "Que llame a su mamá"], 1],
+        ["¿Cuánto cuesta la medicina?", ["Cincuenta pesos", "Doscientos cincuenta pesos", "Quinientos pesos"], 1]
       ]
     }
   },
@@ -61,13 +63,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Tienes razón.", "You're right.", "iór ráit", "En inglés: 'estás correcto'."]
     ],
     r: {
-      t: "At the office",
-      en: "It's nine o'clock. I'm at the office. I'm not tired, I'm happy.\nMy boss is in a meeting. My friends Ana and Pedro are here.\nThey're very nice. We're a good team.",
-      es: "Son las nueve. Estoy en la oficina. No estoy cansado, estoy feliz.\nMi jefe está en una junta. Mis amigos Ana y Pedro están aquí.\nSon muy amables. Somos un buen equipo.",
+      t: "Dinner at the boss's house",
+      en: "Laura is the boss of a small team. On Friday, she invites her team to dinner at her house.\nDiego is an engineer. He's from Monterrey. He's early, but Pedro isn't there. Pedro is in the office.\nThe soup is cold, and Laura is very nervous. \"It's okay!\" says Diego.\nAt twelve o'clock Pedro arrives. It's very late! Laura isn't happy. Is she angry or tired? Maybe both.",
+      es: "Laura es la jefa de un equipo pequeño. El viernes invita a su equipo a cenar a su casa.\nDiego es ingeniero. Es de Monterrey. Llega temprano, pero Pedro no está. Pedro está en la oficina.\nLa sopa está fría y Laura está muy nerviosa. «¡Está bien!», dice Diego.\nA las doce llega Pedro. ¡Es muy tarde! Laura no está contenta. ¿Está enojada o cansada? Tal vez las dos cosas.",
       q: [
-        ["¿Dónde está la persona?", ["En casa", "En la oficina", "En una junta"], 1],
-        ["¿Dónde está el jefe?", ["En una junta", "En casa", "Enfermo"], 0],
-        ["¿Cómo son Ana y Pedro?", ["Serios", "Cansados", "Muy amables"], 2]
+        ["¿Qué hace Diego?", ["Es doctor", "Es ingeniero", "Es el jefe"], 1],
+        ["¿Dónde está Pedro cuando llega Diego?", ["En su casa", "En la oficina", "En la cena"], 1],
+        ["¿Cómo está la sopa?", ["Caliente", "Fría", "Rica"], 1],
+        ["¿A qué hora llega Pedro?", ["A las ocho", "A las diez", "A las doce"], 2]
       ]
     }
   },
@@ -90,13 +93,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Te extraño.", "I miss you.", "ai mis iú", ""]
     ],
     r: {
-      t: "My best friend",
-      en: "My best friend is Carla. I know her from school.\nShe lives near me, so I see her every day. She helps me with my English.\nHer parents are very nice. I visit them on Sundays.",
-      es: "Mi mejor amiga es Carla. La conozco de la escuela.\nVive cerca de mí, así que la veo todos los días. Me ayuda con mi inglés.\nSus papás son muy amables. Los visito los domingos.",
+      t: "My sister's visit",
+      en: "My sister Marta lives in Chicago. I miss her a lot! This week she's here with me.\nAt the airport she gives me a present. It's for me, and I like it!\nMy neighbors say hi to her. They live near us, and I see them every day.\nOn Saturday we go to dinner with my friend Sofía. She knows us very well.\nOn Sunday Marta goes back to Chicago. I love her, and I miss her already.",
+      es: "Mi hermana Marta vive en Chicago. ¡La extraño mucho! Esta semana está aquí conmigo.\nEn el aeropuerto me da un regalo. Es para mí, ¡y me gusta!\nMis vecinos la saludan. Viven cerca de nosotros y los veo todos los días.\nEl sábado vamos a cenar con mi amiga Sofía. Ella nos conoce muy bien.\nEl domingo Marta regresa a Chicago. La quiero y ya la extraño.",
       q: [
-        ["¿De dónde conoce a Carla?", ["Del trabajo", "De la escuela", "Del gimnasio"], 1],
-        ["¿Con qué le ayuda Carla?", ["Con su inglés", "Con su tarea de matemáticas", "Con su carro"], 0],
-        ["¿Cuándo visita a los papás de Carla?", ["Los lunes", "Los sábados", "Los domingos"], 2]
+        ["¿Dónde vive Marta?", ["En Chicago", "En Monterrey", "Cerca de su hermana"], 0],
+        ["¿Qué le da Marta en el aeropuerto?", ["Una carta", "Un regalo", "Un libro"], 1],
+        ["¿Con quién van a cenar el sábado?", ["Con los vecinos", "Con su mamá", "Con Sofía"], 2],
+        ["¿Cuándo regresa Marta a Chicago?", ["El sábado", "El domingo", "El lunes"], 1]
       ]
     }
   },
@@ -119,13 +123,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Qué son esos?", "What are those?", "uát ar dóus", ""]
     ],
     r: {
-      t: "My bag",
-      en: "This is my bag. In my bag there is a phone, an apple and the keys of my house.\nThese are my books and that is my umbrella.\nThose glasses are not mine. They're my sister's.",
-      es: "Esta es mi bolsa. En mi bolsa hay un teléfono, una manzana y las llaves de mi casa.\nEstos son mis libros y ese es mi paraguas.\nEsos lentes no son míos. Son de mi hermana.",
+      t: "The garage sale",
+      en: "On Saturday, Elena has a garage sale. There are a lot of things: a lamp, a table, four chairs, a computer, books and shoes.\nA woman buys the table and the chairs. A university student buys the computer for school.\nIn the afternoon, two men and three children arrive. The children want the toy cars.\nAt the end of the day, Elena finds a bag with keys. Whose is it? It's the woman's bag!",
+      es: "El sábado, Elena hace una venta de garaje. Hay muchas cosas: una lámpara, una mesa, cuatro sillas, una computadora, libros y zapatos.\nUna señora compra la mesa y las sillas. Un estudiante universitario compra la computadora para la escuela.\nEn la tarde llegan dos hombres y tres niños. Los niños quieren los carritos.\nAl final del día, Elena encuentra una bolsa con llaves. ¿De quién es? ¡Es la bolsa de la señora!",
       q: [
-        ["¿Qué fruta hay en la bolsa?", ["Un plátano", "Una manzana", "Una naranja"], 1],
-        ["¿Qué hay además en la bolsa?", ["Un teléfono y llaves", "Una computadora", "Zapatos"], 0],
-        ["¿De quién son los lentes?", ["De la persona", "De su mamá", "De su hermana"], 2]
+        ["¿Qué compra la señora?", ["La computadora", "La mesa y las sillas", "Los libros"], 1],
+        ["¿Para qué quiere la computadora el estudiante?", ["Para el trabajo", "Para la escuela", "Para su mamá"], 1],
+        ["¿Quiénes llegan en la tarde?", ["Dos mujeres", "Dos hombres y tres niños", "Un estudiante"], 1],
+        ["¿De quién es la bolsa con llaves?", ["De Elena", "De un niño", "De la señora"], 2]
       ]
     }
   },
@@ -148,13 +153,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¡Qué increíble!", "That's amazing!", "dats améising", ""]
     ],
     r: {
-      t: "My city",
-      en: "I live in a big city. It's very beautiful, but it's also noisy.\nThe food is delicious and cheap. The people are friendly.\nThe traffic is terrible, but the parks are amazing.",
-      es: "Vivo en una ciudad grande. Es muy bonita, pero también es ruidosa.\nLa comida es deliciosa y barata. La gente es amable.\nEl tráfico es terrible, pero los parques son increíbles.",
+      t: "A weekend in San Miguel",
+      en: "Mónica and Carla go to San Miguel de Allende for the weekend. It's a beautiful city, with old houses and a big church.\nTheir hotel room is clean and the bed is very comfortable, but it's a little expensive.\nThe famous restaurant is full, so they eat at a small restaurant. The food is delicious and cheap.\nAt night the city is very noisy. There's music until three in the morning! Tomorrow they want a quiet hotel.",
+      es: "Mónica y Carla van a San Miguel de Allende el fin de semana. Es una ciudad bonita, con casas antiguas y una iglesia grande.\nSu cuarto de hotel está limpio y la cama es muy cómoda, pero es un poco caro.\nEl restaurante famoso está lleno, así que comen en un restaurante chiquito. La comida está deliciosa y es barata.\nEn la noche, la ciudad es muy ruidosa. ¡Hay música hasta las tres de la mañana! Mañana quieren un hotel tranquilo.",
       q: [
-        ["¿Cómo es la ciudad?", ["Pequeña y tranquila", "Grande y ruidosa", "Fea y cara"], 1],
-        ["¿Cómo es la comida?", ["Deliciosa y barata", "Cara", "Terrible"], 0],
-        ["¿Qué es terrible?", ["Los parques", "La gente", "El tráfico"], 2]
+        ["¿Cómo es el cuarto del hotel?", ["Sucio y barato", "Limpio, pero un poco caro", "Ruidoso y feo"], 1],
+        ["¿Por qué no comen en el restaurante famoso?", ["Porque es caro", "Porque está lleno", "Porque está cerrado"], 1],
+        ["¿Cómo es la comida del restaurante chiquito?", ["Deliciosa y barata", "Fría", "Cara"], 0],
+        ["¿Qué quieren para mañana?", ["Un restaurante famoso", "Un hotel tranquilo", "Más música"], 1]
       ]
     }
   },
@@ -177,13 +183,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Un momento, por favor.", "Just a moment, please.", "yast a móument, plís", ""]
     ],
     r: {
-      t: "At the airport",
-      en: "Excuse me, I'm lost. Where is gate twelve?\nIt's over there, next to the café.\nThank you! And where is the bathroom?\nIt's on the right. You're welcome!",
-      es: "Disculpe, estoy perdido. ¿Dónde está la sala doce?\nEstá por allá, junto al café.\n¡Gracias! ¿Y dónde está el baño?\nEstá a la derecha. ¡De nada!",
+      t: "Lost in New York",
+      en: "It's Óscar's first trip to New York. He speaks a little English.\nAt the airport, a man talks very fast. Óscar says, \"I'm sorry, I don't understand.\" The man speaks slower, and Óscar finds the train.\nIn the city, Óscar walks a lot, but he can't find his hotel. He's lost! A woman helps him. The hotel is near, only two streets away.\nAt night he eats at a small café. It closes at eleven.",
+      es: "Es el primer viaje de Óscar a Nueva York. Habla un poco de inglés.\nEn el aeropuerto, un señor habla muy rápido. Óscar dice: «Lo siento, no entiendo». El señor habla más despacio y Óscar encuentra el tren.\nEn la ciudad, Óscar camina mucho, pero no encuentra su hotel. ¡Está perdido! Una señora lo ayuda. El hotel está cerca, a solo dos calles.\nEn la noche cena en una cafetería chiquita. Cierra a las once.",
       q: [
-        ["¿Qué busca la persona primero?", ["El baño", "La sala doce", "El café"], 1],
-        ["¿Dónde está la sala doce?", ["Junto al café", "A la derecha", "Arriba"], 0],
-        ["¿Dónde está el baño?", ["A la izquierda", "Junto al café", "A la derecha"], 2]
+        ["¿Cuánto inglés habla Óscar?", ["Nada", "Un poco", "Mucho"], 1],
+        ["¿Qué dice Óscar cuando el señor habla rápido?", ["«¿Dónde está el baño?»", "«Lo siento, no entiendo»", "«Muchas gracias»"], 1],
+        ["¿Quién ayuda a Óscar en la ciudad?", ["Un taxista", "Una señora", "Un policía"], 1],
+        ["¿A qué hora cierra la cafetería?", ["A las diez", "A las once", "A las doce"], 1]
       ]
     }
   },
@@ -214,13 +221,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["la luna y las estrellas", "the moon and the stars", "de mun and de stars", ""]
     ],
     r: {
-      t: "The weather this week",
-      en: "Today is Monday. It's sunny and hot. It's thirty degrees.\nOn Tuesday and Wednesday it's going to rain.\nOn Thursday it's cloudy and cool. On Friday it's sunny again.",
-      es: "Hoy es lunes. Está soleado y hace calor. Estamos a treinta grados.\nEl martes y el miércoles va a llover.\nEl jueves está nublado y fresco. El viernes vuelve a estar soleado.",
+      t: "A camping trip",
+      en: "Ben and Toño go camping in the forest. On Saturday morning it's sunny and warm. It's a nice day!\nIn the afternoon there are a lot of clouds, and it's very windy. Then there's a storm. They run into the tent.\nAt night it isn't raining. They look at the moon and the stars. It's five degrees, so it's very cold.\nOn Sunday morning it's foggy. They can't see the car!",
+      es: "Ben y Toño van a acampar al bosque. El sábado en la mañana está soleado y hace calorcito. ¡Hace buen día!\nEn la tarde hay muchas nubes y hace mucho viento. Luego hay una tormenta. Corren a la casa de campaña.\nEn la noche no está lloviendo. Ven la luna y las estrellas. Están a cinco grados, así que hace mucho frío.\nEl domingo en la mañana hay neblina. ¡No ven el carro!",
       q: [
-        ["¿Cómo está el clima el lunes?", ["Lluvioso", "Soleado y caluroso", "Nublado"], 1],
-        ["¿Qué días va a llover?", ["Martes y miércoles", "Jueves y viernes", "Lunes"], 0],
-        ["¿Cómo está el jueves?", ["Soleado", "Nevando", "Nublado y fresco"], 2]
+        ["¿Cómo está el clima el sábado en la mañana?", ["Está lloviendo", "Soleado y hace calorcito", "Hace mucho frío"], 1],
+        ["¿Qué pasa en la tarde?", ["Nieva", "Hay una tormenta", "Hace mucho calor"], 1],
+        ["¿A cuántos grados están en la noche?", ["A veinticinco", "A quince", "A cinco"], 2],
+        ["¿Por qué no ven el carro el domingo?", ["Porque está lejos", "Porque hay neblina", "Porque es de noche"], 1]
       ]
     }
   },
@@ -243,13 +251,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Dé vuelta a la derecha.", "Turn right.", "tern ráit", ""]
     ],
     r: {
-      t: "Pool rules",
-      en: "Welcome to the pool!\nPlease take a shower first. Don't run. Don't eat in the water.\nChildren: always swim with an adult.\nBe careful and enjoy!",
-      es: "¡Bienvenidos a la alberca!\nPor favor, báñense primero. No corran. No coman en el agua.\nNiños: naden siempre con un adulto.\n¡Tengan cuidado y disfruten!",
+      t: "Sunday lunch",
+      en: "On Sunday, Lupe's parents and her nephew Beto come to lunch. \"Come in, please. Have a seat,\" says Lupe.\nBeto wants to help in the kitchen. \"Don't touch it! It's very hot,\" says Lupe. There's a lot of smoke, so Beto opens the window.\nThe food is delicious. Everybody enjoys it.\nThen they want to go to the movies, but it's late. \"Hurry up! Let's go!\" says Lupe. Beto runs to the car.",
+      es: "El domingo, los papás de Lupe y su sobrino Beto vienen a comer. «Pásenle, por favor. Siéntense», dice Lupe.\nBeto quiere ayudar en la cocina. «¡No lo toques! Está muy caliente», dice Lupe. Hay mucho humo, así que Beto abre la ventana.\nLa comida está deliciosa. Todos la disfrutan.\nLuego quieren ir al cine, pero es tarde. «¡Apúrense! ¡Vámonos!», dice Lupe. Beto corre al carro.",
       q: [
-        ["¿Qué hay que hacer primero?", ["Comer", "Bañarse", "Correr"], 1],
-        ["¿Qué está prohibido?", ["Correr y comer en el agua", "Nadar", "Bañarse"], 0],
-        ["¿Con quién deben nadar los niños?", ["Solos", "Con amigos", "Con un adulto"], 2]
+        ["¿Quiénes vienen a comer?", ["Sus amigos", "Sus papás y su sobrino", "Sus vecinos"], 1],
+        ["¿Por qué Beto no debe tocar el sartén?", ["Porque está sucio", "Porque está muy caliente", "Porque es de su abuela"], 1],
+        ["¿Qué hace Beto cuando hay humo?", ["Apaga la luz", "Abre la ventana", "Cierra la puerta"], 1],
+        ["¿Adónde quieren ir después?", ["Al parque", "Al cine", "A la tienda"], 1]
       ]
     }
   },
@@ -272,13 +281,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¡No manches! ¿En serio?", "No way! Really?", "nóu uéi! ríli", ""]
     ],
     r: {
-      t: "A fun Saturday",
-      en: "Today is Saturday. I'm at the park with my friends, Ana and Beto.\nAna says, \"I have a new job!\" \"Wow! That's awesome!\" I say.\nBeto has a test on Monday. \"Good luck, buddy!\" we say. \"Thanks! I guess I'm ready,\" he says.\nIt's a lot of fun. Bye, guys! See you!",
-      es: "Hoy es sábado. Estoy en el parque con mis amigos, Ana y Beto.\nAna dice: «¡Tengo trabajo nuevo!». «¡Guau! ¡Qué padre!», le digo.\nBeto tiene examen el lunes. «¡Suerte, amigo!», le decimos. «¡Gracias! Supongo que estoy listo», dice.\nEs muy divertido. ¡Adiós, chicos! ¡Nos vemos!",
+      t: "Saturday barbecue",
+      en: "On Saturday, Mike has a barbecue at his house. All his friends are there.\nMike has big news: he has a new job in Hawaii! \"No way! Really?\" says his friend Luis. \"You're so lucky!\"\nThen it starts to rain. Oh no! Everybody helps with the food. Thank God, the food is fine.\nInside, they play cards. It's a lot of fun. At ten o'clock everybody says, \"Bye, see you!\"",
+      es: "El sábado, Mike hace una carne asada en su casa. Todos sus amigos están ahí.\nMike tiene una gran noticia: ¡tiene un trabajo nuevo en Hawái! «¡No manches! ¿En serio?», dice su amigo Luis. «¡Qué suerte tienes!».\nLuego empieza a llover. ¡Ay, no! Todos ayudan con la comida. Gracias a Dios, la comida está bien.\nAdentro juegan cartas. Es muy divertido. A las diez, todos dicen: «¡Adiós, nos vemos!».",
       q: [
-        ["¿Dónde están?", ["En el parque", "En el trabajo", "En la escuela"], 0],
-        ["¿Qué tiene Ana?", ["Un examen", "Un trabajo nuevo", "Un perro nuevo"], 1],
-        ["¿Qué le dicen a Beto?", ["¡Qué raro!", "¡Adiós!", "¡Suerte!"], 2]
+        ["¿Qué noticia tiene Mike?", ["Se casa", "Tiene un trabajo nuevo en Hawái", "Tiene un bebé"], 1],
+        ["¿Qué dice Luis?", ["«¡Qué raro!»", "«¡Qué suerte tienes!»", "«¡Salud!»"], 1],
+        ["¿Qué pasa con la comida cuando llueve?", ["Se moja toda", "Está bien", "Se la comen afuera"], 1],
+        ["¿Qué hacen adentro?", ["Ven una película", "Juegan cartas", "Duermen"], 1]
       ]
     }
   }

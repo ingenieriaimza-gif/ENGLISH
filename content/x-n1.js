@@ -19,13 +19,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Vives cerca?", "Do you live nearby?", "du iú liv nírbai", ""]
     ],
     r: {
-      t: "Carlos's day",
-      en: "I get up at six every day. I take a shower, I get dressed and I have breakfast with my family.\nI leave home at seven and I go to work by bus. I work in a factory. I have lunch at two.\nI get home at six. I usually cook dinner and I watch the news. I go to bed at eleven.\nOn weekends I don't work. I play soccer on Saturdays and I visit my parents on Sundays.",
-      es: "Me levanto a las seis todos los días. Me baño, me visto y desayuno con mi familia.\nSalgo de casa a las siete y voy al trabajo en camión. Trabajo en una fábrica. Como a las dos.\nLlego a casa a las seis. Normalmente hago la cena y veo las noticias. Me acuesto a las once.\nLos fines de semana no trabajo. Juego futbol los sábados y visito a mis papás los domingos.",
+      t: "A healthy routine",
+      en: "Teresa lives in Guadalajara. She works in a factory, and her routine is very healthy.\nShe gets up at six every day. She takes a shower, gets dressed and has breakfast at home. She doesn't drink coffee; she drinks orange juice.\nShe leaves home at seven and gets to work at eight. She always arrives early.\nShe has lunch at two. She never eats meat, but she loves fish and vegetables.\nShe gets home at six and usually cooks at night. She rarely watches TV, and she goes to bed at eleven. On weekends she walks in the park with her dog.",
+      es: "Teresa vive en Guadalajara. Trabaja en una fábrica y su rutina es muy sana.\nSe levanta a las seis todos los días. Se baña, se viste y desayuna en casa. No toma café; toma jugo de naranja.\nSale de casa a las siete y llega al trabajo a las ocho. Siempre llega temprano.\nCome a las dos. Nunca come carne, pero le encantan el pescado y las verduras.\nRegresa a casa a las seis y normalmente cocina en la noche. Casi nunca ve la tele y se acuesta a las once. Los fines de semana camina en el parque con su perro.",
       q: [
-        ["¿Cómo va Carlos al trabajo?", ["En carro", "En camión", "Caminando"], 1],
-        ["¿Qué hace en la noche normalmente?", ["Cocina y ve las noticias", "Juega futbol", "Visita a sus papás"], 0],
-        ["¿Qué hace los domingos?", ["Trabaja", "Juega futbol", "Visita a sus papás"], 2]
+        ["¿Dónde trabaja Teresa?", ["En una oficina", "En una fábrica", "En un hospital"], 1],
+        ["¿Qué toma en el desayuno?", ["Café", "Jugo de naranja", "Leche"], 1],
+        ["¿A qué hora llega al trabajo?", ["A las siete", "A las ocho", "A las nueve"], 1],
+        ["¿Qué nunca come?", ["Pescado", "Verduras", "Carne"], 2],
+        ["¿Qué hace los fines de semana?", ["Ve la tele", "Camina en el parque con su perro", "Trabaja"], 1]
       ]
     }
   },
@@ -48,13 +50,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ella siempre llega tarde.", "She's always late.", "shis ólueis léit", ""]
     ],
     r: {
-      t: "My brother Miguel",
-      en: "My brother Miguel is twenty-eight. He lives in Guadalajara with his wife.\nHe works in a bank. He gets up at seven and he drives to work.\nHe doesn't like his job very much, but he likes his coworkers.\nIn the evening he goes to the gym and he watches movies. He doesn't watch the news.",
-      es: "Mi hermano Miguel tiene veintiocho años. Vive en Guadalajara con su esposa.\nTrabaja en un banco. Se levanta a las siete y maneja al trabajo.\nNo le gusta mucho su trabajo, pero le caen bien sus compañeros.\nEn la tarde va al gimnasio y ve películas. No ve las noticias.",
+      t: "A blind date",
+      en: "Andrea wants to introduce her friend Clara to Tom, a man from her work.\nTom is from Texas. He drives a truck and he likes his job. He lives near the office, but he doesn't have a car. He doesn't speak Spanish, so Andrea translates for him.\nClara works in sales. She has two kids and she goes to the gym every morning. She doesn't eat meat, and she's always late.\nOn Saturday, Tom waits at a Mexican restaurant. The bus leaves at eight, so Clara arrives at eight thirty. Tom doesn't mind. They talk a lot, and on Monday Tom is very happy.",
+      es: "Andrea quiere presentarle a su amiga Clara a Tom, un señor de su trabajo.\nTom es de Texas. Maneja un camión y le gusta su trabajo. Vive cerca de la oficina, pero no tiene carro. No habla español, así que Andrea le traduce.\nClara trabaja en ventas. Tiene dos hijos y va al gimnasio todas las mañanas. No come carne y siempre llega tarde.\nEl sábado, Tom espera en un restaurante mexicano. El camión sale a las ocho, así que Clara llega a las ocho y media. A Tom no le importa. Platican mucho y el lunes Tom está muy contento.",
       q: [
-        ["¿Dónde trabaja Miguel?", ["En una escuela", "En un banco", "En un hospital"], 1],
-        ["¿Cómo va al trabajo?", ["Maneja", "En camión", "Caminando"], 0],
-        ["¿Qué NO ve Miguel?", ["Películas", "Series", "Las noticias"], 2]
+        ["¿A qué se dedica Tom?", ["Trabaja en ventas", "Maneja un camión", "Es maestro"], 1],
+        ["¿Qué idioma no habla Tom?", ["Inglés", "Español", "Francés"], 1],
+        ["¿Cuántos hijos tiene Clara?", ["Uno", "Dos", "Tres"], 1],
+        ["¿A qué hora llega Clara al restaurante?", ["A las ocho", "A las ocho y media", "A las nueve"], 1],
+        ["¿Cómo está Tom el lunes?", ["Enojado", "Triste", "Muy contento"], 2]
       ]
     }
   },
@@ -77,13 +81,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Cuál es tu película favorita?", "What's your favorite movie?", "uáts iór féivorit múvi", ""]
     ],
     r: {
-      t: "Likes and dislikes",
-      en: "My name is Paula. I love music. I listen to music every day, in the car and at home.\nI like cooking, especially Italian food. I don't like washing the dishes!\nMy husband loves soccer, but I hate it. We like going to the movies together.\nWe both love dogs. We have two dogs, Toby and Luna.",
-      es: "Me llamo Paula. Me encanta la música. Escucho música todos los días, en el carro y en casa.\nMe gusta cocinar, sobre todo comida italiana. ¡No me gusta lavar los trastes!\nA mi esposo le encanta el futbol, pero yo lo odio. Nos gusta ir al cine juntos.\nA los dos nos encantan los perros. Tenemos dos perros, Toby y Luna.",
+      t: "A new roommate",
+      en: "Diana has a big apartment and a dog named Max. She needs a roommate, and today Sam comes to see the room.\nSam loves dogs, so he likes Max right away. Diana and Sam both love cooking. Sam's favorite food is pasta, and Diana's is pizza.\nDiana doesn't like coffee; she prefers tea. Sam works at night and gets up at ten. Diana doesn't mind.\nBut there's one problem: Sam plays the guitar, and Diana can't stand noise. Sam has an idea: he can play with headphones. Diana really likes him. Next week Sam moves in!",
+      es: "Diana tiene un departamento grande y un perro que se llama Max. Necesita un roomie y hoy Sam viene a ver el cuarto.\nA Sam le encantan los perros, así que Max le cae bien de inmediato. A Diana y a Sam les encanta cocinar. La comida favorita de Sam es la pasta y la de Diana es la pizza.\nA Diana no le gusta el café; prefiere el té. Sam trabaja de noche y se levanta a las diez. A Diana no le molesta.\nPero hay un problema: Sam toca la guitarra y Diana no soporta el ruido. Sam tiene una idea: puede tocar con audífonos. Sam le cae muy bien a Diana. ¡La próxima semana Sam se muda!",
       q: [
-        ["¿Qué no le gusta a Paula?", ["Cocinar", "Lavar los trastes", "La música"], 1],
-        ["¿Qué les gusta hacer juntos?", ["Ir al cine", "Ver futbol", "Cocinar"], 0],
-        ["¿Cuántos perros tienen?", ["Uno", "Tres", "Dos"], 2]
+        ["¿Cómo se llama el perro de Diana?", ["Sam", "Max", "Toby"], 1],
+        ["¿Cuál es la comida favorita de Sam?", ["La pizza", "La pasta", "Los tacos"], 1],
+        ["¿Qué prefiere tomar Diana?", ["Café", "Té", "Jugo"], 1],
+        ["¿Qué problema hay?", ["Sam no quiere al perro", "Diana no soporta el ruido de la guitarra", "Sam se levanta muy temprano"], 1],
+        ["¿Cuándo se muda Sam?", ["Hoy", "Mañana", "La próxima semana"], 2]
       ]
     }
   },
@@ -106,13 +112,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Cuándo es tu cumpleaños?", "When is your birthday?", "uén is iór bérzdei", ""]
     ],
     r: {
-      t: "A busy week",
-      en: "On Monday I have a meeting at nine in the morning. On Tuesday I go to the dentist at four in the afternoon.\nWednesday is my mom's birthday. Her birthday is on October twenty-third. We have dinner at eight at night.\nOn Thursday and Friday I work until six. On Saturday I sleep until noon!",
-      es: "El lunes tengo una junta a las nueve de la mañana. El martes voy al dentista a las cuatro de la tarde.\nEl miércoles es el cumpleaños de mi mamá. Su cumpleaños es el 23 de octubre. Cenamos a las ocho de la noche.\nEl jueves y el viernes trabajo hasta las seis. ¡El sábado duermo hasta mediodía!",
+      t: "A surprise party",
+      en: "Lucy's birthday is on March fifteenth. On Monday, March third, her friends Ana and Mario start to plan a surprise party.\nMario calls La Terraza, a restaurant near the office. He reserves a table for ten people on Saturday at eight fifteen at night.\nOn Saturday, everybody arrives early, but Mario is late. He arrives at eight forty-five, five minutes before Lucy!\nLucy is very surprised and very happy. They eat, dance and talk a lot. Mario's birthday is in May, so Lucy wants to plan a party for him too.\nThe party ends at midnight. \"See you on Monday!\" they say.",
+      es: "El cumpleaños de Lucy es el quince de marzo. El lunes tres de marzo, sus amigos Ana y Mario empiezan a planear una fiesta sorpresa.\nMario llama a La Terraza, un restaurante cerca de la oficina. Reserva una mesa para diez personas el sábado a las ocho y cuarto de la noche.\nEl sábado todos llegan temprano, pero Mario llega tarde. ¡Llega a las nueve menos cuarto, cinco minutos antes que Lucy!\nLucy está muy sorprendida y muy contenta. Comen, bailan y platican mucho. El cumpleaños de Mario es en mayo, así que Lucy también quiere planearle una fiesta.\nLa fiesta termina a medianoche. «¡Nos vemos el lunes!», dicen.",
       q: [
-        ["¿Qué día va al dentista?", ["Lunes", "Martes", "Jueves"], 1],
-        ["¿Cuándo es el cumpleaños de su mamá?", ["23 de octubre", "13 de octubre", "3 de noviembre"], 0],
-        ["¿Hasta qué hora duerme el sábado?", ["Hasta las ocho", "Hasta las seis", "Hasta mediodía"], 2]
+        ["¿Cuándo es el cumpleaños de Lucy?", ["El tres de marzo", "El quince de marzo", "En mayo"], 1],
+        ["¿Para cuántas personas es la mesa?", ["Para cuatro", "Para ocho", "Para diez"], 2],
+        ["¿A qué hora llega Mario?", ["A las ocho y cuarto", "A las nueve menos cuarto", "A medianoche"], 1],
+        ["¿Cuándo es el cumpleaños de Mario?", ["En marzo", "En mayo", "En septiembre"], 1],
+        ["¿A qué hora termina la fiesta?", ["A las diez", "A las once", "A medianoche"], 2]
       ]
     }
   },
@@ -135,13 +143,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Su familia es muy unida.", "Her family is very close.", "jer fámili is véri clóus", ""]
     ],
     r: {
-      t: "The López family",
-      en: "The López family is big. Roberto and Elena have four children: two sons and two daughters.\nThe oldest is Mario. He's thirty and he's married. His wife's name is Julia, and they have a baby.\nThe youngest is Sara. She's eighteen and she's a student.\nEvery Sunday the whole family has lunch at Roberto and Elena's house.",
-      es: "La familia López es grande. Roberto y Elena tienen cuatro hijos: dos hijos y dos hijas.\nEl mayor es Mario. Tiene treinta años y está casado. Su esposa se llama Julia y tienen un bebé.\nLa menor es Sara. Tiene dieciocho años y es estudiante.\nCada domingo toda la familia come en casa de Roberto y Elena.",
+      t: "The Ruiz family",
+      en: "Pablo is married and he has twins, a boy and a girl. He's the oldest of three: he has a brother, Luis, and a sister, Ana.\nHis parents live in Puebla. Every December the whole family meets at his parents' house. His grandparents are there too.\nAna is married. Her husband has a beard, and their son is ten years old. Ana's car is red and Luis's car is black.\nPablo gets along with his sister. People say they look very similar. Pablo's family is very close. They call each other every week.",
+      es: "Pablo está casado y tiene gemelos, un niño y una niña. Es el mayor de tres: tiene un hermano, Luis, y una hermana, Ana.\nSus papás viven en Puebla. Cada diciembre, toda la familia se junta en la casa de sus papás. Sus abuelos también están ahí.\nAna está casada. Su esposo tiene barba y su hijo tiene diez años. El carro de Ana es rojo y el carro de Luis es negro.\nPablo se lleva bien con su hermana. La gente dice que se parecen mucho. La familia de Pablo es muy unida. Se llaman todas las semanas.",
       q: [
-        ["¿Cuántos hijos tienen Roberto y Elena?", ["Dos", "Cuatro", "Tres"], 1],
-        ["¿Quién es Julia?", ["La esposa de Mario", "La hija menor", "La abuela"], 0],
-        ["¿Qué hacen los domingos?", ["Van al cine", "Trabajan", "Comen juntos en casa de Roberto y Elena"], 2]
+        ["¿Cuántos hijos tiene Pablo?", ["Uno", "Dos, gemelos", "Tres"], 1],
+        ["¿Dónde viven sus papás?", ["En Monterrey", "En Puebla", "En Canadá"], 1],
+        ["¿Cuántos años tiene el hijo de Ana?", ["Seis", "Diez", "Doce"], 1],
+        ["¿De qué color es el carro de Luis?", ["Rojo", "Blanco", "Negro"], 2],
+        ["¿Con quién se lleva bien Pablo?", ["Con su hermana", "Con su abuelo", "Con su vecino"], 0]
       ]
     }
   },
@@ -164,13 +174,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Dónde trabajas?", "Where do you work?", "uér du iú uérk", ""]
     ],
     r: {
-      t: "Jobs in my family",
-      en: "In my family everyone works. My dad is a mechanic. He has a small garage.\nMy mom is a teacher at a primary school. She loves her job.\nMy sister is a programmer. She works from home for an American company.\nI'm an engineer. I work full-time in a car factory and I'm in charge of a team of ten people.",
-      es: "En mi familia todos trabajan. Mi papá es mecánico. Tiene un taller pequeño.\nMi mamá es maestra en una primaria. Le encanta su trabajo.\nMi hermana es programadora. Trabaja desde casa para una empresa estadounidense.\nYo soy ingeniero. Trabajo tiempo completo en una fábrica de carros y estoy a cargo de un equipo de diez personas.",
+      t: "The job fair",
+      en: "Rafael is an accountant. He works part-time at a bank, but he doesn't like his job. He's looking for a full-time job.\nOn Saturday he goes to a job fair. There are a lot of companies: banks, hotels, stores and a hospital.\nIn the line, he meets Iván. Iván is a programmer and he works from home. He likes his job, but he wants an office.\nAt the hospital, the manager needs receptionists, nurses and drivers. Rafael's sister is a nurse, and she's looking for a job too. The hospital also needs a manager for the accounting team. That's perfect for Rafael!",
+      es: "Rafael es contador. Trabaja medio tiempo en un banco, pero no le gusta su trabajo. Está buscando un trabajo de tiempo completo.\nEl sábado va a una feria del empleo. Hay muchas empresas: bancos, hoteles, tiendas y un hospital.\nEn la fila conoce a Iván. Iván es programador y trabaja desde casa. Le gusta su trabajo, pero quiere una oficina.\nEn el hospital, el gerente necesita recepcionistas, enfermeras y choferes. La hermana de Rafael es enfermera y también está buscando trabajo. El hospital también necesita un gerente para el equipo de contabilidad. ¡Eso es perfecto para Rafael!",
       q: [
-        ["¿Qué hace el papá?", ["Es maestro", "Es mecánico", "Es ingeniero"], 1],
-        ["¿Dónde trabaja la hermana?", ["Desde casa", "En una escuela", "En una fábrica"], 0],
-        ["¿De cuántas personas está a cargo el narrador?", ["Dos", "Cinco", "Diez"], 2]
+        ["¿A qué se dedica Rafael?", ["Es programador", "Es contador", "Es enfermero"], 1],
+        ["¿Qué tipo de trabajo busca?", ["De medio tiempo", "De tiempo completo", "Desde casa"], 1],
+        ["¿Dónde trabaja Iván?", ["En un banco", "Desde casa", "En un hospital"], 1],
+        ["¿Qué es la hermana de Rafael?", ["Recepcionista", "Chofer", "Enfermera"], 2],
+        ["¿Qué necesita el hospital que es perfecto para Rafael?", ["Un chofer", "Un gerente para el equipo de contabilidad", "Un programador"], 1]
       ]
     }
   },
@@ -193,13 +205,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Hay dos cafés en mi calle.", "There are two cafés on my street.", "der ar tu caféis on mai striit", ""]
     ],
     r: {
-      t: "My neighborhood",
-      en: "I live in a quiet neighborhood. There are a lot of trees and there's a big park.\nThere's a supermarket next to my house and there's a pharmacy across from the park.\nThere isn't a hospital, but there is a small clinic near the school.\nThere are two bus stops on my street, so it's easy to go downtown.",
-      es: "Vivo en una colonia tranquila. Hay muchos árboles y un parque grande.\nHay un supermercado junto a mi casa y una farmacia enfrente del parque.\nNo hay hospital, pero hay una clínica pequeña cerca de la escuela.\nHay dos paradas de camión en mi calle, así que es fácil ir al centro.",
+      t: "A small town",
+      en: "The Torres family is on a road trip. They stop in a small town to buy gas.\nThe town is very quiet and there are a lot of trees. There's a big church in the center, and there's a pharmacy next to it. The supermarket is across from the park, and there's an ATM inside.\nTheir hotel is small, but there's wifi. There isn't any parking at the hotel, so they park next to the bank.\nAt night their son is sick. There's no hospital in town, but there's a clinic between the bank and the school. The doctor is very nice, and the next day the boy is fine.",
+      es: "La familia Torres está de viaje en carro. Se paran en un pueblo chiquito a cargar gasolina.\nEl pueblo es muy tranquilo y hay muchos árboles. Hay una iglesia grande en el centro y hay una farmacia junto a ella. El supermercado está enfrente del parque y adentro hay un cajero automático.\nSu hotel es chiquito, pero hay wifi. No hay estacionamiento en el hotel, así que se estacionan junto al banco.\nEn la noche su hijo está enfermo. No hay hospital en el pueblo, pero hay una clínica entre el banco y la escuela. El doctor es muy amable y al día siguiente el niño está bien.",
       q: [
-        ["¿Qué hay junto a su casa?", ["Una farmacia", "Un supermercado", "Una clínica"], 1],
-        ["¿Hay hospital?", ["No, pero hay una clínica", "Sí, junto al parque", "Sí, enfrente"], 0],
-        ["¿Por qué es fácil ir al centro?", ["Porque tiene carro", "Porque está cerca", "Porque hay dos paradas de camión"], 2]
+        ["¿Dónde está la farmacia?", ["Junto al hotel", "Junto a la iglesia", "Detrás de la escuela"], 1],
+        ["¿Dónde está el cajero automático?", ["En el banco", "Adentro del supermercado", "En el hotel"], 1],
+        ["¿Dónde se estacionan?", ["En el hotel", "Junto al banco", "Enfrente del parque"], 1],
+        ["¿Qué no hay en el pueblo?", ["Farmacia", "Wifi", "Hospital"], 2],
+        ["¿Dónde está la clínica?", ["Junto a la iglesia", "Entre el banco y la escuela", "Enfrente del parque"], 1]
       ]
     }
   },
@@ -253,13 +267,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["No queda leche.", "There's no milk left.", "ders nóu milk left", ""]
     ],
     r: {
-      t: "The shopping list",
-      en: "We need some things from the supermarket. There isn't any milk and there are only a few eggs.\nPlease buy a kilo of tomatoes, two bottles of water and a pack of coffee.\nWe have a lot of rice, so don't buy rice. How much money do you have? Here are five hundred pesos. That's enough.",
-      es: "Necesitamos algunas cosas del súper. No hay leche y solo quedan unos cuantos huevos.\nPor favor compra un kilo de jitomates, dos botellas de agua y un paquete de café.\nTenemos mucho arroz, así que no compres arroz. ¿Cuánto dinero traes? Aquí hay quinientos pesos. Es suficiente.",
+      t: "A picnic in the park",
+      en: "On Sunday, Paula and her friends go on a picnic. In the morning, they look in the kitchen. There's some bread and some milk, but there isn't any sugar and there's only one bottle of water.\nAt the store they buy six apples, a kilo of tortillas, a pack of cookies and four cans of soda. It's two hundred pesos. They don't buy a cake because Paula has one at home.\nThe park is full: there are a lot of people. They have only three chairs, but there are five friends, so two of them sit on the grass.\nIn the afternoon they eat cake and drink coffee. It's a perfect day.",
+      es: "El domingo, Paula y sus amigos van de día de campo. En la mañana revisan la cocina. Hay un poco de pan y un poco de leche, pero no hay azúcar y solo hay una botella de agua.\nEn la tienda compran seis manzanas, un kilo de tortillas, un paquete de galletas y cuatro latas de refresco. Son doscientos pesos. No compran pastel porque Paula tiene uno en su casa.\nEl parque está lleno: hay mucha gente. Solo tienen tres sillas, pero son cinco amigos, así que dos se sientan en el pasto.\nEn la tarde comen pastel y toman café. Es un día perfecto.",
       q: [
-        ["¿Qué NO hay en casa?", ["Arroz", "Leche", "Huevos"], 1],
-        ["¿Qué no hay que comprar?", ["Arroz", "Café", "Agua"], 0],
-        ["¿Cuánto dinero le dan?", ["Cincuenta pesos", "Cien pesos", "Quinientos pesos"], 2]
+        ["¿Qué no hay en la cocina?", ["Pan", "Leche", "Azúcar"], 2],
+        ["¿Cuánto cuesta todo en la tienda?", ["Cincuenta pesos", "Doscientos pesos", "Quinientos pesos"], 1],
+        ["¿Por qué no compran pastel?", ["Porque no hay", "Porque Paula tiene uno en su casa", "Porque no les gusta"], 1],
+        ["¿Cuántas sillas tienen?", ["Dos", "Tres", "Cinco"], 1],
+        ["¿Dónde se sientan dos amigos?", ["En el carro", "En el pasto", "En una mesa"], 1]
       ]
     }
   },
@@ -282,13 +298,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ella toca muy bien el piano.", "She can play the piano very well.", "shi can pléi de piánou véri uél", ""]
     ],
     r: {
-      t: "A new job",
-      en: "Hi, I'm Rosa. I'm looking for a job as a receptionist.\nI can speak Spanish and English, and I can use a computer very well. I can answer the phone and write emails.\nI can't drive, but I can take the bus. I can start next Monday.\nCould you call me back, please? Thank you!",
-      es: "Hola, soy Rosa. Busco trabajo de recepcionista.\nHablo español e inglés, y sé usar muy bien la computadora. Puedo contestar el teléfono y escribir correos.\nNo sé manejar, pero puedo tomar el camión. Puedo empezar el próximo lunes.\n¿Me podría regresar la llamada, por favor? ¡Gracias!",
+      t: "Vacation in Cancún",
+      en: "Héctor and his friend Lili go to Cancún for a week. At the airport they rent a car. Héctor can drive, and Lili can drive too. They pay in cash. You can't smoke in the car, but that's okay because they don't smoke.\nTheir hotel room isn't ready, so the receptionist keeps their bags.\nIn the afternoon they go snorkeling. Lili can swim very well, but Héctor can't swim, so he uses a life jacket. He takes a lot of photos with his phone.\nAt night there's music on the beach. Lili loves dancing, but Héctor can't dance. He just eats and watches.",
+      es: "Héctor y su amiga Lili van a Cancún por una semana. En el aeropuerto rentan un carro. Héctor sabe manejar y Lili también. Pagan en efectivo. En el carro no se puede fumar, pero no hay problema porque ellos no fuman.\nSu cuarto de hotel no está listo, así que la recepcionista les guarda las maletas.\nEn la tarde van a hacer snorkel. Lili nada muy bien, pero Héctor no sabe nadar, así que usa un chaleco salvavidas. Toma muchas fotos con su celular.\nEn la noche hay música en la playa. A Lili le encanta bailar, pero Héctor no sabe bailar. Solo come y mira.",
       q: [
-        ["¿Qué trabajo busca Rosa?", ["Maestra", "Recepcionista", "Chofer"], 1],
-        ["¿Qué NO sabe hacer Rosa?", ["Manejar", "Usar la computadora", "Hablar inglés"], 0],
-        ["¿Cuándo puede empezar?", ["Hoy", "En un mes", "El próximo lunes"], 2]
+        ["¿Cómo pagan el carro?", ["Con tarjeta", "En efectivo", "No pagan"], 1],
+        ["¿Qué no se puede hacer en el carro?", ["Comer", "Fumar", "Poner música"], 1],
+        ["¿Qué hace la recepcionista?", ["Les da el cuarto", "Les guarda las maletas", "Les renta un carro"], 1],
+        ["¿Por qué Héctor usa un chaleco salvavidas?", ["Porque hace frío", "Porque no sabe nadar", "Porque es obligatorio"], 1],
+        ["¿Qué hace Héctor en la noche?", ["Baila mucho", "Solo come y mira", "Nada en el mar"], 1]
       ]
     }
   },
@@ -311,13 +329,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Tiene como treinta años.", "She's about thirty.", "shis abáut zérti", ""]
     ],
     r: {
-      t: "Looking for my friend",
-      en: "Excuse me, I'm looking for my friend. Her name is Mónica.\nShe's about thirty. She's tall and thin, and she has long curly hair. Her hair is brown.\nShe wears glasses and she's wearing a green dress and white sneakers.\nShe's very friendly and she talks a lot. Have you seen her?",
-      es: "Disculpe, estoy buscando a mi amiga. Se llama Mónica.\nTiene como treinta años. Es alta y delgada, y tiene el pelo largo y rizado. Su pelo es café.\nUsa lentes y trae un vestido verde y tenis blancos.\nEs muy amable y habla mucho. ¿La ha visto?",
+      t: "Lost at the mall",
+      en: "On Saturday, Toño takes his nephew Pepe to the mall. Pepe is eight. He's short, he has short black hair and he wears glasses.\nIn a big store, Toño can't see Pepe. He's very scared! A security guard helps him. Toño describes Pepe, and the guard calls on the radio.\nFive minutes later there's good news: a woman is at the information desk with Pepe. She's tall and she's about thirty. She's very friendly and funny. Pepe is smart: he knows his uncle's phone number!\nAt night, Pepe's mom calls Toño. Everybody is fine.",
+      es: "El sábado, Toño lleva a su sobrino Pepe al centro comercial. Pepe tiene ocho años. Es bajito, tiene el pelo negro y corto y usa lentes.\nEn una tienda grande, Toño no ve a Pepe. ¡Está muy asustado! Un guardia de seguridad lo ayuda. Toño describe a Pepe y el guardia llama por radio.\nCinco minutos después hay buenas noticias: una señora está en el módulo de información con Pepe. Es alta y tiene como treinta años. Es muy amable y chistosa. Pepe es inteligente: ¡se sabe el número de teléfono de su tío!\nEn la noche, la mamá de Pepe llama a Toño. Todos están bien.",
       q: [
-        ["¿Cómo es el pelo de Mónica?", ["Corto y lacio", "Largo y rizado", "Rubio"], 1],
-        ["¿Qué trae puesto?", ["Un vestido verde", "Un traje negro", "Jeans"], 0],
-        ["¿Cómo es su personalidad?", ["Tímida", "Seria", "Muy amable y habla mucho"], 2]
+        ["¿Cómo es Pepe?", ["Alto y güero", "Bajito, con pelo negro y lentes", "Pelirrojo"], 1],
+        ["¿Quién ayuda a Toño primero?", ["Una señora", "Un guardia de seguridad", "Un policía"], 1],
+        ["¿Cuántos años tiene la señora?", ["Como veinte", "Como treinta", "Como cincuenta"], 1],
+        ["¿Qué se sabe Pepe?", ["La dirección de su casa", "El número de teléfono de su tío", "El nombre de la señora"], 1]
       ]
     }
   },
@@ -340,13 +359,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Vivo en el departamento 3B.", "I live in apartment 3B.", "ai liv in apártment zri-bi", ""]
     ],
     r: {
-      t: "Registration form",
-      en: "Full name: Luis Alberto Hernández Ruiz.\nDate of birth: March 5th, 1990. Place of birth: Puebla, Mexico. Nationality: Mexican.\nAddress: 25 Juárez Street, apartment 3B, Monterrey. Zip code: 64000.\nOccupation: engineer. Marital status: married.\nEmergency contact: Ana Ruiz (mother), phone 81 2345 6789.",
-      es: "Nombre completo: Luis Alberto Hernández Ruiz.\nFecha de nacimiento: 5 de marzo de 1990. Lugar de nacimiento: Puebla, México. Nacionalidad: mexicana.\nDirección: calle Juárez 25, departamento 3B, Monterrey. Código postal: 64000.\nOcupación: ingeniero. Estado civil: casado.\nContacto de emergencia: Ana Ruiz (madre), teléfono 81 2345 6789.",
+      t: "The first day",
+      en: "Today is Gabriel's first day at a new company. First he goes to Human Resources. A woman asks for his information: his full name, his date of birth and his address.\nGabriel was born on May tenth, 1992, in Puebla. He lives at 48 Hidalgo Street, apartment 2A. His zip code is 72000.\nHis emergency contact is his wife, Laura.\nThen the woman gives him a form. Gabriel fills it out and signs it. She also needs his ID, so he shows her his passport. Now Gabriel is part of the team!",
+      es: "Hoy es el primer día de Gabriel en una empresa nueva. Primero va a Recursos Humanos. Una señora le pide sus datos: su nombre completo, su fecha de nacimiento y su dirección.\nGabriel nació el 10 de mayo de 1992 en Puebla. Vive en la calle Hidalgo 48, departamento 2A. Su código postal es 72000.\nSu contacto de emergencia es su esposa, Laura.\nLuego la señora le da un formulario. Gabriel lo llena y lo firma. También necesita su identificación, así que él le enseña su pasaporte. ¡Ahora Gabriel es parte del equipo!",
       q: [
-        ["¿Dónde nació Luis?", ["En Monterrey", "En Puebla", "En Juárez"], 1],
-        ["¿Cuál es su ocupación?", ["Ingeniero", "Maestro", "Doctor"], 0],
-        ["¿Quién es su contacto de emergencia?", ["Su esposa", "Su hermano", "Su mamá"], 2]
+        ["¿Adónde va Gabriel primero?", ["A su oficina", "A Recursos Humanos", "Al banco"], 1],
+        ["¿Dónde nació Gabriel?", ["En Monterrey", "En Puebla", "En Guadalajara"], 1],
+        ["¿Quién es su contacto de emergencia?", ["Su mamá", "Su esposa", "Su hermano"], 1],
+        ["¿Qué identificación enseña?", ["Su licencia de manejo", "Su pasaporte", "Su credencial de la empresa"], 1]
       ]
     }
   },
@@ -372,13 +392,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["La educación primaria y secundaria es gratuita.", "Primary and secondary education is free.", "práimeri and sékonderi edyukéishon is fri", ""]
     ],
     r: {
-      t: "My school",
-      en: "My name is Sofía and I'm in ninth grade. I go to a big school near my house.\nMy favorite subject is science. We do experiments on Fridays. I'm not very good at math, but my teacher helps me a lot.\nAfter class, I go to the library with my friends. We study in groups and practice English. Practice makes perfect!",
-      es: "Me llamo Sofía y estoy en tercero de secundaria. Voy a una escuela grande cerca de mi casa.\nMi materia favorita es Ciencias. Hacemos experimentos los viernes. No soy muy buena para las matemáticas, pero mi maestro me ayuda mucho.\nDespués de clases voy a la biblioteca con mis amigas. Estudiamos en grupo y practicamos inglés. ¡La práctica hace al maestro!",
+      t: "Back to school",
+      en: "Diego is in sixth grade. His favorite subject is math, but he doesn't like literature. He has good grades.\nToday there's a parents' meeting at his school. His teacher says Diego is a very good student, but there's a problem: he uses his phone in class. At Diego's school, you cannot use your phone in class.\nThe school principal says the library opens at eight. Diego can study there before class.\nDiego's mom wants to learn too. At night she goes to a language school. She has basic knowledge of English, so she registers for a basic course. She attends classes on Tuesdays and Thursdays at night.",
+      es: "Diego está en sexto grado. Su materia favorita es Matemáticas, pero no le gusta Literatura. Tiene buenas calificaciones.\nHoy hay junta de padres en su escuela. Su maestra dice que Diego es muy buen alumno, pero hay un problema: usa el celular en clase. En la escuela de Diego no se puede usar el celular en clase.\nLa directora dice que la biblioteca abre a las ocho. Diego puede estudiar ahí antes de clase.\nLa mamá de Diego también quiere aprender. En la noche va a una escuela de idiomas. Tiene conocimientos básicos de inglés, así que se inscribe a un curso básico. Va a clases los martes y jueves en la noche.",
       q: [
-        ["¿En qué grado está Sofía?", ["Sexto de primaria", "Tercero de secundaria", "Primero de prepa"], 1],
-        ["¿Qué hacen los viernes?", ["Experimentos", "Exámenes", "Deportes"], 0],
-        ["¿Adónde va después de clases?", ["A su casa", "Al parque", "A la biblioteca"], 2]
+        ["¿En qué grado está Diego?", ["En cuarto", "En sexto", "En segundo de secundaria"], 1],
+        ["¿Qué materia no le gusta?", ["Matemáticas", "Ciencias", "Literatura"], 2],
+        ["¿Cuál es el problema de Diego?", ["Tiene malas calificaciones", "Usa el celular en clase", "Llega tarde"], 1],
+        ["¿A qué hora abre la biblioteca?", ["A las siete", "A las ocho", "A las nueve"], 1],
+        ["¿Cuándo va a clases la mamá de Diego?", ["Los sábados", "Los martes y jueves en la noche", "Todas las mañanas"], 1]
       ]
     }
   },
@@ -401,13 +423,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["No dejes objetos en las escaleras.", "Don't leave objects on the stairs.", "dóunt liiv ábyekts on de sters", ""]
     ],
     r: {
-      t: "Moving day",
-      en: "Today is moving day! We have a new house. It has two floors, a small yard and a pool.\nThere are boxes everywhere. My dad's tools are in the garage, and my mom's plants are on the deck. My stuff is still in the truck.\nIn my room, there's a crack in the wall and the light switch doesn't work. But I love the house. Each bedroom has its own bathroom!",
-      es: "¡Hoy es día de mudanza! Tenemos casa nueva. Tiene dos pisos, un jardín pequeño y una alberca.\nHay cajas por todos lados. Las herramientas de mi papá están en la cochera y las plantas de mi mamá están en la terraza. Mis cosas todavía están en el camión.\nEn mi cuarto hay una grieta en la pared y el apagador no sirve. Pero me encanta la casa. ¡Cada recámara tiene su propio baño!",
+      t: "Guests from Texas",
+      en: "Martha rents her vacation house to tourists. This week the Johnsons are there. They're from Texas.\nThe house has three bedrooms, and each room has its own bathroom. The pool is on the other side of the house, and there are a lot of trees outside.\nMartha shows them everything: the light switch is next to the door, the plates are on top of the fridge, and the trash goes out on Monday. To open the gate, you press the button.\nOn the second day there's a problem: there's a crack in the deck. Martha calls a man to fix it. When the Johnsons leave, the house is very clean. They want to come back next year.",
+      es: "Martha renta su casa de vacaciones a turistas. Esta semana están los Johnson. Son de Texas.\nLa casa tiene tres recámaras y cada cuarto tiene su propio baño. La alberca está del otro lado de la casa y afuera hay muchos árboles.\nMartha les enseña todo: el apagador está junto a la puerta, los platos están encima del refri y la basura se saca el lunes. Para abrir el portón, se aprieta el botón.\nEl segundo día hay un problema: hay una grieta en la terraza. Martha llama a un señor para que la arregle. Cuando los Johnson se van, la casa está muy limpia. Quieren regresar el próximo año.",
       q: [
-        ["¿Qué tiene la casa nueva?", ["Una alberca", "Tres pisos", "Un jardín grande"], 0],
-        ["¿Dónde están las herramientas?", ["En la terraza", "En la cochera", "En el camión"], 1],
-        ["¿Qué problema hay en su cuarto?", ["No tiene baño", "La puerta no cierra", "Una grieta en la pared"], 2]
+        ["¿De dónde son los Johnson?", ["De Canadá", "De Texas", "De Puebla"], 1],
+        ["¿Dónde está la alberca?", ["Enfrente de la casa", "Del otro lado de la casa", "Junto a la cocina"], 1],
+        ["¿Dónde están los platos?", ["En la mesa", "Encima del refri", "En el gabinete"], 1],
+        ["¿Qué problema hay el segundo día?", ["Un hoyo en la pared", "Una grieta en la terraza", "No hay luz"], 1],
+        ["¿Cómo está la casa cuando se van?", ["Sucia", "Muy limpia", "Con polvo"], 1]
       ]
     }
   },
@@ -430,13 +454,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["medio kilo de fruta", "half a kilo of fruit", "jaf a kílou ov frut", ""]
     ],
     r: {
-      t: "Grandma's chicken soup",
-      en: "This is my grandma's recipe for chicken soup. It's easy and it smells delicious.\nFirst, boil water in a big pot. Add a pound of chicken breast, an onion and two carrots. Cook it for forty minutes.\nThen cut the chicken into small pieces and put it back in the pot. Add salt and fresh lime. Serve it hot in a bowl. It's my favorite meal!",
-      es: "Esta es la receta de sopa de pollo de mi abuela. Es fácil y huele delicioso.\nPrimero, hierve agua en una olla grande. Agrega una libra de pechuga de pollo, una cebolla y dos zanahorias. Cocínalo cuarenta minutos.\nLuego corta el pollo en pedacitos y regrésalo a la olla. Agrega sal y limón fresco. Sírvela caliente en un tazón. ¡Es mi comida favorita!",
+      t: "Christmas dinner",
+      en: "This year, Lety cooks Christmas dinner with her brother-in-law Mark. Mark is from the United States, and he loves Mexican food.\nIn the morning they go to the market. They buy a turkey, a pound of beef, half a kilo of fruit and some nuts. The vegetables are very fresh.\nIn the kitchen, Mark cuts the onion and boils the water. Then he fries the chicken for the kids. It smells delicious!\nMark wants to serve the turkey early, but the meat is still raw. At nine o'clock everything is ready. The cake is very sweet, so Lety's mother-in-law eats only a small portion.",
+      es: "Este año, Lety cocina la cena de Navidad con su cuñado Mark. Mark es de Estados Unidos y le encanta la comida mexicana.\nEn la mañana van al mercado. Compran un pavo, una libra de carne de res, medio kilo de fruta y unas nueces. Las verduras están muy frescas.\nEn la cocina, Mark corta la cebolla y hierve el agua. Luego fríe el pollo para los niños. ¡Huele delicioso!\nMark quiere servir el pavo temprano, pero la carne todavía está cruda. A las nueve todo está listo. El pastel está muy dulce, así que la suegra de Lety solo come una porción pequeña.",
       q: [
-        ["¿Qué se hierve primero?", ["El pollo", "El agua", "Las zanahorias"], 1],
-        ["¿Cuánto tiempo se cocina?", ["Cuarenta minutos", "Dos horas", "Diez minutos"], 0],
-        ["¿Cómo se sirve?", ["Fría en un plato", "Con pan", "Caliente en un tazón"], 2]
+        ["¿De dónde es Mark?", ["De México", "De Estados Unidos", "De Canadá"], 1],
+        ["¿Qué compran en el mercado?", ["Pollo y arroz", "Un pavo, carne, fruta y nueces", "Solo verduras"], 1],
+        ["¿Qué hace Mark primero en la cocina?", ["Fríe el pollo", "Corta la cebolla", "Sirve el pavo"], 1],
+        ["¿Por qué no pueden servir el pavo temprano?", ["Porque está quemado", "Porque la carne está cruda", "Porque no hay platos"], 1],
+        ["¿Cuánto pastel come la suegra?", ["Mucho", "Una porción pequeña", "Nada"], 1]
       ]
     }
   },
@@ -459,13 +485,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["las Naciones Unidas", "the United Nations", "de iunáited néishons", ""]
     ],
     r: {
-      t: "An international team",
-      en: "I work for an international company in Monterrey. My team is very interesting: we are from six different countries.\nMy boss is German. Kenji is Japanese and Priya is Indian. Emma is British, and Tom is from the United States. I'm the only Mexican.\nWe all speak English at work. It isn't our native language, but it's the language we have in common. On Fridays, we eat food from a different country. Next week: Korean food!",
-      es: "Trabajo en una empresa internacional en Monterrey. Mi equipo es muy interesante: somos de seis países diferentes.\nMi jefe es alemán. Kenji es japonés y Priya es india. Emma es británica y Tom es de Estados Unidos. Yo soy el único mexicano.\nTodos hablamos inglés en el trabajo. No es nuestra lengua materna, pero es el idioma que tenemos en común. Los viernes comemos comida de otro país. La próxima semana: ¡comida coreana!",
+      t: "An international class",
+      en: "Carmen is Mexican. She works at an international company in Monterrey, and she works with people from all over the world. Her boss is German.\nThis summer she's in Toronto for a one-month English course. In her class there are students from many countries. Her partner, Yuki, is Japanese. There's a Korean boy, a Turkish woman and two Brazilian girls. English isn't their native language, but they all speak it.\nOn Friday the teacher has a geography game. Carmen knows the colors of the flag of Mexico, and she can sing the national anthem!\nAt night they eat at an Italian restaurant.",
+      es: "Carmen es mexicana. Trabaja en una empresa internacional en Monterrey y trabaja con gente de todo el mundo. Su jefe es alemán.\nEste verano está en Toronto en un curso de inglés de un mes. En su clase hay alumnos de muchos países. Su compañera, Yuki, es japonesa. Hay un muchacho coreano, una señora turca y dos muchachas brasileñas. El inglés no es su lengua materna, pero todos lo hablan.\nEl viernes, la maestra hace un juego de geografía. ¡Carmen se sabe los colores de la bandera de México y puede cantar el himno nacional!\nEn la noche cenan en un restaurante italiano.",
       q: [
-        ["¿De dónde es su jefe?", ["De Japón", "De Alemania", "De la India"], 1],
-        ["¿Qué idioma hablan en el trabajo?", ["Inglés", "Español", "Alemán"], 0],
-        ["¿Qué comen los viernes?", ["Comida mexicana", "Pizza", "Comida de otro país"], 2]
+        ["¿De dónde es el jefe de Carmen?", ["De Estados Unidos", "De Alemania", "De Japón"], 1],
+        ["¿Cuánto tiempo dura el curso?", ["Una semana", "Un mes", "Un año"], 1],
+        ["¿De dónde es Yuki?", ["De Corea", "De Japón", "De China"], 1],
+        ["¿Qué puede cantar Carmen?", ["Una canción italiana", "El himno nacional", "Una canción en inglés"], 1],
+        ["¿Dónde cenan en la noche?", ["En un restaurante mexicano", "En un restaurante italiano", "En el hotel"], 1]
       ]
     }
   }
