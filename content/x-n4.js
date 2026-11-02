@@ -19,13 +19,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["No lo cambiaría por nada.", "I wouldn't change it for anything.", "", ""]
     ],
     r: {
-      t: "What would you do with a million dollars?",
-      en: "Our English teacher asked us a simple question: \"What would you do if you won a million dollars?\"\nMarco said he would buy a house for his parents and invest the rest. \"If I spent it all, I'd be poor again in two years,\" he explained.\nSofía said she wouldn't stop working. \"If I didn't work, I'd be bored. But I would start my own business.\"\nI said I would travel around the world for a year and then go back to university to study architecture.\nThe teacher smiled. \"Interesting. Most of you wouldn't change your lives much. You'd just have more freedom.\"",
-      es: "Nuestra maestra de inglés nos hizo una pregunta sencilla: \"¿Qué harían si ganaran un millón de dólares?\".\nMarco dijo que compraría una casa para sus papás e invertiría el resto. \"Si me lo gastara todo, en dos años volvería a ser pobre\", explicó.\nSofía dijo que no dejaría de trabajar. \"Si no trabajara, me aburriría. Pero empezaría mi propio negocio\".\nYo dije que viajaría por el mundo durante un año y luego regresaría a la universidad a estudiar arquitectura.\nLa maestra sonrió. \"Interesante. La mayoría de ustedes no cambiaría mucho su vida. Solo tendrían más libertad\".",
+      t: "A house by the sea",
+      en: "Andrés and Lucía live in Monterrey, but they love the sea. Every summer they spend two weeks in Mazatlán, and every summer they say the same thing: \"If we lived here, we'd be so happy.\"\nLast year they visited a small house near the beach. It had two bedrooms, a terrace and a view of the sea. \"If it were cheaper, we'd buy it today,\" said Lucía. But the owner wanted four million pesos, and they only had two.\nAndrés called his father. \"What would you do in my position?\" he asked. \"If I were you, I'd wait,\" said his father. \"Prices go down after the summer.\"\nHe was right. In October, the owner called them with a better price. Now they spend every weekend there, and they wouldn't change it for anything.",
+      es: "Andrés y Lucía viven en Monterrey, pero les encanta el mar. Cada verano pasan dos semanas en Mazatlán, y cada verano dicen lo mismo: «Si viviéramos aquí, seríamos muy felices».\nEl año pasado visitaron una casita cerca de la playa. Tenía dos recámaras, una terraza y vista al mar. «Si fuera más barata, la compraríamos hoy», dijo Lucía. Pero el dueño quería cuatro millones de pesos, y ellos solo tenían dos.\nAndrés le llamó a su papá. «¿Qué harías en mi lugar?», le preguntó. «Yo que tú, esperaría», le dijo su papá. «Los precios bajan después del verano».\nTenía razón. En octubre, el dueño les llamó con un mejor precio. Ahora pasan ahí todos los fines de semana, y no lo cambiarían por nada.",
       q: [
-        ["What would Marco do with the money?", ["Travel around the world", "Buy a house for his parents and invest the rest", "Start a business"], 1],
-        ["Why wouldn't Sofía stop working?", ["She would be bored", "She loves her boss", "She needs the money"], 0],
-        ["What was the teacher's conclusion?", ["Money makes people unhappy", "Everyone would quit their jobs", "They wouldn't change their lives much, they'd just have more freedom"], 2]
+        ["¿Dónde viven Andrés y Lucía?", ["En Mazatlán", "En Monterrey", "En Cancún"], 1],
+        ["¿Qué dicen cada verano?", ["Que el mar es muy caro", "Que si vivieran ahí serían muy felices", "Que quieren viajar más"], 1],
+        ["¿Cuánto quería el dueño por la casa?", ["Dos millones de pesos", "Cuatro millones de pesos", "Tres millones de pesos"], 1],
+        ["¿Qué le aconsejó su papá a Andrés?", ["Que comprara la casa ese día", "Que esperara", "Que buscara en otra ciudad"], 1],
+        ["¿Qué pasó en octubre?", ["Vendieron su casa de Monterrey", "El dueño les llamó con un mejor precio", "Se fueron de vacaciones"], 1]
       ]
     }
   },
@@ -48,13 +50,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ningún empleado fue despedido.", "No employees were laid off.", "", ""]
     ],
     r: {
-      t: "How chocolate is made",
-      en: "Chocolate is made from the seeds of the cacao tree, which was first grown in Mexico and Central America thousands of years ago.\nFirst, the cacao pods are harvested by hand. The seeds are removed and left to ferment for about a week. Then they are dried in the sun.\nAfter that, the seeds are sent to factories, where they are roasted and ground into a thick paste. Sugar and milk are added, and the mixture is heated and cooled several times.\nFinally, the chocolate is poured into molds and packaged. Today, most of the world's cacao is produced in West Africa, but the word \"chocolate\" comes from the Nahuatl language.",
-      es: "El chocolate se hace con las semillas del árbol de cacao, que se cultivó por primera vez en México y Centroamérica hace miles de años.\nPrimero, las mazorcas de cacao se cosechan a mano. Se sacan las semillas y se dejan fermentar alrededor de una semana. Luego se secan al sol.\nDespués, las semillas se envían a fábricas, donde se tuestan y se muelen hasta formar una pasta espesa. Se agrega azúcar y leche, y la mezcla se calienta y se enfría varias veces.\nPor último, el chocolate se vierte en moldes y se empaca. Hoy, la mayor parte del cacao del mundo se produce en África Occidental, pero la palabra \"chocolate\" viene del náhuatl.",
+      t: "The house that became a hotel",
+      en: "The Hotel Allende is one of the most famous buildings in Guanajuato. It was built in 1890 as a house for a rich family, and it was designed by a famous Italian architect.\nIn 1950, the house was sold to the city, and for many years it was used as a school. Then, in 2010, it was bought by a hotel company. The old rooms were repaired, and a restaurant was opened on the first floor.\nToday, the hotel is visited by thousands of tourists every year. Many languages are spoken at the front desk, and breakfast is served on the terrace. Smoking is not allowed anywhere in the building.\nThe restaurant is said to be the best in the city. Next year, a small museum will be opened in the old kitchen.",
+      es: "El Hotel Allende es uno de los edificios más famosos de Guanajuato. Se construyó en 1890 como casa para una familia rica, y lo diseñó un arquitecto italiano famoso.\nEn 1950, la casa se le vendió a la ciudad y durante muchos años se usó como escuela. Luego, en 2010, la compró una compañía de hoteles. Se repararon los cuartos viejos y se abrió un restaurante en el primer piso.\nHoy, miles de turistas visitan el hotel cada año. En la recepción se hablan muchos idiomas y el desayuno se sirve en la terraza. No se permite fumar en ninguna parte del edificio.\nSe dice que el restaurante es el mejor de la ciudad. El próximo año se va a abrir un pequeño museo en la cocina vieja.",
       q: [
-        ["Where was cacao first grown?", ["West Africa", "Mexico and Central America", "Europe"], 1],
-        ["What happens to the seeds after they are removed?", ["They are left to ferment for about a week", "They are sold", "They are roasted immediately"], 0],
-        ["Where does the word 'chocolate' come from?", ["Spanish", "English", "Nahuatl"], 2]
+        ["¿Cuándo se construyó la casa?", ["En 1950", "En 1890", "En 2010"], 1],
+        ["¿Quién la diseñó?", ["Un arquitecto mexicano", "Un arquitecto italiano famoso", "La familia rica"], 1],
+        ["¿Para qué se usó la casa durante muchos años?", ["Como hospital", "Como escuela", "Como museo"], 1],
+        ["¿Dónde se sirve el desayuno?", ["En la recepción", "En la terraza", "En la cocina vieja"], 1],
+        ["¿Qué se va a abrir el próximo año?", ["Otro hotel", "Un pequeño museo", "Una escuela"], 1]
       ]
     }
   },
@@ -77,13 +81,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Te recomiendo que lo mandes a revisar.", "I'd recommend getting it checked.", "", ""]
     ],
     r: {
-      t: "Getting ready for the wedding",
-      en: "My sister's wedding is next Saturday, and my family has been very busy.\nMy mom had her dress altered last week because it was too long. My dad finally got his car washed and had the tires changed.\nI had a new suit made by a tailor downtown. It wasn't cheap, but it fits perfectly. Tomorrow I'm getting my hair cut.\nMy sister, of course, is having everything done by professionals: her hair, her makeup and her nails. The flowers are being delivered on Friday morning. We hope nothing goes wrong!",
-      es: "La boda de mi hermana es el próximo sábado y mi familia ha estado muy ocupada.\nMi mamá mandó a arreglar su vestido la semana pasada porque estaba demasiado largo. Mi papá por fin llevó a lavar su carro y le cambiaron las llantas.\nYo mandé a hacer un traje nuevo con un sastre del centro. No fue barato, pero me queda perfecto. Mañana me voy a cortar el pelo.\nMi hermana, claro, va a hacer que profesionales le hagan todo: el peinado, el maquillaje y las uñas. Las flores se entregan el viernes en la mañana. ¡Esperamos que nada salga mal!",
+      t: "Ready for the party",
+      en: "Next month, Gabriela's parents will celebrate their fortieth anniversary, and the party will be at their house. The house is old, so Gabriela and her brother decided to give their parents a surprise.\nWhile their parents were on vacation in Puerto Vallarta, they had the house painted and the kitchen remodeled. They also had an old family photo framed for the living room.\nFor the party, they had the invitations printed and the food delivered from their parents' favorite restaurant. Gabriela had her hair done, and her brother had his suit cleaned. They also had lights installed in the garden.\nWhen their parents came back, they couldn't believe it. \"It looks like a new house!\" said their mother, and she started to cry.",
+      es: "El próximo mes, los papás de Gabriela van a celebrar sus cuarenta años de casados, y la fiesta va a ser en su casa. La casa es vieja, así que Gabriela y su hermano decidieron darles una sorpresa a sus papás.\nMientras sus papás estaban de vacaciones en Puerto Vallarta, mandaron a pintar la casa y a remodelar la cocina. También mandaron a enmarcar una foto vieja de la familia para la sala.\nPara la fiesta, mandaron a imprimir las invitaciones y pidieron la comida del restaurante favorito de sus papás. Gabriela se arregló el pelo y su hermano mandó a limpiar su traje. También mandaron a poner luces en el jardín.\nCuando sus papás regresaron, no lo podían creer. «¡Parece una casa nueva!», dijo su mamá, y se puso a llorar.",
       q: [
-        ["Why did the mom have her dress altered?", ["It was too short", "It was too long", "It was the wrong color"], 1],
-        ["Who made the writer's suit?", ["A tailor downtown", "His mom", "A big store"], 0],
-        ["When are the flowers being delivered?", ["On Saturday", "Tomorrow", "On Friday morning"], 2]
+        ["¿Qué van a celebrar los papás de Gabriela?", ["Un cumpleaños", "Sus cuarenta años de casados", "Una boda"], 1],
+        ["¿Dónde estaban los papás mientras arreglaban la casa?", ["En Cancún", "De vacaciones en Puerto Vallarta", "En casa de Gabriela"], 1],
+        ["¿Qué mandaron a enmarcar?", ["Un cuadro nuevo", "Una foto vieja de la familia", "Las invitaciones"], 1],
+        ["¿Qué mandó a limpiar el hermano?", ["Su carro", "Su traje", "La alfombra"], 1],
+        ["¿Qué hizo la mamá al ver la casa?", ["Se enojó", "Se puso a llorar", "Llamó a sus amigas"], 1]
       ]
     }
   },
@@ -106,13 +112,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Me contó que se iba a casar.", "She told me she was getting married.", "", ""]
     ],
     r: {
-      t: "The job offer",
-      en: "Yesterday my boss called me into her office. She told me that the company was opening a new office in Toronto and asked me if I would be interested in moving there.\nI was surprised. I asked her how long the position would be. She said it would be for two years, and that the company would pay for my apartment.\nShe also mentioned that my English would need to improve, so they would pay for an intensive course.\nI told her I needed to talk to my wife first. She said I had until Friday to decide. My wife said yes before I even finished the sentence!",
-      es: "Ayer mi jefa me llamó a su oficina. Me dijo que la empresa iba a abrir una nueva oficina en Toronto y me preguntó si me interesaría mudarme allá.\nMe sorprendí. Le pregunté cuánto duraría el puesto. Dijo que serían dos años y que la empresa pagaría mi departamento.\nTambién mencionó que mi inglés tendría que mejorar, así que pagarían un curso intensivo.\nLe dije que primero tenía que hablar con mi esposa. Dijo que tenía hasta el viernes para decidir. ¡Mi esposa dijo que sí antes de que terminara la frase!",
+      t: "The message that changed",
+      en: "On Monday morning, the director told her assistant that she would be late because she had a doctor's appointment. The assistant told Carlos that the director would be late. Carlos told Ana that the director was sick. Ana told the sales team that the director was in the hospital!\nBy eleven o'clock, everybody was worried. Someone suggested that they buy flowers, and another person asked if they could visit her.\nAt twelve, the director walked into the office. \"Why are there flowers on my desk?\" she asked. Ana explained that they thought she was in the hospital. The director laughed and said she had only had a checkup.\nThen she asked everyone not to believe everything they heard. Since that day, the team has a new rule: if you hear something, ask the person first.",
+      es: "El lunes en la mañana, la directora le dijo a su asistente que llegaría tarde porque tenía una cita con el doctor. La asistente le dijo a Carlos que la directora llegaría tarde. Carlos le dijo a Ana que la directora estaba enferma. ¡Ana le dijo al equipo de ventas que la directora estaba en el hospital!\nA las once, todos estaban preocupados. Alguien sugirió que compraran flores, y otra persona preguntó si podían visitarla.\nA las doce, la directora entró a la oficina. «¿Por qué hay flores en mi escritorio?», preguntó. Ana le explicó que creían que estaba en el hospital. La directora se rio y dijo que solo se había hecho un chequeo.\nLuego les pidió a todos que no creyeran todo lo que oían. Desde ese día, el equipo tiene una nueva regla: si oyes algo, primero pregúntale a la persona.",
       q: [
-        ["What did the boss ask him?", ["If he wanted a raise", "If he would be interested in moving to Toronto", "If he could work on Saturday"], 1],
-        ["What would the company pay for?", ["His apartment and an English course", "His car", "His wife's job"], 0],
-        ["What did his wife say?", ["She said no", "She asked for time", "She said yes immediately"], 2]
+        ["¿Por qué iba a llegar tarde la directora?", ["Porque estaba enferma", "Porque tenía cita con el doctor", "Porque había mucho tráfico"], 1],
+        ["¿Qué le dijo Carlos a Ana?", ["Que la directora estaba en el hospital", "Que la directora estaba enferma", "Que la directora había renunciado"], 1],
+        ["¿Qué sugirió alguien?", ["Llamar a la directora", "Comprar flores", "Cancelar la junta"], 1],
+        ["¿A qué hora llegó la directora?", ["A las once", "A las doce", "A la una"], 1],
+        ["¿Qué les pidió la directora al final?", ["Que trabajaran más", "Que no creyeran todo lo que oían", "Que le compraran flores"], 1]
       ]
     }
   },
@@ -135,13 +143,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Los empleados que trabajan de noche ganan más.", "Employees who work at night earn more.", "", ""]
     ],
     r: {
-      t: "The house where I grew up",
-      en: "The house where I grew up is in a small town in Zacatecas. It's the house that my grandfather built in 1960 with his own hands.\nMy grandmother, who is now ninety, still lives there. She's the person who taught me to cook and to love books.\nThe kitchen, which has a big wooden table, is the place where the whole family meets at Christmas. The garden, where my grandfather planted lemon trees, is still full of flowers.\nEvery time I go back, I remember the summers that I spent there. It's the place where I feel most at home.",
-      es: "La casa donde crecí está en un pueblo pequeño de Zacatecas. Es la casa que mi abuelo construyó en 1960 con sus propias manos.\nMi abuela, que ahora tiene noventa años, todavía vive ahí. Es la persona que me enseñó a cocinar y a amar los libros.\nLa cocina, que tiene una gran mesa de madera, es el lugar donde toda la familia se reúne en Navidad. El jardín, donde mi abuelo plantó limoneros, sigue lleno de flores.\nCada vez que regreso, recuerdo los veranos que pasé ahí. Es el lugar donde más me siento en casa.",
+      t: "The building where I live",
+      en: "I live in an old building in the center of Puebla. It's a place where everybody knows everybody.\nOn the first floor lives Doña Lupe, who has a small store. She's the person who knows everything that happens in the building. On the second floor live the Garcías, whose son plays the drums every afternoon.\nThe neighbor I like most is Mr. Kim, a Korean engineer who moved here five years ago. He's someone I trust, and he always helps me when something in my apartment breaks down. Last year, he taught all the neighbors to cook Korean food.\nThe reason why I love this building is simple: the people. What I like most is the party we have every December on the roof.",
+      es: "Vivo en un edificio viejo en el centro de Puebla. Es un lugar donde todos se conocen.\nEn el primer piso vive doña Lupe, que tiene una tiendita. Es la persona que sabe todo lo que pasa en el edificio. En el segundo piso viven los García, cuyo hijo toca la batería todas las tardes.\nEl vecino que más me cae bien es el señor Kim, un ingeniero coreano que se mudó aquí hace cinco años. Es alguien en quien confío, y siempre me ayuda cuando algo se descompone en mi departamento. El año pasado, les enseñó a todos los vecinos a cocinar comida coreana.\nLa razón por la que me encanta este edificio es simple: la gente. Lo que más me gusta es la fiesta que hacemos cada diciembre en la azotea.",
       q: [
-        ["Who built the house?", ["His father", "His grandfather", "A construction company"], 1],
-        ["What did his grandmother teach him?", ["To cook and to love books", "To plant trees", "To build houses"], 0],
-        ["Where does the family meet at Christmas?", ["In the garden", "In the living room", "In the kitchen"], 2]
+        ["¿Dónde está el edificio?", ["En Monterrey", "En el centro de Puebla", "En Guadalajara"], 1],
+        ["¿Quién es doña Lupe?", ["La dueña del edificio", "La señora que tiene una tiendita", "Una ingeniera"], 1],
+        ["¿Qué hace el hijo de los García?", ["Estudia ingeniería", "Toca la batería todas las tardes", "Juega futbol"], 1],
+        ["¿De dónde es el señor Kim?", ["De Japón", "De Corea", "De China"], 1],
+        ["¿Cuándo es la fiesta en la azotea?", ["Cada mes", "Cada diciembre", "En el verano"], 1]
       ]
     }
   },
@@ -164,13 +174,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Para empezar,...", "To begin with,...", "", ""]
     ],
     r: {
-      t: "Working from home: pros and cons",
-      en: "Working from home has become very common. On the one hand, it saves time and money. For example, employees don't have to spend two hours a day in traffic. Besides, many people say they are more productive at home.\nOn the other hand, there are some disadvantages. Although technology makes communication easy, many workers feel lonely. In addition, it can be difficult to separate work from personal life.\nTherefore, many companies are choosing a hybrid model: three days at the office and two at home. In short, there is no perfect solution, but flexibility seems to be the key.",
-      es: "Trabajar desde casa se ha vuelto muy común. Por un lado, ahorra tiempo y dinero. Por ejemplo, los empleados no tienen que pasar dos horas al día en el tráfico. Además, mucha gente dice que es más productiva en casa.\nPor otro lado, hay algunas desventajas. Aunque la tecnología facilita la comunicación, muchos trabajadores se sienten solos. Además, puede ser difícil separar el trabajo de la vida personal.\nPor lo tanto, muchas empresas están eligiendo un modelo híbrido: tres días en la oficina y dos en casa. En resumen, no hay una solución perfecta, pero la flexibilidad parece ser la clave.",
+      t: "City or small town?",
+      en: "Two years ago, Héctor and his family moved from Mexico City to a small town in Veracruz. Was it a good decision? On the one hand, life is much calmer now. There is no traffic, and the air is clean. Besides, houses are cheaper, so they bought a house with a big garden.\nOn the other hand, there are fewer jobs, and salaries are lower. For example, Héctor earns thirty percent less than before. However, he works from home three days a week.\nAlthough his children missed their friends at first, they are happy now. In short, the change was hard, but it was worth it. \"We spend less money and more time together,\" says Héctor. \"After all, that's what's most important.\"",
+      es: "Hace dos años, Héctor y su familia se mudaron de la Ciudad de México a un pueblo pequeño de Veracruz. ¿Fue una buena decisión? Por un lado, ahora la vida es mucho más tranquila. No hay tráfico y el aire es limpio. Además, las casas son más baratas, así que compraron una casa con un jardín grande.\nPor otro lado, hay menos trabajos y los sueldos son más bajos. Por ejemplo, Héctor gana treinta por ciento menos que antes. Sin embargo, trabaja desde casa tres días a la semana.\nAunque al principio sus hijos extrañaban a sus amigos, ahora están contentos. En resumen, el cambio fue difícil, pero valió la pena. «Gastamos menos dinero y pasamos más tiempo juntos», dice Héctor. «Al fin y al cabo, eso es lo más importante».",
       q: [
-        ["What is one advantage mentioned?", ["Better salaries", "Not spending two hours a day in traffic", "More meetings"], 1],
-        ["What is one disadvantage?", ["Many workers feel lonely", "It's more expensive", "The internet is slow"], 0],
-        ["What model are many companies choosing?", ["Only office work", "Only home office", "A hybrid model"], 2]
+        ["¿A dónde se mudó la familia de Héctor?", ["A la Ciudad de México", "A un pueblo pequeño de Veracruz", "A Monterrey"], 1],
+        ["¿Qué compraron?", ["Un departamento", "Una casa con un jardín grande", "Un carro nuevo"], 1],
+        ["¿Cuánto menos gana Héctor ahora?", ["Diez por ciento", "Treinta por ciento", "La mitad"], 1],
+        ["¿Cuántos días a la semana trabaja desde casa?", ["Dos", "Tres", "Cinco"], 1],
+        ["¿Cómo están sus hijos ahora?", ["Extrañan mucho la ciudad", "Están contentos", "Quieren regresar"], 1]
       ]
     }
   },
@@ -193,13 +205,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["ahorrar tiempo", "save time", "", ""]
     ],
     r: {
-      t: "Common mistakes",
-      en: "Spanish speakers often translate word by word, and that's how some funny mistakes happen.\nFor example, in Spanish we \"hacemos una pregunta\", but in English you ask a question. We \"tomamos una decisión\", but in English you make a decision. We \"ponemos atención\", but in English you pay attention.\nAnother common mistake is with \"do\" and \"make\". You do your homework, but you make a mistake. You do business, but you make money.\nThe best way to learn these combinations is not to memorize rules, but to notice them when you read and listen. After a while, the correct one will simply sound right.",
-      es: "Los hispanohablantes a menudo traducen palabra por palabra, y así suceden algunos errores chistosos.\nPor ejemplo, en español \"hacemos una pregunta\", pero en inglés se dice ask a question. \"Tomamos una decisión\", pero en inglés make a decision. \"Ponemos atención\", pero en inglés pay attention.\nOtro error común es con \"do\" y \"make\". Se dice do your homework, pero make a mistake. Do business, pero make money.\nLa mejor forma de aprender estas combinaciones no es memorizar reglas, sino notarlas cuando lees y escuchas. Después de un tiempo, la correcta simplemente sonará bien.",
+      t: "Daniela's first week",
+      en: "Last month, Daniela started a new job at a bank. On her first day, she was very nervous, and she made a big mistake: she sent an important email to the wrong client.\nShe told her boss immediately. \"Don't worry,\" he said. \"Everybody makes mistakes. The important thing is to take it seriously and learn.\"\nAfter that, Daniela took notes in every meeting, paid attention to every detail and asked a lot of questions. At first, a simple report took her three hours. By Friday, it only took her one.\nOn Friday afternoon, the team took her out for lunch. \"You did a great job this week,\" said her boss. Daniela smiled. She had done her best. Next week, she's going to train a new employee.",
+      es: "El mes pasado, Daniela empezó un trabajo nuevo en un banco. El primer día estaba muy nerviosa y cometió un gran error: mandó un correo importante al cliente equivocado.\nSe lo dijo a su jefe inmediatamente. «No te preocupes», le dijo él. «Todos cometemos errores. Lo importante es tomarlo en serio y aprender».\nDespués de eso, Daniela tomaba notas en cada junta, ponía atención a cada detalle y hacía muchas preguntas. Al principio, un reporte sencillo le tomaba tres horas. Para el viernes, solo le tomaba una.\nEl viernes en la tarde, el equipo la invitó a comer. «Hiciste un gran trabajo esta semana», le dijo su jefe. Daniela sonrió. Había hecho su mejor esfuerzo. La próxima semana va a capacitar a un empleado nuevo.",
       q: [
-        ["How do you say 'hacer una pregunta' in English?", ["Make a question", "Ask a question", "Do a question"], 1],
-        ["Which one is correct?", ["Make a mistake", "Do a mistake", "Take a mistake"], 0],
-        ["What is the best way to learn collocations?", ["Memorize rules", "Translate word by word", "Notice them when you read and listen"], 2]
+        ["¿Dónde empezó a trabajar Daniela?", ["En una escuela", "En un banco", "En un hospital"], 1],
+        ["¿Qué error cometió?", ["Llegó tarde", "Mandó un correo al cliente equivocado", "Perdió un reporte"], 1],
+        ["¿Qué le dijo su jefe?", ["Que la iba a despedir", "Que todos cometemos errores", "Que no tomara notas"], 1],
+        ["¿Cuánto le tomaba un reporte al final de la semana?", ["Tres horas", "Una hora", "Media hora"], 1],
+        ["¿Qué hizo el equipo el viernes?", ["Le dio un regalo", "La invitó a comer", "Le hizo una fiesta"], 1]
       ]
     }
   },
@@ -222,13 +236,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ahí va.", "Here goes.", "", ""]
     ],
     r: {
-      t: "Sounding natural",
-      en: "When I started speaking English with my American coworkers, I sounded like a textbook. I said things like \"That is very interesting\" and \"I do not agree.\"\nThen a friend gave me some advice: \"Listen to how people react. Natives use short expressions all the time.\"\nShe was right. When someone tells a story, people say \"No way!\" or \"Seriously?\" When they need time to think, they say \"Well...\" or \"Let me see.\" When something is bad, they say \"That's too bad\" or \"Oh well.\"\nNow I use these expressions every day. My English isn't perfect, but it sounds much more natural.",
-      es: "Cuando empecé a hablar inglés con mis compañeros estadounidenses, sonaba como libro de texto. Decía cosas como \"Eso es muy interesante\" y \"No estoy de acuerdo\" de forma muy rígida.\nEntonces una amiga me dio un consejo: \"Escucha cómo reacciona la gente. Los nativos usan expresiones cortas todo el tiempo\".\nTenía razón. Cuando alguien cuenta una historia, la gente dice \"¡No manches!\" o \"¿En serio?\". Cuando necesitan tiempo para pensar, dicen \"Bueno...\" o \"A ver\". Cuando algo sale mal, dicen \"Qué mal\" o \"Ni modo\".\nAhora uso estas expresiones todos los días. Mi inglés no es perfecto, pero suena mucho más natural.",
+      t: "Words that are not in the book",
+      en: "When Luis arrived in Toronto to study, he spoke good English. He knew the grammar, and he had a big vocabulary. However, in conversations he always felt slow.\nHis roommate, Josh, explained the problem: \"You speak like a book. Real people don't talk like that.\" Josh taught him the little words that natives use all the time: \"well\", \"I mean\", \"you know\", \"anyway\".\n\"When you need time to think, say 'Well, let me think,'\" said Josh. \"And when someone tells you good news, say 'Lucky you!' or 'That's great!'\" Luis also learned to say \"No worries\" instead of \"It's not a problem.\"\nAfter two months, Luis sounded much more natural. Now people sometimes ask him if he grew up in Canada.",
+      es: "Cuando Luis llegó a Toronto a estudiar, hablaba bien inglés. Sabía la gramática y tenía mucho vocabulario. Sin embargo, en las pláticas siempre se sentía lento.\nSu compañero de cuarto, Josh, le explicó el problema: «Hablas como libro. La gente real no habla así». Josh le enseñó las palabritas que los nativos usan todo el tiempo: «well», «I mean», «you know», «anyway».\n«Cuando necesites tiempo para pensar, di \"Well, let me think\"», le dijo Josh. «Y cuando alguien te cuente una buena noticia, di \"Lucky you!\" o \"That's great!\"». Luis también aprendió a decir «No worries» en lugar de «It's not a problem».\nDespués de dos meses, Luis sonaba mucho más natural. Ahora a veces la gente le pregunta si creció en Canadá.",
       q: [
-        ["How did he sound at first?", ["Very natural", "Like a textbook", "Very fast"], 1],
-        ["What do people say when they need time to think?", ["Well... or Let me see", "No way!", "Oh well"], 0],
-        ["What changed?", ["His English is now perfect", "He moved to the US", "His English sounds more natural"], 2]
+        ["¿A qué fue Luis a Toronto?", ["A trabajar", "A estudiar", "De vacaciones"], 1],
+        ["¿Cuál era el problema de Luis?", ["No sabía gramática", "Se sentía lento en las pláticas", "No tenía amigos"], 1],
+        ["¿Qué le dijo Josh?", ["Que estudiara más gramática", "Que hablaba como libro", "Que viera más películas"], 1],
+        ["¿Qué se dice cuando alguien te cuenta una buena noticia?", ["Oh well", "Lucky you!", "Me neither"], 1],
+        ["¿Qué le pregunta la gente ahora?", ["Si es mexicano", "Si creció en Canadá", "Si es maestro"], 1]
       ]
     }
   },
@@ -251,13 +267,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ahora nos reímos de eso.", "Now we laugh about it.", "", ""]
     ],
     r: {
-      t: "The wrong meeting",
-      en: "It all started on my second day at a new company in Chicago. I was walking to the elevator when my phone buzzed: \"Meeting in room 12B in five minutes.\"\nI ran upstairs, opened the door and sat down. Ten people were sitting around the table, and a man was presenting sales numbers. I listened carefully and took notes.\nAfter twenty minutes, the man looked at me and said, \"Sorry, who are you?\" At that moment I realized I was in room 12D, not 12B. I was in the wrong meeting!\nEveryone burst out laughing. Fortunately, they were very kind. Eventually, the man who was presenting became my best friend at work. Now we laugh about it every time we see each other.",
-      es: "Todo empezó en mi segundo día en una empresa nueva en Chicago. Iba caminando al elevador cuando vibró mi celular: \"Junta en la sala 12B en cinco minutos\".\nSubí corriendo, abrí la puerta y me senté. Había diez personas alrededor de la mesa y un hombre estaba presentando cifras de ventas. Escuché con atención y tomé notas.\nDespués de veinte minutos, el hombre me miró y dijo: \"Perdón, ¿quién eres?\". En ese momento me di cuenta de que estaba en la sala 12D, no en la 12B. ¡Estaba en la junta equivocada!\nTodos soltaron la carcajada. Por suerte, fueron muy amables. Con el tiempo, el hombre que presentaba se volvió mi mejor amigo del trabajo. Ahora nos reímos cada vez que nos vemos.",
+      t: "The wrong wedding",
+      en: "You won't believe what happened to my cousin Toño last summer. He was invited to a wedding in a small town near Guadalajara. He arrived late, so he went directly to the party.\nAt first, everything was normal. He ate, he danced and he talked to a lot of people. He didn't know anybody, but he thought they were the bride's family.\nThen the bride and groom came in, and he froze. He didn't know them! It turns out there were two weddings in the town that day, and he was at the wrong one.\nIt was so embarrassing. Fortunately, the groom couldn't stop laughing, and he told Toño to stay. Long story short, Toño danced all night at a stranger's wedding. Now we laugh about it every Christmas.",
+      es: "No vas a creer lo que le pasó a mi primo Toño el verano pasado. Lo invitaron a una boda en un pueblito cerca de Guadalajara. Llegó tarde, así que se fue directo a la fiesta.\nAl principio, todo era normal. Comió, bailó y platicó con mucha gente. No conocía a nadie, pero pensó que eran la familia de la novia.\nLuego entraron los novios, y se quedó helado. ¡No los conocía! Resulta que ese día había dos bodas en el pueblo, y él estaba en la equivocada.\nFue muy vergonzoso. Por suerte, el novio no podía dejar de reírse y le dijo a Toño que se quedara. En pocas palabras, Toño bailó toda la noche en la boda de un desconocido. Ahora nos reímos de eso cada Navidad.",
       q: [
-        ["What day at the new company was it?", ["The first day", "The second day", "The last day"], 1],
-        ["What was the mistake?", ["He was in room 12D instead of 12B", "He was late", "He forgot his notes"], 0],
-        ["What happened with the presenter?", ["He got angry", "He fired him", "He became his best friend at work"], 2]
+        ["¿Por qué Toño se fue directo a la fiesta?", ["Porque no le gustan las iglesias", "Porque llegó tarde", "Porque estaba lloviendo"], 1],
+        ["¿Qué pensó Toño de la gente que no conocía?", ["Que eran del pueblo", "Que eran la familia de la novia", "Que eran meseros"], 1],
+        ["¿Qué pasó cuando entraron los novios?", ["Bailó con la novia", "Se dio cuenta de que no los conocía", "Se fue a su casa"], 1],
+        ["¿Cuántas bodas había ese día en el pueblo?", ["Una", "Dos", "Tres"], 1],
+        ["¿Qué hizo el novio?", ["Lo sacó de la fiesta", "Se rio y le dijo que se quedara", "Llamó a la policía"], 1]
       ]
     }
   },
@@ -280,13 +298,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ojalá fuera tan fácil.", "I wish it were that easy.", "", ""]
     ],
     r: {
-      t: "Wishes",
-      en: "My teenage son complains a lot. Every morning he says, \"I wish I didn't have to go to school.\" On weekends he says, \"I wish I had a car.\"\nTo be honest, I have wishes too. I wish I had more time to read. I wish my job weren't so stressful. And I really wish my son would clean his room.\nLast night we talked about it. I told him, \"Wishing is easy. Changing is harder.\" He agreed to clean his room every Sunday, and I agreed to drive him to his friends' houses on Saturdays.\nNow I just wish he would remember our deal!",
-      es: "Mi hijo adolescente se queja mucho. Cada mañana dice: \"Ojalá no tuviera que ir a la escuela\". Los fines de semana dice: \"Ojalá tuviera carro\".\nPara ser honesto, yo también tengo deseos. Ojalá tuviera más tiempo para leer. Ojalá mi trabajo no fuera tan estresante. Y de verdad ojalá mi hijo limpiara su cuarto.\nAnoche lo platicamos. Le dije: \"Desear es fácil. Cambiar es más difícil\". Aceptó limpiar su cuarto cada domingo, y yo acepté llevarlo en carro a casa de sus amigos los sábados.\n¡Ahora solo ojalá se acuerde de nuestro trato!",
+      t: "The wish box",
+      en: "Every December, the teacher of a small school in Oaxaca puts a box in the classroom. The children write their wishes on pieces of paper and put them in the box.\nSome wishes are funny: \"I wish I could fly,\" wrote Pedro, who is seven. \"I wish my brother would stop eating my cookies,\" wrote Ana.\nOthers are sad. \"I wish my dad lived with us,\" wrote a girl whose father works in the United States. \"I wish I had a computer at home,\" wrote another student.\nLast year, the teacher shared some of the wishes on social media. People from all over Mexico read them, and a company donated ten computers to the school. \"If only every wish were that easy,\" says the teacher.",
+      es: "Cada diciembre, la maestra de una escuelita de Oaxaca pone una caja en el salón. Los niños escriben sus deseos en papelitos y los meten en la caja.\nAlgunos deseos son chistosos: «Ojalá pudiera volar», escribió Pedro, que tiene siete años. «Ojalá mi hermano dejara de comerse mis galletas», escribió Ana.\nOtros son tristes. «Ojalá mi papá viviera con nosotros», escribió una niña cuyo papá trabaja en Estados Unidos. «Ojalá tuviera una computadora en mi casa», escribió otro estudiante.\nEl año pasado, la maestra compartió algunos deseos en redes sociales. Gente de todo México los leyó, y una empresa donó diez computadoras a la escuela. «Si tan solo todos los deseos fueran así de fáciles», dice la maestra.",
       q: [
-        ["What does the son wish on weekends?", ["That he didn't have to go to school", "That he had a car", "That he had more friends"], 1],
-        ["What did the son agree to do?", ["Clean his room every Sunday", "Get a job", "Study more"], 0],
-        ["What does the father wish now?", ["That his job were easier", "That he had more time", "That his son would remember the deal"], 2]
+        ["¿Dónde está la escuela?", ["En Puebla", "En Oaxaca", "En Chiapas"], 1],
+        ["¿Qué deseo escribió Pedro?", ["Tener un perro", "Poder volar", "Tener una computadora"], 1],
+        ["¿Dónde trabaja el papá de una de las niñas?", ["En la Ciudad de México", "En Estados Unidos", "En Canadá"], 1],
+        ["¿Qué hizo la maestra el año pasado?", ["Compró computadoras", "Compartió algunos deseos en redes sociales", "Se cambió de escuela"], 1],
+        ["¿Qué donó una empresa?", ["Libros", "Diez computadoras", "Dinero"], 1]
       ]
     }
   },
@@ -309,13 +329,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Disfruta el resto de la conferencia.", "Enjoy the rest of the conference.", "", ""]
     ],
     r: {
-      t: "How to network without feeling awkward",
-      en: "Many people hate networking events. They feel awkward talking to strangers and don't know what to say. Here are some tips.\nFirst, prepare two or three easy questions, like \"What brings you here?\" or \"How do you know the organizers?\" People love talking about themselves.\nSecond, listen more than you talk. Ask follow-up questions: \"That sounds interesting. How did you get into that?\"\nThird, don't try to sell anything. The goal is to start a relationship, not to close a deal.\nFinally, follow up. Send a short message the next day: \"It was great meeting you at the conference. Let's keep in touch.\" That small step makes a big difference.",
-      es: "Mucha gente odia los eventos de networking. Se sienten incómodos hablando con desconocidos y no saben qué decir. Aquí hay algunos consejos.\nPrimero, prepara dos o tres preguntas fáciles, como \"¿Qué te trae por aquí?\" o \"¿De dónde conoces a los organizadores?\". A la gente le encanta hablar de sí misma.\nSegundo, escucha más de lo que hablas. Haz preguntas de seguimiento: \"Suena interesante. ¿Cómo llegaste a eso?\".\nTercero, no intentes vender nada. El objetivo es iniciar una relación, no cerrar un trato.\nPor último, da seguimiento. Manda un mensaje corto al día siguiente: \"Fue un gusto conocerte en la conferencia. Sigamos en contacto\". Ese pequeño paso hace una gran diferencia.",
+      t: "A coffee that changed everything",
+      en: "Three years ago, Marcos went to a technology conference in Guadalajara. He didn't know anybody, and he almost went back to his hotel. Instead, he went to get a coffee and saw a man standing alone.\n\"Is this your first time at this event?\" asked Marcos. The man smiled. \"No, it's my tenth. What line of work are you in?\" Marcos explained that he designed apps for small businesses. \"That sounds really interesting. Tell me more,\" said the man.\nThey talked for twenty minutes and exchanged business cards. A week later, the man sent Marcos an email. It turns out he was the director of a big company, and he wanted to hire him.\nToday, Marcos always says the same thing: \"Never eat alone at a conference.\"",
+      es: "Hace tres años, Marcos fue a una conferencia de tecnología en Guadalajara. No conocía a nadie y casi se regresa a su hotel. En lugar de eso, fue por un café y vio a un señor solo.\n«¿Es tu primera vez en este evento?», preguntó Marcos. El señor sonrió. «No, es la décima. ¿Tú en qué trabajas?». Marcos le explicó que diseñaba aplicaciones para negocios pequeños. «Suena muy interesante. Cuéntame más», dijo el señor.\nPlaticaron veinte minutos e intercambiaron tarjetas. Una semana después, el señor le mandó un correo a Marcos. Resulta que era el director de una empresa grande y lo quería contratar.\nHoy, Marcos siempre dice lo mismo: «Nunca comas solo en una conferencia».",
       q: [
-        ["Why should you prepare easy questions?", ["To sell your product", "Because people love talking about themselves", "To finish the conversation quickly"], 1],
-        ["What is the goal of networking, according to the text?", ["To start a relationship", "To close a deal", "To get a job immediately"], 0],
-        ["What should you do the next day?", ["Call them", "Send a gift", "Send a short follow-up message"], 2]
+        ["¿A dónde fue Marcos hace tres años?", ["A una boda", "A una conferencia de tecnología", "A una entrevista de trabajo"], 1],
+        ["¿Qué casi hizo Marcos?", ["Comer solo", "Regresarse a su hotel", "Irse a otra conferencia"], 1],
+        ["¿A qué se dedicaba Marcos?", ["Era director de una empresa", "Diseñaba aplicaciones para negocios pequeños", "Vendía computadoras"], 1],
+        ["¿Quién era el señor?", ["Un profesor", "El director de una empresa grande", "Un periodista"], 1],
+        ["¿Qué dice siempre Marcos?", ["Que hay que llegar temprano", "Que nunca hay que comer solo en una conferencia", "Que hay que llevar muchas tarjetas"], 1]
       ]
     }
   },
@@ -338,13 +360,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Sigue así.", "Keep up the good work.", "", ""]
     ],
     r: {
-      t: "A performance review",
-      en: "At the end of the year, my manager scheduled my performance review. I was nervous, but it went well.\nShe started with the positive things: \"You did a great job with the new supplier. Your reports are clear and always on time.\"\nThen she mentioned an area for improvement: \"In meetings, you don't share your ideas enough. You have good ideas, and I'd like the team to hear them.\"\nShe suggested that I prepare one or two points before each meeting. I told her I appreciated the feedback and that I would work on it.\nAt the end, she asked, \"What can I do to support you?\" I asked for an English course, and she said yes.",
-      es: "A fin de año, mi gerente agendó mi evaluación de desempeño. Estaba nervioso, pero salió bien.\nEmpezó con lo positivo: \"Hiciste un gran trabajo con el nuevo proveedor. Tus reportes son claros y siempre llegan a tiempo\".\nLuego mencionó un área de oportunidad: \"En las juntas no compartes suficiente tus ideas. Tienes buenas ideas y me gustaría que el equipo las escuchara\".\nMe sugirió preparar uno o dos puntos antes de cada junta. Le dije que agradecía la retroalimentación y que trabajaría en eso.\nAl final, me preguntó: \"¿Qué puedo hacer para apoyarte?\". Le pedí un curso de inglés y me dijo que sí.",
+      t: "The right way to give feedback",
+      en: "When Ricardo became a manager, he had a problem: he didn't know how to give feedback. If an employee made a mistake, he simply said, \"This is wrong. Do it again.\" Soon, his team was unhappy, and two people quit.\nHis boss gave him some advice: \"Start with something positive. Then, suggest one change. Finally, end with something positive again.\"\nNow Ricardo talks differently. \"I really liked how you presented the data,\" he told an employee last week. \"One thing I'd change is the title. Overall, it's really strong.\"\nHe also learned to receive feedback. When someone criticizes his ideas, he says, \"That's a fair point. I'll take that into account.\" Today, his team is one of the best in the company.",
+      es: "Cuando Ricardo se hizo gerente, tenía un problema: no sabía dar retroalimentación. Si un empleado cometía un error, simplemente decía: «Esto está mal. Hazlo otra vez». Pronto, su equipo estaba descontento y dos personas renunciaron.\nSu jefa le dio un consejo: «Empieza con algo positivo. Luego, sugiere un cambio. Al final, termina otra vez con algo positivo».\nAhora Ricardo habla diferente. «Me gustó mucho cómo presentaste los datos», le dijo a un empleado la semana pasada. «Una cosa que cambiaría es el título. En general, está muy bien».\nTambién aprendió a recibir retroalimentación. Cuando alguien critica sus ideas, dice: «Es un punto válido. Lo tomaré en cuenta». Hoy, su equipo es uno de los mejores de la empresa.",
       q: [
-        ["What did the manager say about his reports?", ["They are too long", "They are clear and always on time", "They have many mistakes"], 1],
-        ["What was the area for improvement?", ["Sharing his ideas in meetings", "Arriving on time", "Writing emails"], 0],
-        ["What did he ask for?", ["A raise", "More vacation", "An English course"], 2]
+        ["¿Qué problema tenía Ricardo?", ["Llegaba tarde", "No sabía dar retroalimentación", "No le gustaba su equipo"], 1],
+        ["¿Qué pasó con su equipo al principio?", ["Ganó un premio", "Estaba descontento y dos personas renunciaron", "Trabajó más rápido"], 1],
+        ["¿Con qué le aconsejó su jefa empezar?", ["Con el error", "Con algo positivo", "Con una pregunta"], 1],
+        ["¿Qué cambiaría Ricardo del trabajo del empleado?", ["Los datos", "El título", "Los colores"], 1],
+        ["¿Qué dice Ricardo cuando critican sus ideas?", ["Que no tienen razón", "Que es un punto válido y lo tomará en cuenta", "Que lo va a pensar"], 1]
       ]
     }
   },
@@ -367,13 +391,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Un tercio de los clientes...", "One third of the customers...", "", ""]
     ],
     r: {
-      t: "Quarterly sales report",
-      en: "This report summarizes our sales in the first quarter.\nIn January, sales reached 1.2 million dollars, a slight increase compared to December. In February, they dropped sharply to 900,000 because of problems with a supplier.\nIn March, sales recovered and reached a record high of 1.5 million, mainly thanks to the new product line, which represented one third of total sales.\nOverall, sales in the first quarter grew by 12% compared to the same period last year. If this trend continues, we expect to exceed our annual target.",
-      es: "Este reporte resume nuestras ventas del primer trimestre.\nEn enero, las ventas llegaron a 1.2 millones de dólares, un ligero aumento comparado con diciembre. En febrero, bajaron bruscamente a 900,000 por problemas con un proveedor.\nEn marzo, las ventas se recuperaron y alcanzaron un máximo histórico de 1.5 millones, principalmente gracias a la nueva línea de productos, que representó un tercio de las ventas totales.\nEn general, las ventas del primer trimestre crecieron un 12% comparado con el mismo periodo del año pasado. Si esta tendencia continúa, esperamos superar nuestra meta anual.",
+      t: "A year in numbers",
+      en: "When Lupita opened her coffee shop in Querétaro, she started to record her sales every month. Here is what her first year looked like.\nIn January and February, sales were low: about forty thousand pesos a month. In March, a famous blogger wrote about the coffee shop, and sales increased sharply. They doubled in only two months.\nIn the summer, there was a sharp drop because many students went on vacation. However, sales recovered in September and grew steadily until December, when they reached a record high of one hundred and twenty thousand pesos.\nHer costs remained stable all year. \"As you can see, the trend is positive,\" Lupita told the bank. Now she wants to open a second coffee shop.",
+      es: "Cuando Lupita abrió su cafetería en Querétaro, empezó a registrar sus ventas cada mes. Así se vio su primer año.\nEn enero y febrero, las ventas fueron bajas: unos cuarenta mil pesos al mes. En marzo, una bloguera famosa escribió sobre la cafetería y las ventas subieron bruscamente. Se duplicaron en solo dos meses.\nEn el verano hubo una caída fuerte porque muchos estudiantes se fueron de vacaciones. Sin embargo, las ventas se recuperaron en septiembre y crecieron de forma constante hasta diciembre, cuando alcanzaron un máximo histórico de ciento veinte mil pesos.\nSus costos se mantuvieron estables todo el año. «Como pueden ver, la tendencia es positiva», le dijo Lupita al banco. Ahora quiere abrir una segunda cafetería.",
       q: [
-        ["Why did sales drop in February?", ["The new product failed", "Problems with a supplier", "A holiday"], 1],
-        ["What helped sales in March?", ["The new product line", "Lower prices", "A new supplier"], 0],
-        ["How much did sales grow compared to last year?", ["By 1.5%", "By one third", "By 12%"], 2]
+        ["¿Cuánto vendía Lupita al mes en enero y febrero?", ["Veinte mil pesos", "Unos cuarenta mil pesos", "Cien mil pesos"], 1],
+        ["¿Por qué subieron las ventas en marzo?", ["Por una promoción", "Porque una bloguera famosa escribió sobre la cafetería", "Porque abrió otra sucursal"], 1],
+        ["¿Por qué bajaron las ventas en el verano?", ["Porque hacía calor", "Porque muchos estudiantes se fueron de vacaciones", "Porque subieron los precios"], 1],
+        ["¿Cuándo alcanzaron las ventas su máximo histórico?", ["En marzo", "En diciembre", "En septiembre"], 1],
+        ["¿Qué quiere hacer Lupita ahora?", ["Vender la cafetería", "Abrir una segunda cafetería", "Bajar los precios"], 1]
       ]
     }
   },
@@ -396,13 +422,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Estaremos en contacto.", "We'll be in touch.", "", ""]
     ],
     r: {
-      t: "My five-year plan",
-      en: "My career coach asked me to write a five-year plan, so here it is.\nBy this time next year, I'll have finished my English course and I'll be preparing for the TOEFL exam. In two years, I'll have gotten a promotion to project manager, hopefully.\nIn three years, I'll be working for an international company, maybe in Canada or the United States. By then, I'll have saved enough money for a down payment on a house.\nIn five years, I'll have been working in my field for ten years. I'll be leading my own team, and I'll be speaking English every day without thinking about it.",
-      es: "Mi coach de carrera me pidió escribir un plan a cinco años, así que aquí está.\nPara esta misma fecha el próximo año, habré terminado mi curso de inglés y estaré preparándome para el examen TOEFL. En dos años, habré conseguido un ascenso a gerente de proyecto, ojalá.\nEn tres años, estaré trabajando para una empresa internacional, tal vez en Canadá o Estados Unidos. Para entonces, habré ahorrado suficiente dinero para el enganche de una casa.\nEn cinco años, cumpliré diez años trabajando en mi área. Estaré dirigiendo mi propio equipo y hablaré inglés todos los días sin pensarlo.",
+      t: "A letter to the future",
+      en: "On her thirtieth birthday, Sofía wrote a letter to herself. She put it in a box and decided to open it ten years later. This is part of what she wrote:\n\"Dear Sofía, when you read this, you'll be forty. I hope you'll have finished your master's degree and learned to speak English well. By then, you'll have paid for your apartment, and maybe you'll be living near the beach. Maybe you'll be working at your own company or traveling around the world. Whatever you're doing, I hope you'll be happy.\"\nLast month, Sofía turned forty and opened the box. Not everything happened: she isn't living near the beach. But she finished her master's, and now she teaches English at a university.",
+      es: "En su cumpleaños número treinta, Sofía se escribió una carta a sí misma. La guardó en una caja y decidió abrirla diez años después. Esta es una parte de lo que escribió:\n«Querida Sofía: Cuando leas esto, tendrás cuarenta años. Espero que ya hayas terminado tu maestría y aprendido a hablar bien inglés. Para entonces ya habrás pagado tu departamento, y tal vez estarás viviendo cerca de la playa. Tal vez estarás trabajando en tu propia empresa o viajando por el mundo. Hagas lo que hagas, espero que seas feliz».\nEl mes pasado, Sofía cumplió cuarenta años y abrió la caja. No todo pasó: no vive cerca de la playa. Pero terminó su maestría, y ahora da clases de inglés en una universidad.",
       q: [
-        ["What will he be doing this time next year?", ["Working in Canada", "Preparing for the TOEFL exam", "Buying a house"], 1],
-        ["What will he have saved money for in three years?", ["A down payment on a house", "A new car", "A trip"], 0],
-        ["What will he be doing in five years?", ["Studying English", "Looking for a job", "Leading his own team"], 2]
+        ["¿Cuándo escribió Sofía la carta?", ["En su cumpleaños número veinte", "En su cumpleaños número treinta", "Cuando se graduó"], 1],
+        ["¿Cuándo decidió abrirla?", ["Un año después", "Diez años después", "Cuando se casara"], 1],
+        ["¿Qué esperaba haber aprendido?", ["A cocinar", "A hablar bien inglés", "A manejar"], 1],
+        ["¿Qué no pasó?", ["No terminó su maestría", "No vive cerca de la playa", "No aprendió inglés"], 1],
+        ["¿A qué se dedica Sofía ahora?", ["Tiene su propia empresa", "Da clases de inglés en una universidad", "Viaja por el mundo"], 1]
       ]
     }
   },
@@ -425,13 +453,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ellos se echaron para atrás.", "They backed out.", "", ""]
     ],
     r: {
-      t: "A busy Monday",
-      en: "Monday started badly. The client backed out of a big deal at the last minute, and the project fell through.\nMy boss set up an emergency meeting to figure out what went wrong. We went over the numbers and found out that our price was fifteen percent higher than the competition.\nWe came up with a new plan: cut down on transportation costs and offer longer payment terms. We ruled out a price discount because our margins are already low.\nI ran out of time to catch up on my emails, so I'll deal with them tomorrow. Before leaving, I backed up all the files. What a day!",
-      es: "El lunes empezó mal. El cliente se echó para atrás en un trato grande a última hora y el proyecto se cayó.\nMi jefe organizó una junta de emergencia para averiguar qué salió mal. Revisamos los números y descubrimos que nuestro precio era quince por ciento más alto que el de la competencia.\nSe nos ocurrió un plan nuevo: reducir los costos de transporte y ofrecer plazos de pago más largos. Descartamos un descuento en el precio porque nuestros márgenes ya son bajos.\nMe quedé sin tiempo para ponerme al corriente con los correos, así que me encargaré de ellos mañana. Antes de irme, respaldé todos los archivos. ¡Qué día!",
+      t: "The deal that almost fell through",
+      en: "Last month, Karla's company was about to sign a big contract with a client in Chicago. Everything was ready. Then, on Friday afternoon, the client called: they wanted to back out.\nKarla didn't panic. \"I'll look into it,\" she told her boss. She called the client and found out the problem: the price was too high for them. If they lost this client, the company would lose a year of work.\nThat weekend, Karla and her team set up a video call and went over the contract in detail. They figured out how to cut down on costs, and they came up with a new proposal: a lower price, but a longer contract.\nOn Monday, the client accepted. The project didn't fall through, and a month later Karla was promoted.",
+      es: "El mes pasado, la empresa de Karla estaba a punto de firmar un contrato grande con un cliente de Chicago. Todo estaba listo. Luego, el viernes en la tarde, el cliente llamó: se querían echar para atrás.\nKarla no entró en pánico. «Lo investigo», le dijo a su jefe. Le llamó al cliente y descubrió el problema: el precio era demasiado alto para ellos. Si perdían a este cliente, la empresa perdería un año de trabajo.\nEse fin de semana, Karla y su equipo organizaron una videollamada y revisaron el contrato a fondo. Averiguaron cómo reducir costos y se les ocurrió una nueva propuesta: un precio más bajo, pero un contrato más largo.\nEl lunes, el cliente aceptó. El proyecto no se cayó, y un mes después a Karla la ascendieron.",
       q: [
-        ["Why did the project fall through?", ["The product failed", "The client backed out", "The boss canceled it"], 1],
-        ["What did they find out?", ["Their price was fifteen percent higher than the competition", "The client had no money", "The product was late"], 0],
-        ["Why did they rule out a discount?", ["The client didn't want it", "It was too late", "Their margins are already low"], 2]
+        ["¿De dónde era el cliente?", ["De Monterrey", "De Chicago", "De Toronto"], 1],
+        ["¿Qué quería hacer el cliente el viernes?", ["Firmar el contrato", "Echarse para atrás", "Cambiar de proveedor"], 1],
+        ["¿Cuál era el problema?", ["El contrato era muy corto", "El precio era demasiado alto", "El producto llegaba tarde"], 1],
+        ["¿Qué propuso el equipo de Karla?", ["Un precio más alto", "Un precio más bajo, pero un contrato más largo", "Cancelar el proyecto"], 1],
+        ["¿Qué le pasó a Karla un mes después?", ["La despidieron", "La ascendieron", "Se cambió de empresa"], 1]
       ]
     }
   },
@@ -457,13 +487,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Evita la exposición al sol.", "Avoid sun exposure.", "", ""]
     ],
     r: {
-      t: "A window to the universe",
-      en: "In 2021, scientists launched the most powerful space telescope in history. It travels around the Sun, about one and a half million kilometers from the Earth.\nThe telescope observes the universe with infrared light. It can see galaxies that formed more than thirteen billion years ago, not long after the beginning of the universe.\nEvery week, researchers around the world study its images. Some are looking for planets with water and an atmosphere. Maybe one day they will prove that we are not alone.",
-      es: "En 2021, los científicos lanzaron el telescopio espacial más potente de la historia. Viaja alrededor del Sol, a como un millón y medio de kilómetros de la Tierra.\nEl telescopio observa el universo con luz infrarroja. Puede ver galaxias que se formaron hace más de trece mil millones de años, poco después del principio del universo.\nCada semana, investigadores de todo el mundo estudian sus imágenes. Algunos buscan planetas con agua y atmósfera. Tal vez un día comprueben que no estamos solos.",
+      t: "The first Mexican in space",
+      en: "Rodolfo Neri Vela was born in Chilpancingo, Guerrero, in 1952. As a boy, he loved science, and he studied engineering at the UNAM. Later, he became a university researcher and an expert in communications satellites.\nIn 1985, he traveled to space on the American space shuttle Atlantis. The mission lasted almost a week. During the trip, the crew launched a Mexican communications satellite, and Neri Vela did several scientific experiments.\nHe also became famous for a small detail: he took tortillas to space! They were perfect for space because they don't make crumbs.\nAlmost forty years later, in 2022, Katya Echazarreta, an engineer from Guadalajara, became the first Mexican woman in space. Today, their stories inspire many young Mexicans who want to study science.",
+      es: "Rodolfo Neri Vela nació en Chilpancingo, Guerrero, en 1952. De niño le encantaba la ciencia, y estudió ingeniería en la UNAM. Después se hizo investigador universitario y experto en satélites de comunicaciones.\nEn 1985 viajó al espacio en el transbordador espacial estadounidense Atlantis. La misión duró casi una semana. Durante el viaje, la tripulación lanzó un satélite mexicano de comunicaciones, y Neri Vela hizo varios experimentos científicos.\nTambién se hizo famoso por un pequeño detalle: ¡llevó tortillas al espacio! Eran perfectas para el espacio porque no hacen migajas.\nCasi cuarenta años después, en 2022, Katya Echazarreta, una ingeniera de Guadalajara, se convirtió en la primera mujer mexicana en el espacio. Hoy, sus historias inspiran a muchos jóvenes mexicanos que quieren estudiar ciencias.",
       q: [
-        ["¿Cuándo lanzaron el telescopio?", ["En 2021", "En 1990", "En 2010"], 0],
-        ["¿Qué puede ver?", ["Solo la Luna", "Galaxias de hace más de trece mil millones de años", "Solo planetas cercanos"], 1],
-        ["¿Qué buscan algunos investigadores?", ["Petróleo", "Satélites viejos", "Planetas con agua y atmósfera"], 2]
+        ["¿Dónde nació Rodolfo Neri Vela?", ["En Monterrey", "En Chilpancingo, Guerrero", "En la Ciudad de México"], 1],
+        ["¿En qué era experto?", ["En medicina", "En satélites de comunicaciones", "En química"], 1],
+        ["¿Cuánto duró la misión?", ["Un mes", "Casi una semana", "Un año"], 1],
+        ["¿Qué lanzó la tripulación?", ["Un cohete a la Luna", "Un satélite mexicano de comunicaciones", "Un telescopio"], 1],
+        ["¿Por qué las tortillas eran perfectas para el espacio?", ["Porque son ligeras", "Porque no hacen migajas", "Porque duran mucho"], 1]
       ]
     }
   },
@@ -489,13 +521,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Establecieron una nueva ley.", "They established a new law.", "", ""]
     ],
     r: {
-      t: "Tenochtitlan",
-      en: "According to legend, the Aztecs left their home in the north to look for a sign: an eagle on a cactus, eating a snake. In 1325 they found it on an island in a lake, and there they founded Tenochtitlan.\nIn less than two centuries, Tenochtitlan became the capital of a powerful empire. When the Spanish arrived in 1519, it was one of the biggest cities in the world, with palaces, temples and markets.\nIn 1521, after a long battle, the city fell. The Spanish built Mexico City on its ruins. Today the eagle and the snake are on the Mexican flag, part of a legacy that is still alive.",
-      es: "Según la leyenda, los aztecas dejaron su hogar en el norte para buscar una señal: un águila sobre un nopal, comiéndose una serpiente. En 1325 la encontraron en una isla de un lago, y ahí fundaron Tenochtitlan.\nEn menos de dos siglos, Tenochtitlan se convirtió en la capital de un imperio poderoso. Cuando llegaron los españoles en 1519, era una de las ciudades más grandes del mundo, con palacios, templos y mercados.\nEn 1521, después de una batalla larga, la ciudad cayó. Los españoles construyeron la Ciudad de México sobre sus ruinas. Hoy el águila y la serpiente están en la bandera de México, parte de un legado que sigue vivo.",
+      t: "The eagle and the snake",
+      en: "According to the legend, the Mexica people lived in a place called Aztlán. One day, their god told them to leave and look for a new home. The sign was simple: an eagle on a cactus, eating a snake.\nThey walked for many years. Finally, in 1325, they saw the eagle on a small island in a lake. There, they founded Tenochtitlan.\nIn less than two centuries, the small city became the capital of the Aztec Empire, with more than two hundred thousand people. However, in 1521 the Spanish conquered the city, and the colonial period began.\nToday, Mexico City is built on the ruins of Tenochtitlan, and the eagle and the snake are on the Mexican flag. It's part of our heritage.",
+      es: "Según la leyenda, el pueblo mexica vivía en un lugar llamado Aztlán. Un día, su dios les dijo que se fueran y buscaran un nuevo hogar. La señal era sencilla: un águila sobre un nopal, comiéndose una serpiente.\nCaminaron durante muchos años. Por fin, en 1325, vieron el águila en una pequeña isla en un lago. Ahí fundaron Tenochtitlan.\nEn menos de dos siglos, la pequeña ciudad se convirtió en la capital del Imperio azteca, con más de doscientas mil personas. Sin embargo, en 1521 los españoles conquistaron la ciudad, y comenzó el periodo colonial.\nHoy, la Ciudad de México está construida sobre las ruinas de Tenochtitlan, y el águila y la serpiente están en la bandera de México. Es parte de nuestro patrimonio.",
       q: [
-        ["¿Qué señal buscaban los aztecas?", ["Un águila sobre un nopal comiéndose una serpiente", "Un río grande", "Una montaña nevada"], 0],
-        ["¿Cuándo llegaron los españoles?", ["En 1325", "En 1519", "En 1821"], 1],
-        ["¿Dónde están hoy el águila y la serpiente?", ["En un museo", "En una moneda antigua", "En la bandera de México"], 2]
+        ["¿Dónde vivían antes los mexicas?", ["En Tenochtitlan", "En Aztlán", "En Yucatán"], 1],
+        ["¿Cuál era la señal?", ["Un río con muchos peces", "Un águila sobre un nopal comiéndose una serpiente", "Una montaña con nieve"], 1],
+        ["¿Dónde vieron el águila?", ["En una montaña", "En una isla en un lago", "En el desierto"], 1],
+        ["¿Qué pasó en 1521?", ["Se fundó la ciudad", "Los españoles conquistaron la ciudad", "México se independizó"], 1],
+        ["¿Dónde están hoy el águila y la serpiente?", ["En un museo", "En la bandera de México", "En el Zócalo"], 1]
       ]
     }
   },
@@ -521,13 +555,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Publicaron el artículo ayer.", "They published the article yesterday.", "", ""]
     ],
     r: {
-      t: "Where do you get your news?",
-      en: "My grandfather read the newspaper every morning and listened to the radio in the car. My parents watched the news on television every night at ten.\nI get my news in a different way. I follow a few journalists on social media and read articles from different sources. I also listen to news podcasts while I drive.\nThe problem is that anyone can publish anything online. That's why I always check where the information comes from. If I only see a story on one website, I don't believe it until a serious newspaper confirms it.",
-      es: "Mi abuelo leía el periódico todas las mañanas y escuchaba la radio en el carro. Mis papás veían las noticias en la tele todas las noches a las diez.\nYo me informo de otra manera. Sigo a algunos periodistas en redes sociales y leo artículos de distintas fuentes. También escucho podcasts de noticias mientras manejo.\nEl problema es que cualquiera puede publicar cualquier cosa en internet. Por eso siempre reviso de dónde viene la información. Si solo veo una noticia en una página, no la creo hasta que la confirma un periódico serio.",
+      t: "A day at the newspaper",
+      en: "Mónica is a journalist at El Diario, a newspaper in Guadalajara. Her day starts at seven, when she reads the other newspapers and listens to the news on the radio.\nAt nine, she has a meeting with the editor. They decide which stories are important. \"We only publish information from official sources,\" the editor always says.\nIn the afternoon, Mónica goes out with a photographer. Last week they covered the soccer final. Thousands of fans celebrated in the streets, and their photos were on the front page of the Sunday edition.\nFewer people buy the newspaper today, but the website has a big audience. \"People read the news on their phones now,\" says Mónica. That's why she also records a short video every day for the website.",
+      es: "Mónica es periodista en El Diario, un periódico de Guadalajara. Su día empieza a las siete, cuando lee los otros periódicos y escucha las noticias en la radio.\nA las nueve tiene una junta con el editor. Deciden qué noticias son importantes. «Solo publicamos información de fuentes oficiales», dice siempre el editor.\nEn la tarde, Mónica sale con un fotógrafo. La semana pasada cubrieron la final de futbol. Miles de aficionados celebraron en las calles, y sus fotos salieron en la portada de la edición del domingo.\nHoy menos gente compra el periódico, pero el sitio web tiene mucha audiencia. «Ahora la gente lee las noticias en su celular», dice Mónica. Por eso también graba un video corto cada día para el sitio web.",
       q: [
-        ["¿Cómo se informaba su abuelo?", ["Con el periódico y la radio", "Con internet", "Con revistas"], 0],
-        ["¿Qué escucha mientras maneja?", ["Música", "Podcasts de noticias", "Audiolibros"], 1],
-        ["¿Qué hace si una noticia solo sale en una página?", ["La comparte", "La cree", "No la cree hasta que la confirme un periódico serio"], 2]
+        ["¿Dónde trabaja Mónica?", ["En un canal de televisión", "En un periódico de Guadalajara", "En una revista"], 1],
+        ["¿Qué hace a las siete de la mañana?", ["Va a una junta", "Lee los otros periódicos y escucha la radio", "Toma fotos"], 1],
+        ["¿Qué dice siempre el editor?", ["Que hay que escribir rápido", "Que solo publican información de fuentes oficiales", "Que la radio es mejor"], 1],
+        ["¿Dónde salieron las fotos de la final?", ["En la televisión", "En la portada de la edición del domingo", "En una revista deportiva"], 1],
+        ["¿Dónde lee la gente las noticias ahora?", ["En el periódico", "En su celular", "En la radio"], 1]
       ]
     }
   },
@@ -554,13 +590,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["una puerta automática", "an automatic door", "", ""]
     ],
     r: {
-      t: "Working from home",
-      en: "Since the pandemic, I work from home three days a week. My company gave me a laptop, a second monitor and a headset with good audio. I connect to the company network with a secure password.\nMost of my meetings are virtual. At first it was hard: the internet signal was weak, and my computer was always asking for software updates. Now I have a better connection, and everything updates automatically at night.\nTechnology makes my life easier, but I also learned to disconnect. At six o'clock I turn off my devices and put my phone on silent. My family deserves my attention too.",
-      es: "Desde la pandemia trabajo desde casa tres días a la semana. Mi empresa me dio una laptop, un segundo monitor y unos audífonos con buen audio. Me conecto a la red de la empresa con una contraseña segura.\nLa mayoría de mis juntas son virtuales. Al principio fue difícil: la señal de internet era débil y mi computadora siempre pedía actualizaciones del software. Ahora tengo mejor conexión y todo se actualiza solo en la noche.\nLa tecnología me hace la vida más fácil, pero también aprendí a desconectarme. A las seis apago mis aparatos y pongo el celular en silencio. Mi familia también merece mi atención.",
+      t: "Grandma goes digital",
+      en: "Doña Chuy is seventy-four years old, and until last year she didn't have a smartphone. \"I don't need those electronic devices,\" she always said.\nThen her granddaughter moved to Canada, and everything changed. Now Doña Chuy makes video calls every Sunday. Her grandson taught her to put the phone on silent, use airplane mode on flights and save photos in the cloud.\nAt first, it was difficult. \"The phone doesn't work!\" she told her grandson one night. He looked at it and laughed. \"Grandma, the battery is dead. You just need to charge it.\"\nToday, Doña Chuy sends messages, buys groceries online and even uses artificial intelligence to find recipes. \"Technology is changing the world,\" she says, \"and I don't want to stay behind.\"",
+      es: "Doña Chuy tiene setenta y cuatro años, y hasta el año pasado no tenía un celular inteligente. «No necesito esos aparatos electrónicos», decía siempre.\nLuego su nieta se mudó a Canadá, y todo cambió. Ahora doña Chuy hace videollamadas cada domingo. Su nieto le enseñó a poner el celular en silencio, a usar el modo avión en los vuelos y a guardar fotos en la nube.\nAl principio fue difícil. «¡El celular no funciona!», le dijo una noche a su nieto. Él lo revisó y se rio. «Abuela, se acabó la batería. Solo tienes que cargarlo».\nHoy, doña Chuy manda mensajes, compra el mandado en línea y hasta usa inteligencia artificial para buscar recetas. «La tecnología está cambiando el mundo», dice, «y no me quiero quedar atrás».",
       q: [
-        ["¿Cuántos días trabaja desde casa?", ["Tres a la semana", "Todos los días", "Uno al mes"], 0],
-        ["¿Qué problema tenía al principio?", ["No tenía computadora", "La señal era débil", "Su jefe no le hablaba"], 1],
-        ["¿Qué hace a las seis?", ["Empieza a trabajar", "Tiene una junta", "Apaga sus aparatos"], 2]
+        ["¿Cuántos años tiene doña Chuy?", ["Sesenta y cuatro", "Setenta y cuatro", "Ochenta y cuatro"], 1],
+        ["¿Por qué empezó a usar el celular?", ["Porque se lo regalaron", "Porque su nieta se mudó a Canadá", "Porque lo necesitaba para trabajar"], 1],
+        ["¿Qué le enseñó su nieto?", ["A tomar fotos", "A usar el modo avión y guardar fotos en la nube", "A programar"], 1],
+        ["¿Qué pasaba cuando creyó que el celular no funcionaba?", ["Estaba roto", "Se le había acabado la batería", "No tenía señal"], 1],
+        ["¿Para qué usa la inteligencia artificial?", ["Para escribir cartas", "Para buscar recetas", "Para aprender inglés"], 1]
       ]
     }
   },
@@ -586,13 +624,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["mis conciudadanos", "my fellow citizens", "", ""]
     ],
     r: {
-      t: "A community that helps",
-      en: "In my neighborhood there's a small foundation that helps families living in poverty. It started fifteen years ago, when a group of neighbors decided to collect food for the people in need.\nToday it's a nonprofit organization with more than a hundred volunteers. They give classes, help immigrants find jobs and run a free clinic on weekends. Many of the volunteers are retired teachers and doctors.\nThe foundation works with everyone, without discrimination. Its message is simple: we are all equal, and everyone has the right to a decent life. When people work together, a whole community can change.",
-      es: "En mi colonia hay una fundación pequeña que ayuda a familias que viven en pobreza. Empezó hace quince años, cuando un grupo de vecinos decidió juntar comida para las personas necesitadas.\nHoy es una organización sin fines de lucro con más de cien voluntarios. Dan clases, ayudan a inmigrantes a encontrar trabajo y tienen una clínica gratuita los fines de semana. Muchos de los voluntarios son maestros y doctores jubilados.\nLa fundación trabaja con todos, sin discriminación. Su mensaje es sencillo: todos somos iguales y todos tenemos derecho a una vida digna. Cuando la gente trabaja junta, una comunidad entera puede cambiar.",
+      t: "A house of hope",
+      en: "Twenty years ago, Doña Teresa saw a group of migrants sleeping under a bridge in Saltillo. It was winter, and it was very cold. That night, she took them to her house and gave them soup and blankets.\nToday, Casa Esperanza is a nonprofit organization with forty volunteers. Every day, it gives food, a bed and medical help to about a hundred people from Mexico, Central America and even Venezuela.\nMany people leave their countries because of poverty or violence. \"We all have equal rights,\" says Doña Teresa. \"Nobody leaves home because they want to.\"\nThe shelter doesn't receive money from the government. It works thanks to people who donate money, food and clothes, and to volunteers who give their time every weekend.",
+      es: "Hace veinte años, doña Teresa vio a un grupo de migrantes durmiendo debajo de un puente en Saltillo. Era invierno y hacía mucho frío. Esa noche, los llevó a su casa y les dio sopa y cobijas.\nHoy, Casa Esperanza es una organización sin fines de lucro con cuarenta voluntarios. Cada día da comida, una cama y atención médica a unas cien personas de México, Centroamérica y hasta de Venezuela.\nMucha gente deja su país por la pobreza o la violencia. «Todos tenemos los mismos derechos», dice doña Teresa. «Nadie deja su casa porque quiere».\nEl albergue no recibe dinero del gobierno. Funciona gracias a la gente que dona dinero, comida y ropa, y a los voluntarios que dan su tiempo cada fin de semana.",
       q: [
-        ["¿Cómo empezó la fundación?", ["Un grupo de vecinos juntó comida", "El gobierno la abrió", "Una empresa grande la creó"], 0],
-        ["¿Quiénes son muchos de los voluntarios?", ["Estudiantes", "Maestros y doctores jubilados", "Políticos"], 1],
-        ["¿Cuál es su mensaje?", ["Hay que trabajar más", "Hay que ahorrar", "Todos somos iguales"], 2]
+        ["¿Qué vio doña Teresa hace veinte años?", ["Un accidente", "Un grupo de migrantes durmiendo debajo de un puente", "Una casa abandonada"], 1],
+        ["¿Qué les dio esa noche?", ["Dinero", "Sopa y cobijas", "Trabajo"], 1],
+        ["¿Cuántos voluntarios tiene hoy Casa Esperanza?", ["Diez", "Cuarenta", "Cien"], 1],
+        ["¿Qué dice doña Teresa?", ["Que el gobierno debe ayudar", "Que todos tenemos los mismos derechos", "Que necesitan más camas"], 1],
+        ["¿De dónde sale el dinero del albergue?", ["Del gobierno", "De la gente que dona", "De una empresa"], 1]
       ]
     }
   },
@@ -617,13 +657,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["El reglamento exige casco.", "The rules require a helmet.", "", ""]
     ],
     r: {
-      t: "A new law",
-      en: "Last year Congress approved a reform to ban single-use plastics. The new legislation affects stores, restaurants and factories all over the country.\nSome business associations were against the law. They said it was too fast and that small businesses needed more time. After a long debate, the authorities extended the deadline by one year.\nNow the regulations are clear: stores can't give out plastic bags, and restaurants must use paper straws. Environmental groups say it's an important first step. The real test, they say, is whether the authorities enforce the law.",
-      es: "El año pasado el Congreso aprobó una reforma para prohibir los plásticos de un solo uso. La nueva legislación afecta a tiendas, restaurantes y fábricas de todo el país.\nAlgunas asociaciones de empresas estuvieron en contra de la ley. Dijeron que era demasiado rápida y que los negocios pequeños necesitaban más tiempo. Después de un debate largo, las autoridades ampliaron el plazo un año.\nAhora las regulaciones son claras: las tiendas no pueden dar bolsas de plástico y los restaurantes deben usar popotes de papel. Los grupos ambientalistas dicen que es un primer paso importante. La verdadera prueba, dicen, es si las autoridades hacen cumplir la ley.",
+      t: "A law against plastic bags",
+      en: "Two years ago, the local congress approved a new law: stores can't give plastic bags to their customers. The authorities said that the city produced too much plastic, and that most of it ended up in rivers and streets.\nAt first, many people were against the law. \"It's not fair,\" said a man at the supermarket. \"Now I have to pay for bags.\" Some companies asked the judges to stop the law, but the court's ruling was clear: the law protects the environment, and it doesn't violate anybody's rights.\nToday, most people bring their own bags. According to an official statement from the city, there is sixty percent less plastic in the rivers. Now the deputies want to ban plastic straws too.",
+      es: "Hace dos años, el congreso local aprobó una nueva ley: las tiendas no pueden dar bolsas de plástico a sus clientes. Las autoridades dijeron que la ciudad producía demasiado plástico y que la mayor parte terminaba en los ríos y en las calles.\nAl principio, mucha gente estaba en contra de la ley. «No es justo», dijo un señor en el súper. «Ahora tengo que pagar por las bolsas». Algunas empresas les pidieron a los jueces que detuvieran la ley, pero el fallo del tribunal fue claro: la ley protege el medio ambiente y no viola los derechos de nadie.\nHoy, la mayoría de la gente lleva sus propias bolsas. Según una declaración oficial de la ciudad, hay sesenta por ciento menos plástico en los ríos. Ahora los diputados quieren prohibir también los popotes de plástico.",
       q: [
-        ["¿Qué prohíbe la reforma?", ["Los plásticos de un solo uso", "Los carros viejos", "El papel"], 0],
-        ["¿Qué hicieron las autoridades después del debate?", ["Cancelaron la ley", "Ampliaron el plazo un año", "Cerraron las tiendas"], 1],
-        ["¿Cuál es la verdadera prueba según los grupos ambientalistas?", ["Que la gente esté contenta", "Que las tiendas vendan más", "Que las autoridades hagan cumplir la ley"], 2]
+        ["¿Qué aprobó el congreso local?", ["Una ley de tránsito", "Una ley contra las bolsas de plástico", "Un nuevo impuesto"], 1],
+        ["¿Por qué hicieron la ley?", ["Porque las bolsas eran caras", "Porque la ciudad producía demasiado plástico", "Porque lo pidieron las empresas"], 1],
+        ["¿Qué dijo el señor del súper?", ["Que la ley era buena", "Que no era justo pagar por las bolsas", "Que ya no iba a ir al súper"], 1],
+        ["¿Qué decidió el tribunal?", ["Que se cancelaba la ley", "Que la ley protege el medio ambiente", "Que las empresas tenían razón"], 1],
+        ["¿Qué quieren prohibir ahora los diputados?", ["Las botellas", "Los popotes de plástico", "Los carros viejos"], 1]
       ]
     }
   },
@@ -646,13 +688,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["un juicio justo", "a fair trial", "", ""]
     ],
     r: {
-      t: "The case of the missing money",
-      en: "Last year a famous businessman was accused of stealing millions of pesos from his own company. According to the authorities, he allegedly used fake documents to send the money to other countries.\nThe trial lasted six months. His attorneys said he was innocent and that there was no proof. But several witnesses testified against him, and the evidence was very strong.\nIn the end, the judge found him guilty of fraud and corruption, and he was sentenced to twelve years in prison. His attorneys say they will appeal the decision. Many people hope that this case shows that no one is above the law.",
-      es: "El año pasado un empresario famoso fue acusado de robar millones de pesos de su propia empresa. Según las autoridades, presuntamente usó documentos falsos para mandar el dinero a otros países.\nEl juicio duró seis meses. Sus abogados dijeron que era inocente y que no había pruebas. Pero varios testigos declararon en su contra y la evidencia era muy fuerte.\nAl final, el juez lo declaró culpable de fraude y corrupción, y lo condenaron a doce años de cárcel. Sus abogados dicen que van a apelar la decisión. Mucha gente espera que este caso demuestre que nadie está por encima de la ley.",
+      t: "Manager found guilty of fraud",
+      en: "A former manager of an electronics store was found guilty of fraud on Monday. The man, Jorge Ruiz, 48, allegedly took more than two hundred thousand dollars from the company over three years.\nThe trial lasted two weeks. Ruiz said he didn't commit any crime, and his attorney said there was no proof. However, a young employee testified that she saw Ruiz take money from the office one night. The security camera also recorded everything.\nAfter two days, the jury found him guilty, and the judge sentenced him to five years in prison. \"No one is above the law,\" said the company's attorney after the trial.\nRuiz's attorney said they are going to appeal the decision. The company has a new rule now: two people must check the money every night.",
+      es: "Un exgerente de una tienda de electrónicos fue declarado culpable de fraude el lunes. El hombre, Jorge Ruiz, de 48 años, presuntamente sacó más de doscientos mil dólares de la empresa durante tres años.\nEl juicio duró dos semanas. Ruiz dijo que no cometió ningún delito, y su abogado dijo que no había pruebas. Sin embargo, una empleada joven declaró que vio a Ruiz sacar dinero de la oficina una noche. La cámara de seguridad también grabó todo.\nDespués de dos días, el jurado lo declaró culpable, y el juez lo condenó a cinco años de prisión. «Nadie está por encima de la ley», dijo la abogada de la empresa después del juicio.\nEl abogado de Ruiz dijo que van a apelar la decisión. Ahora la empresa tiene una nueva regla: dos personas deben revisar el dinero cada noche.",
       q: [
-        ["¿De qué acusaron al empresario?", ["De robar dinero de su empresa", "De manejar borracho", "De no pagar la renta"], 0],
-        ["¿Cuánto duró el juicio?", ["Una semana", "Seis meses", "Cinco años"], 1],
-        ["¿Qué van a hacer sus abogados?", ["Nada", "Renunciar", "Apelar la decisión"], 2]
+        ["¿De qué acusaban a Jorge Ruiz?", ["De robar carros", "De fraude", "De corrupción en el gobierno"], 1],
+        ["¿Cuánto tiempo duró el juicio?", ["Dos días", "Dos semanas", "Tres años"], 1],
+        ["¿Quién declaró en el juicio?", ["El dueño de la tienda", "Una empleada joven", "Un policía"], 1],
+        ["¿A cuántos años lo condenaron?", ["A dos", "A cinco", "A diez"], 1],
+        ["¿Qué va a hacer el abogado de Ruiz?", ["Renunciar", "Apelar la decisión", "Devolver el dinero"], 1]
       ]
     }
   },
@@ -678,13 +722,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["el secretario de la Defensa", "the defense minister", "", ""]
     ],
     r: {
-      t: "The war that changed my grandfather",
-      en: "My grandfather was born in Texas, and when he was nineteen he joined the army. It was 1944, during the Second World War. A few months later, he was sent to Europe with thousands of other soldiers.\nHe didn't talk much about combat. He said the worst part was the destruction: cities and villages that were completely destroyed. But he also talked about friendship, and how the soldiers protected each other to survive.\nWhen the war ended, he came back home and became a teacher. He always said, \"Peace is not something we have. It's something we build every day.\" He died at ninety-two, a proud veteran and a very peaceful man.",
-      es: "Mi abuelo nació en Texas y a los diecinueve años entró al ejército. Era 1944, durante la Segunda Guerra Mundial. Unos meses después, lo mandaron a Europa con miles de soldados más.\nNo hablaba mucho del combate. Decía que lo peor era la destrucción: ciudades y pueblos completamente destruidos. Pero también hablaba de la amistad y de cómo los soldados se protegían unos a otros para sobrevivir.\nCuando terminó la guerra, regresó a casa y se hizo maestro. Siempre decía: «La paz no es algo que tenemos. Es algo que construimos todos los días». Murió a los noventa y dos años, un veterano orgulloso y un hombre muy pacífico.",
+      t: "The veteran at the parade",
+      en: "Every September 16th, Don Ramón goes to the military parade in Mexico City. He is seventy-eight years old, and he wears his medals on his chest.\nDon Ramón was born in Chihuahua, but his family moved to Texas when he was a boy. When he was nineteen, he joined the American army, and a year later he was sent to Vietnam. The war was terrible. He survived, but many of his friends didn't come back.\nAfter the war, he returned to Mexico, got married and opened a small mechanic shop. For many years, he never talked about the war with his children.\nNow he talks about it at schools. \"War destroys cities and families,\" he tells the students. \"Peace is the most important thing we have.\"",
+      es: "Cada 16 de septiembre, don Ramón va al desfile militar en la Ciudad de México. Tiene setenta y ocho años y lleva sus medallas en el pecho.\nDon Ramón nació en Chihuahua, pero su familia se mudó a Texas cuando era niño. A los diecinueve años entró al ejército estadounidense, y un año después lo mandaron a Vietnam. La guerra fue terrible. Él sobrevivió, pero muchos de sus amigos no regresaron.\nDespués de la guerra regresó a México, se casó y abrió un pequeño taller mecánico. Durante muchos años nunca habló de la guerra con sus hijos.\nAhora habla de eso en las escuelas. «La guerra destruye ciudades y familias», les dice a los estudiantes. «La paz es lo más importante que tenemos».",
       q: [
-        ["¿Cuándo entró al ejército?", ["En 1944, a los diecinueve años", "En 1960", "Después de la guerra"], 0],
-        ["¿Qué decía que era lo peor?", ["El frío", "La destrucción", "La comida"], 1],
-        ["¿Qué hizo cuando terminó la guerra?", ["Se quedó en Europa", "Siguió en el ejército", "Regresó y se hizo maestro"], 2]
+        ["¿Cuántos años tiene don Ramón?", ["Sesenta y ocho", "Setenta y ocho", "Ochenta y ocho"], 1],
+        ["¿A dónde se mudó su familia?", ["A Chihuahua", "A Texas", "A Vietnam"], 1],
+        ["¿A qué edad entró al ejército?", ["A los dieciocho", "A los diecinueve", "A los veinte"], 1],
+        ["¿Qué hizo después de la guerra?", ["Se quedó en el ejército", "Regresó a México y abrió un taller", "Se fue a vivir a Texas"], 1],
+        ["¿Qué hace ahora en las escuelas?", ["Enseña historia", "Habla de la guerra y de la paz", "Da clases de mecánica"], 1]
       ]
     }
   },
@@ -707,13 +753,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Tiene ventajas y desventajas.", "It has advantages and disadvantages.", "", ""]
     ],
     r: {
-      t: "Should I buy a car?",
-      en: "I live twenty kilometers from my job, and I'm thinking about buying a car. Before deciding, I made a list of the pros and cons.\nThe main pro is time: by car I would save almost two hours a day. The cons are the cost of gas, insurance and parking, and the stress of driving in traffic. In this context, a car is not a luxury, but it's not cheap either.\nI also looked at the alternatives. A motorcycle is cheaper, but more dangerous. Working from home two days a week is another possibility. In the end, my objective is simple: more time with my family and less money spent on transport.",
-      es: "Vivo a veinte kilómetros de mi trabajo y estoy pensando en comprar un carro. Antes de decidir, hice una lista de los pros y los contras.\nEl pro principal es el tiempo: en carro me ahorraría casi dos horas al día. Los contras son el costo de la gasolina, el seguro y el estacionamiento, y el estrés de manejar en el tráfico. En este contexto, un carro no es un lujo, pero tampoco es barato.\nTambién vi las alternativas. Una moto es más barata, pero más peligrosa. Trabajar desde casa dos días a la semana es otra posibilidad. Al final, mi objetivo es sencillo: más tiempo con mi familia y menos dinero gastado en transporte.",
+      t: "A four-day week",
+      en: "Last year, a software company in Guadalajara tried a different approach: its employees worked only four days a week, but they earned the same salary.\nWhat were the pros and cons? On the positive side, people were happier and less tired. Fewer employees quit, and the company saved money on electricity. The final outcome surprised everybody: productivity went up ten percent.\nHowever, there were problems too. Some clients complained because nobody answered the phone on Fridays. So the company looked at other alternatives, and now half the team rests on Fridays and the other half on Mondays. Other companies in the city are now studying the idea.\n\"It's not perfect,\" says the director, \"but it has a lot of potential.\" Next year, they want to try it in their office in Monterrey.",
+      es: "El año pasado, una empresa de software en Guadalajara probó un enfoque diferente: sus empleados trabajaron solo cuatro días a la semana, pero ganaron el mismo sueldo.\n¿Cuáles fueron los pros y los contras? Por el lado positivo, la gente estaba más contenta y menos cansada. Menos empleados renunciaron y la empresa ahorró dinero en electricidad. El resultado final sorprendió a todos: la productividad subió un diez por ciento.\nSin embargo, también hubo problemas. Algunos clientes se quejaron porque nadie contestaba el teléfono los viernes. Así que la empresa buscó otras alternativas, y ahora la mitad del equipo descansa los viernes y la otra mitad los lunes. Otras empresas de la ciudad ahora están estudiando la idea.\n«No es perfecto», dice la directora, «pero tiene mucho potencial». El próximo año quieren probarlo en su oficina de Monterrey.",
       q: [
-        ["¿Cuál es el pro principal del carro?", ["Ahorrar tiempo", "Ahorrar dinero", "Hacer ejercicio"], 0],
-        ["¿Qué dice de la moto?", ["Que es más cara", "Que es más barata pero más peligrosa", "Que es más cómoda"], 1],
-        ["¿Cuál es su objetivo?", ["Tener el carro más caro", "Cambiar de trabajo", "Más tiempo con su familia y gastar menos"], 2]
+        ["¿Qué probó la empresa?", ["Trabajar desde casa", "Trabajar cuatro días a la semana", "Pagar más a sus empleados"], 1],
+        ["¿Qué pasó con la productividad?", ["Bajó un poco", "Subió un diez por ciento", "No cambió"], 1],
+        ["¿En qué ahorró dinero la empresa?", ["En sueldos", "En electricidad", "En renta"], 1],
+        ["¿Por qué se quejaron algunos clientes?", ["Porque subieron los precios", "Porque nadie contestaba el teléfono los viernes", "Porque los productos llegaban tarde"], 1],
+        ["¿Cómo trabajan ahora?", ["Todos descansan el viernes", "La mitad descansa el viernes y la otra mitad el lunes", "Volvieron a trabajar cinco días"], 1]
       ]
     }
   },
@@ -739,13 +787,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["nuestro mercado meta", "our target market", "", ""]
     ],
     r: {
-      t: "From a small shop to a franchise",
-      en: "In 1998, Rosa opened a small coffee shop in Puebla with her husband. They roasted their own coffee and sold homemade bread. Their mission was simple: good coffee at a fair price.\nTen years later, they had five shops. Rosa's son studied marketing and helped them develop a new strategy: a modern logo, an online store and coffee for offices. In 2015 they launched their first franchise.\nToday the company has more than eighty shops in Mexico, and its headquarters are still in Puebla. Investors want to expand to the United States, but Rosa is careful. \"Growth is good,\" she says, \"but our commitment to quality comes first.\"",
-      es: "En 1998, Rosa abrió un café pequeño en Puebla con su esposo. Tostaban su propio café y vendían pan casero. Su misión era sencilla: buen café a un precio justo.\nDiez años después tenían cinco cafés. El hijo de Rosa estudió mercadotecnia y les ayudó a desarrollar una estrategia nueva: un logotipo moderno, una tienda en línea y café para oficinas. En 2015 lanzaron su primera franquicia.\nHoy la empresa tiene más de ochenta cafés en México y su sede sigue en Puebla. Los inversionistas quieren expandirse a Estados Unidos, pero Rosa es cuidadosa. «Crecer es bueno», dice, «pero primero va nuestro compromiso con la calidad».",
+      t: "From a garage to the world",
+      en: "In 1998, two brothers from Guadalajara, Raúl and Óscar Medina, started making tortilla chips in their garage. At first, they sold them to small stores in their neighborhood.\nTheir strategy was simple: use the best corn and sell at a fair price. Little by little, the business grew. In 2005, they opened a factory, and the company's headquarters moved to an industrial park.\nThe big change came in 2015, when they formed a partnership with a supermarket chain in Texas. Today, the company has eight hundred employees and sells its products in five countries.\nRaúl is still the CEO. \"Innovation is key,\" he says, \"but our commitment to quality is what made us grow.\" Next year, they're going to launch a new product: chips made with beans.",
+      es: "En 1998, dos hermanos de Guadalajara, Raúl y Óscar Medina, empezaron a hacer totopos en su cochera. Al principio, los vendían en tienditas de su colonia.\nSu estrategia era sencilla: usar el mejor maíz y vender a un precio justo. Poco a poco, el negocio creció. En 2005 abrieron una fábrica, y la sede de la empresa se mudó a un parque industrial.\nEl gran cambio llegó en 2015, cuando firmaron una sociedad con una cadena de supermercados de Texas. Hoy, la empresa tiene ochocientos empleados y vende sus productos en cinco países.\nRaúl sigue siendo el director general. «La innovación es clave», dice, «pero nuestro compromiso con la calidad es lo que nos hizo crecer». El próximo año van a lanzar un producto nuevo: totopos hechos con frijol.",
       q: [
-        ["¿Cuál era su misión al principio?", ["Buen café a un precio justo", "Abrir cien cafés", "Vender en Estados Unidos"], 0],
-        ["¿Qué estudió el hijo de Rosa?", ["Contabilidad", "Mercadotecnia", "Ingeniería"], 1],
-        ["¿Qué dice Rosa sobre crecer?", ["Que no le interesa", "Que es lo más importante", "Que primero va la calidad"], 2]
+        ["¿Dónde empezaron a hacer totopos los hermanos?", ["En una fábrica", "En su cochera", "En una tienda"], 1],
+        ["¿Cuál era su estrategia?", ["Vender muy barato", "Usar el mejor maíz y vender a un precio justo", "Vender solo en Estados Unidos"], 1],
+        ["¿Qué pasó en 2015?", ["Abrieron una fábrica", "Firmaron una sociedad con una cadena de supermercados de Texas", "Vendieron la empresa"], 1],
+        ["¿Cuántos empleados tiene hoy la empresa?", ["Ochenta", "Ochocientos", "Ocho mil"], 1],
+        ["¿Qué producto nuevo van a lanzar?", ["Salsa picante", "Totopos hechos con frijol", "Tortillas de harina"], 1]
       ]
     }
   },
@@ -767,13 +817,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["un crecimiento de aproximadamente 3%", "roughly three percent growth", "", ""]
     ],
     r: {
-      t: "The peso and your wallet",
-      en: "When the peso is strong against the dollar, imports become cheaper. That's good news for consumers who buy electronics, cars and other imported products.\nBut a strong peso is bad news for exporters. Companies that sell their products in the United States receive dollars, and those dollars are worth fewer pesos. Their revenue and profits can go down.\nFamilies that receive money from relatives in the U.S. also notice it: the same hundred dollars buy less in Mexico. The economy is like a big chain: when one part moves, everything else moves too.",
-      es: "Cuando el peso está fuerte frente al dólar, las importaciones se abaratan. Es una buena noticia para los consumidores que compran aparatos electrónicos, carros y otros productos importados.\nPero un peso fuerte es una mala noticia para los exportadores. Las empresas que venden sus productos en Estados Unidos reciben dólares, y esos dólares valen menos pesos. Sus ingresos y ganancias pueden bajar.\nLas familias que reciben dinero de parientes en Estados Unidos también lo notan: los mismos cien dólares alcanzan para menos en México. La economía es como una cadena grande: cuando una parte se mueve, todo lo demás también.",
+      t: "Factories, jobs and rent",
+      en: "In the last few years, many international companies have opened factories in the north of Mexico. Mexico trades a lot with the United States, and companies want to be close to their customers.\nThis brought economic growth to cities like Saltillo and Monterrey. There are more jobs, salaries went up, and exports reached a record high.\nHowever, not everything is good news. Because of supply and demand, rents have increased sharply. With so many new workers, there aren't enough houses, and a small apartment can cost twice as much as five years ago.\n\"My salary went up ten percent, but my rent went up thirty,\" says Jorge, an engineer at a car factory. Economists say that cities need to build more houses and better public transportation.",
+      es: "En los últimos años, muchas empresas internacionales han abierto fábricas en el norte de México. México comercia mucho con Estados Unidos, y las empresas quieren estar cerca de sus clientes.\nEsto trajo crecimiento económico a ciudades como Saltillo y Monterrey. Hay más trabajos, los sueldos subieron y las exportaciones alcanzaron un máximo histórico.\nSin embargo, no todo son buenas noticias. Por la oferta y la demanda, las rentas han subido bruscamente. Con tantos trabajadores nuevos, no hay suficientes casas, y un departamento pequeño puede costar el doble que hace cinco años.\n«Mi sueldo subió diez por ciento, pero mi renta subió treinta», dice Jorge, un ingeniero de una fábrica de carros. Los economistas dicen que las ciudades necesitan construir más casas y mejor transporte público.",
       q: [
-        ["¿Qué pasa con las importaciones cuando el peso está fuerte?", ["Se abaratan", "Se encarecen", "Desaparecen"], 0],
-        ["¿A quién le afecta mal un peso fuerte?", ["A los consumidores", "A los exportadores", "A los turistas mexicanos"], 1],
-        ["¿Con qué compara el texto a la economía?", ["Con un río", "Con un juego", "Con una cadena"], 2]
+        ["¿Por qué las empresas abren fábricas en el norte de México?", ["Porque los sueldos son bajos", "Porque quieren estar cerca de sus clientes en Estados Unidos", "Porque el gobierno se lo pidió"], 1],
+        ["¿Qué pasó con las exportaciones?", ["Bajaron", "Alcanzaron un máximo histórico", "Se mantuvieron estables"], 1],
+        ["¿Por qué subieron las rentas?", ["Por la inflación", "Por la oferta y la demanda", "Por los impuestos"], 1],
+        ["¿Cuánto subió la renta de Jorge?", ["Diez por ciento", "Treinta por ciento", "El doble"], 1],
+        ["¿Qué dicen los economistas?", ["Que hay que bajar los sueldos", "Que se necesitan más casas y mejor transporte público", "Que hay que cerrar fábricas"], 1]
       ]
     }
   },
@@ -798,13 +850,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Al final, todo salió bien.", "Eventually, everything worked out.", "", "eventually = al final (no «eventualmente»)."]
     ],
     r: {
-      t: "Honestly, it's not that bad",
-      en: "My sister asked me what I think about her new boyfriend. Honestly, I don't know what to say. He's nice and he's obviously in love with her, though he's a bit boring.\nBasically, he only talks about soccer. Personally, I find it extremely boring, but my sister loves soccer too, so they have a lot in common. In fact, they met at a game.\nHopefully, I'll get to know him better. As my mom says, the important thing is that he treats her well. And he does. In general, I'm happy for her. Truly.",
-      es: "Mi hermana me preguntó qué pienso de su novio nuevo. La verdad, no sé qué decir. Es buena onda y obviamente está enamorado de ella, aunque es un poco aburrido.\nBásicamente solo habla de futbol. A mí, personalmente, me parece aburridísimo, pero a mi hermana también le encanta el futbol, así que tienen mucho en común. De hecho, se conocieron en un partido.\nOjalá lo conozca mejor. Como dice mi mamá, lo importante es que la trate bien. Y sí la trata bien. En general, estoy contento por ella. De verdad.",
+      t: "A nurse's daily routine",
+      en: "My name is Rosa, and I currently work as a nurse at a hospital in Puebla. People often ask me about my daily routine, so here it is.\nI normally get up at five. I have coffee, I take my son to my mother's house, and I start work at seven. Basically, my day has three parts: I check the patients, I give them their medicine, and I talk to the doctors.\nHonestly, it's extremely tiring. Some days I simply don't have time to eat. In fact, last Monday I worked twelve hours without a break.\nHowever, I love my job. Personally, I think it's the most important job in the world. Hopefully, one day nurses will earn what they deserve.",
+      es: "Me llamo Rosa y actualmente trabajo como enfermera en un hospital de Puebla. La gente me pregunta seguido por mi rutina diaria, así que aquí está.\nNormalmente me levanto a las cinco. Tomo café, llevo a mi hijo a casa de mi mamá y empiezo a trabajar a las siete. Básicamente, mi día tiene tres partes: reviso a los pacientes, les doy sus medicinas y hablo con los doctores.\nLa verdad, es extremadamente cansado. Algunos días simplemente no tengo tiempo de comer. De hecho, el lunes pasado trabajé doce horas sin descanso.\nSin embargo, me encanta mi trabajo. Personalmente, creo que es el trabajo más importante del mundo. Ojalá algún día las enfermeras ganen lo que merecen.",
       q: [
-        ["¿Cómo es el novio, según su hermano?", ["Buena onda, pero un poco aburrido", "Grosero", "Muy divertido"], 0],
-        ["¿Dónde se conocieron?", ["En el trabajo", "En un partido de futbol", "En la escuela"], 1],
-        ["¿Qué es lo importante, según su mamá?", ["Que tenga dinero", "Que le guste el futbol", "Que la trate bien"], 2]
+        ["¿Dónde trabaja Rosa?", ["En una escuela", "En un hospital de Puebla", "En una farmacia"], 1],
+        ["¿A qué hora se levanta normalmente?", ["A las seis", "A las cinco", "A las siete"], 1],
+        ["¿Con quién deja a su hijo?", ["Con su esposo", "Con su mamá", "En la escuela"], 1],
+        ["¿Qué pasó el lunes pasado?", ["No fue a trabajar", "Trabajó doce horas sin descanso", "Llegó tarde"], 1],
+        ["¿Qué espera Rosa?", ["Cambiar de trabajo", "Que algún día las enfermeras ganen lo que merecen", "Trabajar menos horas"], 1]
       ]
     }
   },
@@ -829,13 +883,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["una prioridad absoluta", "an absolute priority", "", ""]
     ],
     r: {
-      t: "A highly recommended restaurant",
-      en: "Last Friday we finally tried the new Italian restaurant downtown. It was fully booked for weeks, so we reserved a table a month ago. It was worth it.\nThe food was incredibly good, especially the pasta, and the service was fast and friendly. The waiter checked on us regularly, but he didn't bother us constantly, which I greatly appreciate.\nThe only problem was a sudden noise from the kitchen: someone dropped a pile of plates! The manager was deeply sorry and gave us a free dessert. I strongly recommend this place. Book early!",
-      es: "El viernes pasado por fin probamos el restaurante italiano nuevo del centro. Estuvo lleno durante semanas, así que reservamos una mesa hace un mes. Valió la pena.\nLa comida estuvo increíblemente buena, sobre todo la pasta, y el servicio fue rápido y amable. El mesero pasaba a vernos seguido, pero no nos molestaba todo el tiempo, cosa que agradezco mucho.\nEl único problema fue un ruido repentino de la cocina: ¡a alguien se le cayó una pila de platos! El gerente se disculpó muchísimo y nos regaló el postre. Recomiendo mucho este lugar. ¡Reserven con tiempo!",
+      t: "Four stars for the Hotel Colonial",
+      en: "I stayed at the Hotel Colonial in Mérida for a work conference. The hotel is beautiful, and the location is excellent: it's incredibly close to the main square. The rooms are clean, and the staff is very friendly.\nThe first night, I barely slept. The air conditioner in my room made a constant noise, and the hotel was fully booked, so I couldn't change rooms. However, the manager gave me an immediate response. A technician fixed the problem the same day, and the manager apologized personally. Naturally, I was happy with that.\nBreakfast is served on the terrace, and the coffee is excellent. It rains heavily in September, so bring an umbrella. The only problem is the price: it's not cheap, especially in December.\nIn short, I strongly recommend this hotel. I'll definitely come back.",
+      es: "Me hospedé en el Hotel Colonial de Mérida por una conferencia de trabajo. El hotel es precioso y la ubicación es excelente: está increíblemente cerca de la plaza principal. Los cuartos están limpios y el personal es muy amable.\nLa primera noche casi no dormí. El aire acondicionado de mi cuarto hacía un ruido constante, y el hotel estaba lleno, así que no pude cambiarme de cuarto. Sin embargo, el gerente me dio una respuesta inmediata. Un técnico arregló el problema ese mismo día, y el gerente se disculpó personalmente. Naturalmente, eso me pareció muy bien.\nEl desayuno se sirve en la terraza, y el café es excelente. Llueve muchísimo en septiembre, así que lleven paraguas. El único problema es el precio: no es barato, sobre todo en diciembre.\nEn resumen, recomiendo muchísimo este hotel. Definitivamente voy a regresar.",
       q: [
-        ["¿Cuándo reservaron?", ["Hace un mes", "El mismo día", "Hace un año"], 0],
-        ["¿Qué les gustó más?", ["El postre", "La pasta", "El vino"], 1],
-        ["¿Qué pasó en la cocina?", ["Hubo un incendio", "Se fue la luz", "A alguien se le cayeron unos platos"], 2]
+        ["¿Por qué fue a Mérida?", ["De vacaciones", "Por una conferencia de trabajo", "Para visitar a su familia"], 1],
+        ["¿Por qué casi no durmió la primera noche?", ["Por el calor", "Por el ruido del aire acondicionado", "Por una fiesta"], 1],
+        ["¿Por qué no pudo cambiarse de cuarto?", ["Porque era muy caro", "Porque el hotel estaba lleno", "Porque era muy tarde"], 1],
+        ["¿Cuándo llueve muchísimo en Mérida?", ["En diciembre", "En septiembre", "En mayo"], 1],
+        ["¿Qué opina del hotel al final?", ["Que no va a regresar", "Que lo recomienda muchísimo", "Que el desayuno es malo"], 1]
       ]
     }
   },
@@ -859,13 +915,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Solicité una beca.", "I applied for a scholarship.", "", ""]
     ],
     r: {
-      t: "The first marathon",
-      en: "Last year my neighbor Laura decided to participate in her first marathon. She was forty-five and had never run more than five kilometers. Many people didn't think she could do it.\nShe found a coach, made a plan and dedicated every morning to training. Some days she wanted to abandon the idea, especially in the rain. But she remembered why she started: she wanted to inspire her kids.\nOn the day of the race, her family surrounded her at the finish line. She finished in five hours, and everyone praised her effort. \"You can achieve anything,\" she says, \"if you don't give up.\"",
-      es: "El año pasado mi vecina Laura decidió participar en su primer maratón. Tenía cuarenta y cinco años y nunca había corrido más de cinco kilómetros. Mucha gente no creía que pudiera hacerlo.\nBuscó un entrenador, hizo un plan y le dedicó todas las mañanas al entrenamiento. Algunos días quería abandonar la idea, sobre todo con lluvia. Pero se acordaba de por qué empezó: quería inspirar a sus hijos.\nEl día de la carrera, su familia la rodeó en la meta. Terminó en cinco horas y todos elogiaron su esfuerzo. «Puedes lograr lo que sea», dice, «si no te rindes».",
+      t: "A story that inspires",
+      en: "In 1985, Elena and her husband left their small town in Zacatecas and settled in Monterrey. They had three children and very little money.\nTwo years later, her husband died in an accident. Elena didn't intend to go back to Zacatecas. She sold tamales on the street every morning and cleaned offices at night. She sacrificed everything for her children.\nHer effort was worth it. Her oldest son became a doctor, her daughter applied for a scholarship and studied engineering, and her youngest son was promoted to manager at a big bank.\nLast year, her daughter wrote a book about her life and dedicated it to her mother. Everyone who reads it says the same thing: \"Her story inspired me.\"",
+      es: "En 1985, Elena y su esposo dejaron su pueblito de Zacatecas y se establecieron en Monterrey. Tenían tres hijos y muy poco dinero.\nDos años después, su esposo murió en un accidente. Elena no tenía la intención de regresar a Zacatecas. Vendía tamales en la calle todas las mañanas y limpiaba oficinas en la noche. Lo sacrificó todo por sus hijos.\nSu esfuerzo valió la pena. Su hijo mayor se hizo doctor, su hija solicitó una beca y estudió ingeniería, y su hijo menor fue ascendido a gerente en un banco grande.\nEl año pasado, su hija escribió un libro sobre su vida y se lo dedicó a su mamá. Todos los que lo leen dicen lo mismo: «Su historia me inspiró».",
       q: [
-        ["¿Cuántos años tenía Laura?", ["Cuarenta y cinco", "Veinte", "Sesenta"], 0],
-        ["¿Por qué empezó a correr?", ["Por su salud", "Para inspirar a sus hijos", "Por dinero"], 1],
-        ["¿En cuánto tiempo terminó?", ["En dos horas", "En diez horas", "En cinco horas"], 2]
+        ["¿Dónde se establecieron Elena y su esposo?", ["En Zacatecas", "En Monterrey", "En Guadalajara"], 1],
+        ["¿Qué pasó dos años después?", ["Se mudaron otra vez", "Su esposo murió en un accidente", "Abrieron un restaurante"], 1],
+        ["¿Qué hacía Elena en las noches?", ["Vendía tamales", "Limpiaba oficinas", "Estudiaba"], 1],
+        ["¿Qué estudió su hija?", ["Medicina", "Ingeniería", "Leyes"], 1],
+        ["¿A quién le dedicó su hija el libro?", ["A su papá", "A su mamá", "A sus hermanos"], 1]
       ]
     }
   }

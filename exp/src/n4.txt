@@ -1,0 +1,1082 @@
+// Nivel 4: cada tema como una experiencia completa (conversación por escenas + lectura)
+
+# n4u1
+@ Tu pareja y tú van a ver una casa en venta cerca de la playa. Los recibe el vendedor.
+A: Welcome! This house has three bedrooms and a view of the sea. | ¡Bienvenidos! Esta casa tiene tres recámaras y vista al mar.
+B: It's beautiful. If I could live anywhere, I'd live on the coast. | Es preciosa. Si pudiera vivir en cualquier lugar, viviría en la costa.
+A: Would you like to see the terrace? | ¿Les gustaría ver la terraza?
+B: 7
+A: Here it is. You can have breakfast here every morning. | Aquí está. Pueden desayunar aquí cada mañana.
+B: That would be great. How much is it? | Sería genial. ¿Cuánto cuesta?
+A: Three and a half million pesos. | Tres millones y medio de pesos.
+B: Hmm. If it were cheaper, we'd buy it today. | Mmm. Si fuera más barata, la compraríamos hoy.
+@ De regreso, en el carro, tu pareja te pregunta qué piensas.
+A: So? Did you like it? | ¿Y? ¿Te gustó?
+B: I loved it. If I had more money, I'd buy it tomorrow. | Me encantó. Si tuviera más dinero, la compraría mañana.
+A: But it's two hours from the city. What about your job? | Pero está a dos horas de la ciudad. ¿Y tu trabajo?
+B: If I didn't have to work, I'd live there all year. | Si no tuviera que trabajar, viviría ahí todo el año.
+A: Ha, ha! And if your boss let you work from home? | ¡Ja, ja! ¿Y si tu jefe te dejara trabajar desde casa?
+B: It would be a dream come true. | Sería un sueño hecho realidad.
+@ En la noche, le llamas a tu papá para pedirle consejo.
+A: Hi! How was the house? | ¡Hola! ¿Qué tal la casa?
+B: Perfect, but it's expensive. What would you do in my position? | Perfecta, pero es cara. ¿Qué harías en mi lugar?
+A: If I were you, I'd offer three million and wait. | Yo que tú, ofrecería tres millones y esperaría.
+B: And what would happen if the owner said no? | ¿Y qué pasaría si el dueño dijera que no?
+A: Then you'd look for another house. There are many on the coast. | Entonces buscarías otra casa. Hay muchas en la costa.
+B: You're right. I'd feel much better with a plan. | Tienes razón. Me sentiría mucho mejor con un plan.
+A: Good. And if you buy it, I'll visit you every weekend! | ¡Bien! ¡Y si la compras, te visito cada fin de semana!
+B: Ha, ha! Okay, Dad. I'll think it over. | ¡Ja, ja! Bueno, papá. Lo voy a pensar bien.
+== A house by the sea
+en: Andrés and Lucía live in Monterrey, but they love the sea. Every summer they spend two weeks in Mazatlán, and every summer they say the same thing: "If we lived here, we'd be so happy."
+es: Andrés y Lucía viven en Monterrey, pero les encanta el mar. Cada verano pasan dos semanas en Mazatlán, y cada verano dicen lo mismo: «Si viviéramos aquí, seríamos muy felices».
+en: Last year they visited a small house near the beach. It had two bedrooms, a terrace and a view of the sea. "If it were cheaper, we'd buy it today," said Lucía. But the owner wanted four million pesos, and they only had two.
+es: El año pasado visitaron una casita cerca de la playa. Tenía dos recámaras, una terraza y vista al mar. «Si fuera más barata, la compraríamos hoy», dijo Lucía. Pero el dueño quería cuatro millones de pesos, y ellos solo tenían dos.
+en: Andrés called his father. "What would you do in my position?" he asked. "If I were you, I'd wait," said his father. "Prices go down after the summer."
+es: Andrés le llamó a su papá. «¿Qué harías en mi lugar?», le preguntó. «Yo que tú, esperaría», le dijo su papá. «Los precios bajan después del verano».
+en: He was right. In October, the owner called them with a better price. Now they spend every weekend there, and they wouldn't change it for anything.
+es: Tenía razón. En octubre, el dueño les llamó con un mejor precio. Ahora pasan ahí todos los fines de semana, y no lo cambiarían por nada.
+? ¿Dónde viven Andrés y Lucía? | En Mazatlán | *En Monterrey | En Cancún
+? ¿Qué dicen cada verano? | Que el mar es muy caro | *Que si vivieran ahí serían muy felices | Que quieren viajar más
+? ¿Cuánto quería el dueño por la casa? | Dos millones de pesos | *Cuatro millones de pesos | Tres millones de pesos
+? ¿Qué le aconsejó su papá a Andrés? | Que comprara la casa ese día | *Que esperara | Que buscara en otra ciudad
+? ¿Qué pasó en octubre? | Vendieron su casa de Monterrey | *El dueño les llamó con un mejor precio | Se fueron de vacaciones
+
+# n4u2
+@ Llegas de viaje a Guanajuato, pero tu maleta no sale. Vas al mostrador de equipaje de la aerolínea.
+A: Good afternoon. How can I help you? | Buenas tardes. ¿En qué le puedo ayudar?
+B: Good afternoon. My bag didn't arrive. | Buenas tardes. Mi maleta no llegó.
+A: Let me check... I'm sorry. Your bag was sent to Tijuana by mistake. | Déjeme revisar... Lo siento. Su maleta se mandó a Tijuana por error.
+B: To Tijuana? When will it be delivered? | ¿A Tijuana? ¿Cuándo se va a entregar?
+A: Tomorrow morning. Where are you staying? | Mañana en la mañana. ¿Dónde se va a hospedar?
+B: At the Hotel Allende. Here's the address. | En el Hotel Allende. Aquí está la dirección.
+A: Perfect. It will be delivered to your hotel. | Perfecto. Se va a entregar en su hotel.
+@ En el hotel, la recepcionista te da la llave.
+A: Welcome to the Hotel Allende. Breakfast is served from seven to ten. | Le damos la bienvenida al Hotel Allende. El desayuno se sirve de siete a diez.
+B: Thank you. Is smoking allowed outside? | Gracias. ¿Se permite fumar afuera?
+A: No, I'm sorry. Smoking is not allowed in the hotel. | No, lo siento. No se permite fumar en el hotel.
+B: No problem. The building is beautiful. When was it built? | No hay problema. El edificio es precioso. ¿Cuándo se construyó?
+A: It was built in 1890. It was designed by a famous architect. | Se construyó en 1890. Lo diseñó un arquitecto famoso.
+B: And the restaurant? It's said to be the best restaurant in the city. | ¿Y el restaurante? Se dice que es el mejor restaurante de la ciudad.
+A: Yes, it's very good. Dinner is served until eleven. | Sí, es muy bueno. La cena se sirve hasta las once.
+@ A la mañana siguiente, suena el teléfono de tu cuarto.
+A: Good morning. Your bag was delivered a few minutes ago. | Buenos días. Hace unos minutos entregaron su maleta.
+B: Great! So the problem has already been solved. | ¡Qué bien! Entonces el problema ya se resolvió.
+A: Yes. It's at the front desk. | Sí. Está en la recepción.
+B: Thank you! I'm going to the front desk now. | ¡Gracias! Ahorita voy a la recepción.
+== The house that became a hotel
+en: The Hotel Allende is one of the most famous buildings in Guanajuato. It was built in 1890 as a house for a rich family, and it was designed by a famous Italian architect.
+es: El Hotel Allende es uno de los edificios más famosos de Guanajuato. Se construyó en 1890 como casa para una familia rica, y lo diseñó un arquitecto italiano famoso.
+en: In 1950, the house was sold to the city, and for many years it was used as a school. Then, in 2010, it was bought by a hotel company. The old rooms were repaired, and a restaurant was opened on the first floor.
+es: En 1950, la casa se le vendió a la ciudad y durante muchos años se usó como escuela. Luego, en 2010, la compró una compañía de hoteles. Se repararon los cuartos viejos y se abrió un restaurante en el primer piso.
+en: Today, the hotel is visited by thousands of tourists every year. Many languages are spoken at the front desk, and breakfast is served on the terrace. Smoking is not allowed anywhere in the building.
+es: Hoy, miles de turistas visitan el hotel cada año. En la recepción se hablan muchos idiomas y el desayuno se sirve en la terraza. No se permite fumar en ninguna parte del edificio.
+en: The restaurant is said to be the best in the city. Next year, a small museum will be opened in the old kitchen.
+es: Se dice que el restaurante es el mejor de la ciudad. El próximo año se va a abrir un pequeño museo en la cocina vieja.
+? ¿Cuándo se construyó la casa? | En 1950 | *En 1890 | En 2010
+? ¿Quién la diseñó? | Un arquitecto mexicano | *Un arquitecto italiano famoso | La familia rica
+? ¿Para qué se usó la casa durante muchos años? | Como hospital | *Como escuela | Como museo
+? ¿Dónde se sirve el desayuno? | En la recepción | *En la terraza | En la cocina vieja
+? ¿Qué se va a abrir el próximo año? | Otro hotel | *Un pequeño museo | Una escuela
+
+# n4u21
+@ Tu amiga Emily, de Canadá, te visita en la Ciudad de México. Están en el Zócalo, frente a un edificio enorme.
+A: What a big square! What's that building? | ¡Qué plaza tan grande! ¿Qué es ese edificio?
+B: It's a public institution. The President works there. | Es una institución pública. Ahí trabaja el presidente.
+A: Really? And who makes the laws in Mexico? | ¿En serio? ¿Y quién hace las leyes en México?
+B: The deputies vote on the laws in Congress. We elect our representatives. | Los diputados votan las leyes en el Congreso. Elegimos a nuestros representantes.
+A: Oh, it's like the British Parliament. | Ah, es como el Parlamento británico.
+B: Yes, more or less. It's the legislative branch. | Sí, más o menos. Es el poder legislativo.
+@ De pronto llega una marcha con pancartas.
+A: Why are those people protesting? | ¿Por qué protestan esas personas?
+B: Congress approved the reform. They're against it. | El Congreso aprobó la reforma. Están en contra.
+A: What's the reform about? | ¿De qué trata la reforma?
+B: It's an amendment to the Constitution. Some people like it, and some people are against it. | Es una enmienda a la Constitución. A algunas personas les gusta y otras están en contra.
+A: In Canada we have protests too. It's normal in a democracy. | En Canadá también hay protestas. Es normal en una democracia.
+@ Quieren regresar en Uber, pero la app dice que no hay paso.
+A: Why can't the car come here? | ¿Por qué no puede llegar el carro?
+B: The authorities closed the streets because of the protest. | Las autoridades cerraron las calles por la protesta.
+A: So how do we go back to the hotel? | ¿Entonces cómo regresamos al hotel?
+B: Let's take the metro. The government invested in a new line. | Vamos en metro. El gobierno invirtió en una línea nueva.
+A: Great! Wow, the metro is so cheap here. | ¡Genial! Guau, el metro es baratísimo aquí.
+B: Yes. It's a public service. | Sí. Es un servicio público.
+== A law against plastic bags
+en: Two years ago, the local congress approved a new law: stores can't give plastic bags to their customers. The authorities said that the city produced too much plastic, and that most of it ended up in rivers and streets.
+es: Hace dos años, el congreso local aprobó una nueva ley: las tiendas no pueden dar bolsas de plástico a sus clientes. Las autoridades dijeron que la ciudad producía demasiado plástico y que la mayor parte terminaba en los ríos y en las calles.
+en: At first, many people were against the law. "It's not fair," said a man at the supermarket. "Now I have to pay for bags." Some companies asked the judges to stop the law, but the court's ruling was clear: the law protects the environment, and it doesn't violate anybody's rights.
+es: Al principio, mucha gente estaba en contra de la ley. «No es justo», dijo un señor en el súper. «Ahora tengo que pagar por las bolsas». Algunas empresas les pidieron a los jueces que detuvieran la ley, pero el fallo del tribunal fue claro: la ley protege el medio ambiente y no viola los derechos de nadie.
+en: Today, most people bring their own bags. According to an official statement from the city, there is sixty percent less plastic in the rivers. Now the deputies want to ban plastic straws too.
+es: Hoy, la mayoría de la gente lleva sus propias bolsas. Según una declaración oficial de la ciudad, hay sesenta por ciento menos plástico en los ríos. Ahora los diputados quieren prohibir también los popotes de plástico.
+? ¿Qué aprobó el congreso local? | Una ley de tránsito | *Una ley contra las bolsas de plástico | Un nuevo impuesto
+? ¿Por qué hicieron la ley? | Porque las bolsas eran caras | *Porque la ciudad producía demasiado plástico | Porque lo pidieron las empresas
+? ¿Qué dijo el señor del súper? | Que la ley era buena | *Que no era justo pagar por las bolsas | Que ya no iba a ir al súper
+? ¿Qué decidió el tribunal? | Que se cancelaba la ley | *Que la ley protege el medio ambiente | Que las empresas tenían razón
+? ¿Qué quieren prohibir ahora los diputados? | Las botellas | *Los popotes de plástico | Los carros viejos
+
+# n4u22
+@ Hace unos meses viste a tu gerente, el señor Ruiz, sacar dinero de la oficina en la noche. Ahora te llama la abogada de la empresa.
+A: Hello, this is Ms. Brown, the company's attorney. The trial starts tomorrow. | Hola, habla la licenciada Brown, abogada de la empresa. El juicio empieza mañana.
+B: Tomorrow? I'm a little nervous. What do I have to do? | ¿Mañana? Me dan un poco de nervios. ¿Qué tengo que hacer?
+A: Just tell the judge what you saw. | Solo dígale al juez lo que vio.
+B: Okay. What is he accused of? | Bueno. ¿De qué lo acusan?
+A: He's accused of fraud. He allegedly stole two hundred thousand dollars. | Lo acusan de fraude. Presuntamente robó doscientos mil dólares.
+B: I can't believe it. He was always so nice. | No lo puedo creer. Siempre fue tan amable.
+@ Al día siguiente, en el juzgado, la jueza te hace preguntas.
+A: Do you swear to tell the truth? | ¿Jura decir la verdad?
+B: 7
+A: What did you see on the night of March 3rd? | ¿Qué vio la noche del 3 de marzo?
+B: I saw Mr. Ruiz take money from the office. | Vi al señor Ruiz sacar dinero de la oficina.
+A: The defense says there's no proof that he did it. | La defensa dice que no hay pruebas de que lo hizo.
+B: There's a video. You can see everything in the video. | Hay un video. En el video se ve todo.
+A: Thank you. That's all. | Gracias. Es todo.
+@ Una semana después, tu compañera de trabajo te pregunta en la cafetería.
+A: Did you hear the news about Mr. Ruiz? | ¿Supiste la noticia del señor Ruiz?
+B: Yes. The jury found him guilty. | Sí. El jurado lo declaró culpable.
+A: Really? What was the sentence? | ¿En serio? ¿Cuál fue la sentencia?
+B: He was sentenced to five years. | Lo condenaron a cinco años.
+A: Wow. He was the manager! | ¡Guau! ¡Era el gerente!
+B: No one is above the law. | Nadie está por encima de la ley.
+A: That's true. Is he going to appeal? | Es cierto. ¿Va a apelar?
+B: Yes, his attorney is going to appeal the decision. | Sí, su abogado va a apelar la decisión.
+== Manager found guilty of fraud
+en: A former manager of an electronics store was found guilty of fraud on Monday. The man, Jorge Ruiz, 48, allegedly took more than two hundred thousand dollars from the company over three years.
+es: Un exgerente de una tienda de electrónicos fue declarado culpable de fraude el lunes. El hombre, Jorge Ruiz, de 48 años, presuntamente sacó más de doscientos mil dólares de la empresa durante tres años.
+en: The trial lasted two weeks. Ruiz said he didn't commit any crime, and his attorney said there was no proof. However, a young employee testified that she saw Ruiz take money from the office one night. The security camera also recorded everything.
+es: El juicio duró dos semanas. Ruiz dijo que no cometió ningún delito, y su abogado dijo que no había pruebas. Sin embargo, una empleada joven declaró que vio a Ruiz sacar dinero de la oficina una noche. La cámara de seguridad también grabó todo.
+en: After two days, the jury found him guilty, and the judge sentenced him to five years in prison. "No one is above the law," said the company's attorney after the trial.
+es: Después de dos días, el jurado lo declaró culpable, y el juez lo condenó a cinco años de prisión. «Nadie está por encima de la ley», dijo la abogada de la empresa después del juicio.
+en: Ruiz's attorney said they are going to appeal the decision. The company has a new rule now: two people must check the money every night.
+es: El abogado de Ruiz dijo que van a apelar la decisión. Ahora la empresa tiene una nueva regla: dos personas deben revisar el dinero cada noche.
+? ¿De qué acusaban a Jorge Ruiz? | De robar carros | *De fraude | De corrupción en el gobierno
+? ¿Cuánto tiempo duró el juicio? | Dos días | *Dos semanas | Tres años
+? ¿Quién declaró en el juicio? | El dueño de la tienda | *Una empleada joven | Un policía
+? ¿A cuántos años lo condenaron? | A dos | *A cinco | A diez
+? ¿Qué va a hacer el abogado de Ruiz? | Renunciar | *Apelar la decisión | Devolver el dinero
+
+# n4u23
+@ Es 16 de septiembre y llevas a tu hijo de ocho años al desfile militar.
+A: Look! So many soldiers! Who are they? | ¡Mira! ¡Cuántos soldados! ¿Quiénes son?
+B: They're the armed forces: the army and the air force. | Son las fuerzas armadas: el ejército y la fuerza aérea.
+A: And who's the man on the horse? | ¿Y quién es el señor del caballo?
+B: He's the commander of the troops. | Es el comandante de las tropas.
+A: Wow! Look up! What's that plane? | ¡Guau! ¡Mira arriba! ¿Qué es ese avión?
+B: It's a fighter jet. It's from the air force. | Es un avión de combate. Es de la fuerza aérea.
+A: Was Grandpa in the army? | ¿El abuelo estuvo en el ejército?
+B: No, but my grandfather was in the army. He was a colonel. | No, pero mi abuelo estuvo en el ejército. Era coronel.
+@ Junto a ustedes hay un señor mayor con medallas en el pecho. Le preguntas.
+A: Yes, I'm a war veteran. I was in the American army, in Vietnam. | Sí, soy veterano de guerra. Estuve en el ejército estadounidense, en Vietnam.
+B: Wow. Was it hard? | Guau. ¿Fue difícil?
+A: Very hard. Many of my friends didn't come back. | Muy difícil. Muchos de mis amigos no regresaron.
+B: I'm sorry. I'm glad you survived the war. | Lo siento. Me alegra que haya sobrevivido a la guerra.
+A: Thank you. I hope your son never sees a war. | Gracias. Espero que su hijo nunca vea una guerra.
+B: Me too. Peace is the most important thing. | Yo también. La paz es lo más importante.
+@ En la noche ven las noticias y tu hijo te pregunta.
+A: What happened in that country? | ¿Qué pasó en ese país?
+B: There's an armed conflict. They sent troops to the border. | Hay un conflicto armado. Mandaron tropas a la frontera.
+A: Is it dangerous? | ¿Es peligroso?
+B: Yes, but they're talking. Maybe they'll sign a peace agreement. | Sí, pero están hablando. Tal vez firmen un acuerdo de paz.
+A: I hope so! | ¡Ojalá!
+== The veteran at the parade
+en: Every September 16th, Don Ramón goes to the military parade in Mexico City. He is seventy-eight years old, and he wears his medals on his chest.
+es: Cada 16 de septiembre, don Ramón va al desfile militar en la Ciudad de México. Tiene setenta y ocho años y lleva sus medallas en el pecho.
+en: Don Ramón was born in Chihuahua, but his family moved to Texas when he was a boy. When he was nineteen, he joined the American army, and a year later he was sent to Vietnam. The war was terrible. He survived, but many of his friends didn't come back.
+es: Don Ramón nació en Chihuahua, pero su familia se mudó a Texas cuando era niño. A los diecinueve años entró al ejército estadounidense, y un año después lo mandaron a Vietnam. La guerra fue terrible. Él sobrevivió, pero muchos de sus amigos no regresaron.
+en: After the war, he returned to Mexico, got married and opened a small mechanic shop. For many years, he never talked about the war with his children.
+es: Después de la guerra regresó a México, se casó y abrió un pequeño taller mecánico. Durante muchos años nunca habló de la guerra con sus hijos.
+en: Now he talks about it at schools. "War destroys cities and families," he tells the students. "Peace is the most important thing we have."
+es: Ahora habla de eso en las escuelas. «La guerra destruye ciudades y familias», les dice a los estudiantes. «La paz es lo más importante que tenemos».
+? ¿Cuántos años tiene don Ramón? | Sesenta y ocho | *Setenta y ocho | Ochenta y ocho
+? ¿A dónde se mudó su familia? | A Chihuahua | *A Texas | A Vietnam
+? ¿A qué edad entró al ejército? | A los dieciocho | *A los diecinueve | A los veinte
+? ¿Qué hizo después de la guerra? | Se quedó en el ejército | *Regresó a México y abrió un taller | Se fue a vivir a Texas
+? ¿Qué hace ahora en las escuelas? | Enseña historia | *Habla de la guerra y de la paz | Da clases de mecánica
+
+# n4u9
+@ Es sábado y tienes muchos pendientes. Primero llevas tu carro al taller.
+A: Good morning. What can I do for you? | Buenos días. ¿En qué le puedo servir?
+B: Good morning. I need to get my car fixed. It makes a strange noise. | Buenos días. Tengo que mandar a arreglar mi carro. Hace un ruido raro.
+A: Okay. Let me check it... It's the brakes. | Bueno. Déjeme revisarlo... Son los frenos.
+B: Can you fix them today? I'd like to have the oil changed too. | ¿Los puede arreglar hoy? También quiero que me cambien el aceite.
+A: Sure. It'll be ready at two. | Claro. Va a estar listo a las dos.
+B: Perfect. I'll come back at two. | Perfecto. Regreso a las dos.
+@ Mientras esperas, vas a una tienda de celulares porque se rompió tu pantalla.
+A: Hi! Oh, your screen is broken. What happened? | ¡Hola! Ay, su pantalla está rota. ¿Qué pasó?
+B: It fell on the floor. Can I get it repaired here? | Se me cayó al piso. ¿Me lo pueden reparar aquí?
+A: Yes. It takes one hour, and it's eight hundred pesos. | Sí. Tarda una hora y son ochocientos pesos.
+B: Okay. I'll come back in an hour. | Bueno. Regreso en una hora.
+@ En la tarde, tu pareja te llama.
+A: Hi! How's your day going? | ¡Hola! ¿Cómo va tu día?
+B: Very busy! I got the car fixed and I got my phone repaired. | ¡Muy agitado! Mandé a arreglar el carro y mandé a reparar mi celular.
+A: Great! Did you get your hair cut too? | ¡Qué bien! ¿También te cortaste el pelo?
+B: Yes, I had my hair cut at the new place downtown. | Sí, me corté el pelo en el lugar nuevo del centro.
+A: Nice! Remember, we're having the couch delivered on Monday. | ¡Qué bien! Acuérdate de que el lunes nos van a entregar el sillón.
+B: I know. And when are we having the kitchen painted? | Ya sé. ¿Y cuándo vamos a mandar a pintar la cocina?
+A: Next month. Oh, and dinner? I don't want to cook. | El próximo mes. Ah, ¿y la cena? No tengo ganas de cocinar.
+B: Don't worry. I'm having the food delivered. | No te preocupes. Me van a entregar la comida a domicilio.
+== Ready for the party
+en: Next month, Gabriela's parents will celebrate their fortieth anniversary, and the party will be at their house. The house is old, so Gabriela and her brother decided to give their parents a surprise.
+es: El próximo mes, los papás de Gabriela van a celebrar sus cuarenta años de casados, y la fiesta va a ser en su casa. La casa es vieja, así que Gabriela y su hermano decidieron darles una sorpresa a sus papás.
+en: While their parents were on vacation in Puerto Vallarta, they had the house painted and the kitchen remodeled. They also had an old family photo framed for the living room.
+es: Mientras sus papás estaban de vacaciones en Puerto Vallarta, mandaron a pintar la casa y a remodelar la cocina. También mandaron a enmarcar una foto vieja de la familia para la sala.
+en: For the party, they had the invitations printed and the food delivered from their parents' favorite restaurant. Gabriela had her hair done, and her brother had his suit cleaned. They also had lights installed in the garden.
+es: Para la fiesta, mandaron a imprimir las invitaciones y pidieron la comida del restaurante favorito de sus papás. Gabriela se arregló el pelo y su hermano mandó a limpiar su traje. También mandaron a poner luces en el jardín.
+en: When their parents came back, they couldn't believe it. "It looks like a new house!" said their mother, and she started to cry.
+es: Cuando sus papás regresaron, no lo podían creer. «¡Parece una casa nueva!», dijo su mamá, y se puso a llorar.
+? ¿Qué van a celebrar los papás de Gabriela? | Un cumpleaños | *Sus cuarenta años de casados | Una boda
+? ¿Dónde estaban los papás mientras arreglaban la casa? | En Cancún | *De vacaciones en Puerto Vallarta | En casa de Gabriela
+? ¿Qué mandaron a enmarcar? | Un cuadro nuevo | *Una foto vieja de la familia | Las invitaciones
+? ¿Qué mandó a limpiar el hermano? | Su carro | *Su traje | La alfombra
+? ¿Qué hizo la mamá al ver la casa? | Se enojó | *Se puso a llorar | Llamó a sus amigas
+
+# n4u3
+@ La maestra de tu hijo Diego te pidió ir a la escuela. Te recibe en el salón.
+A: Thank you for coming. Diego is a good boy, but he's always tired in class. | Gracias por venir. Diego es un buen niño, pero siempre está cansado en clase.
+B: Really? He never said anything. | ¿En serio? Nunca dijo nada.
+A: Also, he hasn't done his homework this week. | Además, no ha hecho su tarea esta semana.
+B: But he said he had already sent it! | ¡Pero dijo que ya la había mandado!
+A: I didn't receive anything. Does he play video games at night? | No recibí nada. ¿Juega videojuegos en la noche?
+B: I don't know. I'll talk to him. | No sé. Voy a hablar con él.
+A: Don't worry. It's normal at his age. | No se preocupe. Es normal a su edad.
+@ En la noche, tu pareja te pregunta cómo te fue.
+A: So? What did the teacher tell you? | ¿Y? ¿Qué te dijo la maestra?
+B: She said Diego was always tired in class. | Dijo que Diego siempre estaba cansado en clase.
+A: Oh no. What else did she say? | Ay, no. ¿Qué más dijo?
+B: She told me he hadn't done his homework this week. | Me dijo que no había hecho su tarea esta semana.
+A: But he told us he had finished it! | ¡Pero nos dijo que ya la había terminado!
+B: I know. She asked me if he played video games at night. | Ya sé. Me preguntó si jugaba videojuegos en la noche.
+A: Hmm. Let's talk to him. | Mmm. Hablemos con él.
+B: Okay, but she told me not to worry. | Bueno, pero me dijo que no me preocupara.
+@ Hablan con Diego en su cuarto.
+A: Hi! What's up? | ¡Hola! ¿Qué pasa?
+B: Your teacher told us you were always tired in class. | Tu maestra nos dijo que siempre estabas cansado en clase.
+A: I'm sorry. I play video games until two in the morning. | Perdón. Juego videojuegos hasta las dos de la mañana.
+B: From now on, the phone stays in the kitchen at night. | De ahora en adelante, el celular se queda en la cocina en la noche.
+A: Okay... I promise I'll do my homework. | Bueno... Prometo que voy a hacer mi tarea.
+@ Una semana después, la maestra te llama.
+A: Good news! Diego is doing much better. | ¡Buenas noticias! Diego va mucho mejor.
+B: That's great! He promised he would do his homework. | ¡Qué bien! Prometió que haría su tarea.
+== The message that changed
+en: On Monday morning, the director told her assistant that she would be late because she had a doctor's appointment. The assistant told Carlos that the director would be late. Carlos told Ana that the director was sick. Ana told the sales team that the director was in the hospital!
+es: El lunes en la mañana, la directora le dijo a su asistente que llegaría tarde porque tenía una cita con el doctor. La asistente le dijo a Carlos que la directora llegaría tarde. Carlos le dijo a Ana que la directora estaba enferma. ¡Ana le dijo al equipo de ventas que la directora estaba en el hospital!
+en: By eleven o'clock, everybody was worried. Someone suggested that they buy flowers, and another person asked if they could visit her.
+es: A las once, todos estaban preocupados. Alguien sugirió que compraran flores, y otra persona preguntó si podían visitarla.
+en: At twelve, the director walked into the office. "Why are there flowers on my desk?" she asked. Ana explained that they thought she was in the hospital. The director laughed and said she had only had a checkup.
+es: A las doce, la directora entró a la oficina. «¿Por qué hay flores en mi escritorio?», preguntó. Ana le explicó que creían que estaba en el hospital. La directora se rio y dijo que solo se había hecho un chequeo.
+en: Then she asked everyone not to believe everything they heard. Since that day, the team has a new rule: if you hear something, ask the person first.
+es: Luego les pidió a todos que no creyeran todo lo que oían. Desde ese día, el equipo tiene una nueva regla: si oyes algo, primero pregúntale a la persona.
+? ¿Por qué iba a llegar tarde la directora? | Porque estaba enferma | *Porque tenía cita con el doctor | Porque había mucho tráfico
+? ¿Qué le dijo Carlos a Ana? | Que la directora estaba en el hospital | *Que la directora estaba enferma | Que la directora había renunciado
+? ¿Qué sugirió alguien? | Llamar a la directora | *Comprar flores | Cancelar la junta
+? ¿A qué hora llegó la directora? | A las once | *A las doce | A la una
+? ¿Qué les pidió la directora al final? | Que trabajaran más | *Que no creyeran todo lo que oían | Que le compraran flores
+
+# n4u18
+@ Tu equipo acaba de ganar la final y estás celebrando en la calle. Se te acerca una periodista con un camarógrafo.
+A: Excuse me! I'm a journalist from Channel 5. Can I ask you a few questions? | ¡Disculpe! Soy periodista del Canal 5. ¿Le puedo hacer unas preguntas?
+B: Sure! Is this live? | ¡Claro! ¿Esto es en vivo?
+A: Yes, we're broadcasting live. How do you feel? | Sí, estamos transmitiendo en vivo. ¿Cómo se siente?
+B: Very happy! We waited ten years for this. | ¡Muy feliz! Esperamos diez años para esto.
+A: Where did you watch the game? | ¿Dónde vio el partido?
+B: At home, with my family. Then we came here to celebrate. | En casa, con mi familia. Luego vinimos aquí a celebrar.
+A: Thank you! Enjoy the party! | ¡Gracias! ¡Disfrute la fiesta!
+@ Diez minutos después, te llama tu mamá muy emocionada.
+A: I saw you on TV! You were on Channel 5! | ¡Te vi en la tele! ¡Saliste en el Canal 5!
+B: Really? The show has a big audience! | ¿En serio? ¡El programa tiene mucha audiencia!
+A: Yes! Your aunt saw you too. She called me. | ¡Sí! Tu tía también te vio. Me llamó.
+B: Ha, ha! Now everybody knows I'm a fan. | ¡Ja, ja! Ahora todos saben que soy fan.
+@ Al día siguiente, en la oficina, tu jefe tiene el periódico en la mano.
+A: Look! Your photo is in the newspaper! | ¡Mira! ¡Tu foto salió en el periódico!
+B: Wow! They published the article this morning? | ¡Guau! ¿Publicaron el artículo hoy en la mañana?
+A: Yes. "Thousands of fans celebrate in the streets." | Sí. «Miles de aficionados celebran en las calles».
+B: The event got a lot of coverage. It was on every channel. | El evento tuvo mucha cobertura. Salió en todos los canales.
+A: Who took the photograph? | ¿Quién tomó la fotografía?
+B: A professional photographer, I think. I didn't see him. | Un fotógrafo profesional, creo. No lo vi.
+A: Well, now you're a celebrity! | ¡Pues ahora eres una celebridad!
+== A day at the newspaper
+en: Mónica is a journalist at El Diario, a newspaper in Guadalajara. Her day starts at seven, when she reads the other newspapers and listens to the news on the radio.
+es: Mónica es periodista en El Diario, un periódico de Guadalajara. Su día empieza a las siete, cuando lee los otros periódicos y escucha las noticias en la radio.
+en: At nine, she has a meeting with the editor. They decide which stories are important. "We only publish information from official sources," the editor always says.
+es: A las nueve tiene una junta con el editor. Deciden qué noticias son importantes. «Solo publicamos información de fuentes oficiales», dice siempre el editor.
+en: In the afternoon, Mónica goes out with a photographer. Last week they covered the soccer final. Thousands of fans celebrated in the streets, and their photos were on the front page of the Sunday edition.
+es: En la tarde, Mónica sale con un fotógrafo. La semana pasada cubrieron la final de futbol. Miles de aficionados celebraron en las calles, y sus fotos salieron en la portada de la edición del domingo.
+en: Fewer people buy the newspaper today, but the website has a big audience. "People read the news on their phones now," says Mónica. That's why she also records a short video every day for the website.
+es: Hoy menos gente compra el periódico, pero el sitio web tiene mucha audiencia. «Ahora la gente lee las noticias en su celular», dice Mónica. Por eso también graba un video corto cada día para el sitio web.
+? ¿Dónde trabaja Mónica? | En un canal de televisión | *En un periódico de Guadalajara | En una revista
+? ¿Qué hace a las siete de la mañana? | Va a una junta | *Lee los otros periódicos y escucha la radio | Toma fotos
+? ¿Qué dice siempre el editor? | Que hay que escribir rápido | *Que solo publican información de fuentes oficiales | Que la radio es mejor
+? ¿Dónde salieron las fotos de la final? | En la televisión | *En la portada de la edición del domingo | En una revista deportiva
+? ¿Dónde lee la gente las noticias ahora? | En el periódico | *En su celular | En la radio
+
+# n4u4
+@ Llevas a tu amiga Laura a la boda de tu prima Sofía. Llegan al jardín y ella no conoce a nadie.
+A: What a beautiful garden! Whose idea was it to have the party here? | ¡Qué jardín tan bonito! ¿De quién fue la idea de hacer la fiesta aquí?
+B: My cousin's. It's a place where you can relax. | De mi prima. Es un lugar donde puedes relajarte.
+A: Who's the man in the gray suit? | ¿Quién es el señor del traje gris?
+B: He's the man who organized the party. He's my uncle. | Es el señor que organizó la fiesta. Es mi tío.
+A: And the woman you were talking to? | ¿Y la mujer con la que estabas hablando?
+B: That's my sister, who lives in Canada. She came only for the wedding. | Es mi hermana, que vive en Canadá. Vino solo para la boda.
+@ Sirven la cena.
+A: Mmm! This food is delicious. Who made it? | ¡Mmm! Esta comida está deliciosa. ¿Quién la hizo?
+B: It's from the restaurant I told you about. | Es del restaurante del que te platiqué.
+A: Oh, the one where you had your birthday? | Ah, ¿en el que festejaste tu cumpleaños?
+B: Yes! What I like most is the mole. | ¡Sí! Lo que más me gusta es el mole.
+@ Empieza el baile. Laura ve a un muchacho que baila con tu prima.
+A: Who's the guy who's dancing with Sofía? | ¿Quién es el muchacho que está bailando con Sofía?
+B: That's Pablo, the man she married today! | ¡Es Pablo, el hombre con el que se casó hoy!
+A: Ha, ha! Of course. Is he a good guy? | ¡Ja, ja! Claro. ¿Es buena persona?
+B: Yes. He's someone I trust. | Sí. Es alguien en quien confío.
+A: Thank you for inviting me. It's the best party of the year! | Gracias por invitarme. ¡Es la mejor fiesta del año!
+B: That's exactly what I wanted to hear! | ¡Eso es justo lo que quería oír!
+== The building where I live
+en: I live in an old building in the center of Puebla. It's a place where everybody knows everybody.
+es: Vivo en un edificio viejo en el centro de Puebla. Es un lugar donde todos se conocen.
+en: On the first floor lives Doña Lupe, who has a small store. She's the person who knows everything that happens in the building. On the second floor live the Garcías, whose son plays the drums every afternoon.
+es: En el primer piso vive doña Lupe, que tiene una tiendita. Es la persona que sabe todo lo que pasa en el edificio. En el segundo piso viven los García, cuyo hijo toca la batería todas las tardes.
+en: The neighbor I like most is Mr. Kim, a Korean engineer who moved here five years ago. He's someone I trust, and he always helps me when something in my apartment breaks down. Last year, he taught all the neighbors to cook Korean food.
+es: El vecino que más me cae bien es el señor Kim, un ingeniero coreano que se mudó aquí hace cinco años. Es alguien en quien confío, y siempre me ayuda cuando algo se descompone en mi departamento. El año pasado, les enseñó a todos los vecinos a cocinar comida coreana.
+en: The reason why I love this building is simple: the people. What I like most is the party we have every December on the roof.
+es: La razón por la que me encanta este edificio es simple: la gente. Lo que más me gusta es la fiesta que hacemos cada diciembre en la azotea.
+? ¿Dónde está el edificio? | En Monterrey | *En el centro de Puebla | En Guadalajara
+? ¿Quién es doña Lupe? | La dueña del edificio | *La señora que tiene una tiendita | Una ingeniera
+? ¿Qué hace el hijo de los García? | Estudia ingeniería | *Toca la batería todas las tardes | Juega futbol
+? ¿De dónde es el señor Kim? | De Japón | *De Corea | De China
+? ¿Cuándo es la fiesta en la azotea? | Cada mes | *Cada diciembre | En el verano
+
+# n4u5
+@ Tu familia quiere salir de vacaciones en Semana Santa. En la cena, tu pareja saca el tema.
+A: So, where do we go? The beach or the cabin in the mountains? | ¿Entonces a dónde vamos? ¿A la playa o a la cabaña en la montaña?
+B: On the one hand, the beach is fun; on the other hand, it's expensive. | Por un lado, la playa es divertida; por otro, es cara.
+A: That's true. And the cabin? | Es cierto. ¿Y la cabaña?
+B: The cabin is only three hours away. Besides, it's cheaper. | La cabaña está a solo tres horas. Además, es más barata.
+A: But the kids love the beach. | Pero a los niños les encanta la playa.
+B: I know. However, there are too many people at the beach in April. | Ya sé. Sin embargo, en abril hay demasiada gente en la playa.
+A: Okay, you're right. I'll book the cabin tonight. | Bueno, tienes razón. Hoy en la noche reservo la cabaña.
+B: Great. In the meantime, I'll tell the kids. | Genial. Mientras tanto, yo les digo a los niños.
+@ Ya están en la cabaña, pero llueve desde la mañana.
+A: It's raining again! The kids are bored. What do we do? | ¡Otra vez está lloviendo! Los niños están aburridos. ¿Qué hacemos?
+B: Despite the rain, we can go for a walk. We have umbrellas. | A pesar de la lluvia, podemos salir a caminar. Tenemos paraguas.
+A: In the rain? No way. Any other ideas? | ¿Con lluvia? Ni loco. ¿Alguna otra idea?
+B: For example, we could make a fire and play cards. | Por ejemplo, podríamos prender una fogata y jugar cartas.
+A: Good idea. And we can make hot chocolate. | Buena idea. Y podemos hacer chocolate caliente.
+@ El lunes regresas al trabajo y una compañera te pregunta por tus vacaciones.
+A: Hi! How was your vacation? | ¡Hola! ¿Qué tal tus vacaciones?
+B: Although it rained every day, we had a great time. | Aunque llovió todos los días, la pasamos muy bien.
+A: Really? What did you do? | ¿En serio? ¿Qué hicieron?
+B: First, we walked in the forest; then, we made a fire; finally, we played cards. | Primero caminamos en el bosque, luego prendimos una fogata y al final jugamos cartas.
+A: That sounds nice. And the kids? | Suena bonito. ¿Y los niños?
+B: In short, they loved it. Actually, they want to go back. | En resumen, les encantó. De hecho, quieren regresar.
+== City or small town?
+en: Two years ago, Héctor and his family moved from Mexico City to a small town in Veracruz. Was it a good decision? On the one hand, life is much calmer now. There is no traffic, and the air is clean. Besides, houses are cheaper, so they bought a house with a big garden.
+es: Hace dos años, Héctor y su familia se mudaron de la Ciudad de México a un pueblo pequeño de Veracruz. ¿Fue una buena decisión? Por un lado, ahora la vida es mucho más tranquila. No hay tráfico y el aire es limpio. Además, las casas son más baratas, así que compraron una casa con un jardín grande.
+en: On the other hand, there are fewer jobs, and salaries are lower. For example, Héctor earns thirty percent less than before. However, he works from home three days a week.
+es: Por otro lado, hay menos trabajos y los sueldos son más bajos. Por ejemplo, Héctor gana treinta por ciento menos que antes. Sin embargo, trabaja desde casa tres días a la semana.
+en: Although his children missed their friends at first, they are happy now. In short, the change was hard, but it was worth it. "We spend less money and more time together," says Héctor. "After all, that's what's most important."
+es: Aunque al principio sus hijos extrañaban a sus amigos, ahora están contentos. En resumen, el cambio fue difícil, pero valió la pena. «Gastamos menos dinero y pasamos más tiempo juntos», dice Héctor. «Al fin y al cabo, eso es lo más importante».
+? ¿A dónde se mudó la familia de Héctor? | A la Ciudad de México | *A un pueblo pequeño de Veracruz | A Monterrey
+? ¿Qué compraron? | Un departamento | *Una casa con un jardín grande | Un carro nuevo
+? ¿Cuánto menos gana Héctor ahora? | Diez por ciento | *Treinta por ciento | La mitad
+? ¿Cuántos días a la semana trabaja desde casa? | Dos | *Tres | Cinco
+? ¿Cómo están sus hijos ahora? | Extrañan mucho la ciudad | *Están contentos | Quieren regresar
+
+# n4u24
+@ Tu hermana Mariana te invita un café. Tiene una noticia: quiere dejar su trabajo para estudiar una maestría en España.
+A: So, what do you think? Am I crazy? | ¿Y? ¿Qué piensas? ¿Estoy loca?
+B: Not at all. But what are the pros and cons? | Para nada. Pero, ¿cuáles son los pros y los contras?
+A: Well, it's a great university, but I'd lose my salary for two years. | Pues, es una gran universidad, pero perdería mi sueldo dos años.
+B: What's the objective? A better job? | ¿Cuál es el objetivo? ¿Un mejor trabajo?
+A: Yes. With a master's, I could earn much more. | Sí. Con una maestría podría ganar mucho más.
+B: It has a lot of potential. And how will you pay for it? | Tiene mucho potencial. ¿Y cómo la vas a pagar?
+A: I have some savings, but it's not enough. | Tengo algunos ahorros, pero no alcanzan.
+B: Let's look at other alternatives. Maybe you can study online. | Veamos otras alternativas. Tal vez puedes estudiar en línea.
+A: Hmm. Online is not the same. | Mmm. En línea no es lo mismo.
+B: It depends on the situation. It has advantages and disadvantages. | Depende de la situación. Tiene ventajas y desventajas.
+@ El domingo, en la comida familiar, tu papá se entera de la idea y no le gusta.
+A: Leave a good job? That's a crazy idea! | ¿Dejar un buen trabajo? ¡Es una idea loca!
+B: Dad, from another perspective, it's a great opportunity. | Papá, desde otra perspectiva, es una gran oportunidad.
+A: But the reality is very different. Many people with a master's don't find jobs. | Pero la realidad es muy diferente. Mucha gente con maestría no encuentra trabajo.
+B: That's a good argument, but she's very smart. | Es un buen argumento, pero ella es muy inteligente.
+A: Hmm. On a scale of one to ten, how good is this university? | Mmm. Del uno al diez, ¿qué tan buena es esa universidad?
+B: A ten! It's one of the best in Europe. | ¡Un diez! Es una de las mejores de Europa.
+@ Seis meses después, llevas a Mariana al aeropuerto.
+A: I can't believe it! Thank you for your help. | ¡No lo puedo creer! Gracias por tu ayuda.
+B: It was your decision, and it was a good one. | Fue tu decisión, y fue una buena decisión.
+A: And Dad finally said yes! | ¡Y mi papá por fin dijo que sí!
+B: Ha, ha! Your argument was very good. | ¡Ja, ja! Tu argumento fue muy bueno.
+== A four-day week
+en: Last year, a software company in Guadalajara tried a different approach: its employees worked only four days a week, but they earned the same salary.
+es: El año pasado, una empresa de software en Guadalajara probó un enfoque diferente: sus empleados trabajaron solo cuatro días a la semana, pero ganaron el mismo sueldo.
+en: What were the pros and cons? On the positive side, people were happier and less tired. Fewer employees quit, and the company saved money on electricity. The final outcome surprised everybody: productivity went up ten percent.
+es: ¿Cuáles fueron los pros y los contras? Por el lado positivo, la gente estaba más contenta y menos cansada. Menos empleados renunciaron y la empresa ahorró dinero en electricidad. El resultado final sorprendió a todos: la productividad subió un diez por ciento.
+en: However, there were problems too. Some clients complained because nobody answered the phone on Fridays. So the company looked at other alternatives, and now half the team rests on Fridays and the other half on Mondays. Other companies in the city are now studying the idea.
+es: Sin embargo, también hubo problemas. Algunos clientes se quejaron porque nadie contestaba el teléfono los viernes. Así que la empresa buscó otras alternativas, y ahora la mitad del equipo descansa los viernes y la otra mitad los lunes. Otras empresas de la ciudad ahora están estudiando la idea.
+en: "It's not perfect," says the director, "but it has a lot of potential." Next year, they want to try it in their office in Monterrey.
+es: «No es perfecto», dice la directora, «pero tiene mucho potencial». El próximo año quieren probarlo en su oficina de Monterrey.
+? ¿Qué probó la empresa? | Trabajar desde casa | *Trabajar cuatro días a la semana | Pagar más a sus empleados
+? ¿Qué pasó con la productividad? | Bajó un poco | *Subió un diez por ciento | No cambió
+? ¿En qué ahorró dinero la empresa? | En sueldos | *En electricidad | En renta
+? ¿Por qué se quejaron algunos clientes? | Porque subieron los precios | *Porque nadie contestaba el teléfono los viernes | Porque los productos llegaban tarde
+? ¿Cómo trabajan ahora? | Todos descansan el viernes | *La mitad descansa el viernes y la otra mitad el lunes | Volvieron a trabajar cinco días
+
+# n4u28
+@ Llegaste a un hotel de Mérida para una conferencia de trabajo. En la mañana bajas a la recepción.
+A: Good morning! How was your night? | ¡Buenos días! ¿Qué tal su noche?
+B: Not good. I barely slept. | No muy bien. Casi no dormí.
+A: Oh no. What happened? | Ay, no. ¿Qué pasó?
+B: There was a constant noise from the air conditioner. | Había un ruido constante del aire acondicionado.
+A: I'm deeply sorry. Would you like to change rooms? | Lo siento muchísimo. ¿Quiere cambiarse de cuarto?
+B: Yes, please. Is that possible? | Sí, por favor. ¿Se puede?
+A: Let me see... I'm sorry, the hotel is fully booked tonight. | Déjeme ver... Lo siento, el hotel está lleno esta noche.
+B: Then I need an immediate response. Can someone fix it today? | Entonces necesito una respuesta inmediata. ¿Alguien lo puede arreglar hoy?
+A: Of course. It's an absolute priority. | Claro. Es una prioridad absoluta.
+@ En la conferencia, una colega de Monterrey se sienta junto a ti.
+A: Hi! Where do you work? | ¡Hola! ¿Dónde trabajas?
+B: At a company that makes car parts. We work closely with our clients in Texas. | En una empresa que fabrica piezas de carro. Trabajamos muy de cerca con nuestros clientes en Texas.
+A: And how's business this year? | ¿Y cómo va el negocio este año?
+B: Good, but prices rose rapidly, and everything changes constantly. | Bien, pero los precios subieron rápidamente y todo cambia constantemente.
+A: Same for us. Do you know a good restaurant here? | Igual nosotros. ¿Conoces un buen restaurante aquí?
+B: Yes, El Patio. It's highly recommended. | Sí, El Patio. Es muy recomendable.
+@ En la noche regresas al hotel y el gerente te saluda.
+A: Good evening. Is everything okay with your room now? | Buenas noches. ¿Ya está todo bien con su cuarto?
+B: Yes, thank you. They fixed it successfully. | Sí, gracias. Lo arreglaron con éxito.
+A: Again, we're deeply sorry. Breakfast tomorrow is free for you. | De nuevo, lo sentimos muchísimo. Mañana el desayuno es gratis para usted.
+B: Thank you! Naturally, I'll come back to this hotel. | ¡Gracias! Naturalmente, voy a regresar a este hotel.
+== Four stars for the Hotel Colonial
+en: I stayed at the Hotel Colonial in Mérida for a work conference. The hotel is beautiful, and the location is excellent: it's incredibly close to the main square. The rooms are clean, and the staff is very friendly.
+es: Me hospedé en el Hotel Colonial de Mérida por una conferencia de trabajo. El hotel es precioso y la ubicación es excelente: está increíblemente cerca de la plaza principal. Los cuartos están limpios y el personal es muy amable.
+en: The first night, I barely slept. The air conditioner in my room made a constant noise, and the hotel was fully booked, so I couldn't change rooms. However, the manager gave me an immediate response. A technician fixed the problem the same day, and the manager apologized personally. Naturally, I was happy with that.
+es: La primera noche casi no dormí. El aire acondicionado de mi cuarto hacía un ruido constante, y el hotel estaba lleno, así que no pude cambiarme de cuarto. Sin embargo, el gerente me dio una respuesta inmediata. Un técnico arregló el problema ese mismo día, y el gerente se disculpó personalmente. Naturalmente, eso me pareció muy bien.
+en: Breakfast is served on the terrace, and the coffee is excellent. It rains heavily in September, so bring an umbrella. The only problem is the price: it's not cheap, especially in December.
+es: El desayuno se sirve en la terraza, y el café es excelente. Llueve muchísimo en septiembre, así que lleven paraguas. El único problema es el precio: no es barato, sobre todo en diciembre.
+en: In short, I strongly recommend this hotel. I'll definitely come back.
+es: En resumen, recomiendo muchísimo este hotel. Definitivamente voy a regresar.
+? ¿Por qué fue a Mérida? | De vacaciones | *Por una conferencia de trabajo | Para visitar a su familia
+? ¿Por qué casi no durmió la primera noche? | Por el calor | *Por el ruido del aire acondicionado | Por una fiesta
+? ¿Por qué no pudo cambiarse de cuarto? | Porque era muy caro | *Porque el hotel estaba lleno | Porque era muy tarde
+? ¿Cuándo llueve muchísimo en Mérida? | En diciembre | *En septiembre | En mayo
+? ¿Qué opina del hotel al final? | Que no va a regresar | *Que lo recomienda muchísimo | Que el desayuno es malo
+
+# n4u10
+@ Tu jefe, el ingeniero Salas, se jubila el viernes. Tu compañero Raúl y tú quieren hacerle una fiesta sorpresa.
+A: We need to make plans for the party. It's on Friday! | Tenemos que hacer planes para la fiesta. ¡Es el viernes!
+B: You're right. We need to make a decision: lunch or dinner? | Tienes razón. Tenemos que tomar una decisión: ¿comida o cena?
+A: Lunch, here at the office. Can you do me a favor? | Comida, aquí en la oficina. ¿Me haces un favor?
+B: Sure. What do you need? | Claro. ¿Qué necesitas?
+A: Can you order the cake? | ¿Puedes encargar el pastel?
+B: No problem. And you invite the team. | No hay problema. Y tú invitas al equipo.
+A: Okay. But nobody can tell Mr. Salas. | Bueno. Pero nadie le puede decir al ingeniero Salas.
+B: Of course. We all have to keep a secret. | Claro. Todos tenemos que guardar el secreto.
+@ Es viernes. Todos están escondidos en la sala de juntas. Raúl te habla en voz baja.
+A: He's coming! Is everybody ready? | ¡Ya viene! ¿Todos están listos?
+B: Yes! Everybody, don't make noise! | ¡Sí! ¡Todos, no hagan ruido!
+A: Surprise! ... Look at his face! | ¡Sorpresa! ... ¡Mira su cara!
+B: Ha, ha! Quick, take a picture! | ¡Ja, ja! ¡Rápido, toma una foto!
+@ Después de la comida, el ingeniero Salas se acerca a darte las gracias.
+A: Thank you! I had a great time. Was this your idea? | ¡Gracias! La pasé muy bien. ¿Fue idea tuya?
+B: Raúl's and mine. We made an effort. You're a great boss. | De Raúl y mía. Hicimos un esfuerzo. Usted es un gran jefe.
+A: How long did it take to organize? | ¿Cuánto tiempo les tomó organizarla?
+B: It took us two weeks. And we didn't waste time! | Nos tomó dos semanas. ¡Y no perdimos el tiempo!
+A: Ha, ha! I'm going to miss you all. | ¡Ja, ja! Los voy a extrañar a todos.
+B: We're going to miss you too. Keep in touch! | Nosotros también lo vamos a extrañar. ¡No se pierda!
+== Daniela's first week
+en: Last month, Daniela started a new job at a bank. On her first day, she was very nervous, and she made a big mistake: she sent an important email to the wrong client.
+es: El mes pasado, Daniela empezó un trabajo nuevo en un banco. El primer día estaba muy nerviosa y cometió un gran error: mandó un correo importante al cliente equivocado.
+en: She told her boss immediately. "Don't worry," he said. "Everybody makes mistakes. The important thing is to take it seriously and learn."
+es: Se lo dijo a su jefe inmediatamente. «No te preocupes», le dijo él. «Todos cometemos errores. Lo importante es tomarlo en serio y aprender».
+en: After that, Daniela took notes in every meeting, paid attention to every detail and asked a lot of questions. At first, a simple report took her three hours. By Friday, it only took her one.
+es: Después de eso, Daniela tomaba notas en cada junta, ponía atención a cada detalle y hacía muchas preguntas. Al principio, un reporte sencillo le tomaba tres horas. Para el viernes, solo le tomaba una.
+en: On Friday afternoon, the team took her out for lunch. "You did a great job this week," said her boss. Daniela smiled. She had done her best. Next week, she's going to train a new employee.
+es: El viernes en la tarde, el equipo la invitó a comer. «Hiciste un gran trabajo esta semana», le dijo su jefe. Daniela sonrió. Había hecho su mejor esfuerzo. La próxima semana va a capacitar a un empleado nuevo.
+? ¿Dónde empezó a trabajar Daniela? | En una escuela | *En un banco | En un hospital
+? ¿Qué error cometió? | Llegó tarde | *Mandó un correo al cliente equivocado | Perdió un reporte
+? ¿Qué le dijo su jefe? | Que la iba a despedir | *Que todos cometemos errores | Que no tomara notas
+? ¿Cuánto le tomaba un reporte al final de la semana? | Tres horas | *Una hora | Media hora
+? ¿Qué hizo el equipo el viernes? | Le dio un regalo | *La invitó a comer | Le hizo una fiesta
+
+# n4u29
+@ Tu hija Valeria participa mañana en el concurso estatal de ciencias. En la noche está muy nerviosa.
+A: What if my project doesn't work tomorrow? | ¿Y si mañana no funciona mi proyecto?
+B: Don't assume anything. You worked very hard. | No asumas nada. Trabajaste muchísimo.
+A: But the other students are very good. | Pero los otros estudiantes son muy buenos.
+B: Your work impressed me, and it will impress everyone. | Tu trabajo me impresionó, y va a impresionar a todos.
+A: I hope so. Can you help me carry everything tomorrow? | Ojalá. ¿Me ayudas a cargar todo mañana?
+B: Of course. You can rely on me. | Claro. Puedes contar conmigo.
+@ En el concurso, uno de los jueces se acerca a hablar contigo.
+A: Excuse me, are you with Valeria? | Disculpe, ¿viene con Valeria?
+B: Yes, she's my daughter. Is everything okay? | Sí, es mi hija. ¿Todo bien?
+A: Yes! Thirty schools participated, and her project is one of the best. | ¡Sí! Participaron treinta escuelas y su proyecto es uno de los mejores.
+B: Really? She sacrificed all her weekends for this project. | ¿En serio? Sacrificó todos sus fines de semana por este proyecto.
+A: It shows. Everyone praised her presentation. | Se nota. Todo el mundo elogió su presentación.
+B: That's great! When do you announce the winners? | ¡Qué bien! ¿Cuándo anuncian a los ganadores?
+A: At five o'clock. | A las cinco.
+@ A las cinco anuncian los resultados. ¡Valeria ganó el primer lugar!
+A: I won! I can't believe it! | ¡Gané! ¡No lo puedo creer!
+B: Congratulations! You achieved your goal! | ¡Felicidades! ¡Lograste tu meta!
+A: And the prize is a trip to a science camp in Houston! | ¡Y el premio es un viaje a un campamento de ciencias en Houston!
+B: Wow! Your story is going to inspire other students. | ¡Guau! Tu historia va a inspirar a otros estudiantes.
+A: Next year I want to apply for a scholarship at a university. | El próximo año quiero solicitar una beca en una universidad.
+B: You can do it. And I'll help you with everything. | Lo puedes lograr. Y yo te ayudo con todo.
+== A story that inspires
+en: In 1985, Elena and her husband left their small town in Zacatecas and settled in Monterrey. They had three children and very little money.
+es: En 1985, Elena y su esposo dejaron su pueblito de Zacatecas y se establecieron en Monterrey. Tenían tres hijos y muy poco dinero.
+en: Two years later, her husband died in an accident. Elena didn't intend to go back to Zacatecas. She sold tamales on the street every morning and cleaned offices at night. She sacrificed everything for her children.
+es: Dos años después, su esposo murió en un accidente. Elena no tenía la intención de regresar a Zacatecas. Vendía tamales en la calle todas las mañanas y limpiaba oficinas en la noche. Lo sacrificó todo por sus hijos.
+en: Her effort was worth it. Her oldest son became a doctor, her daughter applied for a scholarship and studied engineering, and her youngest son was promoted to manager at a big bank.
+es: Su esfuerzo valió la pena. Su hijo mayor se hizo doctor, su hija solicitó una beca y estudió ingeniería, y su hijo menor fue ascendido a gerente en un banco grande.
+en: Last year, her daughter wrote a book about her life and dedicated it to her mother. Everyone who reads it says the same thing: "Her story inspired me."
+es: El año pasado, su hija escribió un libro sobre su vida y se lo dedicó a su mamá. Todos los que lo leen dicen lo mismo: «Su historia me inspiró».
+? ¿Dónde se establecieron Elena y su esposo? | En Zacatecas | *En Monterrey | En Guadalajara
+? ¿Qué pasó dos años después? | Se mudaron otra vez | *Su esposo murió en un accidente | Abrieron un restaurante
+? ¿Qué hacía Elena en las noches? | Vendía tamales | *Limpiaba oficinas | Estudiaba
+? ¿Qué estudió su hija? | Medicina | *Ingeniería | Leyes
+? ¿A quién le dedicó su hija el libro? | A su papá | *A su mamá | A sus hermanos
+
+# n4u6
+@ Es viernes en la tarde. Tu amigo Beto te llama muy emocionado.
+A: Guess what! I have two tickets for the concert tomorrow! | ¡Adivina qué! ¡Tengo dos boletos para el concierto de mañana!
+B: Seriously? Lucky you! | ¿En serio? ¡Qué suerte!
+A: Do you want to come with me? | ¿Quieres venir conmigo?
+B: Absolutely! What time? | ¡Claro que sí! ¿A qué hora?
+A: At eight. We can take my car. | A las ocho. Podemos ir en mi carro.
+B: Sounds good. | Suena bien.
+@ El sábado llegan al estadio, pero hay un letrero en la puerta.
+A: Oh no. "Concert canceled. The singer is sick." | Ay, no. «Concierto cancelado. El cantante está enfermo».
+B: You're kidding! What a shame! | ¡No inventes! ¡Qué lástima!
+A: I know. At least they'll give us the money back. | Ya sé. Por lo menos nos van a devolver el dinero.
+B: Oh well. So, what do we do now? | Ni modo. ¿Y ahora qué hacemos?
+A: Let's go for tacos. The place downtown or the one near my house? | Vamos por unos tacos. ¿El lugar del centro o el que está cerca de mi casa?
+B: I don't mind. | Me da igual.
+@ Ya están en la taquería.
+A: These tacos are good, but not like my grandma's. | Estos tacos están buenos, pero no como los de mi abuela.
+B: I mean, they're not bad. | O sea, no están mal.
+A: Ha, ha! By the way, did you see the game last night? | ¡Ja, ja! Por cierto, ¿viste el partido de anoche?
+B: No, I didn't. Who won? | No. ¿Quién ganó?
+A: I have no idea. I fell asleep at half time! | Ni idea. ¡Me dormí en el medio tiempo!
+B: Ha, ha! I bet. You work too much. | ¡Ja, ja! Me imagino. Trabajas demasiado.
+== Words that are not in the book
+en: When Luis arrived in Toronto to study, he spoke good English. He knew the grammar, and he had a big vocabulary. However, in conversations he always felt slow.
+es: Cuando Luis llegó a Toronto a estudiar, hablaba bien inglés. Sabía la gramática y tenía mucho vocabulario. Sin embargo, en las pláticas siempre se sentía lento.
+en: His roommate, Josh, explained the problem: "You speak like a book. Real people don't talk like that." Josh taught him the little words that natives use all the time: "well", "I mean", "you know", "anyway".
+es: Su compañero de cuarto, Josh, le explicó el problema: «Hablas como libro. La gente real no habla así». Josh le enseñó las palabritas que los nativos usan todo el tiempo: «well», «I mean», «you know», «anyway».
+en: "When you need time to think, say 'Well, let me think,'" said Josh. "And when someone tells you good news, say 'Lucky you!' or 'That's great!'" Luis also learned to say "No worries" instead of "It's not a problem."
+es: «Cuando necesites tiempo para pensar, di "Well, let me think"», le dijo Josh. «Y cuando alguien te cuente una buena noticia, di "Lucky you!" o "That's great!"». Luis también aprendió a decir «No worries» en lugar de «It's not a problem».
+en: After two months, Luis sounded much more natural. Now people sometimes ask him if he grew up in Canada.
+es: Después de dos meses, Luis sonaba mucho más natural. Ahora a veces la gente le pregunta si creció en Canadá.
+? ¿A qué fue Luis a Toronto? | A trabajar | *A estudiar | De vacaciones
+? ¿Cuál era el problema de Luis? | No sabía gramática | *Se sentía lento en las pláticas | No tenía amigos
+? ¿Qué le dijo Josh? | Que estudiara más gramática | *Que hablaba como libro | Que viera más películas
+? ¿Qué se dice cuando alguien te cuenta una buena noticia? | Oh well | *Lucky you! | Me neither
+? ¿Qué le pregunta la gente ahora? | Si es mexicano | *Si creció en Canadá | Si es maestro
+
+# n4u27
+@ Tienes una primera cita con Alex, a quien conociste en una app. Se ven en un café.
+A: Hi! Nice to finally meet you. So, where do you live? | ¡Hola! Qué gusto conocerte por fin. ¿Y dónde vives?
+B: I currently live in Puebla, but I'm from Veracruz. | Actualmente vivo en Puebla, pero soy de Veracruz.
+A: And what do you do? | ¿Y a qué te dedicas?
+B: Basically, I design websites for small companies. | Básicamente, diseño páginas web para empresas pequeñas.
+A: Interesting! Do you want a coffee? | ¡Qué interesante! ¿Quieres un café?
+B: Personally, I prefer tea. Coffee makes me nervous. | Personalmente, prefiero el té. El café me altera.
+A: Ha, ha! Me too. What's your daily routine like? | ¡Ja, ja! A mí también. ¿Cómo es tu rutina diaria?
+B: I normally get up at six and run in the park. | Normalmente me levanto a las seis y corro en el parque.
+@ Después del café van al cine a ver una comedia.
+A: So? What did you think of the movie? | ¿Y? ¿Qué te pareció la película?
+B: I literally laughed through the whole movie! | ¡Me reí literalmente toda la película!
+A: Me too! The main actor is extremely funny. | ¡Yo también! El actor principal es extremadamente chistoso.
+B: Honestly, I didn't know him, but he's great. | La verdad, no lo conocía, pero es buenísimo.
+@ Ya es tarde y Alex te acompaña a tu carro.
+A: I had a really nice time. | La pasé muy bien.
+B: In fact, it was the best date I've had in years. | De hecho, fue la mejor cita que he tenido en años.
+A: Ha, ha! Can I call you this week? | ¡Ja, ja! ¿Te puedo llamar esta semana?
+B: Obviously! Hopefully, we can see each other on Saturday. | ¡Obviamente! Ojalá podamos vernos el sábado.
+== A nurse's daily routine
+en: My name is Rosa, and I currently work as a nurse at a hospital in Puebla. People often ask me about my daily routine, so here it is.
+es: Me llamo Rosa y actualmente trabajo como enfermera en un hospital de Puebla. La gente me pregunta seguido por mi rutina diaria, así que aquí está.
+en: I normally get up at five. I have coffee, I take my son to my mother's house, and I start work at seven. Basically, my day has three parts: I check the patients, I give them their medicine, and I talk to the doctors.
+es: Normalmente me levanto a las cinco. Tomo café, llevo a mi hijo a casa de mi mamá y empiezo a trabajar a las siete. Básicamente, mi día tiene tres partes: reviso a los pacientes, les doy sus medicinas y hablo con los doctores.
+en: Honestly, it's extremely tiring. Some days I simply don't have time to eat. In fact, last Monday I worked twelve hours without a break.
+es: La verdad, es extremadamente cansado. Algunos días simplemente no tengo tiempo de comer. De hecho, el lunes pasado trabajé doce horas sin descanso.
+en: However, I love my job. Personally, I think it's the most important job in the world. Hopefully, one day nurses will earn what they deserve.
+es: Sin embargo, me encanta mi trabajo. Personalmente, creo que es el trabajo más importante del mundo. Ojalá algún día las enfermeras ganen lo que merecen.
+? ¿Dónde trabaja Rosa? | En una escuela | *En un hospital de Puebla | En una farmacia
+? ¿A qué hora se levanta normalmente? | A las seis | *A las cinco | A las siete
+? ¿Con quién deja a su hijo? | Con su esposo | *Con su mamá | En la escuela
+? ¿Qué pasó el lunes pasado? | No fue a trabajar | *Trabajó doce horas sin descanso | Llegó tarde
+? ¿Qué espera Rosa? | Cambiar de trabajo | *Que algún día las enfermeras ganen lo que merecen | Trabajar menos horas
+
+# n4u7
+@ Esta mañana estás en la sala de juntas con la directora general. De repente, se va la luz y la puerta eléctrica no abre.
+A: Oh no. The door won't open! | Ay, no. ¡La puerta no abre!
+B: Don't worry. I'll call security. | No se preocupe. Voy a llamar a seguridad.
+A: I have a meeting with the clients at nine! | ¡Tengo una junta con los clientes a las nueve!
+B: They said they're coming. They'll be here in ten minutes. | Dijeron que ya vienen. Van a llegar en diez minutos.
+@ En la noche, le cuentas a tu pareja lo que pasó.
+A: How was your day? | ¿Cómo te fue hoy?
+B: You won't believe what happened to me. | No vas a creer lo que me pasó.
+A: What? Tell me! | ¿Qué? ¡Cuéntame!
+B: It all started when I was in a meeting with the director. | Todo empezó cuando estaba en una junta con la directora.
+A: And then what happened? | ¿Y luego qué pasó?
+B: Suddenly, the power went out. At first, I didn't understand anything. | De repente, se fue la luz. Al principio, no entendí nada.
+A: Oh no! Were you scared? | ¡Ay, no! ¿Te asustaste?
+B: I almost died of fright! The door didn't open, and we couldn't get out. | ¡Casi me muero del susto! La puerta no abría y no podíamos salir.
+A: How long were you inside? | ¿Cuánto tiempo estuvieron adentro?
+B: Forty minutes. Long story short, she missed her meeting with the clients. | Cuarenta minutos. En pocas palabras, se perdió su junta con los clientes.
+A: Ha, ha! Poor woman! | ¡Ja, ja! ¡Pobre señora!
+@ Al día siguiente, la directora te ve en el pasillo y se ríe.
+A: Good morning! Let's leave the door open today, okay? | ¡Buenos días! Hoy dejamos la puerta abierta, ¿sí?
+B: Ha, ha! Of course! Now we laugh about it. | ¡Ja, ja! ¡Claro! Ahora nos reímos de eso.
+A: In the end, everything turned out fine. Thank you for staying calm. | Al final, todo salió bien. Gracias por mantener la calma.
+B: To my surprise, we had a very nice conversation. | Para mi sorpresa, tuvimos una plática muy agradable.
+== The wrong wedding
+en: You won't believe what happened to my cousin Toño last summer. He was invited to a wedding in a small town near Guadalajara. He arrived late, so he went directly to the party.
+es: No vas a creer lo que le pasó a mi primo Toño el verano pasado. Lo invitaron a una boda en un pueblito cerca de Guadalajara. Llegó tarde, así que se fue directo a la fiesta.
+en: At first, everything was normal. He ate, he danced and he talked to a lot of people. He didn't know anybody, but he thought they were the bride's family.
+es: Al principio, todo era normal. Comió, bailó y platicó con mucha gente. No conocía a nadie, pero pensó que eran la familia de la novia.
+en: Then the bride and groom came in, and he froze. He didn't know them! It turns out there were two weddings in the town that day, and he was at the wrong one.
+es: Luego entraron los novios, y se quedó helado. ¡No los conocía! Resulta que ese día había dos bodas en el pueblo, y él estaba en la equivocada.
+en: It was so embarrassing. Fortunately, the groom couldn't stop laughing, and he told Toño to stay. Long story short, Toño danced all night at a stranger's wedding. Now we laugh about it every Christmas.
+es: Fue muy vergonzoso. Por suerte, el novio no podía dejar de reírse y le dijo a Toño que se quedara. En pocas palabras, Toño bailó toda la noche en la boda de un desconocido. Ahora nos reímos de eso cada Navidad.
+? ¿Por qué Toño se fue directo a la fiesta? | Porque no le gustan las iglesias | *Porque llegó tarde | Porque estaba lloviendo
+? ¿Qué pensó Toño de la gente que no conocía? | Que eran del pueblo | *Que eran la familia de la novia | Que eran meseros
+? ¿Qué pasó cuando entraron los novios? | Bailó con la novia | *Se dio cuenta de que no los conocía | Se fue a su casa
+? ¿Cuántas bodas había ese día en el pueblo? | Una | *Dos | Tres
+? ¿Qué hizo el novio? | Lo sacó de la fiesta | *Se rio y le dijo que se quedara | Llamó a la policía
+
+# n4u16
+@ Tu amiga Camila es investigadora en la universidad. Hoy te invitó a conocer su laboratorio.
+A: This is my lab! Please put on these glasses. | ¡Este es mi laboratorio! Ponte estos lentes, por favor.
+B: Wow! So this is where you work. What are you studying? | ¡Guau! Así que aquí trabajas. ¿Qué estás estudiando?
+A: We're testing an experimental treatment for a genetic disease. | Estamos probando un tratamiento experimental para una enfermedad genética.
+B: That's amazing. Does it work? | ¡Qué increíble! ¿Funciona?
+A: We don't know yet. We analyzed tissue samples last month. | Todavía no sabemos. Analizamos muestras de tejido el mes pasado.
+B: And what did the results show? | ¿Y qué mostraron los resultados?
+A: They're very good. If the next study works, it could help thousands of people. | Son muy buenos. Si el siguiente estudio funciona, podría ayudar a miles de personas.
+B: It would be a very important discovery! | ¡Sería un descubrimiento muy importante!
+@ Camila toma dos tubos de ensayo y te enseña un experimento sencillo.
+A: Watch this. I'm going to mix these two liquids. | Mira esto. Voy a mezclar estos dos líquidos.
+B: Is it dangerous? | ¿Es peligroso?
+A: No. Observe the results... Look, it changes color! | No. Observa los resultados... ¡Mira, cambia de color!
+B: Cool! It's a chemical reaction, right? | ¡Qué padre! Es una reacción química, ¿verdad?
+A: Exactly. Science is like magic, but real. | Exacto. La ciencia es como magia, pero real.
+@ En la noche, Camila te lleva a la azotea de la universidad para ver el cielo con un telescopio.
+A: Look! That bright point is Jupiter. | ¡Mira! Ese punto brillante es Júpiter.
+B: Incredible! How many stars are there in the universe? | ¡Increíble! ¿Cuántas estrellas hay en el universo?
+A: Nobody knows. There are billions of galaxies. | Nadie sabe. Hay miles de millones de galaxias.
+B: Do you think there's life on other planets? | ¿Crees que hay vida en otros planetas?
+A: Maybe. Last year, scientists discovered a new planet similar to the Earth. | Tal vez. El año pasado, unos científicos descubrieron un planeta nuevo parecido a la Tierra.
+B: Wow. I want to travel to space one day! | ¡Guau! ¡Quiero viajar al espacio algún día!
+== The first Mexican in space
+en: Rodolfo Neri Vela was born in Chilpancingo, Guerrero, in 1952. As a boy, he loved science, and he studied engineering at the UNAM. Later, he became a university researcher and an expert in communications satellites.
+es: Rodolfo Neri Vela nació en Chilpancingo, Guerrero, en 1952. De niño le encantaba la ciencia, y estudió ingeniería en la UNAM. Después se hizo investigador universitario y experto en satélites de comunicaciones.
+en: In 1985, he traveled to space on the American space shuttle Atlantis. The mission lasted almost a week. During the trip, the crew launched a Mexican communications satellite, and Neri Vela did several scientific experiments.
+es: En 1985 viajó al espacio en el transbordador espacial estadounidense Atlantis. La misión duró casi una semana. Durante el viaje, la tripulación lanzó un satélite mexicano de comunicaciones, y Neri Vela hizo varios experimentos científicos.
+en: He also became famous for a small detail: he took tortillas to space! They were perfect for space because they don't make crumbs.
+es: También se hizo famoso por un pequeño detalle: ¡llevó tortillas al espacio! Eran perfectas para el espacio porque no hacen migajas.
+en: Almost forty years later, in 2022, Katya Echazarreta, an engineer from Guadalajara, became the first Mexican woman in space. Today, their stories inspire many young Mexicans who want to study science.
+es: Casi cuarenta años después, en 2022, Katya Echazarreta, una ingeniera de Guadalajara, se convirtió en la primera mujer mexicana en el espacio. Hoy, sus historias inspiran a muchos jóvenes mexicanos que quieren estudiar ciencias.
+? ¿Dónde nació Rodolfo Neri Vela? | En Monterrey | *En Chilpancingo, Guerrero | En la Ciudad de México
+? ¿En qué era experto? | En medicina | *En satélites de comunicaciones | En química
+? ¿Cuánto duró la misión? | Un mes | *Casi una semana | Un año
+? ¿Qué lanzó la tripulación? | Un cohete a la Luna | *Un satélite mexicano de comunicaciones | Un telescopio
+? ¿Por qué las tortillas eran perfectas para el espacio? | Porque son ligeras | *Porque no hacen migajas | Porque duran mucho
+
+# n4u17
+@ Estás de viaje en España con tu pareja. Hoy visitan el Alcázar de Segovia, un castillo antiguo, con una guía.
+A: Welcome to the Alcázar. This castle is more than nine hundred years old. | Bienvenidos al Alcázar. Este castillo tiene más de novecientos años.
+B: Wow! Is it a medieval castle? | ¡Guau! ¿Es un castillo medieval?
+A: Yes. For centuries, kings and queens lived here. | Sí. Durante siglos, aquí vivieron reyes y reinas.
+B: Does the royal family still live here? | ¿La familia real todavía vive aquí?
+A: No, they live in Madrid. Now this is a museum. | No, viven en Madrid. Ahora esto es un museo.
+B: Look at that sword and shield! Whose were they? | ¡Mira esa espada y ese escudo! ¿De quién eran?
+A: They belonged to the king's knights. | Eran de los caballeros del rey.
+@ La guía se entera de que son mexicanos y les pregunta por la historia de México.
+A: Oh, you're from Mexico! When did Mexico gain its independence? | ¡Ah, son de México! ¿Cuándo se independizó México?
+B: Mexico gained its independence in 1821, after a war of eleven years. | México se independizó en 1821, después de una guerra de once años.
+A: And before the Spanish arrived? | ¿Y antes de que llegaran los españoles?
+B: There was the Aztec Empire. Tenochtitlan was founded in 1325. | Estaba el Imperio azteca. Tenochtitlan se fundó en 1325.
+A: I'd love to visit the Aztec ruins one day. | Me encantaría visitar las ruinas aztecas algún día.
+B: You have to! It's part of our heritage. | ¡Tiene que ir! Es parte de nuestro patrimonio.
+@ En la noche, cenan en un restaurante del centro de Segovia.
+A: What did you like most today? | ¿Qué fue lo que más te gustó hoy?
+B: The castle, of course. According to the legend, it inspired the Disney castle. | El castillo, claro. Según la leyenda, inspiró el castillo de Disney.
+A: Really? I didn't know that. | ¿En serio? No lo sabía.
+B: It's a historical place. We have to come back. | Es un lugar histórico. Tenemos que regresar.
+== The eagle and the snake
+en: According to the legend, the Mexica people lived in a place called Aztlán. One day, their god told them to leave and look for a new home. The sign was simple: an eagle on a cactus, eating a snake.
+es: Según la leyenda, el pueblo mexica vivía en un lugar llamado Aztlán. Un día, su dios les dijo que se fueran y buscaran un nuevo hogar. La señal era sencilla: un águila sobre un nopal, comiéndose una serpiente.
+en: They walked for many years. Finally, in 1325, they saw the eagle on a small island in a lake. There, they founded Tenochtitlan.
+es: Caminaron durante muchos años. Por fin, en 1325, vieron el águila en una pequeña isla en un lago. Ahí fundaron Tenochtitlan.
+en: In less than two centuries, the small city became the capital of the Aztec Empire, with more than two hundred thousand people. However, in 1521 the Spanish conquered the city, and the colonial period began.
+es: En menos de dos siglos, la pequeña ciudad se convirtió en la capital del Imperio azteca, con más de doscientas mil personas. Sin embargo, en 1521 los españoles conquistaron la ciudad, y comenzó el periodo colonial.
+en: Today, Mexico City is built on the ruins of Tenochtitlan, and the eagle and the snake are on the Mexican flag. It's part of our heritage.
+es: Hoy, la Ciudad de México está construida sobre las ruinas de Tenochtitlan, y el águila y la serpiente están en la bandera de México. Es parte de nuestro patrimonio.
+? ¿Dónde vivían antes los mexicas? | En Tenochtitlan | *En Aztlán | En Yucatán
+? ¿Cuál era la señal? | Un río con muchos peces | *Un águila sobre un nopal comiéndose una serpiente | Una montaña con nieve
+? ¿Dónde vieron el águila? | En una montaña | *En una isla en un lago | En el desierto
+? ¿Qué pasó en 1521? | Se fundó la ciudad | *Los españoles conquistaron la ciudad | México se independizó
+? ¿Dónde están hoy el águila y la serpiente? | En un museo | *En la bandera de México | En el Zócalo
+
+# n4u8
+@ Hoy es tu cumpleaños. En la mañana, tu hermana te hace videollamada desde Vancouver.
+A: Happy birthday! How does it feel to be thirty-five? | ¡Feliz cumpleaños! ¿Qué se siente tener treinta y cinco?
+B: Thank you! I feel great. I wish you were here. | ¡Gracias! Me siento genial. Ojalá estuvieras aquí.
+A: Me too. I wish I could fly to Mexico, but I have a lot of work. | Yo también. Ojalá pudiera volar a México, pero tengo mucho trabajo.
+B: I know. I wish we lived in the same city. | Ya sé. Ojalá viviéramos en la misma ciudad.
+A: One day! Do you have plans for tonight? | ¡Algún día! ¿Tienes planes para hoy en la noche?
+B: Just dinner at home. I wish I didn't have to work today. | Solo una cena en casa. Ojalá no tuviera que trabajar hoy.
+@ En la oficina, tu compañero Jorge se queja de todo, como siempre.
+A: Happy birthday! Ugh, this rain! And the traffic was horrible today. | ¡Feliz cumpleaños! ¡Uf, esta lluvia! Y el tráfico estuvo horrible hoy.
+B: I know. I wish it would stop raining. | Ya sé. Ojalá dejara de llover.
+A: And the boss wants the report today. This job is terrible. | Y el jefe quiere el reporte hoy. Este trabajo es terrible.
+B: Jorge, it's my birthday! I wish you would stop complaining. | ¡Jorge, es mi cumpleaños! Ojalá dejaras de quejarte.
+A: Ha, ha! Sorry, sorry. Let's go for cake! | ¡Ja, ja! Perdón, perdón. ¡Vamos por pastel!
+@ En la noche, mientras cenas con tu pareja, suena el timbre. Abres la puerta.
+A: Surprise! | ¡Sorpresa!
+B: What? You're here! I thought you had a lot of work! | ¿Qué? ¡Estás aquí! ¡Pensé que tenías mucho trabajo!
+A: I lied! I wanted to surprise you. | ¡Mentí! Quería darte la sorpresa.
+B: This is the best birthday ever. I wish you could stay longer. | Este es el mejor cumpleaños de mi vida. Ojalá pudieras quedarte más tiempo.
+A: I'm here for a week! | ¡Me quedo una semana!
+B: A week! Then I'll ask my boss for some days off. | ¡Una semana! Entonces le voy a pedir unos días a mi jefe.
+== The wish box
+en: Every December, the teacher of a small school in Oaxaca puts a box in the classroom. The children write their wishes on pieces of paper and put them in the box.
+es: Cada diciembre, la maestra de una escuelita de Oaxaca pone una caja en el salón. Los niños escriben sus deseos en papelitos y los meten en la caja.
+en: Some wishes are funny: "I wish I could fly," wrote Pedro, who is seven. "I wish my brother would stop eating my cookies," wrote Ana.
+es: Algunos deseos son chistosos: «Ojalá pudiera volar», escribió Pedro, que tiene siete años. «Ojalá mi hermano dejara de comerse mis galletas», escribió Ana.
+en: Others are sad. "I wish my dad lived with us," wrote a girl whose father works in the United States. "I wish I had a computer at home," wrote another student.
+es: Otros son tristes. «Ojalá mi papá viviera con nosotros», escribió una niña cuyo papá trabaja en Estados Unidos. «Ojalá tuviera una computadora en mi casa», escribió otro estudiante.
+en: Last year, the teacher shared some of the wishes on social media. People from all over Mexico read them, and a company donated ten computers to the school. "If only every wish were that easy," says the teacher.
+es: El año pasado, la maestra compartió algunos deseos en redes sociales. Gente de todo México los leyó, y una empresa donó diez computadoras a la escuela. «Si tan solo todos los deseos fueran así de fáciles», dice la maestra.
+? ¿Dónde está la escuela? | En Puebla | *En Oaxaca | En Chiapas
+? ¿Qué deseo escribió Pedro? | Tener un perro | *Poder volar | Tener una computadora
+? ¿Dónde trabaja el papá de una de las niñas? | En la Ciudad de México | *En Estados Unidos | En Canadá
+? ¿Qué hizo la maestra el año pasado? | Compró computadoras | *Compartió algunos deseos en redes sociales | Se cambió de escuela
+? ¿Qué donó una empresa? | Libros | *Diez computadoras | Dinero
+
+# n4u11
+@ Tu amigo Iván hace una fiesta en su casa nueva. Solo lo conoces a él. Junto a la mesa de la comida hay una mujer sola.
+A: Hi! These tacos are great, aren't they? | ¡Hola! Estos tacos están buenísimos, ¿no?
+B: Yes, they're delicious. You look familiar. Have we met before? | Sí, están deliciosos. Me suena tu cara. ¿Nos conocemos?
+A: I don't think so. I'm Claudia. | No creo. Soy Claudia.
+B: Nice to meet you. I'm {name|Ana}. How do you know the host? | Mucho gusto. Soy {name|Ana}. ¿De dónde conoces al anfitrión?
+A: Iván and I went to college together. And you? | Iván y yo fuimos juntos a la universidad. ¿Y tú?
+B: We work at the same company. What line of work are you in? | Trabajamos en la misma empresa. ¿Tú en qué trabajas?
+A: I'm an architect. I design hospitals. | Soy arquitecta. Diseño hospitales.
+B: That sounds really interesting. Tell me more. | Suena muy interesante. Cuéntame más.
+@ Siguen platicando y descubren algo.
+A: Right now I'm working on a new hospital in Monterrey. | Ahorita estoy trabajando en un hospital nuevo en Monterrey.
+B: In Monterrey? That's where I grew up! | ¿En Monterrey? ¡Ahí crecí yo!
+A: No way! Which neighborhood? | ¡No puede ser! ¿En qué colonia?
+B: Mitras. My parents still live there. | En Mitras. Mis papás todavía viven ahí.
+A: The hospital is in Mitras! Two streets from the park. | ¡El hospital está en Mitras! A dos calles del parque.
+B: What a coincidence! It's a small world. | ¡Qué coincidencia! El mundo es un pañuelo.
+@ Ya es tarde y Claudia se tiene que ir.
+A: Well, I have to go. I have an early flight tomorrow. | Bueno, me tengo que ir. Mañana tengo un vuelo temprano.
+B: It was great talking to you. We should keep in touch. | Fue un gusto platicar contigo. Deberíamos seguir en contacto.
+A: Sure! Do you have a business card? | ¡Claro! ¿Tienes una tarjeta de presentación?
+B: Here's my card. Can I connect with you on LinkedIn? | Aquí tienes mi tarjeta. ¿Te puedo agregar en LinkedIn?
+A: Of course. Say hi to your parents in Mitras! | ¡Claro! ¡Saluda a tus papás en Mitras!
+B: Ha, ha! I will. Have a good flight! | ¡Ja, ja! Claro que sí. ¡Buen vuelo!
+== A coffee that changed everything
+en: Three years ago, Marcos went to a technology conference in Guadalajara. He didn't know anybody, and he almost went back to his hotel. Instead, he went to get a coffee and saw a man standing alone.
+es: Hace tres años, Marcos fue a una conferencia de tecnología en Guadalajara. No conocía a nadie y casi se regresa a su hotel. En lugar de eso, fue por un café y vio a un señor solo.
+en: "Is this your first time at this event?" asked Marcos. The man smiled. "No, it's my tenth. What line of work are you in?" Marcos explained that he designed apps for small businesses. "That sounds really interesting. Tell me more," said the man.
+es: «¿Es tu primera vez en este evento?», preguntó Marcos. El señor sonrió. «No, es la décima. ¿Tú en qué trabajas?». Marcos le explicó que diseñaba aplicaciones para negocios pequeños. «Suena muy interesante. Cuéntame más», dijo el señor.
+en: They talked for twenty minutes and exchanged business cards. A week later, the man sent Marcos an email. It turns out he was the director of a big company, and he wanted to hire him.
+es: Platicaron veinte minutos e intercambiaron tarjetas. Una semana después, el señor le mandó un correo a Marcos. Resulta que era el director de una empresa grande y lo quería contratar.
+en: Today, Marcos always says the same thing: "Never eat alone at a conference."
+es: Hoy, Marcos siempre dice lo mismo: «Nunca comas solo en una conferencia».
+? ¿A dónde fue Marcos hace tres años? | A una boda | *A una conferencia de tecnología | A una entrevista de trabajo
+? ¿Qué casi hizo Marcos? | Comer solo | *Regresarse a su hotel | Irse a otra conferencia
+? ¿A qué se dedicaba Marcos? | Era director de una empresa | *Diseñaba aplicaciones para negocios pequeños | Vendía computadoras
+? ¿Quién era el señor? | Un profesor | *El director de una empresa grande | Un periodista
+? ¿Qué dice siempre Marcos? | Que hay que llegar temprano | *Que nunca hay que comer solo en una conferencia | Que hay que llevar muchas tarjetas
+
+# n4u20
+@ Tu amiga Paty es voluntaria en una casa para migrantes. Hoy, sábado, la acompañas por primera vez. Las recibe el coordinador.
+A: Hi! Is this your first time here? | ¡Hola! ¿Es tu primera vez aquí?
+B: Yes. My friend Paty volunteers here every Saturday. | Sí. Mi amiga Paty es voluntaria aquí todos los sábados.
+A: Great. We're a nonprofit organization. We give food and a bed to people who are traveling north. | Qué bien. Somos una organización sin fines de lucro. Damos comida y una cama a la gente que viaja al norte.
+B: How many people come every day? | ¿Cuánta gente viene cada día?
+A: About eighty. Many of them are families with children. | Unas ochenta. Muchas son familias con niños.
+B: How can I help? | ¿Cómo puedo ayudar?
+A: You can serve the food in the kitchen. | Puedes servir la comida en la cocina.
+@ En el comedor, le sirves comida a una señora de Honduras y a su hijo.
+A: Thank you so much. You're very kind. | Muchas gracias. Es usted muy amable.
+B: You're welcome. Where are you going? | De nada. ¿A dónde van?
+A: To Texas. My husband works there. It's a long trip. | A Texas. Mi esposo trabaja allá. Es un viaje largo.
+B: I understand. My grandfather was an immigrant too. He worked in Chicago for twenty years. | Entiendo. Mi abuelo también fue inmigrante. Trabajó en Chicago veinte años.
+A: Really? Then you know how hard it is. | ¿De verdad? Entonces sabe lo difícil que es.
+B: Yes. Good luck to you and your son. | Sí. Mucha suerte a usted y a su hijo.
+@ En la tarde, de regreso en el carro, platicas con Paty.
+A: So? How did you feel? | ¿Y? ¿Cómo te sentiste?
+B: Sad, but happy to help. Poverty is a very big problem. | Triste, pero feliz de ayudar. La pobreza es un problema muy grande.
+A: I know. Many of them leave their countries because of poverty and violence. | Ya sé. Muchos dejan su país por la pobreza y la violencia.
+B: I want to come back next Saturday. And we can donate money too. | Quiero regresar el próximo sábado. Y también podemos donar dinero.
+A: That's great! They always need help. | ¡Qué bien! Siempre necesitan ayuda.
+== A house of hope
+en: Twenty years ago, Doña Teresa saw a group of migrants sleeping under a bridge in Saltillo. It was winter, and it was very cold. That night, she took them to her house and gave them soup and blankets.
+es: Hace veinte años, doña Teresa vio a un grupo de migrantes durmiendo debajo de un puente en Saltillo. Era invierno y hacía mucho frío. Esa noche, los llevó a su casa y les dio sopa y cobijas.
+en: Today, Casa Esperanza is a nonprofit organization with forty volunteers. Every day, it gives food, a bed and medical help to about a hundred people from Mexico, Central America and even Venezuela.
+es: Hoy, Casa Esperanza es una organización sin fines de lucro con cuarenta voluntarios. Cada día da comida, una cama y atención médica a unas cien personas de México, Centroamérica y hasta de Venezuela.
+en: Many people leave their countries because of poverty or violence. "We all have equal rights," says Doña Teresa. "Nobody leaves home because they want to."
+es: Mucha gente deja su país por la pobreza o la violencia. «Todos tenemos los mismos derechos», dice doña Teresa. «Nadie deja su casa porque quiere».
+en: The shelter doesn't receive money from the government. It works thanks to people who donate money, food and clothes, and to volunteers who give their time every weekend.
+es: El albergue no recibe dinero del gobierno. Funciona gracias a la gente que dona dinero, comida y ropa, y a los voluntarios que dan su tiempo cada fin de semana.
+? ¿Qué vio doña Teresa hace veinte años? | Un accidente | *Un grupo de migrantes durmiendo debajo de un puente | Una casa abandonada
+? ¿Qué les dio esa noche? | Dinero | *Sopa y cobijas | Trabajo
+? ¿Cuántos voluntarios tiene hoy Casa Esperanza? | Diez | *Cuarenta | Cien
+? ¿Qué dice doña Teresa? | Que el gobierno debe ayudar | *Que todos tenemos los mismos derechos | Que necesitan más camas
+? ¿De dónde sale el dinero del albergue? | Del gobierno | *De la gente que dona | De una empresa
+
+# n4u12
+@ Tu amiga Sandra va a abrir un restaurante y te invita a probar el menú antes de la inauguración.
+A: Okay, this is the first dish: chicken in green mole. Tell me the truth! | Bueno, este es el primer platillo: pollo en mole verde. ¡Dime la verdad!
+B: Mmm! I can tell you put a lot of work into this. | ¡Mmm! Se nota que te esforzaste.
+A: Thanks! But what do you really think? | ¡Gracias! Pero, ¿qué piensas de verdad?
+B: Overall, it's really strong. One thing I'd change is the salt. | En general, está muy bien. Una cosa que cambiaría es la sal.
+A: Too much salt? | ¿Demasiada sal?
+B: A little. Have you thought about adding some rice? | Un poco. ¿Has pensado en agregarle un poco de arroz?
+A: Hmm, that's a fair point. And the dessert? | Mmm, es un punto válido. ¿Y el postre?
+B: The dessert is perfect. This is exactly what we needed after the mole! | El postre está perfecto. ¡Esto es justo lo que necesitábamos después del mole!
+@ Luego Sandra te enseña el diseño del menú.
+A: What do you think of the menu? | ¿Qué te parece el menú?
+B: I really like the colors. What if we made it shorter? | Me gustan mucho los colores. ¿Y si lo hacemos más corto?
+A: Shorter? Why? | ¿Más corto? ¿Por qué?
+B: There are forty dishes. It could be a bit clearer with twenty. | Hay cuarenta platillos. Podría ser un poco más claro con veinte.
+A: I hadn't looked at it that way. Thanks for the feedback! | No lo había visto así. ¡Gracias por la retroalimentación!
+@ El día de la inauguración, dices unas palabras frente a los invitados. Después, Sandra se acerca.
+A: Your speech was beautiful! But can I give you some feedback? | ¡Tu discurso estuvo precioso! Pero, ¿te puedo dar algo de retroalimentación?
+B: Of course. What would you do differently? | Claro. ¿Qué harías diferente?
+A: Next time, try to speak a little slower. I could see you were nervous! | La próxima vez, intenta hablar un poco más despacio. ¡Se notaban los nervios!
+B: That's a fair point. I appreciate you telling me. | Es un punto válido. Agradezco que me lo digas.
+A: And thank you for everything. Your ideas helped a lot. | Y gracias por todo. Tus ideas ayudaron mucho.
+B: Keep up the good work. The restaurant is going to be a success! | Sigue así. ¡El restaurante va a ser un éxito!
+== The right way to give feedback
+en: When Ricardo became a manager, he had a problem: he didn't know how to give feedback. If an employee made a mistake, he simply said, "This is wrong. Do it again." Soon, his team was unhappy, and two people quit.
+es: Cuando Ricardo se hizo gerente, tenía un problema: no sabía dar retroalimentación. Si un empleado cometía un error, simplemente decía: «Esto está mal. Hazlo otra vez». Pronto, su equipo estaba descontento y dos personas renunciaron.
+en: His boss gave him some advice: "Start with something positive. Then, suggest one change. Finally, end with something positive again."
+es: Su jefa le dio un consejo: «Empieza con algo positivo. Luego, sugiere un cambio. Al final, termina otra vez con algo positivo».
+en: Now Ricardo talks differently. "I really liked how you presented the data," he told an employee last week. "One thing I'd change is the title. Overall, it's really strong."
+es: Ahora Ricardo habla diferente. «Me gustó mucho cómo presentaste los datos», le dijo a un empleado la semana pasada. «Una cosa que cambiaría es el título. En general, está muy bien».
+en: He also learned to receive feedback. When someone criticizes his ideas, he says, "That's a fair point. I'll take that into account." Today, his team is one of the best in the company.
+es: También aprendió a recibir retroalimentación. Cuando alguien critica sus ideas, dice: «Es un punto válido. Lo tomaré en cuenta». Hoy, su equipo es uno de los mejores de la empresa.
+? ¿Qué problema tenía Ricardo? | Llegaba tarde | *No sabía dar retroalimentación | No le gustaba su equipo
+? ¿Qué pasó con su equipo al principio? | Ganó un premio | *Estaba descontento y dos personas renunciaron | Trabajó más rápido
+? ¿Con qué le aconsejó su jefa empezar? | Con el error | *Con algo positivo | Con una pregunta
+? ¿Qué cambiaría Ricardo del trabajo del empleado? | Los datos | *El título | Los colores
+? ¿Qué dice Ricardo cuando critican sus ideas? | Que no tienen razón | *Que es un punto válido y lo tomará en cuenta | Que lo va a pensar
+
+# n4u13
+@ Llega el recibo de la luz y tu pareja se espanta.
+A: Look at this! We have to pay four thousand pesos! | ¡Mira esto! ¡Tenemos que pagar cuatro mil pesos!
+B: Let me see the graph. The bill doubled. | Déjame ver la gráfica. El recibo se duplicó.
+A: Why? We didn't do anything different. | ¿Por qué? No hicimos nada diferente.
+B: As you can see, it increased sharply in May. | Como puedes ver, subió bruscamente en mayo.
+A: Of course! It was so hot. We had the air conditioner on all day. | ¡Claro! Hacía muchísimo calor. Teníamos el aire acondicionado prendido todo el día.
+B: And compared to last year, it's forty percent more. | Y comparado con el año pasado, es cuarenta por ciento más.
+A: We need to do something. | Tenemos que hacer algo.
+@ El fin de semana, tu vecino te platica que puso paneles solares.
+A: Since we installed the solar panels, our bill was cut in half. | Desde que pusimos los paneles solares, el recibo se redujo a la mitad.
+B: Really? Ours reached a record high this summer. | ¿En serio? El nuestro alcanzó un máximo histórico este verano.
+A: The panels were expensive, but they're worth it. | Los paneles fueron caros, pero valen la pena.
+B: How much do you pay on average now? | ¿Cuánto pagan en promedio ahora?
+A: About eight hundred pesos. And it remained stable all year. | Unos ochocientos pesos. Y se mantuvo estable todo el año.
+B: Wow! Can you give me the number of the company? | ¡Guau! ¿Me das el número de la empresa?
+@ Seis meses después, ya con paneles solares, llega el nuevo recibo.
+A: Look! Only seven hundred pesos! | ¡Mira! ¡Solo setecientos pesos!
+B: The trend is positive. It decreased every month. | La tendencia es positiva. Bajó cada mes.
+A: And the panels? When will we get the money back? | ¿Y los paneles? ¿Cuándo vamos a recuperar el dinero?
+B: In about three years. And half of our neighbors want them now! | En unos tres años. ¡Y la mitad de los vecinos los quiere ahora!
+== A year in numbers
+en: When Lupita opened her coffee shop in Querétaro, she started to record her sales every month. Here is what her first year looked like.
+es: Cuando Lupita abrió su cafetería en Querétaro, empezó a registrar sus ventas cada mes. Así se vio su primer año.
+en: In January and February, sales were low: about forty thousand pesos a month. In March, a famous blogger wrote about the coffee shop, and sales increased sharply. They doubled in only two months.
+es: En enero y febrero, las ventas fueron bajas: unos cuarenta mil pesos al mes. En marzo, una bloguera famosa escribió sobre la cafetería y las ventas subieron bruscamente. Se duplicaron en solo dos meses.
+en: In the summer, there was a sharp drop because many students went on vacation. However, sales recovered in September and grew steadily until December, when they reached a record high of one hundred and twenty thousand pesos.
+es: En el verano hubo una caída fuerte porque muchos estudiantes se fueron de vacaciones. Sin embargo, las ventas se recuperaron en septiembre y crecieron de forma constante hasta diciembre, cuando alcanzaron un máximo histórico de ciento veinte mil pesos.
+en: Her costs remained stable all year. "As you can see, the trend is positive," Lupita told the bank. Now she wants to open a second coffee shop.
+es: Sus costos se mantuvieron estables todo el año. «Como pueden ver, la tendencia es positiva», le dijo Lupita al banco. Ahora quiere abrir una segunda cafetería.
+? ¿Cuánto vendía Lupita al mes en enero y febrero? | Veinte mil pesos | *Unos cuarenta mil pesos | Cien mil pesos
+? ¿Por qué subieron las ventas en marzo? | Por una promoción | *Porque una bloguera famosa escribió sobre la cafetería | Porque abrió otra sucursal
+? ¿Por qué bajaron las ventas en el verano? | Porque hacía calor | *Porque muchos estudiantes se fueron de vacaciones | Porque subieron los precios
+? ¿Cuándo alcanzaron las ventas su máximo histórico? | En marzo | *En diciembre | En septiembre
+? ¿Qué quiere hacer Lupita ahora? | Vender la cafetería | *Abrir una segunda cafetería | Bajar los precios
+
+# n4u19
+@ Tu celular viejo ya no sirve y vas a una tienda a comprar uno nuevo.
+A: Good afternoon! What can I help you with? | ¡Buenas tardes! ¿En qué le puedo ayudar?
+B: My phone is very old, and my battery is dead all the time. | Mi celular es muy viejo y se me acaba la batería todo el tiempo.
+A: I see. This is the new version of our best phone. | Ya veo. Esta es la versión nueva de nuestro mejor celular.
+B: What's new? Does it have a lot of new features? | ¿Qué tiene de nuevo? ¿Tiene muchas funciones nuevas?
+A: Yes. The display is bigger, and it has artificial intelligence for photos. | Sí. La pantalla es más grande y tiene inteligencia artificial para las fotos.
+B: And how much cloud storage does it have? | ¿Y cuánto almacenamiento en la nube tiene?
+A: Two hundred gigabytes. And everything saves automatically. | Doscientos gigas. Y todo se guarda automáticamente.
+B: Perfect. I'll take it. | Perfecto. Me lo llevo.
+@ En la caja, pagas con tarjeta.
+A: That's twelve thousand pesos. Please enter your card's PIN. | Son doce mil pesos. Por favor, ingrese el NIP de su tarjeta.
+B: Oh no. The machine says "error." | Ay, no. La terminal dice «error».
+A: Sorry. We have a technical problem. The network is down. | Disculpe. Tenemos un problema técnico. La red está caída.
+B: No problem. I can wait a few minutes. | No hay problema. Puedo esperar unos minutos.
+A: It's working again. Try now, please. | Ya funciona otra vez. Intente ahora, por favor.
+@ En casa, tu sobrino de quince años te ayuda a configurar el celular.
+A: First, you need to update the software. | Primero tienes que actualizar el software.
+B: Okay. And how do I change the default language? | Bueno. ¿Y cómo cambio el idioma predeterminado?
+A: Here, in settings. Do you want it in Spanish or English? | Aquí, en configuración. ¿Lo quieres en español o en inglés?
+B: In English. I want to practice! | En inglés. ¡Quiero practicar!
+A: Cool! And your old photos are in the cloud, so you don't lose anything. | ¡Qué padre! Y tus fotos viejas están en la nube, así que no pierdes nada.
+B: You're a genius. You should study programming! | Eres un genio. ¡Deberías estudiar programación!
+== Grandma goes digital
+en: Doña Chuy is seventy-four years old, and until last year she didn't have a smartphone. "I don't need those electronic devices," she always said.
+es: Doña Chuy tiene setenta y cuatro años, y hasta el año pasado no tenía un celular inteligente. «No necesito esos aparatos electrónicos», decía siempre.
+en: Then her granddaughter moved to Canada, and everything changed. Now Doña Chuy makes video calls every Sunday. Her grandson taught her to put the phone on silent, use airplane mode on flights and save photos in the cloud.
+es: Luego su nieta se mudó a Canadá, y todo cambió. Ahora doña Chuy hace videollamadas cada domingo. Su nieto le enseñó a poner el celular en silencio, a usar el modo avión en los vuelos y a guardar fotos en la nube.
+en: At first, it was difficult. "The phone doesn't work!" she told her grandson one night. He looked at it and laughed. "Grandma, the battery is dead. You just need to charge it."
+es: Al principio fue difícil. «¡El celular no funciona!», le dijo una noche a su nieto. Él lo revisó y se rio. «Abuela, se acabó la batería. Solo tienes que cargarlo».
+en: Today, Doña Chuy sends messages, buys groceries online and even uses artificial intelligence to find recipes. "Technology is changing the world," she says, "and I don't want to stay behind."
+es: Hoy, doña Chuy manda mensajes, compra el mandado en línea y hasta usa inteligencia artificial para buscar recetas. «La tecnología está cambiando el mundo», dice, «y no me quiero quedar atrás».
+? ¿Cuántos años tiene doña Chuy? | Sesenta y cuatro | *Setenta y cuatro | Ochenta y cuatro
+? ¿Por qué empezó a usar el celular? | Porque se lo regalaron | *Porque su nieta se mudó a Canadá | Porque lo necesitaba para trabajar
+? ¿Qué le enseñó su nieto? | A tomar fotos | *A usar el modo avión y guardar fotos en la nube | A programar
+? ¿Qué pasaba cuando creyó que el celular no funcionaba? | Estaba roto | *Se le había acabado la batería | No tenía señal
+? ¿Para qué usa la inteligencia artificial? | Para escribir cartas | *Para buscar recetas | Para aprender inglés
+
+# n4u14
+@ Mañana sales de viaje de trabajo a Alemania por dos semanas. En la noche haces la maleta mientras platicas con tu pareja.
+A: I can't believe you're leaving tomorrow. | No puedo creer que te vas mañana.
+B: I know. This time tomorrow, I'll be flying over the ocean. | Ya sé. Mañana a esta hora estaré volando sobre el océano.
+A: Will you be using the car tomorrow morning? | ¿Vas a usar el carro mañana en la mañana?
+B: No, I'll take a taxi. By the time you wake up, I'll have left. | No, me voy en taxi. Para cuando despiertes, ya me habré ido.
+A: Okay. Call me when you arrive. | Bueno. Llámame cuando llegues.
+B: Of course. And I'll be thinking of you. | Claro. Y estaré pensando en ti.
+@ Ya estás en Alemania. Tu jefa te llama por videollamada desde México.
+A: How's the training going? | ¿Cómo va la capacitación?
+B: Very well. By Friday, we'll have finished the first part. | Muy bien. Para el viernes habremos terminado la primera parte.
+A: Great. Can we have a call tomorrow at five? | Perfecto. ¿Podemos tener una llamada mañana a las cinco?
+B: At five, we'll be in a meeting with the engineers. What about at seven? | A las cinco estaremos en una junta con los ingenieros. ¿Qué tal a las siete?
+A: Perfect. Will you have read the report by then? | Perfecto. ¿Ya habrás leído el reporte para entonces?
+B: Yes, I'll have read it by then. | Sí, para entonces ya lo habré leído.
+@ Dos semanas después, antes de regresar, le hablas a tu pareja desde el aeropuerto.
+A: What time does your flight arrive? | ¿A qué hora llega tu vuelo?
+B: By eight, I'll have arrived. Will you be waiting for me? | Para las ocho ya habré llegado. ¿Me vas a estar esperando?
+A: Of course! I'll be waiting at the entrance. And don't forget: next week is our anniversary. | ¡Claro! Te voy a estar esperando en la entrada. Y no se te olvide: la próxima semana es nuestro aniversario.
+B: Next week, we'll have been married for five years! | ¡La próxima semana cumpliremos cinco años de casados!
+A: We'll be celebrating all night! | ¡Vamos a estar celebrando toda la noche!
+== A letter to the future
+en: On her thirtieth birthday, Sofía wrote a letter to herself. She put it in a box and decided to open it ten years later. This is part of what she wrote:
+es: En su cumpleaños número treinta, Sofía se escribió una carta a sí misma. La guardó en una caja y decidió abrirla diez años después. Esta es una parte de lo que escribió:
+en: "Dear Sofía, when you read this, you'll be forty. I hope you'll have finished your master's degree and learned to speak English well. By then, you'll have paid for your apartment, and maybe you'll be living near the beach. Maybe you'll be working at your own company or traveling around the world. Whatever you're doing, I hope you'll be happy."
+es: «Querida Sofía: Cuando leas esto, tendrás cuarenta años. Espero que ya hayas terminado tu maestría y aprendido a hablar bien inglés. Para entonces ya habrás pagado tu departamento, y tal vez estarás viviendo cerca de la playa. Tal vez estarás trabajando en tu propia empresa o viajando por el mundo. Hagas lo que hagas, espero que seas feliz».
+en: Last month, Sofía turned forty and opened the box. Not everything happened: she isn't living near the beach. But she finished her master's, and now she teaches English at a university.
+es: El mes pasado, Sofía cumplió cuarenta años y abrió la caja. No todo pasó: no vive cerca de la playa. Pero terminó su maestría, y ahora da clases de inglés en una universidad.
+? ¿Cuándo escribió Sofía la carta? | En su cumpleaños número veinte | *En su cumpleaños número treinta | Cuando se graduó
+? ¿Cuándo decidió abrirla? | Un año después | *Diez años después | Cuando se casara
+? ¿Qué esperaba haber aprendido? | A cocinar | *A hablar bien inglés | A manejar
+? ¿Qué no pasó? | No terminó su maestría | *No vive cerca de la playa | No aprendió inglés
+? ¿A qué se dedica Sofía ahora? | Tiene su propia empresa | *Da clases de inglés en una universidad | Viaja por el mundo
+
+# n4u15
+@ Lunes, 8:30 de la mañana. Tienes una presentación con un cliente importante a las diez. Tu compañero Lalo llega corriendo.
+A: We have a big problem! The server is down, and I can't find the presentation! | ¡Tenemos un problemón! ¡El servidor está caído y no encuentro la presentación!
+B: Don't worry. I backed up the files on Friday. | No te preocupes. Respaldé los archivos el viernes.
+A: Thank God! But we still have to finish the last part. | ¡Gracias a Dios! Pero todavía tenemos que terminar la última parte.
+B: I'll take care of it. Can you figure out what went wrong with the server? | Yo me encargo. ¿Puedes averiguar qué falló con el servidor?
+A: Okay, I'll look into it. What do I tell the boss? | Bueno, lo investigo. ¿Qué le digo a la jefa?
+B: Nothing yet. Let's catch up later. | Nada todavía. Pongámonos al día después.
+@ A las 9:15 ves que no van a terminar a tiempo. Le llamas al cliente, el señor Turner.
+A: Good morning! I'm on my way to your office. | ¡Buenos días! Voy en camino a su oficina.
+B: Good morning, Mr. Turner. I'm sorry, we ran into a problem. Can we push it back? | Buenos días, señor Turner. Disculpe, nos encontramos con un problema. ¿Lo podemos posponer?
+A: No problem. Is eleven okay? | No hay problema. ¿Le parece a las once?
+B: Perfect. Thank you for understanding. | Perfecto. Gracias por su comprensión.
+@ La presentación salió muy bien. En la tarde, tu jefa te pregunta qué pasó.
+A: Can you fill me in? I heard there was a problem this morning. | ¿Me puedes poner al tanto? Supe que hubo un problema en la mañana.
+B: The server was down, but we came up with a solution. | El servidor estaba caído, pero se nos ocurrió una solución.
+A: Great job. And the client? | Buen trabajo. ¿Y el cliente?
+B: He liked the presentation. I'll follow up with him next week. | Le gustó la presentación. Le doy seguimiento la próxima semana.
+A: Perfect. Let's set up a meeting with IT tomorrow. | Perfecto. Organicemos una junta con sistemas mañana.
+B: Okay. I'll bring it up in the meeting. We need to back up the files every day. | Bueno. Lo voy a mencionar en la junta. Hay que respaldar los archivos todos los días.
+== The deal that almost fell through
+en: Last month, Karla's company was about to sign a big contract with a client in Chicago. Everything was ready. Then, on Friday afternoon, the client called: they wanted to back out.
+es: El mes pasado, la empresa de Karla estaba a punto de firmar un contrato grande con un cliente de Chicago. Todo estaba listo. Luego, el viernes en la tarde, el cliente llamó: se querían echar para atrás.
+en: Karla didn't panic. "I'll look into it," she told her boss. She called the client and found out the problem: the price was too high for them. If they lost this client, the company would lose a year of work.
+es: Karla no entró en pánico. «Lo investigo», le dijo a su jefe. Le llamó al cliente y descubrió el problema: el precio era demasiado alto para ellos. Si perdían a este cliente, la empresa perdería un año de trabajo.
+en: That weekend, Karla and her team set up a video call and went over the contract in detail. They figured out how to cut down on costs, and they came up with a new proposal: a lower price, but a longer contract.
+es: Ese fin de semana, Karla y su equipo organizaron una videollamada y revisaron el contrato a fondo. Averiguaron cómo reducir costos y se les ocurrió una nueva propuesta: un precio más bajo, pero un contrato más largo.
+en: On Monday, the client accepted. The project didn't fall through, and a month later Karla was promoted.
+es: El lunes, el cliente aceptó. El proyecto no se cayó, y un mes después a Karla la ascendieron.
+? ¿De dónde era el cliente? | De Monterrey | *De Chicago | De Toronto
+? ¿Qué quería hacer el cliente el viernes? | Firmar el contrato | *Echarse para atrás | Cambiar de proveedor
+? ¿Cuál era el problema? | El contrato era muy corto | *El precio era demasiado alto | El producto llegaba tarde
+? ¿Qué propuso el equipo de Karla? | Un precio más alto | *Un precio más bajo, pero un contrato más largo | Cancelar el proyecto
+? ¿Qué le pasó a Karla un mes después? | La despidieron | *La ascendieron | Se cambió de empresa
+
+# n4u25
+@ Tu socia Elena y tú tienen una pequeña empresa de café de Chiapas. Mañana van a presentar su idea a unos inversionistas.
+A: Do you have everything ready for tomorrow? I'm so nervous! | ¿Ya tienes todo listo para mañana? ¡Estoy nerviosísima!
+B: Almost. We need a new strategy for the presentation. | Casi. Necesitamos una estrategia nueva para la presentación.
+A: What do you mean? | ¿Qué quieres decir?
+B: We have to explain our target market: young people who drink good coffee. | Tenemos que explicar nuestro mercado meta: gente joven que toma buen café.
+A: Good idea. And what about the new logo? | Buena idea. ¿Y el logotipo nuevo?
+B: The company logo is ready. It looks great. | El logotipo de la empresa ya está listo. Se ve muy bien.
+@ Al día siguiente, en la sala de juntas, uno de los inversionistas les hace preguntas.
+A: Tell us about your company. | Cuéntennos de su empresa.
+B: The company was founded in 2022. Our headquarters are in Tuxtla Gutiérrez. | La empresa se fundó en 2022. Nuestra sede está en Tuxtla Gutiérrez.
+A: And what makes you different? | ¿Y qué los hace diferentes?
+B: Our commitment to quality. We buy the coffee from small farmers. | Nuestro compromiso con la calidad. Le compramos el café a pequeños productores.
+A: Interesting. What are your plans? | Interesante. ¿Cuáles son sus planes?
+B: We're going to launch a new product: cold coffee in bottles. And we want to expand to the United States. | Vamos a lanzar un producto nuevo: café frío en botella. Y queremos expandirnos a Estados Unidos.
+A: How much money do you need? | ¿Cuánto dinero necesitan?
+B: Two million pesos for the company's expansion. | Dos millones de pesos para la expansión de la empresa.
+@ Una semana después, el inversionista te llama.
+A: Good news. We want to invest in your company. | Buenas noticias. Queremos invertir en su empresa.
+B: That's fantastic! Thank you for trusting us. | ¡Qué maravilla! Gracias por confiar en nosotros.
+A: We'd like to form a partnership. Can you come on Monday to sign? | Nos gustaría formar una sociedad. ¿Pueden venir el lunes a firmar?
+B: Of course. Innovation is key, and you'll see great results. | Claro. La innovación es clave, y van a ver grandes resultados.
+== From a garage to the world
+en: In 1998, two brothers from Guadalajara, Raúl and Óscar Medina, started making tortilla chips in their garage. At first, they sold them to small stores in their neighborhood.
+es: En 1998, dos hermanos de Guadalajara, Raúl y Óscar Medina, empezaron a hacer totopos en su cochera. Al principio, los vendían en tienditas de su colonia.
+en: Their strategy was simple: use the best corn and sell at a fair price. Little by little, the business grew. In 2005, they opened a factory, and the company's headquarters moved to an industrial park.
+es: Su estrategia era sencilla: usar el mejor maíz y vender a un precio justo. Poco a poco, el negocio creció. En 2005 abrieron una fábrica, y la sede de la empresa se mudó a un parque industrial.
+en: The big change came in 2015, when they formed a partnership with a supermarket chain in Texas. Today, the company has eight hundred employees and sells its products in five countries.
+es: El gran cambio llegó en 2015, cuando firmaron una sociedad con una cadena de supermercados de Texas. Hoy, la empresa tiene ochocientos empleados y vende sus productos en cinco países.
+en: Raúl is still the CEO. "Innovation is key," he says, "but our commitment to quality is what made us grow." Next year, they're going to launch a new product: chips made with beans.
+es: Raúl sigue siendo el director general. «La innovación es clave», dice, «pero nuestro compromiso con la calidad es lo que nos hizo crecer». El próximo año van a lanzar un producto nuevo: totopos hechos con frijol.
+? ¿Dónde empezaron a hacer totopos los hermanos? | En una fábrica | *En su cochera | En una tienda
+? ¿Cuál era su estrategia? | Vender muy barato | *Usar el mejor maíz y vender a un precio justo | Vender solo en Estados Unidos
+? ¿Qué pasó en 2015? | Abrieron una fábrica | *Firmaron una sociedad con una cadena de supermercados de Texas | Vendieron la empresa
+? ¿Cuántos empleados tiene hoy la empresa? | Ochenta | *Ochocientos | Ocho mil
+? ¿Qué producto nuevo van a lanzar? | Salsa picante | *Totopos hechos con frijol | Tortillas de harina
+
+# n4u26
+@ Tienes unos ahorros y vas al banco a preguntar cómo invertirlos. Te atiende una asesora.
+A: Good morning. How can I help you? | Buenos días. ¿En qué le puedo ayudar?
+B: Good morning. I have some savings, and I'd like to invest them. | Buenos días. Tengo unos ahorros y me gustaría invertirlos.
+A: Great. We have several options. For example, this is an investment fund. | Muy bien. Tenemos varias opciones. Por ejemplo, este es un fondo de inversión.
+B: How does it work? | ¿Cómo funciona?
+A: The fund buys shares of many companies, so the risk is lower. | El fondo compra acciones de muchas empresas, así que el riesgo es menor.
+B: But investors are worried. Is there going to be a recession? | Pero los inversionistas están preocupados. ¿Va a haber una recesión?
+A: Nobody knows. That's why it's important to invest for many years. | Nadie sabe. Por eso es importante invertir a muchos años.
+B: I understand. Inflation went up, and my money is losing value in the bank. | Entiendo. La inflación subió, y mi dinero está perdiendo valor en el banco.
+A: Exactly. Think about it, and call me when you decide. | Exacto. Piénselo y llámeme cuando decida.
+@ El domingo le cuentas a tu papá. Él no está muy convencido.
+A: Investing? With this economic crisis? | ¿Invertir? ¿Con esta crisis económica?
+B: Dad, the economic crisis affected everyone, but the economy is growing again. | Papá, la crisis económica afectó a todos, pero la economía está creciendo otra vez.
+A: Your grandfather invested in the stock market in 1994 and lost almost everything. | Tu abuelo invirtió en la bolsa en 1994 y perdió casi todo.
+B: I know, but a fund is different. The money is in many companies. | Ya sé, pero un fondo es diferente. El dinero está en muchas empresas.
+A: Hmm. Okay, but don't invest all your savings. | Mmm. Bueno, pero no inviertas todos tus ahorros.
+B: Don't worry. I'll invest only half. | No te preocupes. Solo voy a invertir la mitad.
+@ Un año después, revisas tu inversión con la asesora.
+A: Good news. Your investment grew seven percent this year. | Buenas noticias. Su inversión creció un siete por ciento este año.
+B: Seven percent? That's more than inflation! | ¿Siete por ciento? ¡Es más que la inflación!
+A: Yes. The companies in the fund reported record earnings. | Sí. Las empresas del fondo reportaron ganancias récord.
+B: Great. I want to invest the other half too. | ¡Qué bien! También quiero invertir la otra mitad.
+== Factories, jobs and rent
+en: In the last few years, many international companies have opened factories in the north of Mexico. Mexico trades a lot with the United States, and companies want to be close to their customers.
+es: En los últimos años, muchas empresas internacionales han abierto fábricas en el norte de México. México comercia mucho con Estados Unidos, y las empresas quieren estar cerca de sus clientes.
+en: This brought economic growth to cities like Saltillo and Monterrey. There are more jobs, salaries went up, and exports reached a record high.
+es: Esto trajo crecimiento económico a ciudades como Saltillo y Monterrey. Hay más trabajos, los sueldos subieron y las exportaciones alcanzaron un máximo histórico.
+en: However, not everything is good news. Because of supply and demand, rents have increased sharply. With so many new workers, there aren't enough houses, and a small apartment can cost twice as much as five years ago.
+es: Sin embargo, no todo son buenas noticias. Por la oferta y la demanda, las rentas han subido bruscamente. Con tantos trabajadores nuevos, no hay suficientes casas, y un departamento pequeño puede costar el doble que hace cinco años.
+en: "My salary went up ten percent, but my rent went up thirty," says Jorge, an engineer at a car factory. Economists say that cities need to build more houses and better public transportation.
+es: «Mi sueldo subió diez por ciento, pero mi renta subió treinta», dice Jorge, un ingeniero de una fábrica de carros. Los economistas dicen que las ciudades necesitan construir más casas y mejor transporte público.
+? ¿Por qué las empresas abren fábricas en el norte de México? | Porque los sueldos son bajos | *Porque quieren estar cerca de sus clientes en Estados Unidos | Porque el gobierno se lo pidió
+? ¿Qué pasó con las exportaciones? | Bajaron | *Alcanzaron un máximo histórico | Se mantuvieron estables
+? ¿Por qué subieron las rentas? | Por la inflación | *Por la oferta y la demanda | Por los impuestos
+? ¿Cuánto subió la renta de Jorge? | Diez por ciento | *Treinta por ciento | El doble
+? ¿Qué dicen los economistas? | Que hay que bajar los sueldos | *Que se necesitan más casas y mejor transporte público | Que hay que cerrar fábricas
