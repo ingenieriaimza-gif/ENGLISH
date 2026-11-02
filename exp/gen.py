@@ -17,7 +17,7 @@ P = json.loads(subprocess.check_output(["node", os.path.join(HERE, "phr.js"), RE
 ORDER = list(P.keys())
 only = [a for a in sys.argv[1:] if not a.startswith("--")]
 CHECK = "--check" in sys.argv  # solo revisar, sin escribir
-GLUE = set("yes no please and or the a an my oh ha hmm hi hello okay ok wow too gmail com".split())
+GLUE = set("yes no please and or the a an my oh ha hmm hi hello okay ok wow too gmail com everything everybody".split())
 def toks(s):
     s = re.sub(r"\{(?:name|last|nameS|lastS|email)\|[^}]*\}", " ", s).lower().replace("’", "'")
     return [w.strip("'") for w in re.findall(r"[a-z']+", re.sub(r"\([^)]*\)", " ", s)) if w.strip("'")]
@@ -76,7 +76,15 @@ for uid, t in T.items():
         if a[0] == b[0] == "B": warns.append(f"{uid}: dos líneas tuyas seguidas: «{a[1]}» / «{b[1]}»")
     # también los nombres de las escenas («tu prima Laura») y lo que te acaban de decir (se ve arriba de tu turno)
     known = GLUE | set(w for u in ORDER[:i0 + 1] for x in P[u]["en"] for w in toks(x)) | set(w for l in d if l[0] == "@" for w in toks(l[1]))
-    knows = lambda w, extra: w in known or w in extra or (w.endswith("'s") and w[:-2] in known) or (w.endswith("s") and w[:-1] in known) or (w.endswith("es") and w[:-2] in known)
+    # una forma de una palabra que ya conoces también cuenta: plural, 's, -ed, -ing (arrived, stopped, studied, cooking)
+    def knows(w, extra):
+        extra = extra | set(x[:-1] for x in extra if x.endswith("s"))  # te dijeron «flights»: «flight» también
+        if w in known or w in extra: return True
+        bases = [w.split("'")[0] if re.search(r"'(re|ll|ve|d|m)$", w) else "", w[:-2] if w.endswith("'s") else "", w[:-1] if w.endswith("s") else "", w[:-2] if w.endswith("es") else "",
+                 w[:-3] + "y" if w.endswith("ies") or w.endswith("ied") else "", w[:-2] if w.endswith("ed") else "", w[:-1] if w.endswith("ed") else "",
+                 w[:-3] if w.endswith("ed") and len(w) > 4 and w[-3] == w[-4] else "", w[:-3] if w.endswith("ing") else "", w[:-3] + "e" if w.endswith("ing") else "",
+                 w[:-4] if w.endswith("ing") and len(w) > 5 and w[-4] == w[-5] else "", w[:-2] if w.endswith("er") else "", w[:-3] if w.endswith("est") else ""]
+        return any(b and (b in known or b in extra) for b in bases)
     for k, l in enumerate(lines):
         if l[0] != "B": continue
         prev = set(toks(lines[k - 1][1])) if k and lines[k - 1][0] == "A" else set()

@@ -20,13 +20,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Los precios están subiendo.", "Prices are going up.", "práises ar góuing ap", ""]
     ],
     r: {
-      t: "A message from Cancún",
-      en: "Hi Mom! I'm writing to you from the beach. The weather is beautiful and the sun is shining.\nRight now Jorge is swimming and the kids are building a sandcastle. I'm sitting under an umbrella and drinking a coconut.\nWe're staying at a small hotel near the beach. The people are very friendly. Tonight we're having dinner at a seafood restaurant.\nWe're coming back on Sunday. See you soon!",
-      es: "¡Hola, mamá! Te escribo desde la playa. El clima está precioso y el sol está brillando.\nAhorita Jorge está nadando y los niños están haciendo un castillo de arena. Yo estoy sentada bajo una sombrilla tomando un coco.\nNos estamos quedando en un hotel pequeño cerca de la playa. La gente es muy amable. Hoy en la noche vamos a cenar en un restaurante de mariscos.\nRegresamos el domingo. ¡Nos vemos pronto!",
+      t: "A rainy Friday",
+      en: "It's Friday afternoon, and it's raining a lot. Marisa is driving to the airport. Her brother Toño is coming from Chicago.\nHer mom calls, but Marisa can't talk. \"I'm driving, I'll call you later,\" she says.\nAt the airport, a lot of people are waiting. There's a storm in Chicago, and all the flights are late. Marisa is reading a book on her phone.\nAt nine o'clock Toño calls. He's waiting outside, and he doesn't have an umbrella!\nIn the car they talk a lot. Marisa is learning English, and she's studying a lot this month. She's going on vacation next Friday.\nAt home, Toño is talking on the phone with his wife. She's working from home this week, and their kids are playing in the snow.",
+      es: "Es viernes en la tarde y está lloviendo mucho. Marisa va manejando al aeropuerto. Su hermano Toño viene de Chicago.\nSu mamá le llama, pero Marisa no puede hablar. «Estoy manejando, te llamo luego», le dice.\nEn el aeropuerto hay mucha gente esperando. Hay una tormenta en Chicago y todos los vuelos vienen tarde. Marisa está leyendo un libro en su celular.\nA las nueve, Toño le llama. Está esperando afuera, ¡y no tiene paraguas!\nEn el carro platican mucho. Marisa está aprendiendo inglés y este mes está estudiando mucho. Se va de vacaciones el próximo viernes.\nEn la casa, Toño está hablando por teléfono con su esposa. Ella está trabajando desde casa esta semana y sus hijos están jugando en la nieve.",
       q: [
-        ["What is Jorge doing right now?", ["He's sleeping", "He's swimming", "He's eating"], 1],
-        ["Where are they staying?", ["At a small hotel near the beach", "At a friend's house", "At a big hotel downtown"], 0],
-        ["When are they coming back?", ["Tonight", "On Friday", "On Sunday"], 2]
+        ["¿Por qué no puede hablar Marisa con su mamá?", ["Está en una junta", "Está manejando", "Está durmiendo"], 1],
+        ["¿Por qué vienen tarde los vuelos?", ["Por el tráfico", "Por una tormenta en Chicago", "Por un problema del avión"], 1],
+        ["¿Qué hace Marisa mientras espera?", ["Come algo", "Lee un libro en su celular", "Habla con su mamá"], 1],
+        ["¿Qué está aprendiendo Marisa?", ["A manejar", "Inglés", "A cocinar"], 1],
+        ["¿Dónde está trabajando la esposa de Toño esta semana?", ["En la oficina", "Desde casa", "En el aeropuerto"], 1]
       ]
     }
   },
@@ -49,13 +51,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["De niño era muy tímido.", "I was very shy as a kid.", "ai uás véri shái as a kid", ""]
     ],
     r: {
-      t: "My first day at work",
-      en: "My first day at my new job was last Monday. I was very nervous!\nThe office was big and modern. My boss was very nice, and my coworkers were friendly too.\nThere were a lot of meetings and the day was long. Lunch was at two o'clock and the food was delicious.\nAt six I was tired, but I was happy. It was a good day.",
-      es: "Mi primer día en mi nuevo trabajo fue el lunes pasado. ¡Estaba muy nervioso!\nLa oficina era grande y moderna. Mi jefe fue muy amable y mis compañeros también fueron amigables.\nHubo muchas juntas y el día fue largo. La comida fue a las dos y estuvo deliciosa.\nA las seis estaba cansado, pero contento. Fue un buen día.",
+      t: "Back from Cancún",
+      en: "Last week Rodrigo and his wife were in Cancún. The hotel was beautiful and the food was delicious. It wasn't that expensive, but there were a lot of people on the beach.\nOn Sunday they were back home, and on Monday Rodrigo was sick. He wasn't at the office.\nAt the office it was a terrible week. The boss was angry because the reports weren't ready. The meeting on Friday was four hours long!\nOn Monday a client was at the office, but there was nobody there to help him.\nOn Tuesday Rodrigo was better. His coworker Rocío was very happy to see him. \"You were lucky,\" she said. \"Last week was awful here!\"",
+      es: "La semana pasada, Rodrigo y su esposa estuvieron en Cancún. El hotel era precioso y la comida estaba deliciosa. No fue tan caro, pero había mucha gente en la playa.\nEl domingo ya estaban en casa y el lunes Rodrigo estaba enfermo. No estuvo en la oficina.\nEn la oficina fue una semana terrible. El jefe estaba enojado porque los reportes no estaban listos. ¡La junta del viernes duró cuatro horas!\nEl lunes un cliente estuvo en la oficina, pero no había nadie para atenderlo.\nEl martes Rodrigo ya estaba mejor. Su compañera Rocío estaba muy contenta de verlo. «Tuviste suerte», le dijo. «¡La semana pasada estuvo horrible aquí!».",
       q: [
-        ["How did he feel on his first day?", ["Bored", "Nervous", "Angry"], 1],
-        ["How was the office?", ["Big and modern", "Small and old", "Dirty"], 0],
-        ["How did he feel at six?", ["Sad", "Angry", "Tired but happy"], 2]
+        ["¿Dónde estuvieron Rodrigo y su esposa la semana pasada?", ["En Monterrey", "En Cancún", "En Chicago"], 1],
+        ["¿Cómo estaba la comida?", ["Horrible", "Deliciosa", "Cara"], 1],
+        ["¿Por qué no fue Rodrigo a la oficina el lunes?", ["Estaba de vacaciones", "Estaba enfermo", "Había mucho tráfico"], 1],
+        ["¿Por qué estaba enojado el jefe?", ["Por el tráfico", "Porque los reportes no estaban listos", "Porque Rodrigo no llamó"], 1],
+        ["¿Cuánto duró la junta del viernes?", ["Una hora", "Dos horas", "Cuatro horas"], 2]
       ]
     }
   },
@@ -78,13 +82,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Cerraron la tienda temprano.", "They closed the store early.", "déi clóusd de stor érli", ""]
     ],
     r: {
-      t: "A lazy Sunday",
-      en: "Last Sunday I stayed at home all day. In the morning I cleaned the kitchen and I washed my clothes.\nIt rained in the afternoon, so I watched two movies on TV. I liked the first one, but I didn't like the second one.\nIn the evening my sister visited me. We cooked pasta and we talked for hours.\nI didn't go out, but I enjoyed my day.",
-      es: "El domingo pasado me quedé en casa todo el día. En la mañana limpié la cocina y lavé mi ropa.\nLlovió en la tarde, así que vi dos películas en la tele. Me gustó la primera, pero no me gustó la segunda.\nEn la noche me visitó mi hermana. Cocinamos pasta y platicamos durante horas.\nNo salí, pero disfruté mi día.",
+      t: "A busy week",
+      en: "Last week was very busy for Mónica. Her boss traveled to Monterrey, so Mónica worked late every day.\nOn Monday she called the supplier because the order wasn't there. The supplier changed the date again! On Tuesday she waited for an hour for a delivery, but nothing arrived.\nOn Thursday her team finished the big project. Her coworker Ana helped her a lot. The new computer program didn't work, so they tried twice and then they called IT.\nOn Saturday her friend Pedro celebrated his birthday, and they danced all night. On Sunday it rained all day, so Mónica stayed home and watched a movie. She liked it a lot.",
+      es: "La semana pasada fue muy ocupada para Mónica. Su jefa viajó a Monterrey, así que Mónica trabajó hasta tarde todos los días.\nEl lunes llamó al proveedor porque el pedido no estaba. ¡El proveedor cambió la fecha otra vez! El martes esperó una hora una entrega, pero no llegó nada.\nEl jueves su equipo terminó el proyecto grande. Su compañera Ana la ayudó mucho. El programa nuevo de la computadora no funcionó, así que lo intentaron dos veces y luego llamaron a sistemas.\nEl sábado, su amigo Pedro celebró su cumpleaños y bailaron toda la noche. El domingo llovió todo el día, así que Mónica se quedó en casa y vio una película. Le gustó mucho.",
       q: [
-        ["What did he do in the morning?", ["He watched movies", "He cleaned and washed clothes", "He visited his sister"], 1],
-        ["Why did he watch TV?", ["Because it rained", "Because he was sick", "Because his sister asked"], 0],
-        ["What did he cook with his sister?", ["Tacos", "Chicken", "Pasta"], 2]
+        ["¿Por qué trabajó Mónica hasta tarde?", ["Porque estaba enferma", "Porque su jefa viajó", "Porque quería"], 1],
+        ["¿Qué hizo el proveedor?", ["Entregó el pedido", "Cambió la fecha otra vez", "Llamó a la jefa"], 1],
+        ["¿Quién ayudó a Mónica con el proyecto?", ["Pedro", "Ana", "Su jefa"], 1],
+        ["¿Qué hicieron en la fiesta de Pedro?", ["Vieron una película", "Bailaron toda la noche", "Cocinaron"], 1],
+        ["¿Qué hizo Mónica el domingo?", ["Trabajó", "Viajó", "Vio una película en casa"], 2]
       ]
     }
   },
@@ -107,13 +113,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Qué te dijo?", "What did he tell you?", "uát did ji tel iú", ""]
     ],
     r: {
-      t: "A terrible morning",
-      en: "Yesterday was a terrible day. I woke up late because my alarm didn't ring.\nI drank my coffee very fast and I left home without breakfast. Then I lost my keys!\nI found them after ten minutes, but I missed the bus. I took a taxi and I spent two hundred pesos.\nI got to the office at nine thirty. My boss saw me, but she didn't say anything.",
-      es: "Ayer fue un día terrible. Me levanté tarde porque no sonó mi alarma.\nMe tomé el café muy rápido y salí de casa sin desayunar. ¡Luego perdí mis llaves!\nLas encontré después de diez minutos, pero se me fue el camión. Tomé un taxi y gasté doscientos pesos.\nLlegué a la oficina a las nueve y media. Mi jefa me vio, pero no dijo nada.",
+      t: "A crazy day",
+      en: "Yesterday was a crazy day for Iván. He woke up late because he didn't hear his alarm. Then he lost his keys, so he took a taxi to work.\nAt lunch he found a new restaurant near the office. He ate tacos and drank too much coffee.\nIn the afternoon he wrote a lot of emails and sent an important file to his boss.\nAfter work he went to the supermarket and bought milk, bread and... a new phone! His wife wasn't very happy. \"We spent a lot of money this month,\" she said.\nAt night his friend Sara came to his house with big news: Leo asked her to marry him, and she said yes!",
+      es: "Ayer fue un día loco para Iván. Se levantó tarde porque no oyó su alarma. Luego perdió sus llaves, así que tomó un taxi al trabajo.\nA la hora de la comida encontró un restaurante nuevo cerca de la oficina. Comió tacos y tomó demasiado café.\nEn la tarde escribió muchos correos y le mandó un archivo importante a su jefe.\nDespués del trabajo fue al súper y compró leche, pan y... ¡un celular nuevo! Su esposa no estaba muy contenta. «Gastamos mucho dinero este mes», dijo.\nEn la noche, su amiga Sara vino a su casa con una gran noticia: Leo le pidió que se casara con él, ¡y ella dijo que sí!",
       q: [
-        ["Why did he wake up late?", ["He was sick", "His alarm didn't ring", "He went to bed late"], 1],
-        ["How did he get to work?", ["By taxi", "By bus", "He walked"], 0],
-        ["What did his boss do?", ["She was angry", "She called him", "She didn't say anything"], 2]
+        ["¿Por qué se levantó tarde Iván?", ["Porque estaba enfermo", "Porque no oyó su alarma", "Porque trabajó tarde"], 1],
+        ["¿Cómo llegó al trabajo?", ["En su carro", "En camión", "En taxi"], 2],
+        ["¿Qué comió?", ["Pizza", "Tacos", "Pollo"], 1],
+        ["¿Qué compró en el súper, además de comida?", ["Unas llaves", "Un celular nuevo", "Un regalo"], 1],
+        ["¿Cuál es la noticia de Sara?", ["Tiene trabajo nuevo", "Se va a casar con Leo", "Se va a mudar"], 1]
       ]
     }
   },
@@ -136,13 +144,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Te estaba esperando.", "I was waiting for you.", "ai uás uéiting for iú", ""]
     ],
     r: {
-      t: "The blackout",
-      en: "Last Friday night there was a blackout in my neighborhood. I was cooking dinner and my husband was watching a soccer game.\nOur kids were doing their homework in the living room. Suddenly, everything went dark!\nMy daughter was scared, but my son was happy because he didn't have to finish his homework.\nWe lit some candles and played cards. The power came back two hours later, while we were laughing at a funny story.",
-      es: "El viernes pasado en la noche hubo un apagón en mi colonia. Yo estaba haciendo la cena y mi esposo estaba viendo un partido de futbol.\nNuestros hijos estaban haciendo la tarea en la sala. ¡De repente, todo se puso oscuro!\nMi hija se asustó, pero mi hijo estaba feliz porque ya no tenía que terminar la tarea.\nPrendimos unas velas y jugamos cartas. La luz regresó dos horas después, mientras nos reíamos de una historia chistosa.",
+      t: "A bad night",
+      en: "Last night was not a good night for Elena. At eight o'clock it was raining, and she was driving home from work. She was tired, but she was paying attention.\nSuddenly, a car stopped in front of her. Elena tried to stop, but she hit the other car. The other driver was talking on the phone when it happened. Nobody was hurt.\nWhile Elena was at the police station, her brother was calling her, but she didn't answer.\nAt home, her kids were watching a movie with their grandma when the power went out. Everyone was laughing when suddenly everything was dark!\nWhen Elena arrived, the kids were sleeping. It was a long night.",
+      es: "Anoche no fue una buena noche para Elena. A las ocho estaba lloviendo y ella iba manejando a su casa después del trabajo. Estaba cansada, pero estaba poniendo atención.\nDe repente, un carro se paró enfrente de ella. Elena intentó frenar, pero chocó con el otro carro. El otro conductor estaba hablando por teléfono cuando pasó. Nadie salió lastimado.\nMientras Elena estaba en la estación de policía, su hermano le estaba llamando, pero ella no contestó.\nEn la casa, sus hijos estaban viendo una película con su abuela cuando se fue la luz. ¡Todos se estaban riendo cuando de repente todo se oscureció!\nCuando Elena llegó, los niños estaban durmiendo. Fue una noche larga.",
       q: [
-        ["What was the husband doing when the power went out?", ["Cooking", "Watching soccer", "Doing homework"], 1],
-        ["Why was the son happy?", ["He didn't have to finish his homework", "He won at cards", "He liked the dark"], 0],
-        ["What were they doing when the power came back?", ["Sleeping", "Eating", "Laughing at a funny story"], 2]
+        ["¿Qué estaba haciendo Elena a las ocho?", ["Estaba cocinando", "Estaba manejando a su casa", "Estaba durmiendo"], 1],
+        ["¿Qué estaba haciendo el otro conductor?", ["Estaba comiendo", "Estaba hablando por teléfono", "Estaba escuchando música"], 1],
+        ["¿Dónde estaba Elena cuando su hermano le llamó?", ["En su casa", "En la estación de policía", "En el trabajo"], 1],
+        ["¿Qué pasó mientras los niños veían la película?", ["Empezó a llover", "Se fue la luz", "Llegó Elena"], 1],
+        ["¿Qué estaban haciendo los niños cuando llegó Elena?", ["Viendo la tele", "Jugando", "Durmiendo"], 2]
       ]
     }
   },
@@ -165,13 +175,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Te veo en un rato.", "I'll see you in a bit.", "ail si iú in a bit", ""]
     ],
     r: {
-      t: "New Year's resolutions",
-      en: "This year I'm going to change some things in my life. First, I'm going to exercise three times a week. I'm going to join a gym near my house.\nI'm also going to eat more vegetables and drink less soda.\nMy wife says I'm going to quit in two weeks! I don't think so. I'll show her.\nOh, and I'm going to learn English. I already have a good app!",
-      es: "Este año voy a cambiar algunas cosas en mi vida. Primero, voy a hacer ejercicio tres veces por semana. Voy a inscribirme a un gimnasio cerca de mi casa.\nTambién voy a comer más verduras y tomar menos refresco.\nMi esposa dice que voy a dejarlo en dos semanas. Yo no lo creo. Se lo voy a demostrar.\nAh, y voy a aprender inglés. ¡Ya tengo una buena app!",
+      t: "A new home",
+      en: "Lalo and Sandra are going to buy a house. They're tired of their small apartment, and they're going to have a baby next year.\nThe house is near Sandra's parents. It isn't very big, but it has a garden. Lalo wasn't sure, so he said, \"I'll think about it.\" But other people wanted the house too, so they signed the contract the same day. The house will be ready on Friday.\nOn Saturday they're going to move. Their friend Rubén promised to help them with the boxes. The weather report says it's going to rain, so they're going to start early.\n\"Someday we're going to travel to Japan,\" says Sandra. \"But first, we're going to paint the baby's room.\"",
+      es: "Lalo y Sandra van a comprar una casa. Están cansados de su departamento pequeño y van a tener un bebé el próximo año.\nLa casa está cerca de los papás de Sandra. No es muy grande, pero tiene jardín. Lalo no estaba seguro, así que dijo: «Lo voy a pensar». Pero otras personas también querían la casa, así que firmaron el contrato el mismo día. La casa estará lista el viernes.\nEl sábado se van a mudar. Su amigo Rubén prometió ayudarles con las cajas. El pronóstico dice que va a llover, así que van a empezar temprano.\n«Algún día vamos a viajar a Japón», dice Sandra. «Pero primero vamos a pintar el cuarto del bebé».",
       q: [
-        ["How many times a week is he going to exercise?", ["Two", "Three", "Five"], 1],
-        ["What is he going to drink less of?", ["Soda", "Water", "Coffee"], 0],
-        ["What does his wife think?", ["He'll learn English fast", "He'll lose a lot of weight", "He'll quit in two weeks"], 2]
+        ["¿Por qué quieren una casa?", ["Porque es más barata", "Porque su departamento es pequeño y van a tener un bebé", "Porque cambiaron de trabajo"], 1],
+        ["¿Qué tiene la casa?", ["Alberca", "Jardín", "Una cochera grande"], 1],
+        ["¿Cuándo estará lista la casa?", ["El lunes", "El viernes", "El próximo año"], 1],
+        ["¿Quién les va a ayudar con las cajas?", ["Los papás de Sandra", "Su amigo Rubén", "Nadie"], 1],
+        ["¿Qué van a hacer antes de viajar a Japón?", ["Comprar un carro", "Pintar el cuarto del bebé", "Vender la casa"], 1]
       ]
     }
   },
@@ -194,13 +206,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¡Qué buen plan!", "Sounds like a plan!", "sáunds láik a plan", ""]
     ],
     r: {
-      t: "A birthday invitation",
-      en: "Hi everyone! It's Marta's 30th birthday next Saturday, and we're having a surprise party for her.\nThe party starts at eight at my house. Please don't tell Marta! Her husband is going to bring her at eight thirty.\nWould you like to come? You don't need to bring a present, but you can bring something to drink.\nPlease let me know by Thursday. See you there!",
-      es: "¡Hola a todos! El próximo sábado Marta cumple 30 años y le vamos a hacer una fiesta sorpresa.\nLa fiesta empieza a las ocho en mi casa. ¡Por favor no le digan a Marta! Su esposo la va a traer a las ocho y media.\n¿Les gustaría venir? No necesitan traer regalo, pero pueden traer algo de tomar.\nPor favor avísenme a más tardar el jueves. ¡Nos vemos allá!",
+      t: "A goodbye party",
+      en: "Iván is moving to Spain next month, so his friend Daniela is planning a surprise party for him.\nFirst she calls Iván's sister, Paola. Paola is free on Saturday, and she's going to bring a cake. Then Daniela calls Rocky, Iván's best friend. \"Sure, count me in!\" he says.\nA coworker invites Daniela to a concert on Saturday, but she says, \"I'd love to, but I'm busy.\" Maybe they're going to go on Sunday.\nFinally, Daniela invites Iván to dinner. He doesn't know about the party! She's going to pick him up at eight.\nOn Saturday night, Iván opens the door, and twenty friends shout, \"Surprise!\"",
+      es: "Iván se va a vivir a España el próximo mes, así que su amiga Daniela le está organizando una fiesta sorpresa.\nPrimero le llama a la hermana de Iván, Paola. Paola está libre el sábado y va a llevar un pastel. Luego Daniela le llama a Rocky, el mejor amigo de Iván. «¡Claro, me apunto!», dice él.\nUna compañera de trabajo invita a Daniela a un concierto el sábado, pero ella le dice: «Me encantaría, pero estoy ocupada». Tal vez van a ir el domingo.\nPor último, Daniela invita a Iván a cenar. ¡Él no sabe nada de la fiesta! Ella va a pasar por él a las ocho.\nEl sábado en la noche, Iván abre la puerta y veinte amigos gritan: «¡Sorpresa!».",
       q: [
-        ["What time does the party start?", ["At eight thirty", "At eight", "At seven"], 1],
-        ["Who is bringing Marta to the party?", ["Her husband", "Her sister", "Her friends"], 0],
-        ["What can guests bring?", ["A present", "Food", "Something to drink"], 2]
+        ["¿Adónde se va a vivir Iván?", ["A Estados Unidos", "A España", "A Japón"], 1],
+        ["¿Qué va a llevar Paola?", ["Bebidas", "Un pastel", "Música"], 1],
+        ["¿Por qué no va Daniela al concierto el sábado?", ["No le gusta la música", "Está ocupada", "Está enferma"], 1],
+        ["¿A qué hora va a pasar Daniela por Iván?", ["A las siete", "A las ocho", "A las nueve"], 1],
+        ["¿Cuántos amigos hay en la fiesta?", ["Diez", "Veinte", "Treinta"], 1]
       ]
     }
   },
@@ -223,13 +237,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Es la ciudad más grande de México.", "It's the biggest city in Mexico.", "its de bíguest síti in méksikou", ""]
     ],
     r: {
-      t: "Two apartments",
-      en: "I'm looking for an apartment. I saw two this week.\nThe first one is downtown. It's bigger and more modern than the second one, but it's also more expensive. It's noisier too, because there are a lot of bars.\nThe second one is in the north of the city. It's smaller and older, but it's cheaper and quieter. It's farther from my office, though.\nI think the second one is the best option for me.",
-      es: "Estoy buscando departamento. Vi dos esta semana.\nEl primero está en el centro. Es más grande y más moderno que el segundo, pero también es más caro. Además es más ruidoso, porque hay muchos bares.\nEl segundo está en el norte de la ciudad. Es más pequeño y más viejo, pero es más barato y más tranquilo. Aunque está más lejos de mi oficina.\nCreo que el segundo es la mejor opción para mí.",
+      t: "A new car",
+      en: "Diego and his wife need a car. They have two kids, and their old car is too small.\nAt the car dealer, the salesman shows them three cars. The red car is the newest and the fastest, but it's too expensive. The gray car is cheaper, but it isn't as good as the red one.\nThen the salesman shows them a van. It's a little bigger than the other cars, and it's the most comfortable. It isn't as expensive as Diego thought: two hundred thousand pesos.\n\"For a family, it's the best option,\" says the salesman. Diego drives it around the block and buys it. Now the trips to his parents' house are much better!",
+      es: "Diego y su esposa necesitan un carro. Tienen dos hijos y su carro viejo es demasiado chico.\nEn la agencia, el vendedor les enseña tres carros. El carro rojo es el más nuevo y el más rápido, pero es demasiado caro. El carro gris es más barato, pero no es tan bueno como el rojo.\nLuego el vendedor les enseña una camioneta. Es un poco más grande que los otros carros y es la más cómoda. No es tan cara como Diego pensaba: doscientos mil pesos.\n«Para una familia, es la mejor opción», dice el vendedor. Diego la maneja alrededor de la cuadra y la compra. ¡Ahora los viajes a la casa de sus papás son mucho mejores!",
       q: [
-        ["Which apartment is more modern?", ["The second one", "The first one", "Both"], 1],
-        ["Why is the first apartment noisier?", ["There are a lot of bars", "It's near the airport", "It's on a big avenue"], 0],
-        ["Which one does he prefer?", ["The first one", "Neither", "The second one"], 2]
+        ["¿Por qué necesitan carro nuevo?", ["El viejo se descompuso", "El viejo es demasiado chico", "Les regalaron dinero"], 1],
+        ["¿Cómo es el carro rojo?", ["Barato y viejo", "El más nuevo y rápido, pero muy caro", "Grande y cómodo"], 1],
+        ["¿Cómo es el carro gris comparado con el rojo?", ["Más caro", "Más barato, pero no tan bueno", "Igual de bueno"], 1],
+        ["¿Cuánto cuesta la camioneta?", ["Cien mil pesos", "Doscientos mil pesos", "Trescientos mil pesos"], 1],
+        ["¿Qué compra Diego?", ["El carro rojo", "El carro gris", "La camioneta"], 2]
       ]
     }
   },
@@ -252,13 +268,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Por fin llegaste.", "You finally made it.", "iú fáinali méid it", ""]
     ],
     r: {
-      t: "My driving teacher",
-      en: "My driving teacher, Mr. Lee, is very patient. He always speaks calmly and he explains everything clearly.\nThe first day I drove very badly. I stopped suddenly and I turned too fast. Mr. Lee laughed and said, \"Slowly, slowly.\"\nNow I drive much better. I park easily and I always drive carefully.\nNext week I have my driving test. Hopefully, I'll pass!",
-      es: "Mi maestro de manejo, el señor Lee, es muy paciente. Siempre habla con calma y explica todo con claridad.\nEl primer día manejé muy mal. Frené de golpe y di la vuelta demasiado rápido. El señor Lee se rió y dijo: \"Despacio, despacio\".\nAhora manejo mucho mejor. Me estaciono con facilidad y siempre manejo con cuidado.\nLa próxima semana tengo mi examen de manejo. ¡Ojalá pase!",
+      t: "Karaoke night",
+      en: "Every month, Andrés's team has a karaoke night. This Friday Andrés arrived late because there was a lot of traffic. \"You finally made it!\" said his coworkers.\nAndrés sings very badly, so he generally doesn't sing. But his coworker Lucía sings perfectly. She sang a song in English, and everybody clapped. She speaks English very well because she practices a lot.\nThe boss was there too. He speaks very fast, and in the noisy bar Andrés couldn't understand him. \"Speak slowly, please,\" said Andrés.\nAt midnight they wanted tacos, but unfortunately, the taco place was closed. On the way home, suddenly it started to rain. Luckily, Andrés was already in his car.",
+      es: "Cada mes, el equipo de Andrés tiene una noche de karaoke. Este viernes Andrés llegó tarde porque había mucho tráfico. «¡Por fin llegaste!», le dijeron sus compañeros.\nAndrés canta muy mal, así que por lo general no canta. Pero su compañera Lucía canta perfectamente. Cantó una canción en inglés y todos aplaudieron. Habla muy bien inglés porque practica mucho.\nEl jefe también estaba ahí. Habla muy rápido y, en el bar lleno de ruido, Andrés no le entendía. «Hable despacio, por favor», le dijo Andrés.\nA medianoche querían tacos, pero desafortunadamente los tacos de la esquina estaban cerrados. De camino a casa, de repente empezó a llover. Por suerte, Andrés ya estaba en su carro.",
       q: [
-        ["How does Mr. Lee speak?", ["Loudly", "Calmly", "Quickly"], 1],
-        ["How did she drive the first day?", ["Badly", "Perfectly", "Slowly and carefully"], 0],
-        ["What does she have next week?", ["A trip", "A new car", "Her driving test"], 2]
+        ["¿Por qué llegó tarde Andrés?", ["Se le olvidó", "Había mucho tráfico", "Trabajó hasta tarde"], 1],
+        ["¿Por qué no canta Andrés?", ["Está enfermo", "Canta muy mal", "No le gusta la música"], 1],
+        ["¿Quién canta perfectamente?", ["El jefe", "Lucía", "Andrés"], 1],
+        ["¿Qué le pidió Andrés a su jefe?", ["Que cantara", "Que hablara despacio", "Que pagara la cuenta"], 1],
+        ["¿Qué pasó de camino a casa?", ["Se perdió", "Empezó a llover", "Se encontró a Lucía"], 1]
       ]
     }
   },
@@ -281,13 +299,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Dónde compro el boleto?", "Where can I buy a ticket?", "uér can ai bái a tíket", ""]
     ],
     r: {
-      t: "How to get to my house",
-      en: "From the airport, take the subway to Central Station. It takes about thirty minutes.\nAt Central Station, get off and take bus number 15. Get off at the third stop, in front of a big supermarket.\nCross the street and walk straight for two blocks. Turn right at the pharmacy. My house is the blue one at the end of the street.\nIf you get lost, call me!",
-      es: "Desde el aeropuerto, toma el metro hasta la Estación Central. Se hace como media hora.\nEn la Estación Central, bájate y toma el camión número 15. Bájate en la tercera parada, enfrente de un supermercado grande.\nCruza la calle y camina derecho dos cuadras. Da vuelta a la derecha en la farmacia. Mi casa es la azul al final de la calle.\nSi te pierdes, ¡llámame!",
+      t: "A day in Chicago",
+      en: "Last summer, Rocío spent a week in Chicago. One morning she asked the hotel receptionist, \"How do I get downtown?\" He said she could take the train. The station was only two blocks away, and the trip took about twenty minutes.\nAt the station she bought a round-trip ticket. Downtown, she wanted to visit the Art Museum, but she got lost. A kind man helped her: \"Go straight ahead and turn left at the traffic light. It's a five-minute walk.\"\nOn her last day, she took the bus to the airport. A tourist asked her how to get to the train station, and Rocío explained it perfectly. She was very proud of her English!",
+      es: "El verano pasado, Rocío pasó una semana en Chicago. Una mañana le preguntó al recepcionista del hotel: «¿Cómo llego al centro?». Él le dijo que podía tomar el tren. La estación estaba a solo dos cuadras y el viaje tardaba como veinte minutos.\nEn la estación compró un boleto de ida y vuelta. En el centro quería visitar el Museo de Arte, pero se perdió. Un señor muy amable la ayudó: «Siga derecho y dé vuelta a la izquierda en el semáforo. Está a cinco minutos caminando».\nSu último día tomó el camión al aeropuerto. Una turista le preguntó cómo llegar a la estación del tren y Rocío se lo explicó perfectamente. ¡Estaba muy orgullosa de su inglés!",
       q: [
-        ["How long is the subway trip?", ["Fifteen minutes", "About thirty minutes", "One hour"], 1],
-        ["Where do you get off the bus?", ["In front of a supermarket", "At the pharmacy", "At Central Station"], 0],
-        ["What color is the house?", ["White", "Red", "Blue"], 2]
+        ["¿Qué tan lejos estaba la estación del hotel?", ["A cinco cuadras", "A dos cuadras", "A una milla"], 1],
+        ["¿Qué boleto compró Rocío?", ["De ida", "De ida y vuelta", "Para una semana"], 1],
+        ["¿Qué lugar quería visitar?", ["El estadio", "El Museo de Arte", "El aeropuerto"], 1],
+        ["¿Cómo se fue al aeropuerto?", ["En taxi", "En tren", "En camión"], 2],
+        ["¿Por qué estaba orgullosa Rocío?", ["Porque no se perdió", "Porque explicó el camino en inglés", "Porque compró boletos baratos"], 1]
       ]
     }
   },
@@ -310,13 +330,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Me da una bolsa?", "Can I have a bag?", "can ai jav a bag", ""]
     ],
     r: {
-      t: "Black Friday",
-      en: "Last Friday I went to the mall for Black Friday. There were a lot of people and a lot of sales.\nI wanted a new jacket. I found a nice black one, but it was too small. The salesperson brought me a medium and it fit perfectly.\nIt was fifty percent off, so it was only six hundred pesos. I paid by card.\nThen I saw a pair of sneakers, but they were too expensive. I didn't buy them.",
-      es: "El viernes pasado fui a la plaza por el Black Friday. Había mucha gente y muchas ofertas.\nQuería una chamarra nueva. Encontré una negra bonita, pero me quedaba chica. El vendedor me trajo una mediana y me quedó perfecta.\nTenía cincuenta por ciento de descuento, así que costó solo seiscientos pesos. Pagué con tarjeta.\nLuego vi unos tenis, pero estaban demasiado caros. No los compré.",
+      t: "Shopping on Buen Fin",
+      en: "Buen Fin is a big weekend of sales in Mexico. This year, Sergio went to an outlet with his wife.\nIn a clothing store, a saleswoman asked, \"Can I help you?\" \"I'm just looking, thanks,\" said Sergio. Then he saw a jacket on sale. He asked for a medium and tried it on. It fit well, so he took it. He paid by card and asked for a receipt.\nIn the shoe store, the sneakers were buy one, get one free, but they were too expensive.\nHis wife bought a shirt for him, but it was too small. The next day Sergio returned it. He had the receipt, so it was easy.",
+      es: "El Buen Fin es un fin de semana de muchas ofertas en México. Este año, Sergio fue a un outlet con su esposa.\nEn una tienda de ropa, una vendedora le preguntó: «¿Le ayudo?». «Solo estoy viendo, gracias», dijo Sergio. Luego vio una chamarra en oferta. Pidió una mediana y se la probó. Le quedó bien, así que se la llevó. Pagó con tarjeta y pidió su recibo.\nEn la zapatería, los tenis estaban al dos por uno, pero eran demasiado caros.\nSu esposa le compró una camisa, pero le quedó chica. Al día siguiente, Sergio la devolvió. Tenía el recibo, así que fue fácil.",
       q: [
-        ["What was the problem with the first jacket?", ["It was too expensive", "It was too small", "It was the wrong color"], 1],
-        ["How much was the jacket?", ["Six hundred pesos", "Fifty pesos", "Twelve hundred pesos"], 0],
-        ["Why didn't he buy the sneakers?", ["They were too small", "He didn't like them", "They were too expensive"], 2]
+        ["¿Qué es el Buen Fin?", ["Una tienda", "Un fin de semana de ofertas", "Un día festivo"], 1],
+        ["¿Qué compró Sergio?", ["Unos tenis", "Una chamarra", "Una camisa"], 1],
+        ["¿Cómo pagó?", ["En efectivo", "Con tarjeta", "No pagó"], 1],
+        ["¿Por qué no compraron los tenis?", ["No había talla", "Eran demasiado caros", "No le gustaron"], 1],
+        ["¿Por qué devolvió la camisa?", ["Era fea", "Le quedaba chica", "Estaba sucia"], 1]
       ]
     }
   },
@@ -339,13 +361,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ya me siento mejor.", "I feel better now.", "ai fiil béter náu", ""]
     ],
     r: {
-      t: "At the doctor's office",
-      en: "Last week I felt terrible. I had a fever, a cough and a sore throat, so I made an appointment with the doctor.\nThe doctor checked my throat and listened to my chest. \"It's not serious,\" she said. \"You have the flu.\"\nShe gave me a prescription for some pills and told me to rest for three days and drink a lot of water.\nI stayed home and slept a lot. Now I feel much better.",
-      es: "La semana pasada me sentía fatal. Tenía fiebre, tos y dolor de garganta, así que hice una cita con la doctora.\nLa doctora me revisó la garganta y me escuchó el pecho. \"No es grave\", dijo. \"Tienes gripe\".\nMe dio una receta para unas pastillas y me dijo que descansara tres días y tomara mucha agua.\nMe quedé en casa y dormí mucho. Ahora me siento mucho mejor.",
+      t: "Sick in Houston",
+      en: "Last month Rosa traveled to Houston for work. On the second day she woke up with a fever. She also had a sore throat and a cough. She didn't feel well at all.\nThe receptionist at the hotel told her about a clinic two blocks away. Rosa had health insurance, so she made an appointment and saw a doctor twenty minutes later.\nThe doctor asked, \"How long have you felt like this?\" \"Since yesterday,\" said Rosa. She told him she's allergic to penicillin. The doctor said it was just a bad cold and gave her a prescription. \"Take these pills twice a day, and you need to rest,\" he said.\nTwo days later, Rosa felt better and went back to work.",
+      es: "El mes pasado, Rosa viajó a Houston por trabajo. El segundo día se despertó con fiebre. También le dolía la garganta y tenía tos. No se sentía nada bien.\nLa recepcionista del hotel le dijo que había una clínica a dos cuadras. Rosa tenía seguro médico, así que hizo una cita y vio a un doctor veinte minutos después.\nEl doctor le preguntó: «¿Desde cuándo se siente así?». «Desde ayer», dijo Rosa. Le dijo que es alérgica a la penicilina. El doctor le dijo que solo era una gripa fuerte y le dio una receta. «Tómese estas pastillas dos veces al día y necesita descansar», le dijo.\nDos días después, Rosa se sintió mejor y regresó a trabajar.",
       q: [
-        ["What symptoms did he have?", ["Stomachache and dizziness", "Fever, cough and sore throat", "A broken arm"], 1],
-        ["What did the doctor say?", ["It's not serious, it's the flu", "He needs surgery", "He must go to the emergency room"], 0],
-        ["How long did he need to rest?", ["One day", "One week", "Three days"], 2]
+        ["¿Por qué estaba Rosa en Houston?", ["De vacaciones", "Por trabajo", "Para ver a su familia"], 1],
+        ["¿Qué síntomas tenía?", ["Dolor de espalda", "Fiebre, dolor de garganta y tos", "Mareo"], 1],
+        ["¿Dónde estaba la clínica?", ["En el hotel", "A dos cuadras", "En el aeropuerto"], 1],
+        ["¿A qué es alérgica Rosa?", ["Al cacahuate", "A la penicilina", "Al polvo"], 1],
+        ["¿Cuántas veces al día tiene que tomar las pastillas?", ["Una", "Dos", "Tres"], 1]
       ]
     }
   },
@@ -368,13 +392,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["No tengo mucho tiempo libre.", "I don't have much free time.", "ai dóunt jav mach fri táim", ""]
     ],
     r: {
-      t: "Weekend hobbies",
-      en: "During the week I don't have much free time because I work a lot. But on weekends I do the things I love.\nOn Saturday mornings I go cycling with a group of friends. We ride about forty kilometers. In the afternoon I play the guitar. I'm not very good at it, but it's very relaxing.\nOn Sundays I cook for my family. I'm really into Asian food right now. I'm also taking a photography class online.",
-      es: "Entre semana no tengo mucho tiempo libre porque trabajo mucho. Pero los fines de semana hago las cosas que me encantan.\nLos sábados en la mañana salgo a andar en bici con un grupo de amigos. Recorremos unos cuarenta kilómetros. En la tarde toco la guitarra. No soy muy bueno, pero es muy relajante.\nLos domingos cocino para mi familia. Ahorita estoy clavado con la comida asiática. También estoy tomando una clase de fotografía en línea.",
+      t: "A first date",
+      en: "Valeria and Alex met on an app. Last Saturday they had their first date at a café downtown.\nValeria is into photography. She takes a lot of photos of nature, so she likes going to the mountains. Alex likes hiking, so that was perfect!\nAlex plays the guitar. He has played since he was fifteen. Valeria doesn't play an instrument, but she's good at cooking. She goes running in the morning and does yoga twice a week. \"It helps me relax,\" she said.\nThey're both taking dance lessons because they're not very good at dancing. Valeria doesn't have much free time, but she said yes to a second date: hiking next weekend.",
+      es: "Valeria y Alex se conocieron en una app. El sábado pasado tuvieron su primera cita en un café del centro.\nA Valeria le encanta la fotografía. Toma muchas fotos de la naturaleza, así que le gusta ir a la montaña. A Alex le gusta ir de excursión, ¡así que fue perfecto!\nAlex toca la guitarra. Toca desde los quince años. Valeria no toca ningún instrumento, pero es buena para cocinar. Sale a correr en la mañana y hace yoga dos veces por semana. «Me ayuda a relajarme», dijo.\nLos dos están tomando clases de baile porque no son muy buenos para bailar. Valeria no tiene mucho tiempo libre, pero dijo que sí a una segunda cita: ir de excursión el próximo fin de semana.",
       q: [
-        ["What does he do on Saturday mornings?", ["He plays the guitar", "He goes cycling", "He cooks"], 1],
-        ["How does he describe playing the guitar?", ["Relaxing, but he's not very good", "Difficult and boring", "His job"], 0],
-        ["What kind of food is he into right now?", ["Italian", "Mexican", "Asian"], 2]
+        ["¿Dónde se conocieron Valeria y Alex?", ["En el trabajo", "En una app", "En una fiesta"], 1],
+        ["¿Qué le encanta a Valeria?", ["La música", "La fotografía", "Los videojuegos"], 1],
+        ["¿Desde cuándo toca la guitarra Alex?", ["Desde niño", "Desde los quince años", "Desde el año pasado"], 1],
+        ["¿Qué clases toman los dos?", ["De cocina", "De yoga", "De baile"], 2],
+        ["¿Qué van a hacer en la segunda cita?", ["Ir al cine", "Ir de excursión", "Cocinar"], 1]
       ]
     }
   },
@@ -397,13 +423,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Es demasiado pronto.", "It's too soon.", "its tu suun", ""]
     ],
     r: {
-      t: "A bad hotel review",
-      en: "We stayed at this hotel for three nights and we didn't like it.\nThe room was too small for two people and the bed wasn't big enough. The air conditioning was too loud, so we couldn't sleep well.\nThe restaurant was too expensive and there weren't enough tables at breakfast. There were too many people in the pool.\nThe only good thing was the location: it's close enough to walk to the beach.",
-      es: "Nos quedamos en este hotel tres noches y no nos gustó.\nEl cuarto era demasiado pequeño para dos personas y la cama no era lo suficientemente grande. El aire acondicionado hacía demasiado ruido, así que no pudimos dormir bien.\nEl restaurante era demasiado caro y no había suficientes mesas en el desayuno. Había demasiada gente en la alberca.\nLo único bueno era la ubicación: está lo suficientemente cerca como para ir caminando a la playa.",
+      t: "Ximena's party",
+      en: "Ximena is turning fifteen, and her mom and her aunt are planning a big party. There are two hundred guests!\nThe first hall wasn't big enough, and the big hall was too expensive. The second place was cheap and big, but it was outside the city. \"It's too good to be true,\" said Ximena's aunt. But it was true, and there was enough parking for a hundred cars.\nAt the food tasting, the sauce was too salty and the cake was too sweet. The chef promised to change them.\nXimena wanted a DJ, a band and fireworks, but they didn't have enough money for everything. In the end, they chose the DJ. Ximena was very happy anyway.",
+      es: "Ximena va a cumplir quince años y su mamá y su tía están organizando una gran fiesta. ¡Hay doscientos invitados!\nEl primer salón no era lo suficientemente grande y el salón grande era demasiado caro. El segundo lugar era barato y grande, pero estaba fuera de la ciudad. «Es demasiado bueno para ser verdad», dijo la tía de Ximena. Pero sí era verdad y había suficiente estacionamiento para cien carros.\nEn la prueba de la comida, la salsa estaba demasiado salada y el pastel estaba demasiado dulce. El chef prometió cambiarlos.\nXimena quería un DJ, un grupo y fuegos artificiales, pero no tenían suficiente dinero para todo. Al final escogieron el DJ. Ximena estaba muy contenta de todos modos.",
       q: [
-        ["What was the problem with the bed?", ["It was too hard", "It wasn't big enough", "It was dirty"], 1],
-        ["Why couldn't they sleep well?", ["The air conditioning was too loud", "The street was noisy", "The bed was small"], 0],
-        ["What was the only good thing?", ["The breakfast", "The pool", "The location"], 2]
+        ["¿Cuántos invitados hay?", ["Ochenta", "Cien", "Doscientos"], 2],
+        ["¿Qué problema tenía el primer salón?", ["Era muy caro", "No era lo suficientemente grande", "Estaba lejos"], 1],
+        ["¿Dónde estaba el segundo salón?", ["En el centro", "Fuera de la ciudad", "Junto a la casa de Ximena"], 1],
+        ["¿Cómo estaba la salsa?", ["Muy picante", "Demasiado salada", "Deliciosa"], 1],
+        ["¿Qué escogieron al final?", ["El grupo", "Los fuegos artificiales", "El DJ"], 2]
       ]
     }
   },
@@ -426,13 +454,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¿Hay algo más?", "Is there anything else?", "is der énizing els", ""]
     ],
     r: {
-      t: "The empty office",
-      en: "When I arrived at the office on Monday, nobody was there. The lights were off and everything was quiet.\nI looked everywhere: in the meeting room, in the kitchen, in my boss's office. Nothing. I called someone from my team, but nobody answered.\nThen I checked my email. There was a message from my boss: \"Everyone is working from home today. The building has no electricity.\"\nI didn't read it because I didn't check my email on Sunday!",
-      es: "Cuando llegué a la oficina el lunes, no había nadie. Las luces estaban apagadas y todo estaba en silencio.\nBusqué por todas partes: en la sala de juntas, en la cocina, en la oficina de mi jefe. Nada. Le llamé a alguien de mi equipo, pero nadie contestó.\nLuego revisé mi correo. Había un mensaje de mi jefe: \"Hoy todos trabajan desde casa. El edificio no tiene luz\".\n¡No lo leí porque el domingo no revisé mi correo!",
+      t: "A scary night",
+      en: "Last Friday, Lucía came home late and saw something strange: her front door was open! She called her neighbor Toño. \"Is anyone inside?\" he asked. \"I don't know,\" said Lucía.\nToño came, and they went in together. \"Is anyone here?\" asked Lucía. Nobody answered, but there was a noise in the kitchen.\nIt was her mom! She had a key, and she came with something for Lucía: twenty tamales. \"Nobody told me!\" said Lucía. \"It's a surprise,\" said her mom. \"Everything is fine. Nothing happened.\"\nToño laughed and went home. Lucía and her mom ate tamales and talked until midnight.",
+      es: "El viernes pasado, Lucía llegó tarde a su casa y vio algo raro: ¡su puerta estaba abierta! Le llamó a su vecino Toño. «¿Hay alguien adentro?», le preguntó él. «No sé», dijo Lucía.\nToño llegó y entraron juntos. «¿Hay alguien aquí?», preguntó Lucía. Nadie contestó, pero había un ruido en la cocina.\n¡Era su mamá! Tenía una llave y llegó con algo para Lucía: veinte tamales. «¡Nadie me dijo!», dijo Lucía. «Es una sorpresa», dijo su mamá. «Todo está bien. No pasó nada».\nToño se rio y se fue a su casa. Lucía y su mamá comieron tamales y platicaron hasta medianoche.",
       q: [
-        ["Who was at the office?", ["Everyone", "Nobody", "Only his boss"], 1],
-        ["Why was everyone working from home?", ["The building had no electricity", "It was a holiday", "There was a storm"], 0],
-        ["Why didn't he know?", ["Nobody told him", "His phone was off", "He didn't check his email on Sunday"], 2]
+        ["¿Qué vio Lucía al llegar?", ["Una ventana rota", "La puerta abierta", "Un carro raro"], 1],
+        ["¿A quién le llamó?", ["A la policía", "A su vecino Toño", "A su mamá"], 1],
+        ["¿Dónde había un ruido?", ["En la recámara", "En la cocina", "En la cochera"], 1],
+        ["¿Quién estaba en la casa?", ["Un ladrón", "Su mamá", "Su hermano"], 1],
+        ["¿Qué le llevó su mamá?", ["Pan", "Tamales", "Flores"], 1]
       ]
     }
   },
@@ -455,13 +485,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Ya llegué.", "I'm here.", "aim jir", ""]
     ],
     r: {
-      t: "An email to a friend",
-      en: "Hi Kate,\nHow's everything going? Sorry I didn't write sooner. I was really busy with my new job.\nThe job is great. My coworkers are friendly and I'm learning a lot. I'm also taking English classes on Tuesdays and Thursdays.\nBy the way, I'm visiting Toronto in July! Are you free on the weekend of the 15th? It would be great to see you.\nLet me know. Big hug,\nLaura",
-      es: "Hola Kate:\n¿Cómo va todo? Perdón por no escribir antes. Estuve muy ocupada con mi nuevo trabajo.\nEl trabajo está genial. Mis compañeros son amables y estoy aprendiendo mucho. También estoy tomando clases de inglés los martes y jueves.\nPor cierto, ¡voy a visitar Toronto en julio! ¿Estás libre el fin de semana del 15? Sería genial verte.\nAvísame. Un abrazo,\nLaura",
+      t: "An email from Mike",
+      en: "Hi Carlos,\nThanks so much for everything! I had a great time in Guadalajara. The tacos were amazing, and your family was so nice to me. Say hi to your mom and your sisters.\nSorry I didn't write sooner. I got back to Toronto on Sunday, and work was crazy this week.\nI'm sending you the photos from the market and the soccer game. By the way, my sister wants to visit Mexico in December. Can she call you? She has some questions about hotels.\nLet me know when you're coming to Canada. You can stay at my house!\nBig hug,\nMike",
+      es: "Hola, Carlos:\n¡Muchas gracias por todo! Me la pasé increíble en Guadalajara. Los tacos estaban buenísimos y tu familia fue muy amable conmigo. Saluda a tu mamá y a tus hermanas.\nPerdón por no escribir antes. Regresé a Toronto el domingo y esta semana el trabajo estuvo de locos.\nTe mando las fotos del mercado y del partido de futbol. Por cierto, mi hermana quiere visitar México en diciembre. ¿Te puede llamar? Tiene unas preguntas sobre hoteles.\nAvísame cuándo vas a venir a Canadá. ¡Te puedes quedar en mi casa!\nUn abrazo,\nMike",
       q: [
-        ["Why didn't Laura write sooner?", ["She was sick", "She was busy with her new job", "She was traveling"], 1],
-        ["When are her English classes?", ["Tuesdays and Thursdays", "Mondays and Wednesdays", "On weekends"], 0],
-        ["Why is she writing?", ["To say goodbye", "To ask for a job", "To see Kate in Toronto in July"], 2]
+        ["¿Dónde estuvo Mike?", ["En Monterrey", "En Guadalajara", "En Cancún"], 1],
+        ["¿Por qué no escribió antes?", ["Estaba enfermo", "El trabajo estuvo muy pesado", "Perdió su celular"], 1],
+        ["¿Qué le manda a Carlos?", ["Un regalo", "Las fotos", "Un boleto de avión"], 1],
+        ["¿Quién quiere visitar México en diciembre?", ["Su mamá", "Su hermana", "Su jefe"], 1],
+        ["¿Qué le ofrece Mike a Carlos?", ["Un trabajo", "Quedarse en su casa", "Un viaje gratis"], 1]
       ]
     }
   },
@@ -487,13 +519,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["en el pasado", "in the past", "in de past", ""]
     ],
     r: {
-      t: "Grandpa Pedro",
-      en: "My grandfather Pedro was born in 1940 in a small town in Oaxaca. He grew up on a farm with eight brothers and sisters.\nWhen he was twenty, he moved to Mexico City and became a bus driver. He met my grandmother on his bus! They got married in 1965 and had five children.\nHe retired in 2005. He died last year, but we have wonderful memories of him. He always said, \"Life is short. Enjoy it with your family.\"",
-      es: "Mi abuelo Pedro nació en 1940 en un pueblo pequeño de Oaxaca. Creció en una granja con ocho hermanos.\nCuando tenía veinte años, se mudó a la Ciudad de México y se hizo chofer de camión. ¡Conoció a mi abuela en su camión! Se casaron en 1965 y tuvieron cinco hijos.\nSe jubiló en 2005. Murió el año pasado, pero tenemos recuerdos muy bonitos de él. Siempre decía: «La vida es corta. Disfrútala con tu familia».",
+      t: "Fifty years together",
+      en: "Don Javier and Doña Rosa got married in 1975. Last Saturday they celebrated fifty years together with a big party. Three generations of the family were there.\nDon Javier was born in Veracruz in 1950. He grew up in a small town by the sea. In his youth he played soccer, and he met Rosa at a dance. They had four children. One of them became a doctor.\nThey retired ten years ago, and now they live in Puebla. Their granddaughter Mariana has nice memories of her childhood at their house.\nAt the party, Mariana's sister had a secret: she's pregnant! It's going to be the first great-grandchild. Everybody was very happy. \"Life is short,\" said Don Javier. \"Enjoy your family.\"",
+      es: "Don Javier y doña Rosa se casaron en 1975. El sábado pasado celebraron cincuenta años juntos con una gran fiesta. Estaban tres generaciones de la familia.\nDon Javier nació en Veracruz en 1950. Creció en un pueblo pequeño junto al mar. En su juventud jugaba futbol y conoció a Rosa en un baile. Tuvieron cuatro hijos. Uno de ellos se hizo doctor.\nSe jubilaron hace diez años y ahora viven en Puebla. Su nieta Mariana tiene recuerdos bonitos de su infancia en la casa de ellos.\nEn la fiesta, la hermana de Mariana tenía un secreto: ¡está embarazada! Va a ser el primer bisnieto. Todos estaban muy contentos. «La vida es corta», dijo don Javier. «Disfruten a su familia».",
       q: [
-        ["¿Dónde creció Pedro?", ["En la Ciudad de México", "En una granja", "En Monterrey"], 1],
-        ["¿Dónde conoció a la abuela?", ["En su camión", "En la escuela", "En una boda"], 0],
-        ["¿Qué decía siempre?", ["Trabaja mucho", "Estudia inglés", "La vida es corta"], 2]
+        ["¿Cuántos años de casados celebraron?", ["Veinticinco", "Cincuenta", "Setenta y cinco"], 1],
+        ["¿Dónde nació don Javier?", ["En Puebla", "En Veracruz", "En Monterrey"], 1],
+        ["¿Dónde conoció a Rosa?", ["En la escuela", "En un baile", "En un partido de futbol"], 1],
+        ["¿Qué secreto tenía la hermana de Mariana?", ["Se iba a casar", "Está embarazada", "Tiene trabajo nuevo"], 1],
+        ["¿Qué dijo don Javier?", ["«Fue un placer»", "«La vida es corta»", "«Feliz aniversario»"], 1]
       ]
     }
   },
@@ -516,13 +550,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¡Feliz Año Nuevo!", "Happy New Year!", "jápi niú íir", ""]
     ],
     r: {
-      t: "The Day of the Dead",
-      en: "The Day of the Dead is one of the most important traditions in Mexico. We celebrate it on November first and second.\nFamilies make altars with flowers, candles, photos and the favorite food of their loved ones who died. Some people visit the cemetery and spend the night there, talking, singing and remembering.\nIt isn't a sad holiday. It's a celebration of life and a way to say, \"We still love you.\" Many tourists come to see it, and now it's famous around the world.",
-      es: "El Día de Muertos es una de las tradiciones más importantes de México. Lo celebramos el 1 y el 2 de noviembre.\nLas familias hacen altares con flores, velas, fotos y la comida favorita de sus seres queridos que murieron. Algunas personas visitan el panteón y pasan la noche ahí, platicando, cantando y recordando.\nNo es una fiesta triste. Es una celebración de la vida y una forma de decir: «Te seguimos queriendo». Muchos turistas vienen a verlo y ahora es famoso en todo el mundo.",
+      t: "Jake in Mexico",
+      en: "Jake is from Canada. Last November he visited his friend Carmen in Mexico City.\nHe arrived on November first, and Carmen's family had an altar for the Day of the Dead, with flowers, candles, photos and food. \"It's a Mexican tradition,\" said Carmen. \"It isn't a sad day. It's a big celebration.\"\nMonday was a holiday, so they went to a music festival. On Saturday they went to a birthday party. Carmen's niece blew out the candles and made a wish.\nOn Jake's last night, they had dinner at a nice restaurant and made a toast. \"This was a very special trip,\" said Jake. \"Next year I'll come for Christmas!\"",
+      es: "Jake es de Canadá. En noviembre pasado visitó a su amiga Carmen en la Ciudad de México.\nLlegó el primero de noviembre y la familia de Carmen tenía una ofrenda de Día de Muertos, con flores, velas, fotos y comida. «Es una tradición mexicana», dijo Carmen. «No es un día triste. Es una gran celebración».\nEl lunes fue día festivo, así que fueron a un festival de música. El sábado fueron a una fiesta de cumpleaños. La sobrina de Carmen sopló las velas y pidió un deseo.\nEn la última noche de Jake, cenaron en un restaurante bonito e hicieron un brindis. «Este fue un viaje muy especial», dijo Jake. «¡El próximo año vengo en Navidad!».",
       q: [
-        ["¿Cuándo se celebra?", ["El 1 y el 2 de noviembre", "El 24 de diciembre", "El 16 de septiembre"], 0],
-        ["¿Qué ponen en los altares?", ["Juguetes y dinero", "Flores, velas, fotos y comida", "Libros"], 1],
-        ["¿Cómo es esta fiesta?", ["Muy triste", "Solo para turistas", "Una celebración de la vida"], 2]
+        ["¿Cuándo llegó Jake a México?", ["En diciembre", "El primero de noviembre", "En Semana Santa"], 1],
+        ["¿Qué tenía la familia de Carmen?", ["Un árbol de Navidad", "Una ofrenda de Día de Muertos", "Fuegos artificiales"], 1],
+        ["¿Qué hicieron el lunes festivo?", ["Trabajaron", "Fueron a un festival de música", "Fueron a una boda"], 1],
+        ["¿Qué hizo la sobrina de Carmen?", ["Cantó una canción", "Sopló las velas y pidió un deseo", "Hizo un brindis"], 1],
+        ["¿Cuándo quiere regresar Jake?", ["En Pascua", "En Navidad", "El Día de Muertos"], 1]
       ]
     }
   },
@@ -545,13 +581,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["¡Excelente trabajo!", "Excellent work!", "ékselent uérk", ""]
     ],
     r: {
-      t: "A weekend in Oaxaca",
-      en: "Last weekend we went to Oaxaca, and it was such a special trip. The city is so lovely, with colorful streets and incredible food.\nWe had dinner at a fancy restaurant. It wasn't cheap, but the mole was outstanding. The service was excellent too.\nThe best part was Monte Albán. The view from the top is absolutely gorgeous. It's a unique place. If you can, go! It's an extraordinary experience.",
-      es: "El fin de semana pasado fuimos a Oaxaca y fue un viaje muy especial. La ciudad es preciosa, con calles de colores y comida increíble.\nCenamos en un restaurante elegante. No fue barato, pero el mole estuvo buenísimo. El servicio también fue excelente.\nLo mejor fue Monte Albán. La vista desde arriba es preciosa. Es un lugar único. Si puedes, ¡ve! Es una experiencia extraordinaria.",
+      t: "A birthday to remember",
+      en: "For Marcos's birthday, his wife Laura had a brilliant idea: a hot air balloon ride over the pyramids of Teotihuacán.\nThey got up at five in the morning. At six they were in the air. The view was so impressive! The sun was coming up over the pyramids. \"What a wonderful day!\" said Marcos.\nAfter the ride, they had breakfast at a very fancy restaurant. Then Laura gave him a precious gift: a watch with a very original design. It was real, not fake!\nAt night his best friend called him. \"How was your birthday?\" she asked. \"It was epic!\" said Marcos. \"It was the ultimate gift.\"",
+      es: "Para el cumpleaños de Marcos, su esposa Laura tuvo una idea brillante: un paseo en globo aerostático sobre las pirámides de Teotihuacán.\nSe levantaron a las cinco de la mañana. A las seis ya estaban en el aire. ¡La vista era impresionante! El sol estaba saliendo sobre las pirámides. «¡Qué día tan maravilloso!», dijo Marcos.\nDespués del paseo desayunaron en un restaurante muy elegante. Luego Laura le dio un regalo muy valioso: un reloj con un diseño muy original. ¡Era de verdad, no falso!\nEn la noche, su mejor amiga le llamó. «¿Cómo estuvo tu cumpleaños?», le preguntó. «¡Estuvo épico!», dijo Marcos. «Fue el mejor regalo de todos».",
       q: [
-        ["¿Cómo describe la ciudad?", ["Preciosa, con calles de colores", "Fea y sucia", "Muy cara"], 0],
-        ["¿Qué tal estuvo el mole?", ["Normal", "Buenísimo", "Muy picante"], 1],
-        ["¿Qué fue lo mejor del viaje?", ["El hotel", "El restaurante", "Monte Albán"], 2]
+        ["¿Cuál fue la idea de Laura?", ["Una fiesta sorpresa", "Un paseo en globo sobre las pirámides", "Un viaje a Suiza"], 1],
+        ["¿A qué hora se levantaron?", ["A las cuatro", "A las cinco", "A las seis"], 1],
+        ["¿Dónde desayunaron?", ["En su casa", "En el globo", "En un restaurante muy elegante"], 2],
+        ["¿Qué le regaló Laura?", ["Un carro", "Un reloj", "Un anillo"], 1],
+        ["¿Qué dijo Marcos de su cumpleaños?", ["Que fue aburrido", "Que estuvo épico", "Que fue muy caro"], 1]
       ]
     }
   },
@@ -575,12 +613,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "The worst vacation",
-      en: "Our vacation started badly. The flight was four hours late, and the airline lost my suitcase. \"It's very common,\" they said. Ridiculous!\nThe hotel was awful. The room was small and dirty, and the shower was cold. The food was horrible too. My son said it was gross.\nBut something odd happened on the last day. We found a small, unknown beach with no people. It was the best day of the trip!",
-      es: "Nuestras vacaciones empezaron mal. El vuelo se retrasó cuatro horas y la aerolínea perdió mi maleta. «Es muy común», nos dijeron. ¡Ridículo!\nEl hotel fue horrible. El cuarto era pequeño y sucio, y la regadera estaba fría. La comida también era horrible. Mi hijo dijo que daba asco.\nPero el último día pasó algo raro. Encontramos una playa pequeña y desconocida, sin gente. ¡Fue el mejor día del viaje!",
+      en: "Last month, Patricia went on vacation to an all-inclusive hotel on the beach. It looked beautiful on the internet, but the real hotel was very different.\nHer room was very hot because the air conditioning didn't work. The bathroom was dirty. \"That's gross!\" said Patricia.\nThe food was horrible, and the restaurant was always full. Then, on the last day, there was a charge of two thousand pesos for the minibar. Patricia didn't use the minibar! \"That's ridiculous!\" she said. Luckily, the receptionist fixed the bill.\nWhen she told her friend Vero about it, Vero laughed. \"My trip was worse,\" she said. \"They lost my bag at the airport!\"",
+      es: "El mes pasado, Patricia se fue de vacaciones a un hotel todo incluido en la playa. En internet se veía precioso, pero el hotel de verdad era muy diferente.\nSu cuarto estaba muy caliente porque el aire acondicionado no funcionaba. El baño estaba sucio. «¡Qué asco!», dijo Patricia.\nLa comida estaba horrible y el restaurante siempre estaba lleno. Luego, el último día, había un cargo de dos mil pesos por el minibar. ¡Patricia no usó el minibar! «¡Eso es ridículo!», dijo. Por suerte, el recepcionista arregló la cuenta.\nCuando le contó a su amiga Vero, Vero se rio. «Mi viaje fue peor», le dijo. «¡Perdieron mi maleta en el aeropuerto!».",
       q: [
-        ["¿Qué perdió la aerolínea?", ["Su maleta", "Su pasaporte", "Su celular"], 0],
-        ["¿Cómo era el hotel?", ["Elegante", "Horrible", "Nuevo"], 1],
-        ["¿Qué pasó el último día?", ["Se enfermaron", "Perdieron el vuelo", "Encontraron una playa"], 2]
+        ["¿Por qué estaba caliente el cuarto?", ["Porque hacía mucho sol", "Porque el aire acondicionado no funcionaba", "Porque no tenía ventanas"], 1],
+        ["¿Cómo estaba el baño?", ["Limpio", "Sucio", "Muy chico"], 1],
+        ["¿Por qué había un cargo extra?", ["Por la comida", "Por el minibar", "Por el cuarto"], 1],
+        ["¿Quién arregló la cuenta?", ["Patricia", "El recepcionista", "Vero"], 1],
+        ["¿Qué le pasó a Vero?", ["Se enfermó", "Perdieron su maleta en el aeropuerto", "Compró un boleto caro"], 1]
       ]
     }
   },
@@ -603,13 +643,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["hielo sólido", "solid ice", "sálid áis", ""]
     ],
     r: {
-      t: "The giant pumpkin",
-      en: "Every October, my town has a pumpkin contest. This year the winner was huge: it weighed more than half a ton!\nIt was almost two meters wide and very round. The farmer needed a big truck to move it. Next to it, my pumpkin looked tiny.\nNext year I want to grow a giant one too. My dad says I need a lot of space, sun and water... and a lot of luck.",
-      es: "Cada octubre, en mi pueblo hay un concurso de calabazas. Este año la ganadora era enorme: ¡pesaba más de media tonelada!\nMedía casi dos metros de ancho y era muy redonda. El granjero necesitó un camión grande para moverla. Junto a ella, mi calabaza se veía pequeñita.\nEl próximo año yo también quiero cultivar una gigante. Mi papá dice que necesito mucho espacio, sol y agua... y mucha suerte.",
+      t: "A weekend in the mountains",
+      en: "Eight friends rented a huge cabin in the mountains for the weekend. It had five bedrooms, a big living room and a fifty-inch TV. The pool was two meters deep, and there was a beautiful lake a mile from the cabin.\nThe road to the cabin was very narrow, and on Friday night a massive truck came down the mountain. Everybody was scared, but the driver was very careful.\nFor dinner they ordered a giant pizza: fifty centimeters! On Saturday it was Sara's birthday, so they bought a chocolate cake in the shape of a heart, pink and very bright.\nOn Sunday they swam in the lake. The water was so cold that it felt like ice!",
+      es: "Ocho amigos rentaron una cabaña enorme en la montaña para el fin de semana. Tenía cinco recámaras, una sala grande y una tele de cincuenta pulgadas. La alberca medía dos metros de hondo y había un lago precioso a una milla de la cabaña.\nEl camino a la cabaña era muy angosto y el viernes en la noche bajó un camión enorme de la montaña. Todos tenían miedo, pero el chofer manejó con mucho cuidado.\nDe cena pidieron una pizza gigante: ¡de cincuenta centímetros! El sábado era el cumpleaños de Sara, así que compraron un pastel de chocolate en forma de corazón, rosa y muy brillante.\nEl domingo nadaron en el lago. ¡El agua estaba tan fría que parecía hielo!",
       q: [
-        ["¿Cuánto pesaba la calabaza ganadora?", ["Más de media tonelada", "Diez kilos", "Dos toneladas"], 0],
-        ["¿Cómo se veía su calabaza junto a la ganadora?", ["Enorme", "Pequeñita", "Cuadrada"], 1],
-        ["¿Qué necesita para cultivar una gigante?", ["Un camión", "Un concurso", "Espacio, sol, agua y suerte"], 2]
+        ["¿Cuántas recámaras tenía la cabaña?", ["Tres", "Cinco", "Ocho"], 1],
+        ["¿Qué tan honda era la alberca?", ["Un metro", "Dos metros", "Cinco metros"], 1],
+        ["¿Cómo era el camino a la cabaña?", ["Muy ancho", "Muy angosto", "Muy largo"], 1],
+        ["¿Qué forma tenía el pastel?", ["Redonda", "Cuadrada", "De corazón"], 2],
+        ["¿Cómo estaba el agua del lago?", ["Caliente", "Muy fría", "Sucia"], 1]
       ]
     }
   },
@@ -634,13 +676,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Tengo un presentimiento raro.", "I have a strange feeling.", "ai jav a stréinch fíiling", ""]
     ],
     r: {
-      t: "My sister's wedding",
-      en: "My sister got married last Saturday. It was a day full of emotions. In the morning she was very nervous and a little scared. \"What if something goes wrong?\" she said.\nMy mom tried to calm her down. Then my dad saw her in her white dress and cried with joy. I felt so much pride and happiness.\nThere was one awkward moment: the groom forgot the rings at home! But his brother went back for them, and everything was fine. What a relief! At the end of the night we were all tired but grateful.",
-      es: "Mi hermana se casó el sábado pasado. Fue un día lleno de emociones. En la mañana estaba muy nerviosa y un poco asustada. «¿Y si algo sale mal?», decía.\nMi mamá trató de calmarla. Luego mi papá la vio con su vestido blanco y lloró de alegría. Yo sentí mucho orgullo y felicidad.\nHubo un momento incómodo: ¡al novio se le olvidaron los anillos en su casa! Pero su hermano regresó por ellos y todo salió bien. ¡Qué alivio! Al final de la noche todos estábamos cansados, pero agradecidos.",
+      t: "The lost passport",
+      en: "The night before her trip to Europe, Sofía couldn't find her passport. She looked everywhere: in her bag, in the kitchen, under the bed. She was desperate.\nHer husband said, \"Calm down. We'll find it,\" but Sofía was very worried. She had a strange feeling. Her neighbors were having a party, and the noise was really annoying.\nThen her brother called. \"Did you check your car?\" he asked. Sofía ran to the car, and there it was, under the seat. What a relief!\nThe next day, on the plane, Sofía was in a very good mood. But she didn't look out the window. She's afraid of heights!",
+      es: "La noche antes de su viaje a Europa, Sofía no encontraba su pasaporte. Buscó por todas partes: en su bolsa, en la cocina, debajo de la cama. Estaba desesperada.\nSu esposo le dijo: «Cálmate. Lo vamos a encontrar», pero Sofía estaba muy preocupada. Tenía un presentimiento raro. Sus vecinos tenían una fiesta y el ruido era muy molesto.\nLuego su hermano le llamó. «¿Ya revisaste tu carro?», le preguntó. Sofía corrió al carro y ahí estaba, debajo del asiento. ¡Qué alivio!\nAl día siguiente, en el avión, Sofía estaba de muy buen humor. Pero no miró por la ventana. ¡Le tiene miedo a las alturas!",
       q: [
-        ["¿Cómo estaba la novia en la mañana?", ["Nerviosa y un poco asustada", "Enojada", "Muy tranquila"], 0],
-        ["¿Qué hizo el papá al verla?", ["Se rio", "Lloró de alegría", "Se fue"], 1],
-        ["¿Qué se le olvidó al novio?", ["El traje", "Los zapatos", "Los anillos"], 2]
+        ["¿Qué no encontraba Sofía?", ["Sus llaves", "Su pasaporte", "Su boleto"], 1],
+        ["¿Qué le dijo su esposo?", ["«Es tu culpa»", "«Cálmate. Lo vamos a encontrar»", "«No vamos a viajar»"], 1],
+        ["¿Qué era muy molesto?", ["El perro", "El ruido de la fiesta de los vecinos", "La televisión"], 1],
+        ["¿Dónde estaba el pasaporte?", ["En la cocina", "Debajo de la cama", "Debajo del asiento del carro"], 2],
+        ["¿Por qué no miró por la ventana del avión?", ["Estaba dormida", "Le tiene miedo a las alturas", "Estaba oscuro"], 1]
       ]
     }
   },
@@ -664,13 +708,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["los servicios públicos", "public services", "páblik sérvises", ""]
     ],
     r: {
-      t: "My village",
-      en: "I grew up in a small village in Jalisco. It had one main square, a church, a market and a lot of friendly people. Everyone knew everyone.\nNow I live in Guadalajara, in a residential area near the center. City life is exciting: there are museums, theaters and great spots to eat.\nBut sometimes I miss my village. In the city there's traffic chaos and big crowds everywhere. In my village, life was slow and quiet.",
-      es: "Crecí en un pueblito de Jalisco. Tenía una plaza principal, una iglesia, un mercado y mucha gente amable. Todos se conocían.\nAhora vivo en Guadalajara, en una zona residencial cerca del centro. La vida en la ciudad es emocionante: hay museos, teatros y lugares buenísimos para comer.\nPero a veces extraño mi pueblo. En la ciudad hay caos de tráfico y multitudes por todos lados. En mi pueblo la vida era lenta y tranquila.",
+      t: "A walk downtown",
+      en: "Valeria is a tour guide in Querétaro. On Saturday she had a group of tourists from Texas.\nThey started in the main square, where there's a beautiful old church. Then they walked down the avenue to City Hall. The museum is located downtown too, so they visited it before lunch.\nFor lunch, Valeria took them to the local market. \"It's a good spot for lunch,\" she said. The tourists loved the food.\nIn the afternoon they saw the bridge over the river and the tallest building in town. There was a big crowd in the square because of a music festival.\nValeria doesn't live in the city. She lives in a small village near Querétaro. \"I prefer rural areas,\" she says.",
+      es: "Valeria es guía de turistas en Querétaro. El sábado tuvo un grupo de turistas de Texas.\nEmpezaron en la plaza principal, donde hay una iglesia antigua muy bonita. Luego caminaron por la avenida hasta el ayuntamiento. El museo también está en el centro, así que lo visitaron antes de comer.\nPara comer, Valeria los llevó al mercado local. «Es un buen lugar para comer», les dijo. A los turistas les encantó la comida.\nEn la tarde vieron el puente sobre el río y el edificio más alto de la ciudad. Había mucha gente en la plaza por un festival de música.\nValeria no vive en la ciudad. Vive en un pueblito cerca de Querétaro. «Prefiero las zonas rurales», dice.",
       q: [
-        ["¿Dónde creció?", ["En Guadalajara", "En un pueblito de Jalisco", "En Monterrey"], 1],
-        ["¿Qué hay en la ciudad?", ["Museos, teatros y lugares para comer", "Una sola plaza", "Muy poca gente"], 0],
-        ["¿Qué extraña de su pueblo?", ["El tráfico", "Los museos", "La vida lenta y tranquila"], 2]
+        ["¿De dónde eran los turistas?", ["De Canadá", "De Texas", "De Querétaro"], 1],
+        ["¿Qué hay en la plaza principal?", ["Un museo", "Una iglesia antigua", "Un mercado"], 1],
+        ["¿Dónde comieron?", ["En un restaurante elegante", "En el mercado local", "En el hotel"], 1],
+        ["¿Por qué había mucha gente en la plaza?", ["Por una boda", "Por un festival de música", "Por una protesta"], 1],
+        ["¿Dónde vive Valeria?", ["En el centro", "En un pueblito cerca de Querétaro", "En Texas"], 1]
       ]
     }
   },
@@ -694,13 +740,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Prohibida la entrada", "No entry", "nóu éntri", ""]
     ],
     r: {
-      t: "A road trip",
-      en: "Last summer we drove from Monterrey to Mazatlán. The distance is about eight hundred kilometers. We left at five in the morning to avoid the traffic.\nThe road through the mountains is beautiful, but it has a lot of curves. The speed limit is low, so we drove slowly. We stopped twice to fill up the tank.\nIn Mazatlán we left the car at the hotel and rode bikes everywhere. On the last day we took a boat tour. Next time, maybe we'll take a plane!",
-      es: "El verano pasado manejamos de Monterrey a Mazatlán. La distancia es de unos ochocientos kilómetros. Salimos a las cinco de la mañana para evitar el tráfico.\nLa carretera por las montañas es preciosa, pero tiene muchas curvas. El límite de velocidad es bajo, así que manejamos despacio. Paramos dos veces a llenar el tanque.\nEn Mazatlán dejamos el carro en el hotel y anduvimos en bici por todos lados. El último día hicimos un paseo en barco. ¡La próxima vez a lo mejor nos vamos en avión!",
+      t: "A road trip to Monterrey",
+      en: "Last Friday, Mariana and her friend Hugo drove from Saltillo to Monterrey. It's about eighty kilometers.\nFirst they stopped at a gas station to fill up the tank. The engine was making a weird noise, so the attendant checked the oil. It was low. Then he saw that a back tire was flat! Luckily, they had a spare tire.\nOn the highway, Hugo took the left lane. The speed limit was a hundred and ten, but some people were driving much faster. Near Monterrey there was a crash on the road, and the traffic was terrible.\nThey arrived at six, at rush hour. Hugo turned into the wrong street and saw a \"No entry\" sign, so he put the car in reverse. \"Next time, let's take the bus!\" said Mariana.",
+      es: "El viernes pasado, Mariana y su amigo Hugo manejaron de Saltillo a Monterrey. Son como ochenta kilómetros.\nPrimero se pararon en una gasolinera para llenar el tanque. El motor hacía un ruido raro, así que el despachador revisó el aceite. Le faltaba. ¡Luego vio que una llanta de atrás estaba ponchada! Por suerte, traían llanta de refacción.\nEn la carretera, Hugo tomó el carril de la izquierda. El límite de velocidad era de ciento diez, pero algunas personas iban mucho más rápido. Cerca de Monterrey había un choque en la carretera y el tráfico estaba terrible.\nLlegaron a las seis, en la hora pico. Hugo se metió en la calle equivocada y vio un letrero de «Prohibida la entrada», así que puso el carro en reversa. «¡La próxima vez vamos en camión!», dijo Mariana.",
       q: [
-        ["¿Cuántos kilómetros manejaron?", ["Unos ochocientos", "Unos ochenta", "Dos mil"], 0],
-        ["¿Por qué manejaron despacio?", ["Por la lluvia", "Porque el límite de velocidad es bajo", "Porque el carro era viejo"], 1],
-        ["¿Cómo se movieron en Mazatlán?", ["En taxi", "En camión", "En bici"], 2]
+        ["¿Qué distancia hay de Saltillo a Monterrey?", ["Como veinte kilómetros", "Como ochenta kilómetros", "Como doscientos kilómetros"], 1],
+        ["¿Qué problema tenía el motor?", ["No prendía", "Hacía un ruido raro", "Estaba muy caliente"], 1],
+        ["¿Qué pasó con la llanta?", ["Se perdió", "Estaba ponchada", "Era nueva"], 1],
+        ["¿Qué había cerca de Monterrey?", ["Una gasolinera", "Un choque en la carretera", "Un tren"], 1],
+        ["¿Qué dijo Mariana al final?", ["«¡Qué buen viaje!»", "«¡La próxima vez vamos en camión!»", "«¡Manejas muy bien!»"], 1]
       ]
     }
   },
@@ -724,13 +772,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Es de oro macizo.", "It's solid gold.", "its sálid góuld", ""]
     ],
     r: {
-      t: "Shopping for a wedding",
-      en: "My cousin's wedding is next month, so I went shopping for formal clothes. I didn't want anything too fancy or expensive.\nIn the first store the suits were beautiful, but they were made of wool and very hot. In the second store I found a light gray suit made of cotton. It wasn't too tight or too loose. Perfect!\nI also bought leather shoes and a tie. My wife says my style is a little old-fashioned, but I like it.",
-      es: "La boda de mi prima es el próximo mes, así que fui a comprar ropa formal. No quería nada muy elegante ni caro.\nEn la primera tienda los trajes estaban bonitos, pero eran de lana y daban mucho calor. En la segunda encontré un traje gris claro de algodón. No me quedaba ni apretado ni flojo. ¡Perfecto!\nTambién compré zapatos de piel y una corbata. Mi esposa dice que mi estilo es un poco anticuado, pero a mí me gusta.",
+      t: "Shopping in Oaxaca",
+      en: "Last month Tere and her friend Lupita traveled to Oaxaca. They love fashion, and they love handmade things too.\nAt the craft market, a woman was selling beautiful dresses. Lupita asked, \"What is it made of?\" \"It's made of cotton,\" said the woman. Lupita bought a white one.\nAt another stall, they found clay pots, wooden boxes and leather jackets. Tere bought a leather jacket for the winter. It wasn't cheap, but it wasn't a very expensive brand either.\nAt the hotel, they tried on everything. \"I like your style,\" Tere told Lupita.\nNext month they're going to a wedding, so they need formal clothes. They're going to look for them in a clothing store in Mexico City.",
+      es: "El mes pasado, Tere y su amiga Lupita viajaron a Oaxaca. Les encanta la moda y también les encantan las cosas hechas a mano.\nEn el mercado de artesanías, una señora vendía vestidos preciosos. Lupita preguntó: «¿De qué material es?». «Es de algodón», dijo la señora. Lupita compró uno blanco.\nEn otro puesto encontraron ollas de barro, cajas de madera y chamarras de piel. Tere compró una chamarra de piel para el invierno. No fue barata, pero tampoco era de una marca muy cara.\nEn el hotel se probaron todo. «Me gusta tu estilo», le dijo Tere a Lupita.\nEl próximo mes van a ir a una boda, así que necesitan ropa formal. La van a buscar en una tienda de ropa en la Ciudad de México.",
       q: [
-        ["¿Para qué necesita ropa formal?", ["Para una boda", "Para una entrevista", "Para un funeral"], 0],
-        ["¿De qué era el traje que compró?", ["De lana", "De algodón", "De piel"], 1],
-        ["¿Qué dice su esposa de su estilo?", ["Que es muy moderno", "Que es elegante", "Que es un poco anticuado"], 2]
+        ["¿De qué material era el vestido?", ["De seda", "De algodón", "De piel"], 1],
+        ["¿De qué color es el vestido de Lupita?", ["Rojo", "Blanco", "Negro"], 1],
+        ["¿Qué compró Tere?", ["Una olla de barro", "Una chamarra de piel", "Un anillo"], 1],
+        ["¿Qué le dijo Tere a Lupita en el hotel?", ["«Ya no está de moda»", "«Me gusta tu estilo»", "«Es muy cara»"], 1],
+        ["¿Para qué necesitan ropa formal?", ["Para el trabajo", "Para una boda", "Para una fiesta de cumpleaños"], 1]
       ]
     }
   },
@@ -753,13 +803,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Estírate antes de correr.", "Stretch before you run.", "strech bifór iú ran", ""]
     ],
     r: {
-      t: "A new me",
-      en: "Two years ago I weighed ninety-five kilos and I had high blood pressure. My doctor said, \"You need to change your lifestyle.\"\nFirst I changed my diet: less fat and sugar, more vegetables and protein. Then I started walking thirty minutes a day. After six months I joined a gym and started lifting weights.\nNow I weigh seventy-eight kilos and I feel great. I'm more active, I sleep better and my back doesn't hurt anymore. The secret? A simple routine, every day.",
-      es: "Hace dos años pesaba noventa y cinco kilos y tenía la presión alta. Mi doctor me dijo: «Necesitas cambiar tu estilo de vida».\nPrimero cambié mi alimentación: menos grasa y azúcar, más verduras y proteína. Luego empecé a caminar treinta minutos al día. A los seis meses me inscribí a un gimnasio y empecé a levantar pesas.\nAhora peso setenta y ocho kilos y me siento muy bien. Soy más activo, duermo mejor y ya no me duele la espalda. ¿El secreto? Una rutina sencilla, todos los días.",
+      t: "A healthy lifestyle",
+      en: "Last year Jaime gained ten kilos. He didn't have time to exercise, and he ate a lot of food with a lot of fat. Then his doctor told him that he had high blood pressure.\nSo in January Jaime joined a gym. His trainer, Karla, is a very active person. On the first day she said, \"Stretch before you run.\" After ten minutes on the treadmill, Jaime's heart was beating very fast. \"Take a deep breath,\" said Karla.\nNow Jaime exercises three times a week and lifts weights. He also has a balanced diet with a lot of vegetables. He lost seven kilos, and his blood pressure is normal. \"Fitness is important to me now,\" he says.",
+      es: "El año pasado, Jaime subió diez kilos. No tenía tiempo para hacer ejercicio y comía mucha comida con mucha grasa. Luego su doctor le dijo que tenía la presión alta.\nAsí que en enero, Jaime se inscribió a un gimnasio. Su entrenadora, Karla, es una persona muy activa. El primer día le dijo: «Estírate antes de correr». Después de diez minutos en la caminadora, el corazón de Jaime latía muy rápido. «Respira hondo», le dijo Karla.\nAhora Jaime hace ejercicio tres veces por semana y levanta pesas. También tiene una alimentación balanceada con muchas verduras. Bajó siete kilos y su presión está normal. «Ahora me importa mi condición física», dice.",
       q: [
-        ["¿Qué le dijo el doctor?", ["Que cambiara su estilo de vida", "Que comiera más", "Que dejara el trabajo"], 0],
-        ["¿Qué hizo primero?", ["Fue al gimnasio", "Cambió su alimentación", "Corrió un maratón"], 1],
-        ["¿Cuál es el secreto?", ["Una dieta muy estricta", "Muchas medicinas", "Una rutina sencilla todos los días"], 2]
+        ["¿Cuántos kilos subió Jaime el año pasado?", ["Cinco", "Diez", "Siete"], 1],
+        ["¿Qué le dijo su doctor?", ["Que estaba en forma", "Que tenía la presión alta", "Que necesitaba descansar"], 1],
+        ["¿Quién es Karla?", ["Su doctora", "Su entrenadora", "Su esposa"], 1],
+        ["¿Cuántas veces por semana hace ejercicio ahora?", ["Una", "Dos", "Tres"], 2],
+        ["¿Cuántos kilos bajó?", ["Diez", "Siete", "Cinco"], 1]
       ]
     }
   },
@@ -782,13 +834,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Aléjate del fuego.", "Stay away from the fire.", "stéi auéi from de fáier", ""]
     ],
     r: {
-      t: "Fire drill",
-      en: "Today we had a fire drill at the factory. At ten o'clock the fire alarm started ringing. Everyone stopped working and walked to the emergency exits.\nWe met in the parking lot. The safety manager counted everyone. \"Good job,\" she said. \"It took only four minutes.\"\nThen a firefighter showed us how to use a fire extinguisher and where to find the first aid kits. In an emergency, every second counts.",
-      es: "Hoy hubo un simulacro de incendio en la fábrica. A las diez empezó a sonar la alarma de incendios. Todos dejamos de trabajar y caminamos a las salidas de emergencia.\nNos reunimos en el estacionamiento. La gerente de seguridad contó a todos. «Buen trabajo», dijo. «Tardamos solo cuatro minutos».\nLuego un bombero nos enseñó a usar un extintor y dónde están los botiquines. En una emergencia, cada segundo cuenta.",
+      t: "A hurricane alert",
+      en: "Last September, Fernanda was on vacation in Cancún when there was a hurricane alert. The hotel staff explained everything: where the emergency exit was, where the first aid kit was, and the emergency number. \"Don't go to the beach. It's not safe,\" they said.\nThat night the storm was very strong. The rain came into the hall, and a man slipped and fell on the wet floor. Fernanda helped him and ran to the front desk. The security guard called an ambulance, and the rescue team arrived in twenty minutes.\nThe next morning the sun was shining again. Some trees were on the ground, but nobody was seriously hurt. Fernanda called her mom: \"We're safe!\"",
+      es: "En septiembre pasado, Fernanda estaba de vacaciones en Cancún cuando hubo una alerta de huracán. El personal del hotel les explicó todo: dónde estaba la salida de emergencia, dónde estaba el botiquín y cuál era el número de emergencias. «No vayan a la playa. No es seguro», dijeron.\nEsa noche la tormenta fue muy fuerte. La lluvia entró al pasillo y un señor se resbaló y se cayó en el piso mojado. Fernanda lo ayudó y corrió a la recepción. El guardia de seguridad llamó a una ambulancia y el equipo de rescate llegó en veinte minutos.\nA la mañana siguiente, el sol brillaba otra vez. Había algunos árboles en el suelo, pero nadie salió herido de gravedad. Fernanda le llamó a su mamá: «¡Estamos a salvo!».",
       q: [
-        ["¿Qué pasó a las diez?", ["Sonó la alarma", "Hubo un incendio de verdad", "Llegó la ambulancia"], 0],
-        ["¿Cuánto tardaron en salir?", ["Diez minutos", "Cuatro minutos", "Una hora"], 1],
-        ["¿Qué les enseñó el bombero?", ["A manejar", "A cocinar", "A usar un extintor"], 2]
+        ["¿Qué alerta hubo en Cancún?", ["De incendio", "De huracán", "De terremoto"], 1],
+        ["¿Qué les dijo el hotel de la playa?", ["Que estaba bonita", "Que no era seguro ir", "Que estaba cerrada por limpieza"], 1],
+        ["¿Qué le pasó al señor?", ["Se quemó", "Se resbaló y se cayó", "Se perdió"], 1],
+        ["¿Quién llamó a la ambulancia?", ["Fernanda", "El guardia de seguridad", "El señor"], 1],
+        ["¿Cómo estaba el clima a la mañana siguiente?", ["Seguía lloviendo", "Brillaba el sol", "Hacía mucho viento"], 1]
       ]
     }
   },
@@ -813,13 +867,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["La competencia es muy dura.", "The competition is very tough.", "de campetíshon is véri taf", ""]
     ],
     r: {
-      t: "My son's soccer team",
-      en: "My son Diego plays for a soccer club in our neighborhood. The team practices on Tuesdays and Thursdays, and they play a game every Saturday on the big field near the park.\nThis season they are in first place in the league. Their coach is very strict, but the kids love him. Diego is the team captain and wears number ten on his jersey.\nLast weekend they played the final of a local tournament. It was a tie until the last minute, when Diego scored a penalty. They won the championship! The players got medals and a small trophy.",
-      es: "Mi hijo Diego juega en un club de futbol de nuestra colonia. El equipo entrena los martes y jueves, y juegan un partido cada sábado en la cancha grande cerca del parque.\nEsta temporada van en primer lugar de la liga. Su entrenador es muy estricto, pero los niños lo quieren mucho. Diego es el capitán del equipo y lleva el número diez en su camiseta.\nEl fin de semana pasado jugaron la final de un torneo local. Iban empatados hasta el último minuto, cuando Diego metió un penal. ¡Ganaron el campeonato! Los jugadores recibieron medallas y un trofeo pequeño.",
+      t: "Beto's first game",
+      en: "Last Saturday, Beto went to the stadium for the first time with his aunt. It was a big game: Mexico versus Brazil.\nOutside the stadium, his aunt bought him a jersey with number ten. That player is the best in the league. Inside, the stadium was full. Sixty thousand people were singing and screaming!\nIn the first half, Brazil scored a goal. Then, in minute forty, there was a penalty, and Mexico scored. In the second half, Mexico scored again. It was two to one!\nThe Brazil coach was very angry, but Beto was very happy. \"We beat Brazil!\" he told his dad. \"Mexico is going to win the championship!\"",
+      es: "El sábado pasado, Beto fue al estadio por primera vez con su tía. Era un partido muy importante: México contra Brasil.\nAfuera del estadio, su tía le compró una camiseta con el número diez. Ese jugador es el mejor de la liga. Adentro, el estadio estaba lleno. ¡Sesenta mil personas cantaban y gritaban!\nEn el primer tiempo, Brasil metió un gol. Luego, en el minuto cuarenta, hubo un penal y México anotó. En el segundo tiempo, México anotó otra vez. ¡Quedaron dos a uno!\nEl entrenador de Brasil estaba muy enojado, pero Beto estaba feliz. «¡Le ganamos a Brasil!», le dijo a su papá. «¡México va a ganar el campeonato!».",
       q: [
-        ["¿Cuándo entrena el equipo?", ["Martes y jueves", "Lunes y miércoles", "Solo los sábados"], 0],
-        ["¿Qué número lleva Diego?", ["El siete", "El diez", "El uno"], 1],
-        ["¿Cómo ganaron la final?", ["Por muchos goles", "En penales después del partido", "Con un penal en el último minuto"], 2]
+        ["¿Con quién fue Beto al estadio?", ["Con su papá", "Con su tía", "Con sus amigos"], 1],
+        ["¿Qué número tiene su camiseta?", ["El siete", "El diez", "El nueve"], 1],
+        ["¿Cuántas personas había en el estadio?", ["Diez mil", "Sesenta mil", "Cien mil"], 1],
+        ["¿Cómo quedó el partido?", ["Uno a uno", "Dos a uno, ganó México", "Dos a uno, ganó Brasil"], 1],
+        ["¿Quién estaba muy enojado?", ["Beto", "El entrenador de Brasil", "El papá de Beto"], 1]
       ]
     }
   },
@@ -842,13 +898,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["una gira por Estados Unidos", "a tour of the United States", "a tur ov de iunáited stéits", ""]
     ],
     r: {
-      t: "Music in my life",
-      en: "Music is a big part of my life. I listen to it on the way to work, while I cook and when I clean the house. My favorite is rock, but I also like jazz and Mexican folk music.\nWhen I was a teenager, I played the bass in a band with my friends. We performed at parties and small bars. We weren't famous, but we had a lot of fun.\nLast month my favorite band released a new album, and I bought tickets for their concert. When they came on stage, everyone started singing. It was the best night of the year!",
-      es: "La música es una parte muy importante de mi vida. La escucho de camino al trabajo, mientras cocino y cuando limpio la casa. Mi favorito es el rock, pero también me gusta el jazz y la música folclórica mexicana.\nCuando era adolescente, tocaba el bajo en un grupo con mis amigos. Tocábamos en fiestas y bares pequeños. No éramos famosos, pero nos divertíamos mucho.\nEl mes pasado mi grupo favorito sacó un disco nuevo y compré boletos para su concierto. Cuando salieron al escenario, todos empezaron a cantar. ¡Fue la mejor noche del año!",
+      t: "A night at the arena",
+      en: "Last Saturday, Lorena and her cousin went to a concert at the arena. Their favorite band released a new album this year, and now they're on a tour of the United States and Mexico.\nBefore the concert, they waited in line for two hours. A young singer opened the show. She sings beautifully, and everybody loved her.\nAt nine o'clock the band came on stage. They played old songs and new songs. The guitar solo was incredible, and the drums were very loud. During the last song, the lyrics were so sad that some people cried.\nThe concert was a big success. On Monday, Lorena couldn't stop singing, at work and in the shower!",
+      es: "El sábado pasado, Lorena y su prima fueron a un concierto en la arena. Su grupo favorito sacó un disco nuevo este año y ahora está de gira por Estados Unidos y México.\nAntes del concierto hicieron fila dos horas. Una cantante joven abrió el show. Canta muy bonito y a todos les encantó.\nA las nueve, el grupo salió al escenario. Tocaron canciones viejas y nuevas. El solo de guitarra fue increíble y la batería sonaba muy fuerte. En la última canción, la letra era tan triste que algunas personas lloraron.\nEl concierto fue un gran éxito. El lunes, Lorena no podía dejar de cantar, ¡en el trabajo y en la regadera!",
       q: [
-        ["¿Qué música le gusta más?", ["El rock", "El pop", "El jazz"], 0],
-        ["¿Qué tocaba de adolescente?", ["La guitarra", "El bajo", "La batería"], 1],
-        ["¿Qué pasó cuando el grupo salió al escenario?", ["Se fue la luz", "Todos se fueron", "Todos empezaron a cantar"], 2]
+        ["¿Dónde fue el concierto?", ["En un estadio", "En la arena", "En un bar"], 1],
+        ["¿Cuánto tiempo hicieron fila?", ["Una hora", "Dos horas", "Tres horas"], 1],
+        ["¿Quién abrió el show?", ["Otro grupo", "Una cantante joven", "Un DJ"], 1],
+        ["¿A qué hora salió el grupo al escenario?", ["A las ocho", "A las nueve", "A las diez"], 1],
+        ["¿Por qué lloraron algunas personas?", ["Porque terminó el concierto", "Porque la letra de la última canción era muy triste", "Porque había mucha gente"], 1]
       ]
     }
   },
@@ -873,12 +931,14 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
     ],
     r: {
       t: "Movie night",
-      en: "Every Friday is movie night at our house. We make popcorn, turn off the lights and choose a film together. It isn't easy: my wife likes romantic comedies, my son loves horror movies, and my daughter only wants fantasy films with dragons.\nLast Friday we watched a classic: a science fiction movie from the eighties about a friendly alien. The special effects are old, but the story is beautiful and the acting is great.\nAt the end everyone was crying, even my son. Now he wants to watch it again!",
-      es: "Todos los viernes es noche de película en mi casa. Hacemos palomitas, apagamos las luces y elegimos una película juntos. No es fácil: a mi esposa le gustan las comedias románticas, mi hijo ama las películas de terror y mi hija solo quiere películas de fantasía con dragones.\nEl viernes pasado vimos un clásico: una película de ciencia ficción de los ochenta sobre un extraterrestre amigable. Los efectos especiales son viejos, pero la historia es preciosa y la actuación es muy buena.\nAl final todos estábamos llorando, hasta mi hijo. ¡Ahora quiere volver a verla!",
+      en: "Every Friday, Leo, Karla and Pablo go to the movies. This week, Leo wanted to see a horror movie, but Pablo said, \"No way! I prefer comedies.\"\nThey watched a romantic comedy about a woman who falls in love with an alien. The director is very famous, and the main actress is Mexican. Her acting was amazing, and the alien was very funny. Pablo's favorite character was the villain, a crazy scientist.\nAfter the movie they ate pizza and talked about it for two hours.\nOn Monday, Pablo's coworker started to tell him about the last episode of a new series. \"Don't tell me the ending!\" said Pablo. \"I watched the first episode last night!\"",
+      es: "Todos los viernes, Leo, Karla y Pablo van al cine. Esta semana, Leo quería ver una película de terror, pero Pablo dijo: «¡Ni loco! Prefiero las comedias».\nVieron una comedia romántica de una mujer que se enamora de un extraterrestre. El director es muy famoso y la actriz principal es mexicana. Su actuación fue increíble y el extraterrestre era muy chistoso. El personaje favorito de Pablo fue el villano, un científico loco.\nDespués de la película comieron pizza y platicaron de ella dos horas.\nEl lunes, una compañera de Pablo empezó a contarle el último episodio de una serie nueva. «¡No me cuentes el final!», dijo Pablo. «¡Vi el primer episodio anoche!».",
       q: [
-        ["¿Qué películas le gustan al hijo?", ["Las de terror", "Las comedias románticas", "Los documentales"], 0],
-        ["¿De qué se trataba la película?", ["De un dragón", "De un extraterrestre amigable", "De una familia"], 1],
-        ["¿Qué pasó al final?", ["Se durmieron", "Se fue la luz", "Todos estaban llorando"], 2]
+        ["¿Qué película quería ver Leo?", ["Una comedia", "Una de terror", "Un documental"], 1],
+        ["¿De qué se trata la película que vieron?", ["De un hombre que pierde a su familia", "De una mujer que se enamora de un extraterrestre", "De dragones y héroes"], 1],
+        ["¿De dónde es la actriz principal?", ["De Estados Unidos", "De México", "De España"], 1],
+        ["¿Quién fue el personaje favorito de Pablo?", ["El extraterrestre", "La actriz", "El villano"], 2],
+        ["¿Qué le dijo Pablo a su compañera?", ["«Me encanta esa serie»", "«¡No me cuentes el final!»", "«No me gustan las series»"], 1]
       ]
     }
   },
@@ -901,13 +961,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Estoy orgulloso de mí mismo.", "I'm proud of myself.", "aim práud ov maisélf", ""]
     ],
     r: {
-      t: "Living alone",
-      en: "Last year I moved out of my parents' house. Now I live by myself in a small apartment. At first it was hard: I had to cook for myself, wash my own clothes and pay all the bills.\nSomehow I learned to do everything. I taught myself to cook with videos on the internet, and now I make delicious soups.\nMy friends and I help each other. Whenever someone needs something, we're there. And on Sundays my mom invites me for lunch. Living alone is great, but nothing is like mom's food!",
-      es: "El año pasado me salí de la casa de mis papás. Ahora vivo solo en un departamento pequeño. Al principio fue difícil: tenía que cocinarme, lavar mi propia ropa y pagar todas las cuentas.\nDe alguna manera aprendí a hacer todo. Aprendí a cocinar solo con videos en internet y ahora hago sopas deliciosas.\nMis amigos y yo nos ayudamos. Cuando alguien necesita algo, ahí estamos. Y los domingos mi mamá me invita a comer. Vivir solo está padre, pero ¡nada como la comida de mamá!",
+      t: "A new life in Monterrey",
+      en: "Two months ago, Raúl moved to Monterrey for a new job. He doesn't have family there, so now he lives alone.\nHis apartment is small, but he likes it. He painted the walls and put the furniture together by himself. He hurt himself with a hammer, but it wasn't serious. \"I'm proud of myself,\" he told his mom. \"Take care of yourself,\" she said.\nAt first, Raúl didn't know anybody, and sometimes he talked to himself. Then his neighbors invited him to a barbecue. They help each other a lot, and they're very friendly.\n\"Come whenever you want,\" they told him. Now Raúl has new friends, and he doesn't feel alone.",
+      es: "Hace dos meses, Raúl se mudó a Monterrey por un trabajo nuevo. No tiene familia allá, así que ahora vive solo.\nSu departamento es pequeño, pero le gusta. Pintó las paredes y armó los muebles él solo. Se lastimó con un martillo, pero no fue grave. «Estoy orgulloso de mí mismo», le dijo a su mamá. «Cuídate», le dijo ella.\nAl principio, Raúl no conocía a nadie y a veces hablaba solo. Luego sus vecinos lo invitaron a una carne asada. Se ayudan mucho entre ellos y son muy amables.\n«Ven cuando quieras», le dijeron. Ahora Raúl tiene amigos nuevos y ya no se siente solo.",
       q: [
-        ["¿Dónde vive ahora?", ["Solo, en un departamento", "Con sus papás", "Con amigos"], 0],
-        ["¿Cómo aprendió a cocinar?", ["Su mamá le enseñó", "Con videos en internet", "En una escuela"], 1],
-        ["¿Qué pasa los domingos?", ["Limpia la casa", "Trabaja", "Su mamá lo invita a comer"], 2]
+        ["¿Por qué se mudó Raúl a Monterrey?", ["Por la escuela", "Por un trabajo nuevo", "Por su familia"], 1],
+        ["¿Quién armó los muebles?", ["Su papá", "Sus vecinos", "Él solo"], 2],
+        ["¿Con qué se lastimó?", ["Con un cuchillo", "Con un martillo", "Con una puerta"], 1],
+        ["¿A qué lo invitaron sus vecinos?", ["A una boda", "A una carne asada", "Al cine"], 1],
+        ["¿Qué le dijeron sus vecinos?", ["«Hazlo tú mismo»", "«Ven cuando quieras»", "«Cuídate»"], 1]
       ]
     }
   },
@@ -931,13 +993,15 @@ Object.assign(window.EXTRA = window.EXTRA || {}, {
       ["Comparte la publicación.", "Share the post.", "sher de póust", ""]
     ],
     r: {
-      t: "My online life",
-      en: "I spend a lot of time online. In the morning I check my email and read the news on my phone. At work I use a lot of apps and platforms to talk with my team.\nAt night I like to watch videos and chat with my friends. I also have a small cooking blog with three thousand followers. I post a new recipe every week.\nBut I'm careful with my privacy. My profile is private, I never share my password, and I only download apps from secure websites. The internet is great, but it can also be dangerous.",
-      es: "Paso mucho tiempo en línea. En la mañana reviso mi correo y leo las noticias en el celular. En el trabajo uso muchas aplicaciones y plataformas para hablar con mi equipo.\nEn la noche me gusta ver videos y platicar con mis amigos. También tengo un blog de cocina pequeño con tres mil seguidores. Publico una receta nueva cada semana.\nPero cuido mi privacidad. Mi perfil es privado, nunca comparto mi contraseña y solo bajo aplicaciones de sitios seguros. El internet es muy útil, pero también puede ser peligroso.",
+      t: "Grandma goes online",
+      en: "Doña Lupe is seventy-two years old, and she makes the best cakes in town. Last month her grandson Diego helped her sell them online.\nFirst, she downloaded an app and created an account. Diego showed her how to tap the screen and select options. Then they took photos of her cakes. Some photos were dark, so Diego edited them.\nDoña Lupe posted a photo of her chocolate cake, and her friends shared the post. In one week she had a hundred followers! People sent her messages and asked for more info about prices.\nNow she sells ten cakes a week. \"I buy everything online too,\" she says. \"It's very easy!\"",
+      es: "Doña Lupe tiene setenta y dos años y hace los mejores pasteles del pueblo. El mes pasado, su nieto Diego le ayudó a venderlos por internet.\nPrimero bajó una aplicación y creó una cuenta. Diego le enseñó a tocar la pantalla y seleccionar opciones. Luego tomaron fotos de sus pasteles. Algunas fotos estaban oscuras, así que Diego las editó.\nDoña Lupe subió una foto de su pastel de chocolate y sus amigas compartieron la publicación. ¡En una semana tenía cien seguidores! La gente le mandaba mensajes y le pedía más información de los precios.\nAhora vende diez pasteles a la semana. «Yo también compro todo en línea», dice. «¡Es muy fácil!».",
       q: [
-        ["¿Cuántos seguidores tiene su blog?", ["Tres mil", "Trescientos", "Treinta mil"], 0],
-        ["¿Qué publica cada semana?", ["Una foto", "Una receta", "Un video"], 1],
-        ["¿Cómo cuida su privacidad?", ["No usa internet", "Comparte todo", "Perfil privado y nunca comparte su contraseña"], 2]
+        ["¿Cuántos años tiene doña Lupe?", ["Sesenta", "Setenta y dos", "Ochenta"], 1],
+        ["¿Quién le ayudó?", ["Su hija", "Su nieto Diego", "Una vecina"], 1],
+        ["¿Por qué Diego editó algunas fotos?", ["Porque eran feas", "Porque estaban oscuras", "Porque eran muy grandes"], 1],
+        ["¿Cuántos seguidores tuvo en una semana?", ["Diez", "Cien", "Mil"], 1],
+        ["¿Cuántos pasteles vende ahora?", ["Cinco a la semana", "Diez a la semana", "Cien al mes"], 1]
       ]
     }
   }
