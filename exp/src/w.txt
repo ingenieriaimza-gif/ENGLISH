@@ -1,0 +1,213 @@
+// Trabajo: la conversación (una experiencia completa, por escenas) y la lectura de cada tema. Formato y uso: exp/gen.py
+
+# w1
+@ Eres ingeniero de proyectos en Grupo Delta, en Monterrey. Le llamas por primera vez a un proveedor de Texas.
+A: Good morning, Texas Steel. How can I help you? | Buenos días, Texas Steel. ¿En qué le puedo ayudar?
+B: Good morning. I'm calling from Grupo Delta. Can I speak with Mr. Brown? | Buenos días. Le llamo de parte de Grupo Delta. ¿Puedo hablar con el señor Brown?
+A: One moment, please... Hello, this is Jack. | Un momento, por favor... Bueno, habla Jack.
+B: Sorry, who am I speaking with? | Perdón, ¿con quién hablo?
+A: Jack Brown, sales manager. What can I do for you? | Jack Brown, gerente de ventas. ¿En qué le puedo servir?
+B: Do you have a minute? I need information about your products. | ¿Tiene un minuto? Necesito información de sus productos.
+A: Sure! We have a new catalog with all our products and prices for this year, and... | ¡Claro! Tenemos un catálogo nuevo con todos nuestros productos y precios de este año, y...
+B: Sorry, I didn't catch that. Could you speak more slowly, please? | Perdón, no le escuché bien. ¿Puede hablar más despacio, por favor?
+A: Of course. We have a new catalog. I can send it to you. | Claro. Tenemos un catálogo nuevo. Se lo puedo mandar.
+B: 5
+A: Sure. I'll send it today. | Claro. Se lo mando hoy.
+B: Thank you. Have a great day. | Gracias. Que tenga buen día.
+@ Pasan dos días y no te llega nada. Le vuelves a llamar a Jack.
+A: Hello, Jack Brown speaking. | Bueno, habla Jack Brown.
+B: Hi Jack, I'm calling from Grupo Delta. Did you get my email? | Hola, Jack, le llamo de Grupo Delta. ¿Recibió mi correo?
+A: Oh! Sorry for the delay. I was out of the office. | ¡Ay! Disculpe la demora. Estaba fuera de la oficina.
+B: No problem. I need the catalog for a meeting tomorrow. | No hay problema. Necesito el catálogo para una junta mañana.
+A: I'll send it right now. | Se lo mando ahorita mismo.
+B: Thanks. Please copy my manager on the email. | Gracias. Por favor, mande copia a mi jefe.
+@ Una hora después, Jack te vuelve a llamar.
+A: Hi! Did you get the catalog? | ¡Hola! ¿Le llegó el catálogo?
+B: Yes, thanks for your quick reply. | Sí, gracias por su pronta respuesta.
+A: My pleasure. Do you have any questions? | Con gusto. ¿Tiene alguna pregunta?
+B: Not now. Let me check, and I'll let you know. | Ahorita no. Déjeme revisar y yo le aviso.
+== An email to a supplier
+en: Hi Jack,
+es: Hola, Jack:
+en: Thanks for your call this morning. As we discussed, Grupo Delta needs steel parts for a new project in Monterrey.
+es: Gracias por su llamada de esta mañana. Como lo platicamos, Grupo Delta necesita piezas de acero para un proyecto nuevo en Monterrey.
+en: Please find the file attached with the drawings and the quantities. Could you send us your catalog and your prices? I'm copying my manager, Laura Treviño, on this email.
+es: Adjunto el archivo con los planos y las cantidades. ¿Nos puede mandar su catálogo y sus precios? Con copia a mi jefa, Laura Treviño.
+en: Sorry for the delay with the drawings. Our engineers finished them yesterday.
+es: Disculpe la demora con los planos. Nuestros ingenieros los terminaron ayer.
+en: I look forward to hearing from you.
+es: Quedo atenta.
+en: Best regards,
+es: Saludos cordiales,
+en: Ana López, Project Engineer, Grupo Delta
+es: Ana López, ingeniera de proyectos, Grupo Delta
+? ¿Para qué necesita Grupo Delta las piezas? | Para una fábrica en Texas | *Para un proyecto nuevo en Monterrey | Para reparar una máquina
+? ¿Qué va adjunto al correo? | El catálogo | *Los planos y las cantidades | Una factura
+? ¿A quién le manda copia? | A Jack | *A su jefa, Laura Treviño | Al cliente
+? ¿Por qué se disculpa Ana? | Por no llamar | *Por la demora con los planos | Por un error en el precio
+
+# w2
+@ Necesitas quinientas válvulas para un proyecto. Le llamas a Sarah, vendedora de un proveedor de Houston.
+A: Hi, this is Sarah from Valve Pro. How can I help you? | Hola, habla Sarah, de Valve Pro. ¿En qué le puedo ayudar?
+B: Hi Sarah. Could you send us a quote for the model V-200? We need 500 pieces. | Hola, Sarah. ¿Nos puede mandar una cotización del modelo V-200? Necesitamos 500 piezas.
+A: Sure. Do you need them soon? | Claro. ¿Las necesita pronto?
+B: Yes. We need it by November 15th. Is that possible? | Sí. Lo necesitamos para el 15 de noviembre. ¿Es posible?
+A: Let me check... Yes, the lead time is four weeks. | Déjeme revisar... Sí, el tiempo de entrega es de cuatro semanas.
+B: 1
+A: Twelve dollars per unit. And there's volume pricing over a thousand pieces. | Doce dólares por unidad. Y hay precio por volumen arriba de mil piezas.
+B: 15
+A: Yes, shipping is included. | Sí, el envío está incluido.
+B: 16
+A: Thirty days. I'll send it this afternoon. | Treinta días. Se la mando esta tarde.
+@ Al día siguiente, Sarah te llama para hablar de las condiciones de pago.
+A: Did you get the quote? Any questions? | ¿Le llegó la cotización? ¿Alguna pregunta?
+B: Yes. What are your payment terms? | Sí. ¿Cuáles son sus condiciones de pago?
+A: For new clients, a fifty percent down payment, and the rest net 30. | Para clientes nuevos, un anticipo del cincuenta por ciento y el resto a 30 días.
+B: Okay. I'll send you the PO today. | Muy bien. Le mando la orden de compra hoy.
+A: Great! Thank you for your order. | ¡Perfecto! Gracias por su pedido.
+@ Dos semanas después, todavía no llega nada. Le llamas a Sarah.
+A: Hi! How can I help you? | ¡Hola! ¿En qué le puedo ayudar?
+B: Hi Sarah. I'm following up on the purchase order. | Hola, Sarah. Le doy seguimiento a la orden de compra.
+A: Oh, yes. The order is confirmed, but we're waiting for some parts. | Ah, sí. El pedido está confirmado, pero estamos esperando unas piezas.
+B: 6
+A: On Friday. | El viernes.
+B: 7
+A: Of course. I'll email it to you on Friday. | Claro. Se lo mando por correo el viernes.
+== Valves for the new plant
+en: Grupo Delta is building a new plant, and the engineers need 500 valves. Carlos called Valve Pro, a supplier in Houston, and asked for a quote.
+es: Grupo Delta está construyendo una planta nueva y los ingenieros necesitan 500 válvulas. Carlos llamó a Valve Pro, un proveedor de Houston, y pidió una cotización.
+en: The unit price was twelve dollars, and the quote included shipping. It was valid for thirty days. The lead time was four weeks, so the valves could arrive before November 15th.
+es: El precio unitario era de doce dólares y la cotización incluía el envío. Era válida por treinta días. El tiempo de entrega era de cuatro semanas, así que las válvulas podían llegar antes del 15 de noviembre.
+en: Valve Pro's payment terms for new clients are a fifty percent down payment and the rest net 30. Carlos's boss approved it, and Carlos sent the purchase order the same day.
+es: Las condiciones de pago de Valve Pro para clientes nuevos son un anticipo del cincuenta por ciento y el resto a 30 días. El jefe de Carlos lo aprobó y Carlos mandó la orden de compra el mismo día.
+en: Two weeks later, the order was confirmed, but it wasn't shipped yet. Carlos followed up, and Sarah sent him the tracking number on Friday.
+es: Dos semanas después, el pedido estaba confirmado, pero todavía no se enviaba. Carlos le dio seguimiento y Sarah le mandó el número de rastreo el viernes.
+? ¿Cuántas válvulas necesitan? | 100 | *500 | 1,000
+? ¿Cuál era el precio unitario? | Diez dólares | *Doce dólares | Quince dólares
+? ¿Cuánto tiempo era válida la cotización? | Una semana | Quince días | *Treinta días
+? ¿Cuánto es el anticipo para clientes nuevos? | Nada | El treinta por ciento | *El cincuenta por ciento
+? ¿Qué le mandó Sarah el viernes? | La factura | *El número de rastreo | Una cotización nueva
+
+# w3
+@ Llegó el material de un proveedor de Ohio y el inspector encontró piezas malas. Le llamas a Mike, el ingeniero de calidad del proveedor.
+A: Hi, Mike speaking. | Hola, habla Mike.
+B: Hi Mike. We received the material, but there's an issue with the part. | Hola, Mike. Recibimos el material, pero hay un problema con la pieza.
+A: Oh no. What's the problem? | Ay, no. ¿Cuál es el problema?
+B: The part doesn't fit. The dimensions don't match. | La pieza no encaja. Las medidas no coinciden.
+A: Are they out of spec? | ¿Están fuera de especificación?
+B: Yes. We found a defect in twenty percent of the batch. | Sí. Encontramos un defecto en el veinte por ciento del lote.
+A: I'm very sorry. Can you send me photos? | Lo siento mucho. ¿Me puede mandar fotos?
+B: 22
+@ Tu jefa te pregunta qué pasó.
+A: What happened with the parts from Ohio? | ¿Qué pasó con las piezas de Ohio?
+B: 19
+A: Good. And the material in the warehouse? | Bien. ¿Y el material del almacén?
+B: 24
+A: Is it the first time? | ¿Es la primera vez?
+B: No, it's a recurring issue. | No, es un problema recurrente.
+@ Al día siguiente, Mike te llama otra vez.
+A: Hi, it's Mike again. We checked the samples. | Hola, soy Mike otra vez. Revisamos las muestras.
+B: 9
+A: One of our machines was out of calibration. | Una de nuestras máquinas estaba descalibrada.
+B: 20
+A: Sure. We'll send it on Monday. | Claro. Lo mandamos el lunes.
+B: 25
+A: We'll check the machine every day. | Vamos a revisar la máquina todos los días.
+B: 21
+A: Next week. I'm very sorry for the problem. | La próxima semana. Lamento mucho el problema.
+== A quality claim
+en: Last month, Grupo Delta received a batch of 2,000 metal parts from a supplier in Ohio. During the inspection, the quality team found a defect: the dimensions didn't match the drawings, so the parts didn't fit.
+es: El mes pasado, Grupo Delta recibió un lote de 2,000 piezas de metal de un proveedor de Ohio. En la inspección, el equipo de calidad encontró un defecto: las medidas no coincidían con los planos, así que las piezas no encajaban.
+en: Ana, the quality engineer, called the supplier and sent photos of the defect. The team rejected the batch and quarantined the rest of the material in the warehouse. It was a recurring issue, so Ana asked for an 8D report.
+es: Ana, la ingeniera de calidad, llamó al proveedor y mandó fotos del defecto. El equipo rechazó el lote y contuvo el resto del material en el almacén. Era un problema recurrente, así que Ana pidió un reporte 8D.
+en: The supplier found the root cause: one of their machines was out of calibration. As a corrective action, they now check the machine every day. They replaced the parts the next week, and the new parts met the specifications.
+es: El proveedor encontró la causa raíz: una de sus máquinas estaba descalibrada. Como acción correctiva, ahora revisan la máquina todos los días. Reemplazaron las piezas la semana siguiente y las piezas nuevas cumplieron con las especificaciones.
+? ¿Qué problema tenían las piezas? | Estaban sucias | *Las medidas no coincidían con los planos | Llegaron tarde
+? ¿Qué hizo el equipo con el lote? | Lo usó | *Lo rechazó | Lo vendió
+? ¿Qué reporte pidió Ana? | Un reporte de ventas | *Un reporte 8D | Una factura
+? ¿Cuál fue la causa raíz? | Un error en los planos | *Una máquina descalibrada | Un problema en el envío
+? ¿Cuándo reemplazaron las piezas? | Ese mismo día | *La semana siguiente | Un mes después
+
+# w4
+@ Diriges la junta semanal del proyecto por videollamada. Ya se conectaron casi todos.
+A: Hi! Good morning, everyone. | ¡Hola! Buenos días a todos.
+B: Good morning! Can everyone hear me? | ¡Buenos días! ¿Me escuchan bien?
+A: Yes, we can hear you. But Pedro isn't here yet. | Sí, te escuchamos. Pero Pedro todavía no está.
+B: 14
+A: Oh, here's Pedro. He's talking, but we can't hear him. | Ah, ya llegó Pedro. Está hablando, pero no lo oímos.
+B: Pedro, you're on mute. | Pedro, estás en silencio.
+@ Empiezan con los puntos de la agenda.
+A: Okay, we're all here. What's first? | Bueno, ya estamos todos. ¿Qué sigue?
+B: Let's start with the first item. Let's go over the project status. | Empecemos con el primer punto. Revisemos el estatus del proyecto.
+A: Engineering is done, but the supplier is late with the parts. | La parte de ingeniería está terminada, pero el proveedor viene tarde con las piezas.
+B: Just to confirm, you're saying that the parts are late? | Solo para confirmar, ¿dice que las piezas vienen tarde?
+A: Yes, two weeks. | Sí, dos semanas.
+B: So we're behind schedule. Who's going to take care of that? | Entonces vamos atrasados. ¿Quién se encarga de eso?
+A: I'll call the supplier today. | Yo le llamo hoy al proveedor.
+B: Thanks. Next point. Pedro, can you share your screen? | Gracias. Siguiente punto. Pedro, ¿puede compartir su pantalla?
+A: Sure... Can you see it? | Claro... ¿La ven?
+B: 13
+@ Ya se acabó el tiempo y cierras la junta.
+A: I think that's all. | Creo que es todo.
+B: 16
+A: No, everything is clear. | No, todo está claro.
+B: Okay. I'll send you a summary. Thanks for joining. | Muy bien. Les mando un resumen. Gracias por conectarse.
+== Meeting minutes
+en: Weekly project meeting – Monday, 9:00 a.m.
+es: Junta semanal del proyecto – lunes, 9:00 a. m.
+en: Attendees: Laura (project manager), Pedro (engineering), Ana (purchasing), Luis (quality).
+es: Asistentes: Laura (gerente del proyecto), Pedro (ingeniería), Ana (compras), Luis (calidad).
+en: 1. Project status: Engineering is done. The supplier is two weeks late with the parts, so we're behind schedule.
+es: 1. Estatus del proyecto: la ingeniería está terminada. El proveedor viene dos semanas tarde con las piezas, así que vamos atrasados.
+en: 2. Quality: The samples passed the inspection. We're on track with the tests.
+es: 2. Calidad: las muestras pasaron la inspección. Vamos a tiempo con las pruebas.
+en: 3. Budget: We're within budget.
+es: 3. Presupuesto: vamos dentro del presupuesto.
+en: Action items: Ana will call the supplier today (owner: Ana). Luis will send the test report by Wednesday (owner: Luis).
+es: Acuerdos: Ana va a llamar hoy al proveedor (responsable: Ana). Luis va a mandar el reporte de pruebas a más tardar el miércoles (responsable: Luis).
+en: Next steps: We'll schedule a follow-up meeting on Thursday.
+es: Siguientes pasos: vamos a agendar una junta de seguimiento el jueves.
+? ¿Por qué van atrasados? | Por el presupuesto | *Porque el proveedor viene tarde con las piezas | Porque Pedro no se conectó
+? ¿Cómo van con las pruebas de calidad? | Atrasados | *A tiempo | No han empezado
+? ¿Quién va a llamar al proveedor? | Pedro | *Ana | Luis
+? ¿Cuándo es la junta de seguimiento? | El lunes | El miércoles | *El jueves
+
+# w5
+@ Es el arranque de un proyecto nuevo. Antes de la junta con el proveedor, tu jefe te pregunta cómo va todo.
+A: So, are we ready for the kick-off? | ¿Y? ¿Estamos listos para el arranque?
+B: Yes, but the scope changed. | Sí, pero el alcance cambió.
+A: Really? What about the budget? | ¿En serio? ¿Y el presupuesto?
+B: We're still within budget, but we need the client's approval. | Todavía estamos dentro del presupuesto, pero necesitamos la aprobación del cliente.
+A: And the deadline? | ¿Y la fecha límite?
+B: December 1st. It's a big risk. | El 1 de diciembre. Es un riesgo grande.
+@ En la junta negocias con Rob, el vendedor del proveedor.
+A: Here's our offer: forty thousand dollars, and delivery in eight weeks. | Esta es nuestra oferta: cuarenta mil dólares y entrega en ocho semanas.
+B: 7
+A: Hmm... How many units do you need? | Mmm... ¿Cuántas unidades necesitan?
+B: A thousand units. Is there a discount for volume? | Mil unidades. ¿Hay descuento por volumen?
+A: Okay, we can do thirty-eight thousand. | Bueno, podemos dejarlo en treinta y ocho mil.
+B: And can you deliver earlier? We need it in six weeks. | ¿Y puede entregar antes? Lo necesitamos en seis semanas.
+A: That's difficult... Six weeks and thirty-eight thousand. That's our best offer. | Eso está difícil... Seis semanas y treinta y ocho mil. Es nuestra mejor oferta.
+B: 24
+@ Al día siguiente le llamas a Rob.
+A: Hi! So, can we reach an agreement? | ¡Hola! ¿Y? ¿Podemos llegar a un acuerdo?
+B: Yes. That works for us. | Sí. Eso nos funciona.
+A: Great! I'll send you the contract today. | ¡Excelente! Hoy le mando el contrato.
+B: 25
+== Project update
+en: Hi team,
+es: Hola, equipo:
+en: Here's a quick update on the new project. The kick-off meeting was on Monday. The scope changed a little: the client wants two more machines. We're still within budget, but we need the client's approval for the changes.
+es: Les comparto cómo va el proyecto nuevo. La junta de arranque fue el lunes. El alcance cambió un poco: el cliente quiere dos máquinas más. Todavía estamos dentro del presupuesto, pero necesitamos la aprobación del cliente para los cambios.
+en: On Tuesday we negotiated with our supplier. Their first offer was forty thousand dollars, with delivery in eight weeks. After some negotiation, they gave us a discount for volume, and they can deliver in six weeks. It's a deal!
+es: El martes negociamos con nuestro proveedor. Su primera oferta fue de cuarenta mil dólares, con entrega en ocho semanas. Después de negociar, nos dieron descuento por volumen y pueden entregar en seis semanas. ¡Trato hecho!
+en: The next milestone is the design approval on November 10th. The deadline for the whole project is December 1st. There's still a risk with the schedule, so let's deliver on time!
+es: El siguiente hito es la aprobación del diseño, el 10 de noviembre. La fecha límite de todo el proyecto es el 1 de diciembre. Todavía hay un riesgo con el cronograma, ¡así que hay que entregar a tiempo!
+en: Best regards,
+es: Saludos cordiales,
+en: Laura
+es: Laura
+? ¿Qué cambió en el proyecto? | El presupuesto | *El alcance: el cliente quiere dos máquinas más | La fecha límite
+? ¿Qué necesitan para hacer los cambios? | Más dinero | *La aprobación del cliente | Un proveedor nuevo
+? ¿En cuántas semanas va a entregar el proveedor? | Ocho | *Seis | Cuatro
+? ¿Cuál es la fecha límite del proyecto? | El 10 de noviembre | *El 1 de diciembre | El lunes

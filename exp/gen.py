@@ -17,7 +17,14 @@ P = json.loads(subprocess.check_output(["node", os.path.join(HERE, "phr.js"), RE
 ORDER = list(P.keys())
 only = [a for a in sys.argv[1:] if not a.startswith("--")]
 CHECK = "--check" in sys.argv  # solo revisar, sin escribir
-GLUE = set("yes no please and or the a an my oh ha hmm hi hello okay ok wow too gmail com everything everybody".split())
+GLUE = set("yes no please and or the a an my oh ha hmm hi hello okay ok wow too gmail com everything everybody mr mrs ms st nd rd th".split())
+def stems(w):
+    out = []
+    if w.endswith("ing") and len(w) > 5: out += [w[:-3], w[:-3] + "e"] + ([w[:-4]] if w[-4] == w[-5] else [])
+    if w.endswith("ed") and len(w) > 4: out += [w[:-2], w[:-1]] + ([w[:-3]] if w[-3] == w[-4] else [])
+    if w.endswith("ies") or w.endswith("ied"): out.append(w[:-3] + "y")
+    if w.endswith("s") and not w.endswith("ss"): out.append(w[:-1])
+    return out
 def toks(s):
     s = re.sub(r"\{(?:name|last|nameS|lastS|email)\|[^}]*\}", " ", s).lower().replace("’", "'")
     return [w.strip("'") for w in re.findall(r"[a-z']+", re.sub(r"\([^)]*\)", " ", s)) if w.strip("'")]
@@ -76,6 +83,7 @@ for uid, t in T.items():
         if a[0] == b[0] == "B": warns.append(f"{uid}: dos líneas tuyas seguidas: «{a[1]}» / «{b[1]}»")
     # también los nombres de las escenas («tu prima Laura») y lo que te acaban de decir (se ve arriba de tu turno)
     known = GLUE | set(w for u in ORDER[:i0 + 1] for x in P[u]["en"] for w in toks(x)) | set(w for l in d if l[0] == "@" for w in toks(l[1]))
+    known |= set(b for w in list(known) for b in stems(w))  # «copying» ya enseña «copy»
     # una forma de una palabra que ya conoces también cuenta: plural, 's, -ed, -ing (arrived, stopped, studied, cooking)
     def knows(w, extra):
         extra = extra | set(x[:-1] for x in extra if x.endswith("s"))  # te dijeron «flights»: «flight» también
