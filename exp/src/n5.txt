@@ -357,12 +357,12 @@ B: Don't worry. Enjoy your trip! | No te preocupes. ¡Disfruten el viaje!
 == A speech to remember
 en: Last month, the director of a children's hospital in Puebla gave a speech at the opening of the new building. This is part of what she said:
 es: El mes pasado, la directora de un hospital infantil en Puebla dio un discurso en la inauguración del edificio nuevo. Esta es una parte de lo que dijo:
-en: "Ten years ago, our hospital had only twenty beds. Little did we know how much it would grow. Not only did we reach our goal of one hundred beds, but we also opened a center for children with cancer.
-es: «Hace diez años, nuestro hospital tenía solo veinte camas. Poco sabíamos cuánto iba a crecer. No solo alcanzamos nuestra meta de cien camas, sino que también abrimos un centro para niños con cáncer.
-en: Never have I worked with such a generous community. Hundreds of families, companies and volunteers donated their time and money. Only with their help did we achieve this dream.
-es: Nunca he trabajado con una comunidad tan generosa. Cientos de familias, empresas y voluntarios donaron su tiempo y su dinero. Solo con su ayuda logramos este sueño.
-en: Rarely do we have the chance to say thank you to everyone at once. So today, on behalf of every child who will be treated here, I want to say: thank you."
-es: Rara vez tenemos la oportunidad de darles las gracias a todos al mismo tiempo. Así que hoy, en nombre de cada niño que será atendido aquí, quiero decir: gracias».
+en: "Ten years ago, our hospital had only twenty beds. Little did we know how much it would grow. Not only did we reach our goal of one hundred beds, but we also opened a center for children with cancer."
+es: «Hace diez años, nuestro hospital tenía solo veinte camas. Poco sabíamos cuánto iba a crecer. No solo alcanzamos nuestra meta de cien camas, sino que también abrimos un centro para niños con cáncer».
+en: "Never have I worked with such a generous community. Hundreds of families, companies and volunteers donated their time and money. Only with their help did we achieve this dream."
+es: «Nunca he trabajado con una comunidad tan generosa. Cientos de familias, empresas y voluntarios donaron su tiempo y su dinero. Solo con su ayuda logramos este sueño».
+en: "Rarely do we have the chance to say thank you to everyone at once. So today, on behalf of every child who will be treated here, I want to say: thank you."
+es: «Rara vez tenemos la oportunidad de darles las gracias a todos al mismo tiempo. Así que hoy, en nombre de cada niño que será atendido aquí, quiero decir: gracias».
 en: After the speech, the audience stood up and applauded for five minutes.
 es: Después del discurso, el público se puso de pie y aplaudió durante cinco minutos.
 ? ¿Dónde está el hospital? | En Tlaxcala | *En Puebla | En Veracruz
