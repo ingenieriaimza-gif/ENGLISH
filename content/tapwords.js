@@ -1,0 +1,72 @@
+/* Significados para tocar: palabras que salen en las conversaciones y lecturas pero que no se enseñan como frase
+   (por eso no están en words.js). Solo sirven para que, al tocarlas, digan qué significan; no cuentan como
+   palabras del tema. Pedido de la persona (2 de noviembre de 2026): «mejora todo lo que más puedas».
+   Las formas de palabras que sí están (tickets, arrived, working, brought) las resuelve la app sola con su forma
+   base; aquí van también las que esa regla diría mal (training no es «tren»). */
+window.TAPW = {
+  // nombres de cosas, lugares y personas
+  alphabet: "abecedario", balloon: "globo", balloons: "globos", carousel: "carrusel", zoo: "zoológico",
+  shelter: "refugio, albergue", bride: "novia (en la boda)", "bride's": "de la novia", groom: "novio (en la boda)",
+  café: "café (el lugar)", cafés: "cafés (los lugares)", tree: "árbol", blanket: "cobija", blankets: "cobijas",
+  dentist: "dentista", downstairs: "abajo (en el piso de abajo)", burger: "hamburguesa", barbecue: "carne asada, parrillada",
+  tent: "casa de campaña", pasta: "pasta", headphones: "audífonos", roommate: "compañero de cuarto", clinic: "clínica",
+  poster: "póster, cartel", tourist: "turista", tourists: "turistas", allergies: "alergias", picnic: "día de campo",
+  salad: "ensalada", chef: "chef, cocinero", geography: "geografía", coworker: "compañero de trabajo", coworkers: "compañeros de trabajo",
+  grandchild: "nieto", garden: "jardín", altar: "altar", dealer: "vendedor, distribuidor (de carros)", salesman: "vendedor",
+  saleswoman: "vendedora", pyramids: "pirámides", technician: "técnico", minibar: "minibar", cabin: "cabaña",
+  attendant: "encargado, empleado (que atiende)", outlet: "tienda de outlet; contacto (de luz)", jewelry: "joyería, joyas",
+  silk: "seda", craft: "artesanía", stall: "puesto (del mercado)", trainer: "entrenador", treadmill: "caminadora",
+  scientist: "científico", decorations: "adornos", hammer: "martillo", catalog: "catálogo", quantities: "cantidades",
+  valves: "válvulas", warehouse: "almacén, bodega", calibration: "calibración", negotiation: "negociación",
+  reunion: "reunión (de exalumnos o de familia)", classmates: "compañeros de clase", hero: "héroe", sunburn: "quemadura de sol",
+  caterers: "servicio de banquetes", planner: "organizador", habits: "hábitos", cigarettes: "cigarros", administrator: "administrador",
+  babysitter: "niñera", airline: "aerolínea", whale: "ballena", shark: "tiburón", sharks: "tiburones", nests: "nidos",
+  organizer: "organizador", organizers: "organizadores", volunteer: "voluntario", hacienda: "hacienda", ghost: "fantasma",
+  chapel: "capilla", résumé: "currículum", recruiter: "reclutador", degree: "título (de la universidad); grado",
+  auditor: "auditor", modem: "módem", ballot: "boleta (para votar)", ballots: "boletas (para votar)", candidate: "candidato",
+  grandmother: "abuela", terrace: "terraza", metro: "metro", employee: "empleado", parade: "desfile", brakes: "frenos",
+  guy: "muchacho, tipo", productivity: "productividad", conditioner: "aire acondicionado (air conditioner)", grammar: "gramática",
+  vocabulary: "vocabulario", "stranger's": "de un desconocido", expert: "experto", shuttle: "transbordador (space shuttle)",
+  crumbs: "migajas", eagle: "águila", cactus: "nopal, cactus", classroom: "salón de clases", migrants: "migrantes",
+  dish: "platillo; plato", blogger: "bloguero", gigabytes: "gigas", smartphone: "celular inteligente", groceries: "el mandado, despensa",
+  panic: "pánico", tortilla: "tortilla", beans: "frijoles", lasagna: "lasaña", aloe: "sábila (aloe vera)", vera: "sábila (aloe vera)",
+  idiom: "expresión idiomática", idioms: "expresiones idiomáticas", dictionaries: "diccionarios", mural: "mural",
+  loneliness: "soledad", envelopes: "sobres", deposit: "depósito", analysts: "analistas", admissions: "admisiones",
+  diploma: "título, diploma", interruption: "interrupción, suspensión", repair: "reparación; reparar", pipe: "tubo, tubería",
+  source: "fuente", teenagers: "adolescentes", flavors: "sabores", dough: "masa", flour: "harina", chile: "chile",
+  mentor: "mentor, guía", mathematics: "matemáticas", buses: "camiones", salsa: "salsa", cancellation: "cancelación",
+  invitation: "invitación", goalkeeper: "portero", goalkeepers: "porteros", state: "estado", runners: "corredores",
+  oven: "horno", bakery: "panadería", seafood: "mariscos", emotion: "emoción", verbs: "verbos", internship: "prácticas profesionales",
+  consultant: "consultor", jargon: "jerga", microphone: "micrófono", interviewer: "entrevistador", mole: "mole",
+  guacamole: "guacamole", taco: "taco", tamales: "tamales", vanilla: "vainilla", karaoke: "karaoke", ha: "ja (risa)", fewer: "menos (con cosas que se cuentan)", hop: "hip hop (música)", ahorita: "«ahorita» (en español)",
+  // verbos
+  translates: "traduce", reserves: "reserva", marry: "casarse con", shout: "gritar", taste: "probar; sabor", joined: "se unió, entró a",
+  scare: "asustar; susto", sell: "vender", created: "creó", copy: "copia; copiar", feed: "dar de comer", seemed: "parecía",
+  dialed: "marcó (el número)", climb: "subir, escalar", reserve: "reserva (natural)", polite: "amable, educado", attach: "adjuntar",
+  restart: "reiniciar", lend: "prestar", create: "crear", affect: "afectar", spend: "gastar; pasar (tiempo)", violate: "violar (una ley, un derecho)",
+  ban: "prohibir", destroys: "destruye", receive: "recibir", publish: "publicar", organize: "organizar", impress: "impresionar",
+  announce: "anunciar", inspire: "inspirar", apply: "solicitar; aplicar", belonged: "pertenecía, era de", gain: "ganar, obtener",
+  conquered: "conquistaron", fly: "volar", hire: "contratar", criticizes: "critica", invest: "invertir", soften: "suavizar",
+  banning: "prohibiendo", distract: "distraer", applauded: "aplaudió", obtain: "obtener", compare: "comparar", compares: "compara",
+  prove: "comprobar, demostrar", analyze: "analizar", pollinate: "polinizar", breathe: "respirar", yelled: "gritó",
+  installing: "instalando, instalación", allow: "permitir", destroy: "destruir",
+  // cómo es algo
+  waterproof: "contra agua", snorkeling: "snorkel (nadar con visor)", boom: "¡pum! (un ruido fuerte)", newer: "más nuevo",
+  newest: "el más nuevo", handmade: "hecho a mano", pale: "pálido", tasting: "probando, degustación", longest: "el más largo",
+  least: "lo menos (at least: por lo menos)", patiently: "con paciencia", polling: "de votación (polling station: casilla)",
+  fortieth: "cuadragésimo (40.º)", thirtieth: "trigésimo (30.º)", calmer: "más tranquilo", unhappy: "descontento, infeliz",
+  furious: "furioso", wisest: "el más sabio", generous: "generoso", elderly: "mayores, de la tercera edad", elegant: "elegante",
+  highest: "el más alto", strangely: "curiosamente, de forma rara", sarcastic: "sarcástico", funniest: "el más chistoso",
+  stronger: "más fuerte", uncomfortable: "incómodo", hottest: "el más caluroso", confusing: "confuso", convincing: "convincente",
+  precise: "preciso", consulting: "consultoría", blank: "en blanco", punctual: "puntual",
+  // las que la regla de la forma base diría mal
+  tiring: "cansado, agotador", testing: "probando", drying: "secado", training: "capacitación, entrenamiento",
+  trained: "entrenado, capacitado", settings: "configuración", advanced: "avanzado", cans: "latas", ours: "el nuestro, la nuestra",
+  owns: "es dueño de, tiene", judges: "jueces", fairs: "ferias", sounded: "sonó, sonaba", planted: "plantó", ended: "terminó",
+  named: "llamado, de nombre", figured: "averiguó (figure out)", "court's": "del tribunal", surprising: "sorprendente",
+  meaning: "significado", understanding: "comprensión; entendiendo", hated: "odiaba", drivers: "choferes, conductores",
+  maintains: "mantiene", exercised: "hizo ejercicio",
+  // con 's que aquí es is (Time's up!, Someone's at the door) o de alguien que no es una cosa
+  "time's": "time is (Time's up! = ¡Se acabó el tiempo!)", "someone's": "someone is: alguien está",
+  "everybody's": "everybody is: todos están", "anybody's": "de nadie, de cualquiera"
+};
