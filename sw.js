@@ -2,7 +2,7 @@ const CACHE = "ingles-prov-v46";
 const ASSETS = [
   "./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png",
   "content/k.js", "content/n0.js", "content/n1.js", "content/n2.js", "content/w.js", "content/n3.js", "content/n4.js", "content/n5.js", "content/n6.js",
-  "content/x-k.js", "content/x-n0.js", "content/x-n1.js", "content/x-n2.js", "content/x-w.js", "content/x-n3.js", "content/x-n4.js", "content/x-n5.js", "content/x-n6.js", "content/videos.js", "content/emoji.js", "content/words.js", "content/tpr.js", "content/lessons.js", "content/tenses.js", "content/irregular.js", "content/tapwords.js"
+  "content/x-k.js", "content/x-n0.js", "content/x-n1.js", "content/x-n2.js", "content/x-w.js", "content/x-n3.js", "content/x-n4.js", "content/x-n5.js", "content/x-n6.js", "content/videos.js", "content/emoji.js", "content/words.js", "content/tpr.js", "content/lessons.js", "content/tenses.js", "content/irregular.js", "content/tapwords.js", "content/families.js"
 ];
 
 self.addEventListener("install", e => {

@@ -435,6 +435,9 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .wrow .wt i{font-style:normal;font-size:.85em}
 .wrow .wg{color:var(--accent);font-weight:600;font-size:17px;line-height:1.3}
 .wrow.playing{border-color:var(--accent)}
+.wrow .wfam{grid-column:2;margin-top:4px;font-size:14px;line-height:1.45;color:var(--muted)}
+.wfam .w.t{white-space:normal;color:var(--ink);text-decoration:underline dotted;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:.2em}
+.wfam .fg{white-space:normal}
 .wword{font-size:clamp(40px,11vw,64px);font-weight:700;line-height:1.1;text-align:center;overflow-wrap:anywhere}
 .wword.long{font-size:clamp(30px,8vw,48px)}
 .chip.wm{display:inline-flex;flex-direction:column;align-items:center;gap:1px;line-height:1.2;padding:6px 12px 7px}
@@ -449,6 +452,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .wtip[hidden]{display:none}
 .wtip b{margin-right:6px}
 .wtip .wbase{opacity:.75;font-size:13px}
+.wtip .wfam{margin-top:4px;padding-top:4px;border-top:1px solid rgba(127,127,127,.35);font-size:13px;opacity:.85}
 .uwords{border-top:1px solid var(--line);padding:12px 16px}
 .uwords summary{cursor:pointer;font-weight:600}
 .wgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -619,6 +623,12 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .band .tzf b{color:var(--ink);font-weight:600}
 /* en «Mi camino»: todos los tiempos, por grupos; cada uno se abre para ver su tarjeta */
 .tzgrp{display:flex;flex-direction:column}
+.irhead,.irrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 10px;align-items:baseline}
+.irhead{margin-top:14px;padding:0 10px 6px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.irrow{width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:9px 10px;font:inherit;font-size:16px;color:inherit;cursor:pointer;overflow-wrap:anywhere}
+.irrow b{font-weight:600}
+.irrow small{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.irrow .ck{color:var(--ok);margin-left:4px}
 .tzgrp>.label{margin:12px 0 2px}
 details.tzi{border-top:1px solid var(--line)}
 details.tzi>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 0;min-height:48px}
@@ -670,6 +680,11 @@ details.tzi .ustat{white-space:normal;text-align:right;max-width:45%}
     <details class="sec" id="tzMap"><summary class="sh"><h3>Los tiempos del inglés</h3><span class="ustat" id="tzN"></span></summary><div class="sb">
       <p class="muted" style="margin:0;font-size:14px">Cómo se arma cada tiempo (afirmativa, negativa y pregunta), para qué se usa y ejemplos para oír. Cada uno lo practicas en tu clase cuando llegas a su tema; después sale revuelto con los demás en «¿Qué tiempo va?», para que siempre hables en el tiempo correcto.</p>
       <div id="tzMapList"></div>
+    </div></details>
+    <details class="sec" id="irMap"><summary class="sh"><h3>Verbos irregulares</h3><span class="ustat" id="irN"></span></summary><div class="sb">
+      <p class="muted" style="margin:0;font-size:14px">Los más usados, con sus 3 formas: presente, pasado y participio (go → went → gone). Toca uno para oír sus 3 formas. Los practicas en tus clases, dentro de frases, en «Estructura» y en «¿Qué tiempo va?».</p>
+      <div class="irhead" aria-hidden="true"><span>Presente</span><span>Pasado</span><span>Participio</span></div>
+      <div id="irMapList"></div>
     </div></details>
     <div id="levels" style="display:flex;flex-direction:column;gap:16px"></div>
     <div class="card" id="progressCard">
@@ -915,7 +930,7 @@ details.tzi .ustat{white-space:normal;text-align:right;max-width:45%}
 <script src="content/lessons.js"></script>
 <script src="content/tenses.js"></script>
 <script src="content/irregular.js"></script>
-<script src="content/tapwords.js"></script>
+<script src="content/tapwords.js"></script><script src="content/families.js"></script>
 <script>
 /* ================= datos del curso ================= */
 const COURSE = window.COURSE || [];
@@ -1009,14 +1024,23 @@ const TAPW = window.TAPW || {}, IRG = {}, IRF = {}; // IRF: forma irregular → 
   ps.forEach(f => { if (f !== b && !IRG[f]) IRF[f] = [b, pps.includes(f) ? "pasado y participio" : "pasado"]; });
   pps.forEach(f => { if (f !== b && !IRG[f] && !IRF[f]) IRF[f] = [b, "participio"]; });
 });
+/* Familias de palabras (content/families.js): al aprender o tocar una palabra se ven las de su familia (decide → decision,
+   decisive), cada una con su significado. Pedido de la persona (2 de noviembre de 2026): «mejora todo lo que más puedas» */
+const FAMW = {}; // palabra → {g: qué significa, f: su familia}
+const FAMS = (window.FAMILIES || []).map(row => row.split(" · ").map(x => { const j = x.indexOf(":"); return [x.slice(0, j).trim(), x.slice(j + 1).trim()]; }));
+FAMS.forEach((f, i) => f.forEach(([w, g]) => { if (!FAMW[w]) FAMW[w] = { g, f: i }; }));
+// La palabra de su familia, aunque venga con otra forma (decided → decide, decisions → decision, taught → teach)
+function famBase(w) { if (FAMW[w]) return w; if (IRF[w] && FAMW[IRF[w][0]]) return IRF[w][0]; const c = wCands(w).find(([b]) => FAMW[b]); return c ? c[0] : ""; }
+// Las otras de su familia (si viene con otra forma, también la base: decided → decide, decision, decisive)
+const famOf = w => { const b = famBase(w); return b ? FAMS[FAMW[b].f].filter(([v]) => v !== w) : []; };
+const famTxt = (w, max) => famOf(w).slice(0, max).map(([v, g]) => `${v} (${g})`).join(" · ");
+// En la lista y al contestar: cada una se puede tocar para oírla y ver qué significa
+const famHTML = w => famOf(w).map(([v, g]) => `<span class="w t">${esc(v)}</span> <span class="fg">(${esc(g)})</span>`).join(" · ");
 const POSS_NO = new Set("someone somebody anyone anybody everyone everybody nobody everything something nothing anything time here there what who where how that it he she let this one".split(" "));
-const wGl = b => WORDS[b] || TAPW[b] || IRG[b] || "";
+const wGl = b => WORDS[b] || TAPW[b] || (FAMW[b] || {}).g || IRG[b] || "";
 function glVerb(g) { const f = g.split(/[,/(;]/)[0].trim().split(" ")[0]; return /^[a-záéíóúñ]*(ar|er|ir|ír)(se|le|lo|la|les|los|las)?$/.test(f) && !NOVERB.has(f); }
-// {w, g, n}: g = qué significa; n = de qué palabra viene (plural de ticket, pasado de bring), si no está tal cual
-function wLook(w) {
-  if (WORDS[w]) return { w, g: WORDS[w] };
-  if (TAPW[w]) return { w, g: TAPW[w] };
-  if (IRF[w] && wGl(IRF[w][0])) return { w, g: bandG(wGl(IRF[w][0])), n: `${IRF[w][1]} de ${IRF[w][0]}` };
+// Sus formas base posibles: tickets → ticket, arrived → arrive (o arriv), working → work, teacher's → teacher
+function wCands(w) {
   const n = w.length, c = [];
   if (/'s$/.test(w)) { if (!POSS_NO.has(w.slice(0, -2))) c.push([w.slice(0, -2), "s"]); }
   else if (/ies$/.test(w) && n > 4) c.push([w.slice(0, -3) + "y", "-s"]);
@@ -1029,7 +1053,16 @@ function wLook(w) {
     if (w[n - 4] === w[n - 5]) c.push([w.slice(0, -4), "ing"]);
     if (/ying$/.test(w)) c.push([w.slice(0, -4) + "ie", "ing"]);
   }
-  for (const [b, k] of c) {
+  return c;
+}
+// {w, g, n}: g = qué significa; n = de qué palabra viene (plural de ticket, pasado de bring), si no está tal cual
+function wLook(w) {
+  // si es un verbo irregular (brought, given), también de cuál viene: traje, trajo / traído (pasado y participio de bring = traer)
+  if (WORDS[w]) return IRF[w] && w !== "bit" && wGl(IRF[w][0]) ? { w, g: WORDS[w], n: `${IRF[w][1]} de ${IRF[w][0]} = ${bandG(wGl(IRF[w][0])).split(" / ")[0]}` } : { w, g: WORDS[w] };
+  if (TAPW[w]) return { w, g: TAPW[w] };
+  if (FAMW[w]) return { w, g: FAMW[w].g };
+  if (IRF[w] && wGl(IRF[w][0])) return { w, g: bandG(wGl(IRF[w][0])), n: `${IRF[w][1]} de ${IRF[w][0]}` };
+  for (const [b, k] of wCands(w)) {
     const g0 = wGl(b); if (!g0) continue;
     const g = bandG(g0);
     if (k === "s") return { w, g: "de " + g.split(" / ")[0], n: `${b} + ’s` };
@@ -2597,6 +2630,8 @@ function renderCurso() {
   $("#tzMapList").innerHTML = tzMapHTML();
   op.forEach(id => { const d = document.querySelector(`#tzMapList details[data-tz="${id}"]`); if (d) d.open = true; });
   $("#tzN").textContent = `${tzLearned().length} de ${TZ.length} vistos`;
+  // Los verbos irregulares (con ✓ los que ya viste en una frase)
+  const irS = irSeen(); $("#irMapList").innerHTML = irMapHTML(irS); $("#irN").textContent = `${irS.size} de ${IRREG.length} vistos`;
   // Tu avance
   const learned = Object.keys(S.c).filter(id => CARD[id]).length, mast = CARDS.filter(c => dominated(c.id)).length, doneU = UNITS.filter(u => S.done[u.id]).length;
   $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>temas aprobados</span></div>`;
@@ -3413,6 +3448,16 @@ const tzBlock = (ts, o) => ts && ts.length ? `<div class="tzwrap"><div class="la
 const tzSeen = t => t.us.some(u => S.gs[u.id] || S.done[u.id]);
 const tzLearned = () => TZ.filter(tzSeen);
 // «Mi camino» → «Los tiempos del inglés»: todos, por grupos; cada uno se abre para ver su tarjeta
+/* ---------- Verbos irregulares (Mi camino): los más usados con sus 3 formas (content/irregular.js) ----------
+   Pedido de la persona (2 de noviembre de 2026): «mejora todo lo que más puedas». Se practican dentro de frases en sus temas
+   (Más verbos irregulares, Participios irregulares) y en «Estructura» y «¿Qué tiempo va?» del pasado y el presente perfecto. */
+const IRREG = window.IRREG || [];
+// Los que ya viste en una frase: con su pasado o su participio (si no cambian, como put o cut, con la forma que sea)
+function irSeen() {
+  const toks = new Set(); Object.keys(S.c).forEach(id => { const c = CARD[id]; if (c) tokW(c.en).forEach(w => toks.add(w)); });
+  return new Set(IRREG.filter(([b, p, pp]) => { const fs = (p + " / " + pp).split(" / ").filter(f => f !== b); return (fs.length ? fs : [b]).some(f => toks.has(f)); }).map(r => r[0]));
+}
+const irMapHTML = seenV => IRREG.map(([b, p, pp, g]) => `<button class="irrow${seenV.has(b) ? " ok" : ""}" type="button" data-say="${esc(`${b}. ${p.replace(/ \/ /g, ", ")}. ${pp.replace(/ \/ /g, ", ")}.`)}"><b>${esc(b)}</b><b>${esc(p)}</b><b>${esc(pp)}</b><small>${esc(g)}${seenV.has(b) ? ' <span class="ck" aria-label="ya lo viste">✓ ya lo viste</span>' : ""}</small></button>`).join("");
 function tzMapHTML() {
   const nu = nextUnit();
   return TZLEG + TZ_GROUPS.map(([g, ids]) => {
@@ -3744,6 +3789,7 @@ function wAnswered(s, ok) {
 function wFeedback(s, ok, idk) {
   const w = s.w, ex = !ok && wExample(w), more = !ok && (s.tries || 0) < 2;
   const body = `<div class="ans">${esc(wDisp(w))}</div><div class="sub">Significa: <strong class="smean">${esc(WORDS[w])}</strong></div>`
+    + (famOf(w).length ? `<div class="sub wfam">De la misma familia: ${famHTML(w)}</div>` : "")
     + (ex ? `<div class="sub">La viste en: <strong class="smean">${esc(ex.en)}</strong> = ${escN(ex.es)}</div>` : "")
     + (more ? `<div class="sub">Te la vuelvo a preguntar en un momento.</div>` : "");
   const again = needAgain(ok, "wq");
@@ -3773,12 +3819,14 @@ function wordTip(el) {
   if (!ws.length && !it) return;
   let t = document.getElementById("wtip");
   if (!t) { t = document.createElement("div"); t.id = "wtip"; t.className = "wtip"; t.setAttribute("role", "status"); document.body.appendChild(t); }
-  t.innerHTML = it ? `<div><b>${esc(it.t)}</b> ${esc(it.g)}</div>` : ws.map(x => `<div><b>${esc(wDisp(x.w))}</b> ${esc(x.g)}${x.n ? ` <span class="wbase">(${esc(x.n)})</span>` : ""}</div>`).join("");
+  const fam = it ? "" : ws.map(x => famTxt(x.w, 3)).find(Boolean) || ""; // su familia (las 3 primeras)
+  t.innerHTML = (it ? `<div><b>${esc(it.t)}</b> ${esc(it.g)}</div>` : ws.map(x => `<div><b>${esc(wDisp(x.w))}</b> ${esc(x.g)}${x.n ? ` <span class="wbase">(${esc(x.n)})</span>` : ""}</div>`).join(""))
+    + (fam ? `<div class="wfam">Familia: ${esc(fam)}</div>` : "");
   t.hidden = false;
   const r = el.getBoundingClientRect(), tw = t.offsetWidth, th = t.offsetHeight;
   t.style.left = Math.max(8, Math.min(innerWidth - tw - 8, r.left + r.width / 2 - tw / 2)) + "px";
   t.style.top = (r.top - th - 10 >= 8 ? r.top - th - 10 : r.bottom + 10) + "px";
-  clearTimeout(tipT); tipT = setTimeout(hideTip, 5000);
+  clearTimeout(tipT); tipT = setTimeout(hideTip, fam ? 8000 : 5000);
   say(it ? it.t : ws.map(x => x.w).join(" "));
 }
 window.addEventListener("scroll", hideTip, { passive: true }); window.addEventListener("resize", hideTip);
@@ -3882,7 +3930,7 @@ function step() {
   if (s.k === "wlist") {
     st.innerHTML = `<span class="tag">Primero las palabras${s.parts > 1 ? ` · ${s.part} de ${s.parts}` : ""}</span><h2 class="ttl">${s.ws.length === 1 ? "Una palabra nueva" : s.ws.length + " palabras nuevas"}</h2>
       ${Object.keys(S.kw).length < 12 ? `<p class="lead">Escucha cada una y fíjate qué significa. Luego te las pregunto.</p>` : ""}
-      <div class="wlist">${s.ws.map(w => `<button class="wrow" type="button" data-say="${esc(w)}"><span class="wi">${SPK}</span><span class="wt"><b>${esc(wDisp(w))}</b>${wEmo(w) ? `<i aria-hidden="true">${wEmo(w)}</i>` : ""}</span><span class="wg">${esc(WORDS[w])}</span></button>`).join("")}</div>`;
+      <div class="wlist">${s.ws.map(w => `<button class="wrow" type="button" data-say="${esc(w)}"><span class="wi">${SPK}</span><span class="wt"><b>${esc(wDisp(w))}</b>${wEmo(w) ? `<i aria-hidden="true">${wEmo(w)}</i>` : ""}</span><span class="wg">${esc(WORDS[w])}</span>${famOf(w).length ? `<span class="wfam">Familia: ${famHTML(w)}</span>` : ""}</button>`).join("")}</div>`;
     foot("", goBtn("wGo", "Entendido"));
     sayList(s.ws);
     $("#wGo").onclick = nextStep; holdGo(["wGo"]); // se activa cuando termina de decir las palabras
