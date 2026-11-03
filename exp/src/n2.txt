@@ -1286,3 +1286,116 @@ es: Ahora vende diez pasteles a la semana. «Yo también compro todo en línea»
 ? ¿Por qué Diego editó algunas fotos? | Porque eran feas | *Porque estaban oscuras | Porque eran muy grandes
 ? ¿Cuántos seguidores tuvo en una semana? | Diez | *Cien | Mil
 ? ¿Cuántos pasteles vende ahora? | Cinco a la semana | *Diez a la semana | Cien al mes
+
+# n2u33
+@ Regresaste de unas vacaciones en Cancún. El lunes, en la oficina, tu compañero Beto te pregunta por el viaje.
+A: Welcome back! How was Cancún? | ¡Qué bueno que regresaste! ¿Qué tal Cancún?
+B: Great! We flew to Cancún on Friday. | ¡Muy bien! Volamos a Cancún el viernes.
+A: Did you rent a car there? | ¿Rentaron un carro allá?
+B: Yes. I drove for three hours to the cenotes. | Sí. Manejé tres horas a los cenotes.
+A: Wow! Did you swim? | ¡Guau! ¿Nadaron?
+B: Yes, I swam in the sea every day. | Sí, nadé en el mar todos los días.
+A: And the hotel? | ¿Y el hotel?
+B: We chose the cheapest one, but it was very nice. | Escogimos el más barato, pero estaba muy bonito.
+@ En la comida, Beto te pregunta por la boda de tu prima, que fue en la playa.
+A: And the wedding? What did you wear? | ¿Y la boda? ¿Qué te pusiste?
+B: I wore a white shirt. My sister wore a red dress. | Me puse una camisa blanca. Mi hermana se puso un vestido rojo.
+A: Did you dance? | ¿Bailaron?
+B: Yes! And we sang all night. | ¡Sí! Y cantamos toda la noche.
+A: Ha, ha! Did you bring me something? | ¡Ja, ja! ¿Me trajiste algo?
+B: Of course! I brought you a present. | ¡Claro! Te traje un regalo.
+@ En la noche le llamas a tu papá, que cuidó a tu perro mientras no estabas.
+A: You're back! Did you have a good trip? | ¡Ya llegaste! ¿Les fue bien en el viaje?
+B: Yes, thanks. Did Toby eat well? | Sí, gracias. ¿Toby comió bien?
+A: Yes, I fed the dog every morning. Did you sell your old car before the trip? | Sí, le di de comer al perro todas las mañanas. ¿Vendiste tu carro viejo antes del viaje?
+B: Yes, we sold the old car. | Sí, vendimos el carro viejo.
+A: Good. And your brother? Did he pay you back? | Qué bien. ¿Y tu hermano? ¿Ya te pagó?
+B: No. I lent my brother some money in May. | No. Le presté dinero a mi hermano en mayo.
+== Grandpa's first car
+en: When my grandpa was nineteen, he sold his bike and bought his first car. It was old and green, but he loved it.
+es: Cuando mi abuelo tenía diecinueve años, vendió su bici y se compró su primer carro. Era viejo y verde, pero le encantaba.
+en: Every Sunday, he drove to the beach with his friends. They swam in the sea, ate fish tacos and sang songs until night. One day, a girl sat next to him on the beach. They talked for hours, and before she left, they shook hands. Her name was Rosa.
+es: Cada domingo manejaba a la playa con sus amigos. Nadaban en el mar, comían tacos de pescado y cantaban canciones hasta la noche. Un día, una muchacha se sentó junto a él en la playa. Platicaron durante horas, y antes de que ella se fuera, se dieron la mano. Se llamaba Rosa.
+en: A year later, Grandpa and Rosa got married. At the wedding, she wore a white dress, and he wore his father's suit.
+es: Un año después, el abuelo y Rosa se casaron. En la boda, ella se puso un vestido blanco y él se puso el traje de su papá.
+en: Grandpa kept that green car for forty years. When he finally sold it, he cried. "That car brought me your grandma," he always says.
+es: El abuelo tuvo ese carro verde durante cuarenta años. Cuando por fin lo vendió, lloró. «Ese carro me trajo a tu abuela», dice siempre.
+? ¿Qué vendió el abuelo para comprar su carro? | Su guitarra | *Su bici | Su reloj
+? ¿A dónde manejaba cada domingo? | A la montaña | *A la playa | Al centro
+? ¿Qué hicieron cuando se despidieron en la playa? | Se abrazaron | *Se dieron la mano | Se dieron un beso
+? ¿Qué se puso el abuelo en la boda? | Un traje nuevo | *El traje de su papá | Una camisa blanca
+? ¿Cuántos años tuvo el abuelo el carro verde? | Diez | *Cuarenta | Veinte
+
+# n2u34
+@ Llamas por primera vez a un cliente de Texas, el señor Brown, para confirmar un pedido.
+A: So you need thirteen boxes, right? | Entonces necesita trece cajas, ¿verdad?
+B: No. Thirty, not thirteen. | No. Treinta, no trece.
+A: Oh, thirty. Okay. And when do you need them? | Ah, treinta. Bueno. ¿Y cuándo las necesita?
+B: We needed them last week. | Las necesitábamos la semana pasada.
+A: I'm sorry. I called you on Monday, but you didn't answer. | Lo siento. Le llamé el lunes, pero no contestó.
+B: I know. I worked all day. | Ya sé. Trabajé todo el día.
+@ Tu compañera Lupita, que vivió en Texas, te oyó hablar y te da unos consejos.
+A: Good job! But be careful with the -ed. Say it again: I worked yesterday. | ¡Bien! Pero cuidado con la -ed. Dilo otra vez: I worked yesterday.
+B: I worked yesterday. | Trabajé ayer.
+A: Perfect! Now with "wanted." | ¡Perfecto! Ahora con «wanted».
+B: I wanted a coffee. | Quería un café.
+A: Very good! And the ship and the sheep? | ¡Muy bien! ¿Y el barco y la oveja?
+B: The ship is big. The sheep is white. | El barco es grande. La oveja es blanca.
+A: Ha, ha! Now you sound like a Texan. | ¡Ja, ja! Ahora suenas como texano.
+@ Al día siguiente, el señor Brown te vuelve a llamar.
+A: Hi! I got the thirty boxes. Thank you! | ¡Hola! Me llegaron las treinta cajas. ¡Gracias!
+B: You're welcome. I want to present my project to your team. | De nada. Quiero presentar mi proyecto a su equipo.
+A: Sure! When? | ¡Claro! ¿Cuándo?
+B: It's on Wednesday, at ten. | Es el miércoles, a las diez.
+A: Perfect. I'll be there. | Perfecto. Ahí estaré.
+== The sheep on the ship
+en: When Mario moved to Houston, his English was good, but people didn't always understand him. One day, he told his boss, "I work-ed all weekend." His boss looked confused. A coworker explained: "In English, we say «workt», not «work-ed»."
+es: Cuando Mario se mudó a Houston, su inglés era bueno, pero la gente no siempre le entendía. Un día le dijo a su jefe: «I work-ed all weekend». Su jefe puso cara de confusión. Un compañero le explicó: «En inglés decimos «workt», no «work-ed»».
+en: Another day, Mario wanted to tell a friend that he lived near the port and could see the ships. But he said "sheep" instead of "ship." His friend laughed. "Sheep? In the port?"
+es: Otro día, Mario quería decirle a un amigo que vivía cerca del puerto y que podía ver los barcos. Pero dijo «sheep» en lugar de «ship». Su amigo se rio. «¿Ovejas? ¿En el puerto?».
+en: Mario decided to practice every night. He recorded his voice on his phone and listened carefully. He learned that "wanted" ends with «id», that the k in "know" is silent, and that "thirteen" and "thirty" are very different.
+es: Mario decidió practicar todas las noches. Grababa su voz en el celular y la escuchaba con atención. Aprendió que «wanted» termina con «id», que la k de «know» no suena y que «thirteen» y «thirty» son muy diferentes.
+en: Six months later, nobody asks him to repeat. "Pronunciation is not about having a perfect accent," he says. "It's about being understood."
+es: Seis meses después, nadie le pide que repita. «La pronunciación no se trata de tener un acento perfecto», dice. «Se trata de que te entiendan».
+? ¿A dónde se mudó Mario? | A Dallas | *A Houston | A Chicago
+? ¿Cómo dijo Mario «worked» al principio? | «workt» | *«work-ed» | «wor»
+? ¿Qué dijo en lugar de «ship»? | «shop» | *«sheep» | «chip»
+? ¿Cómo practicó? | Con un maestro | *Grabando su voz en el celular | Viendo películas
+? Según Mario, ¿de qué se trata la pronunciación? | De tener un acento perfecto | *De que te entiendan | De hablar rápido
+
+# n2u35
+@ Tu amiga Kate, de Toronto, va a venir a visitarte. Te llama para organizar el viaje.
+A: Hi! I bought my ticket. I arrive on Friday. | ¡Hola! Ya compré mi boleto. Llego el viernes.
+B: Great! What time? | ¡Qué bien! ¿A qué hora?
+A: At five in the afternoon. | A las cinco de la tarde.
+B: Perfect. I'll wait for you at the airport. | Perfecto. Te voy a esperar en el aeropuerto.
+A: Great! And what are we going to do on the weekend? | ¡Genial! ¿Y qué vamos a hacer el fin de semana?
+B: It depends on the weather. | Depende del clima.
+A: And your sister? Is she going to be there? | ¿Y tu hermana? ¿Va a estar?
+B: Yes! She's married to a Canadian now. | ¡Sí! Ahora está casada con un canadiense.
+@ El viernes, Kate te llama desde el aeropuerto.
+A: I arrived at the airport! Where are you? | ¡Ya llegué al aeropuerto! ¿Dónde estás?
+B: I'm in a taxi. There's a lot of traffic. | Voy en un taxi. Hay mucho tráfico.
+A: No problem. I'm at the café next to gate 3. | No hay problema. Estoy en el café junto a la puerta 3.
+B: Okay. I'll see you in ten minutes. | Bueno. Te veo en diez minutos.
+@ En la noche, cenan en tu casa con tu familia.
+A: Your house is beautiful! Where are your kids? | ¡Tu casa está preciosa! ¿Dónde están tus hijos?
+B: My kids are at school. They come back at six. | Mis hijos están en la escuela. Regresan a las seis.
+A: Oh! Is that your dog? | ¡Ay! ¿Ese es tu perro?
+B: Yes, his name is Max. Are you afraid of dogs? | Sí, se llama Max. ¿Les tienes miedo a los perros?
+A: No, I love dogs! Thank you for everything. | ¡No, me encantan los perros! Gracias por todo.
+B: Thanks for coming! It's different from Toronto, right? | ¡Gracias por venir! Es diferente a Toronto, ¿verdad?
+== Kate's week in Mexico
+en: Kate arrived in Mexico on Friday, March 7th, at five in the afternoon. Her friend Ana was waiting for her at the airport.
+es: Kate llegó a México el viernes 7 de marzo a las cinco de la tarde. Su amiga Ana la estaba esperando en el aeropuerto.
+en: On Saturday morning, they visited the pyramids. In the afternoon, they ate tacos at a small restaurant in the center, and at night they went to a concert in the park.
+es: El sábado en la mañana visitaron las pirámides. En la tarde comieron tacos en un restaurante pequeño del centro, y en la noche fueron a un concierto en el parque.
+en: On Sunday, Ana's family made a big lunch at home. Kate sat next to Ana's grandmother, who was very interested in Canada. "Are you married?" she asked. "No," said Kate, laughing. "I'm married to my job."
+es: El domingo, la familia de Ana hizo una comida grande en la casa. Kate se sentó junto a la abuela de Ana, a quien le interesaba mucho Canadá. «¿Estás casada?», le preguntó. «No», dijo Kate riéndose. «Estoy casada con mi trabajo».
+en: Kate flew back to Toronto on Monday. On the plane, she was already thinking about her next trip. "It depends on the price," she said, "but I want to come back in December."
+es: Kate regresó a Toronto en avión el lunes. En el avión ya estaba pensando en su siguiente viaje. «Depende del precio», dijo, «pero quiero regresar en diciembre».
+? ¿Cuándo llegó Kate a México? | El sábado en la mañana | *El viernes a las cinco de la tarde | El lunes en la noche
+? ¿Qué hicieron el sábado en la noche? | Visitaron las pirámides | *Fueron a un concierto en el parque | Comieron en la casa
+? ¿Junto a quién se sentó Kate el domingo? | Junto a Ana | *Junto a la abuela de Ana | Junto al papá de Ana
+? ¿Qué contestó Kate cuando le preguntaron si estaba casada? | Que sí | *Que estaba casada con su trabajo | Que tenía novio
+? ¿Cuándo quiere regresar Kate? | En julio | *En diciembre | El próximo año

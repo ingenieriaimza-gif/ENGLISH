@@ -1087,3 +1087,107 @@ A: Where can I watch the soccer games? | ¿Dónde puedo ver los partidos de futb
 B: 11
 A: What's a VPN? I don't know. | ¿Qué es una VPN? No sé.
 B: 4
+
+# n2u33
+= Contar tu viaje a la playa | 5 11 10 6 9 12 18 7 2
+@ Tu compañero de trabajo te pregunta por tu viaje a Cancún.
+A: How was your trip? How did you get there? | ¿Qué tal tu viaje? ¿Cómo llegaste?
+B: 11
+A: Nice! Did you go to the beach? | ¡Qué bien! ¿Fueron a la playa?
+B: 10
+A: And at night? | ¿Y en la noche?
+B: 9
+A: Did you rent a car? | ¿Rentaron un carro?
+B: 5
+A: Was the hotel expensive? | ¿El hotel fue caro?
+B: 7
+
+= Contar una fiesta de cumpleaños | 0 13 16 14 8 15 25 26 1
+@ Tu abuela no pudo ir a la fiesta de tu sobrina Sofi y te llama para preguntarte cómo estuvo.
+A: Hi! How was Sofi's party? | ¡Hola! ¿Qué tal la fiesta de Sofi?
+B: 16
+A: Did the kids play in the garden? | ¿Jugaron los niños en el jardín?
+B: 8
+A: And your aunt? Did she bring the baby? | ¿Y tu tía? ¿Llevó a la bebé?
+B: 26
+A: And who took care of Toby, the dog? | ¿Y quién cuidó a Toby, el perro?
+B: 25
+
+= Contar historias de tu familia | 20 24 21 22 23 17 19 3 4
+@ Tu nueva compañera de trabajo te pregunta por tu familia.
+A: Who taught you to drive? | ¿Quién te enseñó a manejar?
+B: 20
+A: Do you still have your first car? | ¿Todavía tienes tu primer carro?
+B: 21
+A: Your mom told me you were angry with your brother. What happened? | Tu mamá me dijo que te enojaste con tu hermano. ¿Qué pasó?
+B: 22
+A: And he didn't pay you back? Are you still angry? | ¿Y no te pagó? ¿Todavía te dura el coraje?
+B: 17
+
+# n2u34
+= Decir bien el pasado con -ed | 0-8
+@ Tu amiga te pregunta qué hiciste el fin de semana.
+A: Why didn't you come to the party yesterday? | ¿Por qué no viniste ayer a la fiesta?
+B: 0
+A: And this morning? | ¿Y hoy en la mañana?
+B: 3
+A: What about your sister? | ¿Y tu hermana?
+B: 8
+A: Did you talk to your mom? | ¿Hablaste con tu mamá?
+B: 4
+
+= Decir bien la -s y la sílaba fuerte | 9 10 11 12 13 14 26 15 16
+@ En la oficina, preparas una presentación con tu compañero.
+A: What's that box on your desk? | ¿Qué es esa caja en tu escritorio?
+B: 11
+A: Why are you so nervous today? | ¿Por qué tienes tantos nervios hoy?
+B: 12
+A: Should I take notes? | ¿Tomo notas?
+B: 14
+A: The boss said thirty people are coming. Or thirteen? | El jefe dijo que vienen treinta personas. ¿O trece?
+B: 26
+
+= Distinguir palabras que suenan parecido | 17 18 19 20 21 22 23 24 25
+@ Un turista platica contigo en el malecón de Ensenada.
+A: Look at that boat! | ¡Mira ese barco!
+B: 20
+A: Do you live in Ensenada? | ¿Vives en Ensenada?
+B: 22
+A: What time do you go home? | ¿A qué hora te vas a tu casa?
+B: 23
+A: What day is the wine festival? | ¿Qué día es el festival del vino?
+B: 19
+
+# n2u35
+= Decir cuándo con at, on e in | 0 1 2 3 4 5 6 7 22
+@ Tu compañero de trabajo quiere organizar una comida y te pregunta por tu agenda.
+A: When is the meeting with the client? | ¿Cuándo es la junta con el cliente?
+B: 0
+A: Can we have lunch together this week? | ¿Podemos comer juntos esta semana?
+B: 1
+A: When are you going on vacation? | ¿Cuándo te vas de vacaciones?
+B: 3
+A: And when's your birthday? | ¿Y cuándo es tu cumpleaños?
+B: 2
+
+= Decir dónde está alguien o algo | 8 9 10 11 12 13 14 20 21
+@ Tu pareja te llama mientras vas de regreso a la casa.
+A: Where are you? | ¿Dónde estás?
+B: 13
+A: And the kids? | ¿Y los niños?
+B: 8
+A: I can't find my phone! | ¡No encuentro mi celular!
+B: 12
+A: And the car keys? | ¿Y las llaves del carro?
+B: 11
+
+= Usar las preposiciones que cambian | 15 16 17 18 19 23 24 25 26
+@ Platicas con una amiga de tu familia y de tus planes.
+A: Are you going to buy the new apartment? | ¿Vas a comprar el departamento nuevo?
+B: 15
+A: Is your sister still single? | ¿Tu hermana sigue soltera?
+B: 16
+A: Why doesn't your son want a puppy? | ¿Por qué tu hijo no quiere un perrito?
+B: 19
+A: I helped you move last month, remember? | Te ayudé a mudarte el mes pasado, ¿te acuerdas?
+B: 24

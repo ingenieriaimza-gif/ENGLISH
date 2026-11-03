@@ -1,6 +1,48 @@
 /* Secundaria · vocabulario extra (v) y lectura (r) de cada unidad. Formato en x-k.js
    Desde esta etapa, las preguntas de la lectura van en inglés sencillo. */
 Object.assign(window.EXTRA = window.EXTRA || {}, {
+  n2u33: {
+    r: {
+      t: "Grandpa's first car",
+      en: "When my grandpa was nineteen, he sold his bike and bought his first car. It was old and green, but he loved it.\nEvery Sunday, he drove to the beach with his friends. They swam in the sea, ate fish tacos and sang songs until night. One day, a girl sat next to him on the beach. They talked for hours, and before she left, they shook hands. Her name was Rosa.\nA year later, Grandpa and Rosa got married. At the wedding, she wore a white dress, and he wore his father's suit.\nGrandpa kept that green car for forty years. When he finally sold it, he cried. \"That car brought me your grandma,\" he always says.",
+      es: "Cuando mi abuelo tenía diecinueve años, vendió su bici y se compró su primer carro. Era viejo y verde, pero le encantaba.\nCada domingo manejaba a la playa con sus amigos. Nadaban en el mar, comían tacos de pescado y cantaban canciones hasta la noche. Un día, una muchacha se sentó junto a él en la playa. Platicaron durante horas, y antes de que ella se fuera, se dieron la mano. Se llamaba Rosa.\nUn año después, el abuelo y Rosa se casaron. En la boda, ella se puso un vestido blanco y él se puso el traje de su papá.\nEl abuelo tuvo ese carro verde durante cuarenta años. Cuando por fin lo vendió, lloró. «Ese carro me trajo a tu abuela», dice siempre.",
+      q: [
+        ["¿Qué vendió el abuelo para comprar su carro?", ["Su guitarra", "Su bici", "Su reloj"], 1],
+        ["¿A dónde manejaba cada domingo?", ["A la montaña", "A la playa", "Al centro"], 1],
+        ["¿Qué hicieron cuando se despidieron en la playa?", ["Se abrazaron", "Se dieron la mano", "Se dieron un beso"], 1],
+        ["¿Qué se puso el abuelo en la boda?", ["Un traje nuevo", "El traje de su papá", "Una camisa blanca"], 1],
+        ["¿Cuántos años tuvo el abuelo el carro verde?", ["Diez", "Cuarenta", "Veinte"], 1]
+      ]
+    }
+  },
+  n2u34: {
+    r: {
+      t: "The sheep on the ship",
+      en: "When Mario moved to Houston, his English was good, but people didn't always understand him. One day, he told his boss, \"I work-ed all weekend.\" His boss looked confused. A coworker explained: \"In English, we say «workt», not «work-ed».\"\nAnother day, Mario wanted to tell a friend that he lived near the port and could see the ships. But he said \"sheep\" instead of \"ship.\" His friend laughed. \"Sheep? In the port?\"\nMario decided to practice every night. He recorded his voice on his phone and listened carefully. He learned that \"wanted\" ends with «id», that the k in \"know\" is silent, and that \"thirteen\" and \"thirty\" are very different.\nSix months later, nobody asks him to repeat. \"Pronunciation is not about having a perfect accent,\" he says. \"It's about being understood.\"",
+      es: "Cuando Mario se mudó a Houston, su inglés era bueno, pero la gente no siempre le entendía. Un día le dijo a su jefe: «I work-ed all weekend». Su jefe puso cara de confusión. Un compañero le explicó: «En inglés decimos «workt», no «work-ed»».\nOtro día, Mario quería decirle a un amigo que vivía cerca del puerto y que podía ver los barcos. Pero dijo «sheep» en lugar de «ship». Su amigo se rio. «¿Ovejas? ¿En el puerto?».\nMario decidió practicar todas las noches. Grababa su voz en el celular y la escuchaba con atención. Aprendió que «wanted» termina con «id», que la k de «know» no suena y que «thirteen» y «thirty» son muy diferentes.\nSeis meses después, nadie le pide que repita. «La pronunciación no se trata de tener un acento perfecto», dice. «Se trata de que te entiendan».",
+      q: [
+        ["¿A dónde se mudó Mario?", ["A Dallas", "A Houston", "A Chicago"], 1],
+        ["¿Cómo dijo Mario «worked» al principio?", ["«workt»", "«work-ed»", "«wor»"], 1],
+        ["¿Qué dijo en lugar de «ship»?", ["«shop»", "«sheep»", "«chip»"], 1],
+        ["¿Cómo practicó?", ["Con un maestro", "Grabando su voz en el celular", "Viendo películas"], 1],
+        ["Según Mario, ¿de qué se trata la pronunciación?", ["De tener un acento perfecto", "De que te entiendan", "De hablar rápido"], 1]
+      ]
+    }
+  },
+  n2u35: {
+    r: {
+      t: "Kate's week in Mexico",
+      en: "Kate arrived in Mexico on Friday, March 7th, at five in the afternoon. Her friend Ana was waiting for her at the airport.\nOn Saturday morning, they visited the pyramids. In the afternoon, they ate tacos at a small restaurant in the center, and at night they went to a concert in the park.\nOn Sunday, Ana's family made a big lunch at home. Kate sat next to Ana's grandmother, who was very interested in Canada. \"Are you married?\" she asked. \"No,\" said Kate, laughing. \"I'm married to my job.\"\nKate flew back to Toronto on Monday. On the plane, she was already thinking about her next trip. \"It depends on the price,\" she said, \"but I want to come back in December.\"",
+      es: "Kate llegó a México el viernes 7 de marzo a las cinco de la tarde. Su amiga Ana la estaba esperando en el aeropuerto.\nEl sábado en la mañana visitaron las pirámides. En la tarde comieron tacos en un restaurante pequeño del centro, y en la noche fueron a un concierto en el parque.\nEl domingo, la familia de Ana hizo una comida grande en la casa. Kate se sentó junto a la abuela de Ana, a quien le interesaba mucho Canadá. «¿Estás casada?», le preguntó. «No», dijo Kate riéndose. «Estoy casada con mi trabajo».\nKate regresó a Toronto en avión el lunes. En el avión ya estaba pensando en su siguiente viaje. «Depende del precio», dijo, «pero quiero regresar en diciembre».",
+      q: [
+        ["¿Cuándo llegó Kate a México?", ["El sábado en la mañana", "El viernes a las cinco de la tarde", "El lunes en la noche"], 1],
+        ["¿Qué hicieron el sábado en la noche?", ["Visitaron las pirámides", "Fueron a un concierto en el parque", "Comieron en la casa"], 1],
+        ["¿Junto a quién se sentó Kate el domingo?", ["Junto a Ana", "Junto a la abuela de Ana", "Junto al papá de Ana"], 1],
+        ["¿Qué contestó Kate cuando le preguntaron si estaba casada?", ["Que sí", "Que estaba casada con su trabajo", "Que tenía novio"], 1],
+        ["¿Cuándo quiere regresar Kate?", ["En julio", "En diciembre", "El próximo año"], 1]
+      ]
+    }
+  },
   n2u1: {
     v: [
       ["Estoy leyendo un libro buenísimo.", "I'm reading a great book.", "aim ríiding a gréit buk", ""],

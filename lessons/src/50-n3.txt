@@ -1087,3 +1087,71 @@ A: Why did they arrest the tall man? | ¿Por qué arrestaron al hombre alto?
 B: 23
 A: What happened to him at the end? | ¿Qué le pasó al final?
 B: 7
+
+# n3u33
+= Contar experiencias con ever y never | 0 1 2 6 7 10 19 21 5
+@ En una carne asada, un amigo nuevo te pregunta por tus aventuras.
+A: Have you ever ridden a horse? | ¿Alguna vez has montado a caballo?
+B: 0
+A: I love adventures. What about you? | Me encantan las aventuras. ¿Y a ti?
+B: 1
+A: Yes! In Cancún. Do you like to sing? | ¡Sí! En Cancún. ¿Te gusta cantar?
+B: 7
+A: Your son is very tall! | ¡Tu hijo está muy alto!
+B: 5
+
+= Dar noticias de lo que acaba de pasar | 3 8 9 14 15 16 20 4 25
+@ Tu pareja te llama al trabajo y le cuentas qué pasa en la casa.
+A: Hi! How's everything at home? | ¡Hola! ¿Cómo va todo en la casa?
+B: 8
+A: Great! And the dog? | ¡Qué bien! ¿Y el perro?
+B: 16
+A: Oh no! Are you at the movies with the kids? | ¡Ay, no! ¿Estás en el cine con los niños?
+B: 3
+A: Did you go to the supermarket? | ¿Fuiste al súper?
+B: 4
+
+= Decir lo que ya hiciste y lo que falta | 11 12 13 17 18 22 23 24 26
+@ Tu hermana va a tener un bebé. Hablas con ella por teléfono.
+A: The baby is coming next month! | ¡El bebé llega el próximo mes!
+B: 11
+A: Not yet! And did you talk to Dad? | ¡Todavía no! ¿Y hablaste con papá?
+B: 13
+A: Good! Did you pay the rent? | ¡Qué bien! ¿Pagaste la renta?
+B: 22
+A: And our surprise for Mom? | ¿Y nuestra sorpresa para mamá?
+B: 23
+
+# n3u34
+= Hablar de tu familia sin falsos amigos | 0 1 13 14 15 17 24 25 26
+@ En la boda de tu primo, un invitado de Canadá platica contigo.
+A: Is that your family over there? | ¿Esa es tu familia?
+B: 14
+A: Do your parents live here? | ¿Tus papás viven aquí?
+B: 13
+A: Your cousin looks very happy! | ¡Tu prima se ve muy feliz!
+B: 1
+A: Wait... you have cake on your face! | Oye... ¡tienes pastel en la cara!
+B: 0
+
+= Hablar de la escuela y el trabajo sin falsos amigos | 5 6 7 8 9 18 19 20 21
+@ Una estudiante de intercambio te pregunta cosas de la ciudad.
+A: Where can I study in the morning? | ¿Dónde puedo estudiar en la mañana?
+B: 5
+A: Where did you buy that book? | ¿Dónde compraste ese libro?
+B: 6
+A: Do you like books? | ¿Te gustan los libros?
+B: 19
+A: How was the professor's class yesterday? | ¿Qué tal la clase del profesor ayer?
+B: 18
+
+= Contar y opinar sin falsos amigos | 2 3 4 10 11 12 16 22 23
+@ En una videollamada de trabajo conoces a un cliente de Toronto.
+A: Are you from Mexico City? | ¿Eres de la Ciudad de México?
+B: 2
+A: And do you live there? | ¿Y vives ahí?
+B: 3
+A: Will you come to the meeting in Toronto? | ¿Vas a venir a la junta en Toronto?
+B: 11
+A: What do you think of my plan? | ¿Qué te parece mi plan?
+B: 16

@@ -1,5 +1,33 @@
 /* Preparatoria · vocabulario extra (v) y lectura (r) de cada unidad. Formato en x-k.js */
 Object.assign(window.EXTRA = window.EXTRA || {}, {
+  n3u33: {
+    r: {
+      t: "Ten years far from home",
+      en: "Luis has lived in Toronto for ten years. He moved there when he was twenty-five, and his life has changed a lot since then.\nHe has worked in three different companies, and he has learned to speak English and a little French. He has driven on frozen roads, and he has swum in lakes so cold that his friends in Mexico don't believe him.\nTwo years ago, he met Emily at a concert. They have just had a baby girl, Sofía, and they have chosen to teach her Spanish and English.\nLuis has never forgotten his family. He has flown to Mexico every Christmas, and he has always brought presents for everyone. \"I've grown a lot in Canada,\" he says, \"but my heart has stayed in Mexico.\"",
+      es: "Luis lleva diez años viviendo en Toronto. Se mudó ahí cuando tenía veinticinco años, y su vida ha cambiado mucho desde entonces.\nHa trabajado en tres empresas diferentes, y ha aprendido a hablar inglés y un poco de francés. Ha manejado en carreteras congeladas, y ha nadado en lagos tan fríos que sus amigos de México no le creen.\nHace dos años conoció a Emily en un concierto. Acaban de tener una niña, Sofía, y decidieron enseñarle español e inglés.\nLuis nunca ha olvidado a su familia. Cada Navidad ha volado a México y siempre ha traído regalos para todos. «He crecido mucho en Canadá», dice, «pero mi corazón se ha quedado en México».",
+      q: [
+        ["¿Cuánto tiempo lleva Luis en Toronto?", ["Cinco años", "Diez años", "Veinticinco años"], 1],
+        ["¿En cuántas empresas ha trabajado?", ["En una", "En tres", "En cinco"], 1],
+        ["¿Dónde conoció a Emily?", ["En el trabajo", "En un concierto", "En la universidad"], 1],
+        ["¿Qué idiomas le van a enseñar a Sofía?", ["Solo inglés", "Español e inglés", "Francés e inglés"], 1],
+        ["¿Qué ha hecho Luis cada Navidad?", ["Se ha quedado en Toronto", "Ha volado a México con regalos", "Ha viajado a Francia"], 1]
+      ]
+    }
+  },
+  n3u34: {
+    r: {
+      t: "Embarrassed, not pregnant",
+      en: "False friends are words that look similar in two languages but have different meanings. They can cause very funny situations.\nLast year, Jenny, an engineer from Houston, visited a factory in Monterrey. At lunch, she wanted to say that she was embarrassed because she arrived late. So she said, \"¡Estoy embarazada!\" Everybody stopped eating. Some people even congratulated her.\nMexicans make the same mistakes in English. A manager once told a client, \"Actually, we have two plants,\" but he meant \"currently.\" A student asked a librarian for a \"carpet\" for his papers, but he wanted a folder. And many people say \"I'm constipated\" when they only have a cold.\nThe good news is that once you learn a false friend, you never forget it. Especially after a funny moment!",
+      es: "Los falsos amigos son palabras que se parecen en dos idiomas, pero tienen significados diferentes. Pueden causar situaciones muy chistosas.\nEl año pasado, Jenny, una ingeniera de Houston, visitó una fábrica en Monterrey. En la comida quiso decir que le daba pena haber llegado tarde. Así que dijo: «¡Estoy embarazada!». Todos dejaron de comer. Algunos hasta la felicitaron.\nLos mexicanos cometemos los mismos errores en inglés. Un gerente una vez le dijo a un cliente: «Actually, we have two plants», pero quería decir «currently». Un estudiante le pidió a la bibliotecaria una «carpet» para sus papeles, pero quería una carpeta. Y mucha gente dice «I'm constipated» cuando solo está resfriada.\nLa buena noticia es que cuando aprendes un falso amigo, nunca lo olvidas. ¡Sobre todo después de un momento chistoso!",
+      q: [
+        ["¿Qué son los falsos amigos?", ["Palabras iguales en los dos idiomas", "Palabras que se parecen, pero significan otra cosa", "Palabras difíciles de pronunciar"], 1],
+        ["¿Qué quería decir Jenny?", ["Que estaba embarazada", "Que le daba pena haber llegado tarde", "Que tenía hambre"], 1],
+        ["¿Qué hicieron algunas personas?", ["Se rieron", "La felicitaron", "Se fueron"], 1],
+        ["¿Qué quería el estudiante para sus papeles?", ["Una alfombra", "Una carpeta", "Una mochila"], 1],
+        ["¿Qué dice mucha gente cuando solo está resfriada?", ["I have a cold", "I'm constipated", "I'm sick"], 1]
+      ]
+    }
+  },
   n3u1: {
     v: [
       ["¿Alguna vez has perdido un vuelo?", "Have you ever missed a flight?", "", ""],

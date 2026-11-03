@@ -1211,3 +1211,73 @@ es: Cuatro semanas después, la policía arrestó a tres hombres. Eran parte de 
 ? ¿Dónde estaba su hijo en realidad? | En la cárcel | *En el trabajo | De viaje
 ? ¿Cuántas víctimas hubo ese mes? | Tres | *Diez | Cinco
 ? ¿Qué hace doña Carmen ahora? | Ya no usa el banco | *No contesta llamadas de números desconocidos | Vive con su hijo
+
+# n3u33
+@ Llega a tu casa tu primo Luis, que vive en Canadá. Hace diez años que no se ven.
+A: Wow! Your house is beautiful. And your son... he has grown a lot! | ¡Guau! Tu casa está preciosa. Y tu hijo... ¡ha crecido mucho!
+B: I know! He's fifteen now. Have you brought your wife? | ¡Ya sé! Ya tiene quince. ¿Trajiste a tu esposa?
+A: No, she stayed in Toronto with the baby. | No, se quedó en Toronto con el bebé.
+B: A baby? Have you chosen a name? | ¿Un bebé? ¿Ya escogieron nombre?
+A: Yes, her name is Sofía. | Sí, se llama Sofía.
+B: Congratulations! My mom has shown me the photos. | ¡Felicidades! Mi mamá ya me enseñó las fotos.
+@ En la cena, Luis te cuenta de su vida en Canadá.
+A: In winter, the lake near my house freezes. Have you ever seen snow? | En invierno, el lago cerca de mi casa se congela. ¿Alguna vez has visto la nieve?
+B: Never! But I've swum in a river in Chiapas. | ¡Nunca! Pero he nadado en un río en Chiapas.
+A: Ha, ha! And have you ever flown in a helicopter? | ¡Ja, ja! ¿Y alguna vez has volado en helicóptero?
+B: No, and I've never ridden a horse. | No, y nunca he montado a caballo.
+A: You have to visit me! | ¡Tienes que visitarme!
+B: Okay! But plane tickets have become very expensive. | ¡Va! Pero los boletos de avión se han puesto muy caros.
+@ A la mañana siguiente, Luis no encuentra su cartera.
+A: Oh no! Someone has stolen my wallet! | ¡Ay, no! ¡Alguien me robó la cartera!
+B: Calm down. Nobody has stolen it. Look in your jacket. | Tranquilo. Nadie te la ha robado. Busca en tu chamarra.
+A: Here it is! Sorry. I've just woken up. | ¡Aquí está! Perdón. Me acabo de despertar.
+B: Ha, ha! I've paid the taxi to the airport. It's at ten. | ¡Ja, ja! Ya pagué el taxi al aeropuerto. Es a las diez.
+== Ten years far from home
+en: Luis has lived in Toronto for ten years. He moved there when he was twenty-five, and his life has changed a lot since then.
+es: Luis lleva diez años viviendo en Toronto. Se mudó ahí cuando tenía veinticinco años, y su vida ha cambiado mucho desde entonces.
+en: He has worked in three different companies, and he has learned to speak English and a little French. He has driven on frozen roads, and he has swum in lakes so cold that his friends in Mexico don't believe him.
+es: Ha trabajado en tres empresas diferentes, y ha aprendido a hablar inglés y un poco de francés. Ha manejado en carreteras congeladas, y ha nadado en lagos tan fríos que sus amigos de México no le creen.
+en: Two years ago, he met Emily at a concert. They have just had a baby girl, Sofía, and they have chosen to teach her Spanish and English.
+es: Hace dos años conoció a Emily en un concierto. Acaban de tener una niña, Sofía, y decidieron enseñarle español e inglés.
+en: Luis has never forgotten his family. He has flown to Mexico every Christmas, and he has always brought presents for everyone. "I've grown a lot in Canada," he says, "but my heart has stayed in Mexico."
+es: Luis nunca ha olvidado a su familia. Cada Navidad ha volado a México y siempre ha traído regalos para todos. «He crecido mucho en Canadá», dice, «pero mi corazón se ha quedado en México».
+? ¿Cuánto tiempo lleva Luis en Toronto? | Cinco años | *Diez años | Veinticinco años
+? ¿En cuántas empresas ha trabajado? | En una | *En tres | En cinco
+? ¿Dónde conoció a Emily? | En el trabajo | *En un concierto | En la universidad
+? ¿Qué idiomas le van a enseñar a Sofía? | Solo inglés | *Español e inglés | Francés e inglés
+? ¿Qué ha hecho Luis cada Navidad? | Se ha quedado en Toronto | *Ha volado a México con regalos | Ha viajado a Francia
+
+# n3u34
+@ Tu compañera Jenny, de Houston, viene a conocer la planta donde trabajas. Llega un poco tarde.
+A: Sorry I'm late! I couldn't find the parking lot. | ¡Perdón por llegar tarde! No encontraba el estacionamiento.
+B: Don't worry. Actually, the meeting hasn't started. | No te preocupes. En realidad, la junta no ha empezado.
+A: Good! Who's going to be there? | ¡Qué bien! ¿Quién va a estar?
+B: My boss. She's very nice, and she's very sympathetic. | Mi jefa. Es muy simpática y muy comprensiva.
+A: Great. I'm a little nervous about my plan. | Qué bien. Me dan un poco de nervios por mi plan.
+B: Don't be. It's a sensible plan. | No te preocupes. Es un plan sensato.
+@ En la comida, Jenny quiere practicar su español y les dice a tus compañeros: «¡Estoy embarazada!». Todos se quedan callados.
+A: Why is everybody looking at me? | ¿Por qué todos me están viendo?
+B: You said embarazada. That means pregnant! | Dijiste «embarazada». ¡Eso significa pregnant!
+A: Oh no! I wanted to say I'm embarrassed. | ¡Ay, no! Quería decir que me da pena.
+B: Don't worry. It's a very common mistake. | No te preocupes. Es un error muy común.
+A: Ha, ha! What other words should I learn? | ¡Ja, ja! ¿Qué otras palabras debo aprender?
+B: Be careful with éxito. In English it's success. | Cuidado con «éxito». En inglés es success.
+@ Al final del día, llevas a Jenny a su hotel.
+A: Thank you for everything. The visit was a success! | Gracias por todo. ¡La visita fue un éxito!
+B: I'm glad. Did you realize it's nine o'clock? | Me da gusto. ¿Te diste cuenta de que ya son las nueve?
+A: Wow, I didn't realize it was so late! | ¡Guau, no me di cuenta de que era tan tarde!
+B: Ha, ha! Eventually, you'll speak perfect Spanish. | ¡Ja, ja! Al final vas a hablar español perfecto.
+== Embarrassed, not pregnant
+en: False friends are words that look similar in two languages but have different meanings. They can cause very funny situations.
+es: Los falsos amigos son palabras que se parecen en dos idiomas, pero tienen significados diferentes. Pueden causar situaciones muy chistosas.
+en: Last year, Jenny, an engineer from Houston, visited a factory in Monterrey. At lunch, she wanted to say that she was embarrassed because she arrived late. So she said, "¡Estoy embarazada!" Everybody stopped eating. Some people even congratulated her.
+es: El año pasado, Jenny, una ingeniera de Houston, visitó una fábrica en Monterrey. En la comida quiso decir que le daba pena haber llegado tarde. Así que dijo: «¡Estoy embarazada!». Todos dejaron de comer. Algunos hasta la felicitaron.
+en: Mexicans make the same mistakes in English. A manager once told a client, "Actually, we have two plants," but he meant "currently." A student asked a librarian for a "carpet" for his papers, but he wanted a folder. And many people say "I'm constipated" when they only have a cold.
+es: Los mexicanos cometemos los mismos errores en inglés. Un gerente una vez le dijo a un cliente: «Actually, we have two plants», pero quería decir «currently». Un estudiante le pidió a la bibliotecaria una «carpet» para sus papeles, pero quería una carpeta. Y mucha gente dice «I'm constipated» cuando solo está resfriada.
+en: The good news is that once you learn a false friend, you never forget it. Especially after a funny moment!
+es: La buena noticia es que cuando aprendes un falso amigo, nunca lo olvidas. ¡Sobre todo después de un momento chistoso!
+? ¿Qué son los falsos amigos? | Palabras iguales en los dos idiomas | *Palabras que se parecen, pero significan otra cosa | Palabras difíciles de pronunciar
+? ¿Qué quería decir Jenny? | Que estaba embarazada | *Que le daba pena haber llegado tarde | Que tenía hambre
+? ¿Qué hicieron algunas personas? | Se rieron | *La felicitaron | Se fueron
+? ¿Qué quería el estudiante para sus papeles? | Una alfombra | *Una carpeta | Una mochila
+? ¿Qué dice mucha gente cuando solo está resfriada? | I have a cold | *I'm constipated | I'm sick

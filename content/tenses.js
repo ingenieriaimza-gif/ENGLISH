@@ -111,7 +111,7 @@ window.TENSES = [
     ]
   },
   {
-    id: "pas", u: ["n2u3", "n2u4"], n: "Pasado simple", en: "Simple past",
+    id: "pas", u: ["n2u3", "n2u4", "n2u33"], n: "Pasado simple", en: "Simple past",
     use: "Acciones que ya terminaron, en un momento del pasado.",
     cues: ["yesterday", "last week", "in 2019", "two days ago", "when I was a kid"],
     f: [
@@ -126,13 +126,21 @@ window.TENSES = [
       ["No fui a la fiesta.", "I didn't go to the party.", ["I didn't went to the party.", "I don't went to the party.", "I no went to the party."]],
       ["¿Qué hiciste ayer?", "What did you do yesterday?", ["What did you did yesterday?", "What you did yesterday?", "What do you did yesterday?"]],
       ["Llamé al proveedor.", "I called the supplier.", ["I call the supplier.", "I did called the supplier.", "I was call the supplier."]],
-      ["¿Llamaste a Pedro?", "Did you call Pedro?", ["Did you called Pedro?", "Do you called Pedro?", "Called you Pedro?"]]
+      ["¿Llamaste a Pedro?", "Did you call Pedro?", ["Did you called Pedro?", "Do you called Pedro?", "Called you Pedro?"]],
+      ["Pagué con tarjeta.", "I paid by card.", ["I payed by card.", "I pay by card.", "I did paid by card."]],
+      ["No encontré mis llaves.", "I didn't find my keys.", ["I didn't found my keys.", "I not found my keys.", "I don't found my keys."]],
+      ["¿Entendiste todo?", "Did you understand everything?", ["Did you understood everything?", "Did you understanded everything?", "Do you understood everything?"]],
+      ["Escogimos el más barato.", "We chose the cheapest one.", ["We choosed the cheapest one.", "We chosen the cheapest one.", "We did chose the cheapest one."]],
+      ["Mi papá me enseñó a manejar.", "My dad taught me to drive.", ["My dad teached me to drive.", "My dad teach me to drive.", "My dad taught me to drove."]]
     ],
     b: [
       ["No revisé mi correo.", "I didn't check my email.", "checked"],
       ["¿Viste a mi hermano?", "Did you see my brother?", "saw"],
       ["Compré un teléfono nuevo.", "I bought a new phone.", "buy"],
-      ["¿A qué hora llegaste?", "What time did you arrive?", "arrived"]
+      ["¿A qué hora llegaste?", "What time did you arrive?", "arrived"],
+      ["Te traje un regalo.", "I brought you a present.", "bringed"],
+      ["Lo perdoné.", "I forgave him.", "forgived"],
+      ["¿Pagaste la renta?", "Did you pay the rent?", "paid"]
     ]
   },
   {
@@ -205,7 +213,7 @@ window.TENSES = [
     ]
   },
   {
-    id: "pp", u: ["n3u1"], n: "Presente perfecto", en: "Present perfect",
+    id: "pp", u: ["n3u1", "n3u33"], n: "Presente perfecto", en: "Present perfect",
     use: "Experiencias (sin decir cuándo) y cosas que acaban de pasar o que ya pasaron.",
     cues: ["ever", "never", "already", "yet", "just"],
     f: [
@@ -220,12 +228,19 @@ window.TENSES = [
       ["¿Alguna vez has ido a Nueva York?", "Have you ever been to New York?", ["Did you ever been to New York?", "Have you ever go to New York?", "Has you ever been to New York?"]],
       ["Todavía no he comido.", "I haven't eaten yet.", ["I haven't ate yet.", "I haven't eat yet.", "I don't have eaten yet."]],
       ["Fui a Nueva York en 2019.", "I went to New York in 2019.", ["I've gone to New York in 2019.", "I've been to New York in 2019.", "I have go to New York in 2019."], "pas"],
-      ["Ella ya se fue.", "She's already left.", ["She's already leave.", "She has already went.", "She have already left."]]
+      ["Ella ya se fue.", "She's already left.", ["She's already leave.", "She has already went.", "She have already left."]],
+      ["Nunca he montado a caballo.", "I've never ridden a horse.", ["I've never rode a horse.", "I've never ride a horse.", "I've never rided a horse."]],
+      ["¿Alguna vez has volado en helicóptero?", "Have you ever flown in a helicopter?", ["Have you ever flew in a helicopter?", "Have you ever flied in a helicopter?", "Did you ever flown in a helicopter?"]],
+      ["La película ya empezó.", "The movie has already begun.", ["The movie has already began.", "The movie has already begin.", "The movie have already begun."]],
+      ["Mi mamá me ha dado muchos consejos.", "My mom has given me a lot of advice.", ["My mom has gave me a lot of advice.", "My mom has give me a lot of advice.", "My mom have given me a lot of advice."]]
     ],
     b: [
       ["¿Ya mandaste el reporte?", "Have you sent the report yet?", "Did"],
       ["Él ha viajado mucho.", "He has traveled a lot.", "have"],
-      ["Todavía no he visto esa película.", "I haven't seen that movie yet.", "saw"]
+      ["Todavía no he visto esa película.", "I haven't seen that movie yet.", "saw"],
+      ["Nunca he robado nada.", "I've never stolen anything.", "stole"],
+      ["El agua ya se congeló.", "The water has already frozen.", "froze"],
+      ["Ya escogimos un nombre.", "We've already chosen a name.", "chose"]
     ]
   },
   {
