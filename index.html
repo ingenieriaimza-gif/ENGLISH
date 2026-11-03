@@ -438,6 +438,7 @@ textarea.type{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:2p
 .wrow .wfam{grid-column:2;margin-top:4px;font-size:14px;line-height:1.45;color:var(--muted)}
 .wfam .w.t{white-space:normal;color:var(--ink);text-decoration:underline dotted;text-decoration-color:var(--line);text-decoration-thickness:2px;text-underline-offset:.2em}
 .wfam .fg{white-space:normal}
+.famline{margin:12px auto 0;max-width:34em;text-align:center;font-size:15px;line-height:1.5;color:var(--muted)}
 .wword{font-size:clamp(40px,11vw,64px);font-weight:700;line-height:1.1;text-align:center;overflow-wrap:anywhere}
 .wword.long{font-size:clamp(30px,8vw,48px)}
 .chip.wm{display:inline-flex;flex-direction:column;align-items:center;gap:1px;line-height:1.2;padding:6px 12px 7px}
@@ -4065,7 +4066,8 @@ function step() {
   if (s.k === "intro") {
     // la explicación solo las primeras veces (después ya sabes qué hacer y estorba leerla en cada frase)
     const nSeen = Object.keys(S.c).length, lead = nSeen < 12 ? `Escúchala y fíjate en lo que significa: primero hay que entenderla. Si quieres, repítela en voz alta.${c.ws.length ? " Toca una palabra para ver qué significa." : ""}` : "";
-    st.innerHTML = `${head("intro")}${plate(c)}${lead ? `<p class="lead">${lead}</p>` : ""}<div id="miniMic"></div>`;
+    const fam = c.sw && famOf(c.sw).length ? `<p class="wfam famline">Familia: ${famHTML(c.sw)}</p>` : ""; // una sola palabra (hand): su familia
+    st.innerHTML = `${head("intro")}${plate(c)}${fam}${lead ? `<p class="lead">${lead}</p>` : ""}<div id="miniMic"></div>`;
     foot("", goBtn("gotIt", "Entendido"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
     introduce(c); say(c.en);
