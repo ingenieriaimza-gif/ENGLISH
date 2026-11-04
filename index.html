@@ -381,6 +381,7 @@ details.level.cur{border-color:var(--accent)}
 .heard{text-align:center;font-size:15px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
 .heard:empty{display:none}
 .heard .tgt{font-size:16px;color:var(--ink)}
+.heard .live{font-size:17px;font-style:italic;color:var(--muted)}
 .tol{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:12px;font-size:13px;color:var(--muted)}
 .tol .tl{margin-right:2px}
 .tol button{font:inherit;font-size:13px;line-height:1;padding:7px 11px;min-height:32px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--muted);cursor:pointer}
@@ -1444,32 +1445,102 @@ document.addEventListener("click", e => {
 });
 const playBtn = (en, label) => `<button class="play" data-say="${esc(en)}" aria-label="Escuchar ${esc(label || en)}">${SPK}</button>`;
 
-/* ================= reconocimiento de voz ================= */
+/* ================= reconocimiento de voz =================
+   Pedido de la persona (3 de noviembre de 2026): «el speaking falla mucho, dice que no entiende lo que digo y desespera
+   como si no te escuchara». Por eso:
+   - Te escucha hasta que terminas: no se corta en la primera pausa. Termina en cuanto lo que dijiste ya es la frase, cuando te
+     quedas callado un momento (2 segundos; 3 si lo que llevas va bien y falta el final) o a los 20 segundos.
+   - Si el navegador corta antes (pasa en Android) y te faltaba el final, vuelve a escuchar solo y junta lo que dijiste.
+     Si se cortó enseguida sin oírte, también vuelve a escuchar solo.
+   - Mientras hablas ves lo que te va entendiendo.
+   - Se revisan las opciones que da el reconocedor (hasta 5), no solo la primera; en «Estricto», solo la primera. */
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 let srOK = !!SR;
-// onReady: el micrófono ya está grabando de verdad (antes de eso, lo que digas se pierde)
-function hear(onState) { // onState("ready" | "speech" | "proc")
+const SR_SIL = 2000, SR_SIL_MORE = 3000, SR_NOSP = 8000, SR_MAX = 20000;
+// Junta lo que va entendiendo. Si un pedazo nuevo ya trae lo anterior (Android repite todo lo dicho), se queda con el más completo
+function srJoin(a, b) {
+  a = String(a || "").trim(); b = String(b || "").trim(); if (!a) return b; if (!b) return a;
+  const A = a.toLowerCase(), B = b.toLowerCase();
+  if (B.startsWith(A)) return b;
+  if (A.endsWith(B)) return a;
+  return a + " " + b;
+}
+// onState("ready" | "speech" | "proc", lo que va entendiendo). o.check(opciones) → { ok, more }: ok = ya es la frase (termina
+// en ese momento); more = lo que llevas va bien pero falta el final (te espera un poco más y, si el navegador corta, vuelve a escuchar)
+function hear(onState, o) {
+  o = o || {};
   return new Promise(res => {
-    let fin = false, ready = false, alts = [], interim = "", guard = null; const r = new SR(), t0 = Date.now();
-    const done = x => { if (fin) return; fin = true; clearTimeout(guard); MIC_END = Date.now(); x.dur = Date.now() - t0; res(x); };
-    // Si el reconocedor no alcanza a dar un resultado final (pasa con palabras sueltas o cortas), usamos lo último que entendió
-    const best = () => alts.length ? { alts } : interim ? { alts: [interim], partial: true } : null;
-    const tell = x => { if (!fin && onState) onState(x); };
-    const isReady = () => { if (!ready && !fin) { ready = true; tell("ready"); } };
-    r.lang = "en-US"; r.interimResults = true; r.maxAlternatives = 5; r.continuous = false;
-    r.onstart = () => setTimeout(isReady, 700);
-    r.onaudiostart = isReady;
-    r.onspeechstart = () => { isReady(); tell("speech"); };
-    r.onspeechend = () => tell("proc");
-    r.onresult = e => {
-      const all = Array.from(e.results), f = all.filter(x => x.isFinal);
-      const it = all.map(x => x[0].transcript).join(" ").trim(); if (it) { interim = it; isReady(); tell("speech"); }
-      if (f.length) alts = f.length === 1 ? Array.from(f[0]).map(a => a.transcript) : [f.map(x => x[0].transcript).join(" ")];
+    let fin = false, ready = false, readyAt = 0, stopping = false, runs = 0, cur = 0, rec = null, sesT0 = 0, tick = null;
+    let prev = "", prevAlts = [], finals = [], live = "", last = 0, chk = null, err = "";
+    const t0 = Date.now();
+    const tell = (x, t) => { if (!fin && onState) onState(x, t); };
+    // las opciones del reconocedor: lo de antes + cada opción de lo último que entendió (+ lo que todavía está entendiendo)
+    const cands = () => {
+      if (finals.length) {
+        const base = srJoin(prev, finals.slice(0, -1).map(f => f[0]).reduce(srJoin, "")), out = [];
+        finals[finals.length - 1].forEach(x => { const t = srJoin(srJoin(base, x), live); if (t && !out.includes(t)) out.push(t); });
+        return out;
+      }
+      if (live) return [srJoin(prev, live)];
+      return prevAlts.length ? prevAlts : prev ? [prev] : [];
     };
-    r.onerror = e => done(best() || { err: e.error });
-    r.onend = () => done(best() || { alts: [] });
-    guard = setTimeout(() => { try { r.stop(); } catch (e) {} setTimeout(() => done(best() || { alts: [] }), 1000); }, 15000);
-    try { stopAudio(); audioSleep(); r.start(); } catch (e) { done({ err: "start" }); }
+    const top = () => cands()[0] || "";
+    const result = () => { const c = cands(); return c.length ? { alts: c } : null; };
+    const done = x => {
+      if (fin) return; fin = true; clearInterval(tick); MIC_END = Date.now(); x.dur = Date.now() - t0;
+      const r = rec; rec = null; try { if (r) r.abort(); } catch (e) {}
+      res(x);
+    };
+    const finish = () => { // ya terminaste de hablar: que el navegador entregue lo último y lo revisamos
+      if (fin || stopping) return; stopping = true; tell("proc");
+      try { if (rec) rec.stop(); } catch (e) {}
+      setTimeout(() => done(result() || { alts: [] }), 1500); // por si el navegador no avisa que terminó
+    };
+    const look = () => { // cada vez que entiende algo: ¿ya es la frase?
+      const c = cands(); if (!c.length) return;
+      last = Date.now(); tell("speech", c[0]);
+      if (!o.check) return;
+      chk = o.check(c) || null;
+      if (chk && chk.ok) done({ alts: c, early: true });
+    };
+    const start = () => {
+      const id = ++cur; runs++; sesT0 = Date.now(); finals = []; live = ""; err = "";
+      const r = rec = new SR(), mine = () => !fin && id === cur;
+      r.lang = "en-US"; r.interimResults = true; r.maxAlternatives = 5; r.continuous = true;
+      const isReady = () => { if (mine() && !ready) { ready = true; readyAt = Date.now(); tell("ready"); } };
+      r.onstart = () => setTimeout(isReady, 700);
+      r.onaudiostart = isReady;
+      r.onspeechstart = () => { if (!mine()) return; isReady(); last = Date.now(); tell("speech", top()); };
+      r.onresult = e => {
+        if (!mine()) return;
+        const all = Array.from(e.results || []);
+        finals = all.filter(x => x.isFinal).map(x => Array.from(x).map(y => String(y.transcript || "").trim()).filter(Boolean)).filter(x => x.length);
+        live = all.filter(x => !x.isFinal).map(x => String((x[0] || {}).transcript || "").trim()).join(" ").trim();
+        isReady(); look();
+      };
+      r.onerror = e => { if (mine()) err = (e && e.error) || "error"; };
+      r.onend = () => {
+        if (!mine()) return;
+        if (stopping) { done(result() || (err && err !== "aborted" ? { err } : { alts: [] })); return; }
+        const c = cands(), heard = c.length > 0, short = Date.now() - sesT0 < 3000;
+        prevAlts = c; prev = c[0] || ""; finals = []; live = "";
+        if (err && !/^(no-speech|aborted)$/.test(err)) { done(heard ? { alts: c } : { err }); return; } // sin permiso, sin internet…
+        // El navegador cortó solo: vuelve a escuchar si no te oyó y fue muy rápido, o si lo que llevas va bien y falta el final
+        const again = runs < 3 && Date.now() - t0 < SR_MAX && (heard ? !!(chk && chk.more) || (!o.check && Date.now() - last < SR_SIL) : short);
+        if (!again) { done(heard ? { alts: c } : err === "no-speech" ? { err } : { alts: [] }); return; }
+        if (heard) last = Date.now();
+        setTimeout(() => { if (fin || stopping) return; try { start(); } catch (x) { done(result() || { err: "start" }); } }, 120);
+      };
+      r.start();
+    };
+    tick = setInterval(() => {
+      if (fin || stopping) return;
+      const now = Date.now();
+      if (now - t0 > SR_MAX) finish();
+      else if (top()) { if (now - last > (chk && chk.more ? SR_SIL_MORE : SR_SIL)) finish(); }
+      else if (ready && now - readyAt > SR_NOSP) finish();
+    }, 200);
+    try { stopAudio(); audioSleep(); start(); } catch (e) { done({ err: "start" }); }
   });
 }
 /* ---------- revisión estricta de lo que dices ----------
@@ -1674,16 +1745,19 @@ function speechCheck(heard, en) {
     } else if (eq(t, H[j])) relax(i + 1, j + 1, c, i, j, "ok");
     else { const nr = !t.small && !H[j].small && nearW(t.w, H[j].w); relax(i + 1, j + 1, c + (nr ? tl.near : Math.max(wt(t), wt(H[j]))), i, j, nr ? "near" : "sub"); }
   }
-  const bad = new Set(), hbad = new Set(); let miss = 0;
+  const bad = new Set(), hbad = new Set(); let miss = 0, tail = 0, tailC = 0, inTail = true;
   for (let i = n, j = m; i > 0 || j > 0;) {
     const p = P[i][j]; if (!p) break;
     if (p[0] === i - 1 && p[2] !== "ok") T[p[0]].ds.forEach(k => bad.add(k));
     if (p[2] === "miss") miss++;
     if (p[2] === "sub" || p[2] === "extra" || p[2] === "near") hbad.add(H[p[1]].hw);
+    // lo que falta al final (todavía no lo dices): para saber si vas bien y solo te falta terminar
+    if (inTail) { if (p[1] === j && p[0] === i - 1) { if (p[2] === "miss") { tail++; tailC += wt(T[p[0]]); } } else inTail = false; }
     [i, j] = p;
   }
   const W = T.filter(t => !t.wild && !t.opt).length, allowed = (W >= 12 ? 2 : W >= 6 ? 1 : 0) + tl.add(T.filter(t => !t.wild && !t.opt && !t.small).length);
-  return { ok: m > 0 && D[n][m] <= allowed, bad, hbad, miss, hw: HW, raw };
+  const ok = m > 0 && D[n][m] <= allowed;
+  return { ok, cost: D[n][m], more: !ok && m > 0 && tail > 0 && D[n][m] - tailC <= allowed, bad, hbad, miss, hw: HW, raw };
 }
 // Medidor del volumen del micrófono (solo en Chrome/Edge de computadora): ves que el micrófono sí te está captando
 const METER_OK = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && /Chrome|Edg\//.test(navigator.userAgent) && !/Android|Mobile|iPhone|iPad/i.test(navigator.userAgent);
@@ -1721,9 +1795,9 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
   btn.onclick = async () => {
     btn.classList.add("wait"); btn.disabled = true; lbl.textContent = "Espera…"; out.textContent = "";
     meterStart(lv);
-    let r = await hear(st => micLook(btn, lbl, st));
-    // Si se cortó solo enseguida sin oír nada (pasa a veces al arrancar), vuelve a escuchar una vez sin que tengas que tocar
-    if (!r.err && !r.alts.length && r.dur < 2500) { micLook(btn, lbl, "wait"); r = await hear(st => micLook(btn, lbl, st)); }
+    const early = !/\.\.\.|___/.test(en); // con «...» dices lo que quieras: te dejo terminar
+    const r = await hear((st, t) => { micLook(btn, lbl, st); if (t && st === "speech") out.innerHTML = `<span class="live">${esc(t)}…</span>`; },
+      { check: c => { const b = bestAlt(c, en); return b && { ok: early && b.res.ok, more: b.res.more }; } });
     const peak = meterStop(lv);
     btn.classList.remove("on", "wait", "hearing", "proc"); btn.disabled = false; lbl.textContent = "Toca y habla";
     if (curView === "session") audioAwake(Infinity);
@@ -1739,7 +1813,7 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
       return;
     }
     if (!r.alts.length) { out.textContent = noHear; return; }
-    const res = speechCheck(r.alts[0], en), good = res.ok;
+    const best = bestAlt(r.alts, en), res = best.res, good = res.ok, said = best.t;
     // lo que se entendió, con lo que sobra o está mal en rojo; si la respuesta está a la vista, también la frase con lo que faltó
     const red = (ws, set) => ws.map((w, k) => set.has(k) ? `<span class="miss">${esc(w)}</span>` : esc(w)).join(" ");
     let tip = "";
@@ -1749,8 +1823,17 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
     else if (!good && res.hbad.size) tip = "Dijiste algo de más: di solo la frase.";
     out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span><span>Entendí: "${red(res.hw, res.hbad)}"</span>` + (tip ? `<div class="tgt">${tip}</div>` : "");
     if (!own || !good) react(good);
-    onDone(good, r.alts[0], good ? 1 : 0);
+    onDone(good, said, good ? 1 : 0);
   };
+}
+// De las opciones del reconocedor, la que mejor queda con la frase (en «Estricto», solo la primera)
+function bestAlt(alts, en) {
+  let b = null;
+  (tolNow() === "e" ? alts.slice(0, 1) : alts.slice(0, 5)).forEach(t => {
+    const x = speechCheck(t, en);
+    if (!b || (x.ok && !b.res.ok) || (x.ok === b.res.ok && x.cost < b.res.cost)) b = { t, res: x };
+  });
+  return b;
 }
 
 // El ajustador de tolerancia, abajo del micrófono (donde te califico): lo cambias ahí mismo y vale para todo lo que digas
