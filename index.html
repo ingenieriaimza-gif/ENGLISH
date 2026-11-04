@@ -95,7 +95,8 @@ h3{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0;text-tra
 .pbody strong{font-family:var(--f-display);font-size:21px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
 .pbody .row{margin-top:2px}
 
-.stat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.stat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:640px){.stat{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .stat div{border:1px solid var(--line);padding:10px;display:flex;flex-direction:column}
 .stat b{font-family:var(--f-display);font-size:28px;line-height:1;font-variant-numeric:tabular-nums}
 .stat span{font-size:13px;color:var(--muted)}
@@ -382,6 +383,37 @@ details.level.cur{border-color:var(--accent)}
 .heard:empty{display:none}
 .heard .tgt{font-size:16px;color:var(--ink)}
 .heard .live{font-size:17px;font-style:italic;color:var(--muted)}
+.verdict.ok.warn{background:var(--warn);color:var(--panel)}
+.heard .ppct{font-size:14px;color:var(--muted)}
+.heard .ppct b{color:var(--ink)}
+.pwwrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:6px;width:100%}
+.pwlead{font-size:14px;color:var(--ink);font-weight:600}
+.pwchip{font-weight:600;color:var(--ink)}
+.pwchip.on{border-color:var(--accent);background:var(--accent-soft)}
+.pwslot{width:100%}
+.pwslot:empty{display:none}
+.pwbox{display:flex;flex-direction:column;align-items:center;gap:10px;border:2px solid var(--line);background:var(--panel);padding:14px 16px;width:100%;max-width:520px;margin:0 auto;text-align:center;color:var(--ink)}
+.pwhead{display:flex;flex-direction:column;align-items:center;gap:2px}
+.pwhead b{font-size:clamp(28px,8vw,40px);line-height:1.1}
+.pwp{font-size:16px;color:var(--muted)}
+.pwh{font-size:15px;color:var(--muted)}
+.pwtip{font-size:16px;line-height:1.45;border-left:3px solid var(--accent);padding:2px 0 2px 10px;text-align:left;max-width:44ch}
+.pwmic{width:100%}
+.rec{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:8px}
+.rec .rdot{width:12px;height:12px;border-radius:50%;background:var(--bad);display:inline-block;margin-right:8px;flex:none}
+.rec .rbtn.on{border-color:var(--bad);color:var(--bad)}
+.rec .rbtn.on .rdot{animation:blink .8s ease-in-out infinite}
+.rec .rplay{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.rec .rmsg{font-size:14px;color:var(--muted);text-align:center}
+.rec .rmsg:empty{display:none}
+.ppw{font-size:16px;margin-top:12px}
+#ppBody .rh{margin:16px 0 4px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pwlist{display:flex;flex-direction:column}
+.pwrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2px 10px;align-items:baseline;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:9px 10px;font:inherit;font-size:16px;color:inherit;cursor:pointer}
+.pwrow b{font-weight:600}
+.pwrow span{color:var(--muted)}
+.pwrow small{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.pwrow.ok small{color:var(--ok)}
 .tol{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:12px;font-size:13px;color:var(--muted)}
 .tol .tl{margin-right:2px}
 .tol button{font:inherit;font-size:13px;line-height:1;padding:7px 11px;min-height:32px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--muted);cursor:pointer}
@@ -687,6 +719,10 @@ details.tzi .ustat{white-space:normal;text-align:right;max-width:45%}
       <p class="muted" style="margin:0;font-size:14px">Los más usados, con sus 3 formas: presente, pasado y participio (go → went → gone). Toca uno para oír sus 3 formas. Los practicas en tus clases, dentro de frases, en «Estructura» y en «¿Qué tiempo va?».</p>
       <div class="irhead" aria-hidden="true"><span>Presente</span><span>Pasado</span><span>Participio</span></div>
       <div id="irMapList"></div>
+    </div></details>
+    <details class="sec" id="ppMap"><summary class="sh"><h3>Tu pronunciación</h3><span class="ustat" id="ppN"></span></summary><div class="sb">
+      <p class="muted" style="margin:0;font-size:14px">Qué tanto te entiendo cuando hablas. Las palabras que te salen mal vuelven en tus clases (en Repasa) hasta que te salgan bien 2 días distintos. Toca una para oírla.</p>
+      <div id="ppBody"></div>
     </div></details>
     <div id="levels" style="display:flex;flex-direction:column;gap:16px"></div>
     <div class="card" id="progressCard">
@@ -1141,12 +1177,13 @@ function migrate(o) {
   o.lm = o.lm || {}; // clases de cada tema: «tema.número» = 1 cuando cumpliste su misión
   o.ear = o.ear || {}; // «Conversa»: el día en que volviste a practicar la conversación de cada tema («d:tema»)
   o.tzi = o.tzi || {}; o.tzx = o.tzx || {}; // los tiempos: el día en que salió cada pregunta («tiempo.q3») y en que fallaste cada tiempo
+  o.pw = o.pw || {}; // pronunciación: palabras que te salen mal al hablar → [veces mal, día, días bien seguidos, día bien, lo que entendí]
   if (o.prof === undefined) o.prof = null;
   if (o.cls === undefined) o.cls = null; // tu clase (ver «La clase»)
   const old = dayNum() - 120; Object.keys(o.h).forEach(d => { if (+d < old) delete o.h[d]; });
   return o;
 }
-let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, lm: {}, ear: {}, tzi: {}, tzx: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
+let S = { c: {}, done: {}, rd: {}, dl: {}, fin: {}, gs: {}, sk: {}, h: {}, vw: {}, ul: {}, rf: {}, rfOk: {}, kw: {}, dm: {}, tp: {}, lm: {}, ear: {}, tzi: {}, tzx: {}, pw: {}, cls: null, prof: null, xp: 0, streak: 0, last: "", v: 2 };
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, migrate(JSON.parse(r))); } catch (e) {}
 function store() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function save() { store(); push(); }
@@ -1721,6 +1758,7 @@ const PKEY = w => w.replace(/^kn/, "n").replace(/^wr/, "r").replace(/ph/g, "f").
 // (los números se comparan como cifras: para esto vuelven a ser palabra, así «three» y «tree» también son casi iguales)
 const numWord = d => { if (!/^\d+$/.test(d)) return d; const e = Object.entries(ONES).concat(Object.entries(TENS)).find(([w, n]) => String(n) === d); return e ? e[0] : d; };
 const nearW = (a, b) => { a = numWord(a); b = numWord(b); return !/\d/.test(a + b) && a.length >= 3 && b.length >= 2 && (PKEY(a) === PKEY(b) || (a.length >= 4 && lev(a, b) === 1)); };
+const bareW = w => stripAcc(String(w || "")).toLowerCase().replace(/[’`´]/g, "'").replace(/^[^a-z']+|[^a-z']+$/g, "");
 function speechCheck(heard, en) {
   const { raw, toks: T } = speechTarget(en), tl = TOL[tolNow()];
   const HW = stripAcc(heard).replace(/\bdouble[ -]?(u|you)\b/gi, "w").split(/\s+/).filter(Boolean), hg = numGroups(HW);
@@ -1745,10 +1783,11 @@ function speechCheck(heard, en) {
     } else if (eq(t, H[j])) relax(i + 1, j + 1, c, i, j, "ok");
     else { const nr = !t.small && !H[j].small && nearW(t.w, H[j].w); relax(i + 1, j + 1, c + (nr ? tl.near : Math.max(wt(t), wt(H[j]))), i, j, nr ? "near" : "sub"); }
   }
-  const bad = new Set(), hbad = new Set(); let miss = 0, tail = 0, tailC = 0, inTail = true;
+  const bad = new Set(), hbad = new Set(), subs = new Map(); let miss = 0, tail = 0, tailC = 0, inTail = true;
   for (let i = n, j = m; i > 0 || j > 0;) {
     const p = P[i][j]; if (!p) break;
     if (p[0] === i - 1 && p[2] !== "ok") T[p[0]].ds.forEach(k => bad.add(k));
+    if ((p[2] === "sub" || p[2] === "near") && p[0] === i - 1 && p[1] === j - 1) T[p[0]].ds.forEach(k => subs.set(k, HW[H[p[1]].hw])); // qué entendí en su lugar
     if (p[2] === "miss") miss++;
     if (p[2] === "sub" || p[2] === "extra" || p[2] === "near") hbad.add(H[p[1]].hw);
     // lo que falta al final (todavía no lo dices): para saber si vas bien y solo te falta terminar
@@ -1757,7 +1796,13 @@ function speechCheck(heard, en) {
   }
   const W = T.filter(t => !t.wild && !t.opt).length, allowed = (W >= 12 ? 2 : W >= 6 ? 1 : 0) + tl.add(T.filter(t => !t.wild && !t.opt && !t.small).length);
   const ok = m > 0 && D[n][m] <= allowed;
-  return { ok, cost: D[n][m], more: !ok && m > 0 && tail > 0 && D[n][m] - tailC <= allowed, bad, hbad, miss, hw: HW, raw };
+  // Tu pronunciación: cuántas palabras de la frase salieron bien (%), cuáles salieron mal (con lo que entendí) y cuáles bien
+  // (no cuentan las palabritas como a/the, los nombres, las letras sueltas ni los números escritos con cifras)
+  const cw = new Map(); T.forEach(t => { if (t.wild || t.opt) return; t.ds.forEach(k => { const e = cw.get(k) || { imp: false }; if (!t.small && !t.L && !t.name && t.w) e.imp = true; cw.set(k, e); }); });
+  const ks = [...cw.keys()], nb = ks.filter(k => bad.has(k)).length, pct = ks.length && m ? Math.round(100 * (ks.length - nb) / ks.length) : 0;
+  const missW = [], okW = [];
+  ks.forEach(k => { if (!cw.get(k).imp) return; const w = bareW(raw[k]); if (w.length < 2 || /\d/.test(raw[k])) return; if (bad.has(k)) { if (!missW.some(x => x.w === w)) missW.push({ w, h: bareW(subs.get(k)) }); } else if (!okW.includes(w)) okW.push(w); });
+  return { ok, cost: D[n][m], more: !ok && m > 0 && tail > 0 && D[n][m] - tailC <= allowed, bad, hbad, miss, hw: HW, raw, pct, missW, okW };
 }
 // Medidor del volumen del micrófono (solo en Chrome/Edge de computadora): ves que el micrófono sí te está captando
 const METER_OK = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) && /Chrome|Edg\//.test(navigator.userAgent) && !/Android|Mobile|iPhone|iPad/i.test(navigator.userAgent);
@@ -1789,7 +1834,8 @@ function micLook(btn, lbl, st) {
   lbl.textContent = L[st];
 }
 const addNote = (host, t) => { const n = host && host.querySelector(".heard"); if (n) n.insertAdjacentHTML("beforeend", `<div>${esc(t)}</div>`); };
-function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia reacción
+function micUI(host, en, onDone, own, o) { // own: el ejercicio muestra su propia reacción; o.word: practicas una sola palabra
+  o = o || {};
   host.innerHTML = `<div class="micwrap"><button class="mic" type="button" aria-label="Toca y habla">${MIC}</button><div class="miclbl">Toca y habla</div><div class="lvl" hidden aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div><div class="heard" aria-live="polite"></div>${own ? tolHTML() : ""}`;
   const btn = host.querySelector(".mic"), lbl = host.querySelector(".miclbl"), out = host.querySelector(".heard"), lv = host.querySelector(".lvl");
   btn.onclick = async () => {
@@ -1814,6 +1860,7 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
     }
     if (!r.alts.length) { out.textContent = noHear; return; }
     const best = bestAlt(r.alts, en), res = best.res, good = res.ok, said = best.t;
+    if (o.word) { if (good) pwGood(o.word); save(); } else { pwTrack(res); ppAdd(res.pct); }
     // lo que se entendió, con lo que sobra o está mal en rojo; si la respuesta está a la vista, también la frase con lo que faltó
     const red = (ws, set) => ws.map((w, k) => set.has(k) ? `<span class="miss">${esc(w)}</span>` : esc(w)).join(" ");
     let tip = "";
@@ -1821,11 +1868,170 @@ function micUI(host, en, onDone, own) { // own: el ejercicio muestra su propia r
       if (!good) tip = [res.hbad.size && "Lo que está en rojo no va o no se entendió bien.", res.miss && `Te faltó decir ${res.miss === 1 ? "una palabra" : "algunas palabras"}.`].filter(Boolean).join(" ");
     } else if (res.bad.size) tip = `${good ? "Casi perfecto. Cuida" : "Revisa"} lo que está en rojo: ${red(res.raw, res.bad)}`;
     else if (!good && res.hbad.size) tip = "Dijiste algo de más: di solo la frase.";
-    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}">${good ? "✓ ¡Bien dicho!" : "✗ No quedó igual"}</span><span>Entendí: "${red(res.hw, res.hbad)}"</span>` + (tip ? `<div class="tgt">${tip}</div>` : "");
+    // aunque pase, si una palabra no salió bien te lo digo (y la puedes practicar ahí mismo)
+    const cuida = good && !o.word ? res.missW.map(x => x.w) : [];
+    const vt = !good ? "✗ No quedó igual" : cuida.length ? `✓ Pasó, pero cuida: ${cuida.join(", ")}` : "✓ ¡Bien dicho!";
+    const showPw = !o.word && res.missW.length && (good || !own) && !(SES && isExam());
+    out.innerHTML = `<span class="verdict ${good ? "ok" : "bad"}${cuida.length ? " warn" : ""}">${esc(vt)}</span><span>Entendí: "${red(res.hw, res.hbad)}"</span>`
+      + (o.word ? "" : `<span class="ppct">Pronunciación: <b>${res.pct}%</b></span>`) + (tip ? `<div class="tgt">${tip}</div>` : "") + (showPw ? pwChips(res.missW) : "");
     if (!own || !good) react(good);
-    onDone(good, said, good ? 1 : 0);
+    onDone(good, said, good ? 1 : 0, res);
   };
 }
+/* ================= pronunciación =================
+   Pedido de la persona (3 de noviembre de 2026): «cómo se puede mejorar la pronunciación de la persona practicando». Aprobó las 6:
+   1) practicar la palabra en rojo ahí mismo (oírla normal y lento, cómo se dice y decirla sola), 2) decir qué sonido falló,
+   3) avisar aunque pase («Pasó, pero cuida light»), 4) tus palabras difíciles en las clases (en Repasa, hasta que salgan bien
+   2 días distintos), 5) «Escúchate»: grabarte y oírte junto al instructor, y 6) tu pronunciación en %. */
+// Cómo se dice cada palabra: de la pronunciación de las frases del curso, cuando va palabra por palabra (light = «láit»)
+let WPRON = null;
+function wPron(w) {
+  if (!WPRON) {
+    const cnt = {};
+    CARDS.forEach(c => {
+      if (c.T || !c.pron || isLetters(c.en)) return;
+      const a = c.en.split(/\s+/).map(bareW).filter(Boolean), b = c.pron.split(/\s+/).map(x => x.replace(/^[¡¿"«(]+|[!?.,;:"»)…]+$/g, "")).filter(Boolean);
+      if (a.length !== b.length) return;
+      a.forEach((x, i) => { if (/^[a-z']+$/.test(x)) { const m = cnt[x] = cnt[x] || {}; m[b[i]] = (m[b[i]] || 0) + 1; } });
+    });
+    WPRON = {}; Object.entries(cnt).forEach(([x, m]) => { WPRON[x] = Object.entries(m).sort((p, q) => q[1] - p[1])[0][0]; });
+  }
+  return WPRON[bareW(w)] || "";
+}
+// Qué sonido falló: lo que más le cuesta a quien habla español. w: la palabra que va; h: la que entendí en su lugar (si hay)
+function pronTip(w, h) {
+  w = bareW(w); h = bareW(h); if (!w) return "";
+  const pr = wPron(w), sd = pr ? ` (${w} se dice «${pr}»)` : "";
+  // el último sonido: de cómo se dice (láit → t) o, si no, de cómo se escribe (ght = t, ck = k)
+  const fin = () => { const x = (stripAcc(pr || "").toLowerCase().match(/[^aeiouy']+$/) || [""])[0] || ((w.match(/[^aeiouy']+$/) || [""])[0]).replace(/ght$/, "t").replace(/ck$/, "k").replace(/(.)\1$/, "$1"); return x; };
+  if (h && h !== w) {
+    if (/th/.test(w) && !/th/.test(h)) return "La «th» no es t ni d: saca tantito la punta de la lengua entre los dientes y sopla" + sd + ".";
+    if (/v/.test(w) && /b/.test(h) && !/v/.test(h)) return "La «v» no es b: los dientes de arriba tocan tu labio de abajo y vibra" + sd + ".";
+    if (/sh/.test(w) && /ch/.test(h)) return "La «sh» es como cuando pides silencio («shhh»), sin golpe" + sd + ".";
+    if (/ch/.test(w) && !/ch/.test(h) && /sh/.test(h)) return "La «ch» es como la de «chocolate»" + sd + ".";
+    if (/^s[ptkcmnlw]/.test(w) && /^[eia]s/.test(h)) return "No le pongas «e» antes: empieza directo con la s" + sd + ".";
+    if (/^h/.test(w) && /^[aeiou]/.test(h)) return "La «h» sí suena: como una j suave" + sd + ".";
+    if (/^y/.test(w) && /^j/.test(h)) return "La «y» es como la i de «yo», suave" + sd + ".";
+    if (/^w/.test(w) && /^[gbv]/.test(h)) return "La «w» es como una u rápida al principio" + sd + ".";
+    if (/z/.test(w) && !/z/.test(h) && /s/.test(h)) return "La «z» zumba como abeja (zzz): no es s" + sd + ".";
+    if (/(ee|ea|ie)/.test(w) && !/(ee|ea|ie)/.test(h) && /i/.test(h)) return "Esta i es larga: alárgala" + sd + ".";
+    if (/i/.test(w) && !/(ee|ea|ie)/.test(w) && /(ee|ea)/.test(h)) return "Esta i es corta y relajada, casi una e" + sd + ".";
+    if (/ed$/.test(w) && (h === w.slice(0, -2) || h === w.slice(0, -1))) return "Se tiene que oír el final -ed" + sd + ".";
+    if (/s$/.test(w) && h === w.slice(0, -1)) return "Se tiene que oír la s del final" + sd + ".";
+    let k = 0; while (k < w.length && k < h.length && w[k] === h[k]) k++;
+    if (k >= 2 && k >= w.length - 3 && fin()) return `Cuida el final: la «${fin()}» de ${w} se tiene que oír` + sd + ".";
+    if (w.replace(/[aeiouy]/g, "") === h.replace(/[aeiouy]/g, "")) return "Cuida la vocal: escúchala lento y fíjate cómo suena" + sd + ".";
+  }
+  // sin lo que entendí: el sonido más difícil de la palabra
+  if (/th/.test(w)) return "La «th»: saca tantito la punta de la lengua entre los dientes y sopla" + sd + ".";
+  if (/v/.test(w)) return "La «v»: los dientes de arriba tocan tu labio de abajo" + sd + ".";
+  if (/^s[ptkcmnlw]/.test(w)) return "Empieza directo con la s, sin «e» antes" + sd + ".";
+  if (/ed$/.test(w)) return "Cuida el final -ed" + sd + ".";
+  return pr ? `Se dice «${pr}». Escúchala lento y repítela.` : "Escúchala lento y repítela por partes.";
+}
+// Tus palabras difíciles: [veces mal, día, días bien seguidos, día bien, lo que entendí]. Sale de la lista al decirla bien 2 días distintos
+function pwBad(w, h) { const e = S.pw[w] || []; S.pw[w] = [(e[0] || 0) + 1, dayNum(), 0, e[3] || 0, h || e[4] || ""]; }
+function pwGood(w) { w = bareW(w); const e = S.pw[w]; if (!e || (e[2] || 0) >= 2) return; const t = dayNum(); if (e[3] === t) return; S.pw[w] = [e[0], e[1], (e[2] || 0) + 1, t, e[4] || ""]; }
+function pwTrack(res) {
+  if (!res) return;
+  // cuenta como difícil si la frase te salió casi toda (la mitad o más) o si lo que entendí se parece a la palabra (like / light);
+  // si dijiste otra cosa (no sabías la frase), no es la pronunciación
+  res.missW.filter(x => res.pct >= 50 || (x.h && lev(x.w, x.h) <= Math.ceil(x.w.length / 2))).forEach(x => pwBad(x.w, x.h));
+  res.okW.forEach(pwGood); save();
+}
+// las que tocan hoy: las que no te salen todavía (no las que ya dijiste bien hoy), primero las que más fallas
+const pwPick = () => Object.entries(S.pw || {}).filter(([w, e]) => (e[2] || 0) < 2 && e[3] !== dayNum()).sort((a, b) => (b[1][0] - a[1][0]) || (b[1][1] - a[1][1])).slice(0, 3).map(x => x[0]);
+function pronPractice() {
+  const ws = pwPick(); if (!ws.length || !srOK) return false;
+  runSession(ws.map(w => ({ k: "pw", w })), { mode: "pron", title: "Tus palabras difíciles" });
+  return true;
+}
+// Tu pronunciación del día (% de cada frase que dices) y por semana
+function ppAdd(pct) { if (typeof pct !== "number") return; const h = H(); h.pp = h.pp || [0, 0]; h.pp[0] += pct; h.pp[1]++; save(); }
+function ppWeek(off) { const t = dayNum() - off * 7; let s = 0, n = 0; for (let d = t - 6; d <= t; d++) { const x = S.h[d] && S.h[d].pp; if (x) { s += x[0]; n += x[1]; } } return n ? Math.round(s / n) : null; }
+function ppHTML() {
+  const a = ppWeek(0), b = ppWeek(1), E = Object.entries(S.pw || {});
+  const on = E.filter(([w, e]) => (e[2] || 0) < 2).sort((x, y) => (y[1][0] - x[1][0]) || (y[1][1] - x[1][1])).slice(0, 12);
+  const off = E.filter(([w, e]) => (e[2] || 0) >= 2).sort((x, y) => (y[1][3] || 0) - (x[1][3] || 0)).slice(0, 8);
+  const row = ([w, e], done) => `<button class="pwrow${done ? " ok" : ""}" type="button" data-say="${esc(w)}"><b>${esc(w)}</b>${wPron(w) ? `<span>${esc(wPron(w))}</span>` : "<span></span>"}<small>${done ? "✓ ya te sale" : `te salió mal ${e[0] === 1 ? "1 vez" : e[0] + " veces"}`}</small></button>`;
+  return `<div class="ppw">${a === null ? "Esta semana todavía no hablas con el micrófono." : `Esta semana: <b>${a}%</b>${b !== null ? ` · la semana pasada: ${b}%${a > b ? ` (subiste ${a - b})` : a < b ? ` (bajaste ${b - a})` : ""}` : ""}`}</div>`
+    + `<p class="rh">Tus palabras difíciles${on.length ? "" : ": ninguna por ahora"}</p>${on.length ? `<div class="pwlist">${on.map(x => row(x)).join("")}</div>` : ""}`
+    + (off.length ? `<p class="rh">Ya te salen</p><div class="pwlist">${off.map(x => row(x, true)).join("")}</div>` : "");
+}
+// Las palabras que salieron mal, para practicarlas ahí mismo: tocas una y se abre su práctica
+const pwChips = (miss, lead) => `<div class="pwwrap"><div class="pwlead">${esc(lead || "Practica la palabra")}:</div><div class="row c">${miss.slice(0, 4).map(x => `<button class="chip pwchip" type="button" data-pw="${esc(x.w)}" data-heard="${esc(x.h || "")}">${esc(x.w)}</button>`).join("")}</div><div class="pwslot"></div></div>`;
+// al contestar se desactivan los botones de la pantalla, menos los de practicar las palabras
+const pwFree = () => document.querySelectorAll("#stage .pwwrap button").forEach(b => { b.disabled = false; });
+function pwShowIn(host, res) { const h = host && host.querySelector(".heard"); if (h && res && res.missW && res.missW.length && !(SES && isExam()) && !h.querySelector(".pwwrap")) h.insertAdjacentHTML("beforeend", pwChips(res.missW, "Practica las que fallaron")); }
+function pwBoxHTML(w, h, inStep) {
+  const pr = wPron(w), tip = pronTip(w, h);
+  return `<div class="pwbox"><div class="pwhead"><b>${esc(w)}</b>${pr ? `<span class="pwp">se dice «${esc(pr)}»</span>` : ""}</div>
+    <div class="row c">${playPair(w)}</div>
+    ${h && h !== w ? `<div class="pwh">${inStep ? "La última vez entendí" : "Entendí"} «${esc(h)}».</div>` : ""}${tip ? `<div class="pwtip">${esc(tip)}</div>` : ""}
+    <div class="pwmic"></div>${recHTML()}</div>`;
+}
+function openPw(chip) {
+  const wrap = chip.closest(".pwwrap"), slot = wrap && wrap.querySelector(".pwslot"); if (!slot) return;
+  const w = chip.dataset.pw, h = chip.dataset.heard;
+  if (chip.classList.contains("on")) { chip.classList.remove("on"); slot.innerHTML = ""; recStop(true); return; } // tocarla otra vez: se cierra
+  wrap.querySelectorAll(".pwchip").forEach(b => b.classList.toggle("on", b === chip));
+  recStop(true); slot.innerHTML = pwBoxHTML(w, h);
+  const mic = slot.querySelector(".pwmic");
+  if (srOK) micUI(mic, w, ok => { if (ok) addNote(mic, "¡Eso! Ya te salió."); else if (ok === false) addNote(mic, "Escúchala lento y vuelve a intentar."); }, false, { word: w });
+  recUI(slot.querySelector(".rec"), w);
+  say(w, { slow: true });
+}
+document.addEventListener("click", e => { const c = e.target.closest(".pwchip"); if (c) openPw(c); });
+/* «Escúchate»: te grabas diciéndola y luego la oyes junto a la del instructor, para comparar. Se detiene sola cuando te callas
+   (o al tocar otra vez, o a los 8 segundos). No usa el reconocimiento de voz: es solo tu grabación. */
+const REC_OK = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+let REC = null;
+function recStop(discard) { const r = REC; REC = null; if (!r) return; r.discard = !!discard; clearTimeout(r.t); cancelAnimationFrame(r.raf); try { if (r.mr.state !== "inactive") r.mr.stop(); else r.end(); } catch (e) { r.end(); } }
+const recHTML = () => REC_OK ? `<div class="rec"><button class="btn ghost rbtn" type="button"><span class="rdot" aria-hidden="true"></span><span class="lb">Grábate y compárate</span></button><div class="rplay" hidden></div><div class="rmsg" aria-live="polite"></div></div>` : "";
+function recUI(host, text) {
+  if (!host || !REC_OK) return;
+  const btn = host.querySelector(".rbtn"), lb = btn.querySelector(".lb"), pl = host.querySelector(".rplay"), msg = host.querySelector(".rmsg");
+  let url = null;
+  btn.onclick = async () => {
+    if (REC && REC.btn === btn) { recStop(); return; } // tocar otra vez: ya terminé
+    recStop(true); stopAudio(); msg.textContent = "";
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { msg.textContent = "No tengo permiso para grabarte. Actívalo en tu navegador."; return; }
+    let mr; try { mr = new MediaRecorder(stream); } catch (e) { stream.getTracks().forEach(t => t.stop()); msg.textContent = "Tu navegador no deja grabar."; return; }
+    const chunks = []; let ctx = null;
+    let r = null;
+    const end = () => {
+      stream.getTracks().forEach(t => t.stop()); if (ctx) { ctx.close().catch(() => {}); ctx = null; }
+      btn.classList.remove("on"); lb.textContent = "Grábate otra vez";
+      if (r && r.discard) return; // te fuiste a otra pantalla: no se reproduce
+      if (!chunks.length) { msg.textContent = "No se grabó nada. Inténtalo otra vez."; return; }
+      if (url) URL.revokeObjectURL(url);
+      url = URL.createObjectURL(new Blob(chunks, { type: mr.mimeType || "audio/webm" }));
+      pl.hidden = false;
+      pl.innerHTML = `<button class="btn ghost" type="button" data-rmine="1">${SPK}<span class="lb">Tu voz</span></button><button class="btn ghost speak" type="button" data-say="${esc(text)}">${SPK}<span class="lb">Instructor</span></button>`;
+      const mine = () => { stopAudio(); const a = new Audio(url); return a.play().then(() => a).catch(() => null); };
+      pl.querySelector("[data-rmine]").onclick = mine;
+      msg.textContent = "Primero tu voz y luego la del instructor: ¿suenan igual?";
+      // primero tú y luego el instructor, para que compares
+      mine().then(a => { if (a) a.onended = () => setTimeout(() => say(text), 300); else say(text); });
+    };
+    r = REC = { mr, btn, t: 0, raf: 0, end };
+    mr.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+    mr.onstop = end;
+    try { // se detiene sola cuando te callas (1.2 s después de hablar)
+      ctx = new (window.AudioContext || window.webkitAudioContext)(); const an = ctx.createAnalyser(); an.fftSize = 512; ctx.createMediaStreamSource(stream).connect(an);
+      const d = new Uint8Array(an.fftSize); let voiced = false, quietAt = 0;
+      const tick = () => { if (REC !== r) return; an.getByteTimeDomainData(d); let pk = 0; for (let k = 0; k < d.length; k++) pk = Math.max(pk, Math.abs(d[k] - 128));
+        const now = Date.now(); if (pk > 12) { voiced = true; quietAt = 0; } else if (voiced) { quietAt = quietAt || now; if (now - quietAt > 1200) { recStop(); return; } }
+        r.raf = requestAnimationFrame(tick); };
+      tick();
+    } catch (e) {}
+    r.t = setTimeout(recStop, 8000);
+    mr.start(); btn.classList.add("on"); lb.textContent = "Te grabo… di la frase";
+    if (text.split(/\s+/).length === 1) lb.textContent = "Te grabo… dila";
+  };
+}
+document.addEventListener("click", e => { if (e.target.closest(".mic") && REC) recStop(true); }); // si usas el micrófono para que te revise, se deja de grabar
 // De las opciones del reconocedor, la que mejor queda con la frase (en «Estricto», solo la primera)
 function bestAlt(alts, en) {
   let b = null;
@@ -1956,7 +2162,7 @@ function fitKind(c, k) {
 const VIEWS = { hoy: "#vHoy", curso: "#vCurso", unit: "#vUnit", mas: "#vMas", frases: "#vFrases", leer: "#vLeer", metodo: "#vMetodo", session: "#vSession" };
 let curView = "hoy", curUnit = null;
 function view(name) {
-  stopAudio(); stopVideo(); hideTip();
+  stopAudio(); stopVideo(); hideTip(); recStop(true);
   Object.entries(VIEWS).forEach(([k, s]) => $(s).hidden = k !== name);
   document.body.classList.toggle("focus", name === "session");
   if (name !== "session") audioRelax();
@@ -2088,7 +2294,7 @@ function earPick() {
   return ok[0];
 }
 const earKey = p => (p.what === "reading" ? "r:" : "d:") + p.uid;
-const CLS_V = 3; // formato de la clase (2: con «Conversa»; 3: con «Estructura» y «¿Qué tiempo va?»). Una clase de antes que ni empezaste se vuelve a armar
+const CLS_V = 4; // formato de la clase (2: con «Conversa»; 3: con «Estructura» y «¿Qué tiempo va?»; 4: con «Tus palabras difíciles»). Una clase de antes que ni empezaste se vuelve a armar
 function buildClass() {
   const P = S.prof, notes = [], mk = names => names.map(name => ({ name, why: "", parts: [] }));
   // Conversa: la conversación del día (si hoy toca)
@@ -2101,6 +2307,8 @@ function buildClass() {
   };
   // ¿Qué tiempo va?: una vez al día, cuando ya viste 2 tiempos o más (va al final de Repasa)
   const mix = st => { if (tzLearned().length >= 2 && !H().dn.includes("tzmix")) st.parts.push({ kind: "tzmix" }); };
+  // Tus palabras difíciles: las que te salieron mal al hablar (una vez al día, en Repasa)
+  const pron = st => { if (srOK && pwPick().length && !H().dn.includes("pron")) st.parts.push({ kind: "pron" }); };
   // Estructura: la de los tiempos del tema (antes de sus frases). card: si en esta clase no está la explicación, un recordatorio
   const tzp = (st, u, x) => { if (u.tz.length) st.parts.push(Object.assign({ kind: "tz", uid: u.id, tids: u.tz.map(t => t.id), card: !!S.gs[u.id] }, x || {})); };
   // Examen de ubicación: una clase de un solo paso (si pasas una etapa, sigue la siguiente)
@@ -2141,12 +2349,12 @@ function buildClass() {
   if (!L) {
     if (nu && nu.final) { // terminaste los temas de la etapa: su examen final
       const st = mk(["Repasa", "Examen final"]);
-      repasa(st[0]); mix(st[0]);
+      repasa(st[0]); pron(st[0]); mix(st[0]);
       if (prevLocked(nu.lv)) st[1].why = `Se abre al terminar ${prevLocked(nu.lv).short}.`; else st[1].parts.push({ kind: "final", lvid: nu.lv.id });
       return { steps: st, notes, goal: `Aprobar el examen final de ${nu.lv.short}` };
     }
     const st = mk(["Repasa", "Úsalo"]); // terminaste el curso: repasar para no olvidar
-    repasa(st[0]); mix(st[0]);
+    repasa(st[0]); pron(st[0]); mix(st[0]);
     ear(st[1]);
     if (Object.keys(S.c).length >= 4) st[1].parts.push({ kind: "listen", uid: null }); else if (!st[1].parts.length) st[1].why = "Hoy no hace falta.";
     return { steps: st, notes, goal: "Repasar para no olvidar" };
@@ -2154,7 +2362,7 @@ function buildClass() {
   const u = L.u;
   if (L.end) { // la clase de cierre del tema
     const st = mk(["Repasa", "Practica", "Úsalo", "Examen"]);
-    repasa(st[0]); mix(st[0]);
+    repasa(st[0]); pron(st[0]); mix(st[0]);
     tzp(st[1], u, { card: true }); // antes del examen, la estructura otra vez
     if (undom(u).length) st[1].parts.push({ kind: "prac", uid: u.id, dom: true, slow }); else st[1].why = "Ya dominas todas las frases del tema.";
     if (u.r && !S.rd[u.id]) st[2].parts.push({ kind: "reading", uid: u.id });
@@ -2168,7 +2376,7 @@ function buildClass() {
   // Una clase del tema: su meta, sus frases y su misión
   const l = L.l, st = mk(["Repasa", "Conversa", "Aprende", "Practica", "Misión"]), fresh = l.c.filter(c => !seen(c.id));
   if (L.cat) notes.push(`Agregué frases nuevas a «${u.t}», un tema que ya aprobaste. Las vemos antes de seguir.`);
-  repasa(st[0], L.i); mix(st[0]);
+  repasa(st[0], L.i); pron(st[0]); mix(st[0]);
   ear(st[1]);
   if (!S.gs[u.id]) st[2].parts.push({ kind: "gram", uid: u.id });
   if (fresh.length) st[2].parts.push({ kind: "learn", uid: u.id, n: fresh.length, pick: fresh.map(c => c.id) });
@@ -2232,6 +2440,7 @@ function partLabel(p) {
     case "mission": { const l = p.u && p.u.ls[p.li]; return l ? `Misión: ${lowFirst(noDot(lessonGoal(p.u, l)))}` : "Misión"; }
     case "tz": return "Estructura " + (p.tids || []).map(id => TZID[id]).filter(Boolean).map(tzDe).join(" y ");
     case "tzmix": return "¿Qué tiempo va?: tus tiempos, revueltos";
+    case "pron": { const ws = pwPick(); return ws.length ? `Tus palabras difíciles: ${ws.join(", ").replace(/, ([^,]*)$/, " y $1")}` : "Tus palabras difíciles"; }
   }
   return "";
 }
@@ -2241,9 +2450,11 @@ function stepIntro(c, i) {
   if (c.place) return "Preguntas de cada etapa, de lo más fácil a lo más difícil. Si no sabes una, toca «No sé»: así tu clase empieza justo donde la necesitas.";
   const k = ps[0].kind, ks = ps.map(p => p.kind);
   // los tiempos: «¿Qué tiempo va?» al final de Repasa y «Estructura» antes de las frases de Practica
-  const mixS = ks.includes("tzmix") ? " Al final, «¿Qué tiempo va?»: frases de los tiempos que ya viste, revueltas." : "";
+  const mixS = (ks.includes("pron") ? " Luego, tus palabras difíciles: las que te salieron mal al hablar. Las oyes, ves cómo se dicen y las dices tú." : "")
+    + (ks.includes("tzmix") ? " Al final, «¿Qué tiempo va?»: frases de los tiempos que ya viste, revueltas." : "");
   const tzP = ps.find(p => p.kind === "tz"), tzS = tzP ? `${ks.length > 1 ? "Primero, la" : "La"} estructura ${(tzP.tids || []).map(id => TZID[id]).filter(Boolean).map(tzDe).join(" y ")}: eliges la frase bien dicha, la armas y la dices. ` : "";
   if (k === "tzmix") return "«¿Qué tiempo va?»: frases de los tiempos que ya viste, revueltas. Eliges la bien dicha, la armas y la dices: así hablas en el tiempo correcto.";
+  if (k === "pron") return "Tus palabras difíciles: las que te salieron mal al hablar. Las oyes normal y lento, ves cómo se dicen y las dices tú hasta que te salgan." + (ks.includes("tzmix") ? " Al final, «¿Qué tiempo va?»." : "");
   if (k === "tz") { const pr = ps.find(p => p.kind === "prac"); return tzS + (pr ? `Luego, ${pr.dom ? "las frases del tema que todavía no te salen solas" : "las frases de hoy"}, sin ayuda: las armas o las escribes, y las dices.` : "") + (ks.includes("tpr") ? " Al final, «Haz lo que oyes»." : ""); }
   if (ks.includes("fix") || (ks.includes("gram") && ps[0].recap)) return "Te explico otra vez el tema que se te estaba olvidando y lo practicamos.";
   if (k === "check") return "Una prueba corta de 8 preguntas: con 7 bien, seguimos con lo nuevo.";
@@ -2304,7 +2515,7 @@ function settle(c) {
   if (ch) save();
   return p;
 }
-const dayKey = p => ({ tpr: "tpr", video: "video", ear: "ear", tzmix: "tzmix", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid, mission: "mis-" + p.uid + "." + p.li })[p.kind] || p.kind + "-" + (p.uid || "");
+const dayKey = p => ({ tpr: "tpr", video: "video", ear: "ear", tzmix: "tzmix", pron: "pron", dialog: "dlg-" + p.uid, reading: "read-" + p.uid, exam: "exam-" + p.uid, final: "final-" + p.lvid, mission: "mis-" + p.uid + "." + p.li })[p.kind] || p.kind + "-" + (p.uid || "");
 function markPart(c, p) {
   if (!c.done.includes(p.key)) c.done.push(p.key);
   const h = H(), k = dayKey(p); if (!h.dn.includes(k)) h.dn.push(k);
@@ -2334,6 +2545,7 @@ function startPart(p) {
     case "mission": return missionPractice(u, p.li);
     case "tz": return tzPractice(p);
     case "tzmix": return tzMixPractice();
+    case "pron": return pronPractice();
   }
   return false;
 }
@@ -2640,6 +2852,7 @@ function estMin(c) {
       case "final": sec += 34 * 18 + 120; break;
       case "tz": sec += (p.card ? 30 : 0) + ((p.tids || []).length > 1 ? 5 : 4) * 25; break;
       case "tzmix": sec += 4 * 25; break;
+      case "pron": sec += pwPick().length * 40; break;
       case "listen": sec += 6 * 14; break;
     }
   });
@@ -2656,7 +2869,8 @@ function renderHoy() {
   const askName = !nm && !S.prof.noName;
   let body;
   if (!nx) {
-    const hd = H(), tally = hd.r ? `Hoy: ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "";
+    const hd = H(), tally = (hd.r ? `Hoy: ${hd.n} ${hd.n === 1 ? "frase nueva" : "frases nuevas"} y ${hd.r} ${hd.r === 1 ? "respuesta" : "respuestas"} (${Math.round(hd.ok / hd.r * 100)}% bien).` : "")
+      + (hd.pp && hd.pp[1] ? ` Tu pronunciación: ${Math.round(hd.pp[0] / hd.pp[1])}%.` : "");
     body = `<h2>${c.won ? `¡Lo lograste${nm ? ", " + esc(nm) : ""}!` : nm ? `¡Clase terminada, ${esc(nm)}!` : "¡Clase terminada!"}</h2>
       ${c.won ? `<p class="won">${esc(c.won)}</p>` : ""}
       ${tally ? `<p>${tally}</p>` : ""}
@@ -2716,9 +2930,11 @@ function renderCurso() {
   $("#tzN").textContent = `${tzLearned().length} de ${TZ.length} vistos`;
   // Los verbos irregulares (con ✓ los que ya viste en una frase)
   const irS = irSeen(); $("#irMapList").innerHTML = irMapHTML(irS); $("#irN").textContent = `${irS.size} de ${IRREG.length} vistos`;
+  // Tu pronunciación: esta semana y la anterior, y tus palabras difíciles
+  const ppa = ppWeek(0); $("#ppBody").innerHTML = ppHTML(); $("#ppN").textContent = ppa === null ? "" : `${ppa}% esta semana`;
   // Tu avance
   const learned = Object.keys(S.c).filter(id => CARD[id]).length, mast = CARDS.filter(c => dominated(c.id)).length, doneU = UNITS.filter(u => S.done[u.id]).length;
-  $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>temas aprobados</span></div>`;
+  $("#stats").innerHTML = `<div><b>${learned}</b><span>frases aprendidas</span></div><div><b>${mast}</b><span>dominadas</span></div><div><b>${doneU}/${UNITS.length}</b><span>temas aprobados</span></div><div><b>${ppa === null ? "—" : ppa + "%"}</b><span>pronunciación (7 días)</span></div>`;
   $("#courseBar").style.width = (doneU / UNITS.length * 100) + "%";
   const lv = curLevel(), left = lv.units.reduce((a, u) => a + u.cards.filter(c => !seen(c.id)).length, 0), pace = newPerDay();
   $("#statsTxt").textContent = pace
@@ -3974,7 +4190,7 @@ function setQuit(pause) {
   q.setAttribute("aria-label", pause ? "Pausar la clase y seguir después" : "Salir");
 }
 function step() {
-  setProg(); stopVideo(); hideTip(); stepLine();
+  setProg(); stopVideo(); hideTip(); stepLine(); recStop(true);
   const st = $("#stage"); st.className = "task"; foot("", "");
   try { window.scrollTo(0, 0); } catch (e) {}
   if (SES.i >= SES.steps.length) return finish();
@@ -4131,9 +4347,10 @@ function step() {
       ${its.length > 1 ? `<p class="lead">Toca cada palabra para oírla. Abajo de cada una está lo que significa en esta frase.</p><div class="row c">${its.map(x => `<button class="chip wm" type="button" data-say="${esc(x.t)}"><b>${esc(x.t)}</b><small>${esc(x.g)}</small></button>`).join("")}</div>` : ""}
       ${tip ? `<div class="tip"><strong>Recuerda (${esc(c.u.t)}):</strong> ${esc(tip)}</div>` : ""}
       <p class="lead">Dila en voz alta 3 veces: primero lento, luego normal.</p>
-      <div id="miniMic"></div>`;
+      <div id="miniMic"></div><div id="miniRec">${recHTML()}</div>`;
     foot("", goBtn("gotIt", "Ya la tengo"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
+    recUI($("#miniRec .rec"), c.en);
     say(c.en, { slow: true });
     $("#gotIt").onclick = nextStep; holdGo(["gotIt"]);
     return;
@@ -4150,9 +4367,10 @@ function step() {
     // la explicación solo las primeras veces (después ya sabes qué hacer y estorba leerla en cada frase)
     const nSeen = Object.keys(S.c).length, lead = nSeen < 12 ? `Escúchala y fíjate en lo que significa: primero hay que entenderla. Si quieres, repítela en voz alta.${c.ws.length ? " Toca una palabra para ver qué significa." : ""}` : "";
     const fam = c.sw && famOf(c.sw).length ? `<p class="wfam famline">Familia: ${famHTML(c.sw)}</p>` : ""; // una sola palabra (hand): su familia
-    st.innerHTML = `${head("intro")}${plate(c)}${fam}${lead ? `<p class="lead">${lead}</p>` : ""}<div id="miniMic"></div>`;
+    st.innerHTML = `${head("intro")}${plate(c)}${fam}${lead ? `<p class="lead">${lead}</p>` : ""}<div id="miniMic"></div><div id="miniRec">${recHTML()}</div>`;
     foot("", goBtn("gotIt", "Entendido"));
     if (srOK) micUI($("#miniMic"), c.en, ok => { if (ok === false) addNote($("#miniMic"), "Escucha otra vez y repite."); });
+    recUI($("#miniRec .rec"), c.en);
     introduce(c); say(c.en);
     $("#gotIt").onclick = nextStep; holdGo(["gotIt"]); // primero la escuchas completa
     return;
@@ -4247,17 +4465,39 @@ function step() {
     };
     return;
   }
+  if (s.k === "pw") { // tus palabras difíciles: la oyes, ves cómo se dice y el consejo, y la dices tú (hasta 3 intentos)
+    const w = s.w, e = S.pw[w] || [];
+    let tries = 0, over = false;
+    st.innerHTML = `<span class="tag">Tus palabras difíciles</span><h2 class="ttl">Dila tú</h2>${pwBoxHTML(w, e[4] || "", true)}`;
+    foot(help("pwSkip", "Saltar", "info", ICO.help), "");
+    const end = (ok, skip) => {
+      if (over) return; over = true;
+      sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); recStop(true);
+      SES.graded++; if (ok) SES.ok++; save();
+      const left = ok && ((S.pw[w] || [])[2] || 0) >= 2;
+      band(ok, !!skip, ok ? "¡Ya te sale!" : skip ? "La practicamos después" : "Sigue practicándola",
+        `<div class="sub">${ok ? (left ? "Ya la dices bien: sale de tus palabras difíciles." : "Otro día otra vez, para que se te quede.") : "Vuelve en tu siguiente clase."}</div>`, w, undefined, true);
+      react(ok, !!skip);
+    };
+    const mic = st.querySelector(".pwmic");
+    if (srOK) micUI(mic, w, ok => { if (ok === null) { end(false, true); return; } tries++; if (ok) end(true); else if (tries >= 3) end(false); else addNote(mic, `Escúchala lento y vuelve a intentar (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`); }, false, { word: w });
+    recUI(st.querySelector(".pwbox .rec"), w);
+    $("#pwSkip").onclick = () => end(false, true);
+    say(w, { slow: true });
+    return;
+  }
   if (s.k === "speak") {
     let tries = 0, last = "";
     st.innerHTML = `${head("speak")}${promptHTML(c)}<div id="micBox"></div>`;
     foot(help("sReveal", "Ver respuesta", "warn", ICO.eye) + help("sType", "Mejor escribirla", "info", ICO.keys), "");
-    const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c, "", false, last); };
+    let lastRes = null;
+    const giveUp = () => { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, false); feedback(false, c, "", false, last); pwShowIn($("#micBox"), lastRes); };
     // Cambiar a escribir: la meta de esta frase pasa a ser escribirla bien, y en el resto de la sesión no pide hablar
     const toWriting = () => { const k2 = fitKind(c, "type"), m = SES.m[c.id]; if (m) m.target = k2; SES.write = true; SES.steps[SES.i] = { k: k2, c, wr: true, fix: s.fix }; step(); };
-    micUI($("#micBox"), c.en, (ok, heard) => {
+    micUI($("#micBox"), c.en, (ok, heard, sc, res) => {
       if (ok === null) { toWriting(); return; }
-      tries++; last = heard || last;
-      if (ok) { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); return; }
+      tries++; last = heard || last; lastRes = res || lastRes;
+      if (ok) { sesEl("#stage button,#sfoot button").forEach(b => b.disabled = true); answered(c, true); feedback(true, c); pwFree(); return; }
       if (tries >= 3) giveUp();
       else {
         addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
@@ -4403,7 +4643,7 @@ function step() {
     }
     // tzs: dilo en inglés con tu voz (sin micrófono o si prefieres, escrita). 3 intentos; con pistas del tiempo (menos en el examen)
     let tries = 0, last = "", over = false;
-    const end = (ok, idk, given) => { if (over) return; over = true; sesEl("#stage button,#stage input,#sfoot button").forEach(b => b.disabled = true); tzAnswered(s, ok); tzFeedback(s, ok, idk, given); };
+    const end = (ok, idk, given) => { if (over) return; over = true; sesEl("#stage button,#stage input,#sfoot button").forEach(b => b.disabled = true); tzAnswered(s, ok); tzFeedback(s, ok, idk, given); pwFree(); };
     const typeIt = () => {
       st.innerHTML = `${tag}<h2 class="ttl">Escríbela en inglés</h2><div class="prompt sm">${escN(es)}</div>
         <form id="tf"><input class="type" id="tin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Escribe aquí en inglés…" aria-label="Tu respuesta en inglés"></form>`;
@@ -4417,11 +4657,11 @@ function step() {
     foot(help("zIdk", "No sé", "warn", ICO.help) + help("zType", "Mejor escribirla", "info", ICO.keys), "");
     $("#zIdk").onclick = () => end(false, true);
     $("#zType").onclick = typeIt;
-    micUI($("#micBox"), en, (ok, heard) => {
+    micUI($("#micBox"), en, (ok, heard, sc, res) => {
       if (ok === null) { typeIt(); return; }
       tries++; last = heard || last;
       if (ok) { end(true); return; }
-      if (tries >= 3) { end(false, false, last); return; }
+      if (tries >= 3) { end(false, false, last); pwShowIn($("#micBox"), res); return; }
       addNote($("#micBox"), `Inténtalo otra vez (${3 - tries} ${3 - tries === 1 ? "intento" : "intentos"}).`);
       const h = !isExam() && heard ? tenseTip(en, heard, true) : ""; if (h) addNote($("#micBox"), h);
     }, true);
@@ -4501,8 +4741,11 @@ function step() {
       ${prevA && prevA[0] === "A" ? `<p class="lead">Te dijeron: "${esc(prevA[1])}"</p>` : ""}
       <div class="prompt">${esc(es)}</div><p class="lead">Dilo en inglés.</p><div id="micBox"></div>`;
     foot(srOK ? `<button class="btn alt warn" type="button" id="dReveal"><span class="ic">${ICO.eye}</span>Ver respuesta</button>` : "", srOK ? "" : goBtn("dReveal", "Ver respuesta"));
+    let lastRes = null;
     const reveal = (auto) => {
       sesEl("#micBox button,#dReveal").forEach(b => b.disabled = true);
+      if (auto !== true) pwShowIn($("#micBox"), lastRes); // ya ves la respuesta: practica las palabras que fallaron
+      pwFree();
       say(en, { who: 1 });
       if (auto === true) { SES.graded++; SES.ok++; skill("dlg", true); band(true, false, "¡Muy bien!", `<div class="ans">${esc(en)}</div>`, en, "dNext", true); react(true); return; }
       st.insertAdjacentHTML("beforeend", `<div class="plate" data-text="${esc(en)}"><div class="pen md">${speakSpans(en)}</div><div class="row">${playPair(en)}</div></div><p class="lead">¿Te salió?</p>`);
@@ -4510,7 +4753,7 @@ function step() {
       $("#dNo").onclick = () => { SES.graded++; skill("dlg", false); nextStep(); };
       $("#dYes").onclick = () => { SES.graded++; SES.ok++; skill("dlg", true); nextStep(); };
     };
-    if (srOK) micUI($("#micBox"), en, ok => { if (ok === null) return; if (ok) reveal(true); else addNote($("#micBox"), "Inténtalo otra vez o mira la respuesta."); }, true);
+    if (srOK) micUI($("#micBox"), en, (ok, h, sc, res) => { if (ok === null) return; lastRes = res || lastRes; if (ok) reveal(true); else addNote($("#micBox"), "Inténtalo otra vez o mira la respuesta."); }, true);
     $("#dReveal").onclick = () => reveal(false);
     return;
   }
@@ -4610,6 +4853,9 @@ function finish() {
   } else if (m === "tense") {
     title = SES.mix ? "¿Qué tiempo va?" : "Estructura";
     msg = !n ? "¡Buen trabajo!" : ok === n ? "¡Excelente! Todas bien a la primera." : `Te salieron ${ok} de ${n} a la primera. ${n - ok === 1 ? "La que fallaste vuelve" : "Las que fallaste vuelven"} en tus siguientes clases.`;
+  } else if (m === "pron") {
+    title = "Tus palabras difíciles";
+    msg = !n ? "¡Buen trabajo!" : ok === n ? "¡Excelente! Te salieron todas." : `Te salieron ${ok} de ${n}. ${n - ok === 1 ? "La que todavía te cuesta vuelve" : "Las que todavía te cuestan vuelven"} en tu siguiente clase.`;
   } else if (m === "tpr") {
     title = "Haz lo que oyes";
     const nw = SES.steps.filter(s => s.k === "tprshow").length;
@@ -4748,20 +4994,26 @@ function mergeCls(a, b) {
   const parts = a.parts.slice(); b.parts.forEach(p => { if (!parts.some(x => x.key === p.key)) parts.push(p); });
   return Object.assign({}, a, { parts, done: [...new Set([...a.done, ...b.done])], skip: Object.assign({}, b.skip, a.skip), end: Math.max(a.end || 0, b.end || 0) });
 }
+// Tus palabras difíciles en dos dispositivos: de cada una, lo más nuevo (un error o un acierto)
+function mergePw(a, b) {
+  const o = Object.assign({}, a || {}), t = e => Math.max(e[1] || 0, e[3] || 0);
+  Object.entries(b || {}).forEach(([w, v]) => { const x = o[w]; if (!x || t(v) > t(x) || (t(v) === t(x) && (v[0] || 0) > (x[0] || 0))) o[w] = v; });
+  return o;
+}
 function merge(a, b) {
   a = migrate(Object.assign({}, a)); b = migrate(Object.assign({}, b));
   const c = Object.assign({}, a.c);
   Object.entries(b.c || {}).forEach(([k, v]) => { const x = c[k]; if (!x || v[0] > x[0] || (v[0] === x[0] && v[1] > x[1])) c[k] = v; });
   const done = Object.assign({}, a.done, b.done), rd = Object.assign({}, a.rd, b.rd), dl = Object.assign({}, a.dl, b.dl), fin = Object.assign({}, a.fin, b.fin), gs = Object.assign({}, a.gs, b.gs);
   const h = Object.assign({}, b.h);
-  Object.entries(a.h || {}).forEach(([d, x]) => { const y = h[d]; h[d] = !y ? x : { n: Math.max(x.n, y.n), r: Math.max(x.r, y.r), ok: Math.max(x.ok, y.ok), dn: Array.from(new Set([...(x.dn || []), ...(y.dn || [])])), t: x.t || y.t ? [...new Set([...(x.t || []), ...(y.t || [])])] : undefined, b: Math.max(x.b || 0, y.b || 0), pk: x.pk && y.pk ? (x.pk.b >= y.pk.b ? x.pk : y.pk) : x.pk || y.pk }; });
+  Object.entries(a.h || {}).forEach(([d, x]) => { const y = h[d]; h[d] = !y ? x : { n: Math.max(x.n, y.n), r: Math.max(x.r, y.r), ok: Math.max(x.ok, y.ok), dn: Array.from(new Set([...(x.dn || []), ...(y.dn || [])])), t: x.t || y.t ? [...new Set([...(x.t || []), ...(y.t || [])])] : undefined, b: Math.max(x.b || 0, y.b || 0), pk: x.pk && y.pk ? (x.pk.b >= y.pk.b ? x.pk : y.pk) : x.pk || y.pk, pp: x.pp && y.pp ? (x.pp[1] >= y.pp[1] ? x.pp : y.pp) : x.pp || y.pp }; });
   let streak, last;
   if (dv(a.last) > dv(b.last)) { streak = a.streak; last = a.last; }
   else if (dv(a.last) < dv(b.last)) { streak = b.streak; last = b.last; }
   else { streak = Math.max(a.streak || 0, b.streak || 0); last = a.last || b.last || ""; }
   const vw = Object.assign({}, b.vw); Object.entries(a.vw || {}).forEach(([k, v]) => { vw[k] = Math.max(v, vw[k] || 0); });
   const mx = (x, y) => { const o = Object.assign({}, x); Object.entries(y || {}).forEach(([k, v]) => { o[k] = Math.max(v, o[k] || 0); }); return o; };
-  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), lm: mx(a.lm, b.lm), ear: mx(a.ear, b.ear), tzi: mx(a.tzi, b.tzi), tzx: mx(a.tzx, b.tzx), lmv: Math.max(a.lmv || 0, b.lmv || 0), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
+  return { c, done, rd, dl, fin, gs, h, vw, ul: Object.assign({}, b.ul, a.ul), rf: mx(a.rf, b.rf), rfOk: mx(a.rfOk, b.rfOk), kw: mx(a.kw, b.kw), dm: mx(a.dm, b.dm), tp: mx(a.tp, b.tp), lm: mx(a.lm, b.lm), ear: mx(a.ear, b.ear), tzi: mx(a.tzi, b.tzi), tzx: mx(a.tzx, b.tzx), pw: mergePw(a.pw, b.pw), lmv: Math.max(a.lmv || 0, b.lmv || 0), sk: Object.keys(a.sk || {}).length ? a.sk : (b.sk || {}), cls: mergeCls(a.cls, b.cls), prof: mergeProf(a.prof, b.prof), xp: Math.max(a.xp || 0, b.xp || 0), streak: streak || 0, last: last || "", v: 2 };
 }
 const hhmm = () => new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" });
 const OFF = "Sin conexión. Tu avance se sube solo cuando vuelva el internet.";
